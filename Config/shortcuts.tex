@@ -1,0 +1,316 @@
+%! TEX root = main.tex
+% !TeX spellcheck = en_US
+%%%%%%%List of useful commands and definition of math operators%%%%%%%
+
+% Redefining \caption command to include the short title in bold in the caption
+\newcommand{\mycaption}[2][]{\caption[#1]{\textbf{#1} #2}}
+
+% Useful shortcuts, for repeated terms
+% for those that are acronyms
+\newcommand{\tmd}{\gls{tmd}}
+\newcommand{\dft}{\gls{dft}}
+\newcommand{\mbpt}{\gls{mbpt}}
+\newcommand{\rpa}{\gls{rpa}}
+\newcommand{\bz}{\gls{bz}}
+\newcommand{\lcao}{\gls{lcao}}
+\newcommand{\rhs}{\gls{rhs}}
+\newcommand{\lhs}{\gls{lhs}}
+\newcommand{\hf}{\gls{hf}}
+\newcommand{\hbn}{\gls{hbn}}
+\newcommand{\bse}{\gls{bse}}
+\newcommand{\gs}{\gls{gs}}
+\newcommand{\soc}{\gls{soc}}
+
+% those that are commonly used
+\newcommand{\abinit}{\textit{ab-initio}}
+\newcommand{\cti}{\textbf{continuous} translation invariance}
+\newcommand{\dti}{\textbf{discrete} translation invariance}
+\newcommand{\qp}{quasi-particle}
+\newcommand{\wf}{wave-function}
+
+% Defining units to be used.
+\DeclareSIUnit\angstrom{\text {Å}} % without it compiler giver warning of "\r command not defined" whenever \AA is used
+\DeclareSIUnit{\angstrominverse}{\angstrom\tothe{-1}}
+
+% Macro to attribute units to vectors
+\newcommand{\SIvector}[2]{\ensuremath{(#1)~\SI{}{#2}}}
+
+%Mathematical functions/operators
+\DeclareMathOperator{\arccosh}{arcCosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arccsch}
+\DeclareMathOperator{\arccoth}{arcCoth}
+
+%Physical Operators
+
+%Hamiltonian
+\newcommand{\Ha}{\hat{H}}
+%
+%%Single-particle Hamiltonian
+\newcommand{\Ho}{\hat{H}_0}
+%
+%%Interaction term
+\newcommand{\V}{\hat{V}}
+
+%New emphasizing box
+\newtcbox{\mymath}[1][]{%
+    nobeforeafter, math upper, tcbox raise base,
+    enhanced, colframe=blue!30!black,
+    colback=blue!30, boxrule=1pt,
+    #1}
+
+
+%Command just for the GW approximation, either italic or not
+%\newcommand{\GW}{\textit{GW}}
+\newcommand{\GW}{$GW$}
+
+%Defines command for vector fields/vectors that are variables (f.eg.s electric field, magnetic field, etc...)
+%\newcommand{\i}[1][]{\bm{#1}}
+
+%null vector
+\newcommand{\bzero}{\vb{0}}
+
+%tensor
+\newcommand*{\rttensor}[1]{\overline{\overline{#1}}}
+
+%Direct Bravais lattice vector
+\newcommand{\bR}{\vb{R}}
+
+%Exciton momentum
+\newcommand{\bQ}{\vb{Q}}
+
+%Vector of the motif of the unit cell/Vector of the basis within the unit cell
+\newcommand{\bt}{\vb{t}}
+
+%reciprocal lattice vectors
+\newcommand{\bb}{\vb{b}}
+
+%Vectors of the reciprocal lattice (basis)
+\newcommand{\bG}{\vb{G}}
+
+%normal vector -> n in bold
+\newcommand{\bn}{\vb{n}}
+
+%position vector -> r,x,y in bold
+\newcommand{\br}{\vb{r}}
+
+\newcommand{\bx}{\vb{x}}
+
+\newcommand{\by}{\vb{y}}
+
+
+%velocity vector -> v in bold
+\newcommand{\bv}{\vb{v}}
+
+%Electric field vector -> E in bold, italic or not
+%\newcommand{\bE}{\vb{E}}
+%\newcommand{\bE}{\bm{E}}
+
+% Conditional definition of vector commands
+\newif\ifusebm
+\usebmtrue % Set it to true (\usebmfalse for false)
+
+
+\ifusebm
+    %Electric field vector
+    \providecommand{\bE}{\bm{E}}
+
+    %Potential vector
+    \providecommand{\bA}{\bm{A}}
+    \providecommand{\hA}{\hat{\bm{A}}}
+    \providecommand{\nhA}{\bm{A}} %In case I want to remove the hat and recover it back again
+
+    %Magnetic induction field vector
+    \providecommand{\bB}{\bm{B}}
+
+
+    %Electric displacement vector
+    \providecommand{\bD}{\bm{D}}
+
+    %Potential vector
+    \providecommand{\bA}{\bm{A}}
+    \providecommand{\hA}{\hat{\bm{A}}}
+    \providecommand{\nhA}{\bm{A}} %In case I want to remove the hat and recover it back again
+
+    %Magnetic induction field vector
+    \providecommand{\bB}{\bm{B}}
+
+    %Magnetic field vector -> H in bold
+    \providecommand{\bH}{\bm{H}}
+
+    %Current density vector -> J in bold
+    \providecommand{\bJ}{\bm{J}}
+
+    %Sheet current vector -> j in bold
+    \providecommand{\bj}{\bm{j}}
+
+    %Polarization density vector -> P in bold
+    \providecommand{\bP}{\bm{P}}
+
+    %Magnetization density vector -> M in bold
+    \providecommand{\bM}{\bm{M}}
+
+%%%%%%%%ELSE STARTS HERE%%%%%%%%%%%%%%%%%%5
+\else
+    %Electric field vector
+    \providecommand{\bE}{\vb{E}}
+
+    %Electric displacement vector
+    \providecommand{\bD}{\vb{D}}
+
+
+    %Potential vector
+    \providecommand{\bA}{\vb{A}}
+    \providecommand{\hA}{\hat{\vb{A}}}
+    \providecommand{\nhA}{\vb{A}} %In case I want to remove the hat and recover it back again
+
+    %Magnetic induction field vector
+    \providecommand{\bB}{\vb{B}}
+
+    %Magnetic field vector -> H in bold
+    \providecommand{\bH}{\vb{H}}
+
+    %Current density vector -> J in bold
+    \providecommand{\bJ}{\vb{J}}
+
+    %Sheet current vector -> j in bold
+    \providecommand{\bj}{\vb{j}}
+
+    %Polarization density vector -> P in bold
+    \providecommand{\bP}{\vb{P}}
+
+    %Magnetization density vector -> M in bold
+    \providecommand{\bM}{\vb{M}}
+\fi
+
+
+%Wave vector
+\newcommand{\bk}{\vb{k}}
+\newcommand{\bq}{\vb{q}}
+\newcommand{\bp}{\vb{p}}
+
+%Corners of graphene Brillouin zone
+\newcommand{\bK}{\vb{K}}
+
+%x, y and z versors
+\newcommand{\bex}{\vb{e}_x}
+\newcommand{\bey}{\vb{e}_y}
+\newcommand{\bez}{\vb{e}_z}
+
+\newcommand{\bux}{\vb{u}_x}
+\newcommand{\buy}{\vb{u}_y}
+\newcommand{\buz}{\vb{u}_z}
+
+%Unit vector for any polarization
+\newcommand{\bhe}{\hat{\vb{e}}}
+
+%small electric and magnetic fields
+\newcommand{\be}{\vb{e}}
+%\newcommand{\bb}{\vb{b}} already defined
+
+
+%Imaginary unit
+\newcommand{\ii}{\mathrm{i}}
+
+%Euler number
+\newcommand{\ee}{\mathrm{e}}
+
+%Exponential
+\newcommand{\ex}[1]{\mathrm{e}^{#1}}
+
+%Imaginary exponential
+\newcommand{\ei}[2][]{\ee^{#1 \ii #2}} %  First argument is for the sign, second argument is the argument of the exponential. If no sign is provided, it defaults to a plus sign. If you want to provide the sign, use \ei[-]{\omega t}. Do not use any other thing as argument
+
+
+%TM and TE modes in math mode
+\newcommand{\TE}{\mathrm{TE}}
+\newcommand{\TM}{\mathrm{TM}}
+
+%creation operators
+\newcommand{\adagger}{a^{\dagger}}
+\newcommand{\bdagger}{b^{\dagger}}
+\newcommand{\cdagger}{c^{\dagger}}
+
+% hbar omega
+\newcommand{\hw}{\hbar \omega}
+
+% d for single variable variable integrals
+%\newcommand{\d}[1][]{d}
+%\newcommand{\dife}[1][]{\dd #1} % \d already exists
+
+% differential for time
+% t
+\newcommand{\dt}{\dd{t}}
+
+% differential for real and reciprocal space integrals
+% r vector
+\newcommand{\dr}[1][]{\dd[#1]{\br}}
+
+% x&y vector
+\newcommand{\dx}[1][]{\dd[#1]{\bx}}
+\newcommand{\dy}[1][]{\dd[#1]{\by}}
+
+% k,p,q vector
+\newcommand{\dk}[1][]{\dd[#1]{\bk}}
+\newcommand{\dpp}[1][]{\dd[#1]{\bp}}
+\newcommand{\dq}[1][]{\dd[#1]{\bq}}
+
+%Differential operators
+%\newcommand{\grad}{\mathnormal{\nabla}}\mathnormal{\nabla} % physics package already has \grad as bold nabla
+%\newcommand{\pnabla}{\mathnormal{\nabla}} % plain nabla
+\newcommand{\lap}{\laplacian} % adds another shortcut for the curl operator that exists already in the physics package. In portuguese curl translates to `rotacional'. Using rot instead of the nabla symbol also appears in some literatures. Also in german the word for curl begins with `rot'.
+%\renewcommand{\grad}{\bm{\nabla}} % redefines gradient command to change symbol to italic. Comment if unwished.
+\newcommand{\rot}{\bm{\nabla} \times} % redefines curl command to change symbol to italic. Comment if unwished.
+%\renewcommand{\div}{\bm{\nabla} \cdot} % redefines divergence command to change symbol to italic. Comment if unwished.
+
+% Partial derivatives of first order
+
+\newcommand{\pdt}[1][]{\pdv{#1}{t}} % w.r.t. time
+\newcommand{\pdti}[1][]{\pdv*{t}} % w.r.t. time inline
+
+\newcommand{\pdx}[1][]{\pdv{#1}{x}} % w.r.t. x, when calling the command, provide the function to be derivated with []
+\newcommand{\pdy}[1][]{\pdv{#1}{y}} % w.r.t. y, when calling the command, provide the function to be derivated with []
+\newcommand{\pdz}[1][]{\pdv{#1}{z}} % w.r.t. z, when calling the command, provide the function to be derivated with []
+
+\newcommand{\delt}{\partial_t} % w.r.t. t in subscript
+\newcommand{\delx}{\partial_x} % w.r.t. x in subscript
+\newcommand{\dely}{\partial_y} % w.r.t. y in subscript
+\newcommand{\delz}{\partial_z} % w.r.t. z in subscript
+
+% Partial derivatives of second order
+\newcommand{\pdd}[2][]{\pdv[2]{#1}{#2}} % w.r.t. whatever (derivative variable mandatory, what to be derivated optional)
+
+\newcommand{\pddt}[1][]{\pdd[#1]{t}} % w.r.t. time
+
+\newcommand{\pddx}[1][]{\pdd[#1]{x}} % w.r.t. x
+\newcommand{\pddy}[1][]{\pdd[#1]{y}} % w.r.t. y
+\newcommand{\pddz}[1][]{\pdd[#1]{z}} % w.r.t. z
+
+%\newcommand{\pddix}[1][]{\pddi[#1]{x}} % w.r.t. x inline
+%\newcommand{\pddiy}[1][]{\pddi[#1]{y}} % w.r.t. y inline
+%\newcommand{\pddiz}[1][]{\pddi[#1]{z}} % w.r.t. z inline
+
+\newcommand{\ddelt}{\partial^2_t} % w.r.t. t in subscript
+\newcommand{\ddelx}{\partial^2_x} % w.r.t. x in subscript
+\newcommand{\ddely}{\partial^2_y} % w.r.t. y in subscript
+\newcommand{\ddelz}{\partial^2_z} % w.r.t. z in subscript
+
+% Total derivatives
+\newcommand{\tdt}[1][]{\dv{#1}{t}} % w.r.t. time
+
+% Tensorial symbols
+
+% Kronecker delta
+\newcommand{\Kd}[1]{\delta_{#1}} % Kronecker delta without comma
+\newcommand{\Kdc}[2]{\delta_{#1,#2}} % Kronecker delta with comma
+
+
+% Physical quantities
+
+% plasma frequency
+\renewcommand{\wp}{\omega_{\text{p}}} % We have to redefine the command, as by default in the amsmath package it stands for the Weierstrass function (the curly P)
+
+% Fermi energy
+\newcommand{\EF}{E_F} % We have to redefine the command, as by default in the amsmath package it stands for the Weierstrass function (the curly P)
