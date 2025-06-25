@@ -17,13 +17,13 @@
 \restylefloat{figure}     % FOR DEMO PURPOSES ONLY --- PLEASE REMOVE
 \usepackage{metalogo}     % FOR DEMO PURPOSES ONLY --- PLEASE REMOVE
 \usepackage{lipsum}       % FOR DEMO PURPOSES ONLY --- PLEASE REMOVE
-\IfFileExists{byo-twemojiss.sty}{
-  \usepackage{byo-twemojis}     % to typeset emojis
-  \newcommand{\emojiSmile}{\raisebox{-3pt}{\scalebox{1.3}{\byoTwemoji{head; eyes normal opened; mouth laughing}}}}
-}{
-  \newcommand{\emojiSmile}{\texttt{:D}}
-  \newlength{\twemojiDefaultHeight}
-}
+%\IfFileExists{byo-twemojiss.sty}{
+%  \usepackage{byo-twemojis}     % to typeset emojis
+%  \newcommand{\emojiSmile}{\raisebox{-3pt}{\scalebox{1.3}{\byoTwemoji{head; eyes normal opened; mouth laughing}}}}
+%}{
+%  \newcommand{\emojiSmile}{\texttt{:D}}
+%  \newlength{\twemojiDefaultHeight}
+%}
 
 \newcommand{\MikTeX}{Mik\TeX}
 \newcommand{\TeXLive}{\TeX Live}
@@ -84,3 +84,53 @@
 %       {€}{{\EUR}}1 {£}{{\pounds}}1
 % }
 
+%%%%%%%%% PEDRO'S PACKAGES %%%%%%%%%%
+\usepackage{amsfonts,amssymb,amscd}
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+\usepackage{empheq}
+
+\usepackage{physics}
+
+%%%%Package for more mathematical commands%%%%
+\usepackage{bm}
+
+%%%%Package for units management%%%%
+\usepackage{siunitx}
+
+\usepackage{chemformula}
+
+\usepackage[inline]{asymptote}
+
+%%%%Package for command line input%%%%
+\usepackage{listings}
+
+%%%%Tikz package and libraries%%%%
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{cd}
+\usetikzlibrary{positioning}
+\usetikzlibrary{chains}
+
+%Commands for tikz Feynamn diagrams
+\tikzset{
+  every node/.append style={font=\small},
+  every edge/.append style={thick},
+  arrow/.style={thick, shorten >=5pt,shorten <=5pt,->},
+  photon/.style={dashed,dash phase=3pt,postaction={decorate},
+  decoration={markings,mark=at position .55 with {\arrow[]{latex}}}},
+  electron/.style={postaction={decorate},
+  decoration={markings,mark=at position .55 with {\arrow[]{latex}}}},
+  fullprop/.style={double,postaction={decorate},
+  decoration={markings,mark=at position .55 with {\arrow[]{latex}}}},
+  bareprop/.style={postaction={decorate},
+  decoration={markings,mark=at position .55 with {\arrow[]{latex}}}},
+}
+
+%%%%Package for Feynman diagrams%%%%
+\usepackage{feynmf}
+
+%%%%Package for compilation options%%%%
+\usepackage{ifthen}
