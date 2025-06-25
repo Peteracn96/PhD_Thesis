@@ -201,6 +201,33 @@
 \ntprint{covers}          % The cover page
 \texprof{\benchmarktoc}
 \texprof{\typeout{TIME process covers=\the\pdfelapsedtime}}
+
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+    \node (fondo) [rectangle]
+    at (current page.center)
+        {\parbox[b][\paperheight]{\paperwidth}{
+        \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{Cover/cover}
+    }};
+\end{tikzpicture}
+
+\clearpage
+
+{\null\thispagestyle{empty}\newpage} %add blank page
+
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+    \node (fondo) [rectangle]
+    at (current page.center)
+        {\parbox[b][\paperheight]{\paperwidth}{
+        \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{Cover/info_page}
+    }};
+\end{tikzpicture}
+
+\clearpage
+
+{\null\thispagestyle{empty}\newpage} %add blank page
+
 %%------------------------------------------------------------
 %% Print front matter
 \texprof{\benchmarktic}
