@@ -1,4 +1,5 @@
-%!TEX root = ../template.tex
+%!TEX root = ../template.tex %
+% !TeX spellcheck = en_US
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% acronyms.tex
 %% NOVA thesis document file
@@ -7,4 +8,37 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \typeout{NT FILE acronyms.tex}%
+
+\setabbreviationstyle[acronym]{long-short}
+\glssetcategoryattribute{acronym}{glossname}{firstuc}
+\glssetcategoryattribute{acronym}{glossdesc}{title}
+
+\newacronym{spp}{SPP}{surface plasmon polariton}
+\newacronym{bse}{BSE}{Bethe-Salpeter equation}
+\newacronym{tm}{TM}{transverse magnetic}
+\newacronym{te}{TE}{transverse electric}
+\newacronym{ssh}{SSH}{Su-Schrieffer-Heeger}
+\newacronym{hbn}{\lowercase{h}BN}{hexagonal boron nitride}
+\newacronym{ps}{PS}{parity symmetry}
+\newacronym{trs}{TRS}{time reversal symmetry}
+\newacronym{phs}{PHS}{particle-hole symmetry}
+\newacronym{cs}{CS}{chiral Symmetry}
+\newacronym{ti}{TI}{topological insulator}
+\newacronym{tise}{TISE}{time-independent Schrödinger Equation}
+\newacronym{soc}{SOC}{spin-orbit coupling}
+\newacronym{mbz}{mBZ}{mini Brillouin zone}
+\newacronym{bz}{BZ}{Brillouin zone}
+\newacronym{dos}{DOS}{density of states}
+\newacronym{kpm}{KPM}{kernel polynomial method}
+\newacronym{tdpt}{TDPT}{Time-Dependent Perturbation Theory}
+\newacronym{em}{EM}{electromagnetic}
+\newacronym{dft}{DFT}{Density Functional Theory}
+\newacronym{mbpt}{MBPT}{Many-Body Perturbation Theory}
+\newacronym{rpa}{RPA}{random-phase approximation}
+\newacronym{lcao}{LCAO}{Linear Combination of Atomic Orbitals}
+\newacronym{lhs}{LHS}{left-hand side}
+\newacronym{rhs}{RHS}{right-hand side}
+\newacronym{tmd}{TMD}{transition metal dichalcogenide}
+\newacronym{hf}{HF}{Hartree-Fock}
+\newacronym{gs}{GS}{ground state}
 
