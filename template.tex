@@ -198,31 +198,17 @@
 %% Print covers
 \texprof{\benchmarktic}
 \ntthesisfrontmatter      % Before the main text (TOC, etc) — Roman page numbering
-\ntprint{covers}          % The cover page
+%\ntprint{covers}          % The cover page
 \texprof{\benchmarktoc}
 \texprof{\typeout{TIME process covers=\the\pdfelapsedtime}}
 
-\thispagestyle{empty}
-\begin{tikzpicture}[remember picture,overlay]
-    \node (fondo) [rectangle]
-    at (current page.center)
-        {\parbox[b][\paperheight]{\paperwidth}{
-        \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{Cover/cover}
-    }};
-\end{tikzpicture}
+\includepdf[pages={1},scale=1]{Cover/cover}
 
 \clearpage
 
 {\null\thispagestyle{empty}\newpage} %add blank page
 
-\thispagestyle{empty}
-\begin{tikzpicture}[remember picture,overlay]
-    \node (fondo) [rectangle]
-    at (current page.center)
-        {\parbox[b][\paperheight]{\paperwidth}{
-        \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{Cover/info_page}
-    }};
-\end{tikzpicture}
+\includepdf[pages={1},scale=1]{Cover/info_page}
 
 \clearpage
 
@@ -243,9 +229,9 @@
 \texprof{\typeout{TIME process mainmatter=\the\pdfelapsedtime}}
 %%------------------------------------------------------------
 %% Print back cover and spine
-\texprof{\benchmarktic}
-\ntprint{backcover}       % Print the back cover, if any!
-\texprof{\benchmarktoc}
-\texprof{\typeout{TIME process backcover=\the\pdfelapsedtime}}
+%\texprof{\benchmarktic}
+%\ntprint{backcover}       % Print the back cover, if any!
+%\texprof{\benchmarktoc}
+%\texprof{\typeout{TIME process backcover=\the\pdfelapsedtime}}
 %%------------------------------------------------------------
 \end{document}          % End of document
