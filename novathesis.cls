@@ -1194,18 +1194,18 @@
 \ifoptionequal{/novathesis/print/webography}{}{%
   \ntsetprintorder{mainmatter}{
     chapters;        % Print document chapters
-    bib;             % Print the bibliography.  Change to
-     %    “bib[title=⟨title⟩]” to redefine the title!
     appendices;      % Print appendices; if any!
     annexes;         % Print annexes; if any!
+    bib;             % Print the bibliography.  Change to
+     %    “bib[title=⟨title⟩]” to redefine the title!
   }%
 }{%
   \ntsetprintorder{mainmatter}{
     chapters; % Print document chapters
-    \printbibliography[nottype=online]; % Print the bibliography.
-    \printbibliography[title=\option{/novathesis/print/webography},type=online]; % Print the bibliography.
     appendices; % Print appendices, if any!
     annexes; % Print annexes, if any!
+    \printbibliography[nottype=online]; % Print the bibliography.
+    \printbibliography[title=\option{/novathesis/print/webography},type=online]; % Print the bibliography.
   }%
 }
 
