@@ -85,36 +85,35 @@
 % }
 
 %%%%%%%%% PEDRO'S PACKAGES %%%%%%%%%%
-\usepackage{amsfonts,amssymb,amscd}
+\usepackage{amsfonts,amscd}
 \usepackage{amsmath}
-\usepackage{amsthm}
-
+%
 \usepackage{empheq}
-
+%
 \usepackage{physics}
-
-%%%%Package for more mathematical commands%%%%
+%
+%%%%%Package for more mathematical commands%%%%
 \usepackage{bm}
-
-%%%%Package for units management%%%%
+%
+%%%%%Package for units management%%%%
 \usepackage{siunitx}
-
+%
 \usepackage{chemformula}
-
+%
 \usepackage[inline]{asymptote}
-
-%%%%Package for command line input%%%%
+%
+%%%%%Package for command line input%%%%
 \usepackage{listings}
-
-%%%%Tikz package and libraries%%%%
+%
+%%%%%Tikz package and libraries%%%%
 \usetikzlibrary{decorations.pathmorphing}
 \usetikzlibrary{decorations.markings}
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{cd}
 \usetikzlibrary{positioning}
 \usetikzlibrary{chains}
-
-%Commands for tikz Feynamn diagrams
+%
+%%Commands for tikz Feynamn diagrams
 \tikzset{
   every node/.append style={font=\small},
   every edge/.append style={thick},
@@ -128,13 +127,13 @@
   bareprop/.style={postaction={decorate},
   decoration={markings,mark=at position .55 with {\arrow[]{latex}}}},
 }
-
-%%%%Package for Feynman diagrams%%%%
-\usepackage{feynmf}
-
-%%%%Package for compilation options%%%%
+%
+%%%%%Package for Feynman diagrams%%%%
+%\usepackage{feynmf} % Gives No room for a new \write error
+%
+%%%%%Package for compilation options%%%%
 \usepackage{ifthen}
-
-
-%%%%% MY OWN SHORTCUTS %%%%%
+%
+%
+%%%%%% MY OWN SHORTCUTS %%%%%
 \input{Config/shortcuts}
