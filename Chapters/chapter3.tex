@@ -1,4 +1,7 @@
 %!TEX root = ../template.tex %
+
+% !BIB references = ../Bibliography/bibliography.bib
+
 % !TeX spellcheck = en_US
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% chapter3.tex
@@ -10,5 +13,60 @@
 \typeout{NT FILE chapter3.tex}%
 
 \chapter{Quantum Mechanics of Electrons in Crystalline Solids}
-\label{ch:electrons_in_solids}
+\label{ch:quantum_mechanics_solids}
+
+\section{Introductory Remarks}
+\label{sec:introductory_remarks}
+
+This is a section to introduce aspects quantum mechanics in solids without a not so deep development, such as:
+
+\begin{itemize}
+    \item The Schrödinger equation and full Many-Body Hamiltonian, narrowing down to single-electron Hamiltonian in a crystal.
+    \item The Bloch theorem and the concept of crystal momentum.
+    \item The band structure and its significance in solid-state physics.
+\end{itemize}
+
+\section{Single-Particle Properties of Electrons in Crystals}
+\label{sec:single_particle_properties}
+
+\subsection{Bloch's Theorem}
+\label{subsec:bloch_theorem}
+
+
+\subsection{Electronic band structure (methods)}
+\label{subsec:electronic_band_structure}
+
+\subsubsection{Tight-binding method}
+\label{subsubsec:tight_binding_method}
+
+Mention briefly free-electron model for metals, and introduce \tb models as the opposite limit for semiconductors and insulators.
+
+Add hBN minimal \tb model as a prime example relevant for later.
+
+\subsubsection{\abinit methods}
+\label{subsubsec:abinit_methods}
+
+Briefly discuss \dft and Wannierization, as we need it for the framework of the screening and excitons with the code.
+
+\section{Many-Particle Description of Solids}
+\label{sec:many_particle_description}
+
+\subsection{Many-Body perturbation theory and \GW approximation}
+\label{subsec:many_body_perturbation_theory}
+
+We need this to introduce the \rpa and Dyson's equation for the screened potential and introduce the polarisation and its non-interacting version.
+
+\section{Dielectric Function and Screening: Quantum Picture}
+\label{sec:dielectric_function_quantum}
+
+Brief introduction stressing the difference between full, \rpa and non-interacting polarizability and dielectric function within self-consistent framework~\cite{Cohen_Louie_2016} and ~\cite{Bruus_Flensberg_2004}.
+Then
+
+\subsection{\rpa dielectric function}
+\label{subsec:rpa_dielectric_function}
+
+\subsection{\rpa screened Coulomb potential}
+\label{subsec:rpa_screened_coulomb_potential}
+
+
 
