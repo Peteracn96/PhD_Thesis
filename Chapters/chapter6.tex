@@ -11,3 +11,62 @@
 
 \chapter{Electrostatic Screening in Two-dimensional materials}
 \label{ch:Screening}
+
+In the intro of the chapter I can introduce the materials studied, revisiting hBN, and introduce \textbf{MoS2}.
+Talk about band structure and a bit of the \abinit methods used (CRYSTAL and Wannierization).
+
+
+\section{Dielectric Function Revisited: Theory}
+\label{sec:dielectric_function_revisited}
+
+Here we recall the expression of the microscopic dielectric function in 2D, and take it for insulators and semiconductors and the static limit.
+
+\subsection{Non-interacting polarizability}
+\label{subsec:non_interacting_polarizability}
+
+Here I explain how to compute it numerically, in particular the plane-wave matrix elements.
+
+\subsection{Dielectric matrix and its inverse}
+\label{subsec:dielectric_matrix_inverse}
+
+Here I discuss any details on the inversion of the dielectric matrix.
+I can say we could do the RPA inverse using the RPA interacting polarizability, but we compute instead the direct RPA dielectric function and invert \textbf{it}
+We can also put here anything to do with the screened Coulomb potential.
+
+\subsection{BSE revisited}
+\label{subsec:BSE_revisited}
+
+Explaining how we do use what we computed before to get the excitons in hte new version of the code.
+
+\section{Dielectric Function Revisited: Numerical Results}
+\label{sec:dielectric_function_results}
+
+Here we analyze the numerical results obtained.
+
+\subsection{Non-interacting polarizability}
+\label{subsec:non_interacting_polarizability_results}
+
+
+\subsection{Inverse dielectric matrix}
+\label{subsec:inverse_dielectric_matrix_results}
+
+\subsubsection{Local-field effects and convergence}
+\label{subsec:inv_dielectric_matrix_convergence}
+
+\subsubsection{Macroscopic 2D dielectric function}
+\label{subsubsec:macroscopic_dielectric_function}
+
+Important to compare with ab initio results, and to recover Rytova-Keldysh potential.
+
+\subsection{Excitonic states and conductivity}
+\label{subsec:excitons_results}
+
+Here goes what happened to the excitons with the new screening.
+The numerical conductivity could also be used to recalculate the exciton-polaritons.
+
+\section{Efficient computation of the static dielectric function with the Xatu code}
+\label{sec:xatu_code}
+
+This is a section devoted solely to the code and implementation.
+As a paper did not come out of the implementation at the time of submission, this chapter can probably be deemed secondary.
+Also if I don't have the time to write it at the end, then I won't include it at all, or just make it very brief.
