@@ -11,29 +11,134 @@
 
 \chapter{Classical Electrodynamics of Continuous Media/Solids}
 \label{ch:classical_electrodynamics}
-\todo[inline]{Decide final name}
+\todo[inline]{Decide final name of the chapter}
+
+In this chapter we....
 
 \section{Fundamentals of Classical Electrodynamics}
 \label{sec:CED_fundaments}
+
+\newcommand{\f}{\text{f}}
+\renewcommand{\b}{\text{b}}
+\newcommand{\tot}{\text{tot}}
 
 
 \subsection{Maxwell's equations}
 \label{subsec:maxwell_equations}
 
+%\begin{subequations} //alignment feels weird with the titles at the left
+%    \begin{align}
+%        \text{Gauss' law}& & \div \bD &= \rho \label{subeq:Gauss_law} \\
+%        \text{Faraday's law}& & \rot \bE &= -\pdt[\bB] \label{subeq:Faraday_law}\\
+%        \text{Inexistence of magnetic monopoles}& & \div \bB &= 0 \label{subeq:no_magnetic_monopoles}\\
+%        \text{Ampère-Maxwell's law}& & \rot \bH &= \bJ + \pdt[\bD] \label{subeq:Ampere_law}
+%    \end{align}
+%    \label{eq:Maxwells_equations}
+%\end{subequations}
 
-\subsection{Constitutive relations}
-\label{subsec:constitutive_relations}
+The four central equations of classical electrodynamics, which govern the dynamics of the electromagnetic field and all electromagnetic phenomena in continuous media, in their local form, are called the macroscopic Maxwell's equations, and they read~\cite{Jackson:electrodynamics,Loureiro_Elementos_de_ECLA}
 
+\begin{subequations}
+    \begin{align}
+        \div \bD \left(\br,t\right) &= \rho_\f\left(\br,t\right), &  &\text{Gauss' law}  \label{subeq:Gauss_law} \\
+        \rot \bE \left(\br,t\right) &= -\pdt[\bB\left(\br,t\right)], & &\text{Faraday's law}\ \label{subeq:Faraday_law}\\
+         \div \bB \left(\br,t\right) &= 0\,, & &\text{Inexistence of magnetic monopoles} \label{subeq:no_magnetic_monopoles}\\
+         \rot \bH\left(\br,t\right) &= \bJ_\f\left(\br,t\right) + \pdt[\bD\left(\br,t\right)]\,. & &\text{Ampère-Maxwell's law} \label{subeq:Ampere_law}
+    \end{align}
+    \label{eq:Maxwells_equations}
+\end{subequations}
+
+\noindent In the previous system of equations, the vector fields $\bE$ and $\bB$ are called the electric and magnetic induction fields, respectively.
+We will simply denote the latter by magnetic field.
+These two fields are the fundamental physical quantities in electromagnetism with a physical meaning, unlike the vector fields $\bD$ and $\bH$ called electric displacement and magnetic excitation fields, respectively, that are mathematical identities with no physical interpretation.
+They are introduced to make implicit in Maxwell's equations the matter properties the \em field penetrates in, nonetheless, they are strictly related to the electric and magnetic fields, as we will see.
+The last two quantities to define are the free charge (volume) density $\rho_\f$ and the free current (surface) density $\bJ_\f$, that together with the bound charge density $\rho_\b$ and the bound current density $\bJ_\b$, respectively, form the total charge and current densities inside the material.
+The free charge and current densities are not independent, as they are related through the continuity equation
+
+\begin{equation}
+\label{eq:continuity_equation}
+    \pdt[\rho_\f] + \div \bJ_\f = 0\,,
+\end{equation}
+
+that encodes the conservation of free electric charge.
+The free charge and current densities can in turn be split into an external part, which is the one externally applied on the material, and an induced part resulting from the material response to the external perturbation.
+Symbolically, $\rho_\tot = \rho_\f + \rho_\b$ and $\bJ_\tot = \bJ_\f + \bJ_\b$ for the charge and current densities, respectively.
+The continuity equation is also verified by the bound charge, $\rho_\b$, and current, $\bJ_\b$, densities, and consequently, also by its respective total quantities.
+As said above, the fundamental fields $\bE$ and $\bB$ are connected to the fields $\bD$ and $\bH$, respectively, through a set of two equations called constitutive relations given by $\bD = \epsz \bE + \bP$ and $\bB = \mu_0 \bH + \bM$\footnote{This asymmetry in the constitutive relations is in fact due to a historical mistake, as it was believed that it was actually the vector field $\bH$ that had physical meaning instead of the $\bB$ one.}, where $\bP$ is the bound polarization volume density and $\bM$ the bound magnetization volume density, and the parameters $\epsz$ and $\mu_0$ are the vacuum electric permittivity and the vacuum magnetic permeability, correspondingly.
+Within the scope of this work, we study only materials with no magnetic response in optical frequencies nor with permanent magnetization, so that $\bM = \bzero$ $\bB \qty(\br,t)  = \mu_0 \bH \qty(\br,t)$ will always hold.
+
+With all these equations in hand, one in principle can solve any problem in electrodynamics in continuous media.
+One just would need to know how in fact the material properties determine the polarization density, and the magnetization density if the material is magnetic.
+However, before we dwell on material properties, we will see in the next section how the global form of Maxwell's equations can give insight into solving problems in electrodynamics where the system under study involves more than one material and their interfaces.
+From a technical point of view, Maxwell's equations in their local form are not useful in these cases where one has material discontinuities, as taking spatial derivatives is not possible (or introduces unwished infinities).
+In that situation one then needs to set proper boundary conditions to find the \em field at all points in space and all time instants.
 
 \subsection{Boundary conditions at an interface}
 \label{subsec:boundary_conditions}
 
+In this section we consider a planar infinite interface between two different media, say medium 1 and medium 2.
+This separation in space may introduce discontinuities in the vector fields $\bE$, $\bD$, $\bB$ and $\bH$, which can be determined by applying pill-box arguments to Maxwell's equations in their integral form~\cite{Jackson:electrodynamics,Griffiths_2023}.
+By doing so, we can relate the fields on each side 1 and 2 of the interface, respectively $\bm{F}_1$ and $\bm{F}_1$ with $\bm{F} \in \{\bE,\bD,\bB,\bH\}$, by the following boundary conditions:
+
+\begin{align}
+    \bn_{12} \times (\bE_2 - \bE_1) &= \bzero \label{eq:boundary_condition_E} \\
+    \bn_{12} \times (\bH_2 - \bH_1) = \bj_s \label{eq:boundary_condition_H}
+\end{align}
+
+for the tangential components of the electric and magnetic excitation fields where $\bj_s$ is a sheet current density, respectively, and
+
+\begin{align}
+    \bn_{12} \cdot (\bD_2 - \bD_1) &= \sigma_s \label{eq:boundary_condition_D} \\
+    \bn_{12} \cdot (\bB_2 - \bB_1) &= 0\,, \label{eq:boundary_condition_B}
+\end{align}
+
+for the normal components of the electric displacement and magnetic fields, respectively, where $\sigma_s$ is a surface charge density, and $\bn_{12}$ is the versor normal to the interface pointing from medium 1 to medium 2.
+The quantities $\sigma_s$ and $\bj_s$ account for any charge flow that might exist at the interface.
+If it consists simply of a surface separating two different media, then in principle $\sigma_s = 0$ and $\bj_s = 0$.
+However, if on the interface we have a material of arbitrary small thickness, or if the interface is itself the existence of the material separating two infinite regions of vacuum, then in general we have to account for the physics of its optical response and can not ignore $\sigma_s$ and $\bj_s$.
+If surface charge and current densities are not null, then naturally they satisfy the continuity equation $\sigma_s + \pdti[\bj_s]$.
+A striking example is that of graphene, either by itself or at dielectric/metal boundaries~\cite{GoncalvesPeres:2016}.
+In this work, we focus on dielectric \gls{2d} materials, also termed insulators, and on their optical properties.
+These can be quantified by the optical conductivity, or as we will see, by the dielectric function in an equivalent way, as we shall explain in the next section.
 
 \section{Material Properties: Classical Picture}
 \label{sec:dielectric_function_classical}
 
+The material properties that up until now we have been hiding in the fields $\bD$ and $\bP$, are encoded in the constitutive relation above between the total electric field $\bE$ and the response of the material to it quantified by $\bP$.
+This polarization density results from the charges inside the material rearranging themselves to originate new local bound dipoles.
+This relation is in the most general case functional and non-linear.
+Notwithstanding this, in this work we restrict ourselves to the linear response regime, where the polarization density $\bP$ depends linearly on the electric field $\bE$.
+We will see how in this section.
+
 \subsection{Constitutive relations within linear response}
 \label{subsec:constitutive_relations_linear_response}
+
+In the linear relation between the total electric field and the polarization density, the proportion constant is given in terms of the electric susceptibility $\chi_e$ through
+
+\begin{equation}
+    \label{eq:polarization_density}
+    \bP = \epsz \rttensor{\chi}_e \bE\,,
+\end{equation}
+
+assuming that the material can be anisotropic, such that the susceptibility is in fact a second-rank tensor.
+We admit that there is no magnetic response, so we can overlook the other constitutive relation for the magnetic field.
+If the material is isotropic, then $\rttensor{\chi}_e = \chi_e \mathds{1}$, with $\mathds{1}$ being the identity matrix.
+Then, for the electric displacement field within linear response approximation and for an anisotropic material we can write
+
+\begin{equation}
+    \label{eq:diesplacement_field}
+    \bD = \epsz \bE + \bP = \epsz \qty(\mathds{1} + \rttensor{\chi}_e) \bE \equiv \epsz \rttensor{\vareps} \bE\,,
+\end{equation}
+
+where we defined the relative permittivity tensor $\rttensor{\vareps} = \mathds{1} + \rttensor{\chi}_e$.
+The proportionality constant $\rttensor{\vareps}$ its a characteristic quantity of the material, and it is in general a response (tensorial) function.
+This means that the field at the point $\br$ depends on all the other points $\br'$ in space, and at the time $t$ depends on all the other times $t'$.
+One can readily see that the previous constitutive relation hides an intricate dependence of the displacement field on the electric field, and the operation between the permittivity (we ommit from now onwards the word relative) tensor and the electric field is a convolution operation in both space and time coordinates as
+
+\begin{equation}
+    \bD.....\text{\todo[inline]{Finish this equation}}
+\end{equation}
+
 
 \subsection{Dielectric function}
 \label{subsec:dielectric_function}
