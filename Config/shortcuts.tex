@@ -7,6 +7,7 @@
 
 % Useful shortcuts, for repeated terms
 % for those that are acronyms
+\renewcommand{\em}{\gls{em}}
 \newcommand{\tmd}{\gls{tmd}}
 \newcommand{\dft}{\gls{dft}}
 \newcommand{\mbpt}{\gls{mbpt}}
@@ -62,54 +63,144 @@
     colback=blue!30, boxrule=1pt,
     #1}
 
+%tensor
+\newcommand*{\rttensor}[1]{\overline{\overline{#1}}}
+%\newcommand*{\rttensor}[1]{\overleftrightarrow #1}
 
 %Command just for the GW approximation, either italic or not
 %\newcommand{\GW}{\textit{GW}}
 \newcommand{\GW}{$GW$}
 
-%Defines command for vector fields/vectors that are variables (f.eg.s electric field, magnetic field, etc...)
-%\newcommand{\i}[1][]{\bm{#1}}
+% Conditional definition of vector commands, for independent variables
 
-%null vector
-\newcommand{\bzero}{\vb{0}}
-
-%tensor
-\newcommand*{\rttensor}[1]{\overline{\overline{#1}}}
-
-%Direct Bravais lattice vector
-\newcommand{\bR}{\vb{R}}
-
-%Exciton momentum
-\newcommand{\bQ}{\vb{Q}}
-
-%Vector of the motif of the unit cell/Vector of the basis within the unit cell
-\newcommand{\bt}{\vb{t}}
-
-%reciprocal lattice vectors
-\newcommand{\bb}{\vb{b}}
-
-%Vectors of the reciprocal lattice (basis)
-\newcommand{\bG}{\vb{G}}
-
-%normal vector -> n in bold
-\newcommand{\bn}{\vb{n}}
-
-%position vector -> r,x,y in bold
-\newcommand{\br}{\vb{r}}
-
-\newcommand{\bx}{\vb{x}}
-
-\newcommand{\by}{\vb{y}}
+\newif\ifusevb
+\usevbtrue  % Set it to true (\usevbfalse for false)
 
 
-%velocity vector -> v in bold
-\newcommand{\bv}{\vb{v}}
+\ifusevb
 
-%Electric field vector -> E in bold, italic or not
-%\newcommand{\bE}{\vb{E}}
-%\newcommand{\bE}{\bm{E}}
+    %null vector
+    \providecommand{\bzero}{\vb{0}}
 
-% Conditional definition of vector commands
+    %Direct Bravais lattice vector
+    \providecommand{\bR}{\vb{R}}
+
+    %Exciton momentum
+    \providecommand{\bQ}{\vb{Q}}
+
+    %Vector of the motif of the unit cell/Vector of the basis within the unit cell
+    \providecommand{\bt}{\vb{t}}
+
+    %reciprocal lattice vectors
+    \providecommand{\bb}{\vb{b}}
+
+    %Vectors of the reciprocal lattice (basis)
+    \providecommand{\bG}{\vb{G}}
+
+    %normal vector -> n in bold
+    \providecommand{\bn}{\vb{n}}
+
+    %position vector -> r,x,y in bold
+    \providecommand{\br}{\vb{r}}
+
+    \providecommand{\bx}{\vb{x}}
+
+    \providecommand{\by}{\vb{y}}
+
+    %velocity vector -> v in bold
+    \providecommand{\bv}{\vb{v}}
+
+    %Wave vector
+    \providecommand{\bk}{\vb{k}}
+    \providecommand{\bq}{\vb{q}}
+    \providecommand{\bp}{\vb{p}}
+
+    %Corners of graphene Brillouin zone
+    \providecommand{\bK}{\vb{K}}
+
+    %x, y and z versors
+    \providecommand{\bex}{\vb{e}_x}
+    \providecommand{\bey}{\vb{e}_y}
+    \providecommand{\bez}{\vb{e}_z}
+
+    \providecommand{\bux}{\vb{u}_x}
+    \providecommand{\buy}{\vb{u}_y}
+    \providecommand{\buz}{\vb{u}_z}
+
+    %Unit vector for any polarization
+    \providecommand{\bhe}{\hat{\vb{e}}}
+
+    %small electric and magnetic fields
+    \providecommand{\be}{\vb{e}}
+    %\providecommand{\bb}{\vb{b}} already defined
+
+%%%%%%%%ELSE STARTS HERE%%%%%%%%%%%%%%%%%%5
+\else
+
+    %null vector
+    \providecommand{\bzero}{\bm{0}}
+
+    %null vector
+    \providecommand{\bzero}{\bm{0}}
+
+    %tensor
+    \providecommand*{\rttensor}[1]{\overline{\overline{#1}}}
+
+    %Direct Bravais lattice vector
+    \providecommand{\bR}{\bm{R}}
+
+    %Exciton momentum
+    \providecommand{\bQ}{\bm{Q}}
+
+    %Vector of the motif of the unit cell/Vector of the basis within the unit cell
+    \providecommand{\bt}{\bm{t}}
+
+    %reciprocal lattice vectors
+    \providecommand{\bb}{\bm{b}}
+
+    %Vectors of the reciprocal lattice (basis)
+    \providecommand{\bG}{\bm{G}}
+
+    %normal vector -> n in bold
+    \providecommand{\bn}{\bm{n}}
+
+    %position vector -> r,x,y in bold
+    \providecommand{\br}{\bm{r}}
+
+    \providecommand{\bx}{\bm{x}}
+
+    \providecommand{\by}{\bm{y}}
+
+    %velocity vector -> v in bold
+    \providecommand{\bv}{\bm{v}}
+
+    %Wave vector
+    \providecommand{\bk}{\bm{k}}
+    \providecommand{\bq}{\bm{q}}
+    \providecommand{\bp}{\bm{p}}
+
+    %Corners of graphene Brillouin zone
+    \providecommand{\bK}{\bm{K}}
+
+    %x, y and z versors
+    \providecommand{\bex}{\bm{e}_x}
+    \providecommand{\bey}{\bm{e}_y}
+    \providecommand{\bez}{\bm{e}_z}
+
+    \providecommand{\bux}{\bm{u}_x}
+    \providecommand{\buy}{\bm{u}_y}
+    \providecommand{\buz}{\bm{u}_z}
+
+    %Unit vector for any polarization
+    \providecommand{\bhe}{\hat{\bm{e}}}
+
+    %small electric and magnetic fields
+    \providecommand{\be}{\bm{e}}
+    %\providecommand{\bb}{\bm{b}} already defined
+\fi
+
+
+% Conditional definition of vector commands, for vectorial fields/dependent variables
 \newif\ifusebm
 \usebmtrue % Set it to true (\usebmfalse for false)
 
@@ -155,6 +246,7 @@
 
 %%%%%%%%ELSE STARTS HERE%%%%%%%%%%%%%%%%%%5
 \else
+
     %Electric field vector
     \providecommand{\bE}{\vb{E}}
 
@@ -185,31 +277,6 @@
     %Magnetization density vector -> M in bold
     \providecommand{\bM}{\vb{M}}
 \fi
-
-
-%Wave vector
-\newcommand{\bk}{\vb{k}}
-\newcommand{\bq}{\vb{q}}
-\newcommand{\bp}{\vb{p}}
-
-%Corners of graphene Brillouin zone
-\newcommand{\bK}{\vb{K}}
-
-%x, y and z versors
-\newcommand{\bex}{\vb{e}_x}
-\newcommand{\bey}{\vb{e}_y}
-\newcommand{\bez}{\vb{e}_z}
-
-\newcommand{\bux}{\vb{u}_x}
-\newcommand{\buy}{\vb{u}_y}
-\newcommand{\buz}{\vb{u}_z}
-
-%Unit vector for any polarization
-\newcommand{\bhe}{\hat{\vb{e}}}
-
-%small electric and magnetic fields
-\newcommand{\be}{\vb{e}}
-%\newcommand{\bb}{\vb{b}} already defined
 
 
 %Imaginary unit
@@ -261,10 +328,10 @@
 %Differential operators
 %\newcommand{\grad}{\mathnormal{\nabla}}\mathnormal{\nabla} % physics package already has \grad as bold nabla
 %\newcommand{\pnabla}{\mathnormal{\nabla}} % plain nabla
-\newcommand{\lap}{\laplacian} % adds another shortcut for the curl operator that exists already in the physics package. In portuguese curl translates to `rotacional'. Using rot instead of the nabla symbol also appears in some literatures. Also in german the word for curl begins with `rot'.
-%\renewcommand{\grad}{\bm{\nabla}} % redefines gradient command to change symbol to italic. Comment if unwished.
-\newcommand{\rot}{\bm{\nabla} \times} % redefines curl command to change symbol to italic. Comment if unwished.
-%\renewcommand{\div}{\bm{\nabla} \cdot} % redefines divergence command to change symbol to italic. Comment if unwished.
+\newcommand{\lap}{\laplacian} % adds a personal shortcut for the laplacian
+\renewcommand{\grad}{\bm{\nabla}} % redefines gradient command to change symbol to italic. Comment if unwished.
+\newcommand{\rot}{\bm{\nabla} \times} % the curl operator that exists already in the physics package. In portuguese curl translates to `rotacional' (c has double s, ss, sound). Using rot instead of the nabla symbol also appears in some literatures. Also in german the word for curl begins with `rot'. redefines curl command to change symbol to italic. Comment if unwished.
+\renewcommand{\div}{\bm{\nabla} \cdot} % redefines divergence command to change symbol to italic. Comment if unwished.
 
 % Partial derivatives of first order
 
