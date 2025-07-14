@@ -63,9 +63,10 @@
     colback=blue!30, boxrule=1pt,
     #1}
 
-%tensor
-\newcommand*{\rttensor}[1]{\overline{\overline{#1}}}
+%tensor\newcommand{\tensor}[1]{}
+%\newcommand*{\rttensor}[1]{\overline{\overline{#1}}}
 %\newcommand*{\rttensor}[1]{\overleftrightarrow #1}
+\newcommand*{\rttensor}[1]{\overset\leftrightarrow{#1}}
 
 %Command just for the GW approximation, either italic or not
 %\newcommand{\GW}{\textit{GW}}
