@@ -22,6 +22,7 @@
 \newcommand{\gs}{\gls{gs}}
 \newcommand{\soc}{\gls{soc}}
 \newcommand{\tb}{\gls{tb}}
+\newcommand{\bd}{\gls{2d}}
 
 % those that are commonly used
 \newcommand{\abinit}{\textit{ab-initio}}
@@ -207,6 +208,9 @@
 
 
 \ifusebm
+    %Generic field
+    \providecommand{\bF}{\bm{F}}
+
     %Electric field vector
     \providecommand{\bE}{\bm{E}}
 
@@ -247,6 +251,8 @@
 
 %%%%%%%%ELSE STARTS HERE%%%%%%%%%%%%%%%%%%5
 \else
+    %Generic field
+    \providecommand{\bF}{\vb{F}}
 
     %Electric field vector
     \providecommand{\bE}{\vb{E}}
