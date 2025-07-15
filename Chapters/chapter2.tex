@@ -60,11 +60,11 @@ The free charge and current densities are not independent, as they are related t
     \pdt[\rho_\f] + \div \bJ_\f = 0\,,
 \end{equation}
 
-that encodes the conservation of free electric charge.
+\noindent that encodes the conservation of free electric charge.
 The free charge and current densities can in turn be split into an external part, which is the one externally applied on the material, and an induced part resulting from the material response to the external perturbation.
 Symbolically, $\rho_\tot = \rho_\f + \rho_\b$ and $\bJ_\tot = \bJ_\f + \bJ_\b$ for the charge and current densities, respectively.
 The continuity equation is also verified by the bound charge, $\rho_\b$, and current, $\bJ_\b$, densities, and consequently, also by its respective total quantities.
-As said above, the fundamental fields $\bE$ and $\bB$ are connected to the fields $\bD$ and $\bH$, respectively, through a set of two equations called constitutive relations given by $\bD = \epsz \bE + \bP$ and $\bB = \mu_0 \bH + \bM$\footnote{This asymmetry in the constitutive relations is in fact due to a historical mistake, as it was believed that it was actually the vector field $\bH$ that had physical meaning instead of the $\bB$ one.}, where $\bP$ is the bound polarization volume density and $\bM$ the bound magnetization volume density, and the parameters $\epsz$ and $\mu_0$ are the vacuum electric permittivity and the vacuum magnetic permeability, correspondingly.
+As said above, the fundamental fields $\bE$ and $\bB$ are connected to the fields $\bD$ and $\bH$, respectively, through a set of two equations called constitutive relations given by $\bD = \epsz \bE + \bP$ and $\bB = \mu_0 \qty(\bH + \bM)$\footnote{This asymmetry in the constitutive relations is in fact due to a historical mistake, as it was believed that it was actually the vector field $\bH$ that had physical meaning instead of the $\bB$ one.}, where $\bP$ is the bound polarization volume density and $\bM$ the bound magnetization volume density, and the parameters $\epsz$ and $\mu_0$ are the vacuum electric permittivity and the vacuum magnetic permeability, correspondingly.
 Within the scope of this work, we study only materials with no magnetic response in optical frequencies nor with permanent magnetization, so that $\bM = \bzero$ and $\bB \qty(\br,t)  = \mu_0 \bH \qty(\br,t)$ will always hold.
 
 With all these equations in hand, one in principle can solve any problem in electrodynamics in a continuous medium.
@@ -82,22 +82,22 @@ By doing so, we can relate the fields on each side 1 and 2 of the interface, res
 
 \begin{align}
     \bn_{12} \times (\bE_2 - \bE_1) &= \bzero \label{eq:boundary_condition_E} \\
-    \bn_{12} \times (\bH_2 - \bH_1) = \bj_s \label{eq:boundary_condition_H}
+    \bn_{12} \times (\bH_2 - \bH_1) &= \bj_s \label{eq:boundary_condition_H}
 \end{align}
 
-for the tangential components of the electric and magnetic excitation fields where $\bj_s$ is a sheet current density, respectively, and
+\noindent for the tangential components of the electric and magnetic excitation fields where $\bj_s$ is a sheet current density, respectively, and
 
 \begin{align}
     \bn_{12} \cdot (\bD_2 - \bD_1) &= \sigma_s \label{eq:boundary_condition_D} \\
     \bn_{12} \cdot (\bB_2 - \bB_1) &= 0\,, \label{eq:boundary_condition_B}
 \end{align}
 
-for the normal components of the electric displacement and magnetic fields, respectively, where $\sigma_s$ is a surface charge density, and $\bn_{12}$ is the versor normal to the interface pointing from medium 1 to medium 2.
+\noindent for the normal components of the electric displacement and magnetic fields, respectively, where $\sigma_s$ is a surface charge density, and $\bn_{12}$ is the versor normal to the interface pointing from medium 1 to medium 2.
 The quantities $\sigma_s$ and $\bj_s$ account for any charge flow that might exist at the interface.
 If it consists simply of a surface separating two different media, then in principle $\sigma_s = 0$ and $\bj_s = 0$.
-However, if on the interface we have a material of arbitrary small thickness, or if the interface is itself the existence of the material separating two infinite regions of vacuum, then in general we have to account for the physics of its optical response and can not ignore $\sigma_s$ and $\bj_s$.
-If surface charge and current densities are not null, then naturally they satisfy the continuity equation $\sigma_s + \pdti[\bj_s]$.
-A striking example is that of graphene, either by itself or at dielectric/metal boundaries~\cite{GoncalvesPeres:2016}.
+However, if on the interface we have a material of arbitrary small thickness, or if the interface is itself the existence of the material separating two infinite regions of vacuum, then in general we have to account for the physics of its optical response and cannot ignore $\sigma_s$ and $\bj_s$.
+If surface charge and current densities are not null, then naturally they satisfy the continuity equation $\sigma_s + \partial \bj_s/\partial t = 0$.
+A striking example is that of graphene, either by itself or at a boundary between a dielectric and a metal~\cite{GoncalvesPeres:2016}.
 In this work, we focus on dielectric \gls{2d} materials, also termed insulators, and on their optical properties.
 These can be quantified by the optical conductivity, or as we will see, by the dielectric function in an equivalent way, as we shall explain in the next section.
 
@@ -110,7 +110,7 @@ This relation is in the most general case functional and non-linear.
 Notwithstanding this, in this work we restrict ourselves to the linear response regime, where the polarization density $\bP$ depends linearly on the electric field $\bE$.
 We will see how in this section.
 
-\subsection{Constitutive relations within linear response}
+\subsection{Dielectric function and conductivity}
 \label{subsec:constitutive_relations_linear_response}
 
 In the linear relation between the total electric field and the polarization density, the proportion constant is given in terms of the electric susceptibility $\chi_e$ through
@@ -120,7 +120,7 @@ In the linear relation between the total electric field and the polarization den
     \bP = \epsz \rttensor{\chi}_e \bE\,,
 \end{equation}
 
-assuming that the material can be anisotropic, such that the susceptibility is in fact a second-rank tensor.
+\noindent assuming that the material can be anisotropic, such that the susceptibility is in fact a second-rank tensor (add presuming also that there is no permanent polarization contributing to $\bP$).
 We admit that there is no magnetic response, so we can overlook the other constitutive relation for the magnetic field.
 If the material is isotropic, then $\rttensor{\chi}_e = \chi_e \mathds{1}$, with $\mathds{1}$ being the identity matrix.
 Then, for the electric displacement field within linear response approximation and for an anisotropic material we can write
@@ -130,21 +130,91 @@ Then, for the electric displacement field within linear response approximation a
     \bD = \epsz \bE + \bP = \epsz \qty(\mathds{1} + \rttensor{\chi}_e) \bE \equiv \epsz \rttensor{\vareps} \bE\,,
 \end{equation}
 
-where we defined the relative permittivity tensor $\rttensor{\vareps} = \mathds{1} + \rttensor{\chi}_e$.
+\noindent where we defined the relative permittivity tensor $\rttensor{\vareps} = \mathds{1} + \rttensor{\chi}_e$.
 The proportionality constant $\rttensor{\vareps}$ its a characteristic quantity of the material, and it is in general a response (tensorial) function.
 This means that the field at the point $\br$ depends on all the other points $\br'$ in space, and at the time $t$ depends on all the other times $t'$.
 One can readily see that the previous constitutive relation hides an intricate dependence of the displacement field on the electric field, and the operation between the permittivity (we ommit from now onwards the word relative) tensor and the electric field is a convolution operation in both space and time coordinates as
 
 \begin{equation}
-    \bD.....\text{\todo[inline]{Finish this equation}}
+    \bD\qty(\br,t) = \int \dr \int \dd{t'} \rttensor{\vareps}\qty(\br, \br'; t , t') \bE\qty(\br',t')\,,
 \end{equation}
 
+\noindent where the permittivity is now a (tensorial) response function, a two-point function in real space and a two-point function in time.
+Without knowing any details about the permittivity, we can nonetheless impose causality which implies that $\vareps\qty(\br, \br'; t , t') = 0$ if $t' > t$ (let us omit the tensor nature of the permittivity for now).
+Furthermore, if the system enjoys \textit{continuous} time translational invariance\footnote{This assumption is only valid if we treat the external probe or driving field as a perturbation to the system, so small that the response is that of a material in (dynamic) equilibrium, and its intrinsic properties are time-independent. If the probe or field are strong enough, then they can drive the system to a non-equilibrium state, and in that case we have to account for the full dynamics of the composed system material+perturbation. Even if the external field is time periodic and the system still enjoys time translation invariance, albeit discrete, we must separate the two time dependences $t$ and $t'$. As stated above we work solely within the linear response regime, henceforth this is not a big concern for us.}, then the permittivity depends only on the time difference $t - t'$.
+This property is extremely useful, as per the convolution theorem, we can perform a Fourier transform in time, so that the permittivity and the electric field operate in the frequency domain through a mere multiplication:
 
-\subsection{Dielectric function}
-\label{subsec:dielectric_function}
+\begin{equation}
+    \bD\qty(\br,\omega) = \epsz \int \dr' \vareps\qty(\br, \br'; \omega) \bE\qty(\br',\omega)\,.
+\end{equation}
 
-\subsubsection{Static limit}
+\noindent If we now further assume that the material is homogeneous, which is a reasonable approximation at the macroscopic scale, then the system enjoys \textit{continuous} spatial translational invariance, and the permittivity becomes a function solely of the difference $\br-\br'$.
+One can show that if this is true, then we can Fourier transform the permittivity from real to reciprocal or momentum space keeping only one momentum variable $\bk$, and through direct application of the convolution theorem once more, we can write down
+
+\begin{equation}
+    \bD\qty(\bk,\omega) = \epsz \vareps\qty(\bk, \omega) \bE\qty(\bk,\omega)\,,
+\end{equation}
+
+\noindent which simplifies immensely the relation between the displacement field and the electric field.
+
+The dielectric function, a central quantity in this text, in reciprocal space $\vareps\qty(\bk,\omega)$ is in general complex valued and a very complicated function of $\bk$ and $\omega$, and determining the full dependence on both momentum and frequency is a herculean task.
+With the tools provided by classical electrodynamics, one can only hope to work with ad-hoc models for the dielectric function, usually using material parameters obtained experimentally.
+We provide a few case examples of models commonly found in the literature in the next sections.
+
+Before we proceed, it is worthy to remind the reader that in electromagnetism considers charge currents as a result from an application of an external electric field.
+The relation between the electric field and the induced current is quantified by the famous (local and generalised) Ohm's law, that assuming time and space translational invariance and isotropy as well, reads
+
+\begin{equation}
+    \bJ_{\text{ind}}\qty(\br,t) = \int \dr \int \dd{t'} \sigma\qty(\br - \br'; t - t') \bE\qty(\br',t')\,,
+\end{equation}
+
+\noindent where $\sigma$ is the conductivity of the material (that can assume a tensorial form, just like the permittivity), and accounts for the excitation of free charges due to the applied electric field.
+We introduce this quantity here, as it can be useful in electrodynamics to account simultaneously for a material's dielectric response and its conductivity in a single effective dielectric function.
+Let us then rewrite Maxwell's equations \eqref{eq:Maxwells_equations} in reciprocal space and frequency domain by Fourier transforming them (or equivalently, assuming a dependence of the form $\bF(\br,t) = \bF_0 \ei[-]{(\omega t - \bk \cdot \br)}$ for all the fields)
+
+\begin{subequations}
+    \begin{align}
+        \ii \bk \cdot \bD(\bk,\omega) &= \rho_\f(\bk,\omega) \label{subeq:Gauss_law_reciprocal} \\
+        \ii \bk \times \bE(\bk,\omega) &= -\ii \omega \bB(\bk,\omega) \\
+        \ii \bk \cdot \bB(\bk,\omega) &= 0 \\
+        \ii \bk \times \bH(\bk,\omega) &= \bJ_\f(\bk,\omega) - \ii \omega \epsz \vareps (\bk,\omega) \bE(\bk,\omega)\,,
+    \end{align}
+\end{subequations}
+
+
+\noindent and focus on Ampère-Maxwell's law and Ohm's law in its Fourier transformed version $\bJ_{\text{ind}}(\bk,\omega) = \sigma(\bk,\omega) \bE(\bk,\omega)$, we can rewrite the last equation as
+
+
+
+\begin{align}
+    \ii \bk \times \bH(\bk,\omega) &= \bJ_{\text{ext}}(\bk,\omega) + \sigma(\bk,\omega) \bE(\bk,\omega) - \ii \omega \vareps (\bk,\omega) \bE(\bk,\omega) \\
+    &=\bJ_{\text{ext}}(\bk,\omega) - \ii \omega \qty[\vareps (\bk,\omega) +\ii \frac{\sigma(\bk,\omega)}{\omega \epsz}] \bE(\bk,\omega) \equiv \\
+    &\equiv \bJ_{\text{ext}}(\bk,\omega)  -\ii \omega \vareps_{\text{eq}}(\bk,\omega) \bE(\bk,\omega)\,,
+\end{align}
+
+
+\noindent where in the previous equation we defined the equivalent permittivity $\vareps_{\text{eq}}(\bk,\omega) = \vareps (\bk,\omega) + \ii \sigma(\bk,\omega)/\omega \epsz$.
+This suggests the redefinition of the total electric displacement field $\bD \to \bD_{\text{tot}}  = \bD + i \omega^{-1} \bJ_{\text{ind}}$.
+In this way, equation~\eqref{subeq:Gauss_law_reciprocal} can be rewritten in terms of only the external charge density, $ \ii \bk \cdot \bD_{\text{tot}}(\bk,\omega) = \rho_{\text{ext}}(\bk,\omega)$.
+With only the external charge and current densities appearing explicitly in Maxwell's equations and a total displacement field incorporating the induced current, we can define a total electric field as $\bE_{\text{tot}} = \bD_{\text{tot}}/\epsz$ and intepret the dielectric function as the ratio between the total electric field and the external one: $\vareps(\bk,\omega) = |\bE_{\text{tot}}|/|\bE_{\text{ext}}|$.
+This interpretation is the cornerstone of the theory around the dielectric function.
+It is actually introduced like this in introductory electromagnetism courses, appearing usually as a single constant relative permittivity denoted by $\vareps_r$ in the denominator in Coulomb's law for the electrostatic force.
+In bulk materials, it is typically sufficient to speak of the relative permittivity as a constant of the bulk material.
+Unfortunately (or the opposite), it is in general a very complicated function of space and time, nonetheless working in reciprocal space seems to ease things.
+This is a striking feature of \bd materials, where the dependence on $\bk$ and $\omega$ cannot be ignored, even encoding rich physics such as spatial dispersion (non-trivial $\bk$ dependence), time dispersion (non-trivial $\omega$ dependence), screening in crystalline solids (main subject of Chapter~\ref{ch:Screening}) and their non-trivial absorption spectra\todo{some references no?}, plasmons in metals and \bd materials, such as graphene~\cite{GoncalvesPeres:2016,Novoselov_Geim_2004}, also the effect called Landau damping in the context of kinetic theory in plasmas~\cite{Chen_Plasma_Physics}
+In order to familiarize a reader that has not extensive experience on the dielectric function, we provide in the next subsections two key examples of models for the dielectric function, one in the static limit $\omega \to 0$, and the other one in the local limit $\bk \to 0$.
+Isolating these two limits and considering the dependence on $\bk$ and on $\omega$ separately will be sufficient to realize how illuminating this object can be.
+
+\subsubsection{Static limit in 2D materials}
 \label{subsubsec:dielectric_function_static_limit}
+
+In this section we take a \bd material as an example, as this thesis is concerned only with such materials, and we keep our focus on the static and long-wavelength limits of the dielectric function.
+The main goal is to derive a minimal model that somehow captures the effect of electrostatic screening felt by test point-like charges inside the material.
+We want then to find a function $\vareps(\bk)$ for which the total electrostatic potential felt between two test charges is $\phi(\bk) = \vareps(\bk) v_c(\bk)$, where $v_c(\bk)$ is the Coulomb potential in reciprocal space that the two charges would feel remaining static in vacuum.
+We say that $\phi$ is the screened Coulomb potential, and $v_c$ is the bare Coulomb potential.
+In real space, $v_c(\br) = e/4\pi \epsz |\br|$, with $e$ being the elementary charge (electron charge in absolute value)\footnote{In this text we avoid using Gaussian units, we adopt instead the SI system. The Coulomb potential is to be understood in electron-volt (eV), the reason why we have $e$, the elementary charge, in the numerator instead of $e^2$.}.
+To find the screened potential, we.....\todo{post here stuff from LyX notes, see also what I already have in my personal notes.}
+
 
 \subsubsection{Local limit}
 \label{subsubsec:dielectric_function_local_limit}
