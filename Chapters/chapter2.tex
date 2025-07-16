@@ -309,11 +309,27 @@ We consider next the opposite limit, where the dielectric function depends only 
 In this section we provide another model for the dielectric function where we only account for the dependence on the frequency, and take the long-wavelength limit of $\bk \to 0$.
 This approximation is called the local response approximation, which consists in admitting the response function of the material, the permittivity or conductivity, is short-ranged, so that the induced field at a certain point in space depends only on the external field at that same location.
 Symbolically, we can write correspondingly for the permittivity and conductivity $\vareps (\br - \br') = \delta (\br - \br') \vareps^{\mathrm{LRA}} (\omega)$ and $\sigma (\br - \br') = \delta (\br - \br') \sigma^{\mathrm{LRA}} (\omega)$, where the superscript \lra stands for local response approximation.
-Ignoring non-local effects is valid if the wavelength of the optical excitation is much larger than the characteristic length scale of the material.
+In this approximation, the displacement field is simply given by
+
+\begin{equation}
+\label{eq:displacement_field_LRA}
+    \bD(\omega) = \epsz \vareps^{\mathrm{LRA}} (\omega) \bE(\br,\omega)\,,
+\end{equation}
+
+that together with Ohm's law
+
+\begin{equation}
+\label{eq:Ohms_law_LRA}
+    \bJ_\ind(\omega) = \sigma^{\mathrm{LRA}} (\omega) \bE(\br,\omega)\,
+\end{equation}
+
+\provide form the constitutive relations of the material.
+
+Ignoring non-local effects is valid if the wavelength of the optical excitation is much larger than the characteristic length scales of the material.
 One may speak of the typical distance between atoms in a solid, or the Fermi wavelength (the inverse of the Fermi wave-vector), which are quite small, usually in the order of the angstrom.
 In the context of nanophotonics and polaritonics, the typical length scale is of the order of the nanometer, a bit close to the frontier separating classical physics from quantum physics, but this approximation has revealed to be quite accurate in many contexts~\cite{GoncalvesPeres:2016,maier_plasmonics_2007,Hohenester_2020}.
 
-Just for illustrative purposes, we give a typical example of a model for the dielectric function that is commonly used to explain and study the optical properties of metals.
+Just for illustrative purposes, we give a typical example of a model for the dielectric function, commonly used to explain and study the optical properties of metals.
 It is called the (AC) Drude model~\cite{Drude_1900}, often introduced in the form of a conductivity that reads
 
 \begin{equation}
