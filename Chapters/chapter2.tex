@@ -1,3 +1,4 @@
+\usepackage{listings}%! suppress = MissingImport
 %!TEX root = ../template.tex %
 % !TeX spellcheck = en_US
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -20,8 +21,6 @@ In this chapter we....
 
 \newcommand{\f}{\text{f}}
 \renewcommand{\b}{\text{b}}
-\newcommand{\tot}{\text{tot}}
-
 
 \subsection{Maxwell's equations}
 \label{subsec:maxwell_equations}
@@ -149,7 +148,7 @@ This property is extremely useful, as per the convolution theorem, we can perfor
 \end{equation}
 
 \noindent If we now further assume that the material is homogeneous, which is a reasonable approximation at the macroscopic scale, then the system enjoys \textit{continuous} spatial translational invariance, and the permittivity becomes a function solely of the difference $\br-\br'$.
-One can show that if this is true, then we can Fourier transform the permittivity from real to reciprocal or momentum space keeping only one momentum variable $\bk$, and through direct application of the convolution theorem once more, we can write down
+One can show that if this is true, then we can Fourier transform the permittivity from real to reciprocal space keeping only one wave-vector (or momentum, in the language of solid state physics) variable $\bk$, and through direct application of the convolution theorem once more, we can write down
 
 \begin{equation}
     \bD\qty(\bk,\omega) = \epsz \vareps\qty(\bk, \omega) \bE\qty(\bk,\omega)\,,
@@ -165,12 +164,12 @@ Before we proceed, it is worthy to remind the reader that in electromagnetism co
 The relation between the electric field and the induced current is quantified by the famous (local and generalised) Ohm's law, that assuming time and space translational invariance and isotropy as well, reads
 
 \begin{equation}
-    \bJ_{\text{ind}}\qty(\br,t) = \int \dr \int \dd{t'} \sigma\qty(\br - \br'; t - t') \bE\qty(\br',t')\,,
+    \bJ_\ind\qty(\br,t) = \int \dr \int \dd{t'} \sigma\qty(\br - \br'; t - t') \bE\qty(\br',t')\,,
 \end{equation}
 
 \noindent where $\sigma$ is the conductivity of the material (that can assume a tensorial form, just like the permittivity), and accounts for the excitation of free charges due to the applied electric field.
 We introduce this quantity here, as it can be useful in electrodynamics to account simultaneously for a material's dielectric response and its conductivity in a single effective dielectric function.
-Let us then rewrite Maxwell's equations \eqref{eq:Maxwells_equations} in reciprocal space and frequency domain by Fourier transforming them (or equivalently, assuming a dependence of the form $\bF(\br,t) = \bF_0 \ei[-]{(\omega t - \bk \cdot \br)}$ for all the fields)
+Let us then rewrite Maxwell's equations~\eqref{eq:Maxwells_equations} in reciprocal space and frequency domain by Fourier transforming them (or equivalently, assuming a dependence of the form $\bF(\br,t) = \bF_0 \ei[-]{(\omega t - \bk \cdot \br)}$ for all the fields)
 
 \begin{subequations}
     \begin{align}
@@ -182,43 +181,185 @@ Let us then rewrite Maxwell's equations \eqref{eq:Maxwells_equations} in recipro
 \end{subequations}
 
 
-\noindent and focus on Ampère-Maxwell's law and Ohm's law in its Fourier transformed version $\bJ_{\text{ind}}(\bk,\omega) = \sigma(\bk,\omega) \bE(\bk,\omega)$, we can rewrite the last equation as
+\noindent and focus on Ampère-Maxwell's law and Ohm's law in its Fourier transformed version $\bJ_\ind(\bk,\omega) = \sigma(\bk,\omega) \bE(\bk,\omega)$, we can rewrite the last equation as
 
 
 
 \begin{align}
-    \ii \bk \times \bH(\bk,\omega) &= \bJ_{\text{ext}}(\bk,\omega) + \sigma(\bk,\omega) \bE(\bk,\omega) - \ii \omega \vareps (\bk,\omega) \bE(\bk,\omega) \\
-    &=\bJ_{\text{ext}}(\bk,\omega) - \ii \omega \qty[\vareps (\bk,\omega) +\ii \frac{\sigma(\bk,\omega)}{\omega \epsz}] \bE(\bk,\omega) \equiv \\
-    &\equiv \bJ_{\text{ext}}(\bk,\omega)  -\ii \omega \vareps_{\text{eq}}(\bk,\omega) \bE(\bk,\omega)\,,
+    \ii \bk \times \bH(\bk,\omega) &= \bJ_\ext(\bk,\omega) + \sigma(\bk,\omega) \bE(\bk,\omega) - \ii \omega \vareps (\bk,\omega) \bE(\bk,\omega) \\
+    &=\bJ_\ext(\bk,\omega) - \ii \omega \qty[\vareps (\bk,\omega) +\ii \frac{\sigma(\bk,\omega)}{\omega \epsz}] \bE(\bk,\omega) \equiv \\
+    &\equiv \bJ_\ext(\bk,\omega)  -\ii \omega \vareps_{\text{eq}}(\bk,\omega) \bE(\bk,\omega)\,,
 \end{align}
 
 
-\noindent where in the previous equation we defined the equivalent permittivity $\vareps_{\text{eq}}(\bk,\omega) = \vareps (\bk,\omega) + \ii \sigma(\bk,\omega)/\omega \epsz$.
-This suggests the redefinition of the total electric displacement field $\bD \to \bD_{\text{tot}}  = \bD + i \omega^{-1} \bJ_{\text{ind}}$.
-In this way, equation~\eqref{subeq:Gauss_law_reciprocal} can be rewritten in terms of only the external charge density, $ \ii \bk \cdot \bD_{\text{tot}}(\bk,\omega) = \rho_{\text{ext}}(\bk,\omega)$.
-With only the external charge and current densities appearing explicitly in Maxwell's equations and a total displacement field incorporating the induced current, we can define a total electric field as $\bE_{\text{tot}} = \bD_{\text{tot}}/\epsz$ and intepret the dielectric function as the ratio between the total electric field and the external one: $\vareps(\bk,\omega) = |\bE_{\text{tot}}|/|\bE_{\text{ext}}|$.
+\noindent where in the previous equation we defined the equivalent permittivity\footnote{The function $\vareps (\bk,\omega)$ on the \gls{rhs} has quite often in the literature a subscript writing $\vareps_\infty(\bk,\omega)$, standing for a contribution coming from the ionic background together with bound polarization charges.}
+
+\begin{equation}
+\label{eq:equivalent_permittivity}
+    \vareps_{\text{eq}}(\bk,\omega) = \vareps (\bk,\omega) + \ii \frac{\sigma(\bk,\omega)}{\omega \epsz} \,.
+\end{equation}
+
+
+\noindent This suggests redefining the total electric displacement field as $\bD \to \bD_\tot  = \bD +~i \omega^{-1} \bJ_\ind$.
+In this way, equation~\eqref{subeq:Gauss_law_reciprocal} can be rewritten in terms of only the external charge density, $ \ii \bk \cdot \bD_\tot(\bk,\omega) = \rho_\ext(\bk,\omega)$.
+With only the external charge and current densities appearing explicitly in Maxwell's equations and a total displacement field incorporating the induced current, we can define a total electric field as $\bE_\tot = \bD_\tot/\epsz$ and intepret the dielectric function as the ratio between the external field and the total one: $\vareps(\bk,\omega) = |\bE_\ext(\bk,\omega)|/|\bE_\tot(\bk,\omega)|$.
 This interpretation is the cornerstone of the theory around the dielectric function.
 It is actually introduced like this in introductory electromagnetism courses, appearing usually as a single constant relative permittivity denoted by $\vareps_r$ in the denominator in Coulomb's law for the electrostatic force.
 In bulk materials, it is typically sufficient to speak of the relative permittivity as a constant of the bulk material.
 Unfortunately (or the opposite), it is in general a very complicated function of space and time, nonetheless working in reciprocal space seems to ease things.
-This is a striking feature of \bd materials, where the dependence on $\bk$ and $\omega$ cannot be ignored, even encoding rich physics such as spatial dispersion (non-trivial $\bk$ dependence), time dispersion (non-trivial $\omega$ dependence), screening in crystalline solids (main subject of Chapter~\ref{ch:Screening}) and their non-trivial absorption spectra\todo{some references no?}, plasmons in metals and \bd materials, such as graphene~\cite{GoncalvesPeres:2016,Novoselov_Geim_2004}, also the effect called Landau damping in the context of kinetic theory in plasmas~\cite{Chen_Plasma_Physics}
+This is a striking feature of \bd~materials, where the dependence on $\bk$ and $\omega$ cannot be ignored, even encoding rich physics such as spatial dispersion (nontrivial $\bk$ dependence), time dispersion (nontrivial $\omega$ dependence), screening in crystalline solids (main subject of Chapter~\ref{ch:Screening}) and their nontrivial absorption spectra\todo{some references no?}, plasmons in metals and \bd~materials, such as graphene~\cite{GoncalvesPeres:2016,Novoselov_Geim_2004}, also the effect called Landau damping in the context of kinetic theory in plasmas~\cite{Chen_Plasma_Physics}
 In order to familiarize a reader that has not extensive experience on the dielectric function, we provide in the next subsections two key examples of models for the dielectric function, one in the static limit $\omega \to 0$, and the other one in the local limit $\bk \to 0$.
 Isolating these two limits and considering the dependence on $\bk$ and on $\omega$ separately will be sufficient to realize how illuminating this object can be.
 
-\subsubsection{Static limit in 2D materials}
+\subsubsection{Static limit in a 2D material}
 \label{subsubsec:dielectric_function_static_limit}
 
-In this section we take a \bd material as an example, as this thesis is concerned only with such materials, and we keep our focus on the static and long-wavelength limits of the dielectric function.
+In this section we take a \bd~material as an example, as this thesis is concerned only with such materials, and we keep our focus for now on the static and long-wavelength limits of the dielectric function.
 The main goal is to derive a minimal model that somehow captures the effect of electrostatic screening felt by test point-like charges inside the material.
-We want then to find a function $\vareps(\bk)$ for which the total electrostatic potential felt between two test charges is $\phi(\bk) = \vareps(\bk) v_c(\bk)$, where $v_c(\bk)$ is the Coulomb potential in reciprocal space that the two charges would feel remaining static in vacuum.
+We want then to find a function $\vareps(\bk)$ for which the total electrostatic potential felt between two test charges is $\phi(\bk) = v_c(\bk)/\vareps(\bk)$, where $v_c(\bk)$ is the Coulomb potential in reciprocal space that the two charges would feel remaining static in vacuum.
 We say that $\phi$ is the screened Coulomb potential, and $v_c$ is the bare Coulomb potential.
-In real space, $v_c(\br) = e/4\pi \epsz |\br|$, with $e$ being the elementary charge (electron charge in absolute value)\footnote{In this text we avoid using Gaussian units, we adopt instead the SI system. The Coulomb potential is to be understood in electron-volt (eV), the reason why we have $e$, the elementary charge, in the numerator instead of $e^2$.}.
-To find the screened potential, we.....\todo{post here stuff from LyX notes, see also what I already have in my personal notes.}
+We will present a derivation adapted from P.~Cudazzo et al. in Ref.~\cite{Cudazzo_2011}.
 
+In real space, the Coulomb potential is given by
+
+\begin{equation}
+\label{eq:Coulomb_potential_real_space}
+    v_c(\br) = \frac{e}{4\pi \epsz \qty|\br\,|}\,,
+\end{equation}
+
+
+\noindent with $e$ being the elementary charge (electron charge in absolute value)\footnote{In this text we avoid using Gaussian units, we adopt instead the SI system. The Coulomb potential is to be understood in electron-volt (eV), the reason why we have $e$, the elementary charge, in the numerator instead of $e^2$.}.
+To find the screened potential felt by a test charge $e$ in the material we can make use of Maxwell's equations that we already introduced in Section~\ref{subsec:maxwell_equations}, in particular Gauss' law~\eqref{subeq:Gauss_law} in the form
+
+\begin{equation}
+    \div \bD(\br) = \rho_\ext(\br)\,,
+\end{equation}
+
+\noindent where we dropped the subscript \enquote{$\tot$} for the displacement field, and the external charge density is that of a single point-like elementary charge, that without loss of generality can be placed at the origin.
+Since the charge has no dimensions, we can simply write~$\rho_\ext\left(\br\right)=~e\delta\left(\br\right)$, and for the displacement field we write $\boldsymbol{D}\left(\br\right)=\epsz\boldsymbol{E}\left(\br\right)+\boldsymbol{P}^\BD\left(\br\right)$, where $\boldsymbol{P}^\BD$ is a \bd~polarization vector.
+Assuming that the electric susceptibility is local (i.e., $\chi_e(\br,\br') \propto \delta(\br - \br')$) and the \bd~material is isotropic, the polarizability reads $\boldsymbol{P}^\BD\left(\br\right)=\epsz\chi_e^\BD\boldsymbol{E_{||}}\left(\br\right)|_{z=0}$,
+that is, the polarization is proportional to the in-plane component of the total electric field computed along the plane of the material, that we can put in the $z=0$ plane, and $\chi_e^\BD$ is a \bd~susceptibility.
+Substituting the electric field by the (symmetric of the) gradient of the potential in Gauss' law and the charge density by its Dirac delta like expression, we obtain the following Poisson equation
+
+\begin{equation}
+    \nabla\cdot\left[\nabla\phi\left(\br\right)+\chi_e^\BD\nabla_{||}\phi\left(\br_{||},z=0\right)\right]=-\frac{e}{\epsz}\delta\left(\br\right)\,,
+\end{equation}
+
+\noindent where the in-plane electric field contributing for the polarizability is given in terms of an in-plane gradient operation, $\nabla_{||}$ on the electrostatic potential computed at $z=0$ and at any position vector $\br_{||}$ along the plane.
+Within the approximation of zero thickness we can work with an effective \bd~electrostatic potential in momentum space $\phi^\BD\left(\bq\right)$, defined by the total electrostatic potential computed at the plane's material, that is, $\phi^\BD\left(\bq\right)\equiv\phi\left(\bq,z=0\right)$.
+To find an expression for such a potential, one Fourier transforms the previous equation, keeping the variables for in-plane and out-plane momentum, $q$ and $\kappa$ respectively, separate as:
+
+\begin{equation}
+    \left(q^2+\kappa^2\right)\phi\left(\bq,\kappa\right)+\chi_e^\BD q^2\phi^\BD\left(\bq\right)=\frac{e}{\epsz}\,.
+\end{equation}
+
+\noindent Upon solving the equation above for $\phi\left(\bq,\kappa\right)$, doing the inverse Fourier transform in the $\kappa$ variable back to the variable $z$ and setting $z=0$ we find an equation for the quanitity $\phi^\BD\left(\bq\right)$, that after being isolated reads
+
+\begin{equation}
+\label{eq:RK_potential_momentum}
+    \phi^\BD\left(\bq\right) =\frac{e}{2\epsz q\left(1+r_0 q\right)},\,\text{defining}\,r_0 \equiv \epsz\chi_e^\BD\,.
+\end{equation}
+
+\noindent We call the parameter $r_0$ the screening parameter, and its value depends only on the material.
+This formula contains the expression for the \bd~Fourier transform of the bare Coulomb potential given by
+
+\begin{equation}
+    v_{c}(q)=\frac{e}{2\epsz q}\,,
+\end{equation}
+
+\noindent but corrected with a factor of $1+r_0 q$.
+We can then define an effective momentum-resolved dielectric function, $\varepsilon_\RK\left(q\right) \equiv 1+r_0 q$, called Rytova-Keldysh dielectric function, which accounts for screening in \bd~materials.
+Having previously assumed that the material is isotropic, then it depends only on the magnitude of the in-plane momentum $q = |\bq|$.
+It actually coincides with the static macroscopic dielectric function in \bd~materials in the high-wavelength (small $q$) limit.
+It carries the usual interpretation of being the ratio between the external potential $\phi^\ext\left(\br\right)=\phi_0^\ext\left(\bq\right) \ei{\bq \cdot \br}$ and the total (or screened) potential $\phi^\tot\left(\br\right)=\phi_0^\tot\text{\ensuremath{\left(\bq\right)}}\ei{\bq \cdot \br}$, which has a contribution from the external potential and another one from the potential induced by the external perturbation.
+We actually introduced this interpretation in Section~\ref{subsec:constitutive_relations_linear_response} in terms of fields instead of potentials, but the idea is the same.
+The resulting effective Coulomb potential is called Rytova-Keldysh potential~\cite{Rytova_1967}.
+To obtain the real space resolved Rytova-Keldysh potential, we do the \bd~inverse Fourier transform of~\eqref{eq:RK_potential_momentum} to get
+
+\begin{equation}
+\label{eq:Rytova-Keldysh_potential_real_space}
+    V_\RK (r)=\frac{e}{4\pi\epsz}\frac{\pi}{2r_0}\left[\Hz\left(\frac{r}{r_0}\right)-Y_0\left(\frac{r}{r_0}\right)\right],
+\end{equation}
+
+\noindent where $r$ is a purely in-plane distance, $\Hz$ is the Struve special function of order zero, and $Y_0$ is the Bessel special function of the second kind of order zero.
+To get a feeling for how this potential behaves in real space compared to the bare Coulomb potential, we can make a plot of the both potentials as a function of $r$.
+
+We compare in Figure~\ref{fig:Coulomb_and_RK_potential} the two potentials, the bare Coulomb potential~$v_c(r)$ and the Rytova-Keldysh potential $V_\RK(r)$ as per~\eqref{eq:Rytova-Keldysh_potential_real_space} as a function of the distance $r$.
+For large enough distances, the Coulomb potential and the Rytova-Keldysh potential become closer and closer, meaning that for very large distances the electrostatic potential is not screened at all, and the attractive or repulsive behavior of two test charges is just the same as in vacuum.
+However, for very small distances we see that the potentials have different degrees of divergence.
+The divergence in the Rytova-Keldysh potential is logarithmic, something one can see by taking the small $r$ limit in its expression~\eqref{eq:Rytova-Keldysh_potential_real_space}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Chapters/Figures/Chapter_2/potential_Coulomb_and_Rytova_Keldysh}
+    \mycaption[Bare Coulomb and Rytova-Keldysh potentials in real space.]{Comparison between the bare Coulomb potential (red continuous line) and the Rytova-Keldysh potential (dashed blue line) as a function of the in-plane distance $r$. The dotdashed black curve represents the small $r$ limit of the Rytova-Keldysh potential in Eq.~\eqref{eq:Rytova-Keldysh_potential_real_space}. The value $r_0 = 10\,\mathrm{Å}$ was used.}
+    \label{fig:Coulomb_and_RK_potential}
+\end{figure}
+
+The Rytova-Keldysh potential is a model that captures well enough the electrostatic interaction in \bd~materials, in particular insulating ones.
+Whenever it comes to the interaction the electrons in a given \bd~material, this is the model interaction one should use in order do make accurate predictions.
+How the screening parameter $r_0$ can be estimated will only be left for later, when the necessary tools for so are provided.
+For now this picture is just a classical model with an estimated parameter.
+Nonetheless, it can already capture the nontrivial dependence of the dielectric function on the wave-vector.
+We consider next the opposite limit, where the dielectric function depends only on the frequency, but not on $\bk$.
 
 \subsubsection{Local limit}
 \label{subsubsec:dielectric_function_local_limit}
 
+In this section we provide another model for the dielectric function where we only account for the dependence on the frequency, and take the long-wavelength limit of $\bk \to 0$.
+This approximation is called the local response approximation, which consists in admitting the response function of the material, the permittivity or conductivity, is short-ranged, so that the induced field at a certain point in space depends only on the external field at that same location.
+Symbolically, we can write correspondingly for the permittivity and conductivity $\vareps (\br - \br') = \delta (\br - \br') \vareps^{\mathrm{LRA}} (\omega)$ and $\sigma (\br - \br') = \delta (\br - \br') \sigma^{\mathrm{LRA}} (\omega)$, where the superscript \lra stands for local response approximation.
+Ignoring non-local effects is valid if the wavelength of the optical excitation is much larger than the characteristic length scale of the material.
+One may speak of the typical distance between atoms in a solid, or the Fermi wavelength (the inverse of the Fermi wave-vector), which are quite small, usually in the order of the angstrom.
+In the context of nanophotonics and polaritonics, the typical length scale is of the order of the nanometer, a bit close to the frontier separating classical physics from quantum physics, but this approximation has revealed to be quite accurate in many contexts~\cite{GoncalvesPeres:2016,maier_plasmonics_2007,Hohenester_2020}.
+
+Just for illustrative purposes, we give a typical example of a model for the dielectric function that is commonly used to explain and study the optical properties of metals.
+It is called the (AC) Drude model~\cite{Drude_1900}, often introduced in the form of a conductivity that reads
+
+\begin{equation}
+\label{eq:Drude_conductivity}
+    \sigma(\omega) = \frac{\wp^2 \epsz}{\gamma - \ii \omega}\,,
+\end{equation}
+
+\noindent where $\wp$ is the plasma frequency, a parameter related to the natural frequency of free electron oscillations in a plasma, and $\gamma$ is a relaxation or scattering rate, with $\tau = 1/\gamma$ giving the time scale of consecutive collisions of the electrons with the ions in the lattice, of the order of $10^{-14}$ \unit{\second} in typical metals.
+Together with the interrelation between the conductivity and the permittivity~\eqref{eq:equivalent_permittivity}, we can write the equivalent Drude dielectric function as
+
+\begin{equation}
+\label{eq:Drude_dielectric_function}
+    \vareps(\omega) = 1 - \frac{\wp^2}{\omega^2 + \ii \gamma \omega}\,,
+\end{equation}
+
+\noindent where we omitted the subscript \enquote{$\text{eq}$} on the \gls{lhs}, and used $\vareps(\omega) = 1$ for the bound polarization contribution to the dielectric function.
+This last statement is called the jellium approximation.
+We skip here the derivation of this model, and refer the curious reader to literature where one can find it.
+For instance, possible texts are Refs~\cite{GoncalvesPeres:2016,Simon_Oxford_2013,Ashcroft_and_Mermin}.
+
+Even though we skip its derivation, we can say this model is constructed solely from classical considerations and introduces a phenomenological parameter $\tau$, somehow related to fine details of the material at the microscopic scale we cannot assess (yet).
+Although this model is widely used in the literature to describe simple metals (alkali for instance) at low enough frequencies, it is bad in describing the optical properties of dielectric materials that have characteristic resonant frequencies, or phenomena associated to resonant frequencies that metals might display at higher frequencies.
+
+To describe the electrodynamics of non-metallic systems, we can use models based on Lorentzian oscillators.
+Once more we skip the derivation, and refer the reader to the literature once more, for instance to Ref.~\cite{Jackson:electrodynamics}.
+The Lorentz model for the dielectric function reads
+
+\begin{equation}
+    \vareps (\omega) = 1 + \sum_{j} \frac{f_j}{\omega_j^2 - \omega^2 - \ii \Gamma_j \omega}\,,
+\end{equation}
+
+\noindent where the sum is over all the oscillators, $f_j$ is the oscillation strength, $\omega_j$ the resonant frequency, and $\Gamma_j$ the damping parameter\footnote{The way we wrote it here, it hides parameters of the material that are common to all oscillators in the oscillator strength. For briefness we just wrote the model as simple as possible.}.
+Albeit we do not work with this model in this thesis, it is useful to motivate the type of dynamical dielectric function, or factually conductivity we will find later on.
+Instead of having a quadratic dependence on the frequency, we will find a linear dependence on the frequency as
+
+\begin{equation}
+    \sigma(\omega) = -\ii \sigma_0 \sum_j \qty[ \frac{f_j}{\omega_j -  \omega - \ii \Gamma_j} + \frac{f^*_j}{\omega_j + \omega - \ii \Gamma_j}]\,,
+\end{equation}
+
+\noindent where $\sigma_0$ is a characteristic conductivity, and once more $f_j$ and $\Gamma_j$ are oscillation strengths and damping rates, respectively.
+At this moment, we have to be satisfied with the fact that these parameters are only adjustable parameters that can be obtained from fitting to experimental data.
+I can say though, that these parameters hide very rich physics to be unveiled in the next chapters, just like in the case of section~\ref{subsubsec:dielectric_function_static_limit} where we introduced the adhoc parameter $r_0$.
+I beg then for the reader's patience.
+
+Using only concepts introduced in this chapter, we devote the next section to a key topic within the realm of electrodynamics, pertaining to the interaction of light with matter, still through the lens of classical physics.
+We shall present a light-matter hybrid, the quasi-particle called polariton.
 
 \section{Fundamentals of Polaritonics}
 \label{sec:polaritonics_fundamentals}
@@ -228,12 +369,6 @@ To find the screened potential, we.....\todo{post here stuff from LyX notes, see
 
 \subsection{Material absorption, reflection and transmission}
 \label{subsec:polaritonics_absorption}
-
-
-
-
-
-
 
 
 
