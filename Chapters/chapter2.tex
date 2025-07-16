@@ -273,7 +273,8 @@ It actually coincides with the static macroscopic dielectric function in \bd~mat
 It carries the usual interpretation of being the ratio between the external potential $\phi^\ext\left(\br\right)=\phi_0^\ext\left(\bq\right) \ei{\bq \cdot \br}$ and the total (or screened) potential $\phi^\tot\left(\br\right)=\phi_0^\tot\text{\ensuremath{\left(\bq\right)}}\ei{\bq \cdot \br}$, which has a contribution from the external potential and another one from the potential induced by the external perturbation.
 We actually introduced this interpretation in Section~\ref{subsec:constitutive_relations_linear_response} in terms of fields instead of potentials, but the idea is the same.
 The resulting effective Coulomb potential is called Rytova-Keldysh potential~\cite{Rytova_1967}.
-To obtain the real space resolved Rytova-Keldysh potential, we do the \bd~inverse Fourier transform of~\eqref{eq:RK_potential_momentum} to get
+
+To find the real space resolved Rytova-Keldysh potential, we do the \bd~inverse Fourier transform of~\eqref{eq:RK_potential_momentum} to get
 
 \begin{equation}
 \label{eq:Rytova-Keldysh_potential_real_space}
@@ -312,17 +313,17 @@ In this approximation, the displacement field is simply given by
 
 \begin{equation}
 \label{eq:displacement_field_LRA}
-    \bD(\omega) = \epsz \vareps^{\mathrm{LRA}} (\omega) \bE(\br,\omega)\,,
+    \bD(\omega) = \epsz \vareps^{\mathrm{LRA}} (\omega) \bE(\omega)\,,
 \end{equation}
 
-that together with Ohm's law
+\noindent that together with Ohm's law
 
 \begin{equation}
 \label{eq:Ohms_law_LRA}
-    \bJ_\ind(\omega) = \sigma^{\mathrm{LRA}} (\omega) \bE(\br,\omega)\,
+    \bJ_\ind(\omega) = \sigma^{\mathrm{LRA}} (\omega) \bE(\omega)\,
 \end{equation}
 
-form the necessary constitutive relations.
+\noindent form the necessary constitutive relations.
 
 Ignoring non-local effects is valid if the wavelength of the optical excitation is much larger than the characteristic length scales of the material.
 One may speak of the typical distance between atoms in a solid, or the Fermi wavelength (the inverse of the Fermi wave-vector), which are quite small, usually in the order of the angstrom.
