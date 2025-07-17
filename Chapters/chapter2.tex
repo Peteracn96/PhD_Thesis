@@ -1,4 +1,4 @@
-%!TEX root = ../template.tex %
+\usepackage{glossaries}%!TEX root = ../template.tex %
 % !TeX spellcheck = en_US
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% chapter2.tex
@@ -206,7 +206,7 @@ This interpretation is the cornerstone of the theory around the dielectric funct
 It is actually introduced like this in introductory electromagnetism courses, appearing usually as a single constant relative permittivity denoted by $\vareps_r$ in the denominator in Coulomb's law for the electrostatic force.
 In bulk materials, it is typically sufficient to speak of the relative permittivity as a constant of the bulk material.
 Unfortunately (or the opposite), it is in general a very complicated function of space and time, nonetheless working in reciprocal space seems to ease things.
-This is a striking feature of \bd~materials, where the dependence on $\bk$ and $\omega$ cannot be ignored, even encoding rich physics such as spatial dispersion (nontrivial $\bk$ dependence), time dispersion (nontrivial $\omega$ dependence), screening in crystalline solids (main subject of Chapter~\ref{ch:Screening}) and their nontrivial absorption spectra\todo{some references no?}, plasmons in metals and \bd~materials, such as graphene~\cite{GoncalvesPeres:2016,Novoselov_Geim_2004}, also the effect called Landau damping in the context of kinetic theory in plasmas~\cite{Chen_Plasma_Physics}
+This is a striking feature of \bd~materials, where the dependence on $\bk$ and $\omega$ cannot be ignored, even encoding rich physics such as spatial dispersion (nontrivial $\bk$ dependence), time dispersion (nontrivial $\omega$ dependence), screening in crystalline solids (main subject of Chapter~\ref{ch:Screening}) and their nontrivial absorption spectra\todo{some references no?}, plasmons in metals and \bd~materials, such as graphene~\cite{GoncalvesPeres:2016,Novoselov_Geim_2004}, also the effect called Landau damping in the context of kinetic theory in plasmas~\cite{Chen_Plasma_Physics}.
 In order to familiarize a reader that has not extensive experience on the dielectric function, we provide in the next subsections two key examples of models for the dielectric function, one in the static limit $\omega \to 0$, and the other one in the local limit $\bk \to 0$.
 Isolating these two limits and considering the dependence on $\bk$ and on $\omega$ separately will be sufficient to realize how illuminating this object can be.
 
@@ -374,7 +374,12 @@ At this moment, we have to be satisfied with the fact that these parameters are 
 I can say though, that these parameters hide very rich physics to be unveiled in the next chapters, just like in the case of section~\ref{subsubsec:dielectric_function_static_limit} where we introduced the adhoc parameter $r_0$.
 I beg then for the reader's patience.
 
-Using only concepts introduced in this chapter, we devote the next section to a key topic within the realm of electrodynamics, pertaining to the interaction of light with matter, still through the lens of classical physics.
+Now finding a simple enough analytical expression for the dielectric function that encompasses both non-local and dynamical effects is a daunting task, but it can still be done for a couple of cases.
+One striking example is the Lindhard function, the dielectric function for the \gls{3d} homogeneous non-interacting electron gas, derived by the Danish physicist Jens Lindhard who coined the name of the function in 1954~\cite{Lindhard_1954}.
+For the reader more inclined towards hydrodynamical and kinetic theories of \bd materials and plasmas, we refer to Refs.~\cite{Chen_Plasma_Physics,Cosme_2025}, where one can find a mesoscopic approaches to the dielectric and plasmonic properties of Dirac materials, for which analytical or semi-analytical expressions for the dielectric function may be found.
+Another thorough text on plasmonic properties of Dirac materials is Ref.~\cite{GoncalvesPeres:2016}.
+
+Using only concepts introduced in this chapter, in the next section we turn to a key topic within the realm of electrodynamics that has been gaining traction in the scientific community, pertaining to the interaction of light with matter, still through the lens of classical physics.
 We shall present a light-matter hybrid, the quasi-particle called polariton.
 
 \section{Fundamentals of Polaritonics}
