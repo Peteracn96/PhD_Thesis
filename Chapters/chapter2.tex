@@ -49,7 +49,7 @@ The four central equations of classical electrodynamics, which govern the dynami
 \noindent In the previous system of equations, the vector fields $\bE$ and $\bB$ are called the electric and magnetic induction fields, respectively.
 We will simply denote the latter by magnetic field.
 These two fields are the fundamental physical quantities in electromagnetism with a physical meaning, unlike the vector fields $\bD$ and $\bH$ called electric displacement and magnetic excitation fields, respectively, that are mathematical identities with no physical interpretation.
-They are introduced to make implicit in Maxwell's equations the matter properties the \em field penetrates in, nonetheless, they are strictly related to the electric and magnetic fields, as we will see.
+They are introduced to make implicit in Maxwell's equations the matter properties the electromagnetic field penetrates in, nonetheless, they are strictly related to the electric and magnetic fields, as we will see.
 The last two quantities to define are the free charge (volume) density $\rho_\f$ and the free current (surface) density $\bJ_\f$, that together with the bound charge density $\rho_\b$ and the bound current density $\bJ_\b$, respectively, form the total charge and current densities inside the material.
 The free charge and current densities are not independent, as they are related through the continuity equation
 
@@ -69,7 +69,7 @@ With all these equations in hand, one in principle can solve any problem in elec
 One just would need to know how in fact the material properties determine the polarization density, and the magnetization density if the material is magnetic.
 However, before we dwell on material properties, we will see in the next section how the global form of Maxwell's equations can give insight into solving problems in electrodynamics where the system under study involves more than one material and their interfaces.
 From a technical point of view, Maxwell's equations in their local form are not useful in these cases where one has material discontinuities, as taking spatial derivatives is not possible (or introduces unwished infinities).
-In that situation one then needs to set proper boundary conditions to find the \em field at all points in space and all time instants.
+In that situation one then needs to set proper boundary conditions to find the electromagnetic field at all points in space and all time instants.
 
 \subsection{Boundary conditions at an interface}
 \label{subsec:boundary_conditions}
@@ -94,10 +94,10 @@ By doing so, we can relate the fields on each side 1 and 2 of the interface, res
 The quantities $\sigma_s$ and $\bj_s$ account for any charge flow that might exist at the interface.
 If it consists simply of a surface separating two different media, then in principle $\sigma_s = 0$ and $\bj_s = 0$.
 However, if on the interface we have a material of arbitrary small thickness, or if the interface is itself the existence of the material separating two infinite regions of vacuum, then in general we have to account for the physics of its optical response and cannot ignore $\sigma_s$ and $\bj_s$.
-If surface charge and current densities are not null, then naturally they satisfy the continuity equation $\sigma_s + \partial \bj_s/\partial t = 0$.
+If surface charge and current densities are not null, then naturally they satisfy the continuity equation $\div \bj_s + \partial_t \sigma_s = 0$.
 A striking example is that of graphene, either by itself or at a boundary between a dielectric and a metal~\cite{GoncalvesPeres:2016}.
 In this work, we focus on dielectric \gls{2d} materials, also termed insulators, and on their optical properties.
-These can be quantified by the optical conductivity, or as we will see, by the dielectric function in an equivalent way, as we shall explain in the next section.
+These can be quantified by the dielectric function, or as we shall explain in the next section, by the conductivity in an equivalent way.
 
 \section{Material Properties: Classical Picture}
 \label{sec:dielectric_function_classical}
@@ -160,13 +160,14 @@ With the tools provided by classical electrodynamics, one can only hope to work 
 We provide a few case examples of models commonly found in the literature in the next sections.
 
 Before we proceed, it is worthy to remind the reader that in electromagnetism considers charge currents as a result from an application of an external electric field.
-The relation between the electric field and the induced current is quantified by the famous (local and generalised) Ohm's law, that assuming time and space translational invariance and isotropy as well, reads
+The relation between the electric field and the induced current is quantified by the famous (local and generalised) Ohm's law, that when assuming time and space translational invariance\footnote{Until the time when it will become relevant, we will not explicitly say that the invariance is continuous. In the context of solid state physics, translational invariance is discrete instead.} and isotropy as well, reads
 
 \begin{equation}
     \bJ_\ind\qty(\br,t) = \int \dr \int \dd{t'} \sigma\qty(\br - \br'; t - t') \bE\qty(\br',t')\,,
 \end{equation}
 
 \noindent where $\sigma$ is the conductivity of the material (that can assume a tensorial form, just like the permittivity), and accounts for the excitation of free charges due to the applied electric field.
+It is a non-null conductivity that leads to losses by Joule effect (apart from the particular case of superconductivity).
 We introduce this quantity here, as it can be useful in electrodynamics to account simultaneously for a material's dielectric response and its conductivity in a single effective dielectric function.
 Let us then rewrite Maxwell's equations~\eqref{eq:Maxwells_equations} in reciprocal space and frequency domain by Fourier transforming them (or equivalently, assuming a dependence of the form $\bF(\br,t) = \bF_0 \ei[-]{(\omega t - \bk \cdot \br)}$ for all the fields)
 
@@ -227,7 +228,7 @@ In real space, the Coulomb potential is given by
 \end{equation}
 
 
-\noindent with $e$ being the elementary charge (electron charge in absolute value)\footnote{In this text we avoid using Gaussian units, we adopt instead the SI system. The Coulomb potential is to be understood in electron-volt (eV), the reason why we have $e$, the elementary charge, in the numerator instead of $e^2$.}.
+\noindent with $e$ being the elementary charge (electron charge in absolute value)\footnote{In this text we avoid using Gaussian units, adopting the SI system instead. The Coulomb potential is to be understood in electron-Volt (eV), the reason why we have $e$, the elementary charge, in the numerator instead of $e^2$. We call it potential, even though it has units of energy. Throughout this text potential and energy are interchangeable when speaking of the Coulomb interaction.}.
 To find the screened potential felt by a test charge $e$ in the material we can make use of Maxwell's equations that we already introduced in Section~\ref{subsec:maxwell_equations}, in particular Gauss' law~\eqref{subeq:Gauss_law} in the form
 
 \begin{equation}
@@ -252,7 +253,7 @@ To find an expression for such a potential, one Fourier transforms the previous 
     \left(q^2+\kappa^2\right)\phi\left(\bq,\kappa\right)+\chi_e^\BD q^2\phi^\BD\left(\bq\right)=\frac{e}{\epsz}\,.
 \end{equation}
 
-\noindent Upon solving the equation above for $\phi\left(\bq,\kappa\right)$, doing the inverse Fourier transform in the $\kappa$ variable back to the variable $z$ and setting $z=0$ we find an equation for the quanitity $\phi^\BD\left(\bq\right)$, that after being isolated reads
+\noindent Upon solving the equation above for $\phi\left(\bq,\kappa\right)$, doing the inverse Fourier transform in the $\kappa$ variable back to the variable $z$ and setting $z=0$ we find an equation for the quantitity $\phi^\BD\left(\bq\right)$, that after being isolated reads
 
 \begin{equation}
 \label{eq:RK_potential_momentum}
@@ -260,7 +261,7 @@ To find an expression for such a potential, one Fourier transforms the previous 
 \end{equation}
 
 \noindent We call the parameter $r_0$ the screening parameter, and its value depends only on the material.
-This formula contains the expression for the \bd~Fourier transform of the bare Coulomb potential given by
+This formula contains the expression for the \bd~Fourier transform of the bare Coulomb potential given by\footnote{We emphasize that this expression does not have units of energy, which can be traced to the used definition of Fourier transform in this chapter. That can be fixed by simply dividing by the area of the total system. It poses not a problem, as long as the final calculated quantity of interest has the right dimensions.}\todo{have to define somewhere the Fourier transforms}
 
 \begin{equation}
     v_{c}(q)=\frac{e}{2\epsz q}\,,
@@ -286,13 +287,12 @@ To get a feeling for how this potential behaves in real space compared to the ba
 
 We compare in Figure~\ref{fig:Coulomb_and_RK_potential} the two potentials, the bare Coulomb potential~$v_c(r)$ and the Rytova-Keldysh potential $V_\RK(r)$ as per~\eqref{eq:Rytova-Keldysh_potential_real_space} as a function of the distance $r$.
 For large enough distances, the Coulomb potential and the Rytova-Keldysh potential become closer and closer, meaning that for very large distances the electrostatic potential is not screened at all, and the attractive or repulsive behavior of two test charges is just the same as in vacuum.
-However, for very small distances we see that the potentials have different degrees of divergence.
-The divergence in the Rytova-Keldysh potential is logarithmic, something one can see by taking the small $r$ limit in its expression~\eqref{eq:Rytova-Keldysh_potential_real_space}.
+However, for very small distances we see that the potentials have different degrees of divergence, with the divergence of the Rytova-Keldysh potential being logarithmic (to see it just take the small $r$ limit in expression~\eqref{eq:Rytova-Keldysh_potential_real_space}).
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{Chapters/Figures/Chapter_2/potential_Coulomb_and_Rytova_Keldysh}
-    \mycaption[Bare Coulomb and Rytova-Keldysh potentials in real space.]{Comparison between the bare Coulomb potential (red continuous line) and the Rytova-Keldysh potential (dashed blue line) as a function of the in-plane distance $r$. The dotdashed black curve represents the small $r$ limit of the Rytova-Keldysh potential in Eq.~\eqref{eq:Rytova-Keldysh_potential_real_space}. The value $r_0 = 10\,\mathrm{Å}$ was used.}
+    \mycaption[Bare Coulomb and Rytova-Keldysh potentials in real space.]{Comparison between the bare Coulomb potential (red continuous line) and the Rytova-Keldysh potential (dashed blue line) as a function of the in-plane distance $r$. The dotdashed black curve represents the small $r$ limit of the Rytova-Keldysh potential in Eq.~\eqref{eq:Rytova-Keldysh_potential_real_space}. The value $r_0 = 10$ \unit{\angstrom}  was used.}
     \label{fig:Coulomb_and_RK_potential}
 \end{figure}
 
@@ -361,7 +361,7 @@ The Lorentz model for the dielectric function reads
     \vareps (\omega) = 1 + \sum_{j} \frac{f_j}{\omega_j^2 - \omega^2 - \ii \Gamma_j \omega}\,,
 \end{equation}
 
-\noindent where the sum is over all the oscillators, $f_j$ is the oscillation strength, $\omega_j$ the resonant frequency, and $\Gamma_j$ the damping parameter\footnote{The way we wrote it here, it hides parameters of the material that are common to all oscillators in the oscillator strength. For briefness we just wrote the model as simple as possible.}.
+\noindent where the sum is over all the oscillators, $f_j$ is the oscillation strength, $\omega_j$ the resonant frequency, and $\Gamma_j$ the damping parameter\footnote{The way we wrote it here, it hides parameters of the material that are common to all oscillators in the oscillator strength. For briefness, we keep the model as simple as possible.}.
 Albeit we do not work with this model in this thesis, it is useful to motivate the type of dynamical dielectric function, or factually conductivity we will find later on.
 Instead of having a quadratic dependence on the frequency, we will find a linear dependence on the frequency as
 
@@ -378,6 +378,7 @@ Now finding a simple enough analytical expression for the dielectric function th
 One striking example is the Lindhard function, the dielectric function for the \gls{3d} homogeneous non-interacting electron gas, derived by the Danish physicist Jens Lindhard who coined the name of the function in 1954~\cite{Lindhard_1954}.
 For the reader more inclined towards hydrodynamical and kinetic theories of \bd materials and plasmas, we refer to Refs.~\cite{Chen_Plasma_Physics,Cosme_2025}, where one can find a mesoscopic approaches to the dielectric and plasmonic properties of Dirac materials, for which analytical or semi-analytical expressions for the dielectric function may be found.
 Another thorough text on plasmonic properties of Dirac materials is Ref.~\cite{GoncalvesPeres:2016}.
+Another honorable mention is the hydrodynamic Drude model~\cite{Bloch_1933}, a non-local extension of the Drude model from the hydrodynamic equations of motion of the electron gas, seen as a charged fluid moving in the ionic positive background of a metal.
 
 Using only concepts introduced in this chapter, in the next section we turn to a key topic within the realm of electrodynamics that has been gaining traction in the scientific community, pertaining to the interaction of light with matter, still through the lens of classical physics.
 We shall present a light-matter hybrid, the quasi-particle called polariton.
@@ -385,8 +386,12 @@ We shall present a light-matter hybrid, the quasi-particle called polariton.
 \section{Fundamentals of Polaritonics}
 \label{sec:polaritonics_fundamentals}
 
+\todo[inline]{Maybe a word on plasmons?}
+
 \subsection{Dispersion relation of polaritonic modes}
 \label{subsec:polaritonics_dispersion_relation}
+
+
 
 \subsection{Material absorption, reflection and transmission}
 \label{subsec:polaritonics_absorption}
