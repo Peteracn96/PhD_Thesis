@@ -62,7 +62,26 @@ The free charge and current densities are not independent, as they are related t
 The free charge and current densities can in turn be split into an external part, which is the one externally applied on the material, and an induced part resulting from the material response to the external perturbation.
 Symbolically, $\rho_\tot = \rho_\f + \rho_\b$ and $\bJ_\tot = \bJ_\f + \bJ_\b$ for the charge and current densities, respectively.
 The continuity equation is also verified by the bound charge, $\rho_\b$, and current, $\bJ_\b$, densities, and consequently, also by its respective total quantities.
-As said above, the fundamental fields $\bE$ and $\bB$ are connected to the fields $\bD$ and $\bH$, respectively, through a set of two equations called constitutive relations given by $\bD = \epsz \bE + \bP$ and $\bB = \mu_0 \qty(\bH + \bM)$\footnote{This asymmetry in the constitutive relations is in fact due to a historical mistake, as it was believed that it was actually the vector field $\bH$ that had physical meaning instead of the $\bB$ one.}, where $\bP$ is the bound polarization volume density and $\bM$ the bound magnetization volume density, and the parameters $\epsz$ and $\mu_0$ are the vacuum electric permittivity and the vacuum magnetic permeability, correspondingly.
+As said above, the fundamental fields $\bE$ and $\bB$ are connected to the fields $\bD$ and $\bH$, respectively, through a set of two equations called constitutive relations given by
+
+
+\begin{equation}
+    \label{eq:constitutive_relation_electric_field}
+    \bD = \epsz \bE + \bP
+\end{equation}
+
+
+
+and\footnote{This asymmetry in the constitutive relations is in fact due to a historical mistake, as it was believed that it was actually the vector field $\bH$ that had physical meaning instead of the $\bB$ one.}
+
+\begin{equation}
+    \label{eq:constitutive_relation_magnetic_field}
+    \bB = \mu_0 \qty(\bH + \bM)\,,
+\end{equation}
+
+
+
+\noindent where $\bP$ is the bound polarization volume density and $\bM$ the bound magnetization volume density, and the parameters $\epsz$ and $\mu_0$ are the vacuum electric permittivity and the vacuum magnetic permeability, correspondingly.
 Within the scope of this work, we study only materials with no magnetic response in optical frequencies nor with permanent magnetization, so that $\bM = \bzero$ and $\bB \qty(\br,t)  = \mu_0 \bH \qty(\br,t)$ will always hold.
 
 With all these equations in hand, one in principle can solve any problem in electrodynamics in a continuous medium.
@@ -78,17 +97,25 @@ In this section we consider a planar infinite interface between two different me
 This separation in space may introduce discontinuities in the vector fields $\bE$, $\bD$, $\bB$ and $\bH$, which can be determined by applying pill-box arguments to Maxwell's equations in their integral form~\cite{Jackson:electrodynamics,Griffiths_2023}.
 By doing so, we can relate the fields on each side 1 and 2 of the interface, respectively $\bm{F}_1$ and $\bm{F}_1$ with $\bm{F} \in \{\bE,\bD,\bB,\bH\}$, by the following boundary conditions:
 
-\begin{align}
-    \bn_{12} \times (\bE_2 - \bE_1) &= \bzero \label{eq:boundary_condition_E} \\
-    \bn_{12} \times (\bH_2 - \bH_1) &= \bj_s \label{eq:boundary_condition_H}
-\end{align}
+\begin{subequations}
+    \label{eq:boundary_conditions_tangential}
+    \begin{align}
+        \bn_{12} \times (\bE_2 - \bE_1) &= \bzero \label{eq:boundary_condition_E} \\
+        \bn_{12} \times (\bH_2 - \bH_1) &= \bj_s \label{eq:boundary_condition_H}
+    \end{align}
+\end{subequations}
+
 
 \noindent for the tangential components of the electric and magnetic excitation fields where $\bj_s$ is a sheet current density, respectively, and
 
-\begin{align}
-    \bn_{12} \cdot (\bD_2 - \bD_1) &= \sigma_s \label{eq:boundary_condition_D} \\
-    \bn_{12} \cdot (\bB_2 - \bB_1) &= 0\,, \label{eq:boundary_condition_B}
-\end{align}
+\begin{subequations}
+    \label{eq:boundary_conditions_perpendicular}
+    \begin{align}
+        \bn_{12} \cdot (\bD_2 - \bD_1) &= \sigma_s \label{eq:boundary_condition_D} \\
+        \bn_{12} \cdot (\bB_2 - \bB_1) &= 0\,, \label{eq:boundary_condition_B}
+    \end{align}
+\end{subequations}
+
 
 \noindent for the normal components of the electric displacement and magnetic fields, respectively, where $\sigma_s$ is a surface charge density, and $\bn_{12}$ is the versor normal to the interface pointing from medium 1 to medium 2.
 The quantities $\sigma_s$ and $\bj_s$ account for any charge flow that might exist at the interface.
@@ -147,7 +174,7 @@ This property is extremely useful, as per the convolution theorem, we can perfor
 \end{equation}
 
 \noindent If we now further assume that the material is homogeneous, which is a reasonable approximation at the macroscopic scale, then the system enjoys \textit{continuous} spatial translational invariance, and the permittivity becomes a function solely of the difference $\br-\br'$.
-One can show that if this is true, then we can Fourier transform the permittivity from real to reciprocal space keeping only one wave-vector (or momentum, in the language of solid state physics) variable $\bk$, and through direct application of the convolution theorem once more, we can write down
+One can show that if this is true, then we can Fourier transform the permittivity from real to reciprocal space keeping only one wavevector (or momentum, in the language of solid state physics) variable $\bk$, and through direct application of the convolution theorem once more, we can write down
 
 \begin{equation}
     \bD\qty(\bk,\omega) = \epsz \vareps\qty(\bk, \omega) \bE\qty(\bk,\omega)\,,
@@ -174,9 +201,9 @@ Let us then rewrite Maxwell's equations~\eqref{eq:Maxwells_equations} in recipro
 \begin{subequations}
     \begin{align}
         \ii \bk \cdot \bD(\bk,\omega) &= \rho_\f(\bk,\omega) \label{subeq:Gauss_law_reciprocal} \\
-        \ii \bk \times \bE(\bk,\omega) &= -\ii \omega \bB(\bk,\omega) \\
-        \ii \bk \cdot \bB(\bk,\omega) &= 0 \\
-        \ii \bk \times \bH(\bk,\omega) &= \bJ_\f(\bk,\omega) - \ii \omega \epsz \vareps (\bk,\omega) \bE(\bk,\omega)\,,
+        \ii \bk \times \bE(\bk,\omega) &= -\ii \omega \bB(\bk,\omega) \label{subeq:Faradays_law_reciprocal}\\
+        \ii \bk \cdot \bB(\bk,\omega) &= 0 \label{subeq:no_magnetic_monopoles_reciprocal}\\
+        \ii \bk \times \bH(\bk,\omega) &= \bJ_\f(\bk,\omega) - \ii \omega \epsz \vareps (\bk,\omega) \bE(\bk,\omega)\,, \label{subeq:Amperes_law_reciprocal}
     \end{align}
 \end{subequations}
 
@@ -185,11 +212,12 @@ Let us then rewrite Maxwell's equations~\eqref{eq:Maxwells_equations} in recipro
 
 
 
-\begin{align}
+\begin{align*}
+    \label{subeq:Amperes_law_reciprocal_equivalent}
     \ii \bk \times \bH(\bk,\omega) &= \bJ_\ext(\bk,\omega) + \sigma(\bk,\omega) \bE(\bk,\omega) - \ii \omega \vareps (\bk,\omega) \bE(\bk,\omega) \\
     &=\bJ_\ext(\bk,\omega) - \ii \omega \qty[\vareps (\bk,\omega) +\ii \frac{\sigma(\bk,\omega)}{\omega \epsz}] \bE(\bk,\omega) \equiv \\
-    &\equiv \bJ_\ext(\bk,\omega)  -\ii \omega \vareps_{\text{eq}}(\bk,\omega) \bE(\bk,\omega)\,,
-\end{align}
+    &\equiv \bJ_\ext(\bk,\omega)  -\ii \omega \epsz \vareps_{\text{eq}}(\bk,\omega) \bE(\bk,\omega)\,,
+\end{align*}
 
 
 \noindent where in the previous equation we defined the equivalent permittivity\footnote{The function $\vareps (\bk,\omega)$ on the \gls{rhs} has quite often in the literature a subscript writing $\vareps_\infty(\bk,\omega)$, standing for the contribution coming from the ionic background together with bound polarization charges.}
@@ -300,7 +328,7 @@ The Rytova-Keldysh potential is a model that captures well enough the electrosta
 Whenever it comes to the interaction the electrons in a given \bd~material, this is the model interaction one should use in order do make accurate predictions.
 How the screening parameter $r_0$ can be estimated will only be left for later, when the necessary tools for so are provided.
 For now this picture is just a classical model with an estimated parameter.
-Nonetheless, it can already capture the nontrivial dependence of the dielectric function on the wave-vector.
+Nonetheless, it can already capture the nontrivial dependence of the dielectric function on the wavevector.
 We consider next the opposite limit, where the dielectric function depends only on the frequency, but not on $\bk$.
 
 \subsubsection{Local limit}
@@ -308,7 +336,7 @@ We consider next the opposite limit, where the dielectric function depends only 
 
 In this section we provide another model for the dielectric function where we only account for the dependence on the frequency, and take the long-wavelength limit of $\bk \to 0$.
 This approximation is called the local response approximation, which consists in admitting the response function of the material, the permittivity or conductivity, is short-ranged, so that the induced field at a certain point in space depends only on the external field at that same location.
-Symbolically, we can write correspondingly for the permittivity and conductivity $\vareps (\br - \br') = \delta (\br - \br') \vareps^{\mathrm{LRA}} (\omega)$ and $\sigma (\br - \br') = \delta (\br - \br') \sigma^{\mathrm{LRA}} (\omega)$, where the superscript \lra stands for local response approximation.
+Symbolically, we can write correspondingly for the permittivity and conductivity $\vareps (\br - \br') = \delta (\br - \br') \vareps^{\mathrm{LRA}} (\omega)$ and $\sigma (\br - \br') = \delta (\br - \br') \sigma^{\mathrm{LRA}} (\omega)$, where the superscript \lra~stands for local response approximation.
 In this approximation, the displacement field is simply given by
 
 \begin{equation}
@@ -326,7 +354,7 @@ In this approximation, the displacement field is simply given by
 \noindent form the necessary constitutive relations.
 
 Ignoring non-local effects is valid if the wavelength of the optical excitation is much larger than the characteristic length scales of the material.
-One may speak of the typical distance between atoms in a solid, or the Fermi wavelength (the inverse of the Fermi wave-vector), which are quite small, usually in the order of the angstrom.
+One may speak of the typical distance between atoms in a solid, or the Fermi wavelength (the inverse of the Fermi wavevector), which are quite small, usually in the order of the angstrom.
 In the context of nanophotonics and polaritonics, the typical length scale is of the order of the nanometer, a bit close to the frontier separating classical physics from quantum physics, but this approximation has revealed to be quite accurate in many contexts~\cite{GoncalvesPeres:2016,maier_plasmonics_2007,Hohenester_2020}.
 
 Just for illustrative purposes, we give a typical example of a model for the dielectric function, commonly used to explain and study the optical properties of metals.
@@ -376,9 +404,9 @@ I beg then for the reader's patience.
 
 Now finding a simple enough analytical expression for the dielectric function that encompasses both non-local and dynamical effects is a daunting task, but it can still be done for a couple of cases.
 One striking example is the Lindhard function, the dielectric function for the \gls{3d} homogeneous non-interacting electron gas, derived by the Danish physicist Jens Lindhard who coined the name of the function in 1954~\cite{Lindhard_1954}.
-For the reader more inclined towards hydrodynamical and kinetic theories of \bd materials and plasmas, we refer to Refs.~\cite{Chen_Plasma_Physics,Cosme_2025}, where one can find a mesoscopic approaches to the dielectric and plasmonic properties of Dirac materials, for which analytical or semi-analytical expressions for the dielectric function may be found.
+For the reader more inclined towards hydrodynamical and kinetic theories of \bd~materials and plasmas, we refer to Refs.~\cite{Chen_Plasma_Physics,Cosme_2025}, where one can find a mesoscopic approaches to the dielectric and plasmonic properties of Dirac materials, for which analytical or semi-analytical expressions for the dielectric function may be found.
 Another thorough text on plasmonic properties of Dirac materials is Ref.~\cite{GoncalvesPeres:2016}.
-Another honorable mention is the hydrodynamic Drude model~\cite{Bloch_1933}, a non-local extension of the Drude model from the hydrodynamic equations of motion of the electron gas, seen as a charged fluid moving in the ionic positive background of a metal.
+Another honorable mention is the hydrodynamic Drude model~\cite{Bloch_1933,Andre_Goncalves_2020}, a non-local extension of the Drude model from the hydrodynamic equations of motion of the electron gas, seen as a charged fluid moving in the ionic positive background of a metal.
 
 Using only concepts introduced in this chapter, in the next section we turn to a key topic within the realm of electrodynamics that has been gaining traction in the scientific community, pertaining to the interaction of light with matter, still through the lens of classical physics.
 We shall present a light-matter hybrid, the quasi-particle called polariton.
@@ -386,10 +414,263 @@ We shall present a light-matter hybrid, the quasi-particle called polariton.
 \section{Fundamentals of Polaritonics}
 \label{sec:polaritonics_fundamentals}
 
-\todo[inline]{Maybe a word on plasmons?}
+In this part of the chapter, we dwell on polaritons: a polariton is a light-matter hybrid, resulting from the coupling of a dipolar matter excitation occurring in the plane that is an interface between two media, with the surrounding electromagnetic field.
+The result is a transversal electromagnetic mode that propagates in-plane but is ultra-confined along the off-plane direction.
+These modes can be predicted by simply trying a specific \textit{ansatz} solution on Maxwell's equations~\eqref{eq:Maxwells_equations} describing the situation above, complemented by the boundary conditions dictated by~\eqref{eq:boundary_conditions_tangential} and~\eqref{eq:boundary_conditions_perpendicular}, and the constitutive relations~\eqref{eq:constitutive_relation_electric_field} and \eqref{eq:constitutive_relation_magnetic_field}.
+Before doing so, we will warm up by deriving the wave equation for the electromagnetic field in matter and introduce useful concepts for later on.
+
+
+\subsection{Electromagnetic wave propagation in matter}
+\label{subsec:waves_in_matter}
+
+It is well known that light propagates in vacuum at a very specific speed, the speed of light in vacuum $c=1/\sqrt{\epsz \mu_0}$, like a wave, where the electric field and the magnetic field oscillate in phase at a given frequency, $\omega$, and with a given wavevector $\bk$ giving the direction of propagation.
+The electric field $\bE$, the magnetic field $\bB$ and the wavevector $\bk$ form a direct trihedron, that is, they verify orthogonality conditions akin to the three cartesian axes.
+These transverse oscillations can be predicted by Maxwell's equations~\eqref{eq:Maxwells_equations} upon taking the cross product with $\bk$ from the left with to Faraday's law~\eqref{subeq:Faradays_law_reciprocal} and Ampère-Maxwell's law~\eqref{subeq:Amperes_law_reciprocal} in reciprocal space to write
+
+\begin{subequations}
+    \label{eq:wave_equation}
+    \begin{align}
+        \bk \times \qty[\bk \times \bE(\bk,\omega)] &= - \omega \bk \times \bB(\bk,\omega)\,, \label{subeq:Faradays_law_crossed}\\
+        \bk \times \qty[\bk \times \bB(\bk,\omega)] &= -\ii \sigma(\bk,\omega) \bk \times \bE(\bk,\omega) - \omega \epsz \mu_0 \vareps(\bk,\omega) \bk \times \bE(\bk,\omega)\,.\label{subeq:Amperes_law_crossed}
+    \end{align}
+\end{subequations}
+
+\noindent By combining these two equations and using the vector identity $\mathbf{a} \times [\mathbf{b} \times \mathbf{c}] = (\mathbf{a} \cdot \mathbf{c}) \mathbf{b} - (\mathbf{a} \cdot \mathbf{b}) \mathbf{c}$, we arrive at
+
+\begin{equation}
+    k^2 \bF(\bk,\omega) - \bk \big(\bk \cdot \bF(\bk,\omega)\big) = -\omega^2 \epsz \mu_0 \vareps_{\text{eq}}(\bk,\omega) \bF(\bk,\omega) \label{subeq:wave_equation_F}\,,\\
+\end{equation}
+
+\noindent for both fields $\bF = \bE, \bB$, and we used the definition for the equivalent permittivity~\eqref{eq:equivalent_permittivity}, while assuming that there are no external currents influencing the dynamics of the material ($\bJ_\ext = \bzero$).
+Now, if we assume that the oscillation of the electromagnetic field is transversal, then $\bk \cdot \bE = \bk \cdot \bB = 0$, and the equations above simplify to
+
+\begin{equation}
+    \qty[k^2 - \vareps_{\text{eq}}(\bk,\omega) \frac{\omega^2}{c^2}] \bF (\bk,\omega) = \bzero\,,\, \bF \in \{\bE, \bB\}.
+\end{equation}
+
+\noindent The attentive reader might have recognized the previous equation as the wave equation but written in the $(\bk,\omega)$ domain.
+It presents a non-trivial solution $\bF = \bzero$ if the quantity in brackets is zero, therefore $\bk$ and $\omega$ have to verify
+
+\begin{equation}
+    k^2 = \vareps_{\text{eq}}(\bk,\omega) \frac{\omega^2}{c^2}\,.
+\end{equation}
+
+Relationships of the previous kind, relating the frequency of the wave with the wavevector, are called dispersion relations.
+In this case, the wave pertains to light, so it is an optical dispersion relation.
+We will face another type of dispersion relation in the next chapter.
+We further note that the wavenumber $k$ is in general complex, as the permittivity $\vareps_{\text{eq}}(\bk,\omega)$ is also complex.
+Writing the wave number in terms of its real and imaginary parts as $k = k' + \ii \kappa$, when looking at modes oscillating in space as $\exp{i k x}$, then we have $\exp{i k x} = \exp{i k' x} \exp{- \kappa x}$.
+Therefore, the inverse of the imaginary part of the wave number $1/\kappa$ has the interpretation of a penetration length scale of the wave into the medium.
+The parameter $\kappa$ is then called the extinction coefficient, and $1/\kappa$ the skin depth.
+
+By identifying the velocity of the wave as $v = \omega/k$, then we have a definition for the quantity $c/v = \sqrt{\vareps_{\text{eq}} (\bk,\omega)} \equiv n$, the famously called refractive index of the medium.
+It is in this context that we speak of dispersion, both spatial or temporal, coming from the dependence of the refractive index in $\bk$ or $\omega$, respectively.
+In dispersive media, if the wave is a superposition of harmonics, then it actually makes no sense of speaking in the velocity of the wave, as there are two distinct velocities.
+There are the phase velocity $v_p = \omega/k$ and the group velocity $v_g = \partial \omega/\partial k$\footnote{We could have been more precise, since these quantities are real, but the refractive index and the wavenumber are complex in general.}.
+The phase velocity is the speed with which the phase of the wave-front propagates.
+The group velocity is the speed with which the wave envelope travels, and can be smaller or greater than the phase velocity, in a normal or anomalous dispersive medium, respectively.
+To summarize, we can say that in a material the dispersion of propagating electromagnetic waves can be in general different from that of free light in vacuum, $\omega = k c$.
+
+Looking back at equation~\eqref{subeq:wave_equation_F}, and looking now for longitudinal oscillations with $\bk || \bE$ for which $\bk \cdot \bE \neq 0$, then we find instead
+
+\begin{equation}
+    \vareps_{\text{eq}}(\bk,\omega) \frac{\omega^2}{c^2} \bF(\bk,\omega) = \bzero\,, \bF \in \{\bE, \bB\}.
+\end{equation}
+
+\noindent This last equation admits a non-trivial solution $\bF \neq \bzero$ only for\footnote{We remind the reader we have been considering materials with no magnetic susceptibility, such that the relative permeability is identically one in all $(\bk,\omega)$ domain.}
+
+\begin{equation}
+    \label{eq:plasmon_condition}
+    \vareps_{\text{eq}}(\bk,\omega) = 0\,.
+\end{equation}
+
+\noindent We will immediately interpret the previous condition.
+Omitting the subscript \enquote{eq}, let us rewrite the constitutive relation for the electric displacement field $\bD = \epsz \bE + \bP = \epsz \vareps \bE = \bzero$, the last equality by virtue of~\eqref{eq:plasmon_condition}.
+This means for the electric field $\bE = \bP/\epsz$, that is, the electric field in the material stems only from the polarization field.
+In other words, the only way for $\bE$ having oscillation modes when $\bD$ is zero, is when $\vareps$ is zero.
+These modes are free-standing, and derive from the collective oscillation of free electrons in the material, typically a metal.
+They are called plasmonic modes, or plasmons, and were first introduced by David Pines and David Bohm in 1952~\cite{Pines_Bohm_1952} and underpin the entire field of plasmonics~\cite{maier_plasmonics_2007,GoncalvesPeres:2016,Andre_Goncalves_2020,Ellie_2024,Cosme_2025}.
+
+The relation~\eqref{eq:plasmon_condition} can be seen as the dispersion relation of the plasmon, that in general is implicitly defined and can only be solved numerically to have $\omega = \omega(\bk)$.
+The plasmon, being a dipolar excitation of the material, it can couple to transverse electromagnetic modes, for instance, along the interface separating a dielectric and a metal, to originate a polariton.
+Then we would be talking of the so called \gls{spp}.
+We derive the dispersion relation of the \gls{spp} in the next section, but considering instead the more general case, where the interface itself has its own optical response, quantified through an optical conductivity $\sigma(\omega)$, in the \lra~limit.
+Then, the dispersion relation of the \gls{spp} can be obtained \textit{a posteriori} by simply setting $\sigma = 0$.
 
 \subsection{Dispersion relation of polaritonic modes}
 \label{subsec:polaritonics_dispersion_relation}
+
+In this section we derive the dispersion relation of surface polaritons, in the case where we have a responsive surface of a \bd~material, separating two different media with permittivities $\vareps_1$ and $\vareps_2$, in general frequency dependent.
+The situation is depicted in Figure~\ref{fig:cladded_monolayer}, where the substrate, in gray, is material 2, with permittivity $\vareps_2$, while the material on top is material 1, with permittivity $\vareps_1$.
+At the interface there is a \bd~material represented in light blue, with its own optical response that we quantify, by convenience, through its conductivity $\sigma(\omega)$, $\omega$ being the frequency of the polariton.
+The polariton propagates in the $x$ direction with wavevector $\bq = q \hat{\mathbf{x}}$, and is confined in the $xy$ plane, decaying exponentially in the $z$ direction away from the interface.
+
+%\begin{figure}[H]
+%    \centering
+%    \includegraphics[width=0.9\textwidth]{Chapters/Figures/Chapter_2/cladded_hBN_transparent_nogrid.png}
+%    \caption{An hBN monolayer cladded by two dieletrics.}
+%    \label{fig:cladded_monolayer_hBN}
+%\end{figure}
+
+\begin{figure}
+    \centering
+    \input{Chapters/Figures/Chapter_2/polariton}
+    \mycaption[Schematic representation of a surface polariton.]{A polariton with wavevector $\vec{q}$  propagating along a \bd~material separating two bulk media, material 1 on top as a cladding material, and material 2 underneath acting as a substrate. Each material $j=1,2$ has its own permittivity $\vareps_j(\omega)$, while the \bd~material has its own conductivity $\sigma(\omega)$.}
+    \label{fig:cladded_monolayer}
+\end{figure}
+
+The starting point is assuming a plane-wave for the $x$ and time dependence for the electric field $\bE$ and the excitation magnetic field $\bH$, that we are using instead of the $\bB = \mu_0 \bH$ field.
+So we write
+
+
+\begin{equation}
+    \bF(\br, t)  = \mathbf{f}(z) \ei{(q x - \omega t)}, \,\bF \in \{\bE, \bH\},
+    \label{eq:oscillatory_electric_field}
+\end{equation}
+
+\noindent where the undercase $\mathbf{f}$ stands for $\mathbf{e}$ or $\mathbf{b}$, if we separate the $z$ dependence from the $x$ and $t$ dependence for both fields.
+The system is $y$ invariant.
+To obtain an equation governing the $z$ dependence, we take the curl of Faraday's law~\eqref{subeq:Faradays_law} and use Ampère-Maxwell's law~\eqref{subeq:Amperes_law}, with both laws Fourier transformed from time to frequency domain, that if we assume we can work with the total displacement field $\bD$ defined in section~\ref{subsec:constitutive_relations_linear_response} and no contribution coming from external currents such that $\bJ = \bzero$,
+we can write
+
+\begin{equation}
+    \lap \bE(\br,\omega) +  \frac{\omega^2 \vareps(\omega)}{c^2} \bE (\br,\omega) = \bzero\,,
+\end{equation}
+
+\noindent where we neglected non-local effects in the material (either 1 or 2), so that the permittivity appearing is only frequency dependent.
+This allows to transform the spatial convolution of the permittivity with the electric field to obtain the displacement field $\bD$ into a mere multiplication.
+Otherwise, we would have to take spatial derivatives of the response function.
+This is equivalent to taking in~\eqref{subeq:wave_equation_F} the \lra~limit $\bk \to \bzero$ in $\vareps_{\text{eq}}(\bk,\omega)$, and converting the square of the wavenumber $k^2$ back into the Laplacian operator in real space.
+
+Replacing the electric field $\bE$ by.....
+
+% Faraday's law~\eqref{subeq:Faraday_law} and Ampère-Maxwell's law~\eqref{subeq:Ampere_law}, assuming harmonic time-dependence for the fields with frequency $\omega$, lolo written in the following form (we use now $q$ for momentum instead of $\beta$)
+
+\begin{equation}
+    \begin{split}
+        \partial_z E_y &=-\ii \omega \mu_0 H_x\\
+        \partial_z E_x-\ii q E_z &=\ii \omega \mu_0 H_y\\
+        \ii q E_y &=\ii \omega \mu_0 H_z\\
+        \partial_z H_y &=\ii \omega \varepsilon_0 \varepsilon E_x\\
+        \partial_z H_x-\ii q H_z &=-\ii \omega \varepsilon_0 \varepsilon E_y\\
+        \ii q H_y &=-\ii \omega \varepsilon_0 \varepsilon E_z.
+        \label{eq:Maxwells_equations_components}
+    \end{split}
+\end{equation}
+
+The previous set of equations admits two types of solutions, as already mentioned in section \ref{sec:spps}, \gls{tm} and \gls{te} modes. We will focus now on \gls{tm} modes, for which $E_y,H_x,H_z = 0$. Recall Figure \ref{fig:TM_and_TE_modes}. So the previous set of equations is now
+
+\begin{equation}
+    \begin{split}
+        \partial_z E_x-\ii q E_z &=-\ii \omega \mu_0 H_y\\
+        \partial_z H_y &=\ii \omega \varepsilon \varepsilon_0  E_x\\
+        \ii q H_y &=-\ii \omega \varepsilon \varepsilon_0 E_z.
+    \end{split}
+\end{equation}
+
+From this set of equations, upon elimination of the electric field components, we obtain the equation
+
+\begin{equation}
+    \frac{\partial^2 H_y}{\partial z^2} + \left(\frac{\omega^2}{c^2} - q^2\right) H_y = 0.
+\end{equation}
+
+Assuming that the magnetic field is of the form
+
+\begin{equation}
+    H_y (x,z) = A \ei{q x} \ex{- \kappa |z|},
+\end{equation}
+
+we obtain for the extinction coefficient
+
+\begin{equation}
+    \kappa = \sqrt{q^2 - \varepsilon \omega^2/c^2}.
+\end{equation}
+
+Considering now a 2D monolayer material cladded by two different bulk materials, the top one with relative permittivity $\varepsilon_2$ and the bottom one with relative permittivity $\varepsilon_1$, as in Figure \ref{fig:cladded_monolayer_hBN}. The electric and magnetic fields write ($j=2$ for $z>0$ and $j=1$ for $z<0$)
+
+\begin{subequations}
+    \begin{align}
+        H_{jy}(z)&=A_j \ei{q x} \ex{ (-1)^{(j+1)} \kappa_j z} \\[3ex]
+        E_{jx}(z)&=(-1)^j A_j \frac{\kappa_j}{\varepsilon_j \varepsilon_0 \omega} \ei{q x} \ex{(-1)^{(j+1)} \kappa_j z} \\[3ex]
+        E_{jz}(z)&=-A_j \frac{q}{\varepsilon_j \varepsilon_0 \omega} \ei{q x} \ex{(-1)^{(j+1)} \kappa_j z}.
+    \end{align}
+    \label{eq:TM_modes_fields_solution_again}
+\end{subequations}
+
+By continuity of the in-plane component of the electric field
+
+\begin{equation}
+    E_{1 x} (z = 0) = E_{2 x} (z = 0) \Leftrightarrow A_2 = - \frac{\varepsilon_2 \kappa_1}{\varepsilon_1 \kappa_2} A_1.
+    \label{eq:Et_continuity}
+\end{equation}
+
+The difference from plasmonic modes is now the boundary condition for the magnetic field
+
+\begin{equation}
+    \bn_{12} \times( \bH_{1} - \bH_{2} )= \bj_s \Leftrightarrow \bH_{1t} - \bH_{2t} = \bj_s \times \bn_{12},
+    \label{eq:H_boundary_condition}
+\end{equation}
+
+which had previously $\bj_s = \vectorbold{0}$. Recalling the constitutive relation $\bj_s = \sigma \bE$, for \gls{tm} modes
+
+\begin{equation}
+    \bj_s \times \bn_{12} = - \sigma_{xx} E_x \bey.
+\end{equation}
+
+Rewritting (\ref{eq:H_boundary_condition}) and using (\ref{eq:Et_continuity})
+
+\begin{equation}
+    \begin{split}
+        H_{1t}(z = 0) - H_{2t}(z = 0) &= - \sigma_{xx} E_x(z = 0) \Leftrightarrow \\
+        A_1 - A_2 &= - \sigma_{xx} i \frac{\kappa_1}{\varepsilon_1 \varepsilon_0 \omega} A_2 \Leftrightarrow \\
+        1 + \frac{\varepsilon_2 \kappa_1}{\varepsilon_1 \kappa_2} &= - \ii \sigma_{xx} \frac{\kappa_1}{\varepsilon_1 \varepsilon_0 \omega} \Leftrightarrow \\
+        \frac{\varepsilon_1}{\kappa_1} + \frac{\varepsilon_2}{\kappa_2} + \ii  \frac{\sigma_{xx}}{\varepsilon_0 \omega} &= 0,
+    \end{split}
+\end{equation}
+
+where $\kappa_j = \sqrt{q^2 - \varepsilon_j \omega^2 / c^2}$, $j=1,2$. From the dispersion relation of \gls{tm} modes, we can see that they are supported only for $\Im \sigma_{xx} <0$. If the real part of the conductivity is finite (non zero), the equation holds in the complex plane.
+
+No we do something similar for the \gls{te} modes. The components $H_y, E_x$ and $E_z$ vanish, so the set of equations (\ref{eq:Maxwells_equations_components}) now reads
+
+\begin{equation}
+    \begin{split}
+        \partial_z H_x-i q H_z &=-\ii \omega \varepsilon \varepsilon_0  E_y\\
+        \partial_z E_y & = -\ii  \omega \mu_0 H_x\\
+        i q E_y &=-\ii \omega \mu_0 H_z.
+    \end{split}
+\end{equation}
+
+Eliminating the magnetic field from the previous equations, we obtain
+
+\begin{equation}
+    \frac{\partial^2 E_y}{\partial z^2} + \left(\frac{\omega^2}{c^2} - q^2\right) E_y = 0,
+\end{equation}
+
+which leads again to $\kappa = \sqrt{q^2 - \varepsilon \omega^2 / c^2}$, assuming that the electric field depends on the coordinates as
+
+\begin{equation}
+    E_{jy}(z)=A_j \ei{q x} \ex{ (-1)^{(j+1)} \kappa_j z}.
+\end{equation}
+
+From continuity of the tangential component of the electric field, we have simply $A_1 = A_2$. The boundary condition (\ref{eq:H_boundary_condition}) now writes
+
+\begin{equation}
+    \bH_{2t} - \bH_{1t} =   \bj_s \times \bn_{12} = \sigma_{yy} E_y \bex,
+\end{equation}
+
+which translates to
+
+
+\begin{equation}
+    \begin{split}
+        H_{2x}(z = 0) - H_{1x}(z = 0) = \sigma_{yy} E_x(z = 0) \Leftrightarrow \\
+        - i A_1 \frac{\kappa_1}{\omega \mu_0} - i A_2 \frac{\kappa_2}{\omega \mu_0} = \sigma_{yy} A_2 \Leftrightarrow \\
+        \kappa_1 + \kappa_2 - i \omega \mu_0 \sigma_{yy} = 0.
+    \end{split}
+\end{equation}
+
+From the previous relation, we can see that the systems supports \gls{te} modes when $\Im \sigma_{yy} < 0$. If the real part of the conductivity is finite, then the dispersion relation holds in the complex plane.
+
 
 
 
