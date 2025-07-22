@@ -493,7 +493,7 @@ They are called plasmonic modes, or plasmons, and were first introduced by David
 
 The relation~\eqref{eq:plasmon_condition} can be seen as the dispersion relation of the plasmon, that in general is implicitly defined and can only be solved numerically to have $\omega = \omega(\bk)$.
 However, if the expression of the permittivity is simple enough, then we can find an analytical dispersion for dispersion relation of the transverse and longitudinal modes.
-In the example of a bulk, local and Drude metal without the background contribution, with $\vareps_\infty = 1$, the permittivity is given by $\vareps(\omega) = 1 -\wp^2/\omega^2$, so that light and plasmon modes have by dispersion relations $\omega^2 = \wp^2 + k^{2c^2}$ and $\omega = \wp$, respectively.
+In the example of a bulk, local and Drude metal without the background contribution, with $\vareps_\infty = 1$, the permittivity is given by $\vareps(\omega) = 1 -\wp^2/\omega^2$, so that light and plasmon modes have by dispersion relations $\omega^2 = \wp^2 + k^2 c^2$ and $\omega = \wp$, respectively.
 
 The plasmon, being a dipolar excitation of the material, it can couple to the transverse electromagnetic mode, for instance, along the interface separating a dielectric and a metal, to originate a polariton.
 Then we would be talking of the so-called \gls{spp}.
@@ -626,7 +626,7 @@ For \gls{tm} modes, the equations~\eqref{eq:Maxwells_equations_components} read
     \frac{\partial^2 H_y}{\partial z^2} + \left(\frac{\omega^2 \vareps}{c^2} - q^2\right) H_y = 0.
 \end{equation}
 
-\noindent Assuming that the magnetic field is of the form
+\noindent According to equation~\eqref{eq:eq:oscillatory_electric_field}, assuming that (the spatial dependence of) the magnetic field is of the form
 
 \begin{equation}
     H_y (x,z) = A \ei{q x} \ex{- \kappa |z|},
@@ -678,7 +678,7 @@ For \gls{tm} modes and taking into account the tensor nature of the conductivity
 \begin{equation}
     \begin{split}
         H_{1t}(z = 0) - H_{2t}(z = 0) &= - \sigma_{xx} E_x(z = 0) \Leftrightarrow \\
-        A_1 - A_2 &= - \sigma_{xx} i \frac{\kappa_1}{\varepsilon_1 \varepsilon_0 \omega} A_1 \Leftrightarrow \\
+        A_1 - A_2 &= - \sigma_{xx} \ii \frac{\kappa_1}{\varepsilon_1 \varepsilon_0 \omega} A_1 \Leftrightarrow \\
         1 + \frac{\varepsilon_2 \kappa_1}{\varepsilon_1 \kappa_2} &= - \ii \sigma_{xx} \frac{\kappa_1}{\varepsilon_1 \varepsilon_0 \omega} \Leftrightarrow \\
         \frac{\varepsilon_1}{\kappa_1} + \frac{\varepsilon_2}{\kappa_2} + \ii  \frac{\sigma_{xx}}{\varepsilon_0 \omega} &= 0,
     \end{split}
@@ -690,7 +690,7 @@ We have thus obtained the dispersion relation of \gls{tm} polarized polaritons
 
 \begin{equation}
     \label{eq:TM_polariton_dispersion_relation}
-    \frac{\varepsilon_1}{\kappa_1} + \frac{\varepsilon_2}{\kappa_2} + \ii  \frac{\sigma_{xx}}{\epsz0 \omega} = 0\,,
+    \frac{\varepsilon_1}{\kappa_1} + \frac{\varepsilon_2}{\kappa_2} + \ii  \frac{\sigma_{xx}}{\epsz \omega} = 0\,,
 \end{equation}
 
 \noindent where we have omitted the frequency dependence of the permittivities, the extension coefficients and the conductivity.
