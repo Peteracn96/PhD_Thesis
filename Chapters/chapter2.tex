@@ -614,9 +614,9 @@ For \gls{tm} modes, the equations~\eqref{eq:Maxwells_equations_components} read
 
 \begin{equation}
     \begin{split}
-        \partial_z E_x-\ii q E_z &=\ii \omega \mu_0 H_y\\
-        \partial_z H_y &=\ii \omega \varepsilon \varepsilon_0  E_x\\
-        \ii q H_y &=-\ii \omega \varepsilon \varepsilon_0 E_z.
+        \partial_z E_x-\ii q E_z &=\ii \omega \mu_0 H_y\,,\\
+        \partial_z H_y &=\ii \omega \varepsilon \varepsilon_0  E_x\,,\\
+        \ii q H_y &=-\ii \omega \varepsilon \varepsilon_0 E_z\,.
     \end{split}
 \end{equation}
 
@@ -626,7 +626,7 @@ For \gls{tm} modes, the equations~\eqref{eq:Maxwells_equations_components} read
     \frac{\partial^2 H_y}{\partial z^2} + \left(\frac{\omega^2 \vareps}{c^2} - q^2\right) H_y = 0.
 \end{equation}
 
-\noindent According to equation~\eqref{eq:eq:oscillatory_electric_field}, assuming that (the spatial dependence of) the magnetic field is of the form
+\noindent According to equation~\eqref{eq:oscillatory_electric_field}, assuming that (the spatial dependence of) the magnetic field is of the form
 
 \begin{equation}
     H_y (x,z) = A \ei{q x} \ex{- \kappa |z|},
@@ -635,7 +635,7 @@ For \gls{tm} modes, the equations~\eqref{eq:Maxwells_equations_components} read
 \noindent we obtain for the extinction coefficient
 
 \begin{equation}
-    \kappa = \sqrt{q^2 - \varepsilon \omega^2/c^2}.
+    \kappa = \sqrt{q^2 - \varepsilon \frac{\omega^2}{c^2}}\,.
 \end{equation}
 
 \noindent We consider separately the bulk materials in the two different domains, the one over the interface with relative permittivity $\varepsilon_1$ and the one below with relative permittivity $\varepsilon_2$, as in Figure~\ref{fig:cladded_monolayer}.
@@ -657,7 +657,7 @@ The electric and magnetic fields write ($j=1$ for $z>0$ and $j=2$ for $z<0$)
     \label{eq:Et_continuity}
 \end{equation}
 
-The parallel component of the magnetic field, however, is discontinuous.
+\noindent The parallel component of the magnetic field, however, is discontinuous.
 Recalling~\eqref{eq:boundary_condition_H}:
 
 \begin{equation}
@@ -665,7 +665,7 @@ Recalling~\eqref{eq:boundary_condition_H}:
     \label{eq:H_boundary_condition}
 \end{equation}
 
-The sheet current density $\bj_s$ relates with the electric field $\bE$ through Ohm's law, where the conductivity is the \bd conductivity of the \bd material, $\sigma$.
+\noindent The sheet current density $\bj_s$ relates with the electric field $\bE$ through Ohm's law, where the conductivity is the \bd conductivity of the \bd material, $\sigma$.
 In frequency domain and within \lra, Ohm's law is as simple as $\bj_s = \sigma \bE$.
 For \gls{tm} modes and taking into account the tensor nature of the conductivity the \rhs of the previous equation reads
 
@@ -701,7 +701,7 @@ An analogous procedure for \gls{te} modes would lead us to
 
 \begin{equation}
     \label{eq:TE_polariton_dispersion_relation}
-    \kappa_1 + \kappa_2 - i \omega \mu_0 \sigma_{yy} = 0\,,
+    \kappa_1 + \kappa_2 - \ii \omega \mu_0 \sigma_{yy} = 0\,,
 \end{equation}
 
 \noindent the dispersion relation for \gls{te} modes.
