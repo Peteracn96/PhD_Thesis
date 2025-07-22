@@ -489,11 +489,14 @@ Omitting the subscript \enquote{eq}, let us rewrite the constitutive relation fo
 This means for the electric field $\bE = \bP/\epsz$, that is, the electric field in the material stems only from the polarization field.
 In other words, the only way for $\bE$ having oscillation modes when $\bD$ is zero, is when $\vareps$ is zero.
 These modes are free-standing, and derive from the collective oscillation of free electrons in the material, typically a metal.
-They are called plasmonic modes, or plasmons, and were first introduced by David Pines and David Bohm in 1952~\cite{Pines_Bohm_1952} and underpin the entire field of plasmonics~\cite{maier_plasmonics_2007,GoncalvesPeres:2016,Andre_Goncalves_2020,Ellie_2024,Cosme_2025}.
+They are called plasmonic modes, or plasmons, and were first introduced by David Pines and David Bohm in 1952~\cite{Pines_Bohm_1952} and underpin the entire field of plasmonics~\cite{Cosme_2025,GoncalvesPeres:2016,Andre_Goncalves_2020,maier_plasmonics_2007,Ellie_2024}.
 
 The relation~\eqref{eq:plasmon_condition} can be seen as the dispersion relation of the plasmon, that in general is implicitly defined and can only be solved numerically to have $\omega = \omega(\bk)$.
-The plasmon, being a dipolar excitation of the material, it can couple to transverse electromagnetic modes, for instance, along the interface separating a dielectric and a metal, to originate a polariton.
-Then we would be talking of the so called \gls{spp}.
+However, if the expression of the permittivity is simple enough, then we can find an analytical dispersion for dispersion relation of the transverse and longitudinal modes.
+In the example of a bulk, local and Drude metal without the background contribution, with $\vareps_\infty = 1$, the permittivity is given by $\vareps(\omega) = 1 -\wp^2/\omega^2$, so that light and plasmon modes have by dispersion relations $\omega^2 = \wp^2 + k^{2c^2}$ and $\omega = \wp$, respectively.
+
+The plasmon, being a dipolar excitation of the material, it can couple to the transverse electromagnetic mode, for instance, along the interface separating a dielectric and a metal, to originate a polariton.
+Then we would be talking of the so-called \gls{spp}.
 We derive the dispersion relation of the \gls{spp} in the next section, but considering instead the more general case, where the interface itself has its own optical response, quantified through an optical conductivity $\sigma(\omega)$, in the \lra~limit.
 Then, the dispersion relation of the \gls{spp} can be obtained \textit{a posteriori} by simply setting $\sigma = 0$.
 
@@ -512,14 +515,14 @@ The polariton propagates in the $x$ direction with wavevector $\bq = q \hat{\mat
 %    \label{fig:cladded_monolayer_hBN}
 %\end{figure}
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \input{Chapters/Figures/Chapter_2/polariton}
     \mycaption[Schematic representation of a surface polariton.]{A polariton with wavevector $\vec{q}$  propagating along a \bd~material separating two bulk media, material 1 on top as a cladding material, and material 2 underneath acting as a substrate. Each material $j=1,2$ has its own permittivity $\vareps_j(\omega)$, while the \bd~material has its own conductivity $\sigma(\omega)$.}
     \label{fig:cladded_monolayer}
 \end{figure}
 
-The starting point is assuming a plane-wave for the $x$ and time dependence for the electric field $\bE$ and the excitation magnetic field $\bH$, that we are using instead of the $\bB = \mu_0 \bH$ field.
+The starting point is assuming a plane-wave for the $x$ and time dependence for the electric field $\bE$ and the magnetic excitation field, or magnetic field for short, $\bH$, that we are using instead of the $\bB$ field.
 So we write
 
 
@@ -530,148 +533,193 @@ So we write
 
 \noindent where the undercase $\mathbf{f}$ stands for $\mathbf{e}$ or $\mathbf{b}$, if we separate the $z$ dependence from the $x$ and $t$ dependence for both fields.
 The system is $y$ invariant.
-To obtain an equation governing the $z$ dependence, we take the curl of Faraday's law~\eqref{subeq:Faradays_law} and use Ampère-Maxwell's law~\eqref{subeq:Amperes_law}, with both laws Fourier transformed from time to frequency domain, that if we assume we can work with the total displacement field $\bD$ defined in section~\ref{subsec:constitutive_relations_linear_response} and no contribution coming from external currents such that $\bJ = \bzero$,
-we can write
+To obtain an equation governing the $z$ dependence, we take the curl of Faraday's law~\eqref{subeq:Faraday_law} and use Ampère-Maxwell's law~\eqref{subeq:Ampere_law}, with both laws in frequency domain.
+Furthermore, we work with the total displacement field $\bD$ defined in section~\ref{subsec:constitutive_relations_linear_response} and with no contribution coming from external currents such that $\bJ = \bzero$, we can then write for the electric field the so-called Helmholtz equation
 
-\begin{equation}
-    \lap \bE(\br,\omega) +  \frac{\omega^2 \vareps(\omega)}{c^2} \bE (\br,\omega) = \bzero\,,
-\end{equation}
+\begin{align}
+    \lap \bE(\br,\omega) +  \frac{\omega^2 \vareps(\omega)}{c^2} \bE (\br,\omega) &= \bzero \Leftrightarrow \nonumber \\
+    \Leftrightarrow \lap \bE(\br,\omega) +  k_0^2 \bE (\br,\omega) &= \bzero
+\end{align}
 
-\noindent where we neglected non-local effects in the material (either 1 or 2), so that the permittivity appearing is only frequency dependent.
-This allows to transform the spatial convolution of the permittivity with the electric field to obtain the displacement field $\bD$ into a mere multiplication.
+\noindent by defining $k_0^2 \equiv \omega^2 \vareps(\omega) /c^2$, and where we neglected non-local effects in the material (either 1 or 2), so that the permittivity appearing is only frequency dependent.
+This allows to transform the spatial convolution of the permittivity with the electric field into a mere multiplication, such that $\bD(\br,\omega) = \vareps(\omega) \bE(\br,\omega)$
 Otherwise, we would have to take spatial derivatives of the response function.
-This is equivalent to taking in~\eqref{subeq:wave_equation_F} the \lra~limit $\bk \to \bzero$ in $\vareps_{\text{eq}}(\bk,\omega)$, and converting the square of the wavenumber $k^2$ back into the Laplacian operator in real space.
-
-Replacing the electric field $\bE$ by.....
-
-% Faraday's law~\eqref{subeq:Faraday_law} and Ampère-Maxwell's law~\eqref{subeq:Ampere_law}, assuming harmonic time-dependence for the fields with frequency $\omega$, lolo written in the following form (we use now $q$ for momentum instead of $\beta$)
+This is equivalent to taking in~\eqref{subeq:wave_equation_F} the \lra~limit $\bk \to \bzero$ of $\vareps_{\text{eq}}(\bk,\omega)$, and converting the square of the wavenumber $k^2$ back into the Laplacian operator in real space.
+Replacing the electric field $\bE$ by expression~\ref{eq:oscillatory_electric_field} we obtain the ordinary differential equation
 
 \begin{equation}
-    \begin{split}
-        \partial_z E_y &=-\ii \omega \mu_0 H_x\\
-        \partial_z E_x-\ii q E_z &=\ii \omega \mu_0 H_y\\
-        \ii q E_y &=\ii \omega \mu_0 H_z\\
-        \partial_z H_y &=\ii \omega \varepsilon_0 \varepsilon E_x\\
-        \partial_z H_x-\ii q H_z &=-\ii \omega \varepsilon_0 \varepsilon E_y\\
-        \ii q H_y &=-\ii \omega \varepsilon_0 \varepsilon E_z.
-        \label{eq:Maxwells_equations_components}
-    \end{split}
+    \dv[2]{\mathbf{e}(z)}{z} + \qty(k_0^2 - q^2) \mathbf{e}(z) = \bzero\,.
 \end{equation}
 
-The previous set of equations admits two types of solutions, as already mentioned in section \ref{sec:spps}, \gls{tm} and \gls{te} modes. We will focus now on \gls{tm} modes, for which $E_y,H_x,H_z = 0$. Recall Figure \ref{fig:TM_and_TE_modes}. So the previous set of equations is now
+Now what is left is to relate the components of the electric field with the components of the magnetic field.
+This is achieved by using again Faraday's law~\eqref{subeq:Faraday_law} and Ampère-Maxwell's law~\eqref{subeq:Ampere_law} in frequency domain with no external current sources for the electric field $\bE$ and the magnetic excitation field $\bH$, not the undercase fields dependent only on $z$.
+We rewrite those two laws in terms of cartesian coordinates but omitting the frequency dependence in the materials permittivity, using $y$ invariance so that $\partial_y = 0$ and replacing $\partial_x \to \ii q$ to write
+
+%\begin{equation} % no text
+%    \begin{split}
+%        \partial_z E_y &=-\ii \omega \mu_0 H_x\\
+%        \partial_z E_x-\ii q E_z &=\ii \omega \mu_0 H_y\\
+%        \ii q E_y &=\ii \omega \mu_0 H_z\\
+%        \partial_z H_y &=\ii \omega \varepsilon_0 \varepsilon E_x\\
+%        \partial_z H_x-\ii q H_z &=-\ii \omega \varepsilon_0 \varepsilon E_y\\
+%        \ii q H_y &=-\ii \omega \varepsilon_0 \varepsilon E_z.
+%        \label{eq:Maxwells_equations_components}
+%    \end{split}
+%\end{equation}
+
+\begin{subequations} % text after the equations
+    \begin{align}
+        \partial_z E_y &=-\ii \omega \mu_0 H_x, &  &\text{Faraday's law: $x$ component;}  \label{subeq:Faraday_law_x} \\
+        \partial_z E_x-\ii q E_z &=\ii \omega \mu_0 H_y, & &\text{Faraday's law: $y$ component;}\ \label{subeq:Faraday_law_y}\\
+        \ii q E_y &=\ii \omega \mu_0 H_z\,, & &\text{Faraday's law: $z$ component;} \label{subeq:Faraday_law_z}\\
+        \partial_z H_y &=\ii \omega \varepsilon_0 \varepsilon E_x\,, & &\text{Ampère-Maxwell's law: $x$ component;} \label{subeq:Ampere_law_x}\\
+        \partial_z H_x-\ii q H_z &=-\ii \omega \varepsilon_0 \varepsilon E_y\,, & &\text{Ampère-Maxwell's law: $y$ component;} \label{subeq:Ampere_law_y}\\
+        \ii q H_y &=-\ii \omega \varepsilon_0 \varepsilon E_z\,, & &\text{Ampère-Maxwell's law: $z$ component.} \label{subeq:Ampere_law_z}
+    \end{align}
+    \label{eq:Maxwells_equations_components}
+\end{subequations}
+
+%\begin{subequations} % text before the equations
+%    \begin{align}
+%        \text{Faraday's law: $x$ component}, &  &\partial_z E_y &=-\ii \omega \mu_0 H_x\,,  \label{subeq:Faraday_law_x} \\
+%        \text{Faraday's law: $y$ component}, & &\partial_z E_x-\ii q E_z &=\ii \omega \mu_0 H_y\,, \label{subeq:Faraday_law_y}\\
+%        \text{Faraday's law: $z$ component},  & &\ii q E_y &=\ii \omega \mu_0 H_z\,, \label{subeq:Faraday_law_z}\\
+%        \text{Ampère-Maxwell's law: $x$ component}, & &\partial_z H_y &=\ii \omega \varepsilon_0 \varepsilon E_x \label{subeq:Ampere_law_x}\\
+%        \text{Ampère-Maxwell's law: $y$ component}, & &\partial_z H_x-\ii q H_z &=-\ii \omega \varepsilon_0 \varepsilon E_y\,, \label{subeq:Ampere_law_y}\\
+%        \text{Ampère-Maxwell's law: $z$ component}, & &\ii q H_y &=-\ii \omega \varepsilon_0 \varepsilon E_z\,. \label{subeq:Ampere_law_z}
+%    \end{align}
+%    \label{eq:Maxwells_equations_components}
+%\end{subequations}
+
+The previous set of equations admits two types of solutions, the \gls{tm} or $p$-polarized modes, and the \gls{te} or $s$-polarized modes.
+In \gls{tm} modes the electric field is in-plane and the magnetic field is off-plane, while in \gls{te} modes the magnetic field is the one in the plane and the electric field is off-plane.
+While \gls{te} modes present in general a light-like dispersion, therefore present weak field confinement, \gls{tm} modes are typically more interesting, being able of presenting higher field confinement.
+It is a custom to classify polariton modes in these two types of polarizations since not all systems can host both types of polarization.
+Figure~\ref{fig:TE_and_TM_modes} represents the orientation of the electric and magnetic fields with respect to the polariton wavevector for the two distinct situations.
+We will focus first on the \gls{tm} mode, corresponding to the \gls{rhs} of the figure below.
+
+\begin{figure}[b]
+    \begin{minipage}{0.7\textwidth}
+        \input{Chapters/Figures/Chapter_2/s_and_p_modes}
+    \end{minipage}%
+    \begin{minipage}{0.3\textwidth}
+        \mycaption[Schematic representation of TE and TM modes.]{Vector representation of the \gls{te} polarized and \gls{tm} polarized polaritonic modes. The magnetic field is represented in green, while the electric field in red, and the polariton wavevector in black.}
+        \label{fig:TE_and_TM_modes}
+    \end{minipage}
+\end{figure}
+
+\newpage
+
+For \gls{tm} modes, the equations~\eqref{eq:Maxwells_equations_components} read
 
 \begin{equation}
     \begin{split}
-        \partial_z E_x-\ii q E_z &=-\ii \omega \mu_0 H_y\\
+        \partial_z E_x-\ii q E_z &=\ii \omega \mu_0 H_y\\
         \partial_z H_y &=\ii \omega \varepsilon \varepsilon_0  E_x\\
         \ii q H_y &=-\ii \omega \varepsilon \varepsilon_0 E_z.
     \end{split}
 \end{equation}
 
-From this set of equations, upon elimination of the electric field components, we obtain the equation
+\noindent From this set of equations, upon elimination of the electric field components, we obtain the equation
 
 \begin{equation}
-    \frac{\partial^2 H_y}{\partial z^2} + \left(\frac{\omega^2}{c^2} - q^2\right) H_y = 0.
+    \frac{\partial^2 H_y}{\partial z^2} + \left(\frac{\omega^2 \vareps}{c^2} - q^2\right) H_y = 0.
 \end{equation}
 
-Assuming that the magnetic field is of the form
+\noindent Assuming that the magnetic field is of the form
 
 \begin{equation}
     H_y (x,z) = A \ei{q x} \ex{- \kappa |z|},
 \end{equation}
 
-we obtain for the extinction coefficient
+\noindent we obtain for the extinction coefficient
 
 \begin{equation}
     \kappa = \sqrt{q^2 - \varepsilon \omega^2/c^2}.
 \end{equation}
 
-Considering now a 2D monolayer material cladded by two different bulk materials, the top one with relative permittivity $\varepsilon_2$ and the bottom one with relative permittivity $\varepsilon_1$, as in Figure \ref{fig:cladded_monolayer_hBN}. The electric and magnetic fields write ($j=2$ for $z>0$ and $j=1$ for $z<0$)
+\noindent We consider separately the bulk materials in the two different domains, the one over the interface with relative permittivity $\varepsilon_1$ and the one below with relative permittivity $\varepsilon_2$, as in Figure~\ref{fig:cladded_monolayer}.
+The electric and magnetic fields write ($j=1$ for $z>0$ and $j=2$ for $z<0$)
 
 \begin{subequations}
     \begin{align}
-        H_{jy}(z)&=A_j \ei{q x} \ex{ (-1)^{(j+1)} \kappa_j z} \\[3ex]
-        E_{jx}(z)&=(-1)^j A_j \frac{\kappa_j}{\varepsilon_j \varepsilon_0 \omega} \ei{q x} \ex{(-1)^{(j+1)} \kappa_j z} \\[3ex]
-        E_{jz}(z)&=-A_j \frac{q}{\varepsilon_j \varepsilon_0 \omega} \ei{q x} \ex{(-1)^{(j+1)} \kappa_j z}.
+        H_{jy}(z)&=A_j \ei{q x} \ex{ (-1)^{j} \kappa_j z}, \\[1ex]
+        E_{jx}(z)&=- \ii (-1)^j A_j \frac{\kappa_j}{\varepsilon_j \varepsilon_0 \omega} \ei{q x} \ex{(-1)^{j} \kappa_j z}, \\[1ex]
+        E_{jz}(z)&=-A_j \frac{q}{\varepsilon_j \varepsilon_0 \omega} \ei{q x} \ex{(-1)^{j} \kappa_j z}.
     \end{align}
     \label{eq:TM_modes_fields_solution_again}
 \end{subequations}
 
-By continuity of the in-plane component of the electric field
+\noindent By continuity of the in-plane component of the electric field at the interface $z=0$, as per~\eqref{eq:boundary_condition_E}, at the surface
 
 \begin{equation}
     E_{1 x} (z = 0) = E_{2 x} (z = 0) \Leftrightarrow A_2 = - \frac{\varepsilon_2 \kappa_1}{\varepsilon_1 \kappa_2} A_1.
     \label{eq:Et_continuity}
 \end{equation}
 
-The difference from plasmonic modes is now the boundary condition for the magnetic field
+The parallel component of the magnetic field, however, is discontinuous.
+Recalling~\eqref{eq:boundary_condition_H}:
 
 \begin{equation}
-    \bn_{12} \times( \bH_{1} - \bH_{2} )= \bj_s \Leftrightarrow \bH_{1t} - \bH_{2t} = \bj_s \times \bn_{12},
+    \bn_{12} \times( \bH_{1} - \bH_{2} )= \bj_s \Leftrightarrow \bH_{1t} - \bH_{2t} = \bj_s \times \bn_{12}\,.
     \label{eq:H_boundary_condition}
 \end{equation}
 
-which had previously $\bj_s = \vectorbold{0}$. Recalling the constitutive relation $\bj_s = \sigma \bE$, for \gls{tm} modes
+The sheet current density $\bj_s$ relates with the electric field $\bE$ through Ohm's law, where the conductivity is the \bd conductivity of the \bd material, $\sigma$.
+In frequency domain and within \lra, Ohm's law is as simple as $\bj_s = \sigma \bE$.
+For \gls{tm} modes and taking into account the tensor nature of the conductivity the \rhs of the previous equation reads
 
 \begin{equation}
-    \bj_s \times \bn_{12} = - \sigma_{xx} E_x \bey.
+    \bj_s \times \bn_{12} = - \sigma_{xx} E_x \bey\,.
 \end{equation}
 
-Rewritting (\ref{eq:H_boundary_condition}) and using (\ref{eq:Et_continuity})
+\noindent Rewritting (\ref{eq:H_boundary_condition}), using (\ref{eq:Et_continuity}) and simplifying
 
 \begin{equation}
     \begin{split}
         H_{1t}(z = 0) - H_{2t}(z = 0) &= - \sigma_{xx} E_x(z = 0) \Leftrightarrow \\
-        A_1 - A_2 &= - \sigma_{xx} i \frac{\kappa_1}{\varepsilon_1 \varepsilon_0 \omega} A_2 \Leftrightarrow \\
+        A_1 - A_2 &= - \sigma_{xx} i \frac{\kappa_1}{\varepsilon_1 \varepsilon_0 \omega} A_1 \Leftrightarrow \\
         1 + \frac{\varepsilon_2 \kappa_1}{\varepsilon_1 \kappa_2} &= - \ii \sigma_{xx} \frac{\kappa_1}{\varepsilon_1 \varepsilon_0 \omega} \Leftrightarrow \\
         \frac{\varepsilon_1}{\kappa_1} + \frac{\varepsilon_2}{\kappa_2} + \ii  \frac{\sigma_{xx}}{\varepsilon_0 \omega} &= 0,
     \end{split}
 \end{equation}
 
-where $\kappa_j = \sqrt{q^2 - \varepsilon_j \omega^2 / c^2}$, $j=1,2$. From the dispersion relation of \gls{tm} modes, we can see that they are supported only for $\Im \sigma_{xx} <0$. If the real part of the conductivity is finite (non zero), the equation holds in the complex plane.
+\noindent where $\kappa_j = \sqrt{q^2 - \varepsilon_j \omega^2 / c^2}$, $j=1,2$.
 
-No we do something similar for the \gls{te} modes. The components $H_y, E_x$ and $E_z$ vanish, so the set of equations (\ref{eq:Maxwells_equations_components}) now reads
-
-\begin{equation}
-    \begin{split}
-        \partial_z H_x-i q H_z &=-\ii \omega \varepsilon \varepsilon_0  E_y\\
-        \partial_z E_y & = -\ii  \omega \mu_0 H_x\\
-        i q E_y &=-\ii \omega \mu_0 H_z.
-    \end{split}
-\end{equation}
-
-Eliminating the magnetic field from the previous equations, we obtain
+We have thus obtained the dispersion relation of \gls{tm} polarized polaritons
 
 \begin{equation}
-    \frac{\partial^2 E_y}{\partial z^2} + \left(\frac{\omega^2}{c^2} - q^2\right) E_y = 0,
+    \label{eq:TM_polariton_dispersion_relation}
+    \frac{\varepsilon_1}{\kappa_1} + \frac{\varepsilon_2}{\kappa_2} + \ii  \frac{\sigma_{xx}}{\epsz0 \omega} = 0\,,
 \end{equation}
 
-which leads again to $\kappa = \sqrt{q^2 - \varepsilon \omega^2 / c^2}$, assuming that the electric field depends on the coordinates as
+\noindent where we have omitted the frequency dependence of the permittivities, the extension coefficients and the conductivity.
+We can see that they are supported in the range of frequencies for which $\Im\{\sigma_{xx}(\omega)\} <0$ (condition that results in positive values for the extinction coefficients).
+If the real part of the conductivity is finite (non-zero), that is, if there is loss, then the equation holds in the complex plane, and either the frequency or the wavenumber has to be complex.
+
+An analogous procedure for \gls{te} modes would lead us to
 
 \begin{equation}
-    E_{jy}(z)=A_j \ei{q x} \ex{ (-1)^{(j+1)} \kappa_j z}.
+    \label{eq:TE_polariton_dispersion_relation}
+    \kappa_1 + \kappa_2 - i \omega \mu_0 \sigma_{yy} = 0\,,
 \end{equation}
 
-From continuity of the tangential component of the electric field, we have simply $A_1 = A_2$. The boundary condition (\ref{eq:H_boundary_condition}) now writes
+\noindent the dispersion relation for \gls{te} modes.
+We can see that the systems supports \gls{te} modes when $\Im \sigma_{yy} < 0$,
+and if the real part of the conductivity is finite, then the dispersion relation holds in the complex plane, just like for \gls{tm} modes.
+Analytically, both dispersion relations~\eqref{eq:TM_polariton_dispersion_relation} and~\eqref{eq:TE_polariton_dispersion_relation} can only be written implicitly, so we have to solve them numerically to obtain the dispersion relations in the explicit form $\omega(q)$.
+
+We consider the particular case of \gls{tm} polarization and where there is no \bd material response, $\omega(\omega) = 0$, and the interface is simply the boundary separating a dielectric and a metal.
+In that case, we finally arrive the dispersion relation for \gls{spp}s, simplifies to
 
 \begin{equation}
-    \bH_{2t} - \bH_{1t} =   \bj_s \times \bn_{12} = \sigma_{yy} E_y \bex,
+    \frac{\varepsilon_1}{\kappa_1} + \frac{\varepsilon_2}{\kappa_2} = 0\,.
 \end{equation}
 
-which translates to
+\noindent With material 1 being a dielectric, and material 2 being a metal, then \gls{spp}s can be supported, for frequency windows where $\vareps_1$ and $\vareps_2$ have opposite signs~\cite{GoncalvesPeres:2016,maier_plasmonics_2007}.
+This can be achieved in common lossless Drude metals, pertaining to the $\gamma=0$ case in equation~\eqref{eq:Drude_dielectric_function} making $\vareps_2(\omega) < 0$, while for most insulators $\vareps_1$ can be taken as a positive constant.
 
-
-\begin{equation}
-    \begin{split}
-        H_{2x}(z = 0) - H_{1x}(z = 0) = \sigma_{yy} E_x(z = 0) \Leftrightarrow \\
-        - i A_1 \frac{\kappa_1}{\omega \mu_0} - i A_2 \frac{\kappa_2}{\omega \mu_0} = \sigma_{yy} A_2 \Leftrightarrow \\
-        \kappa_1 + \kappa_2 - i \omega \mu_0 \sigma_{yy} = 0.
-    \end{split}
-\end{equation}
-
-From the previous relation, we can see that the systems supports \gls{te} modes when $\Im \sigma_{yy} < 0$. If the real part of the conductivity is finite, then the dispersion relation holds in the complex plane.
-
-
+In figure... we show the dispersion of SPPs for an example of a Drude metal...\todo{make figures in mathematica, purpose is to discuss also the field confinement compared to that of light in vacuum/metal.}
 
 
 \subsection{Material absorption, reflection and transmission}
