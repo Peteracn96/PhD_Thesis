@@ -29,7 +29,7 @@ In this chapter we....
 %        \text{Gauss' law}& & \div \bD &= \rho \label{subeq:Gauss_law} \\
 %        \text{Faraday's law}& & \rot \bE &= -\pdt[\bB] \label{subeq:Faraday_law}\\
 %        \text{Inexistence of magnetic monopoles}& & \div \bB &= 0 \label{subeq:no_magnetic_monopoles}\\
-%        \text{Ampère-Maxwell's law}& & \rot \bH &= \bJ + \pdt[\bD] \label{subeq:Ampere_law}
+%        \text{Ampère--Maxwell's law}& & \rot \bH &= \bJ + \pdt[\bD] \label{subeq:Ampere_law}
 %    \end{align}
 %    \label{eq:Maxwells_equations}
 %\end{subequations}
@@ -41,7 +41,7 @@ The four central equations of classical electrodynamics, which govern the dynami
         \div \bD \left(\br,t\right) &= \rho_\f\left(\br,t\right), &  &\text{Gauss' law}  \label{subeq:Gauss_law} \\
         \rot \bE \left(\br,t\right) &= -\pdt[\bB\left(\br,t\right)], & &\text{Faraday's law}\ \label{subeq:Faraday_law}\\
          \div \bB \left(\br,t\right) &= 0\,, & &\text{Inexistence of magnetic monopoles} \label{subeq:no_magnetic_monopoles}\\
-         \rot \bH\left(\br,t\right) &= \bJ_\f\left(\br,t\right) + \pdt[\bD\left(\br,t\right)]\,. & &\text{Ampère-Maxwell's law} \label{subeq:Ampere_law}
+         \rot \bH\left(\br,t\right) &= \bJ_\f\left(\br,t\right) + \pdt[\bD\left(\br,t\right)]\,. & &\text{Ampère--Maxwell's law} \label{subeq:Ampere_law}
     \end{align}
     \label{eq:Maxwells_equations}
 \end{subequations}
@@ -158,7 +158,7 @@ Then, for the electric displacement field within linear response approximation a
 \noindent where we defined the relative permittivity tensor $\rttensor{\vareps} = \mathds{1} + \rttensor{\chi}_e$.
 The proportionality constant $\rttensor{\vareps}$ its a characteristic quantity of the material, and it is in general a response (tensorial) function.
 This means that the field at the point $\br$ depends on all the other points $\br'$ in space, and at the time $t$ depends on all the other times $t'$.
-One can readily see that the previous constitutive relation hides an intricate dependence of the displacement field on the electric field, and the operation between the permittivity (we ommit from now onwards the word relative) tensor and the electric field is a convolution operation in both space and time coordinates as
+One can readily see that the previous constitutive relation hides an intricate dependence of the displacement field on the electric field, and the operation between the permittivity (we omit from now onwards the word relative) tensor and the electric field is a convolution operation in both space and time coordinates as
 
 \begin{equation}
     \bD\qty(\br,t) = \int \dr \int \dd{t'} \rttensor{\vareps}\qty(\br, \br'; t , t') \bE\qty(\br',t')\,,
@@ -166,7 +166,7 @@ One can readily see that the previous constitutive relation hides an intricate d
 
 \noindent where the permittivity is now a (tensorial) response function, a two-point function in real space and a two-point function in time.
 Without knowing any details about the permittivity, we can nonetheless impose causality which implies that $\vareps\qty(\br, \br'; t , t') = 0$ if $t' > t$ (let us omit the tensor nature of the permittivity for now).
-Furthermore, if the system enjoys \textit{continuous} time translational invariance\footnote{This assumption is only valid if we treat the external probe or driving field as a perturbation to the system, so small that the response is that of a material in (dynamic) equilibrium, and its intrinsic properties are time-independent. If the probe or field are strong enough, then they can drive the system to a non-equilibrium state, and in that case we have to account for the full dynamics of the composed system material+perturbation. Even if the external field is time periodic and the system still enjoys time translation invariance, albeit discrete, we must separate the two time dependences $t$ and $t'$. As stated above we work solely within the linear response regime, henceforth this is not a big concern for us.}, then the permittivity depends only on the time difference $t - t'$.
+Furthermore, if the system enjoys \textit{continuous} time translational invariance\footnote{This assumption is only valid if we treat the external probe or driving field as a perturbation to the system, so small that the response is that of a material in (dynamic) equilibrium, and its intrinsic properties are time-independent. If the probe or field are strong enough, then they can drive the system to a non-equilibrium state, and in that case we have to account for the full dynamics of the composed system material+perturbation. Even if the external field is time periodic and the system still enjoys time translation invariance, albeit discrete, we must separate the two time dependencies $t$ and $t'$. As stated above we work solely within the linear response regime, henceforth this is not a big concern for us.}, then the permittivity depends only on the time difference $t - t'$.
 This property is extremely useful, as per the convolution theorem, we can perform a Fourier transform in time, so that the permittivity and the electric field operate in the frequency domain through a mere multiplication:
 
 \begin{equation}
@@ -208,7 +208,7 @@ Let us then rewrite Maxwell's equations~\eqref{eq:Maxwells_equations} in recipro
 \end{subequations}
 
 
-\noindent and focus on Ampère-Maxwell's law and Ohm's law in its Fourier transformed version $\bJ_\ind(\bk,\omega) = \sigma(\bk,\omega) \bE(\bk,\omega)$, we can rewrite the last equation as
+\noindent and focus on Ampère--Maxwell's law and Ohm's law in its Fourier transformed version $\bJ_\ind(\bk,\omega) = \sigma(\bk,\omega) \bE(\bk,\omega)$, we can rewrite the last equation as
 
 
 
@@ -230,7 +230,7 @@ Let us then rewrite Maxwell's equations~\eqref{eq:Maxwells_equations} in recipro
 
 \noindent This suggests redefining the total electric displacement field as $\bD \to \bD_\tot  = \bD +~i \omega^{-1} \bJ_\ind$.
 In this way, equation~\eqref{subeq:Gauss_law_reciprocal} can be rewritten in terms of only the external charge density, $ \ii \bk \cdot \bD_\tot(\bk,\omega) = \rho_\ext(\bk,\omega)$.
-With only the external charge and current densities appearing explicitly in Maxwell's equations and a total displacement field incorporating the induced current, we can define a total electric field as $\bE_\tot = \bD_\tot/\epsz$ and intepret the dielectric function as the ratio between the external field and the total one: $\vareps(\bk,\omega) = |\bE_\ext(\bk,\omega)|/|\bE_\tot(\bk,\omega)|$.
+With only the external charge and current densities appearing explicitly in Maxwell's equations and a total displacement field incorporating the induced current, we can define a total electric field as $\bE_\tot = \bD_\tot/\epsz$ and interpret the dielectric function as the ratio between the external field and the total one: $\vareps(\bk,\omega) = |\bE_\ext(\bk,\omega)|/|\bE_\tot(\bk,\omega)|$.
 This interpretation is the cornerstone of the theory around the dielectric function.
 It is actually introduced like this in introductory electromagnetism courses, appearing usually as a single constant relative permittivity denoted by $\vareps_r$ in the denominator in Coulomb's law for the electrostatic force.
 In bulk materials, it is typically sufficient to speak of the relative permittivity as a constant of the bulk material.
@@ -246,7 +246,7 @@ In this section we take a \bd~material as an example, as this thesis is concerne
 The main goal is to derive a minimal model that somehow captures the effect of electrostatic screening felt by test point-like charges inside the material.
 We want then to find a function $\vareps(\bk)$ for which the total electrostatic potential felt between two test charges is $\phi(\bk) = v_c(\bk)/\vareps(\bk)$, where $v_c(\bk)$ is the Coulomb potential in reciprocal space that the two charges would feel remaining static in vacuum.
 We say that $\phi$ is the screened Coulomb potential, and $v_c$ is the bare Coulomb potential.
-We will present a derivation adapted from P.~Cudazzo et al. in Ref.~\cite{Cudazzo_2011}.
+We will present a derivation adapted from P.~Cudazzo \emph{et al.} in Ref.~\cite{Cudazzo_2011}.
 
 In real space, the Coulomb potential is given by
 
@@ -281,7 +281,7 @@ To find an expression for such a potential, one Fourier transforms the previous 
     \left(q^2+\kappa^2\right)\phi\left(\bq,\kappa\right)+\chi_e^\BD q^2\phi^\BD\left(\bq\right)=\frac{e}{\epsz}\,.
 \end{equation}
 
-\noindent Upon solving the equation above for $\phi\left(\bq,\kappa\right)$, doing the inverse Fourier transform in the $\kappa$ variable back to the variable $z$ and setting $z=0$ we find an equation for the quantitity $\phi^\BD\left(\bq\right)$, that after being isolated reads
+\noindent Upon solving the equation above for $\phi\left(\bq,\kappa\right)$, doing the inverse Fourier transform in the $\kappa$ variable back to the variable $z$ and setting $z=0$ we find an equation for the quantity $\phi^\BD\left(\bq\right)$, that after being isolated reads
 
 \begin{equation}
 \label{eq:RK_potential_momentum}
@@ -296,35 +296,35 @@ This formula contains the expression for the \bd~Fourier transform of the bare C
 \end{equation}
 
 \noindent but corrected with a factor of $1+r_0 q$.
-We can then define an effective momentum-resolved dielectric function, $\varepsilon_\RK\left(q\right) \equiv 1+r_0 q$, called Rytova-Keldysh dielectric function, which accounts for screening in \bd~materials.
+We can then define an effective momentum-resolved dielectric function, $\varepsilon_\RK\left(q\right) \equiv 1+r_0 q$, called Rytova--Keldysh dielectric function, which accounts for screening in \bd~materials.
 Having previously assumed that the material is isotropic, then it depends only on the magnitude of the in-plane momentum $q = |\bq|$.
 It actually coincides with the static macroscopic dielectric function in \bd~materials in the high-wavelength (small $q$) limit.
 It carries the usual interpretation of being the ratio between the external potential $\phi^\ext\left(\br\right)=\phi_0^\ext\left(\bq\right) \ei{\bq \cdot \br}$ and the total (or screened) potential $\phi^\tot\left(\br\right)=\phi_0^\tot\text{\ensuremath{\left(\bq\right)}}\ei{\bq \cdot \br}$, which has a contribution from the external potential and another one from the potential induced by the external perturbation.
 We actually introduced this interpretation in Section~\ref{subsec:constitutive_relations_linear_response} in terms of fields instead of potentials, but the idea is the same.
-The resulting effective Coulomb potential is called Rytova-Keldysh potential~\cite{Rytova_1967}.
+The resulting effective Coulomb potential is called Rytova--Keldysh potential~\cite{Rytova_1967}.
 
-To find the real space resolved Rytova-Keldysh potential, we do the \bd~inverse Fourier transform of~\eqref{eq:RK_potential_momentum} to get
+To find the real space resolved Rytova--Keldysh potential, we do the \bd~inverse Fourier transform of~\eqref{eq:RK_potential_momentum} to get
 
 \begin{equation}
-\label{eq:Rytova-Keldysh_potential_real_space}
+\label{eq:Rytova--Keldysh_potential_real_space}
     V_\RK (r)=\frac{e}{4\pi\epsz}\frac{\pi}{2r_0}\left[\Hz\left(\frac{r}{r_0}\right)-Y_0\left(\frac{r}{r_0}\right)\right],
 \end{equation}
 
 \noindent where $r$ is a purely in-plane distance, $\Hz$ is the Struve special function of order zero, and $Y_0$ is the Bessel special function of the second kind of order zero.
 To get a feeling for how this potential behaves in real space compared to the bare Coulomb potential, we can make a plot of the both potentials as a function of $r$.
 
-We compare in Figure~\ref{fig:Coulomb_and_RK_potential} the two potentials, the bare Coulomb potential~$v_c(r)$ and the Rytova-Keldysh potential $V_\RK(r)$ as per~\eqref{eq:Rytova-Keldysh_potential_real_space} as a function of the distance $r$.
-For large enough distances, the Coulomb potential and the Rytova-Keldysh potential become closer and closer, meaning that for very large distances the electrostatic potential is not screened at all, and the attractive or repulsive behavior of two test charges is just the same as in vacuum.
-However, for very small distances we see that the potentials have different degrees of divergence, with the divergence of the Rytova-Keldysh potential being logarithmic (to see it just take the small $r$ limit in expression~\eqref{eq:Rytova-Keldysh_potential_real_space}).
+We compare in Figure~\ref{fig:Coulomb_and_RK_potential} the two potentials, the bare Coulomb potential~$v_c(r)$ and the Rytova--Keldysh potential $V_\RK(r)$ as per~\eqref{eq:Rytova--Keldysh_potential_real_space} as a function of the distance $r$.
+For large enough distances, the Coulomb potential and the Rytova--Keldysh potential become closer and closer, meaning that for very large distances the electrostatic potential is not screened at all, and the attractive or repulsive behavior of two test charges is just the same as in vacuum.
+However, for very small distances we see that the potentials have different degrees of divergence, with the divergence of the Rytova--Keldysh potential being logarithmic (to see it just take the small $r$ limit in expression~\eqref{eq:Rytova--Keldysh_potential_real_space}).
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{Chapters/Figures/Chapter_2/potential_Coulomb_and_Rytova_Keldysh}
-    \mycaption[Bare Coulomb and Rytova-Keldysh potentials in real space.]{Comparison between the bare Coulomb potential (red continuous line) and the Rytova-Keldysh potential (dashed blue line) as a function of the in-plane distance $r$. The dotdashed black curve represents the small $r$ limit of the Rytova-Keldysh potential in Eq.~\eqref{eq:Rytova-Keldysh_potential_real_space}. The value $r_0 = 10$ \unit{\angstrom}  was used.}
+    \mycaption[Bare Coulomb and Rytova--Keldysh potentials in real space.]{Comparison between the bare Coulomb potential (red continuous line) and the Rytova--Keldysh potential (dashed blue line) as a function of the in-plane distance $r$. The dotdashed black curve represents the small $r$ limit of the Rytova--Keldysh potential in Eq.~\eqref{eq:Rytova--Keldysh_potential_real_space}. The value $r_0 = 10$ \unit{\angstrom}  was used.}
     \label{fig:Coulomb_and_RK_potential}
 \end{figure}
 
-The Rytova-Keldysh potential is a model that captures well enough the electrostatic interaction in \bd~materials, in particular insulating ones.
+The Rytova--Keldysh potential is a model that captures well enough the electrostatic interaction in \bd~materials, in particular insulating ones.
 Whenever it comes to the interaction the electrons in a given \bd~material, this is the model interaction one should use in order do make accurate predictions.
 How the screening parameter $r_0$ can be estimated will only be left for later, when the necessary tools for so are provided.
 For now this picture is just a classical model with an estimated parameter.
@@ -399,7 +399,7 @@ Instead of having a quadratic dependence on the frequency, we will find a linear
 
 \noindent where $\sigma_0$ is a characteristic conductivity, and once more $f_j$ and $\Gamma_j$ are oscillation strengths and damping rates, respectively.
 At this moment, we have to be satisfied with the fact that these parameters are only adjustable parameters that can be obtained from fitting to experimental data.
-I can say though, that these parameters hide very rich physics to be unveiled in the next chapters, just like in the case of section~\ref{subsubsec:dielectric_function_static_limit} where we introduced the adhoc parameter $r_0$.
+I can say though, that these parameters hide very rich physics to be unveiled in the next chapters, just like in the case of section~\ref{subsubsec:dielectric_function_static_limit} where we introduced the \emph{ad hoc} parameter $r_0$.
 I beg then for the reader's patience.
 
 Now finding a simple enough analytical expression for the dielectric function that encompasses both non-local and dynamical effects is a daunting task, but it can still be done for a couple of cases.
@@ -416,7 +416,7 @@ We shall present a light-matter hybrid, the quasi-particle called polariton.
 
 In this part of the chapter, we dwell on polaritons: a polariton is a light-matter hybrid, resulting from the coupling of a dipolar matter excitation occurring in the plane that is an interface between two media, with the surrounding electromagnetic field.
 The result is a transversal electromagnetic mode that propagates in-plane but is ultra-confined along the off-plane direction.
-These modes can be predicted by simply trying a specific \textit{ansatz} solution on Maxwell's equations~\eqref{eq:Maxwells_equations} describing the situation above, complemented by the boundary conditions dictated by~\eqref{eq:boundary_conditions_tangential} and~\eqref{eq:boundary_conditions_perpendicular}, and the constitutive relations~\eqref{eq:constitutive_relation_electric_field} and \eqref{eq:constitutive_relation_magnetic_field}.
+These modes can be predicted by simply trying a specific \emph{Ansatz} solution on Maxwell's equations~\eqref{eq:Maxwells_equations} describing the situation above, complemented by the boundary conditions dictated by~\eqref{eq:boundary_conditions_tangential} and~\eqref{eq:boundary_conditions_perpendicular}, and the constitutive relations~\eqref{eq:constitutive_relation_electric_field} and \eqref{eq:constitutive_relation_magnetic_field}.
 Before doing so, we will warm up by deriving the wave equation for the electromagnetic field in matter and introduce useful concepts for later on.
 
 
@@ -425,7 +425,7 @@ Before doing so, we will warm up by deriving the wave equation for the electroma
 
 It is well known that light propagates in vacuum at a very specific speed, the speed of light in vacuum $c=1/\sqrt{\epsz \mu_0}$, like a wave, where the electric field and the magnetic field oscillate in phase at a given frequency, $\omega$, and with a given wavevector $\bk$ giving the direction of propagation.
 The electric field $\bE$, the magnetic field $\bB$ and the wavevector $\bk$ form a direct trihedron, that is, they verify orthogonality conditions akin to the three cartesian axes.
-These transverse oscillations can be predicted by Maxwell's equations~\eqref{eq:Maxwells_equations} upon taking the cross product with $\bk$ from the left with to Faraday's law~\eqref{subeq:Faradays_law_reciprocal} and Ampère-Maxwell's law~\eqref{subeq:Amperes_law_reciprocal} in reciprocal space to write
+These transverse oscillations can be predicted by Maxwell's equations~\eqref{eq:Maxwells_equations} upon taking the cross product with $\bk$ from the left with to Faraday's law~\eqref{subeq:Faradays_law_reciprocal} and Ampère--Maxwell's law~\eqref{subeq:Amperes_law_reciprocal} in reciprocal space to write
 
 \begin{subequations}
     \label{eq:wave_equation}
@@ -498,7 +498,7 @@ In the example of a bulk, local and Drude metal without the background contribut
 The plasmon, being a dipolar excitation of the material, it can couple to the transverse electromagnetic mode, for instance, along the interface separating a dielectric and a metal, to originate a polariton.
 Then we would be talking of the so-called \gls{spp}.
 We derive the dispersion relation of the \gls{spp} in the next section, but considering instead the more general case, where the interface itself has its own optical response, quantified through an optical conductivity $\sigma(\omega)$, in the \lra~limit.
-Then, the dispersion relation of the \gls{spp} can be obtained \textit{a posteriori} by simply setting $\sigma = 0$.
+Then, the dispersion relation of the \gls{spp} can be obtained \emph{a posteriori} by simply setting $\sigma = 0$.
 
 \subsection{Dispersion relation of polaritonic modes}
 \label{subsec:polaritonics_dispersion_relation}
@@ -533,7 +533,7 @@ So we write
 
 \noindent where the undercase $\mathbf{f}$ stands for $\mathbf{e}$ or $\mathbf{b}$, if we separate the $z$ dependence from the $x$ and $t$ dependence for both fields.
 The system is $y$ invariant.
-To obtain an equation governing the $z$ dependence, we take the curl of Faraday's law~\eqref{subeq:Faraday_law} and use Ampère-Maxwell's law~\eqref{subeq:Ampere_law}, with both laws in frequency domain.
+To obtain an equation governing the $z$ dependence, we take the curl of Faraday's law~\eqref{subeq:Faraday_law} and use Ampère--Maxwell's law~\eqref{subeq:Ampere_law}, with both laws in frequency domain.
 Furthermore, we work with the total displacement field $\bD$ defined in section~\ref{subsec:constitutive_relations_linear_response} and with no contribution coming from external currents such that $\bJ = \bzero$, we can then write for the electric field the so-called Helmholtz equation
 
 \begin{align}
@@ -552,7 +552,7 @@ Replacing the electric field $\bE$ by expression~\ref{eq:oscillatory_electric_fi
 \end{equation}
 
 Now what is left is to relate the components of the electric field with the components of the magnetic field.
-This is achieved by using again Faraday's law~\eqref{subeq:Faraday_law} and Ampère-Maxwell's law~\eqref{subeq:Ampere_law} in frequency domain with no external current sources for the electric field $\bE$ and the magnetic excitation field $\bH$, not the undercase fields dependent only on $z$.
+This is achieved by using again Faraday's law~\eqref{subeq:Faraday_law} and Ampère--Maxwell's law~\eqref{subeq:Ampere_law} in frequency domain with no external current sources for the electric field $\bE$ and the magnetic excitation field $\bH$, not the undercase fields dependent only on $z$.
 We rewrite those two laws in terms of cartesian coordinates but omitting the frequency dependence in the materials permittivity, using $y$ invariance so that $\partial_y = 0$ and replacing $\partial_x \to \ii q$ to write
 
 %\begin{equation} % no text
@@ -572,9 +572,9 @@ We rewrite those two laws in terms of cartesian coordinates but omitting the fre
         \partial_z E_y &=-\ii \omega \mu_0 H_x, &  &\text{Faraday's law: $x$ component;}  \label{subeq:Faraday_law_x} \\
         \partial_z E_x-\ii q E_z &=\ii \omega \mu_0 H_y, & &\text{Faraday's law: $y$ component;}\ \label{subeq:Faraday_law_y}\\
         \ii q E_y &=\ii \omega \mu_0 H_z\,, & &\text{Faraday's law: $z$ component;} \label{subeq:Faraday_law_z}\\
-        \partial_z H_y &=\ii \omega \varepsilon_0 \varepsilon E_x\,, & &\text{Ampère-Maxwell's law: $x$ component;} \label{subeq:Ampere_law_x}\\
-        \partial_z H_x-\ii q H_z &=-\ii \omega \varepsilon_0 \varepsilon E_y\,, & &\text{Ampère-Maxwell's law: $y$ component;} \label{subeq:Ampere_law_y}\\
-        \ii q H_y &=-\ii \omega \varepsilon_0 \varepsilon E_z\,, & &\text{Ampère-Maxwell's law: $z$ component.} \label{subeq:Ampere_law_z}
+        \partial_z H_y &=\ii \omega \varepsilon_0 \varepsilon E_x\,, & &\text{Ampère--Maxwell's law: $x$ component;} \label{subeq:Ampere_law_x}\\
+        \partial_z H_x-\ii q H_z &=-\ii \omega \varepsilon_0 \varepsilon E_y\,, & &\text{Ampère--Maxwell's law: $y$ component;} \label{subeq:Ampere_law_y}\\
+        \ii q H_y &=-\ii \omega \varepsilon_0 \varepsilon E_z\,, & &\text{Ampère--Maxwell's law: $z$ component.} \label{subeq:Ampere_law_z}
     \end{align}
     \label{eq:Maxwells_equations_components}
 \end{subequations}
@@ -584,9 +584,9 @@ We rewrite those two laws in terms of cartesian coordinates but omitting the fre
 %        \text{Faraday's law: $x$ component}, &  &\partial_z E_y &=-\ii \omega \mu_0 H_x\,,  \label{subeq:Faraday_law_x} \\
 %        \text{Faraday's law: $y$ component}, & &\partial_z E_x-\ii q E_z &=\ii \omega \mu_0 H_y\,, \label{subeq:Faraday_law_y}\\
 %        \text{Faraday's law: $z$ component},  & &\ii q E_y &=\ii \omega \mu_0 H_z\,, \label{subeq:Faraday_law_z}\\
-%        \text{Ampère-Maxwell's law: $x$ component}, & &\partial_z H_y &=\ii \omega \varepsilon_0 \varepsilon E_x \label{subeq:Ampere_law_x}\\
-%        \text{Ampère-Maxwell's law: $y$ component}, & &\partial_z H_x-\ii q H_z &=-\ii \omega \varepsilon_0 \varepsilon E_y\,, \label{subeq:Ampere_law_y}\\
-%        \text{Ampère-Maxwell's law: $z$ component}, & &\ii q H_y &=-\ii \omega \varepsilon_0 \varepsilon E_z\,. \label{subeq:Ampere_law_z}
+%        \text{Ampère--Maxwell's law: $x$ component}, & &\partial_z H_y &=\ii \omega \varepsilon_0 \varepsilon E_x \label{subeq:Ampere_law_x}\\
+%        \text{Ampère--Maxwell's law: $y$ component}, & &\partial_z H_x-\ii q H_z &=-\ii \omega \varepsilon_0 \varepsilon E_y\,, \label{subeq:Ampere_law_y}\\
+%        \text{Ampère--Maxwell's law: $z$ component}, & &\ii q H_y &=-\ii \omega \varepsilon_0 \varepsilon E_z\,. \label{subeq:Ampere_law_z}
 %    \end{align}
 %    \label{eq:Maxwells_equations_components}
 %\end{subequations}
