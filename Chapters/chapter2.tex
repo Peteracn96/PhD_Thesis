@@ -123,7 +123,7 @@ If it consists simply of a surface separating two different media, then in princ
 However, if on the interface we have a material of arbitrary small thickness, or if the interface is itself the existence of the material separating two infinite regions of vacuum, then in general we have to account for the physics of its optical response and cannot ignore $\sigma_s$ and $\bj_s$.
 If surface charge and current densities are not null, then naturally they satisfy the continuity equation $\div \bj_s + \partial_t \sigma_s = 0$.
 A striking example is that of graphene, either by itself or at a boundary between a dielectric and a metal~\cite{GoncalvesPeres:2016}.
-In this work, we focus on dielectric \gls{2d} materials, also termed insulators, and on their optical properties.
+In this work, we focus on dielectric \bd~materials, also termed insulators, and on their optical properties.
 These can be quantified by the dielectric function, or as we shall explain in the next section, by the conductivity in an equivalent way.
 
 \section{Material Properties: Classical Picture}
@@ -336,19 +336,19 @@ We consider next the opposite limit, where the dielectric function depends only 
 
 In this section we provide another model for the dielectric function where we only account for the dependence on the frequency, and take the long-wavelength limit of $\bk \to 0$.
 This approximation is called the local response approximation, which consists in admitting the response function of the material, the permittivity or conductivity, is short-ranged, so that the induced field at a certain point in space depends only on the external field at that same location.
-Symbolically, we can write correspondingly for the permittivity and conductivity $\vareps (\br - \br') = \delta (\br - \br') \vareps^{\mathrm{LRA}} (\omega)$ and $\sigma (\br - \br') = \delta (\br - \br') \sigma^{\mathrm{LRA}} (\omega)$, where the superscript \lra~stands for local response approximation.
+Symbolically, we can write correspondingly for the permittivity and conductivity $\vareps (\br - \br',\omega) = \delta (\br - \br') \vareps^{\mathrm{LRA}} (\omega)$ and $\sigma (\br - \br',\omega) = \delta (\br - \br') \sigma^{\mathrm{LRA}} (\omega)$, where the superscript LRA stands for \lra.
 In this approximation, the displacement field is simply given by
 
 \begin{equation}
 \label{eq:displacement_field_LRA}
-    \bD(\omega) = \epsz \vareps^{\mathrm{LRA}} (\omega) \bE(\omega)\,,
+    \bD(\br,\omega) = \epsz \vareps^{\mathrm{LRA}} (\omega) \bE(\br,\omega)\,,
 \end{equation}
 
 \noindent that together with Ohm's law
 
 \begin{equation}
 \label{eq:Ohms_law_LRA}
-    \bJ_\ind(\omega) = \sigma^{\mathrm{LRA}} (\omega) \bE(\omega)\,
+    \bJ_\ind(\br,\omega) = \sigma^{\mathrm{LRA}} (\omega) \bE(\br,\omega)\,
 \end{equation}
 
 \noindent form the necessary constitutive relations.
