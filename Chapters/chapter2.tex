@@ -61,7 +61,7 @@ The free charge and current densities are not independent, as they are related t
 \noindent that encodes the conservation of free electric charge.
 The free charge and current densities can in turn be split into an external part, which is the one externally applied on the material, and an induced part resulting from the material response to the external perturbation.
 Symbolically, $\rho_\tot = \rho_\f + \rho_\b$ and $\bJ_\tot = \bJ_\f + \bJ_\b$ for the charge and current densities, respectively.
-The continuity equation is also verified by the bound charge, $\rho_\b$, and current, $\bJ_\b$, densities, and consequently, also by its respective total quantities.
+The continuity equation is also verified by the bound charge $\rho_\b$ and current $\bJ_\b$ densities, and consequently, also by its counterpart total quantities.
 As said above, the fundamental fields $\bE$ and $\bB$ are connected to the fields $\bD$ and $\bH$, respectively, through a set of two equations called constitutive relations given by
 
 
@@ -717,8 +717,46 @@ In that case, we finally arrive the dispersion relation for \gls{spp}s, simplifi
 \noindent With material 1 being a dielectric, and material 2 being a metal, then \gls{spp}s can be supported, for frequency windows where $\vareps_1$ and $\vareps_2$ have opposite signs~\cite{GoncalvesPeres:2016,maier_plasmonics_2007}.
 This can be achieved in common lossless Drude metals, pertaining to the $\gamma=0$ case in equation~\eqref{eq:Drude_dielectric_function} enabling $\vareps_2(\omega) < 0$, while for most insulators $\vareps_1$ can be taken as a positive constant for all frequencies.
 
-In figure... we show the dispersion of SPPs for an example of a Drude metal...\todo{make figures in mathematica, purpose is to discuss also the field confinement compared to that of light in vacuum/metal.}
+Figure~\ref{fig:SPP_dispersion_relation} shows the dispersive behavior of \gls{spp}s at a dielectric--metal interface, where the dielectric is air, and the metal is a local Drude metal whose permittivity is given by the Drude permittivity~\eqref{eq:Drude_dielectric_function}.
+In panel \pnl{a}, for the lossless case, one can notice the very distinct behavior of the \gls{spp} dispersion relation in the lower branch, and of the wave propagating inside the metal in the upper branch from the linear dispersion curve $\omega(q) = qc/\sqrt{\vareps_1}$, which corresponds to light propagating in vacuum.
+We can highlight in the lower branch the low-frequency behavior of the \gls{spp}, which is light-like, but contrasts with the high-frequency behavior where the polariton can achieve very high wavenumbers, meaning we can achieve really high \gls{em} field confinement.
+These properties can in principle be exploited for electromagnetic field manipulation at very small length scales and promote strong light--matter interactions.
+However, and quite unfortunately, one cannot ignore Ohmic losses, especially in metals, therefore we would say that the situation depicted in panel \pnl{b} is more realistic.
+In the case with losses, the theoretical value for the highest wavenumber we could possibly achieve is more comparable to that of free light.
+Furthermore, the fact that the permittivity is complex results in a wavenumber with non-negligible imaginary part~\cite{Wolff_2018}, that actually peaks at approximately the same frequency which the real part peaks.
+It tells us that in practice a high-field confinement means also high losses.
+Recall that the decaying length of an evanescent wave is given by the inverse of the imaginary part of the wavenumber, as discussed in section~\ref{subsec:waves_in_matter}.
 
+\begin{figure}[bh!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Chapters/Figures/Chapter_2/SPP_dispersion_relation}
+    \mycaption[Dispersion relation of \gls{spp}s at a dielectric--metal interface.]{Dispersion relation $\omega(q)$ of \gls{spp}s at a dielectric--metal interface for a (local) Drude metal with $\vareps_\infty = 1$, with permittivity given by Eq.~\eqref{eq:Drude_dielectric_function}, and a dielectric with $\vareps_1 = 1$ (air, for instance).
+    Panel \pnl{a} is for a colisionless Drude model with $\gamma=0$. The dashed black line corresponds to light propagating in vacuum, the upper branch, in red, corresponds to free light propagatin in the (bulk) metal, and the lower branch, in blue, corresponds to the \gls{spp} dispersion relation, given by solving Eq.~\eqref{eq:TM_polariton_dispersion_relation}.
+    The gray dashed horizontal line corresponds to the dispersion relation of the \gls{tm} polarized mode in the limit $c \to \infty$, also called the nonretarded limit.
+    Panel \pnl{b} is for a Drude metal with finite damping rate $\gamma = 0.2 \wp$. The red dashed line represents the imaginary part of the wavenumber, while the blue full one the real part.}
+    \label{fig:SPP_dispersion_relation}
+\end{figure}
+
+\newpage
+
+In the analysis made above, for dispersion relations that may differ from that of free light and in the case the permittivity is complex, we could have assumed instead that the frequency $\omega$ is complex instead, while the wavenumber $q$ is real\footnote{The reader might wonder if we could even consider complex frequency and wavenumber at the same time. One may do so, but increases the dimension of the space we work with without necessity, making it harder to visualize the results. It is thus sufficient to consider in turn the real valued frequency or real valued wavenumber projection of that higher dimensional and more abstract space.}.
+In theory both approaches are valid, but if we are to compare theory with experiments, then we have to be aware of what choice would be significant.
+For instance, if we assume that the frequency is complex, then it means the polariton would be a propagating wave, but decaying in time.
+We should not expect to observe this effect in a continuous wave experiment, for instance.
+To observe it, an experiment where the system is probed by short-lived light pulses is more adequate.
+For a continuous wave experiment the complex valued wavenumber picture would offer more reliable predictions.
+
+We will see later on in this work another kind of surface polaritons, where the polar matter excitation is one characteristic of insulators and semiconductors, the so-called exciton.
+The coupling of the exciton with the electromagnetic field is called exciton--polariton.
+The exciton is a quasi-particle that results from the optical excitation of materials that present an electronic band gap.
+These can be classified as insulators if the band gap is large enough, or as semiconductors if the band gap is smaller and of the order of the environment thermal energy dictated by the external temperature.
+Before we can understand these concepts (band gap, insulators/semiconductors) and describe theis exciton quasi-particle, and the subsequent coupling with light, we need to dive deep into the field of quantum physics, with particular emphasis on solid-state matter in the context of condensed matter physics.
+That is what the next chapter is devoted to, introduce the reader to the concepts of quantum mechanics that are necessary to address the excitations of materials at length scales where the tools of classical physics are deemed insufficient.
+The excitations of matter using a quantum description of materials is then the subject of the chapters following the next one.
+
+Before we conclude the chapter and leave the real of classical physics, it can still offer useful insights into how light and matter interact.
+In the next section we will see how the laws of classical electrodynamics still allow us to estimate the amount of electromagnetic energy can be absorbed, reflected or transmitted at an interface between two domain regions when light traverses from one region to the other.
+It will culminate with Fresnel's coefficients, but in the more general case where the interface has its own optical response.
 
 \subsection{Material absorption, reflection and transmission}
 \label{subsec:polaritonics_absorption}
