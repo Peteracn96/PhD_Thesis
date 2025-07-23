@@ -486,13 +486,12 @@ Looking back at equation~\eqref{subeq:wave_equation_F}, and looking now for long
 
 \noindent We will immediately interpret the previous condition.
 Omitting the subscript \enquote{eq}, let us rewrite the constitutive relation for the electric displacement field $\bD = \epsz \bE + \bP = \epsz \vareps \bE = \bzero$, the last equality by virtue of~\eqref{eq:plasmon_condition}.
-This means for the electric field $\bE = \bP/\epsz$, that is, the electric field in the material stems only from the polarization field.
-In other words, the only way for $\bE$ having oscillation modes when $\bD$ is zero, is when $\vareps$ is zero.
-These modes are free-standing, and derive from the collective oscillation of free electrons in the material, typically a metal.
+This means for the electric field $\bE = \bP/\epsz$, that is, the electric field in the material stems only from the polarization field---the only way for $\bE$ to have oscillation modes when $\bD$ is zero, is by having zero $\vareps$.
+These modes are freestanding, and derive from the collective oscillation of free electrons in the material, typically a metal.
 They are called plasmonic modes, or plasmons, and were first introduced by David Pines and David Bohm in 1952~\cite{Pines_Bohm_1952} and underpin the entire field of plasmonics~\cite{Cosme_2025,GoncalvesPeres:2016,Andre_Goncalves_2020,maier_plasmonics_2007,Ellie_2024}.
 
 The relation~\eqref{eq:plasmon_condition} can be seen as the dispersion relation of the plasmon, that in general is implicitly defined and can only be solved numerically to have $\omega = \omega(\bk)$.
-However, if the expression of the permittivity is simple enough, then we can find an analytical dispersion for dispersion relation of the transverse and longitudinal modes.
+However, if the expression of the permittivity is simple enough, then we can find an analytical expression for the dispersion relation of transverse and longitudinal modes.
 In the example of a bulk, local and Drude metal without the background contribution, with $\vareps_\infty = 1$, the permittivity is given by $\vareps(\omega) = 1 -\wp^2/\omega^2$, so that light and plasmon modes have by dispersion relations $\omega^2 = \wp^2 + k^2 c^2$ and $\omega = \wp$, respectively.
 
 The plasmon, being a dipolar excitation of the material, it can couple to the transverse electromagnetic mode, for instance, along the interface separating a dielectric and a metal, to originate a polariton.
@@ -518,21 +517,20 @@ The polariton propagates in the $x$ direction with wavevector $\bq = q \hat{\mat
 \begin{figure}[H]
     \centering
     \input{Chapters/Figures/Chapter_2/polariton}
-    \mycaption[Schematic representation of a surface polariton.]{A polariton with wavevector $\vec{q}$  propagating along a \bd~material separating two bulk media, material 1 on top as a cladding material, and material 2 underneath acting as a substrate. Each material $j=1,2$ has its own permittivity $\vareps_j(\omega)$, while the \bd~material has its own conductivity $\sigma(\omega)$.}
+    \mycaption[Schematic representation of a surface polariton.]{A polariton with wavevector $\vec{q}$ propagating along a \bd~material separating two bulk media, material 1 on top as a cladding material, and material 2 underneath acting as a substrate. Each material $j=1,2$ has its own permittivity $\vareps_j(\omega)$, while the \bd~material has its own conductivity $\sigma(\omega)$.}
     \label{fig:cladded_monolayer}
 \end{figure}
 
-The starting point is assuming a plane-wave for the $x$ and time dependence for the electric field $\bE$ and the magnetic excitation field, or magnetic field for short, $\bH$, that we are using instead of the $\bB$ field.
+The starting point is assuming a plane-wave dependence on $x$ and $t$ for the electric field $\bE$ and the magnetic excitation field $\bH$ (or magnetic field for short).
 So we write
-
 
 \begin{equation}
     \bF(\br, t)  = \mathbf{f}(z) \ei{(q x - \omega t)}, \,\bF \in \{\bE, \bH\},
     \label{eq:oscillatory_electric_field}
 \end{equation}
 
-\noindent where the undercase $\mathbf{f}$ stands for $\mathbf{e}$ or $\mathbf{b}$, if we separate the $z$ dependence from the $x$ and $t$ dependence for both fields.
-The system is $y$ invariant.
+\noindent where the lowercase $\mathbf{f}$ stands for $\mathbf{e}$ or $\mathbf{h}$ for the electric and magnetic field, respectively, if we separate the $z$ dependence from the $x$ and $t$ dependence for both fields.
+The system is $y$ invariant, so there is no dependence on $y$.
 To obtain an equation governing the $z$ dependence, we take the curl of Faraday's law~\eqref{subeq:Faraday_law} and use Ampère-Maxwell's law~\eqref{subeq:Ampere_law}, with both laws in frequency domain.
 Furthermore, we work with the total displacement field $\bD$ defined in section~\ref{subsec:constitutive_relations_linear_response} and with no contribution coming from external currents such that $\bJ = \bzero$, we can then write for the electric field the so-called Helmholtz equation
 
@@ -665,7 +663,7 @@ Recalling~\eqref{eq:boundary_condition_H}:
     \label{eq:H_boundary_condition}
 \end{equation}
 
-\noindent The sheet current density $\bj_s$ relates with the electric field $\bE$ through Ohm's law, where the conductivity is the \bd conductivity of the \bd material, $\sigma$.
+\noindent The sheet current density $\bj_s$ relates with the electric field $\bE$ through Ohm's law, where the conductivity is the \bd~conductivity of the \bd~material, $\sigma$.
 In frequency domain and within \lra, Ohm's law is as simple as $\bj_s = \sigma \bE$.
 For \gls{tm} modes and taking into account the tensor nature of the conductivity the \rhs of the previous equation reads
 
@@ -709,7 +707,7 @@ We can see that the systems supports \gls{te} modes when $\Im \sigma_{yy} < 0$,
 and if the real part of the conductivity is finite, then the dispersion relation holds in the complex plane, just like for \gls{tm} modes.
 Analytically, both dispersion relations~\eqref{eq:TM_polariton_dispersion_relation} and~\eqref{eq:TE_polariton_dispersion_relation} can only be written implicitly, so we have to solve them numerically to obtain the dispersion relations in the explicit form $\omega(q)$.
 
-We consider the particular case of \gls{tm} polarization and where there is no \bd material response, $\omega(\omega) = 0$, and the interface is simply the boundary separating a dielectric and a metal.
+We consider the particular case of \gls{tm} polarization and where there is no \bd~material response, $\sigma(\omega) = 0$, and the interface is simply the boundary separating a dielectric and a metal.
 In that case, we finally arrive the dispersion relation for \gls{spp}s, simplifies to
 
 \begin{equation}
@@ -717,7 +715,7 @@ In that case, we finally arrive the dispersion relation for \gls{spp}s, simplifi
 \end{equation}
 
 \noindent With material 1 being a dielectric, and material 2 being a metal, then \gls{spp}s can be supported, for frequency windows where $\vareps_1$ and $\vareps_2$ have opposite signs~\cite{GoncalvesPeres:2016,maier_plasmonics_2007}.
-This can be achieved in common lossless Drude metals, pertaining to the $\gamma=0$ case in equation~\eqref{eq:Drude_dielectric_function} making $\vareps_2(\omega) < 0$, while for most insulators $\vareps_1$ can be taken as a positive constant.
+This can be achieved in common lossless Drude metals, pertaining to the $\gamma=0$ case in equation~\eqref{eq:Drude_dielectric_function} enabling $\vareps_2(\omega) < 0$, while for most insulators $\vareps_1$ can be taken as a positive constant for all frequencies.
 
 In figure... we show the dispersion of SPPs for an example of a Drude metal...\todo{make figures in mathematica, purpose is to discuss also the field confinement compared to that of light in vacuum/metal.}
 
