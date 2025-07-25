@@ -220,7 +220,7 @@ Let us then rewrite Maxwell's equations~\eqref{eq:Maxwells_equations} in recipro
 \end{align*}
 
 
-\noindent where in the previous equation we defined the equivalent permittivity\footnote{The function $\vareps (\bk,\omega)$ on the \gls{rhs} has quite often in the literature a subscript writing $\vareps_\infty(\bk,\omega)$, standing for the contribution coming from the ionic background together with bound polarization charges.}
+\noindent where in the previous equation we defined the equivalent permittivity\footnote{The function $\vareps (\bk,\omega)$ on the \gls{rhs}~has quite often in the literature a subscript writing $\vareps_\infty(\bk,\omega)$, standing for the contribution coming from the ionic background together with bound polarization charges.}
 
 \begin{equation}
 \label{eq:equivalent_permittivity}
@@ -230,7 +230,7 @@ Let us then rewrite Maxwell's equations~\eqref{eq:Maxwells_equations} in recipro
 
 \noindent This suggests redefining the total electric displacement field as $\bD \to \bD_\tot  = \bD +~i \omega^{-1} \bJ_\ind$.
 In this way, equation~\eqref{subeq:Gauss_law_reciprocal} can be rewritten in terms of only the external charge density, $ \ii \bk \cdot \bD_\tot(\bk,\omega) = \rho_\ext(\bk,\omega)$.
-With only the external charge and current densities appearing explicitly in Maxwell's equations and a total displacement field incorporating the induced current, we can define a total electric field as $\bE_\tot = \bD_\tot/\epsz$ and intepret the dielectric function as the ratio between the external field and the total one: $\vareps(\bk,\omega) = |\bE_\ext(\bk,\omega)|/|\bE_\tot(\bk,\omega)|$.
+With only the external charge and current densities appearing explicitly in Maxwell's equations and a total displacement field incorporating the induced current, we can define a total electric field as $\bE_\tot = \bD_\tot/\epsz$ and interpret the dielectric function as the ratio between the external field and the total one: $\vareps(\bk,\omega) = |\bE_\ext(\bk,\omega)|/|\bE_\tot(\bk,\omega)|$.
 This interpretation is the cornerstone of the theory around the dielectric function.
 It is actually introduced like this in introductory electromagnetism courses, appearing usually as a single constant relative permittivity denoted by $\vareps_r$ in the denominator in Coulomb's law for the electrostatic force.
 In bulk materials, it is typically sufficient to speak of the relative permittivity as a constant of the bulk material.
@@ -459,9 +459,9 @@ Relationships of the previous kind, relating the frequency of the wave with the 
 In this case, the wave pertains to light, so it is an optical dispersion relation.
 We will face another type of dispersion relation in the next chapter.
 We further note that the wavenumber $k$ is in general complex, as the permittivity $\vareps_{\text{eq}}(\bk,\omega)$ is also complex.
-Writing the wave number in terms of its real and imaginary parts as $k = k' + \ii \kappa$, when looking at modes oscillating in space as $\exp{i k x}$, then we have $\exp{i k x} = \exp{i k' x} \exp{- \kappa x}$.
+Writing the wave number in terms of its real and imaginary parts as $k = k' + \ii \kappa$, when looking at modes oscillating in space as $\exp (\ii k x)$, then we have $\exp (\ii k x) = \exp (\ii k' x) \exp (- \kappa x)$.
 Therefore, the inverse of the imaginary part of the wave number $1/\kappa$ has the interpretation of a penetration length scale of the wave into the medium.
-The parameter $\kappa$ is then called the extinction coefficient, and $1/\kappa$ the skin depth.
+The parameter $\kappa$ is then called the extinction coefficient, and $1/\kappa$ the skin depth\footnote{We discard off course the unphysical $\kappa<0$ solutions.}.
 
 By identifying the velocity of the wave as $v = \omega/k$, then we have a definition for the quantity $c/v = \sqrt{\vareps_{\text{eq}} (\bk,\omega)} \equiv n$, the famously called refractive index of the medium.
 It is in this context that we speak of dispersion, both spatial or temporal, coming from the dependence of the refractive index in $\bk$ or $\omega$, respectively.
@@ -540,7 +540,7 @@ Furthermore, we work with the total displacement field $\bD$ defined in section~
 \end{align}
 
 \noindent by defining $k_0^2 \equiv \omega^2 \vareps(\omega) /c^2$, and where we neglected non-local effects in the material (either 1 or 2), so that the permittivity appearing is only frequency dependent.
-This allows to transform the spatial convolution of the permittivity with the electric field into a mere multiplication, such that $\bD(\br,\omega) = \vareps(\omega) \bE(\br,\omega)$
+This allows to transform the spatial convolution of the permittivity with the electric field into a mere multiplication, such that $\bD(\br,\omega) = \vareps(\omega) \bE(\br,\omega)$.
 Otherwise, we would have to take spatial derivatives of the response function.
 This is equivalent to taking in~\eqref{subeq:wave_equation_F} the \lra~limit $\bk \to \bzero$ of $\vareps_{\text{eq}}(\bk,\omega)$, and converting the square of the wavenumber $k^2$ back into the Laplacian operator in real space.
 Replacing the electric field $\bE$ by expression~\ref{eq:oscillatory_electric_field} we obtain the ordinary differential equation
@@ -594,7 +594,7 @@ In \gls{tm} modes the electric field is in-plane and the magnetic field is off-p
 While \gls{te} modes present in general a light-like dispersion, therefore present weak field confinement, \gls{tm} modes are typically more interesting, being able of presenting higher field confinement.
 It is a custom to classify polariton modes in these two types of polarizations since not all systems can host both types of polarization.
 Figure~\ref{fig:TE_and_TM_modes} represents the orientation of the electric and magnetic fields with respect to the polariton wavevector for the two distinct situations.
-We will focus first on the \gls{tm} mode, corresponding to the \gls{rhs} of the figure below.
+We will focus first on the \gls{tm} mode, corresponding to the \gls{rhs}~of the figure below.
 
 \begin{figure}[b]
     \begin{minipage}{0.7\textwidth}
@@ -656,10 +656,10 @@ The electric and magnetic fields write ($j=1$ for $z>0$ and $j=2$ for $z<0$)
 \end{equation}
 
 \noindent The parallel component of the magnetic field, however, is discontinuous.
-Recalling~\eqref{eq:boundary_condition_H}:
+Recalling the condition~\eqref{eq:boundary_condition_H}:
 
 \begin{equation}
-    \bn_{12} \times( \bH_{1} - \bH_{2} )= \bj_s \Leftrightarrow \bH_{1t} - \bH_{2t} = \bj_s \times \bn_{12}\,.
+    \bn_{12} \times( \bH_{2} - \bH_{1} )= \bj_s \Leftrightarrow \bH_{1t} - \bH_{2t} = - \bj_s \times \bn_{12}\,.
     \label{eq:H_boundary_condition}
 \end{equation}
 
@@ -668,7 +668,7 @@ In frequency domain and within \lra, Ohm's law is as simple as $\bj_s = \sigma \
 For \gls{tm} modes and taking into account the tensor nature of the conductivity the \rhs of the previous equation reads
 
 \begin{equation}
-    \bj_s \times \bn_{12} = - \sigma_{xx} E_x \bey\,.
+    \bj_s \times \bn_{12} = \sigma_{xx} E_x \bey\,.
 \end{equation}
 
 \noindent Rewritting (\ref{eq:H_boundary_condition}), using (\ref{eq:Et_continuity}) and simplifying
@@ -703,7 +703,7 @@ An analogous procedure for \gls{te} modes would lead us to
 \end{equation}
 
 \noindent the dispersion relation for \gls{te} modes.
-We can see that the systems supports \gls{te} modes when $\Im \sigma_{yy} < 0$,
+We can see that the systems supports \gls{te} modes when $\Im \{\sigma_{yy} \} < 0$,
 and if the real part of the conductivity is finite, then the dispersion relation holds in the complex plane, just like for \gls{tm} modes.
 Analytically, both dispersion relations~\eqref{eq:TM_polariton_dispersion_relation} and~\eqref{eq:TE_polariton_dispersion_relation} can only be written implicitly, so we have to solve them numerically to obtain the dispersion relations in the explicit form $\omega(q)$.
 
@@ -719,7 +719,8 @@ This can be achieved in common lossless Drude metals, pertaining to the $\gamma=
 
 Figure~\ref{fig:SPP_dispersion_relation} shows the dispersive behavior of \gls{spp}s at a dielectric--metal interface, where the dielectric is air, and the metal is a local Drude metal whose permittivity is given by the Drude permittivity~\eqref{eq:Drude_dielectric_function}.
 In panel \pnl{a}, for the lossless case, one can notice the very distinct behavior of the \gls{spp} dispersion relation in the lower branch, and of the wave propagating inside the metal in the upper branch from the linear dispersion curve $\omega(q) = qc/\sqrt{\vareps_1}$, which corresponds to light propagating in vacuum.
-We can highlight in the lower branch the low-frequency behavior of the \gls{spp}, which is light-like, but contrasts with the high-frequency behavior where the polariton can achieve very high wavenumbers, meaning we can achieve really high \gls{em} field confinement.
+We can notice a region of forbidden frequencies opening a gap between two branches.
+In the lower branch, the low-frequency behavior of the \gls{spp} is light-like, which but contrasts with the high-frequency behavior where the polariton can achieve very high wavenumbers, meaning we can realize really high \gls{em} field confinement.
 These properties can in principle be exploited for electromagnetic field manipulation at very small length scales and promote strong light--matter interactions.
 However, and quite unfortunately, one cannot ignore Ohmic losses, especially in metals, therefore we would say that the situation depicted in panel \pnl{b} is more realistic.
 In the case with losses, the theoretical value for the highest wavenumber we could possibly achieve is more comparable to that of free light.
