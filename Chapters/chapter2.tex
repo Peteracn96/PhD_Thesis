@@ -762,8 +762,8 @@ It will culminate with Fresnel's coefficients, but in the more general case wher
 \subsection{Material absorption, reflection and transmission}
 \label{subsec:polaritonics_absorption}
 
-The purpose of this section is to derive an expression for the amount of electromagnetic radiation that is absorbed by a \bd material when impinged by a linearly polarized plane-wave field.
-The configuration is that of Figure~\ref{fig:normal_incidence}, with an incoming plane-wave propagating from above in medium 1 with normal incidence on the interface, with the \bd material reflecting and transmitting part of the incident radiation.
+The purpose of this section is to derive an expression for the amount of electromagnetic radiation that is absorbed by a \bd~material when impinged by a linearly polarized plane-wave field.
+The configuration is that of Figure~\ref{fig:normal_incidence}, with an incoming plane-wave propagating from above in medium 1 with normal incidence on the interface, with the \bd~material reflecting and transmitting part of the incident radiation.
 Using Maxwell's equations and the boundary conditions at the interface once more, we will derive the Fresnel coefficients in the particular case of normal incidence, but in the more general form where the surface separating the two media has its own optical response $\sigma$ (we will omit for now the frequency dependence of the conductivity).
 While omitting the time dependence, we write for the incident electric field $\bE_\inc = A_i \ei[-]{k_i z} \bex$, for the reflected electric field $\bE_\refl = A_r \ei{k_r z}  \bex$, and for the transmitted electric field $\bE_\trans = A_t \ee^{-\ii k_t z}  \bex$.
 The capital $A$'s are simply field amplitudes.
@@ -791,12 +791,12 @@ Using the identity $k = n \omega / c $ and solving the previous system of equati
 \begin{figure}[H]
     \centering
     \input{Chapters/Figures/Chapter_2/normal_incidence}
-    \mycaption[Normal incidence of a plane-wave on an interface between two dielectrics.]{A plane-wave with wavevector $\bk_\inc$ and frequency $\omega$, travelling through medium 1 with permittivty $\vareps_1$, impinges on the surface of a \bd material on top of a dielectric substrate with permittivity $\vareps_2$.}
+    \mycaption[Normal incidence of a plane-wave on an interface between two dielectrics.]{A plane-wave with wavevector $\bk_\inc$ and frequency $\omega$, travelling through medium 1 with permittivty $\vareps_1$, impinges on the surface of a \bd~material on top of a dielectric substrate with permittivity $\vareps_2$.}
     \label{fig:normal_incidence}
 \end{figure}
 
 
-The attentive reader may realize that the Fresnel coefficients are not yet a measure of the amount of radiation that the \bd material reflects or transmits, they are only relative field amplitudes.
+The attentive reader may realize that the Fresnel coefficients are not yet a measure of the amount of radiation that the \bd~material reflects or transmits, they are only relative field amplitudes.
 In order to calculate the amount of radiation reflected and transmitted, and subsequently absorbed, we actually still need to calculate the relative field intensities.
 We can define the intensity of the electromagnetic field as the magnitude of the Poynting vector $\bS$, defined by $\bS = \bE \times \bH$~\cite{Jackson:electrodynamics,Hohenester_2020}, averaged in time over one complete oscillation.
 As we are considering only plane-waves composed of a single harmonic frequency $\omega = c k /n$, we can write for the time-averaged Poynting vector~\cite{Hohenester_2020}
@@ -818,16 +818,16 @@ We can finally define the relative amount of radiation that is reflected and tra
 
 \noindent where the expressions for $r$ and $t$ can be found in equations~\eqref{subeq:Fresnel_reflection_coefficient} and~\eqref{subeq:Fresnel_transmission_coefficient}, respectively.,
 
-We are in place now to compute the amount of radiation that is absorbed by the \bd material, or simply absorption, through the identity
+We are in place now to compute the amount of radiation that is absorbed by the \bd~material, or simply absorption, through the identity
 
 \begin{equation}
     \mathcal{A} = 1 - \mathcal{R} - \mathcal{T} = 1 - |r|^2 - \Re{\frac{n_2}{n_1}} |t|^2\,.
     \label{eq:absorption}
 \end{equation}
 
-Having started from Maxwell's equations valid in continuous domains, together with the boundary conditions for boundaries between domains and the constitutive relations, the system of all these equations is closed, and one in principle could be able to solve any problem in electrodynamics involving \bd materials\footnote{Apart from non-linear phenomena, that is out of the scope of this work.}.
+Having started from Maxwell's equations valid in continuous domains, together with the boundary conditions for boundaries between domains and the constitutive relations, the system of all these equations is closed, and one in principle could be able to solve any problem in electrodynamics involving \bd~materials\footnote{Apart from non-linear phenomena, that is out of the scope of this work.}.
 It happens that to make realistic predictions and expecting agreement with experiments using real samples, we would need to know how the dielectric function, or equivalently the conductivity, depends on the frequency and wavevector.
-We have considered particular cases in the previous section~\ref{subsec:constitutive_relations_linear_response}, for which certain approximations allow for writing an analytical expression for the dielectric function, as the example of the local Drude metal its extension to the Drude--Lorentz model for dielectrics and the \bd dielectric in the static limit.
+We have considered particular cases in the previous section~\ref{subsec:constitutive_relations_linear_response}, for which certain approximations allow for writing an analytical expression for the dielectric function, as the example of the local Drude metal its extension to the Drude--Lorentz model for dielectrics and the \bd~dielectric in the static limit.
 Up until now, we have not discussed how in fact such models can be obtained for different materials.
 If we could do so, then we could know what values to use for the adjustable parameters in each model, and maybe even find the complete dependence of the material properties in the whole $(\bk,\omega)$ domain.
 For us to have hope in doing so, we need the appropriate tools necessary to describe materials at even smaller scales than the nanometer, where a plethora of different effects and phenomena underlie the emerging macroscopic physics of materials.
