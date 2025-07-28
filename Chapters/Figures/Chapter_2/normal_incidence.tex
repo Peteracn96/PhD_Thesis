@@ -1,0 +1,109 @@
+\tikzset{every picture/.style={scale=1.0}} %set default line width to 0.75pt
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,308); %set diagram left start at 0, and has height of 308
+
+    \definecolor{darkgreen}{RGB}{65,117,5}
+    \definecolor{darkred}{RGB}{224,49,22}
+
+%Shape: Rectangle [id:dp9788181822863107]
+    \draw  [color={rgb, 255:red, 155; green, 155; blue, 155 }  ,draw opacity=1 ][fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=1 ] (33.71,181.76) -- (441.87,181.76) -- (441.87,274) -- (33.71,274) -- cycle ;
+
+%2D material
+    \draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][line width=1.5]    (33.71,181.64) -- (441.87,181.76) ;
+
+    % arrow
+    \draw [color={rgb, 255:red, 74; green, 144; blue, 226 }, draw opacity=1, arrows = {-Stealth[scale length=1.5]}]   (413.59,182.78) .. controls (410.53,166.66) and (416.38,146.41) .. (368.47,156.19) ;
+
+    % conductivity
+    \draw (356,153) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,opacity=1 ] [align=left] {$\displaystyle \sigma$};
+
+%x axis
+    \draw[arrows = {-Stealth[scale length=1.5]}]    (33.71 + 15,181.64) -- (90,181.86);
+    % Text Node
+    \draw (78.94,183.43) node [anchor=north west][inner sep=0.75pt]    {$x$};
+
+%z axis
+    \draw[arrows = {-Stealth[scale length=1.5]}]    (33.71,181.64-15) -- (33.71,130.);
+    % Text Node
+    \draw (13.11,126.7) node [anchor=north west][inner sep=0.75pt]  {$z$};
+
+%y axis
+    % big circle
+    \draw  [draw opacity=1, fill=white] (33.71,181.64) circle (15);
+
+    % Text Node
+    \draw (22.0,200.27) node [anchor=north west][inner sep=0.75pt]    {$y$};
+
+    % cross
+    \draw   ({33.71 - sqrt(2)*15/2},{181.64 - sqrt(2)*15/2}) -- ({33.71 + sqrt(2)*15/2},{181.64 + sqrt(2)*15/2});
+    \draw   ({33.71 - sqrt(2)*15/2},{181.64 + sqrt(2)*15/2}) -- ({33.71 + sqrt(2)*15/2},{181.64 - sqrt(2)*15/2});
+
+%Incident E field
+    \draw [color=darkred, draw opacity=1, arrows = {-Stealth[scale length=1.5]}]   (109.5,90) -- (162.5,90) ;
+    % Text Node
+    \draw[color=darkred] (150.0,95) node [anchor=north west][inner sep=0.75pt]    {$\vb*{E}_{\mathrm{inc}}$};
+
+%Incident wave vector
+    \draw[arrows = {-Stealth[scale length=1.5]}]    (109.5,91.5) -- (109.5,139.5) ;
+    % Text Node
+    \draw (118,121.4) node [anchor=north west][inner sep=0.75pt]    {$\vb{k}_{\mathrm{inc}}$};
+
+%Incident magnetic field
+    % small circle
+    \draw  [color=darkgreen, draw opacity=1 ][fill=darkgreen,fill opacity=1 ] (109.5,90) circle (1.5 pt);
+
+    % big circle
+    \draw  [color=darkgreen, draw opacity=1] (109.5,90) circle (11 pt);
+
+    % Text Node
+    \draw[color=darkgreen] (75, 60) node [anchor=north west][inner sep=0.75pt]    {$\vb*{H}_{\mathrm{inc}}$};
+
+%Reflected E field
+    \draw [color=darkred, draw opacity=1, arrows = {-Stealth[scale length=1.5]}]   (334.5,90) -- (292.5,90);
+    % Text Node
+    \draw[color=darkred] (290,95) node [anchor=north west][inner sep=0.75pt]    {$\vb*{E}_{\mathrm{r}}$};
+
+%Reflected wave vector
+    \draw[arrows = {-Stealth[scale length=1.5]}]    (334.5,89.9) -- (334.5,41.9) ;
+    % Text Node
+    \draw (341.8,41.4) node [anchor=north west][inner sep=0.75pt]    {$\vb{k}_{\mathrm{r}}$};
+
+%Reflected magnetic field
+    % big circle
+    \draw  [color=darkgreen, draw opacity=1] (334.5,90) circle (15);
+
+    % Cross
+    \draw  [color=darkgreen, draw opacity=1 ] ({334.5 - sqrt(2)*15/2},{90 - sqrt(2)*15/2}) -- ({334.5 + sqrt(2)*15/2},{90 + sqrt(2)*15/2});
+    \draw  [color=darkgreen, draw opacity=1 ] ({334.5 - sqrt(2)*15/2},{90 + sqrt(2)*15/2}) -- ({334.5 + sqrt(2)*15/2},{90 - sqrt(2)*15/2});
+
+    % Text Node
+    \draw[color=darkgreen] (305, 60) node [anchor=north west][inner sep=0.75pt]    {$\vb*{H}_{\mathrm{r}}$};
+
+%Transmitted E field
+    \draw [color=darkred, draw opacity=1, arrows = {-Stealth[scale length=1.5]}]   (235,206.0) -- (270.0,206.0) ;
+    % Text Node
+    \draw[color=darkred] (255,210) node [anchor=north west][inner sep=0.75pt]    {$\vb*{E}_{\mathrm{t}}$};
+
+%Transmitted wave vector
+    \draw[arrows = {-Stealth[scale length=1.5]}]   (235,206.0) -- (235,254.0) ;
+    % Text Node
+    \draw (242.6,237.6) node [anchor=north west][inner sep=0.75pt]    {$\vb{k}_{\mathrm{t}}$};
+
+%Transmitted magnetic field
+    % small circle
+    \draw  [color=darkgreen  ,draw opacity=1 ][fill=darkgreen,fill opacity=1 ] (235,206.0) circle (1.5 pt);
+
+    % big circle
+    \draw  [color=darkgreen, draw opacity=1] (235,206.0) circle (15);
+
+    % Text Node
+    \draw[color=darkgreen] (200,185) node [anchor=north west][inner sep=0.75pt]    {$\vb*{H}_{\mathrm{t}}$};
+
+
+% Text Node
+    \draw (405.73,102.92) node [anchor=north west][inner sep=0.75pt]    {$\varepsilon _{1}$};
+
+% Text Node
+    \draw (409.15,236.32) node [anchor=north west][inner sep=0.75pt]    {$\varepsilon _{2}$};
+\end{tikzpicture}
