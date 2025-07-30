@@ -103,7 +103,7 @@ As said above, the fundamental fields $\bE$ and $\bB$ are connected to the field
 
 
 \noindent where $\bP$ is the bound polarization volume density and $\bM$ the bound magnetization volume density, and the parameters $\epsz$ and $\mu_0$ are the vacuum electric permittivity and the vacuum magnetic permeability, correspondingly.
-Within the scope of this work, we study only materials with no magnetic response at optical frequencies nor with permanent magnetization, so that $\bM = 0$ and $\bB \qty(\br,t)  = \mu_0 \bH \qty(\br,t)$ will always hold.
+Within the scope of this work, we study only materials with no magnetic response at optical frequencies nor with permanent magnetization, so that $\bM = \bzero$ and $\bB \qty(\br,t)  = \mu_0 \bH \qty(\br,t)$ will always hold.
 
 With all these equations in hand, one in principle can solve any problem in electrodynamics in a continuous medium.
 One just would need to know how in fact the material properties determine the polarization density, and also the magnetization density in case the material is magnetic.
@@ -140,7 +140,7 @@ By doing so, we can relate the fields on each side 1 and 2 of the interface, res
 
 \noindent for the normal components of the electric displacement and magnetic fields, respectively, where $\sigma_s$ is a surface charge density, and $\bn_{12}$ is the versor normal to the interface pointing from medium 1 to medium 2.
 The quantities $\sigma_s$ and $\bj_s$ account for any charge flow that might exist at the interface.
-If it consists simply of a surface separating two different media, then in principle $\sigma_s = 0$ and $\bj_s = 0$.
+If it consists simply of a surface separating two different media, then in principle $\sigma_s = 0$ and $\bj_s = \bzero$.
 However, if on the interface we have a material of arbitrary small thickness, or if the interface is itself the existing material separating two infinite regions of vacuum, then in general we have to account for the physics of its optical response and cannot ignore $\sigma_s$ nor $\bj_s$.
 If surface charge and current densities are not null, then naturally they satisfy the continuity equation $\div \bj_s + \partial_t \sigma_s = 0$.
 A striking example is that of graphene, either by itself or at a boundary between a dielectric and a metal~\cite{GoncalvesPeres:2016}.
@@ -469,15 +469,15 @@ These transverse oscillations can be predicted by Maxwell's equations~\eqref{eq:
     k^2 \bF(\bk,\omega) - \bk \big(\bk \cdot \bF(\bk,\omega)\big) = -\omega^2 \epsz \mu_0 \vareps_{\text{eq}}(\bk,\omega) \bF(\bk,\omega) \label{subeq:wave_equation_F}\,,\\
 \end{equation}
 
-\noindent for both fields $\bF = \bE, \bB$, and we used the definition for the equivalent permittivity~\eqref{eq:equivalent_permittivity}, while assuming that there are no external currents influencing the dynamics of the material ($\bJ_\ext = 0$).
+\noindent for both fields $\bF = \bE, \bB$, and we used the definition for the equivalent permittivity~\eqref{eq:equivalent_permittivity}, while assuming that there are no external currents influencing the dynamics of the material ($\bJ_\ext = \bzero$).
 Now, if we assume that the oscillation of the electromagnetic field is transversal, then $\bk \cdot \bE = \bk \cdot \bB = 0$, and the equations above simplify to
 
 \begin{equation}
-    \qty[k^2 - \vareps_{\text{eq}}(\bk,\omega) \frac{\omega^2}{c^2}] \bF (\bk,\omega) = 0\,,\, \bF \in \{\bE, \bB\}.
+    \qty[k^2 - \vareps_{\text{eq}}(\bk,\omega) \frac{\omega^2}{c^2}] \bF (\bk,\omega) = \bzero\,,\, \bF \in \{\bE, \bB\}.
 \end{equation}
 
 \noindent The attentive reader might have recognized the previous equation as the wave equation but written in the $(\bk,\omega)$ domain.
-It presents a non-trivial solution $\bF = 0$ if the quantity in brackets is zero, therefore $\bk$ and $\omega$ have to verify
+It presents a non-trivial solution $\bF \neq \bzero$ if the quantity in brackets is zero, therefore $\bk$ and $\omega$ have to verify
 
 \begin{equation}
     k^2 = \vareps_{\text{eq}}(\bk,\omega) \frac{\omega^2}{c^2}\,.
@@ -502,7 +502,7 @@ To summarize, we can say that in a material the dispersion of propagating electr
 Looking back at equation~\eqref{subeq:wave_equation_F}, and looking now for longitudinal oscillations with $\bk || \bE$ for which $\bk \cdot \bE \neq 0$, then we find instead
 
 \begin{equation}
-    \vareps_{\text{eq}}(\bk,\omega) \frac{\omega^2}{c^2} \bF(\bk,\omega) = 0\,, \bF \in \{\bE, \bB\}.
+    \vareps_{\text{eq}}(\bk,\omega) \frac{\omega^2}{c^2} \bF(\bk,\omega) = \bzero\,, \bF \in \{\bE, \bB\}.
 \end{equation}
 
 \noindent This last equation admits a non-trivial solution $\bF \neq 0$ only for\footnote{We remind the reader that we have been considering materials with no magnetic susceptibility, such that the relative permeability is identically one in the entire $(\bk,\omega)$ domain.}
@@ -513,7 +513,7 @@ Looking back at equation~\eqref{subeq:wave_equation_F}, and looking now for long
 \end{equation}
 
 \noindent We will immediately interpret the previous condition.
-Omitting the subscript \enquote{eq}, let us rewrite the constitutive relation for the electric displacement field $\bD = \epsz \bE + \bP = \epsz \vareps \bE = 0$, the last equality by virtue of~\eqref{eq:plasmon_condition}.
+Omitting the subscript \enquote{eq}, let us rewrite the constitutive relation for the electric displacement field $\bD = \epsz \bE + \bP = \epsz \vareps \bE = \bzero$, the last equality by virtue of~\eqref{eq:plasmon_condition}.
 This means for the electric field $\bE = -\bP/\epsz$, that is, the electric field in the material stems only from the polarization field---the only way for $\bE$ to admit oscillating modes when $\bD$ is zero, is by having $\vareps$ equal to zero too.
 These modes are freestanding and derive from the collective oscillation of free electrons in the material, typically a metal.
 They are called plasmonic modes, or plasmons, and were first introduced by David Pines and David Bohm in 1952~\cite{Pines_Bohm_1952} and underpin the entire field of plasmonics~\cite{Cosme_2025,GoncalvesPeres:2016,Andre_Goncalves_2020,maier_plasmonics_2007,Ellie_2024}.
@@ -560,11 +560,11 @@ So we write
 \noindent where the lowercase $\mathbf{f}$ is $\mathbf{e}$ in the case of the electric field or $\mathbf{h}$ in the case of the magnetic field, if we factor out the $z$ dependence from the $x$ and $t$ dependences for both fields.
 The system is $y$ invariant, so there is no dependence on $y$.
 To obtain an equation governing the $z$ dependence, we take the curl of Faraday's law~\eqref{subeq:Faraday_law} and use Ampère-Maxwell's law~\eqref{subeq:Ampere_law}, with both laws in frequency domain.
-Furthermore, we work with the total displacement field $\bD$ defined in Section~\ref{subsec:constitutive_relations_linear_response} and with no contribution coming from external currents such that $\bJ = 0$, we can then write for the electric field the so-called Helmholtz equation
+Furthermore, we work with the total displacement field $\bD$ defined in Section~\ref{subsec:constitutive_relations_linear_response} and with no contribution coming from external currents such that $\bJ = \bzero$, we can then write for the electric field the so-called Helmholtz equation
 
 \begin{align}
-    \lap \bE(\br,\omega) +  \frac{\omega^2 \vareps(\omega)}{c^2} \bE (\br,\omega) &= 0 \Leftrightarrow \nonumber \\
-    \Leftrightarrow \lap \bE(\br,\omega) +  k_0^2 \bE (\br,\omega) &= 0,
+    \lap \bE(\br,\omega) +  \frac{\omega^2 \vareps(\omega)}{c^2} \bE (\br,\omega) &= \bzero \Leftrightarrow \nonumber \\
+    \Leftrightarrow \qty(\lap +  k_0^2) \bE (\br,\omega) &= \bzero,
 \end{align}
 
 \noindent by defining $k_0^2 \equiv \omega^2 \vareps(\omega) /c^2$, and neglecting non-local effects in the material (either 1 or 2), so that the permittivity appearing is only frequency dependent.
