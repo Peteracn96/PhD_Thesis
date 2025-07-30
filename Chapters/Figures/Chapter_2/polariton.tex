@@ -1,5 +1,5 @@
 % Schematic of the polariton
-
+\definecolor{darkred}{RGB}{224,49,22}
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
@@ -7,6 +7,31 @@
 
 %Shape: Rectangle [id:dp06901463979745426]
     \draw  [color={rgb, 255:red, 155; green, 155; blue, 155 }  ,draw opacity=1 ][fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=1 ] (41,128.5) -- (399.47,128.5) -- (399.47,209.5) -- (41,209.5) -- cycle ;
+
+% Polariton amplitude
+    \def\a{10}
+
+    \def\epsilontop{0.05*\a}
+
+    \def\epsilonbottom{0.1*\a}
+    % above
+    \fill[domain={41}:{163.4},darkred,very thick, smooth, opacity=0.6]
+    (41,128.5) -- (41,{128.5 - 4.5*\a}) --
+    plot (\x,{128.5-6.5*\a*exp(-\epsilontop*(\x - 41)/\a))});
+    -- cycle;
+    \draw[domain={41}:{163.4},darkred,very thick, smooth]
+    plot (\x,{128.5-6.5*\a*exp(-\epsilontop*(\x - 41)/\a))});
+    % under
+    \fill[domain={41}:{163.4},color=white,very thick, smooth, opacity=1]
+    (41,128.5) -- (41,{128.5 - 4.5*\a}) --
+    plot (\x,{128.5+4.5*\a*exp(-\epsilonbottom*(\x - 41)/\a))});
+    -- cycle;
+    \fill[domain={41}:{163.4},darkred,very thick, smooth, opacity=0.6]
+    (41,128.5) -- (41,{128.5 - 4.5*\a}) --
+    plot (\x,{128.5+4.5*\a*exp(-\epsilonbottom*(\x - 41)/\a))});
+    -- cycle;
+    \draw[domain={41}:{163.4},darkred,very thick, smooth]
+    plot (\x,{128.5+4.5*\a*exp(-\epsilonbottom*(\x - 41)/\a))});
 
 %z axis
     \draw[arrows = {-Stealth[scale length=1.5]}]    (41,113.6) -- (41,29.8) ;
@@ -25,7 +50,7 @@
     \draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 , arrows = {-Stealth[scale length=1.5]}, line width=1.5]    (201.17,128.5) -- (291.97,128.5) ;
 
     % Text Node
-    \draw (237.67,110) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$\vb{q}$};
+    \draw (237.67,110) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ]  {$\bq$};
 
 %y axis
     \draw  [draw opacity=1, fill=white] (41,128.5) circle (15); % big circle
