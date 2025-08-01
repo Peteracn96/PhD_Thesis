@@ -9,7 +9,7 @@
 
 \typeout{NT FILE chapter2.tex}%
 
-\chapter{Classical Electrodynamics of Continuous Media/Solids}
+\chapter{Classical Electrodynamics of Continuous Media}
 \label{ch:classical_electrodynamics}
 \todo[inline]{Decide final name of the chapter}
 
@@ -19,7 +19,7 @@ Even though with a solely classical description of matter we cannot grasp the fi
 We hope that this introduction to basic concepts in electromagnetism will suffice for the reader expecting a thesis as self-contained as possible.
 Whenever further details or derivations could break the flow of the text, we refer to standard literature on this subject~\cite{Jackson:electrodynamics,Loureiro_Elementos_de_ECLA,Griffiths_2023}.\\
 
-The starting point of this chapter are the celebrated Maxwell's equations in continuous media, a set of equations governing the behavior of the electromagnetic field in space and time.
+We start the chapter with the celebrated Maxwell's equations in continuous media, a set of equations governing the behavior of the electromagnetic field in space and time.
 In the same section we present the boundary conditions of the electromagnetic field at the interface between two contiguous media.
 Next, we describe how the electromagnetic field in matter relates to the external applied fields through the so-called constitutive relations.
 The central quantity will be the dielectric function, a quantity characteristic to each material.
@@ -263,7 +263,7 @@ In bulk materials, it is typically sufficient to speak of the relative permittiv
 Unfortunately (or the opposite), it is in general a very complicated function of space and time, although working in reciprocal space seems to ease things.
 This is a striking feature of \bd~materials, where the dependence on $\bk$ and $\omega$ cannot be ignored, even encoding rich physics such as spatial dispersion (nontrivial $\bk$ dependence), time dispersion (nontrivial $\omega$ dependence), screening in crystalline solids (main subject of Chapter~\ref{ch:Screening}) and their nontrivial absorption spectra\todo{more references no?}, plasmons in metals and \bd~materials such as graphene~\cite{GoncalvesPeres:2016,Novoselov_Geim_2004}, the effect called Landau damping in the context of kinetic theory in plasma physics~\cite{Chen_Plasma_Physics}, among others.
 
-To familiarize a reader that has not extensive experience on the dielectric function, we provide in the next subsections two key examples of models for the dielectric function, one in the static limit $\omega \to 0$, and the other one in the local limit $\bk \to 0$.
+To familiarize a reader that has not extensive experience on the dielectric function, we provide in the next subsections two key examples of models for the dielectric function, one in the static limit $\omega \to 0$, and the other one in the local limit $\bk \to \bzero$.
 Isolating these two limits and considering the dependence on $\bk$ and $\omega$ separately is enough to realize how intricate this object can be.
 
 \subsubsection{Static limit in a 2D material}
@@ -361,7 +361,7 @@ We consider next the opposite limit, where the dielectric function depends only 
 \subsubsection{Local limit}
 \label{subsubsec:dielectric_function_local_limit}
 
-In this section we provide another model for the dielectric function where we only account for the dependence on the frequency and take the long-wavelength limit $\bk \to 0$.
+In this section we provide another model for the dielectric function where we only account for the dependence on the frequency and take the long-wavelength limit $\bk \to \bzero$.
 This approximation is called the local response approximation, which consists in admitting that the response function of the material, the permittivity or conductivity, is short-ranged, so that the induced field at a certain point in space depends only on the external field at that same location.
 Symbolically, we can write correspondingly for the permittivity and conductivity $\vareps (\br - \br',\omega) = \delta (\br - \br') \vareps^{\mathrm{LRA}} (\omega)$ and $\sigma (\br - \br',\omega) = \delta (\br - \br') \sigma^{\mathrm{LRA}} (\omega)$, where the superscript LRA stands for \lra.
 In this approximation, the displacement field is simply given by
@@ -783,7 +783,7 @@ We will see later on in this work another kind of surface polaritons, where the 
 The coupling of the exciton with the electromagnetic field is logically called exciton--polariton.
 The exciton is a quasi-particle that results from the optical excitation of materials that present an electronic band gap.
 These can be classified as insulators if the band gap is large enough, or as semiconductors if the band gap is smaller and of the order of the environment thermal energy dictated by the external temperature.
-Before we can understand these concepts (band gap, insulators/semiconductors) and describe this exciton quasi-particle, and the subsequent coupling with light, we need to dive deep into the field of quantum physics, with particular emphasis on solid-state matter in the context of condensed matter physics.
+Before we can understand these concepts (band gap, insulators/semiconductors) and describe this exciton quasi-particle, and the consequent coupling with light, we need to dive deep into the field of quantum physics, with particular emphasis on solid-state matter in the context of condensed matter physics.
 That is what the next chapter is devoted to, introduce the reader to the concepts of quantum mechanics that are necessary to address the excitations of materials at length scales where the tools of classical physics are deemed insufficient.
 The excitations of matter using a quantum description of materials is then the subject of the subsequent chapters.
 
@@ -828,7 +828,7 @@ Using the identity $k = n \omega / c $ and solving the previous system of equati
 \end{figure}
 
 
-The attentive reader may realize that the Fresnel coefficients are not yet a measure of the amount of radiation that the \bd~material reflects or transmits, they are only relative field amplitudes.
+The attentive reader may notice that the Fresnel coefficients are not yet a measure of the amount of radiation that the \bd~material reflects or transmits, they are only relative field amplitudes.
 In order to calculate the amount of radiation reflected and transmitted, and consequently absorbed, we actually still need to calculate the relative field intensities.
 We can define the intensity of the electromagnetic field as the magnitude of the Poynting vector $\bS$, defined by $\bS = \bE \times \bH$~\cite{Jackson:electrodynamics,Hohenester_2020}, averaged in time over one complete oscillation.
 As we are considering only plane-waves composed of a single harmonic frequency $\omega = c k /n$, we can write for the time-averaged Poynting vector~\cite{Hohenester_2020}
@@ -856,13 +856,13 @@ We are in place now to compute the amount of radiation that is absorbed by the \
     \label{eq:absorption}
 \end{empheq}
 
-Maxwell's equations valid in continuous domains, together with the boundary conditions for boundaries between domains and the constitutive relations, form a closed system of equations, with which we could be able to solve any problem in electrodynamics involving \bd~materials\footnote{Apart from non-linear phenomena, where higher-order susceptibilities have to be used, something out of the scope of this work.}.
+Maxwell's equations valid in continuous domains, together with the boundary conditions for boundaries between domains and the constitutive relations, form a closed system of equations, with which we could any problem in electrodynamics involving \bd~materials\footnote{Apart from non-linear phenomena, where higher-order susceptibilities have to be incorporated, something out of the scope of this work.}.
 At least in principle, and if not analytically, then numerically.
-It happens that to make realistic predictions and expecting agreement with experiments, we would need to know how the dielectric function, or equivalently the conductivity, depends on the frequency and wavevector.
+It happens that to make realistic predictions and expect agreement with experiments, we would need to know how the dielectric function, or equivalently the conductivity, depends on the frequency and wavevector.
 We have considered particular cases in the previous Section~\ref{subsec:constitutive_relations_linear_response}, for which certain approximations allow for writing an analytical expression for the dielectric function, as the example of the local Drude metal, its extension to the Drude--Lorentz model for dielectrics and the \bd~dielectric function in the static limit.
 Up until now, we have not discussed how in fact such models can be obtained for different materials.
 If we could do so, then we could know what values to use for the adjustable parameters in each model, and maybe even find the complete dependence of the material properties in the whole $(\bk,\omega)$ domain, even if numerically.
 For us to have hope in doing so, we need the appropriate tools necessary to describe nanometric materials, or at even smaller ones down to the atomic level, where a plethora of different effects and phenomena underlie the emerging macroscopic physics that can be observed in real experiments.
 In the next chapter we introduce the reader to the principles of quantum mechanics, absolutely necessary to attack the problem of electrodynamics in materials at the quantum level, with focus on crystalline solids.
 This will allow us to have a proper, microscopic description of screening in periodic systems at the single-particle or non-interacting level.
-Only after having a proper, microscopic, description of electronic properties and screening in solids, in the following chapters we will be able to describe phenomena at the interacting level, namely excitons and related optical phenomena.
+It is only after having a proper, microscopic, description of electronic properties and screening in solids that we can describe phenomena at the interacting level, namely excitons and related optical properties, the topics of the chapters coming after the next one.
