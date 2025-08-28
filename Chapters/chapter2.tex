@@ -562,10 +562,13 @@ The system is $y$ invariant, so there is no dependence on $y$.
 To obtain an equation governing the $z$ dependence, we take the curl of Faraday's law~\eqref{subeq:Faraday_law} and use Ampère-Maxwell's law~\eqref{subeq:Ampere_law}, with both laws in frequency domain.
 Furthermore, we work with the total displacement field $\bD$ defined in Section~\ref{subsec:constitutive_relations_linear_response} and with no contribution coming from external currents such that $\bJ = \bzero$, we can then write for the electric field the so-called Helmholtz equation
 
-\begin{align}
-    \lap \bE(\br,\omega) +  \frac{\omega^2 \vareps(\omega)}{c^2} \bE (\br,\omega) &= \bzero \Leftrightarrow \nonumber \\
-    \Leftrightarrow \qty(\lap +  k_0^2) \bE (\br,\omega) &= \bzero,
-\end{align}
+\begin{equation}
+\begin{split}
+\lap \bE(\br,\omega) +  \frac{\omega^2 \vareps(\omega)}{c^2} \bE (\br,\omega) &= \bzero \Leftrightarrow \\
+\Leftrightarrow \qty(\lap +  k_0^2) \bE (\br,\omega) &= \bzero,
+\end{split}
+\end{equation}
+
 
 \noindent by defining $k_0^2 \equiv \omega^2 \vareps(\omega) /c^2$, and neglecting non-local effects in the material (either 1 or 2), so that the permittivity appearing is only frequency dependent.
 This allows to transform the spatial convolution of the permittivity with the electric field into a mere multiplication, such that $\bD(\br,\omega) = \vareps(\omega) \bE(\br,\omega)$ as already explained previously (see Section~\ref{subsubsec:dielectric_function_local_limit}).
