@@ -52,14 +52,181 @@ We start the chapter by...
 \subsection{Electronic band structure (methods)}
 \label{subsec:electronic_band_structure}
 
-\todo{Insert here the text from the notes}
+One central problem in condensed matter physics is to calculate the electronic band structure of a given solid material.
+This means calculating all the bands at every point $\bk$ in the \gls{bz}.
+An electron in a specific band $n$ with crystal momentum $\bk$ has kinetic energy $\epsilon_{n \bk}$.
+In analogy with optics, we can call the $\bk$ dependence of the energy electronic dispersion, with the wave being now electronic instead of electromagnetic.
+From here onwards, when referring to the band structure, that we can denote symbolically by $\{\epsilon_{n \bk}\}$, we will always implicitly mean electronic band structure, as there are bands of other kinds (phononic, photonic, etc.).
+Once the band structure, which is a ground-state characteristic of the material, is determined, one is invited to do post-calculations to find other ground state or exciting state properties.
+But first, we need to better understand the concepts related to the bands of a crystalline solid.
 
 \subsubsection{Tight-binding method}
 \label{subsubsec:tight_binding_method}
 
-Mention briefly free-electron model for metals, and introduce \tb models as the opposite limit for semiconductors and insulators.
+There are several different descriptions for material band structures.
+Two simple ones are the nearly free electron model and the tight-binding model.
+In the first, one assumes the electron moves freely from atom to atom, so that we can assume the electrons can be found in plane-wave states with parabolic dispersion, and the crystalline structure is seen as a small perturbation.
+The electronic dispersion in the case of the nearly free electron model is simply given by $\varepsilon_{\bG} (\bk) = \hbar^2 \abs{\bk - \bG}^2 / 2m$, with the reciprocal lattice vectors $\bG$ labeling the bands.
+This model is particularly good for standard metals, like Aluminum~\cite{Levinson_aluminum}, that have a compact or close-packed crystal structure.
 
-Add hBN minimal \tb model as a prime example relevant for later.
+In the opposite limit where the crystal is not compact and the atoms are further apart, electrons have more difficulty in moving from atom to atom, and then we say that they are tightly-bound to the atoms.
+We usually associate this type of crystals with materials with poor conducting properties, termed insulators.
+In the case the material conducts at high enough temperatures, then we call it a semiconductor.
+
+Within this formalism, the Bloch wavefunctions are the linear combination of atomic orbitals.
+This is called the \gls{lcao} method or approximation.
+Symbolically, we write for the wavefunction of an electron in the Bloch state of band $n$ with momentum $\bk$
+
+\begin{equation}
+    \label{eq:Bloch_state_LCAO}
+    \psi_{n \bk} (\br) = \frac{1}{\sqrt{N}} \sum_{\bR} \ei{\bk \vdot \bR} \sum_{i \alpha} C_{i \alpha}^{n \bk} \phi_{\alpha} (\br - \bR - \bt_i)\,,
+\end{equation}
+
+\noindent where the sum in $\bR$ is over the vectors of the lattice (not over all the atomic sites), $i$ is an index that labels the atomic species at the position $\bt_i$ in the motif, and $\alpha$ is an index that labels the type of the atomic orbital ($1s,2s,2p,3s,\dots$).
+Usually we sum only over the atomic orbitals in the outer shells of the atom that are populated by the valence electrons.
+This is justifiable as the valence electrons are the only ones that participate in the physics we are looking at, namely phenomena involving energies from the~\unit{\milli\electronvolt} up to a few~\unit{\electronvolt}.
+
+We introduce now the concept of Bloch Hamiltonian, a very useful one in the tight-binding method and in this work.
+We start by rewriting the Bloch state in Eq.~\eqref{eq:Bloch_state_LCAO} as
+
+\begin{equation}
+    \label{eq:Bloch_state_LCAO_auxiliar}
+    \psi_{n \bk} (\br) = \frac{1}{\sqrt{N}} \sum_{\bR,i\alpha} C_{i \alpha}^{n \bk} \Phi_{i \alpha} (\bk,\br)\,,
+\end{equation}
+
+\noindent where we defined the new function $\Phi_{i \alpha} (\bk,\br) = \ei{\bk \vdot \bR} \phi_\alpha (\br - \bR - \bt_i)$.
+The Bloch state~\eqref{eq:Bloch_state_LCAO_auxiliar} is an eigenstate of the Hamiltonian with energy $\epsilon$ (omitting band and momentum index for now):
+
+\begin{equation}
+    \Ha \psi_{n \bk} (\br) = \epsilon \psi_{n \bk} (\br) \Leftrightarrow \sum_{i \alpha} C_{i \alpha}^{n \bk} \Ha\Phi_{i \alpha} (\bk,\br) = \epsilon \sum_{i \alpha} C_{i \alpha}^{n \bk} \Phi_{i \alpha} (\bk,\br) \,.
+\end{equation}
+
+\noindent Now, we multiply by $\Phi^*_{j \beta} (\bk,\br)$ and integrate in space
+
+\begin{equation}
+    \sum_{i \alpha} C_{i \alpha}^{n \bk} \underbrace{\int \dr\, \Phi^*_{j \beta} (\bk,\br) \Ha \Phi_{i \alpha} (\bk,\br)}_{H_{j \beta, i \alpha} (\bk)} = \epsilon \sum_{i \alpha} C_{i \alpha}^{n \bk} \underbrace{ \int \dr\, \Phi^*_{j \beta} (\bk,\br) \Phi_{i \alpha} (\bk,\br)}_{S_{j \beta, i \alpha}(\bk)}
+\end{equation}
+
+
+\noindent to obtain the eigenvalue problem
+
+\begin{equation}
+    \label{eq:Bloch_eigenvalue_problem}
+    \sum_{i \alpha}  H_{j \beta, i \alpha}(\bk) C_{i \alpha}^{n \bk} = \epsilon \sum_{i \alpha}  S_{j \beta, i \alpha}(\bk) C_{i \alpha}^{n \bk} \Leftrightarrow H(\bk) \bC^{n \bk} = \epsilon S(\bk) \bC^{n \bk}\,,
+\end{equation}
+
+
+\noindent where we defined the arrays $\bC^{n \bk}$ with entries $(\bC^{n \bk})_{i \alpha} = C_{i \alpha}^{n \bk}$, and the matrices $H(\bk)$ and $S(\bk)$ with matrix elements
+
+\begin{equation}
+    H_{j \beta, i \alpha}(\bk) = \mel{\Phi_{j \beta} (\bk,\br)}{\Ha}{\Phi_{i \alpha} (\bk,\br)} \text{ and } S_{j \beta, i \alpha}(\bk) = \braket{\Phi_{j \beta} (\bk,\br)}{\Phi_{i \alpha} (\bk,\br)} \,.
+\end{equation}
+
+\noindent We call the $S$ matrix the overlap matrix, and for the matrix elements we can write
+
+\begin{equation}
+    \begin{split}
+        S_{j \beta, i \alpha}(\bk) &= \braket{\Phi_{j \beta} (\bk,\br)}{\Phi_{i \alpha} (\bk,\br)} = \frac{1}{N} \int \dr\, \sum_{\bR'\bR; j \beta, i \alpha} \ei[-]{\bk \vdot (\bR'  - \bR) } \phi_\beta^*(\br - \bR' - \bt_j) \phi_\alpha (\br - \bR - \bt_i) = \\
+        &= \sum_{\bR} \ei{\bk \vdot \bR} \braket{\phi_{j \beta} (\br)}{\phi_{i \alpha} (\br - \bR - \bt_i)} = \sum_{\bR} \ei{\bk \vdot \bR} s_{j \beta, i \alpha} (\bR)\,,
+    \end{split}
+\end{equation}
+
+\noindent where from the 1st to the second line we fixed $\bR_i = \bzero $, which is valid since both sums are over vectors of the Bravais lattice.
+In matrix form we can write
+
+\begin{equation}
+    S(\bk) = \sum_{\bR} \ei{\bk \vdot \bR} s(\bR)\,.
+\end{equation}
+
+\noindent In this work, we work typically with basis of orthogonal orbitals, such that any two different orbitals do not overlap.
+This holds in particular for the case where the localized orbitals are not atomic orbitals, but Wannier functions, which are orthogonal by construction.
+This makes $S(\bk) = \mathds{1}$, simplifying the eigenvalue problem~\eqref{eq:Bloch_eigenvalue_problem}.
+Following an analogous procedure for the Hamiltonian, one obtains
+
+\begin{equation}
+    \label{eq:Bloch_Hamiltonian_definition}
+    H(\bk) = \sum_{\bR} \ei{\bk \vdot \bR} H(\bR) \,,
+\end{equation}
+
+\noindent where $\bk$ denotes crystal momentum as usual, the sum is over all vectors of the Bravais lattice $\bR$, and $H(\bR)$ is the real space Hamiltonian at the site $\bR$, commonly called a Fock matrix, and has by matrix elements $H_{j \beta, i \alpha} (\bR) = \mel{\phi_{\beta} (\br - \bt_j)}{\Ha}{\phi_{\alpha} (\br - \bR - \bt_i)}$.
+These matrix elements are called transfer integrals.
+If $\bR \neq \bzero$, then they are a measure of how likely an electron is to hop from one orbital to another one in a different unit cell, and are called hopping parameters in the jargon of the tight-binding approach.
+The matrix $H(\bk)$ presented just now is the so-called Bloch Hamiltonian, and its eigenvalues form the band structure $\{\epsilon_{n \bk}\}$, and its eigenvectors are the arrays (or vectors) $\bC^{n \bk}$, whose elements are usually called the tight-binding coefficients.
+
+The Bloch Hamiltonian deserves a pertinent technical remark, pertaining to the sum in Eq.~\eqref{eq:Bloch_Hamiltonian_definition} and the argument of the imaginary exponential.
+In Eq.~\eqref{eq:Bloch_Hamiltonian_definition} we use the Fock matrices summing over unit cells with positions $\bR$.
+There is in fact an alternative definition for the Bloch Hamiltonian, where the sum is over all lattice sites.
+The first case is called the \enquote{periodic} form or the \enquote{lattice-gauge} form, as it has the periodicity of the reciprocal lattice.
+It means that $H(\bk) = H(\bk + \bG)$ for any reciprocal lattice vector $\bG$, and it is not unique, as it depends on the choice of the unit cell.
+The alternative case is called the \enquote{canonical} form, or the \enquote{atomic-gauge} form, and it is unique, but in general $H(\bk) \neq H(\bk + \bG)$ for a reciprocal lattice vector $\bG$.
+If there is only one atom per unit cell, which is the case of Bravais lattices, the two forms coincide, but if they do not, one can still go from one gauge to the other through a unitary transformation.
+Nonetheless, in all cases in this work it does not change the results; there might be problems though when dealing with geometric phases or topological invariants~\cite{Cayssol_2021}.
+We present now a simple tight-binding model for a key \bd~material in this work, monolayer \gls{hbn}.
+\\
+\textit{\underline{Monolayer hexagonal boron nitride: a minimal tight-binding model}}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_3/hBN_lattice_&_BZ}
+    \mycaption[hBN lattice and Brillouin Zone]{Blue and yellow atoms represent different site types in the unit cell, the blue atoms and yellow atoms correspond to Boron and Nitrogen atoms, respectively.}
+    \label{fig:hBN_lattice}
+\end{figure}
+
+With $a$ being the length of the chemical bonds,
+
+\begin{subequations}
+    \begin{align}
+        \vectorbold{a}_1 &= \frac{a}{2}(3,\sqrt{3}) \\
+        \vectorbold{a}_2 &= \frac{a}{2}(3,-\sqrt{3}),
+    \end{align}
+\end{subequations}
+
+\noindent and
+
+\begin{subequations}
+    \begin{align}
+        \boldsymbol{\delta}_1 &= a(1,0),
+        \boldsymbol{\delta}_2 &= \frac{a}{2}(-\sqrt{3},1) \\
+        \boldsymbol{\delta}_2 &= \frac{a}{2}(-\sqrt{3},-1)\\
+    \end{align}
+    \label{eq:delta_vectors}
+\end{subequations}
+
+with the reciprocal lattice vectors
+
+\begin{subequations}
+    \begin{align}
+        \vectorbold{b}_1 &= \left(\frac{2 \pi}{3 a},\frac{2 \pi}{\sqrt{3} a} \right) \\
+        \vectorbold{b}_2 &= \left(\frac{2 \pi}{3 a},-\frac{2 \pi}{\sqrt{3} a} \right),
+    \end{align}
+\end{subequations}
+
+and
+
+\begin{subequations}
+    \begin{align}
+        K &= \left(\frac{2 \pi}{3 a},\frac{2 \pi}{3\sqrt{3} a} \right) \\
+        K' &= \left(\frac{2 \pi}{3 a},-\frac{2 \pi}{3\sqrt{3} a} \right).
+    \end{align}
+\end{subequations}
+
+A minimal tight-binding Hamiltonian for \gls{hbn} in second quantization
+
+\begin{equation}
+    \hat{H}= \sum_i E_B a_i^{\dagger} a_i + \sum_j E_N b_j^{\dagger} b_j + \sum_{\langle i j\rangle}  + E_N b_j^{\dagger} b_j - t \left(a_i^{\dagger} b_j+b_j^{\dagger} a_i\right) ,
+    \label{eq:graphene_tight_binding_Hamiltonian}
+\end{equation}
+
+where the operator $a_i^{\dagger}/a_i$ creates/annihilates an electron in the A sublattice at the position $\vectorbold{r}_i$ and $b_j^{\dagger}/b_j$ creates/annihilates an electron in the B sublattice at the position $\vectorbold{r}_j$.
+The sum is over nearest-neighbours.
+It can be rewritten in a more comprehensive form
+
+\begin{equation}
+    \hat{H} = \sum_i E_B a_i^{\dagger} a_i + \sum_j E_N b_j^{\dagger} b_j - t \sum_{i \in A} \sum_{\boldsymbol{\delta}}\left(a_i^{\dagger} b_{i+\boldsymbol{\delta}}+b_{i+\boldsymbol{\delta}}^{\dagger} a_i\right).
+    \label{eq:graphene_tight_binding_Hamiltonian_comprehensive}
+\end{equation}
+
+Performing the change of basis...\todo{finish putting here this part of my notes}
 
 \subsubsection{\textit{Ab initio} methods}
 \label{subsubsec:abinit_methods}
