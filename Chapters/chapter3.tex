@@ -31,7 +31,7 @@ We keep our discussion narrowed to solids with a periodic atomic structure, call
 In the field of solid state physics, it is customary to separate the techniques in first-principles based, called \abinit~techniques and are usually computationally intensive, and second-principles based techniques, which are usually much less computationally demanding.
 In this thesis \abinit~approaches will be discussed on a passing note, as those can easily materialize into a thesis in itself, but are nonetheless very relevant in this work.
 
-We start the chapter by...
+We start the chapter by...\todo{try to look for more typos}
 
 \section{The Hamiltonian of a Crystal}
 \label{sec:introductory_remarks}
@@ -67,7 +67,7 @@ There are several different descriptions for material band structures.
 Two simple ones are the nearly free electron model and the tight-binding model.
 In the first, one assumes the electron moves freely from atom to atom, so that we can assume the electrons can be found in plane-wave states with parabolic dispersion, and the crystalline structure is seen as a small perturbation.
 The electronic dispersion in the case of the nearly free electron model is simply given by $\varepsilon_{\bG} (\bk) = \hbar^2 \abs{\bk - \bG}^2 / 2m$, with the reciprocal lattice vectors $\bG$ labeling the bands.
-This model is particularly good for standard metals, like Aluminum~\cite{Levinson_aluminum}, that have a compact or close-packed crystal structure.
+This model is particularly good for standard metals, like aluminum~\cite{Levinson_aluminum}, that have a compact or closest-packed crystal structure.
 
 In the opposite limit where the crystal is not compact and the atoms are further apart, electrons have more difficulty in moving from atom to atom, and then we say that they are tightly-bound to the atoms.
 We usually associate this type of crystals with materials with poor conducting properties, termed insulators.
@@ -119,14 +119,14 @@ The Bloch state~\eqref{eq:Bloch_state_LCAO_auxiliar} is an eigenstate of the Ham
 \noindent where we defined the arrays $\bC^{n \bk}$ with entries $(\bC^{n \bk})_{i \alpha} = C_{i \alpha}^{n \bk}$, and the matrices $H(\bk)$ and $S(\bk)$ with matrix elements
 
 \begin{equation}
-    H_{j \beta, i \alpha}(\bk) = \mel{\Phi_{j \beta} (\bk,\br)}{\Ha}{\Phi_{i \alpha} (\bk,\br)} \text{ and } S_{j \beta, i \alpha}(\bk) = \braket{\Phi_{j \beta} (\bk,\br)}{\Phi_{i \alpha} (\bk,\br)} \,.
+    H_{j \beta, i \alpha}(\bk) = \mel{\Phi_{j \beta} (\bk,\br)}{\Ha}{\Phi_{i \alpha} (\bk,\br)} \qq{and} S_{j \beta, i \alpha}(\bk) = \braket{\Phi_{j \beta} (\bk,\br)}{\Phi_{i \alpha} (\bk,\br)} \,.
 \end{equation}
 
 \noindent We call the $S$ matrix the overlap matrix, and for the matrix elements we can write
 
 \begin{equation}
     \begin{split}
-        S_{j \beta, i \alpha}(\bk) &= \braket{\Phi_{j \beta} (\bk,\br)}{\Phi_{i \alpha} (\bk,\br)} = \frac{1}{N} \int \dr\, \sum_{\bR'\bR; j \beta, i \alpha} \ei[-]{\bk \vdot (\bR'  - \bR) } \phi_\beta^*(\br - \bR' - \bt_j) \phi_\alpha (\br - \bR - \bt_i) = \\
+        S_{j \beta, i \alpha}(\bk) &= \braket{\Phi_{j \beta} (\bk,\br)}{\Phi_{i \alpha} (\bk,\br)} = \frac{1}{N} \int \dr\, \sum_{\bR'\bR} \ei[-]{\bk \vdot (\bR'  - \bR) } \phi_\beta^*(\br - \bR' - \bt_j) \phi_\alpha (\br - \bR - \bt_i) = \\
         &= \sum_{\bR} \ei{\bk \vdot \bR} \braket{\phi_{j \beta} (\br)}{\phi_{i \alpha} (\br - \bR - \bt_i)} = \sum_{\bR} \ei{\bk \vdot \bR} s_{j \beta, i \alpha} (\bR)\,,
     \end{split}
 \end{equation}
@@ -163,6 +163,7 @@ If there is only one atom per unit cell, which is the case of Bravais lattices, 
 Nonetheless, in all cases in this work it does not change the results; there might be problems though when dealing with geometric phases or topological invariants~\cite{Cayssol_2021}.
 We present now a simple tight-binding model for a key \bd~material in this work, monolayer \gls{hbn}.
 \\
+\\
 \textit{\underline{Monolayer hexagonal boron nitride: a minimal tight-binding model}}
 
 \begin{figure}[H]
@@ -176,7 +177,7 @@ With $a$ being the length of the chemical bonds,
 
 \begin{subequations}
     \begin{align}
-        \vectorbold{a}_1 &= \frac{a}{2}(3,\sqrt{3}) \\
+        \vectorbold{a}_1 &= \frac{a}{2}(3,\sqrt{3}), \\
         \vectorbold{a}_2 &= \frac{a}{2}(3,-\sqrt{3}),
     \end{align}
 \end{subequations}
@@ -185,9 +186,9 @@ With $a$ being the length of the chemical bonds,
 
 \begin{subequations}
     \begin{align}
-        \boldsymbol{\delta}_1 &= a(1,0),
-        \boldsymbol{\delta}_2 &= \frac{a}{2}(-\sqrt{3},1) \\
-        \boldsymbol{\delta}_2 &= \frac{a}{2}(-\sqrt{3},-1)\\
+        \boldsymbol{\delta}_1 &= a(1,0), \\
+        \boldsymbol{\delta}_2 &= \frac{a}{2}(-\sqrt{3},1), \\
+        \boldsymbol{\delta}_2 &= \frac{a}{2}(-\sqrt{3},-1),\\
     \end{align}
     \label{eq:delta_vectors}
 \end{subequations}
@@ -196,7 +197,7 @@ with the reciprocal lattice vectors
 
 \begin{subequations}
     \begin{align}
-        \vectorbold{b}_1 &= \left(\frac{2 \pi}{3 a},\frac{2 \pi}{\sqrt{3} a} \right) \\
+        \vectorbold{b}_1 &= \left(\frac{2 \pi}{3 a},\frac{2 \pi}{\sqrt{3} a} \right), \\
         \vectorbold{b}_2 &= \left(\frac{2 \pi}{3 a},-\frac{2 \pi}{\sqrt{3} a} \right),
     \end{align}
 \end{subequations}
@@ -205,15 +206,15 @@ and
 
 \begin{subequations}
     \begin{align}
-        K &= \left(\frac{2 \pi}{3 a},\frac{2 \pi}{3\sqrt{3} a} \right) \\
-        K' &= \left(\frac{2 \pi}{3 a},-\frac{2 \pi}{3\sqrt{3} a} \right).
+        \bK &= \left(\frac{2 \pi}{3 a},\frac{2 \pi}{3\sqrt{3} a} \right), \\
+        \bK' &= \left(\frac{2 \pi}{3 a},-\frac{2 \pi}{3\sqrt{3} a} \right).
     \end{align}
 \end{subequations}
 
 A minimal tight-binding Hamiltonian for \gls{hbn} in second quantization
 
 \begin{equation}
-    \hat{H}= \sum_i E_B a_i^{\dagger} a_i + \sum_j E_N b_j^{\dagger} b_j + \sum_{\langle i j\rangle}  + E_N b_j^{\dagger} b_j - t \left(a_i^{\dagger} b_j+b_j^{\dagger} a_i\right) ,
+    \hat{H}= \sum_i E_A a_i^{\dagger} a_i + \sum_j E_B b_j^{\dagger} b_j - t \sum_{\langle i j\rangle}  \left(a_i^{\dagger} b_j+b_j^{\dagger} a_i\right) ,
     \label{eq:graphene_tight_binding_Hamiltonian}
 \end{equation}
 
@@ -222,16 +223,155 @@ The sum is over nearest-neighbours.
 It can be rewritten in a more comprehensive form
 
 \begin{equation}
-    \hat{H} = \sum_i E_B a_i^{\dagger} a_i + \sum_j E_N b_j^{\dagger} b_j - t \sum_{i \in A} \sum_{\boldsymbol{\delta}}\left(a_i^{\dagger} b_{i+\boldsymbol{\delta}}+b_{i+\boldsymbol{\delta}}^{\dagger} a_i\right).
+    \hat{H} = \sum_i E_A a_i^{\dagger} a_i + \sum_j E_B b_j^{\dagger} b_j - t \sum_{i \in A} \sum_{\boldsymbol{\delta}}\left(a_i^{\dagger} b_{i+\boldsymbol{\delta}}+b_{i+\boldsymbol{\delta}}^{\dagger} a_i\right).
     \label{eq:graphene_tight_binding_Hamiltonian_comprehensive}
 \end{equation}
 
-Performing the change of basis...\todo{finish putting here this part of my notes}
+Performing the change of basis
+
+\begin{equation}
+    a_i^{\dagger} = \frac{1}{\sqrt{N}} \sum_{\bk} \ei{\bk \cdot \br_i} a_{\bk}^{\dagger}, \qq{and analogously for} b_j^{\dagger},
+    \label{eq:second_quantization_change_of_basis}
+\end{equation}
+
+and simplifying, we arrive at
+
+\begin{equation}
+    \hat{H} = \sum_{\bk} \Psi_{\bk}^{\dagger} H(\bk) \Psi_{\bk},
+\end{equation}
+
+\begin{equation}
+    \begin{array}{l}
+        H(\bk)=\left(\begin{array}{cc}
+                           E_A & -t \Delta_{\bk} \\
+                           -t \Delta_{\bk}^* & E_B
+        \end{array}\right), \quad \Psi_{\bk}=\left(\begin{array}{l}
+                                                 a_{\bk} \\
+                                                 b_{\bk}
+        \end{array}\right), \quad \Delta_{\bk} = \sum_{\boldsymbol{\delta}} \ei[-]{\bk \cdot \boldsymbol{\delta}}
+    \end{array}
+\end{equation}
+
+Recalling the vectors $\boldsymbol{\delta}$ from Eq.~\eqref{eq:delta_vectors}, we have
+
+\begin{equation}
+    \label{eq:Delta_of_k}
+    \Delta_{\bk} =\ei[-]{k_x a}\left[1+2 \ei{3 k_x a / 2} \cos \left(\frac{\sqrt{3}}{2} k_y a\right)\right].
+\end{equation}
+
+The dispersion relation for hBN is then given by~\cite{ribeiro_stability_2011}
+
+\begin{equation}
+    E(\bk) = E_0 \pm \frac{1}{2} \sqrt{E^2_g + 4 t^2 + 16 t^2 \cos \left(\frac{3 a }{2} k_x\right) \cos \left(\frac{\sqrt{3} a}{2}  k_y \right) + 16 t^2 \cos^2 \left(\frac{\sqrt{3} a}{2} k_y \right)},
+\end{equation}
+
+\noindent here $E_0 = (E_A + E_B)/2$ is the energy reference (which is arbitrary) and $E_g = E_A - E_B$ is the energy gap.
+One can see clearly the opening of a gap (in the corners of the Brillouin zone) in Figure \ref{fig:monolayer_hBN_bands}.
+Even though similar to graphene in the crystal structure, contrary to it, monolayer hBN is an insulator, with a gap around $5-7 \text{eV}$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_3/hBN_TB_bands}
+    \caption[Tight-binding hBN band structure]{hBN bands. $E_B=2$, $E_N=1$, $t=0.7$.}
+    \label{fig:monolayer_hBN_bands}
+\end{figure}
+
+Analysis of the continuum limit.
+Linearizing \eqref{eq:Delta_of_k} with respect to momentum around the momentum $\bK = (2 \pi / 3 a, 2 \pi / 3 \sqrt{3} a)$, defining the relative momentum $\bq$ by $\bk = \bK + \bq$, we have
+
+\begin{equation}
+    \Delta_{\bK + \bq} \simeq -\ii\, \ei[-]^{\frac{2 \pi }{3} a} \frac{3 a}{2}(q_x+\ii q_y) \rightarrow - \frac{3 a}{2} (q_x + \ii q_y) .
+\end{equation}
+
+\noindent Replacing now in the Bloch Hamiltonian
+
+\begin{equation}
+\mathcal{H}_K \equiv H(\bK + \bq) \simeq  \frac{3 a t}{2 \hbar} (q_x \sigma_x - q_y \sigma_y) + M \sigma_z = \hbar v_F \bar{\bq}. \boldsymbol{\sigma} + M \sigma_z
+\end{equation}
+
+\noindent where $M$ is half the band gap, $\sigma_x$, $\sigma_y$ and $\sigma_z$  are the Pauli matrices, and $\boldsymbol{\sigma} = (\sigma_x,\sigma_y)$ is Pauli matrices vector, $v_F$ is the Fermi velocity
+
+\begin{equation}
+    v_F = \frac{3 a t}{2 \hbar},
+\end{equation}
+
+\noindent and
+
+\begin{equation}
+    \bar{\bq} = (q_x,-q_y,0).
+\end{equation}
+
+\noindent Following the same procedure but for the $\bK'$ point, we obtain
+
+\begin{equation}
+    H(\bK' + \bq) = \hbar v_F \bq.\boldsymbol{\sigma} + M \sigma_z,
+\end{equation}
+
+\noindent where now
+
+\begin{equation}
+    \bq = (q_x,q_y,0).
+\end{equation}
+
+\noindent So we can write
+
+\begin{equation}
+    \Delta_{\tau \bK+ \bq} \simeq - \frac{3 a}{2}(q_x+\ii \tau q_y),
+\end{equation}
+
+\noindent where $\tau = \pm 1$, $\tau=1$ for the $K'$ point, and $\tau = -1$ for the $K$ point, represents the valley degree of freedom.
+
+\begin{equation}
+    E_{\pm} (\bq) = \pm \sqrt{E_g^2 + \hbar^2 v_F^2 |\bq|^2},
+\end{equation}
+
+\noindent $+$ for the top/conduction band, and $-$ for the bottom/valence band.
+Now it is explained why the dispersion relation near the points $\bK$ and $\bK'$ look like parabolas for low energies, the dispersion is quadratic in the vicinity of those points, which can be seen if we further expand the previous expression up to leading order in $|\bq|$.
+The energy spectrum enjoys valley degeneracy because we can ignore the spin--orbit coupling in this system, since boron and nitrogen are light elements.
+In this way, there is no coupling between the two valleys that would break the degeneracy.
+
+We can as well compute the effective masses of the electrons around $\bK'$, through
+
+\begin{equation}
+    m^* = \left( \frac{1}{\hbar^2}\frac{\dd^2 E_{\pm}(q)}{\dd q^2} \bigg|_{q=0} \right)^{-1} = \pm \frac{E_g}{2 v_F^2},
+    \label{eq:effective_mass_formula}
+\end{equation}
+
+\noindent For later use, we compute the eigenvectors of the low energy Hamiltonian.
+We will use now a different, but equivalent, configuration for the lattices (rotated by 30 degrees).
+The eigenvectors are
+
+\begin{equation}
+    | v, \bk \rangle =
+    \begin{bmatrix}
+        \tau \ei[-]{\tau \theta_k} \sin \frac{\xi_k}{2} \\
+        - \cos \frac{\xi_k}{2},
+    \end{bmatrix}
+    \label{eq:mono_hBN_valence_spinor}
+\end{equation}
+
+\noindent for the valence band, and
+
+\begin{equation}
+    | c, \bk \rangle =
+    \begin{bmatrix}
+        \cos \frac{\xi_k}{2} \\
+        \tau \ei[-]{\tau \theta_k} \sin \frac{\xi_k}{2}
+    \end{bmatrix}
+    \label{eq:mono_hBN_conduction_spinor}
+\end{equation}
+
+\noindent for the conduction band, where
+
+\begin{equation}
+    \theta_k = \arctan \frac{k_y}{k_x} \qq{and}  \xi_k = \arctan \frac{2 \hbar v_F k}{E_g}.
+\end{equation}
+
 
 \subsubsection{\textit{Ab initio} methods}
 \label{subsubsec:abinit_methods}
 
-Briefly discuss \dft and Wannierization, as we need it for the framework of the screening and excitons with the code.
+Briefly discuss \dft~and Wannierization, as we need it for the framework of the screening and excitons with the code.
 
 \section{Many-Particle Description of Solids}
 \label{sec:many_particle_description}
@@ -239,19 +379,207 @@ Briefly discuss \dft and Wannierization, as we need it for the framework of the 
 \subsection{Many-body perturbation theory and $GW$ approximation}
 \label{subsec:many_body_perturbation_theory}
 
-We need this to introduce the \rpa and Dyson's equation for the screened potential and introduce the polarisation and its non-interacting version.
+The many-body Green function obeys the Dyson equation
+
+\begin{equation}
+    \label{eq:Dysons_eq_repeated}
+    \mathcal{G} (b,a) = \mathcal{G}^0 (b,a) + \int \int  \dd{1} \dd{2} \, \mathcal{G} (b,1) \Sigma(1,2) \mathcal{G}^0(2,a)  \,,
+\end{equation}
+
+one can also write a similar equation for the screened $W$ and bare Coulomb potential $v_c$ as
+
+\begin{equation}
+    \label{eq:Dysons_eq_Coulomb}
+    W (b,a) = v_c (b,a) + \int \int \dd{1}  \dd{2} \, v_c (b,1) P^\irr(1,2) W(2,a) \,,
+\end{equation}
+
+\noindent where $P^\irr(1,2)$ is called the irreducible polarizability, and also sometimes referred as susceptibility (appearing as $\chi$). Leaving the isolated term with the bare potential on the \rhs~ and factoring the screened one, the last relation reads
+
+\begin{equation}
+    \int \dd{2} \left[\delta (b -2) - \int \dd{1} \, v_c (b,1) P^\irr(1,2) \right]W(2,a) = v_c (b,a) \,.
+\end{equation}
+
+We can define the quantity inside square brackets as the microscopic dielectric function, whose macroscopic counterpart was discussed in the previous Chapter~\ref{ch:classical_electrodynamics}.
+Symbolically and making the space and time dependencies explicit we can write
+
+\begin{equation}\label{eq:dielectric_function_space_time}
+\varepsilon (\br,\br';t - t') = \delta(\br - \br') \delta(t-t') - \int  \int v_c(\br - \br'') P^\irr (\br',\br'';t-t') \dr'' \dt' \,.
+\end{equation}
+
+With the dielectric function defined, we can rewrite Dyson's equation for the Coulomb potential in the following way
+
+\begin{equation}
+    \int \dd{2} \varepsilon (b,2)W(2,a) = v_c (b,a) \,,
+\end{equation}
+
+\noindent which can be inverted using the relation $\int \dd{2} \varepsilon^{-1} (1,2) \varepsilon (2,3) = \delta(1-3)$ to write the screened potential in terms of the bare one as
+
+\begin{equation}
+    \label{eq:W_as_of_vc}
+    W(1,3) = \int \dd{2} \varepsilon^{-1} (1,2)v_c (2,3) \,.
+\end{equation}
+
+Most commonly, the irreducible polarizability is computed in the random-phase approximation, where it is approximated by a single electron-hole pair as
+
+\begin{equation}
+    P^\irr(1,2) \approx P^0(1,2) \equiv -\ii G_0(1,2) G_0(2,1).
+\end{equation}
+
+Equations~\eqref{eq:Dysons_eq_repeated} and~\eqref{eq:Dysons_eq_Coulomb} are in fact two of a set of five coupled equations, called Hedin's equations~\cite{Hedin_1965,Louie_1986} that read
+
+\begin{align}
+    \mathcal{G} (b,a) &= \mathcal{G}^0 (b,a) + \int d1 \, \mathcal{G} (b,1) V(1) \mathcal{G}^0(1,a) \
+    W (1,2) &= v_c (1,2) + \int \dd{3} \dd{4} \, v_c (1,3) P^\irr(3,4) W(4,2) \\
+    P^\irr(1,2) &= -\ii \int \dd{3}  \dd{4}\, G(1,3) G(4,1^+) \Gamma(3,4;2) \label{eq:polarizability_full} \\
+    \Sigma(1,2) &= \int \dd{3} \dd{4}\, G(1,3) \Gamma(3,2;4) W(4,1^+) \\
+    \Gamma(1,2;3) &= \delta(1,2) \delta(1,3) + \int \dd{4} \dd{5} \dd{6} \dd{7} \, \frac{\delta \Sigma(1,2)}{\delta G(4,5)} G(4,6) G(7,5)  \Gamma(6,7;3) \,,
+\end{align}
+
+\noindent where $\Sigma$ is the two-body self-energy, and the quantity $\Gamma$ is called the vertex.
+The most widely approximation used is to ignore the second term in the last equation so that $\Gamma(1,2;3) \approx \delta(1,2) \delta(1,3)$, and in this way the third and fourth equations decouple, giving origin to the famous \GW approximation for the self-energy and the \rpa~for the polarizability, that we discuss in the next section.
 
 \section{Dielectric Function and Screening: Quantum Picture}
 \label{sec:dielectric_function_quantum}
 
 Brief introduction stressing the difference between full, \rpa and non-interacting polarizability and dielectric function within self-consistent framework~\cite{Cohen_Louie_2016} and ~\cite{Bruus_Flensberg_2004}.
-Then
+
+Later on in this work, we compute the inverse of the dielectric function to properly account for electrostatic screening in semiconductors and insulators.
+Having an accurate description of screening, one can readily compute the excitonic states.
+Prior to that, one has to compute the polarizability, in particular, the non-interacting one.
+After, one can compute the dielectric function as per~\eqref{eq:dielectric_function_space_time}, but typically in reciprocal space, and then invert it.
+In alternative, one could rewrite~\eqref{eq:Dysons_eq_Coulomb} as $W(b,a) =\int \dd{c} \varepsilon^{-1}(b,c) v_c(c,a)$ where
+
+\begin{equation}\label{eq:dielectric_function_inverse}
+\varepsilon^{-1}(a,b) = \delta(a-b) + \int \dd{c} v_c(a,c) P(c,b) \,.
+\end{equation}
+
+If we try to draft a diagrammatic expression for the polarizability based on Eq.~\eqref{eq:polarizability_full}, we would see that it consists of two propagator lines connected by every possible process allowed by the Coulomb interaction.
+Similarly to the green function, one can write a Dyson equation for the full polarizability as
+
+\begin{equation}
+    P(1,2) = P^{irr}(1,2) + \int \dd{3} \dd{4} \, P^{irr}(1,3) v_c(3,4) P(4,2) \,,
+\end{equation}
+
+where $P^{irr}$ consists of the diagrammatic expansion of the polarizability including only irreducible diagrams, and it is called the irreducible polarizability.
+We can now approximate the irreducible polarizability $P^{irr}$ by its non-interacting counterpart $P^0$, where we keep only the simplest diagram, also called the bubble or Hartree diagram.
+In other words, we neglect correlation and exchange effects in the polarizability.
+Then, we get the full polarizability $P$ within \gls{rpa} that is
+
+\begin{equation}
+    P^\RPA(1,2) = P^0(1,2) + \int \dd{3} \dd{4} \, P^0(1,3) v_c(3,4) P^\RPA(4,2) \,.
+\end{equation}
+
+Then, the inverse dielectric function within \rpa~is obtained by replacing the full polarizability in Eq.~\eqref{eq:dielectric_function_inverse} by the \rpa~one:
+
+\begin{equation}\label{eq:dielectric_function_inverse}
+\varepsilon_\RPA^{-1}(a,b) = \delta(a-b) + \int \dd{c} v_c(a,c) P^\RPA(c,b) \,.
+\end{equation}
+
+For a thorough discussion of these details, we refer to Richard Martin's book in Ref~\cite{Martin_Reining_Ceperley_2016}.
+
+
 
 \subsection{RPA dielectric function}
 \label{subsec:rpa_dielectric_function}
 
-\subsection{RPA screened Coulomb potential}
-\label{subsec:rpa_screened_coulomb_potential}
+The dielectric function in real-space and time domain, within \rpa~, writes~\cite{Bruus_Flensberg_2004,Cohen_Louie_2016}
+
+\begin{equation}
+    \label{eq:dielectric_function_real_time}
+    \varepsilon (\br,\br';t,t') = \delta(\br - \br') \delta(t-t') - \int  \int v_c(\br - \br'') \chi_0 (\br',\br'';t-t') \dr'' \dt' \,,
+\end{equation}
+
+\noindent where $v_c$ denotes the bare (unscreened) Coulomb potential and $\chi_0 (\br',\br'';t-t')$ is the \rpa~ irreducible polarizability, for which we have assumed time translation invariance.
+The \gls{rpa} irreducible polarizability, in frequency domain, within a self-consistent field approach is given by~\cite{Cohen_Louie_2016}
+
+\begin{equation}
+    \label{eq:polarizability_RPA_def}
+    \chi_0 (\br,\br';\omega) = \sum_{i,j} (f_i - f_j) \frac{\phi_i^*(\br) \phi_j(\br) \phi_j^*(\br') \phi_i(\br')}{\epsilon_i - \epsilon_j + \hw + \ii \hbar \alpha}\,,
+\end{equation}
 
 
+\noindent where $\alpha$ is a small infinitesimal parameter, $f_i$ denotes the Fermi-Dirac distribution computed at the energy $\epsilon_i$, and $\phi_i(\br)$ is the $i$-th state, with eigen-energy $\epsilon_i$, that can be obtained within a mean-field approach, such as within \hf~ or the Kohn-Sham framework of \dft.
+The many-body \wf of the associated independent particle system is then constructed through the Slater determinant of the Kohn-Sham orbitals.
 
+We notice that the previous expression is a two time function that only depends on the difference between the time instants.
+Whence, we may time Fourier transform it to the frequency domain and write
+
+\begin{equation}
+    \label{eq:dielectric_function_real_frequency}
+    \varepsilon (\br,\br';\omega) = \delta(\br - \br') - \int   v_c(\br - \br'') \chi_0 (\br',\br'';\omega) \dr''  \,,
+\end{equation}
+
+\noindent since the Fourier transform of the Dirac delta is the identity function, and the Fourier transform of a convolution translates to a multiplication.
+
+\begin{equation}
+    \varepsilon (\br,\br';\omega) = \varepsilon (\br + \bR,\br' + \bR;\omega)\,,
+\end{equation}
+
+\noindent where $\bR$ is a vector of the Bravais lattice, this for a perfect crystal where \textbf{discrete} translation symmetry is not broken due to defects or boundaries.
+The same can be said about the polarizability $\chi_0$.
+This contrasts with the case of the previous chapter, were invariance.....\todo{complete the reasoning}
+We are still allowed to Fourier transform in space, but we need to keep track of two momenta, say $\bk$ and $\bk'$ instead of just one, so that the polarizability is a two-point function in momentum, $\chi^0 = \chi^0(\bk,\bk')$.
+Luckily, as the polarizability still enjoy discrete translation symmetry, one can show that $\chi^0(\bk,\bk')$ is non-zero only if $\bk' = \bk + \mathbf{g}$, where $\mathbf{g}$ is a reciprocal lattice vector.
+Furthermore, we can write any momentum $\bk$ in terms of a vector in the first \gls{bz} $\bq$ and a vector of the reciprocal lattice $\bG$, $\bk = \bq + \bG$.
+The same can be said for the other momentum, $\bk' = \bq + \bG'$, with $\bG' = \bG + \mathbf{g}$ is just another vector of the reciprocal lattice.
+This allows us to write $\chi^0(\bk,\bk') = \chi^0(\bq + \bG,\bq' + \bG') \equiv \chi^0_{\bG \bG'}(\bq)$, where we can see the polarizability as an infinite matrix for each point $\bq \in \BZ$.
+For every momentum $\bq \in \BZ$, each pair of reciprocal lattice vectors $(\bG,\bG')$ corresponds to the matrix element $\chi^0_{\bG \bG'}(\bq)$.
+
+In a basis of Bloch states and at zero temperature, the polarizability in~\eqref{eq:polarizability_RPA_def} writes
+
+\begin{equation}
+    \label{eq:polarizability_RPA_Bloch_states}
+    \chi_0 (\br,\br';\omega) = \sum_{n \bk, n'\bk'} \left[ \frac{\psi_{n' \bk'}(\br) \psi_{n \bk}^*(\br) \psi_{n \bk}(\br') \psi_{n' \bk'}^*(\br') }{\hw -(\epsilon_{n' \bk'} - \epsilon_{n \bk})   + \ii \hbar \alpha} - \frac{ \psi_{n \bk}(\br) \psi_{n' \bk'}^*(\br) \psi_{n' \bk'}(\br') \psi_{n \bk}^*(\br') }{\hw + (\epsilon_{n' \bk'} - \epsilon_{n \bk}) + \ii \hbar \alpha} \right]\,.
+\end{equation}
+
+The expression for these matrix elements can be obtained by direct Fourier transform of expression~\eqref{eq:polarizability_RPA_Bloch_states} to obtain
+
+\begin{equation}
+    \label{eq:polarizability_momentum_frequency}
+    \chi^0_{\bG \bG'} (\bq;\omega) = \frac{1}{\Omega} \sum_{n,n'} \sum_{\bk,\sigma} (f_{n,\bk} - f_{n',\bk + \bq}) \frac{\mel{n,\bk}{\ee^{-\ii(\bq + \bG) \vdot \br}}{n',\bk + \bq} \mel{n',\bk + \bq}{\ee^{\ii(\bq + \bG') \vdot \br}}{n,\bk}}{\epsilon_{n,\bk} - \epsilon_{n',\bk + \bq} + \hw + \ii \hbar \alpha}\,,
+\end{equation}
+
+\noindent where $\Omega$ is the volume of the crystal, $n$ and $n'$ are band indices and $\bG$ and $\bG'$ are the vectors of the reciprocal lattice.
+For an insulator or semiconductor, the sum over $n$ is over occupied bands while that over $n'$ is over empty bands.
+
+Defining the polarizability in reciprocal space as a matrix allows for doing the same for the dielectric function, that Fourier transformed to reciprocal space writes
+
+\begin{equation}
+    \varepsilon_{\bG \bG'} (\bq;\omega) = \delta_{\bG \bG'} - v_c(\bq + \bG) \chi^0_{\bG \bG'} (\bq;\omega) \,.
+\end{equation}
+
+This expression is usually introduced in condensed matter physics courses through the Lindhard function, which is the previous formula in the case of the jellium model, the free homogeneous electron gas.
+The matrix elements in Eq.~\eqref{eq:polarizability_momentum_frequency} are equal to 1 when $n=n'$, the dispersion is quadratic and there is no lattice, whence the polarizability and dielectric matrices are scalar functions of $\bq$.
+The Lindhard function then writes~\cite{GoncalvesPeres:2016,Cohen_Louie_2016,Ashcroft_Mermin}
+
+\begin{equation}
+    \varepsilon (\bq,\omega) = 1 - v_c(\bq) \sum_{\bk} \frac{f_{\bk + \bq}-f_{\bk}}{\epsilon_{\bk + \bq}-\epsilon_{\bk} + \hbar \omega + \ii \hbar \alpha}\,.
+\end{equation}
+
+We can see that it is a complicate function of both momentum and frequency.
+This was already expressed in the previous chapter, however we saw therein only the local and static limits separately.
+Taking the local limit $\bq \to 0$ in the previous expression and computing the sum (converted into an integral), one arrives naturally at
+
+\begin{equation}
+    \varepsilon(\omega) = 1 - \frac{\omega_{\text{p}}^2}{\omega^2}\,,
+\end{equation}
+
+\noindent where $\omega_{\text{p}}$ is the electron plasma frequency.
+The previous expression is the dielectric function of the undamped free electron gas that we discussed in the first chapter, found here through a microscopic approach.
+This provides a glimpse of the power of quantum mechanics, and reassures the claims made in the previous chapter on how models are used and introduced in classical physics, that in fact derive from physics that it can not describe.
+The tools provided by quantum mechanics allowed for obtaining the full dependence of the dielectric function on both momentum and frequency, something we were not able to do in the previous chapter (but that could somewhat be achieved using non-local hydrodynamic models).
+
+If the material in question is not a metal, but a semiconductor or insulator, then we can only aspire to compute the polarizability and the dielectric function numerically.
+The same can be stated about the screened Coulomb potential.
+In the jellium approximation, the screened Coulomb potential in reciprocal space is simply given by $W(\bq,\omega) = v_c(\bq)/\vareps(\bq,\omega)$, because there is continuous translation invariance.
+Assuming continuous translation invariance for insulators or semiconductors is questionable.
+In general, we need to account for the crystal structure, so that the screened Coulomb potential in momentum--frequency domain, obtained by Fourier transforming Eq.~\eqref{eq:W_as_of_vc}, writes
+
+\begin{equation}
+    W_{\bG \bG'} (\bq;\omega) =  \varepsilon^{-1}_{\bG \bG'} (\bq;\omega) v_c(\bq + \bG')\,,
+\end{equation}
+
+\noindent for which one needs the inverse dielectric matrix, satisfying $\sum_{\bG''} \varepsilon^{-1}_{\bG \bG''} \varepsilon_{\bG'' \bG'} = \delta_{\bG \bG'}$
+As we will see in the next chapter, it is of upmost importance to capture accurately the screening in semiconductors and insulators, mainly \bd~ones, in order to find realistic results for the excitonic states.
+Now that we have described the ground state properties of materials, we are in a position of introducing the exciton, an optical excitations of materials that can not be ignored when investigating the optical properties of insulators and semiconductors.
+Excitons in \bd~materials are the subject of the next chapter.
