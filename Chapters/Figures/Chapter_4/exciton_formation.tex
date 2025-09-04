@@ -1,0 +1,78 @@
+
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.8,xscale=0.8]
+%uncomment if require: \path (0,395); %set diagram left start at 0, and has height of 395
+
+%Shape: Axis 2D [id:dp46569469797307383] 
+\draw[arrows = {-Stealth[scale length=1.5]}]  (-115,0) -- (115,0); % k axis
+\draw (105,5.) node [anchor=north west][inner sep=0.75pt]    {$k$};
+
+\draw[arrows = {-Stealth[scale length=1.5]}] (0,150) -- (0,-150); % E axis
+\draw (-20,-150) node [anchor=north west][inner sep=0.75pt]    {$E$};
+
+% Draws parabolas
+\draw[domain={-45}:{45},very thick, smooth] % lower parabola
+        plot (\x,{0.05*\x*\x+45});
+\draw[domain={-45}:{45},very thick, smooth] % upper parabola
+        plot (\x,{-0.05*\x*\x-45});
+
+% Draws electron and hole
+\draw  [color=red, draw opacity=1, fill=red] (15,-0.05*15*15-45) circle (8); % e
+\draw  [color=red, draw opacity=1, fill=white] (15,0.05*15*15+45) circle (8); % h
+
+% Transition arrow
+\draw[arrows = {-Stealth[scale length=1.5]},thick] (15,0.05*15*15+45-8) -- (15,-0.05*15*15-45+8); % E axis
+
+% Draws Ellipse and photon wave
+\begin{scope}[xshift={-150 + 9},yshift={-135}]
+    \draw  [dash pattern={on 4.5pt off 4.5pt}] (203.23,106) .. controls (216.36,106) and (227,139.32) .. (227,180.41) .. controls (227,221.51) and (216.36,254.83) .. (203.23,254.83) .. controls (190.1,254.83) and (179.46,221.51) .. (179.46,180.41) .. controls (179.46,139.32) and (190.1,106) .. (203.23,106) -- cycle ;
+
+%Shape: Wave [id:dp6612327583343451] 
+\draw  [color={rgb, 255:red, 65; green, 117; blue, 5 }  ,draw opacity=1 ] (104.87,166.44) .. controls (105.08,167.23) and (105.43,167.84) .. (105.97,168.22) .. controls (107.99,169.65) and (112.17,167.42) .. (116.55,165.07) .. controls (120.94,162.72) and (125.12,160.49) .. (127.14,161.92) .. controls (129.17,163.34) and (128.48,168.03) .. (127.75,172.95) .. controls (127.02,177.86) and (126.33,182.55) .. (128.36,183.98) .. controls (130.38,185.4) and (134.56,183.17) .. (138.95,180.82) .. controls (143.33,178.47) and (147.51,176.24) .. (149.53,177.67) .. controls (151.56,179.1) and (150.87,183.78) .. (150.14,188.7) .. controls (149.41,193.62) and (148.72,198.31) .. (150.75,199.73) .. controls (152.78,201.16) and (156.96,198.93) .. (161.34,196.58) .. controls (165.72,194.23) and (169.9,192) .. (171.93,193.42) .. controls (173.95,194.85) and (173.26,199.54) .. (172.53,204.46) .. controls (171.8,209.37) and (171.12,214.06) .. (173.14,215.49) .. controls (175.17,216.91) and (179.35,214.68) .. (183.73,212.33) .. controls (188.11,209.98) and (192.29,207.75) .. (194.32,209.18) .. controls (196.18,210.49) and (195.75,214.54) .. (195.1,219.01) ;
+\draw  [color={rgb, 255:red, 65; green, 117; blue, 5 }  ,draw opacity=1 ] (192.3,210.36) .. controls (194.05,214.66) and (194.67,218.32) .. (194.15,221.3) .. controls (195.8,218.98) and (198.6,217.32) .. (202.53,216.33);
+
+\draw (90,150) node [anchor=north west][inner sep=0.75pt]    {$\gamma$};
+
+\draw (133.,200.) node [anchor=north west][inner sep=0.75pt]  [rotate=-359.71]  {$h \nu $};
+\end{scope}
+
+\begin{scope}[xshift={115},yshift={-105}]
+  
+%Shape: Rectangle [id:dp5114971419041194] 
+\draw  [fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=1 ] (132,195) -- (462.5,195) -- (462.5,272) -- (132,272) -- cycle ;
+%Shape: Rectangle [id:dp3990916887386573] 
+\draw   (133,18) -- (460.5,18) -- (460.5,95) -- (133,95) -- cycle ;
+%Straight Lines [id:da043110927525629616] 
+\draw    (132.5,105) -- (461.5,105) ;
+%Straight Lines [id:da13183372224097178] 
+\draw    (132.5,176) -- (461.5,176) ;
+%Straight Lines [id:da425841711707756] 
+\draw    (131.5,136) -- (460.5,136) ;
+%Straight Lines [id:da4728790428365053] 
+\draw    (132.5,113) -- (461.5,113) ;
+%Shape: Brace [id:dp7603646587103312] 
+\draw   (470.5,175) .. controls (475.17,174.97) and (477.48,172.62) .. (477.45,167.95) -- (477.3,147.5) .. controls (477.25,140.83) and (479.56,137.48) .. (484.23,137.45) .. controls (479.56,137.48) and (477.21,134.17) .. (477.16,127.5)(477.18,130.5) -- (477.05,111.95) .. controls (477.02,107.28) and (474.67,104.97) .. (470,105) ;
+%Shape: Brace [id:dp8430485531728229] 
+\draw   (59,91) .. controls (54.33,91.02) and (52.01,93.36) .. (52.03,98.03) -- (52.2,131.53) .. controls (52.23,138.2) and (49.92,141.54) .. (45.25,141.57) .. controls (49.92,141.54) and (52.27,144.86) .. (52.3,151.53)(52.28,148.53) -- (52.46,185.03) .. controls (52.48,189.7) and (54.82,192.02) .. (59.49,192) ;
+%Shape: Brace [id:dp9352569368457304] 
+\draw   (126,96) .. controls (121.33,96.03) and (119.01,98.37) .. (119.04,103.04) -- (119.19,126.04) .. controls (119.23,132.71) and (116.92,136.06) .. (112.25,136.09) .. controls (116.92,136.06) and (119.27,139.37) .. (119.31,146.04)(119.3,143.04) -- (119.46,169.04) .. controls (119.49,173.71) and (121.83,176.03) .. (126.5,176) ;
+%Curve Lines [id:da26249208627055265] 
+\draw    (461.5,176) .. controls (470.86,216.39) and (519.51,177.21) .. (523.36,215.21) ;
+\draw [shift={(523.5,217)}, rotate = 266.51] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (262,224) node [anchor=north west][inner sep=0.75pt]   [align=left] {Valence bands};
+% Text Node
+\draw (251,45) node [anchor=north west][inner sep=0.75pt]   [align=left] {Conduction bands};
+% Text Node
+\draw (500,128) node [anchor=north west][inner sep=0.75pt]   [align=left] {Excitonic \\ \ \ states};
+% Text Node
+\draw (11.,132) node [anchor=north west][inner sep=0.75pt]   [align=left] {Band\\gap};
+% Text Node
+\draw (486,223) node [anchor=north west][inner sep=0.75pt]   [align=left] {Excitonic\\ground state};
+% Text Node
+\draw (87.49,174.5) node [anchor=north west][inner sep=0.75pt]  [font=\small,rotate=-270.01] [align=left] {Bind. energy};
+\end{scope}
+\end{tikzpicture}

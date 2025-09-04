@@ -15,7 +15,95 @@
 \section{Introduction}
 \label{sec:introduction}
 
-Here I give an explanation of the excitons from a phenomenological point of view, and Wannier equation, the simplest model.
+Optical spectroscopy is an important experimental tool for studying the band structure of crystals.
+Its utility stems from the possibility for a crystal to absorb a photon with energy $\hbar \omega$ by exciting an electron.
+If the crystal is an insulator, and the photon energy exceeds the \textit{elecronic} band gap, then the electron can be promoted to the conduction band, leaving a hole in the valence band, experiencing a change in energy of $\hbar \omega = E_c(\bk) - E_v(\bk)$, where $E_v(\bk)$ was the energy the electron had while populating the valence band $v$, and $E_c(\bk)$ the energy the electron has after being excited to the empty conduction band $c$, just like depicted in Figure~\ref{fig:electron_hole_pair_formation}.
+This direct interband transition may occur any point $\bk$ in the Brillouin zone for which energy is conserved.
+But it can also happen that the electron absorbs the photon energy if it is just below the gap energy.
+The minimum amount of energy required for that to happen is what defines the \textit{optical} band gap.
+This confers a structure to the absorption and reflection spectra for energies inside the band gap, 
+which can only be explained at the interacting level beyond the single-particle picture, when we allow for the valence electrons experience Coulomb repulsion.
+As we will see in section ???, a repulsive interaction between the electrons can actually give rise to an attractive one, between the electron in the conduction band (red circle in Fig.~\ref{fig:electron_hole_pair_formation}) and the hole it left behind in the valence band (red circunference filled with white in Fig.~\ref{fig:electron_hole_pair_formation}).
+This attraction is in the origin of the formation of a bound electron--hole pair, the so-called exciton.
+The binding energy of a given exciton in a state $\nu$, $E_{b, \nu}$, is then difference between the energy of the electronic band gap, $\Delta$, and the optical one, $E_X$, which coincides with the energy of the excitonic ground state (measuring the energies setting the zero at the top of the valence band).
+
+\begin{figure}[H]
+    \centering
+    \input{Chapters/Figures/Chapter_4/exciton_formation}
+    \mycaption[Formation of an electron-hole pair.]{Formation of an electron-hole pair.}
+    \label{fig:electron_hole_pair_formation}
+\end{figure}
+
+The excitonic problem, consisting in finding the excitonic eigenenergies and eigenstates or wavefunctions, coincides with the hydrogen atom problem if the energy surfaces for the electron and the hole are spherical and nondegenerate, as stated in the book by Kittel~\cite{Kittel_2004}.
+From a heuristic point of view, the energy levels are given by a modified Rydberg formula
+
+\begin{equation}
+    E_{\text{exc},n} = E_g - \frac{R^*}{n^2},
+\end{equation}
+
+\noindent where
+
+\begin{equation}
+    R^* = \frac{2 \mu^2 e^4}{\hbar^2 (8 \pi \varepsilon)^2}
+\end{equation}
+
+\noindent is the modified Rydberg constant, which instead of using the electron mass like usual, it uses the reduced mass between the electron and the hole effective masses:
+
+\begin{equation}
+    \frac{1}{\mu} = \frac{1}{m_e} + \frac{1}{m_h}.
+\end{equation}
+
+\noindent Here $\varepsilon$ is just the dielectric constant of the medium.
+This description is suited for weakly bound excitons, also called Wannier excitons.
+The characteristic size of the exciton is given by a modified expression for the Bohr radius:
+
+\begin{equation}
+    a_B^* = \frac{4 \pi \epsilon \hbar^2}{\mu^2 e^2}\,,
+\end{equation}
+
+\noindent which can extend over a couple of atomic sites.
+If the exciton is tightly bound, then it is called a Frenkel exciton.
+In this case, the excitation is localized at a single atom.
+Wannier excitons can be found in inorganic semiconductors, like cuprous oxide, \ch{Cu2O}, or  gallium arsenide, \ch{GaAs}.
+For \ch{GaAs}, the binding energy of the ground state exciton is $3.4$ \unit{\milli\electronvolt}.
+Frenkel excitons are more common in crystalline inert gases, like crystalline krypton.
+In solid krypton, the ground state exciton has a binding energy of $1.5$ \unit{\electronvolt}.
+\todo{find references for the numbers above.}
+
+If we wish to apply the description above of Wannier excitons to 2D materials, the excitonic binding energies are given now by the modified Rydberg formula for the 2D hydrogen atom
+
+\begin{equation}
+    E^{\BD}_{X,n} = - \frac{R^*}{\left(n-\frac{1}{2}\right)^2}.
+\end{equation}
+
+Focusing on the ground state $n=1$, we can see that $E^{\text{2D}}_{\text{exc},n=1} = 4 E_{\text{exc},n=1}$.
+Furthermore, the Bohr radius for 2D materials is half of that of the 3D case.
+We can then predict that the excitonic contribution to the optical spectrum is more proeminent in 2D materials when compared to 3D ones.
+Furthermore the Coulomb interaction in 2D materials is less screened than in 3D ones.
+In 2D materials excitons can form even at room temperatures~\cite{Morozov_Wolff_Mortensen_2021}.
+
+In a more accurate approach to the excitonic problem, the excitonic states and respective binding energies can be estimated by solving the Wannier equation~\cite{Wannier_1937} that writes
+
+\begin{equation}
+    E_{b, \nu} \psi_\nu (\br) = - \frac{\hbar^2 \nabla^2}{2 \mu} \psi_\nu (\br) - V(\br) \psi_\nu (\br),
+\label{eq:Wannier_equation}
+\end{equation}
+
+\noindent where $\mu$ is the electron--hole reduced effective mass as before, and $V(\br)$ is the attractive potential that binds the electron and the hole together.
+It is just like the time-independent Schrödinger equation, but with an effective reduced mass.
+In 2D materials, the potential that describes accurately the screening effect has the form of the Rytova--Keldysh potential, that was already derived in section~\ref{subsubsec:dielectric_function_static_limit} when we were introducing classical effective models for the dielectric function. 
+
+The Wannier equation does not capture the full structure of the excitonic states (like nondegenerate $p$ states, or the symmetries of the crystal), hence we need to resort to more accurate descriptions of the excitonic problem.
+That is possible using a reciprocal space description of the excitonics, with oone can write down the \gls{bse}---an integral equation where finer details of the band structure and the Coulomb interaction are included.
+In this work, we mention two versions of the \gls{bse}.
+One for effective low-energy models, and another one using exact diagonalization of the Bethe--Salpeter Hamiltonian.
+The \abinit~version of the \gls{bse} is not addressed here.
+Besides being technically more involved\todo{include citations}, it is  extremely computationally demanding, so it is instructive to look for more efficient approaches.
+Nonetheless it can be frequently encountered in the literature, in particular works that employ \abinit~methods for the optical response of materials\todo{include citations}.
+If the reader is curious about it, we refer to \todo[inline]{include textbooks, Martin, Alex's thesis, etc...}.
+
+In the following section we derive the Bethe--Salpeter equation for effective models, and after derive the Wannier equation from it.
+
 
 \section{The Bethe--Salpeter Equation: application to effective models}
 \label{sec:bethe_salpeter_equation_effective_models}
@@ -23,6 +111,7 @@ Here I give an explanation of the excitons from a phenomenological point of view
 Here I introduce Nuno's approach to excitons and the Bethe--Salpeter equation.
 We need this since we used it to compute the renormalized band gap in the ACS Nano.
 We can also derive back again the Wannier equation.
+\todo[inline]{forget not to look again at the Madrid seminar}
 
 \section{The Bethe--Salpeter Equation: exact diagonalization}
 \label{sec:bethe_salpeter_equation_exact}
