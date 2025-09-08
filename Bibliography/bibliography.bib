@@ -5,6 +5,21 @@
 %RESEARCH ARTICLES
 %----------------------
 
+@article{Louie_2000,
+  title = {Electron-hole excitations and optical spectra from first principles},
+  author = {Rohlfing, Michael and Louie, Steven G.},
+  journal = {Phys. Rev. B},
+  volume = {62},
+  issue = {8},
+  pages = {4927--4944},
+  numpages = {0},
+  year = {2000},
+  month = {8},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevB.62.4927},
+  url = {https://link.aps.org/doi/10.1103/PhysRevB.62.4927}
+}
+
 @article{Cudazzo_2011,
 	title={Dielectric screening in two-dimensional insulators: Implications for excitonic and impurity states in graphane},
 	volume={84},
@@ -69,6 +84,76 @@
 	journal = {Journal of Physics: Materials},
 	abstract = {This paper provides a pedagogical introduction to recent developments in geometrical and topological band theory following the discovery of graphene and topological insulators. Amusingly, many of these developments have a connection to contributions in high-energy physics by Dirac. The review starts by a presentation of the Dirac magnetic monopole, goes on with the Berry phase in a two-level system and the geometrical/topological band theory for Bloch electrons in crystals. Next, specific examples of tight-binding models giving rise to lattice versions of the Dirac equation in various space dimension are presented: in 1D (Su–Schrieffer–Heeger (SSH) and Rice–Mele models), 2D (graphene, boron nitride, Haldane model) and 3D (Weyl semi-metals). The focus is on topological insulators and topological semi-metals. The latter have a Fermi surface that is characterized as a topological defect. For topological insulators, the two alternative view points of twisted fiber bundles and of topological textures are developed. The minimal mathematical background in topology (essentially on homotopy groups and fiber bundles) is provided when needed. Topics rarely reviewed include: periodic versus canonical Bloch Hamiltonian (basis I/II issue), Zak versus Berry phase, the vanishing electric polarization of the SSH model and Dirac insulators.}
 }
+
+@article{Dreuw_2005,
+author = {Dreuw, Andreas and Head-Gordon, Martin},
+title = {Single-Reference ab Initio Methods for the Calculation of Excited States of Large Molecules},
+journal = {Chemical Reviews},
+volume = {105},
+number = {11},
+pages = {4009-4037},
+year = {2005},
+doi = {10.1021/cr0505627},
+note ={PMID: 16277369},
+URL = {https://doi.org/10.1021/cr0505627},
+eprint = { https://doi.org/10.1021/cr0505627}}
+
+@article{Ridolfi_2015,
+  title = {Expeditious computation of nonlinear optical properties of arbitrary order with native electronic interactions in the time domain},
+  author = {Ridolfi, Emilia and Trevisanutto, Paolo E. and Pereira, Vitor M.},
+  journal = {Phys. Rev. B},
+  volume = {102},
+  issue = {24},
+  pages = {245110},
+  numpages = {19},
+  year = {2020},
+  month = {12},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevB.102.245110},
+  url = {https://link.aps.org/doi/10.1103/PhysRevB.102.245110}
+}
+
+@article{Xatu,
+title = {Efficient computation of optical excitations in two-dimensional materials with the Xatu code},
+journal = {Computer Physics Communications},
+volume = {295},
+pages = {109001},
+year = {2024},
+issn = {0010-4655},
+doi = {https://doi.org/10.1016/j.cpc.2023.109001},
+url = {https://www.sciencedirect.com/science/article/pii/S0010465523003466},
+author = {Alejandro José Uría-Álvarez and Juan José Esteve-Paredes and M.A. García-Blázquez and Juan José Palacios},
+keywords = {Exciton, Bethe-Salpeter equation, Optics, Many-body physics, Localized orbitals, Tight-binding},
+abstract = {Here we describe an efficient numerical implementation of the Bethe-Salpeter equation to obtain the excitonic spectrum of semiconductors. This is done on the electronic structure calculated either at the simplest tight-binding level or through density functional theory calculations based on local orbitals. We use a simplified model for the electron-electron interactions which considers atomic orbitals as point-like orbitals and a phenomenological screening. The optical conductivity can then be optionally computed within the Kubo formalism. Our results for paradigmatic two-dimensional materials such as hBN and MoS2, when compared with those of more sophisticated first-principles methods, are excellent and envision a practical use of our implementation beyond the computational limitations of such methods.
+Program summary
+Program Title: Xatu CPC Library link to program files: https://doi.org/10.17632/kj4rt95pvc.1 Developer's repository link: https://github.com/alejandrojuria/xatu Licensing provisions: GPLv3 Programming language: C++, Fortran, Python Nature of problem: The exciton spectrum is obtained as the solution of the Bethe-Salpeter equation for insulators and semi-conductors. Constructing the equation involves determining the screening of the electrostatic interaction and then determining the matrix elements of the interaction kernel, which are computationally-intensive tasks, specially if one takes a purely ab-initio approach. Solution method: The Bethe-Salpeter equation can be efficiently set up and solved assuming that the basis of the reference electronic structure calculation, obtained either from tight-binding models or density functional theory with actual localized orbitals, corresponds to point-like localized orbitals. This, in addition to using an effective screening instead of computing the dielectric constant, allows to obtain the interaction kernel at very low computational cost and, thereof, the exciton spectrum as well as the light absorption of materials. Additional comments including restrictions and unusual features: The code requires using at least C++11, given that it uses version-specific features. All linear algebra routines have been delegated to the Armadillo library.}
+}
+
+@article{Yambo_2009, 
+title={yambo: An ab initio tool for excited state calculations}, 
+volume={180}, 
+ISSN={0010-4655}, 
+DOI={10.1016/j.cpc.2009.02.003}, 
+abstractNote={yambo is an ab initio code for calculating quasiparticle energies and optical properties of electronic systems within the framework of many-body perturbation theory and time-dependent density functional theory. Quasiparticle energies are calculated within the GW approximation for the self-energy. Optical properties are evaluated either by solving the Bethe–Salpeter equation or by using the adiabatic local density approximation. yambo is a plane-wave code that, although particularly suited for calculations of periodic bulk systems, has been applied to a large variety of physical systems. yambo relies on efficient numerical techniques devised to treat systems with reduced dimensionality, or with a large number of degrees of freedom. The code has a user-friendly command-line based interface, flexible I/O procedures and is interfaced to several publicly available density functional ground-state codes.},
+number={8},
+journal={Computer Physics Communications},
+author={Marini, Andrea and Hogan, Conor and Grüning, Myrta and Varsano, Daniele},
+year={2009},
+month=aug,
+pages={1392–1403}}
+
+@article{BerkeleyGW, 
+title={BerkeleyGW: A massively parallel computer package for the calculation of the quasiparticle and optical properties of materials and nanostructures}, 
+volume={183}, 
+ISSN={0010-4655}, 
+DOI={10.1016/j.cpc.2011.12.006}, 
+abstractNote={BerkeleyGW is a massively parallel computational package for electron excited-state properties that is based on the many-body perturbation theory employing the ab initio GW and GW plus Bethe–Salpeter equation methodology. It can be used in conjunction with many density-functional theory codes for ground-state properties, including PARATEC, PARSEC, Quantum ESPRESSO, SIESTA, and Octopus. The package can be used to compute the electronic and optical properties of a wide variety of material systems from bulk semiconductors and metals to nanostructured materials and molecules. The package scales to 10000s of CPUs and can be used to study systems containing up to 100s of atoms.}, 
+number={6}, 
+journal={Computer Physics Communications}, 
+author={Deslippe, Jack and Samsonidze, Georgy and Strubbe, David A. and Jain, Manish and Cohen, Marvin L. and Louie, Steven G.}, 
+year={2012}, 
+month=jun, 
+pages={1269–1289} }
 
 %----------------------
 %OLDER REFERENCES
@@ -184,6 +269,20 @@ pages={191–197} }
 	publisher = {American Physical Society},
 	doi = {10.1103/PhysRevB.34.5390},
 	url = {https://link.aps.org/doi/10.1103/PhysRevB.34.5390}
+}
+
+@article{Hirata_1999,
+title = {Time-dependent density functional theory within the Tamm–Dancoff approximation},
+journal = {Chemical Physics Letters},
+volume = {314},
+number = {3},
+pages = {291-299},
+year = {1999},
+issn = {0009-2614},
+doi = {https://doi.org/10.1016/S0009-2614(99)01149-5},
+url = {https://www.sciencedirect.com/science/article/pii/S0009261499011495},
+author = {So Hirata and Martin Head-Gordon},
+abstract = {A computationally simple method for molecular excited states, namely, the Tamm–Dancoff approximation to time-dependent density functional theory, is proposed and implemented. This method yields excitation energies for several closed- and open-shell molecules that are essentially of the same quality as those obtained from time-dependent density functional theory itself, when the same exchange-correlation functional is used.}
 }
 
 %----------------------
@@ -445,5 +544,26 @@ language={en} }
 	collection={Springer Theses},
 	language={en} }
 
+@phdthesis{Diana_PhD,
+       author = {{Qiu}, Diana Y.},
+        title = "{Many-body Effects on the Quasiparticle and Optical Properties of Quasi-two-dimensional Systems}",
+     keywords = {Materials science;Condensed matter physics},
+       school = {University of California, Berkeley},
+         year = 2017,
+        month = jan,
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2017PhDT........17Q},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@phdthesis{Jornada_PhD,
+       author = {{Homrich da Jornada}, Felipe},
+        title = "{Quasiparticle and Optical Properties of Quasi-Two-Dimensional Systems}",
+     keywords = {Physics},
+       school = {University of California, Berkeley},
+         year = 2017,
+        month = jan,
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2017PhDT.......208H},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
 
 
