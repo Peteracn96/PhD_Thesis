@@ -345,14 +345,13 @@ and use the identity
     \frac{1}{A} \sum_{\bp} e^{i \bp \cdot (\br - \br')} = \delta_{\br,\br'},
 \end{equation}
 
-to arrive at
+to recover the Wannier equation:
 
 \begin{empheq}[box=\colorbox{lightgray}]{equation}
-    E_{b, \nu} \psi_\nu (\br) = \frac{p^2}{2 \mu} \psi_\nu (\br) - V(\br) \psi_\nu (\br),
+    E_{b, \nu} \psi_\nu (\br) = \frac{p^2}{2 \mu} \psi_\nu (\br) - V(\br) \psi_\nu (\br).
     \label{eq:Wannier_equation_derived}
 \end{empheq}
 
-which is the Wannier equation.
 The excitonic problem is a differential equation in real space, and an integral equation in momentum space.
 The real space approach is more useful for analytic treatments, but it overlooks some features due to the approximations, like the lack of degeneracy between excitonic states with symmetric angular quantum numbers, since in the real space approach we set $F$ to 1.
 The momentum space approach is heavier numerically and more intricate, but produces more accurate results.
@@ -569,7 +568,7 @@ Considering point-like orbitals where their spatial structure is overlooked and 
     \phi_{\alpha} (\br - \bR - \bt_{i}) \phi_{\beta} (\br - \bR' - \bt_j) \approx \delta_{\alpha \beta} \delta_{\bR \bR'} \delta_{ij} \delta(\br - \bR - \bt_i)\,
 \end{equation}
 
-\noindent This allows for performing the space integrals directly and analitically, so that we can obtain a relatively simples expression for the direct term:
+\noindent This allows for performing the space integrals directly and analitically, so that we can obtain a relatively simple expression for the direct term:
 
 \begin{equation}
     D_{vc,v'c'}(\bk,\bk',\bQ) = \frac{1}{N} \sum_{i \alpha}  \sum_{j \beta} \qty(C_{i \alpha}^{c \bk+ \bQ})^* C_{i \alpha}^{c' \bk' + \bQ} \qty(C_{j \beta}^{v' \bk'})^* C_{j \beta}^{v \bk} V_{ij}(\bk' - \bk)\,,
@@ -607,7 +606,7 @@ If we would like to go beyond classical mapproximations for screening, and take 
 \end{equation}
 
 The final expression in equation~\eqref{eq:interaction_matrix_element_direct_reciprocal} is the one usually encountered in the literature pertaining to first-principle methods~\cite{BerkeleyGW,Yambo_2009}.
-These methods allow also to compute the dielectric matrix, and its inverse so that we one can calculate the matrix elements of the screened Coulomb potential through $W_{\bG\bG'}(\bq) = \vareps^{-1}_{\bG\bG'}(\bq) v_c(\bq + \bG')$.
+These methods allow also to compute the dielectric matrix, and its inverse so that we one can calculate the matrix elements of the screened Coulomb potential through $W_{\bG\bG'}(\bq) = \vareps^{-1}_{\bG\bG'}(\bq) v_c(\bq + \bG')$, the static limit of~Eq.~\eqref{eq:screened_dynamic_Coulomb_potential}.
 
 Regarding the exchange term, even though we typically will discard, for completion we present its expression, that is
 
@@ -631,8 +630,8 @@ If instead we use for the screened Coulomb potential the Rytova--Keldysh model, 
 \begin{subequations}
     \label{eq:interaction_matrix_elements_reciprocal_RK}
     \begin{align}
-        D_{vc,v'c'}(\bk,\bk',\bQ) &= \frac{1}{N} \sum_{\bq \in \mathrm{BZ}} \sum_{\bG} I^{\bG}_{c \bk+\bQ, c' \bk'+\bQ} V_{\text{RK}}(\bk - \bk' + \bG) (I^{\bG}_{v \bk, v' \bk'})^* \label{eq:direct_interaction_matrix_element_reciprocal_RK} \\
-        X_{vc,v'c'}(\bk,\bk',\bQ) &= \frac{1}{N} \sum_{\bq \in \mathrm{BZ}} \sum_{\bG} I^{\bG}_{c \bk+\bQ, v \bk} V_{\text{RK}}(\bQ + \bG) (I^{\bG}_{c' \bk' + \bQ, v' \bk'})^* \,, \label{eq:exchange_interaction_matrix_element_reciprocal_RK}
+        D_{vc,v'c'}(\bk,\bk',\bQ) &= \frac{1}{N} \sum_{\bG} I^{\bG}_{c \bk+\bQ, c' \bk'+\bQ} V_{\text{RK}}(\bk - \bk' + \bG) (I^{\bG}_{v \bk, v' \bk'})^* \label{eq:direct_interaction_matrix_element_reciprocal_RK} \\
+        X_{vc,v'c'}(\bk,\bk',\bQ) &= \frac{1}{N} \sum_{\bG} I^{\bG}_{c \bk+\bQ, v \bk} V_{\text{RK}}(\bQ + \bG) (I^{\bG}_{c' \bk' + \bQ, v' \bk'})^* \,, \label{eq:exchange_interaction_matrix_element_reciprocal_RK}
     \end{align}
 \end{subequations}
 
