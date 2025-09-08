@@ -449,8 +449,9 @@ Prior to that, one has to compute the polarizability, in particular, the non-int
 After, one can compute the dielectric function as per~\eqref{eq:dielectric_function_space_time}, but typically in reciprocal space, and then invert it.
 In alternative, one could rewrite~\eqref{eq:Dysons_eq_Coulomb} as $W(b,a) =\int \dd{c} \varepsilon^{-1}(b,c) v_c(c,a)$ where
 
-\begin{equation}\label{eq:dielectric_function_inverse}
-\varepsilon^{-1}(a,b) = \delta(a-b) + \int \dd{c} v_c(a,c) P(c,b) \,.
+\begin{equation}
+    \label{eq:dielectric_function_inverse}
+    \varepsilon^{-1}(a,b) = \delta(a-b) + \int \dd{c} v_c(a,c) P(c,b) \,.
 \end{equation}
 
 If we try to draft a diagrammatic expression for the polarizability based on Eq.~\eqref{eq:polarizability_full}, we would see that it consists of two propagator lines connected by every possible process allowed by the Coulomb interaction.
@@ -471,8 +472,9 @@ Then, we get the full polarizability $P$ within \gls{rpa} that is
 
 Then, the inverse dielectric function within \rpa~is obtained by replacing the full polarizability in Eq.~\eqref{eq:dielectric_function_inverse} by the \rpa~one:
 
-\begin{equation}\label{eq:dielectric_function_inverse}
-\varepsilon_\RPA^{-1}(a,b) = \delta(a-b) + \int \dd{c} v_c(a,c) P^\RPA(c,b) \,.
+\begin{equation}
+    \label{eq:inverse_dielectric_function_RPA}
+    \varepsilon_\RPA^{-1}(a,b) = \delta(a-b) + \int \dd{c} v_c(a,c) P^\RPA(c,b) \,.
 \end{equation}
 
 For a thorough discussion of these details, we refer to Richard Martin's book in Ref~\cite{Martin_Reining_Ceperley_2016}.
