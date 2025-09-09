@@ -554,7 +554,8 @@ Focusing first on the direct interaction term, per~\eqref{subeq:direct_term}, in
     D_{vc,v'c'}(\bk,\bk',\bQ) = \int \dr \int \dr' \psi^*_{c,\bk+\bQ}(\br) \psi^*_{v',\bk'}(\br') W(\br,\br') \psi_{c',\bk'+\bQ}(\br) \psi^*_{v,\bk}(\br')\,.
 \end{equation}
 
-\noindent Upon replacing the Bloch states by their expression~\eqref{eq:Bloch_states_again}, at some point we need to evaluate four-body integrals of the form
+\noindent where we have denoted now the screened potential by $W$ instead of $V$.
+Upon replacing the Bloch states by their expression~\eqref{eq:Bloch_states_again}, at some point we need to evaluate four-body integrals of the form
 
 \begin{equation}
     \int \dr \int \dr' \phi^*_{\alpha} (\br) \phi^*_{\beta} (\br') W(\br,\br') \phi_{\alpha'} (\br) \phi_{\beta'} (\br')\,,
@@ -592,7 +593,7 @@ If we would like to go beyond classical mapproximations for screening, and take 
         &\int \dr \int \dr' \psi^*_{c,\bk+\bQ}(\br) \psi^*_{v',\bk'}(\br') \left(\frac{1}{N} \sum_{\bq,\bq'} \ei{\bq \vdot \br} W(\bq,\bq')\ee^{-\ii \bq' \vdot \br'}\right) \psi_{c',\bk'+\bQ}(\br) \psi^*_{v,\bk}(\br') = \\
         &=\int \dr \int \dr' \psi^*_{c,\bk+\bQ}(\br) \psi^*_{v',\bk'}(\br') \left(\frac{1}{N} \sum_{\bq \in \mathrm{BZ}} \sum_{\bG,\bG'} \ei{(\bq + \bG) \vdot \br} W(\bq + \bG,\bq + \bG')\ee^{-\ii (\bq + \bG') \vdot \br'}\right) \psi_{c',\bk'+\bQ}(\br) \psi^*_{v,\bk}(\br') = \\
         &= \frac{1}{N} \sum_{\bq \in \mathrm{BZ}} \sum_{\bG,\bG'}
-        \int \dr  \psi^*_{c,\bk+\bQ}(\br) \ei{(\bq + \bG) \vdot \br} \psi_{c',\bk'+\bQ}(\br)  W_{\bG \bG'}(\bq) \int \dr' \psi^*_{v',\bk'}(\br') \ee^{-\ii (\bq + \bG') \vdot \br'}  \psi^*_{v,\bk}(\br') = \\
+        \qty(\int \dr  \psi^*_{c,\bk+\bQ}(\br) \ei{(\bq + \bG) \vdot \br} \psi_{c',\bk'+\bQ}(\br))  W_{\bG \bG'}(\bq) \qty(\int \dr' \psi^*_{v',\bk'}(\br') \ee^{-\ii (\bq + \bG') \vdot \br'}  \psi^*_{v,\bk}(\br')) = \\
         &= \frac{1}{N} \sum_{\bq \in \mathrm{BZ}} \delta_{\bq,\bk - \bk'} \sum_{\bG,\bG'} \bra{c,\bk+\bQ} \ei{(\bq + \bG) \vdot \br} \ket{c',\bk'+\bQ} W_{\bG \bG'}(\bq) \bra{v',\bk'} \ee^{-\ii (\bq + \bG') \vdot \br} \ket{v,\bk} = \\
         &=  \frac{1}{N} \sum_{\bG,\bG'} \qty(I^{\bG}_{c \bk+\bQ, c' \bk'+\bQ})^* W_{\bG \bG'}(\bk - \bk') I^{\bG'}_{v \bk, v' \bk'}
     \end{aligned}
