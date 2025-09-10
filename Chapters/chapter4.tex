@@ -640,12 +640,12 @@ In the single sum, the inclusion of the reciprocal lattice vectors has the purpo
 
 Here we provide the theory for the optical conductivity.
 
-\subsection{Non-interacting optical conductivity}
+\subsection{Noninteracting optical conductivity}
 \label{subsec:non_interacting_conductivity}
 
 
 We could follow a more technical strategy to derive the expression for the optical conductivity as in Refs~\cite{Bruus_Flensberg_2004,Mahan}, but since we have at our disposal the dielectric function, we will simply use it instead.
-We start from the dynamical longitudinal dielectric function as per~\eqref{eq:RPA_dynamical_dielectric_function}, that we recall here:
+We start from the dynamical longitudinal dielectric function as per~\eqref{eq:dielectric_function_momentum_frequency}, that we recall here:
 
 \begin{equation}
     \begin{split}
@@ -658,17 +658,24 @@ We start from the dynamical longitudinal dielectric function as per~\eqref{eq:RP
 \noindent where we used the \gls{3d} Fourier transform of the Coulomb potential, and recovered the square in the electron charge for convenience, while $V$ is the volume of the system, assumed to be \gls{3d}.
 Taking the local limit $\bq\to\bzero$ in the $\bG=\bG'=\bzero$ matrix element, we get
 
-\begin{equation}
-    \begin{gathered}
-        \varepsilon_{\bzero\bzero}(\bq\to\bzero,\omega)=1-\frac{e^{2}}{\varepsilon_{0}q^{2}V}
-        \sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\langle n,\bk|-\ii\bq\cdot\br\,|n',\bk\rangle\langle n',\bk|\ii\bq\cdot\br\,|n,\bk\rangle=\\
-        %=1-\frac{e^{2}}{\varepsilon_{0}q^{2}V}
-        %q^{2}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\hat{\mathbf{e}}_{\bq}\cdot\langle n,\bk|\br\,|n',\bk\rangle\hat{\mathbf{e}}_{\bq}\cdot\langle n',\bk|\br\,|n,\bk\rangle=\\
-        %=1-\frac{e^{2}}{\varepsilon_{0}V}
-        %\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\hat{\mathbf{e}}_{\bq}\cdot\langle n,\bk|\br\,|n',\bk\rangle\hat{\mathbf{e}}_{\bq}\cdot\langle n',\bk|\br\,|n,\bk\rangle=\\
-        =1-\frac{e^{2}}{\varepsilon_{0} V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\left|\hat{\mathbf{e}}_{\bq}\cdot\langle n,\bk|\br\,|n',\bk\rangle\right|^2
-    \end{gathered}
-\end{equation}
+%\begin{equation}
+%    \begin{gathered}
+%        \varepsilon_{\bzero\bzero}(\bq\to\bzero,\omega)=1-\frac{e^{2}}{\varepsilon_{0}q^{2}V}
+%        \sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\langle n,\bk|-\ii\bq\cdot\br\,|n',\bk\rangle\langle n',\bk|\ii\bq\cdot\br\,|n,\bk\rangle=\\
+%        %=1-\frac{e^{2}}{\varepsilon_{0}q^{2}V}
+%        %q^{2}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\hat{\mathbf{e}}_{\bq}\cdot\langle n,\bk|\br\,|n',\bk\rangle\hat{\mathbf{e}}_{\bq}\cdot\langle n',\bk|\br\,|n,\bk\rangle=\\
+%        %=1-\frac{e^{2}}{\varepsilon_{0}V}
+%        %\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\hat{\mathbf{e}}_{\bq}\cdot\langle n,\bk|\br\,|n',\bk\rangle\hat{\mathbf{e}}_{\bq}\cdot\langle n',\bk|\br\,|n,\bk\rangle=\\
+%        =1-\frac{e^{2}}{\varepsilon_{0} V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\left|\hat{\mathbf{e}}_{\bq}\cdot\langle n,\bk|\br\,|n',\bk\rangle\right|^2
+%    \end{gathered}
+%\end{equation}
+
+\begin{align}
+    \varepsilon_{\bzero\bzero}(\bq\to\bzero,\omega) &= 1-\frac{e^{2}}{\varepsilon_{0}q^{2}V}
+    \sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\langle n,\bk|-\ii\bq\cdot\br\,|n',\bk\rangle\langle n',\bk|\ii\bq\cdot\br\,|n,\bk\rangle= \notag \\ % \notag suppresses the
+    % equation number
+    &=1-\frac{e^{2}}{\varepsilon_{0} V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\left|\hat{\mathbf{e}}_{\bq}\cdot\langle n,\bk|\br\,|n',\bk\rangle\right|^2
+\end{align}
 
 
 \noindent To arrive at the previous expression, we expanded the exponentials to first order in $\bq$.
@@ -697,21 +704,21 @@ We can define a tensor like conductivity $\sigma_{\alpha\beta}$ as
 
 \begin{equation}
     \label{eq:sokhotski_plemelj}
-    \frac{1}{x\pm \ii \eta}=\mathrm{P.V.}\!\left(\frac{1}{x-a}\right) \mp \ii\pi\delta(x-a),\quad\hbar \alpha=0^+,
+    \frac{1}{x\pm \ii \eta}=\mathrm{P.V.}\!\left(\frac{1}{x-a}\right) \mp \ii\pi\delta(x-a),\quad \eta=0^+,
 \end{equation}
 
-\noindent the real part of the conductivity, in terms of the velocity operator, writes
+\noindent the real part of the conductivity, in terms of matrix elements of the velocity operator, writes
 
 \begin{equation}
-    \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\epsilon_{n,\bk}-\epsilon_{n',\bk}}\langle n,\bk|v_{\alpha}|n',\bk\rangle\langle n',\bk|v_{\beta}|n,\bk\rangle\delta(\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk}))
+    \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\epsilon_{n,\bk}-\epsilon_{n',\bk}}  v^{\alpha}_{n n'}(\bk)  v^{\beta}_{n' n}(\bk) \delta(\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk}))
 \end{equation}
 
-\noindent where we used the trick of replacing $\omega \to \epsilon_{n,\bk}-\epsilon_{n',\bk}$ to cancel the frequency in the numerator, which is allowed due to the presence of the Dirac delta function.
+\noindent where we used the trick of replacing $\omega \to \epsilon_{n,\bk}-\epsilon_{n',\bk}$ to cancel the frequency in the numerator, which is allowed due to the presence of the Dirac delta function, and defined $v^{\alpha}_{n n'}(\bk) = \langle n,\bk|v_{\alpha}|n',\bk\rangle$.
 Particularizing for a semiconductor at zero temperature and simplifying, we are allowed to write
 
 \begin{equation}
     \label{eq:non_interacting_Re_optical_conductivity}
-    \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{V}\sum_{vc,\bk}\frac{1}{\epsilon_{c,\bk}-\epsilon_{v,\bk}}\langle c,\bk|v_{\alpha}|v,\bk\rangle\langle v,\bk|v_{\beta}|c,\bk\rangle\delta(\hbar \omega - (\epsilon_{c,\bk}-\epsilon_{v,\bk}))
+    \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{V}\sum_{vc,\bk}\frac{1}{\epsilon_{c,\bk}-\epsilon_{v,\bk}}   v^{\alpha}_{c v}(\bk)  v^{\beta}_{v c}(\bk)\delta(\hbar \omega - (\epsilon_{c,\bk}-\epsilon_{v,\bk}))
 \end{equation}
 
 \noindent At this point we will not explain how to compute the position or velocity matrix elements in practice.
@@ -722,30 +729,30 @@ They will be addressed in two different ways in chapters~\ref{ch:Optical_hBN_sup
 \label{subsec:excitonic_conductivity}
 
 In this section we are concerned with the contribution of excitons to the optical conductivity.
-If the material is subject to a drive from a uniform time dependent electric field composed of a single harmonic $\omega$, the expression for the optical conductivity up to leading order, is given by~\cite{Pedersen_2015}
+If the material is subject to a drive from a uniform time-dependent electric field composed of a single harmonic $\omega$, the expression for the optical conductivity up to leading order, is given by~\cite{Pedersen_2015}
 
 \begin{equation}
-    \sigma (\omega) = \frac{e^2}{8 \pi^3 \ii \hbar} \sum_n \qty[E_n \frac{\vectorbold{\Omega}_n \cdot \vectorbold{\Omega}^*_n }{E_n - \hbar \omega + \ii \hbar \Gamma} + E_n \frac{\vectorbold{\Omega}_n \cdot \vectorbold{\Omega}^*_n }{E_n + \hbar \omega - \ii \hbar \Gamma}],
+    \sigma (\omega) = \frac{e^2}{8 \pi^3 \ii \hbar} \sum_{\nu} \qty[E_{\nu} \frac{\vectorbold{\Omega}_{\nu} \cdot \vectorbold{\Omega}^*_{\nu} }{E_{\nu} - \hbar \omega + \ii \hbar \Gamma} + E_{\nu} \frac{\vectorbold{\Omega}_{\nu} \cdot \vectorbold{\Omega}^*_{\nu} }{E_{\nu} + \hbar \omega - \ii \hbar \Gamma}],
 \label{eq:optical_conductivity_def}
 \end{equation}
 
-\noindent where the sum is over the excitonic states, $E_n$ being the energy of the $n$-th state, and $\vectorbold{\Omega}_n$ is the Berry curvature given by
+\noindent where the sum is over the excitonic states, $E_{\nu}$ being the energy of the $\nu$-th state, and $\vectorbold{\Omega}_{\nu}$ is the Berry curvature given by
 
 \begin{equation}
     \label{eq:Berry_curvature_definition}
-    \vectorbold{\Omega}_n = \sum_{cv,\bk} \psi^n_{c,v} (\bk) \langle v, \bk | \br \cdot \hat{\vectorbold{e}} | c, \bk \rangle,
+    \vectorbold{\Omega}_{\nu} = \sum_{cv,\bk} \psi^{\nu}_{c,v} (\bk) \langle v, \bk | \br \cdot \hat{\vectorbold{e}} | c, \bk \rangle,
 \end{equation}
 
-\noindent where $\br$ is the dipole operator, $\hat{\vectorbold{e}}$ is the polarization unit vector and $\psi^n_{c,v} (\bk)$ is the excitonic wavefunction for the pair of bands $(c,v)$.
-If once more we wish to define the optical conductivity as a tensor, then we can deduct an expression similar to~\eqref{eq:non_interacting_Re_optical_conductivity}, we just have to replace the transition energy $\epsilon_{c,\bk}-\epsilon_{v,\bk}$ by the exciton energy $E_n$, and the velocity matrix elements by their interacting version given by a weighted sum over momentum of the non-interacting matrix elements, with the weight coinciding with the excitons wavefunction, similarly to what is written in~\eqref{eq:Berry_curvature_definition}.
+\noindent where $\br$ is the dipole operator, $\hat{\vectorbold{e}}$ is the polarization unit vector and $\psi^{\nu}_{c,v} (\bk)$ is the excitonic wavefunction for the pair of bands $(c,v)$.
+If once more we wish to define the optical conductivity as a tensor, then we can deduct an expression similar to~\eqref{eq:non_interacting_Re_optical_conductivity}, we just have to replace the transition energy $\epsilon_{c,\bk}-\epsilon_{v,\bk}$ by the exciton energy $E_{\nu}$, and the velocity matrix elements by their interacting version given by a weighted sum over momentum of the noninteracting matrix elements, with the weight coinciding with the excitons wavefunction, similarly to what is written in~\eqref{eq:Berry_curvature_definition}.
 We can therefore write
 
 \begin{equation}
-    \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{V}\sum_{n}\frac{1}{E_{n}} V_{n,\alpha} (V_{n,\beta})^{*}\delta(\hbar \omega - E_{n})\,,
+    \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{V}\sum_{\nu}\frac{1}{E_{\nu}} V^{\alpha}_{\nu} (V^{\beta}_{\nu})^{*} \delta(\hbar \omega - E_{\nu})\,,
     \label{eq:excitonic_Re_optical_conductivity}
 \end{equation}
 
-\noindent if we define the interacting velocity matrix elements as $V_{n\alpha} = \sum_{cv,\bk} \psi^n_{c,v} (\bk) \langle c,\bk|v_{\alpha}|v,\bk\rangle$.
+\noindent if we define the interacting velocity matrix elements as $V^{\alpha}_{\nu} = \sum_{cv,\bk} \psi^{\nu}_{c,v} (\bk) v^{\alpha}_{c v}(\bk) $.
 
 Everything is set for the main contribution to the literature of the work developed during the PhD studies.
 We devote the next two chapters to the two first-author publications resultant from this work.
