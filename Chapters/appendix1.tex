@@ -9,6 +9,49 @@
 
 \typeout{NT FILE appendix1.tex}%
 
-\chapter{\emph{NOVAthesis} covers showcase}
-\label{app:covers_showcase}
+\chapter{Support information to Chapter~\ref{ch:Optical_hBN_superlattice}}
+\label{app:hBN_superlattice}
 
+
+\section{Recovering the original Hamiltonian}
+\label{sec:recover_original_hamiltonian}
+
+To conciliate the renormalized low-energy Hamiltonian~\eqref{eq:new_Dirac_Hamiltonian} with the original one~\eqref{eq:low_energy_hamiltonian_hBN}, we take in the former the two limits $V_0 \to 0$ and $L \to \infty$ separately.
+In both cases, we should recover the latter.
+We take first the limit $V_0 \to 0$ to obtain
+%
+\begin{equation}
+    \bar{H}_{m} = \frac{m}{2}G_{0}\hbar v_{F}+\hbar v_{F}\sigma_{x}q_{x}
+\end{equation}
+%
+\noindent for $m \neq 0$, and
+%
+\begin{equation}
+\bar{H} =\hbar v_{F}[\sigma_{x}q_{x}+\sigma_{y}q_{y}]-\sigma_{z}M
+\end{equation}
+%
+\noindent for $m = 0$. 
+The latter case is simply the original low-energy Hamiltonian of hBN in the absence of potential as expected.
+There is only a difference in the sign of the mass term, but that is not critical.
+The result for $m \neq 0$ is not null, but we can interpret the two terms on the \gls{rhs} as follows.
+The first term  is purely a global shift in energies resultant from shifting the momentum along the $x$ direction by $m G_0/2$, a consequence of using basis states with the spatial dependent part of the form $\exp{\ii (\bq \pm m G_0 \hat{\mathbf{x}}/2)}$ used when deriving the renormalized low-energy Hamiltonian.
+The second term comes from the measurement of momentum from the edges of the mini Brillouin zone along the $x$ direction, which no longer exists since $V_0 = 0$.
+Therefore, it is not relevant.
+
+We take now the limit $L \to \infty$, that is, the limit of a constant potential.
+For each value of $m$ we have a Hamiltonian, but if we gather them all by summing over $m$ we get
+
+\begin{align}
+H_{\text{total}} &= 
+\sum_{m} \overline{H}_{m} = 
+\nonumber\\
+&= \sum_{m} \frac{m}{2} G_{0} \hbar v_{F} +
+\hbar v_{F} [\sigma_{x}q_{x}+\sigma_{y} q_{y} \sum_{m}J_{m}(\beta)] -
+\sigma_{z} M \sum_{m} J_{m}(\beta) = 
+\nonumber\\
+& \overset{L\to \infty}{=} \hbar v_{F}
+[\sigma_{x}q_{x}+\sigma_{y}q_{y}] - \sigma_{z}M,
+\end{align}
+%
+\noindent where to arrive at the final result we used the fact that $G_0 \to 0$ when $L \to \infty$ and the rule $\sum_{m} J_{m}(\beta) = 1$, valid for the Bessel functions of the first kind.
+In this way, we are able to recover the original low-energy Hamiltonian of hBN (with the small caveat of the sign in the mass term once more).
