@@ -12,27 +12,29 @@
 \chapter{Optical Properties of Nanostructured hBN}
 \label{ch:Optical_hBN_superlattice}
 
-In previous chapters we studied the phenomenology and technical aspects of the exciton formation, and the optical response they confer to \bd~materials, and finally the behavior of light when the exciton hybridizes with the photon, i.e., exciton-polaritons.
-In this chapter we are interested as well in exciton-polaritons, but now for a \gls{hbn} monolayer with a periodic potential on top.
-We have seen previously the formation of a superlattice upon applying a 2D periodic potential with square symmetry on top of a tight-binding model in a square lattice, to which we called the gapped \gls{soc} model.
+In previous chapters we studied the phenomenology and technical aspects of the exciton formation, and the optical response they confer to \bd~materials.
+We have seen also at the end of Chapter~\ref{ch:classical_electrodynamics} how light can couple to material excitations to form the polariton.
+In this chapter we analyse the exciton--polariton, resultant from the hybridization of the exciton with the \gls{em} field.
 
-Herein, we apply a 1D potential, leading to a 1D superlattice.
-In this case, it is possible to obtain an analytical expression for the renormalized Hamiltonian, without resorting to perturbation theory, as we did for the case of the \gls{soc} model.
+Herein, we revisit hBN, whose tight-binding model has been presented in section~\ref{subsubsec:tight_binding_method}, a prototypical \bd~material to study excitons.
+We seek to be able to tune the optical properties of hBN, so for that we apply a \gls{1d} electrostatic potential, resulting in an emergent \gls{1d} superlattice.
+Choosing an appropriate form for the potential, it is possible to obtain an analytical expression for the renormalized Hamiltonian for any potential strength, without resorting to perturbative methods.
 Since we have an analytical expression for the low-energy Hamiltonian, we can extract the effective masses analytically, which speeds up the process of obtaining the binding energies of the excitons.
+For that, we employ the Wannier equation formalism, that we propose to solve using the variational method.
 However, due to the fact that the potential is one dimensional, we introduce a degree of anisotropy on the dispersion which depends on the periodicity and amplitude of the potential.
+The fact that the method of the \gls{bse} introduced before for effective models is only useful for isotropic systems justifies the choice for the methods adopted.
+The \gls{bse} method through exact diagonalization of the Bethe--Salpeter Hamiltonian is unfortunately not applicable here---the introduction of the electrostatic potential renders our material effectively \gls{1d}, and the code developed in this work is relevant only for \bd~materials.
+Furthermore, the theory behind the code is based on the typical system of solid state physics, an infinite crystal with discrete translational symmetry.
+The approach adopted in this chapter allows for considering any periodicity for the potential, either commensurate or incommensurate with the underlying lattice, meaning that the resultant material can be periodic or not.
+Eventual problems posed by an incommensurate potential are not critical, as we work with the low-energy limit of the tight-binding Hamiltonian of hBN.
+The variational method offers also the advantage of obtaining an analytical expression for the optical conductivity, apart from a final angular integral that can only be performed analytically in the anisotropic case.
+With the optical conductivity, we can finally compute the dispersion relation of the exciton--polariton.
 
-As the method of the \gls{bse} introduced before applies only to isotropic systems, we use instead the variational method, as we did in the case of the \gls{soc} model.
-The \gls{bse} method can be extended to anisotropic systems, but is computationally more costly.
-The variational method offers also the advantage of obtaining an analytical expression for the optical conductivity, apart from a final angular integral that can only be performed analytically.
-With the optical conductivity, we can compute the dispersion relation of the exciton-polaritons, just like we did for the monolayer \gls{hbn}.
-
-We divide this chapter in three parts (eventually more...).
+We divide this chapter in four parts.
 First, we derive the expression for the renormalized low-energy Hamiltonian and discuss the new emergent electronic structure.
 Next, we focus on solving the excitonic problem, that is, finding the excitonic binding energies and wavefunctions.
-Afterwards, we get to focus on the optical conductivity.
-We finish the chapter with the dispersion relations for the exciton-polaritons.
-Throughout the chapter, we stress the difficulties introduced by potential and consequent anisotropy introduced in the dispersion along our reasoning.
-
+Afterwards, we get to focus on the optical conductivity, that we can use to compute the dispersion relation for the exciton--polariton.
+Throughout the chapter, we stress the difficulties introduced by potential and consequent dispersion anisotropy along our reasoning.
 
 
 \section{Nanostructured hBN: a 1D Superlattice}
@@ -51,74 +53,529 @@ Introduces the system, also with the figure.
 \section{Electronic Band Structure of 1D Modulated hBN}
 \label{sec:electronic_band_structure_modulated_hBN}
 
-We start from the low-energy Hamiltonian for hBN around point $K$
-of the Brillouin Zone (BZ)
-\begin{equation}
-    H_{0}=\hbar v_{F}\mathbf{p}\cdot\boldsymbol{\sigma}+M\sigma_{z}=-i\hbar v_{F}\left(\frac{\partial}{\partial x}\sigma_{x}+\frac{\partial}{\partial y}\sigma_{y}\right)+M\sigma_{z}.
-\end{equation}
-
-Now we include a periodic potential $V(x)=V\left(x+L\right)$, with
-$L\gg a$ and $a$ the atomic lattice spacing:
+We start from the low-energy Hamiltonian for hBN around point $K'$ of the \bz~given by Eq.~\eqref{eq:low_energy_hamiltonian_hBN}, and convert the momentum coordinates into spatial derivatives as
 
 \begin{equation}
-    H=H_{0}+V(x),
+    \mathcal{H}_{K}  = \hbar v_{F}\mathbf{k}\cdot\boldsymbol{\sigma}+M\sigma_{z}=-\ii \hbar v_{F}\left(\frac{\partial}{\partial x}\sigma_{x}+\frac{\partial}{\partial y}\sigma_{y}\right)+M\sigma_{z}.
 \end{equation}
 
-with the 2 by 2 identity matrix implicit.
+Now we include a periodic potential $V(x)=V\left(x+L\right)$, with $L \gg a$ and $a$ the atomic lattice spacing:
+
+\begin{equation}
+    H = \mathcal{H}_{K}  + V(x),
+\end{equation}
+
+\noindent with the 2 by 2 identity matrix implicit.
+It is awkward to have the initial Hamiltonian in reciprocal space, while the external potential is in real space.
 The potential term can be removed by introducing the unitary transformation
 
 \begin{equation}
     U_{\alpha}=\frac{1}{\sqrt{2}}\left(
     \begin{array}{cc}
-       e^{-i\alpha(x)/2} & -e^{i\alpha(x)/2}\\
-       e^{-i\alpha(x)/2} & e^{i\alpha(x)/2}
+       \ee^{-\ii \alpha(x)/2} & -\ee^{\ii \alpha(x)/2}\\
+       \ee^{-\ii \alpha(x)/2} & \ee^{\ii \alpha(x)/2}
     \end{array}\right),
 \end{equation}
 
-where
+\noindent where
+
 \begin{equation}
-    \alpha(x)=\frac{2}{\hbar v_{F}}\int_{0}^{x}dx^{\prime}V(x^{\prime}).
+    \alpha(x)=\frac{2}{\hbar v_{F}}\int_{0}^{x} V(x') \dd x'.
 \end{equation}
 
 Applying this transformation to the Hamiltonian we obtain
 
 \begin{equation}
-    \bar{H}=U_{\alpha}^{\dagger}[H_{0}+V(x)]U_{\alpha}=U_{\alpha}^{\dagger}H_{0}U_{\alpha}+V(x).\label{eq:transformed_H}
+    \overline{H}=U_{\alpha}^{\dagger}[\mathcal{H}_{K} +V(x)]U_{\alpha}=U_{\alpha}^{\dagger}\mathcal{H}_{K} U_{\alpha}+V(x).\label{eq:transformed_H}
 \end{equation}
 
-Now we need to simplify the term in $H_{0}$ that reads
+Now we need to simplify the term in $\mathcal{H}_{K} $ that reads
+
 \begin{equation}
-    U_{\alpha}^{\dagger}H_{0}U_{\alpha}=\hbar v_{F}\left[U_{\alpha}^{\dagger}\sigma_{x}\frac{\partial}{\partial x}U_{\alpha}+U_{\alpha}^{\dagger}\sigma_{y}U_{\alpha}\frac{\partial}{\partial y}\right]+MU_{\alpha}^{\dagger}\sigma_{z}U_{\alpha}.\label{eq:transformed_H0}
+    U_{\alpha}^{\dagger}\mathcal{H}_{K} U_{\alpha}=\hbar v_{F} \left[U_{\alpha}^{\dagger}\sigma_{x}\frac{\partial}{\partial x}U_{\alpha}+U_{\alpha}^{\dagger}\sigma_{y}U_{\alpha}\frac{\partial}{\partial y}\right]+MU_{\alpha}^{\dagger}\sigma_{z}U_{\alpha}.\label{eq:transformed_H0}
 \end{equation}
 
 The term in $\sigma_{z}$ is the simplest and evaluates to
+
 \begin{equation}
-    MU_{\alpha}^{\dagger}\sigma_{z}U_{\alpha}=\left(\begin{array}{cc}
-                                                        0 & -Me^{i\alpha}\\
-                                                        -Me^{-i\alpha} & 0
+    M U_{\alpha}^{\dagger}\sigma_{z} U_{\alpha}=\left(\begin{array}{cc}
+                                                        0 & -M \ee^{\ii \alpha}\\
+                                                        -M \ee^{-\ii \alpha} & 0
     \end{array}\right).
 \end{equation}
 
-For the term involving the derivative in order to $y$, we evaluate
-the matrix element between two arbitrary wavefunctions in real-space,
-that, in the end, turn out to be the basis functions. We write
-\[
-    \begin{aligned}H_{y}[\varphi_{i},\varphi_{j}] & =\int dxdy\varphi_{i}^{\ast}(\mathbf{r})\hbar v_{F}U_{\alpha}^{\dagger}\sigma_{y}U_{\alpha}\frac{\partial\varphi_{j}(\mathbf{r})}{\partial y} = \frac{1}{2}\int dx\varphi_{i}^{\ast}(\mathbf{r})
-    \left(\begin{array}{cc}
-              0 & -e^{i\alpha(x)}\hbar v_{F}\\
-              e^{-i\alpha(x)}\hbar v_{F} & 0
-    \end{array}\right)\frac{\partial\varphi_{j}(\mathbf{r})}{\partial y} - \\
-    & - \frac{1}{2}\int dx\frac{\partial\varphi_{i}^{\ast}(\mathbf{r})}{\partial y}\left(\begin{array}{cc}
-                                                                                             0 & -e^{i\alpha(x)}\hbar v_{F}\\
-                                                                                             e^{-i\alpha(x)}\hbar v_{F} & 0
-    \end{array}\right)\varphi_{i}(\mathbf{r})
+For the term involving the derivative in order to $y$, we evaluate the matrix element between two arbitrary wavefunctions in real space,
+that, in the end, turn out to be the basis functions. 
+We write
+
+\begin{align}
+    H_{y}[\varphi_{i},\varphi_{j}]  & =\int \varphi_{i}^{\ast}(\br)\hbar v_{F}U_{\alpha}^{\dagger}\sigma_{y}U_{\alpha}\frac{\partial\varphi_{j}(\br)}{\partial y} \dd x \dd y = \frac{1}{2}\int \varphi_{i}^{\ast}(\br)
+        \left(\begin{array}{cc}
+                0 & -\ee^{\ii \alpha(x)}\hbar v_{F}\\
+                \ee^{-\ii \alpha(x)}\hbar v_{F} & 0
+              \end{array}\right) 
+              \frac{\partial\varphi_{j}(\br)}{\partial y} \dd x - \notag \\
+              & - \frac{1}{2}\int \frac{\partial\varphi_{i}^{\ast}(\br)}{\partial y}
+              \left(\begin{array}{cc}
+                        0 & -\ee^{\ii \alpha(x)}\hbar v_{F}\\
+                        \ee^{-\ii \alpha(x)}\hbar v_{F} & 0
+                    \end{array}\right)\varphi_{i}(\br) \dd x .
+\end{align}
+    
+In the previous equation, the underscript $y$ in $H_{y}[\varphi_{i},\varphi_{j}]$ stands for the term with $\sigma_{y}$ in equation (\ref{eq:transformed_H0}) and for the variable we are deriving with respect with.
+We also split the initial integral into two equal terms with a prefactor of $1/2$, and  performed an integration by parts in only one of those terms.
+
+The term in (\ref{eq:transformed_H0}) that goes with $\sigma_{x}$ is more subtle, since both the unitary transformation and the wavefunctions depend on $x$.
+We compute the matrix element between two general functions $f(x)$ and $g(x)$ (the $y$ dependence and $\dd y$ are omitted now to ease the notation).
+We write
+
+\begin{equation}
+    \begin{aligned}
+        H_{x}[f,g]  & =\hbar v_{F}\int f(x)U_{\alpha}^{\dagger}\sigma_{x}\frac{\partial}{\partial x}[U_{\alpha}g(x)] \dd x = \\
+                    & =\frac{1}{2}\hbar v_{F}\int  f(x)U_{\alpha}^{\dagger}\sigma_{x}\frac{\partial}{\partial x}\text{\ensuremath{\left[U_{\alpha}g(x)\right]}} \dd x \\
+                    & -\frac{1}{2}\hbar v_{F}\int  \frac{\partial}{\partial x}[f(x)U_{\alpha}^{\dagger}]\sigma_{x}U_{\alpha}g(x) \dd x = \\
+                    & =\frac{1}{2}\hbar v_{F}\int  f(x)U_{\alpha}^{\dagger}\sigma_{x}\frac{\partial U_{\alpha}}{\partial x}g(x) \dd x \\
+                    & +\frac{1}{2}\hbar v_{F}\int  f(x)U_{\alpha}^{\dagger}\sigma_{x}U_{\alpha}\frac{\partial g(x)}{\partial x} \dd x \\
+                    & -\frac{1}{2}\hbar v_{F}\int  f(x)\frac{\partial U_{\alpha}^{\dagger}}{\partial x}\sigma_{x}U_{\alpha}g(x) \dd x \\
+                    & -\frac{1}{2}\hbar v_{F}\int  \frac{\partial f(x)}{\partial x}U_{\alpha}^{\dagger}\sigma_{x}U_{\alpha}g(x) \dd x 
     \end{aligned}
-\]
+\end{equation}
+
+\noindent where an integration by parts has been made in the first line, just like we did for $H_y$.
+We associate the terms involving the derivative of the unitary operator and obtain
+
+\begin{equation}
+    \frac{1}{2}\hbar v_{F}\int  f(x)U_{\alpha}^{\dagger}\sigma_{x}\left(\frac{\partial U_{\alpha}}{\partial x}\right)g(x) \dd x-\frac{1}{2}\hbar v_{F} \int f(x)\frac{\partial U_{\alpha}^{\dagger}}{\partial x}\sigma_{x}U_{\alpha}g(x) \dd x = -V(x) \mathds{1}.
+\end{equation}
+
+The previous term cancels with the last term in equation (\ref{eq:transformed_H}), which leaves only the terms
+
+\begin{equation}
+    \overline{H} \left[f,g\right] = \sum_{n = x,y,z} H_{n} \left[f,g\right],
+\end{equation}
+
+\noindent where we defined
+
+\begin{equation}
+    H_{x}\left[f,g\right]=\frac{1}{2}\hbar v_{F} \int f U_{\alpha}^{\dagger}\sigma_{x}U_{\alpha}\frac{\partial g}{\partial x} \dd x \dd y-\frac{1}{2}\hbar v_{F}\int \frac{\partial f}{\partial x}U_{\alpha}^{\dagger}\sigma_{x}U_{\alpha} g \dd x \dd y ,
+\end{equation}
+
+\noindent with the term $H_y$ having a similar form, and
+
+\begin{equation}
+    H_{z}\left[f,g\right]=\int f M U_{\alpha}^{\dagger}\sigma_{z}U_{\alpha}g \dd x \dd y.
+\end{equation}
+
+\noindent Later on we will particularize $f$ and $g$.
+Before that, we now expand $\ee^{\ii\alpha(x)}$ in Fourier series
+
+\begin{equation}
+    \ee^{\ii\alpha(x)}=\sum_{\ell=-\infty}^{\infty}f_{\ell}\ee^{\ii\ell G_{0}x}
+\end{equation}
+
+\noindent where $G_{0}=\frac{2\pi}{L}$ defined the periodicity of the potential and coefficients
+
+\begin{equation}
+    f_{\ell}=\frac{1}{L}\int_{0}^{L} \ee^{\ii[\alpha(x)-\ell G_{0}x]} \dd x.
+\end{equation}
+
+We assume an even potential of the form
+
+\begin{equation}
+    V(x)=V_{0}\cos\left(G_{0}x\right),
+\end{equation}
+
+\noindent which implies
+
+\begin{equation}
+    \alpha(x)=\frac{2V_{0}}{\hbar v_{F}G_{0}}\sin\left(G_{0}x\right).
+\end{equation}
+
+\noindent Working out the integral for $f_{\ell}$
+
+\begin{equation}
+\begin{aligned}
+    f_{\ell} & =\frac{1}{L}\int_{0}^{L}\ee^{\ii[\alpha(x)-\ell G_{0}x]}\dd x=\\
+             & =\frac{1}{L}\int_{0}^{L}\ee^{\ii[\frac{2V_{0}L}{\hbar v_{F}2\pi}\sin\left(\frac{2\pi}{L}x\right)-\ell\frac{2\pi}{L}x]}\dd x=\\
+             & =\frac{1}{2\pi}\int_{-\pi}^{\pi}\ee^{\ii(\beta\sin s-\ell s)}\dd s=\frac{1}{2\pi}\int_{\pi}^{-\pi}\ee^{\ii(\ell s-\beta\sin s)}(-\dd s)=\\
+             & =\frac{1}{2\pi}\int_{-\pi}^{\pi}\ee^{\ii(\ell s-\beta\sin s)}\dd s=J_{\ell}(\beta),
+\end{aligned}
+\end{equation}
+
+\noindent where we defined the parameter $\beta=\frac{V_{0}L}{\hbar v_{F}\pi}$.
+Since the potential is even, in the Fourier series only the terms with even $\ell$ appear.
+As $J_{-\ell}(x)=(-1)^{\ell}J_{\ell}(x)$ and $\ell$ is even, we have $J_{-\ell}(x)=J_{\ell}(x)$.
+We use the following basis states
+
+\begin{equation}
+\begin{aligned}
+    \phi_{1} & =\frac{1}{\sqrt{L L_y}} \begin{pmatrix}1\\0\end{pmatrix}
+    \ee^{\ii(\mathbf{q}+\mathbf{G}_{m}/2)\cdot\br}, \qq{and}\\
+    \phi_{2} & =\frac{1}{\sqrt{L L_y}} \begin{pmatrix}0\\1\end{pmatrix}
+    \ee^{\ii(\mathbf{q}-\mathbf{G}_{m}/2)\cdot\br},
+\end{aligned}
+\end{equation}
+
+\noindent that were before denoted by $f$ and $g$, which have a plane-wave like spatial part $\varphi_{i}(\br) = \exp{\ii ( \bq \pm \bG_m/2) \cdot \br},i=1,2,$ with $\br=(x,y)$, a spinorial part, the vectors of the reciprocal superlattice given by $\bG_m = m \bG = m G_0 \hat{\mathbf{x}}$, with $\vert\mathbf{q}\vert\ll\vert\mathbf{G}\vert$.
+We build the new Hamiltonian using these base states as
+
+\begin{equation}
+    \overline{H}_{ij} = \sum_{n=x,y,z} H_{n}[\phi_{i},\phi_{j}] = \int \phi_{i}^{\dagger}(\br)\overline{H}\phi_{j}(\br) \dr.\label{eq:new_H}
+\end{equation}
+
+\noindent For the calculation of the matrix elements we need to evaluate the following quantity
+
+\begin{equation}
+    \langle i \vert \ee^{\ii\alpha(x)} \vert j \rangle = \int \varphi_{i}^{*}(\br)\ee^{\ii\alpha(x)}\varphi_{j}(\br) \dr = \sum_{\ell=-\infty}^{\infty}f_{\ell}\int \varphi_{i}^{*}(\br)\ee^{\ii\ell G_{0}x}\varphi_{j}(\br) \dr,
+\end{equation}
+
+\noindent Using the spatial part of the base states, $\varphi_{i}(\br)$, we have $(i,j=1,2)$
+
+\begin{equation}
+\begin{aligned}
+    \langle i\vert \ee^{\pm i\alpha(x)}\vert j\rangle= & \sum_{\ell=-\infty}^{\infty}f_{\ell}\frac{1}{LL_{y}}\int \ee^{-\ii(\mathbf{q}\pm\mathbf{G}_{m}/2)\cdot\br}\ee^{\pm i\ell Gx}\ee^{\ii(\mathbf{q}\pm\mathbf{G}_{m}/2)\cdot\br} \dr = \\
+    = &
+        \begin{cases}
+            \langle1\vert \ee^{\pm i\alpha(x)}\vert1\rangle=\sum_{\ell=-\infty}^{\infty}f_{\ell}\frac{1}{L}\int_{0}^{L} \ee^{\pm i\ell G_{0}x} \dd x =f_{0}\\
+            \langle1\vert \ee^{\pm i\alpha(x)}\vert2\rangle=\sum_{\ell=-\infty}^{\infty}f_{\ell}\frac{1}{L}\int_{0}^{L} \ee^{\ii(\pm\ell-m)G_{0}x} \dd x =f_{\pm m}\\
+            \langle2\vert \ee^{\pm i\alpha(x)}\vert1\rangle=\sum_{\ell=-\infty}^{\infty}f_{\ell}\frac{1}{L}\int_{0}^{L} \ee^{\ii(\pm\ell+m)G_{0}x} \dd x =f_{\mp m}\\
+            \langle2\vert \ee^{\pm i\alpha(x)}\vert2\rangle=\sum_{\ell=-\infty}^{\infty}f_{\ell}\frac{1}{L}\int_{0}^{L} \ee^{\pm i\ell G_{0}x} \dd x =f_{0}
+        \end{cases}.
+\end{aligned}
+\end{equation}
+
+\noindent We also note that the spatial derivatives are simply given by
+\begin{equation}
+        \begin{cases}
+        \frac{\partial\phi_{j}}{\partial x} & = i \left(q_{x}+(-1)^{i+1}m\frac{G_{0}}{2}\right)\phi_{j} \qq{and} \\
+        \frac{\partial\phi_{j}}{\partial y} & = i q_{y}\phi_{j},
+        \end{cases},
+    \qq{with} j=1,2.
+\end{equation}
+
+\noindent For the new Hamiltonian, we need the following quantities
+
+\begin{equation}
+\begin{aligned}
+    H_{x}\left[\phi_{1},\phi_{1}\right] & =\hbar v_{F}\left(q_{x}+m\frac{G_{0}}{2}\right)\\
+    H_{y}\left[\phi_{1},\phi_{1}\right] & =0\\
+    H_{z}\left[\phi_{1},\phi_{1}\right] & =0\\
+    H_{x}\left[\phi_{1},\phi_{2}\right] & =H_{x}\left[\phi_{2},\phi_{1}\right]=0\\
+    H_{y}\left[\phi_{1},\phi_{2}\right] & =i\hbar v_{F}q_{y}J_{m}(\beta)=H_{y}^{*}\left[\phi_{1},\phi_{2}\right]\\
+    H_{z}\left[\phi_{1},\phi_{2}\right] & =H_{z}\left[\phi_{2},\phi_{1}\right]=-MJ_{m}(\beta)\\
+    H_{x}\left[\phi_{2},\phi_{2}\right] & =\hbar v_{F}\left(-q_{x}+m\frac{G_{0}}{2}\right)\\
+    H_{y}\left[\phi_{2},\phi_{2}\right] & =0\\
+    H_{z}\left[\phi_{2},\phi_{2}\right] & =0
+\end{aligned} .
+\end{equation}
+
+\noindent Inserting the previous expressions in equation (\ref{eq:new_H}) we obtain the Hamiltonian
+
+\begin{equation}
+    \overline{H} = \left(\begin{array}{cc}
+                         \overline{H}_{11} & \overline{H}_{12}\\
+                         \overline{H}_{21} & \overline{H}_{22}
+                         \end{array}\right)=\left(
+                         \begin{array}{cc}
+                         \hbar v_{F}\left(q_{x}+m\frac{G_{0}}{2}\right) & i\hbar v_{F}q_{y}J_{m}(\beta)\\
+                         -i\hbar v_{F}q_{y}J_{m}(\beta) & \hbar v_{F}\left(-q_{x}+m\frac{G_{0}}{2}\right)
+                         \end{array}\right).
+\end{equation}
+
+\noindent It is convinient to make a change of basis to symmetrised and antisymmetrized basis states
+
+\begin{equation}
+\begin{aligned}
+    \phi_{s}(\br) & =\frac{1}{\sqrt{2}}[\phi_{1}(\br)+\phi_{2}(\br)],\\
+    \phi_{a}(\br) & =\frac{1}{\sqrt{2}}[\phi_{1}(\br)-\phi_{2}(\br)].
+\end{aligned}
+\end{equation}
+
+\noindent In this new basis the Hamiltonian reads
+
+\begin{equation}
+    \overline{H}=\frac{1}{2}
+    \left(\begin{array}{cc}
+          \overline{H}_{11}+\overline{H}_{22}+\overline{H}_{12}+\overline{H}_{21} & \overline{H}_{11}-\overline{H}_{22}-\overline{H}_{12}+\overline{H}_{21}\\
+          \overline{H}_{11}-\overline{H}_{22}+\overline{H}_{12}-\overline{H}_{21} & \overline{H}_{11}+\overline{H}_{22}-\overline{H}_{12}-\overline{H}_{21}
+          \end{array}\right),
+\end{equation}
+
+\noindent which after computing all the elements gives
+
+\begin{equation}
+    \label{eq:new_Dirac_Hamiltonian}
+    \begin{aligned}
+        \overline{H}_m & = 
+        \left(\begin{array}{cc}
+               \frac{1}{2}G_{0}m\hbar v_{F}-|J_{m}(\beta)|M & \hbar v_{F}(q_{x}-iJ_{m}(\beta)q_{y}) =m\\
+               \hbar v_{F}(q_{x}+iJ_{m}(\beta)q_{y}) & \frac{1}{2}G_{0}m\hbar v_{F}+|J_{m}(\beta)|M
+              \end{array}\right) \\
+        & = \mathds{1}\frac{m}{2}G_{0}v_{F}\hbar+\hbar v_{F}[\sigma_{x}q_{x}+\sigma_{y}J_{m}(\beta)q_{y}]-\sigma_{z}MJ_{m}(\beta),
+    \end{aligned}
+\end{equation}
+
+\noindent which is a massive Dirac like Hamiltonian, but with renormalized parameters.
+We see that there is a new term with the identity matrix that did not exist initially.
+Also, the $y$ component of the Fermi velocity changes as $v_{F}\rightarrow J_{m}(\beta)v_{F}$.
+Since $\vert J_{m}(\beta)\vert < 1$, an electron travelling along the $y$ direction is slowed down compared to its speed if travelling along the $x$ direction.
+This gives rise to an anisotropic low-energy dispersion.
+Also the energy gap, that we can identify as the \gls{dft} band gap, given by $\Delta_{0} = 2M$ is renormalized according to $\Delta_{0}\rightarrow2M\vert J_{m}(\beta)\vert=\Delta(\beta)$.
+Therefore, it is possible to reduce the gap of hBN choosing an appropriate value for either $V_{0}$ or $L$ (actually, the product $V_{0}L$).
+With this mechanism we can control both the gap and the excitonic states, which now become that of an anisotropic material (similarly to phosphorene).
+
+At first glance, it is hard to realize how the previous Hamiltonian falls in to the original one in the case there is no potential.
+It is actually possible to conciliate the renormalized Hamiltonian with the original one, which is done in Appendix~\ref{app:hBN_superlattice}.
+
+The group velocity components and the two effective masses follow directly from the spectrum of the previous Hamiltonian.
+These are given by
+
+\begin{equation}
+\begin{aligned}
+    v_{x} & =\frac{1}{\hbar}\frac{\partial E}{\partial q_{x}}=\frac{\hbar v_{F}^{2}q_{x}}{E\left(\mathbf{q},\beta\right)} \qq{and}\\
+    v_{y} & =\frac{1}{\hbar}\frac{\partial E}{\partial q_{y}}=\frac{\hbar v_{F}^{2}J_{m}^{2}(\beta)q_{x}}{E\left(\mathbf{q},\beta\right)},
+\end{aligned}
+\end{equation}
+
+\noindent where
+
+\begin{equation}
+E \left(\mathbf{q},\beta\right)=\sqrt{\hbar^{2}v_{F}^{2}\left(q_{x}^{2}+J_{m}^{2}(\beta)q_{y}^{2}\right)+J_{m}^{2}(\beta)M^{2}}
+\end{equation}
+
+\noindent is the renormalized low energy dispersion (for the conduction bands).
+The components of the effective mass tensor computed at momentum $\mathbf{q}$ are given by
+
+\begin{subequations}
+    \begin{align}
+        m_{x}\left(q_{x},q_{y}\right) &= \frac{\left(J_{m}^{2}(\beta)M^{2}+\hbar^{2}v_{F}^{2}\left(q_{x}^{2}+J_{m}^{2}(\beta)q_{y}^{2}\right)\right)^{3/2}}{J_{m}^{2}(\beta)v_{F}^{2}\left(M^{2}+\hbar^{2}v_{F}^{2}q_{y}^{2}\right)} \qq{and} \\
+        m_{y}\left(q_{x},q_{y}\right) &= \frac{\left(J_{m}^{2}(\beta)M^{2}+\hbar^{2}v_{F}^{2}\left(q_{x}^{2}+J_{m}^{2}(\beta)q_{y}^{2}\right)\right)^{3/2}}{J_{m}^{4}(\beta)v_{F}^{2}M^{2}+\hbar^{2}v_{F}^{4}J_{m}^{2}(\beta)q_{x}^{2}},
+    \end{align}
+\end{subequations}
+
+\noindent and at zero momentum they evaluate to
+
+\begin{subequations}
+    \begin{align}
+        m_{x}&=\frac{|J_{m}(\beta)|M}{v_{F}^{2}} \qq{and} \\
+        m_{y}&=\frac{M}{|J_{m}(\beta)|v_{F}^{2}}.
+    \end{align}
+\end{subequations}
+
+The spinors of the obtained low energy Hamiltonian are also of interest, in particular to compute the optical matrix for the conductivity.
+We change the notation for momentum from $q$ to $k$ and replaced $M$ with $E_{g}/2$.
+Besides that, we define $k_{x}+iJ_{m}(\beta)k_{y} = k\left(\beta\right)\ee^{\ii\theta_{k}\left(\beta\right)}$, with $k\left(\beta\right)=\sqrt{k_{x}^{2}+J_{m}^{2}(\beta)k_{y}^{2}}$, $\theta_{k}\left(\beta\right)=\arctan\left(\frac{J_{m}(\beta)k_{y}}{k_{x}}\right)$ and $\xi_{k}=\arctan\left(\frac{2\hbar v_{F}k\left(\beta\right)}{J_{m}(\beta)E_{g}}\right)$.
+With this notation and after some straightforward algebra, the spinor for the conduction band writes
+
+\begin{equation}
+     \bC^{c,\mathbf{k}} = \left(
+    \begin{array}{c}
+        \ee^{-\ii\theta_{k}\left(\beta\right)}\frac{\sin\frac{\xi_{k}}{2}}{\cos\frac{\xi_{k}}{2}} \\ 1
+    \end{array}\right),
+\end{equation}
+
+\noindent that when multiplied by $\cos\frac{\xi_{k}}{2}$ yields the spinor in the final form we are interested in:
+
+\begin{equation}
+\label{eq:conduction_spinor}
+     \bC^{c,\mathbf{k}}=\left(
+    \begin{array}{c}
+        \ee^{-\ii\theta_{k}\left(\beta\right)}\sin\frac{\xi_{k}}{2} \\ 
+        \cos\frac{\xi_{k}}{2}
+    \end{array}\right).
+\end{equation}
+
+Analogously, the spinor for the valence band can be written as
+
+\begin{equation}
+    \label{eq:valence_spinor}
+    \bC^{v,\mathbf{k}}=\left(
+    \begin{array}{c}
+        \cos\frac{\xi_{k}}{2} \\ 
+        -\ee^{\ii\theta_{k}\left(\beta\right)}\sin\frac{\xi_{k}}{2}
+    \end{array}\right).
+\end{equation}
+
 
 \section{Anisotropic Excitonic States}
 \label{sec:anisotropic_exciton_states}
 
-Solves Wannier equation with the variational method.
+Here we perform a variational calculation to compute the binding energies of the excitons for an anisotropic dispersion.
+The variational wavefunctions need to capture the anisotropy of the dispersion, and the matrix elements of the Hamiltonian for those wavefunctions are not to work out.
+The kinetic energy contribution to the Wannier Hamiltonian is given by
+
+\begin{equation}
+    \mathcal{K} = \frac{p_{x}^{2}}{2\mu_{x}}+\frac{p_{y}^{2}}{2\mu_{y}},
+\end{equation}
+
+\noindent where the effective masses $\mu_{x}$ and $\mu_{y}$ are now in general different.
+We do the calculations for the Rytova--Keldysh potential, that we have already encountered in section~\ref{subsubsec:dielectric_function_static_limit}, that we recall here:
+
+\begin{equation}
+    V\left(r\right) = -\frac{e}{r_{0}}\frac{\pi}{2}\left[\mathbf{H}_{0}\left(\frac{\kappa r}{r_{0}}\right)-Y_{0}\left(\frac{\kappa r}{r_{0}}\right)\right],
+\end{equation}
+
+\noindent hence we have for the Hamiltonian
+
+\begin{equation}
+    H = \frac{p_{x}^{2}}{2\mu_{x}}+\frac{p_{y}^{2}}{2\mu_{y}}+V(r).
+\end{equation}
+
+As a trial wavefunctions, for the ground $1s$ and first 3 excited states $2x$, $2y$ and $2s$, we pick the following expression:
+
+\begin{equation*}
+\begin{split}
+   \Psi_{1s}(x,y)&=C_{1s} \ee^{-\sqrt{a_{1s} x^{2} + b_{1s} y^{2}}} ,\\
+   \Psi_{2x}(x,y)&=C_{2x} x \ee^{-\sqrt{a_{2x} x^{2} + b_{2x} y^{2}}} ,\\
+   \Psi_{2y}(x,y)&=C_{2y} y \ee^{-\sqrt{a_{2y} x^{2} + b_{2y} y^{2}}},\\
+   \Psi_{2s}(x,y)&=C_{2s} \left(1-d \sqrt{a_{2s} x^{2} + b_{2s} y^{2}}\right) \ee^{-\sqrt{a_{2s} x^{2} + b_{2s} y^{2}}}.\\
+\end{split}
+\end{equation*}
+
+\noindent These wavefunctions are inspired by.....
+Each wavefunction has two variational parameters, that we denote by $a_\alpha$ and $b_\alpha$, with $\alpha = 1s, 2x, 2y, 2s$.
+In this way the anisotropy of the dispersion is accounted for.
+For each of these states, we compute the expectation value of the Hamiltonian and minimize it with respect to both parameters.
+By solving the minimization condition, we find the values for $a_\alpha$ and $b_\alpha$.
+Then, we go back to the expression for the wavefunciton and for the expectation value to obtain the approximate eigenstate and energy, respectively.
+We repeat the procedure separately for each of the four states.
+Naturally, we start with the easist case, the ground state.
+
+\subsection{Ground State $1s$}
+\label{subsec:ground_state_1s}
+
+As a trial wavefunction for the ground state we use
+
+\begin{equation}
+    \Psi_{1s}\left(x,y\right)=C_{1s}e^{-\sqrt{a_{1s}x^{2}+b_{1s}y^{2}}},
+\end{equation}
+
+\noindent where $C_{1s}$ is easily determined by the normalisation condition,
+
+\begin{equation}
+C_{1s} = \sqrt{\frac{2}{\pi}}\left(a_{1s}b_{1s}\right)^{1/4}.
+\end{equation}
+
+To compute the expression for the ground state energy $E_{1s}$ in terms of the variational parameters, we need to evaluate
+
+\begin{equation}
+    E_{1s}\left(a_{1s},b_{1s}\right)=\langle\Psi_{1s}|H|\Psi_{1s}\rangle=\langle\Psi_{1s}|K|\Psi_{1s}\rangle+\langle\Psi_{1s}|V|\Psi_{1s}\rangle.
+\end{equation}
+
+We compute first the term involving the kinetic energy
+
+\begin{equation}
+    \label{eq:integral_in_x_y}
+    \langle\Psi_{1s}|\mathcal{K}|\Psi_{1s}\rangle = \int \Psi_{1s}^{*}(x,y)\left[\frac{p_{x}^{2}}{2\mu_{x}}+\frac{p_{y}^{2}}{2\mu_{y}}\right]\Psi_{1s}(x,y) \dr.
+\end{equation}
+
+As a first step, we perform a change of variables proposed by Rodin et al. in ~\cite{Rodin_Carvalho_Castro_Neto_2014}
+
+\begin{equation}
+    X= s_{x} x,\,Y = s_{y}y,
+\end{equation}
+
+\noindent where
+
+\begin{equation}
+    s_{x/y}=\sqrt{\frac{\mu_{x/y}}{2\bar{\mu}}},\,\bar{\mu}=\frac{\mu_{x}\mu_{y}}{\mu_{x}+\mu_{y}}.
+\end{equation}
+
+In this way, the kinetic energy that now writes
+
+\begin{equation}
+\mathcal{K} = -\frac{\hbar^{2}}{4\bar{\mu}}\nabla^{2}
+\end{equation}
+
+has the usual form of isotropic systems, but with a different mass, and the laplacian is with respect to the new variables $X,Y$.
+The infitesimal element of area in the old coordinates transforms into
+
+\begin{equation}
+\dd x \dd y=\frac{\dd X \dd Y}{s_{x}s_{y}},
+\end{equation}
+
+\noindent so the integral (\ref{eq:integral_in_x_y}) now reads
+
+\begin{equation}
+-\frac{\hbar^{2}}{4\bar{\mu}}\frac{1}{s_{x}s_{y}}\int \dd X \dd Y\Psi_{1s}^{*}(X,Y)\nabla^{2}\Psi_{1s}(X,Y).
+\end{equation}
+
+The wavefunction as a function of the new variables is
+
+\begin{equation}
+    \Psi_{1s}(X,Y)=C_{1s}e^{-\sqrt{\delta_{x}X^{2}+\delta_{y}Y^{2}}},
+\end{equation}
+
+\noindent where we introduced new parameters $\delta_{x}=a_{1s}s_{x}^{-2}$ and $\delta_{y}=b_{1s}s_{y}^{-2}$.
+Next we compute the laplacian of the wavefunction in the $X,Y$ coordinates, and then perform another change of variables (to elliptical coordinates) at the end given by
+\begin{equation}
+    X=\frac{\rho}{\sqrt{\delta_{x}}}\cos\theta,\,Y=\frac{\rho}{\sqrt{\delta_{y}}}\sin\theta.
+\end{equation}
+
+For the integral, we need the absolute value of the Jacobian, which is simply $\rho/\sqrt{\delta_{x}\delta_{y}}$.
+The integral then writes
+
+\begin{equation}
+    \begin{aligned}
+        & -\frac{\hbar^{2}}{4\bar{\mu}}\frac{1}{s_{x}s_{y}}\int \Psi_{1s}^{*}(X,Y)\nabla^{2}\Psi_{1s}(X,Y) \d X \dd Y = \\
+        &-\frac{\hbar^{2}}{4\bar{\mu}}\frac{C^{2}}{s_x s_y\sqrt{\delta_{x}\delta_{y}}}\int_{0}^{2\pi}\int_{0}^{\infty} \rho \ee^{-2\rho}\left[\delta_{x}\left(\cos^{2}\theta-\frac{\sin^{2}\theta}{\rho}\right)+\delta_{y}\left(\sin^{2}\theta-\frac{\cos^{2}\theta}{\rho}\right)\right] \dd \rho \dd\theta =\\
+        & =-\frac{\hbar^{2}}{4\bar{\mu}}\frac{C^{2}}{s_x s_y\sqrt{\delta_{x}\delta_{y}}}\frac{-1}{4}\pi\left(\delta_{x}+\delta_{y}\right)=\frac{\hbar^{2}}{4}\left(\frac{a_{1s}}{\mu_{x}}+\frac{b_{1s}}{\mu_{y}}\right),
+    \end{aligned}
+\end{equation}
+
+\noindent with the final result obtained after making all substitutions.
+Now we are left with the term of the matrix element derived from the potential.
+For that term, we change from cartesian $x,y$ coordinates to polar coordinates to obtain
+
+\begin{equation}
+\langle\Psi_{1s}|V|\Psi_{1s}\rangle=-\sqrt{a_{1s}b_{1s}}\frac{e}{4 \pi \varepsilon_0 r_{0}} \frac{\pi}{2}\int_{0}^{2\pi}\int_{0}^{\infty} \mathds{K} \left(\frac{\kappa r}{r_{0}}\right)re^{-2r\sqrt{a_{1s}+(b_{1s}-a_{1s})\sin^{2}\theta}} \dd r \dd \theta,
+\end{equation}
+
+\noindent where we defined $\mathds{K}(z) = \mathbf{H}_{0}\left(z\right)-Y_{0}\left(z\right)$.
+The radial integral has fortunately an analytical expression.
+We use the auxiliary integral
+
+
+\begin{equation}
+    \label{eq:auxiliar_radial_integral}
+    \begin{aligned}
+        I_{0}(\alpha,\kappa_0) & =\int_{0}^{\infty}\mathds{K}(k_0 r) \ee^{-\alpha r}dr\\
+        & =\frac{2}{\pi\sqrt{\alpha^{2}+k_0^{2}}}\left[\log\left(\frac{k_0+\sqrt{\alpha^{2}+k_0^{2}}}{\alpha}\right)+\log\left(\frac{\alpha+\sqrt{\alpha^{2}+k_0^{2}}}{k_0}\right)\right]
+    \end{aligned}
+\end{equation}
+
+\noindent we defined $\kappa_0 = \kappa/r_{0}$ and $\alpha(\theta)=\sqrt{a_{1s}+(b_{1s}-a_{1s})\sin^{2}\theta}$.
+The integral of interest, that we will denote by $I$, relates to the previous one by
+
+\begin{equation}
+    I(\alpha,\kappa_0)=\int_{0}^{\infty}\mathds{K}(\kappa_0 r)r \ee^{-\alpha r} \dd r=-\frac{\partial}{\partial\alpha}I_{0}(\alpha,\kappa_0).
+\end{equation}
+
+The final expression for the energy of the excitonic ground state can only be written in terms of this last integral, and writes
+
+\begin{equation}
+E_{1s}(a_{1s},b_{1s})=\frac{\hbar^{2}}{4}\left(\frac{a_{1s}}{\mu_{x}}+\frac{b_{1s}}{\mu_{y}}\right)-\sqrt{a_{1s}b_{1s}}\frac{e^{2}}{4 \pi \varepsilon_0 r_{0}} \frac{\pi}{2}\int_{0}^{2\pi}I(\alpha,\kappa_0) \dd \theta.
+\end{equation}
+
+Requiring an absolute minimum for this energy consists in solving $\partial E_{1s}/\partial a_{1s}=\partial E_{1s}/\partial b_{1s}=0$ for $a_{1s}$ and $b_{1s}$. 
+As an example, for black phosphurus encapsulated in hBN~\cite{Gomes_Trallero-Giner_Vasilevskiy_2021}, we have the parameters $\mu_{x}=0.99m_{e}$, $\mu_{y}=0.12m_{e}$,$\kappa=4.5$ and $r_{0}=2.5$ nm.
+For this set of parameters, the binding energy evaluates to $E_{1s}=-257$ \unit{\milli\electronvolt}, and the variational parameters evaluate to $a_{1s}=2.45\text{ \unit{\nano\meter}}^{-2}$ and
+$b_{1s}=0.533\text{ \unit{\nano\meter}}^{-2}$.
+
+Computing the derivatives is straightforward, so we present here only the final expressions
+
+\begin{equation}
+\begin{aligned}
+    \partial_{a_{1s}} E_{1s}(a_{1s},b_{1s}) &= \frac{\hbar^2}{4} \frac{1}{\mu_x} - \frac{e}{8 \pi \varepsilon_0 r_0} \sqrt{\frac{b_{1s}}{a_{1s}}} \int_0^{2 \pi} I(\alpha,\kappa_0) + 4 \frac{a_{1s} \cos^2 \theta}{\alpha} \partial_\alpha I \dd \theta \\
+    \partial_{b_{1s}} E_{1s}(a_{1s},b_{1s}) &= \frac{\hbar^2}{4} \frac{1}{\mu_y} - \frac{e}{8 \pi \varepsilon_0 r_0} \sqrt{\frac{a_{1s}}{b_{1s}}} \int_0^{2 \pi} I(\alpha,\kappa_0) + 4 \frac{b_{1s} \sin^2 \theta}{\alpha} \partial_\alpha I \dd \theta.
+\end{aligned}
+\end{equation}
+
+We proceed with the excited states.
+
+\subsection{Excited States $2x$ and $2y$}
+\label{subsec:excited_states_2x_2y}
+
 
 \section{Excitonic Optical Response and Absorption Spectrum}
 \label{sec:exciton_optical_response}
