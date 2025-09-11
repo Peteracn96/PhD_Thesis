@@ -285,7 +285,8 @@ Linearizing \eqref{eq:Delta_of_k} with respect to momentum around the momentum $
 \noindent Replacing now in the Bloch Hamiltonian
 
 \begin{equation}
-\mathcal{H}_K \equiv H(\bK + \bq) \simeq  \frac{3 a t}{2 \hbar} (q_x \sigma_x - q_y \sigma_y) + M \sigma_z = \hbar v_F \bar{\bq}. \boldsymbol{\sigma} + M \sigma_z
+    \label{eq:low_energy_hamiltonian_hBN}
+    \mathcal{H}_K \equiv H(\bK + \bq) \simeq  \frac{3 a t}{2 \hbar} (q_x \sigma_x - q_y \sigma_y) + M \sigma_z = \hbar v_F \bar{\bq}. \boldsymbol{\sigma} + M \sigma_z
 \end{equation}
 
 \noindent where $M$ is half the band gap, $\sigma_x$, $\sigma_y$ and $\sigma_z$  are the Pauli matrices, and $\boldsymbol{\sigma} = (\sigma_x,\sigma_y)$ is Pauli matrices vector, $v_F$ is the Fermi velocity
@@ -315,7 +316,7 @@ Linearizing \eqref{eq:Delta_of_k} with respect to momentum around the momentum $
 \noindent So we can write
 
 \begin{equation}
-    \Delta_{\tau \bK+ \bq} \simeq - \frac{3 a}{2}(q_x+\ii \tau q_y),
+    \Delta_{\tau \bK + \bq} \simeq - \frac{3 a}{2}(q_x+\ii \tau q_y),
 \end{equation}
 
 \noindent where $\tau = \pm 1$, $\tau=1$ for the $K'$ point, and $\tau = -1$ for the $K$ point, represents the valley degree of freedom.
@@ -555,7 +556,7 @@ The matrix elements in Eq.~\eqref{eq:polarizability_momentum_frequency} are equa
 The Lindhard function then writes~\cite{GoncalvesPeres:2016,Cohen_Louie_2016,Ashcroft_Mermin}
 
 \begin{equation}
-    \varepsilon (\bq,\omega) = 1 - v_c(\bq) \sum_{\bk} \frac{f_{\bk + \bq}-f_{\bk}}{\epsilon_{\bk + \bq}-\epsilon_{\bk} + \hbar \omega + \ii \hbar \alpha}\,.
+    \varepsilon (\bq,\omega) = 1 - \frac{e^2}{\epsz q^2 V} \sum_{\bk} \frac{f_{\bk + \bq}-f_{\bk}}{\epsilon_{\bk + \bq}-\epsilon_{\bk} + \hbar \omega + \ii \hbar \alpha}\,.
 \end{equation}
 
 We can see that it is a complicate function of both momentum and frequency.
