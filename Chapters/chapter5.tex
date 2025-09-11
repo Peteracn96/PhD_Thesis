@@ -459,7 +459,7 @@ C_{1s} = \sqrt{\frac{2}{\pi}}\left(a_{1s}b_{1s}\right)^{1/4}.
 To compute the expression for the ground state energy $E_{1s}$ in terms of the variational parameters, we need to evaluate
 
 \begin{equation}
-    E_{1s}\left(a_{1s},b_{1s}\right)=\langle\Psi_{1s}|H|\Psi_{1s}\rangle=\langle\Psi_{1s}|K|\Psi_{1s}\rangle+\langle\Psi_{1s}|V|\Psi_{1s}\rangle.
+    E_{1s}\left(a_{1s},b_{1s}\right)=\langle\Psi_{1s}|H|\Psi_{1s}\rangle=\langle\Psi_{1s}|\mathcal{K}|\Psi_{1s}\rangle+\langle\Psi_{1s}|V|\Psi_{1s}\rangle.
 \end{equation}
 
 We compute first the term involving the kinetic energy
@@ -503,7 +503,7 @@ The infitesimal element of area in the old coordinates transforms into
 The wavefunction as a function of the new variables is
 
 \begin{equation}
-    \Psi_{1s}(X,Y)=C_{1s}e^{-\sqrt{\delta_{x}X^{2}+\delta_{y}Y^{2}}},
+    \Psi_{1s}(X,Y)=C_{1s}\ee^{-\sqrt{\delta_{x}X^{2}+\delta_{y}Y^{2}}},
 \end{equation}
 
 \noindent where we introduced new parameters $\delta_{x}=a_{1s}s_{x}^{-2}$ and $\delta_{y}=b_{1s}s_{y}^{-2}$.
@@ -528,7 +528,7 @@ Now we are left with the term of the matrix element derived from the potential.
 For that term, we change from cartesian $x,y$ coordinates to polar coordinates to obtain
 
 \begin{equation}
-\langle\Psi_{1s}|V|\Psi_{1s}\rangle=-\sqrt{a_{1s}b_{1s}}\frac{e}{4 \pi \varepsilon_0 r_{0}} \frac{\pi}{2}\int_{0}^{2\pi}\int_{0}^{\infty} \mathds{K} \left(\frac{\kappa r}{r_{0}}\right)re^{-2r\sqrt{a_{1s}+(b_{1s}-a_{1s})\sin^{2}\theta}} \dd r \dd \theta,
+\langle\Psi_{1s}|V|\Psi_{1s}\rangle=-\sqrt{a_{1s}b_{1s}}\frac{e}{4 \pi \varepsilon_0 r_{0}} \frac{\pi}{2}\int_{0}^{2\pi}\int_{0}^{\infty} \mathds{K} \left(\frac{\kappa r}{r_{0}}\right) r\, \ee^{-2r\sqrt{a_{1s}+(b_{1s}-a_{1s})\sin^{2}\theta}} \dd r \dd \theta,
 \end{equation}
 
 \noindent where we defined $\mathds{K}(z) = \mathbf{H}_{0}\left(z\right)-Y_{0}\left(z\right)$.
@@ -554,7 +554,7 @@ The integral of interest, that we will denote by $I$, relates to the previous on
 The final expression for the energy of the excitonic ground state can only be written in terms of this last integral, and writes
 
 \begin{equation}
-E_{1s}(a_{1s},b_{1s})=\frac{\hbar^{2}}{4}\left(\frac{a_{1s}}{\mu_{x}}+\frac{b_{1s}}{\mu_{y}}\right)-\sqrt{a_{1s}b_{1s}}\frac{e^{2}}{4 \pi \varepsilon_0 r_{0}} \frac{\pi}{2}\int_{0}^{2\pi}I(\alpha,\kappa_0) \dd \theta.
+E_{1s}(a_{1s},b_{1s})=\frac{\hbar^{2}}{4}\left(\frac{a_{1s}}{\mu_{x}}+\frac{b_{1s}}{\mu_{y}}\right)-\sqrt{a_{1s}b_{1s}}\frac{e^{2}}{4 \pi \varepsilon_0 r_{0}} \frac{\pi}{2}\int_{0}^{2\pi}I(\alpha,\kappa_0) \,\dd \theta.
 \end{equation}
 
 Requiring an absolute minimum for this energy consists in solving $\partial E_{1s}/\partial a_{1s}=\partial E_{1s}/\partial b_{1s}=0$ for $a_{1s}$ and $b_{1s}$. 
@@ -566,8 +566,8 @@ Computing the derivatives is straightforward, so we present here only the final 
 
 \begin{equation}
 \begin{aligned}
-    \partial_{a_{1s}} E_{1s}(a_{1s},b_{1s}) &= \frac{\hbar^2}{4} \frac{1}{\mu_x} - \frac{e}{8 \pi \varepsilon_0 r_0} \sqrt{\frac{b_{1s}}{a_{1s}}} \int_0^{2 \pi} I(\alpha,\kappa_0) + 4 \frac{a_{1s} \cos^2 \theta}{\alpha} \partial_\alpha I \dd \theta \\
-    \partial_{b_{1s}} E_{1s}(a_{1s},b_{1s}) &= \frac{\hbar^2}{4} \frac{1}{\mu_y} - \frac{e}{8 \pi \varepsilon_0 r_0} \sqrt{\frac{a_{1s}}{b_{1s}}} \int_0^{2 \pi} I(\alpha,\kappa_0) + 4 \frac{b_{1s} \sin^2 \theta}{\alpha} \partial_\alpha I \dd \theta.
+    \partial_{a_{1s}} E_{1s}(a_{1s},b_{1s}) &= \frac{\hbar^2}{4} \frac{1}{\mu_x} - \frac{e}{8 \pi \varepsilon_0 r_0} \sqrt{\frac{b_{1s}}{a_{1s}}} \int_0^{2 \pi} I(\alpha,\kappa_0) + 4 \frac{a_{1s} \cos^2 \theta}{\alpha} \partial_\alpha I \,\dd \theta \\
+    \partial_{b_{1s}} E_{1s}(a_{1s},b_{1s}) &= \frac{\hbar^2}{4} \frac{1}{\mu_y} - \frac{e}{8 \pi \varepsilon_0 r_0} \sqrt{\frac{a_{1s}}{b_{1s}}} \int_0^{2 \pi} I(\alpha,\kappa_0) + 4 \frac{b_{1s} \sin^2 \theta}{\alpha} \partial_\alpha I \,\dd \theta.
 \end{aligned}
 \end{equation}
 
