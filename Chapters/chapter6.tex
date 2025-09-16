@@ -19,7 +19,30 @@ Talk about band structure and a bit of the \abinit methods used (CRYSTAL and Wan
 \section{Dielectric Function Revisited: Theory}
 \label{sec:dielectric_function_revisited}
 
-Here we recall the expression of the microscopic dielectric function in 2D, and take it for insulators and semiconductors and the static limit.
+%Here we recall the expression of the microscopic dielectric function in 2D, and take it for insulators and semiconductors and the static limit.
+
+The dielectric function in real-space and time domain, within \rpa~, that we discussed in section~\ref{sec:dielectric_function_quantum} is worth recalling, and it writes
+
+\begin{equation}
+\label{eq:dielectric_function_real_time_recalled}
+    \varepsilon (\br,\br';t,t') = \delta(\br - \br') \delta(t-t') - \int  \int v_c(\br - \br'') \chi^0 (\br',\br'';t-t') \dr'' \dt' \,,
+\end{equation}
+
+
+\noindent where $v_c$ denotes the bare (without screening) Coulomb potential and $\chi_0 (\br',\br'';t-t')$ is the \rpa~irreducible polarizability, for which we have assumed time translation invariance.
+when Fourier transformed from time domain to frequency domain, and from real space to reciprocal space, it has the following aspect:
+
+\begin{equation}
+    \varepsilon_{\bG \bG'} (\bq;\omega) = \delta_{\bG \bG'} - v_c(\bq + \bG) \chi^0_{\bG \bG'} (\bq;\omega) \,,
+\end{equation}
+
+\noindent where $\bG$ and $\bG'$ are reciprocal lattice vectors, $\bq$ is a vector in the first \gls{bz}, and $\omega$ is the frequency.
+The quantity $\chi^0_{\bG \bG'} (\bq;\omega)$ is the non-interacting irreducible polarizability, that as per~\eqref{eq:polarizability_momentum_frequency} writes
+
+\begin{equation}
+\label{eq:polarizability_momentum_frequency}
+    \chi^0_{\bG \bG'} (\bq;\omega) = \frac{1}{\Omega} \sum_{n,n'} \sum_{\bk,\sigma} (f_{n,\bk} - f_{n',\bk + \bq}) \frac{\mel{n,\bk}{\ee^{-\ii(\bq + \bG) \vdot \br}}{n',\bk + \bq} \mel{n',\bk + \bq}{\ee^{\ii(\bq + \bG') \vdot \br}}{n,\bk}}{\epsilon_{n,\bk} - \epsilon_{n',\bk + \bq} + \hw + \ii \hbar \alpha}\,.
+\end{equation}
 
 \subsection{Non-interacting polarizability}
 \label{subsec:non_interacting_polarizability}
