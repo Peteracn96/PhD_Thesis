@@ -504,7 +504,7 @@ The infinitesimal element of area in the old coordinates transforms into
 \noindent so the integral (\ref{eq:integral_in_x_y}) now reads
 
 \begin{equation}
--\frac{\hbar^{2}}{4\bar{\mu}}\frac{1}{s_{x}s_{y}}\int \Psi_{1s}^{*}(X,Y)\nabla^{2}\Psi_{1s}(X,Y) \dd X \dd Y.
+-\frac{\hbar^{2}}{4\bar{\mu}}\frac{1}{s_{x}s_{y}}\int \Psi_{1s}^{*}(X,Y)\nabla^{2}\Psi_{1s}(X,Y)\, \dd X \dd Y.
 \end{equation}
 
 \noindent The wavefunction as a function of the new variables is
@@ -526,7 +526,7 @@ The integral then writes
 
 \begin{equation}
     \begin{aligned}
-        & -\frac{\hbar^{2}}{4\bar{\mu}}\frac{1}{s_{x}s_{y}}\int \Psi_{1s}^{*}(X,Y)\nabla^{2}\Psi_{1s}(X,Y) \dd X \dd Y = \\
+        & -\frac{\hbar^{2}}{4\bar{\mu}}\frac{1}{s_{x}s_{y}}\int \Psi_{1s}^{*}(X,Y)\nabla^{2}\Psi_{1s}(X,Y)\, \dd X \dd Y = \\
         &-\frac{\hbar^{2}}{4\bar{\mu}}\frac{C^{2}}{s_x s_y\sqrt{\delta_{x}\delta_{y}}}\int_{0}^{2\pi}\int_{0}^{\infty} \rho \ee^{-2\rho}\left[\delta_{x}\left(\cos^{2}\theta-\frac{\sin^{2}\theta}{\rho}\right)+\delta_{y}\left(\sin^{2}\theta-\frac{\cos^{2}\theta}{\rho}\right)\right] \dd \rho \dd\theta =\\
         & =-\frac{\hbar^{2}}{4\bar{\mu}}\frac{C^{2}}{s_x s_y\sqrt{\delta_{x}\delta_{y}}}\frac{-1}{4}\pi\left(\delta_{x}+\delta_{y}\right)=\frac{\hbar^{2}}{4}\left(\frac{a_{1s}}{\mu_{x}}+\frac{b_{1s}}{\mu_{y}}\right),
     \end{aligned}
@@ -590,7 +590,7 @@ We recall the expression for the trial wavefunction
 
 \begin{equation}
     \label{eq:2x_trial_wavefunction}
-    \Psi_{2x}\left(x,y\right)=C_{2x}xe^{-\sqrt{a_{2x}x^{2}+b_{2x}y^{2}}},
+    \Psi_{2x}\left(x,y\right)=C_{2x}x \ee^{-\sqrt{a_{2x}x^{2}+b_{2x}y^{2}}},
 \end{equation}
 
 \noindent where the normalisation constant is given by
@@ -640,7 +640,7 @@ Since the calculations for the state $2y$ are analogous, we show only the key re
 For the binding energy, we have
 
 \begin{equation}
-    E_{2y}(a_{2y},b_{2y}) = \frac{\hbar^{2}}{8}\left(\frac{a_{2y}}{\mu_{x}}+\frac{3 b_{2y}}{\mu_{y}}\right) - \frac{8 b_{2y} \sqrt{a_{2y} b_{2y}}}{3 \pi} \frac{e}{4 \pi \epsz r_{0}} \frac{\pi}{2}\int_{0}^{2\pi} \sin^2 \theta \frac{\partial^2}{\partial \alpha^2} I (\alpha, \kappa_0) \dd\theta ,
+    E_{2y}(a_{2y},b_{2y}) = \frac{\hbar^{2}}{8}\left(\frac{a_{2y}}{\mu_{x}}+\frac{3 b_{2y}}{\mu_{y}}\right) - \frac{8 b_{2y} \sqrt{a_{2y} b_{2y}}}{3 \pi} \frac{e}{4 \pi \epsz r_{0}} \frac{\pi}{2}\int_{0}^{2\pi} \sin^2 \theta \frac{\partial^2}{\partial \alpha^2} I (\alpha, \kappa_0) \,\dd\theta ,
 \end{equation}
 
 \noindent and for the derivatives of the binding energy we have
@@ -695,7 +695,7 @@ The first integral writes
     \end{aligned}
 \end{equation}
 
-\noindent if we define also $t(\theta) \equiv 1 + \sqrt{\frac{a_{1s}}{a}\cos^2 \theta + \frac{b_{1s}}{b}\sin^2 \theta}$.
+\noindent if we also define $t(\theta) \equiv 1 + \sqrt{\frac{a_{1s}}{a}\cos^2 \theta + \frac{b_{1s}}{b}\sin^2 \theta}$.
 For the second integral, we have
 
 \begin{equation}
@@ -730,7 +730,7 @@ The kinetic term is obtained similarly to the previous cases, and equals
     F(a,b) = \left(\frac{a}{\mu_{x}}+\frac{b}{\mu_{y}}\right) \frac{2 + d^2}{2 - 4d + 3d^2} \,.
 \end{equation}
 
-The potential term is computed through
+The potential term is computed through the integral
 
 \begin{equation}
     \begin{aligned}
@@ -826,7 +826,7 @@ If we now subject the material to a drive from a monochromatic field with freque
 
 \begin{equation}
     \label{eq:Berry_curvature_definition_new}
-    \boldsymbol{\Omega}_\nu =  \sum_{\bk} \Psi_{\nu} (\bk) \langle v, \bk | \br  | c, \bk \rangle\,,
+    \boldsymbol{\Omega}_\nu =  \sum_{\bk} \Psi_{\nu} (\bk) \langle v, \bk | \br\, | c, \bk \rangle\,,
 \end{equation}
 
 \noindent where there is no sum over bands as we consider the most simple two-band model for \gls{hbn}, and $\Psi_{\nu} (\bk)$ is the wavefunction of the excitonic state $\nu$ in momentum space, and the braket is the optical matrix element we have encountered before in section~\ref{subsec:non_interacting_conductivity}.
@@ -857,9 +857,9 @@ We perform instead the change of variables
 
 \begin{equation}
     \begin{aligned}
-        \Psi_{1s}(\bk) & =\int \ee^{-\ii \bk \cdot \br}\Psi_{1s}(\br) \dr \\
+        \Psi_{1s}(\bk) & =\int \ee^{-\ii \bk \cdot \br}\,\Psi_{1s}(\br) \dr \\
         & = C_{1s}\int_{0}^{2\pi}\int_{0}^{\infty} \ee^{-\ii\rho\left(\frac{k_{x}}{\sqrt{a_{1s}}}\cos\theta+\frac{k_{y}}{\sqrt{b_{1s}}}\sin\theta\right)}\frac{\rho e^{-\rho}}{\sqrt{a_{1s}b_{1s}}} \dd \rho \dd \theta=\\
-        & = C_{1s}\int_{0}^{2\pi}\frac{1}{\sqrt{a_{1s}b_{1s}}}\frac{1}{\left(1+i\frac{k_{x}}{\sqrt{a_{1s}}}\cos\theta+i\frac{k_{y}}{\sqrt{b_{1s}}}\sin\theta\right)^{2}}d\theta=\\
+        & = C_{1s}\int_{0}^{2\pi}\frac{1}{\sqrt{a_{1s}b_{1s}}}\frac{1}{\left(1+\ii\frac{k_{x}}{\sqrt{a_{1s}}}\cos\theta+\ii\frac{k_{y}}{\sqrt{b_{1s}}}\sin\theta\right)^{2}}d\theta=\\
         & =\frac{2\sqrt{2\pi}}{\left(a_{1s}b_{1s}\right)^{1/4}}\frac{1}{\left(1+\frac{k_{x}^{2}}{a_{1s}}+\frac{k_{y}^{2}}{b_{1s}}\right)^{3/2}}\, ,
     \end{aligned}
 \end{equation}
@@ -908,8 +908,8 @@ Then at the end, if we choose the lattice gauge without loss of generality, we w
 \begin{equation*}
 \begin{gathered}
     \sum_{\bR} \exp{\ii \bk \cdot \bR} \sum_{i\alpha,i'\alpha'} (C^{v \bk}_{i\alpha})^* H_{i\alpha,i'\alpha'}(\bR) C^{v \bk}_{i'\alpha'} \sum_{j'\beta',j\beta} (C^{v \bk}_{j'\beta'})^* \bar{\bar{\br}}_{j'\beta',j\beta} C^{c \bk}_{j\beta} \\
-    = (\bC^{v,\bk})^\dagger H(\bk) \bC^{v,\bk} (\bC^{v,\bk})^{\dagger} \bar{\bar{\br}} \bC^{c \bk} = \\
-    = (\bC^{v,\bk})^\dagger H(\bk) \bar{\bar{\br}} \bC^{c \bk} \,,
+    = (\bC^{v,\bk})^\dagger H(\bk) \bC^{v,\bk} (\bC^{v,\bk})^{\dagger} \bar{\bar{\br}}\, \bC^{c \bk} = \\
+    = (\bC^{v,\bk})^\dagger H(\bk) \bar{\bar{\br}}\, \bC^{c \bk} \,,
 \end{gathered}
 \end{equation*}
 
