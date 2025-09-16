@@ -45,7 +45,7 @@ Introduces the system, also with the figure.
 \begin{figure}[t]
     \centering
     \includegraphics[width=1.\textwidth]{Chapters/Figures/Chapter_5/hBN_superlattice}
-    \caption{A hBN monolayer over a substrate, subjected to an external periodic potential with period $L$ along the $x$-direction, under a time-periodic drive of a linearly polarized optical field. \pnl{b} Brillouin zone (BZ) of the original monolayer hBN, and \pnl{c} the BZ of the superlattice resulting from applying the 1D potential of \pnl{a}.}
+    \mycaption[A single hBN monolayer electrostatically modulated]{A hBN monolayer over a substrate, subjected to an external periodic potential with period $L$ along the $x$-direction, under a time-periodic drive of a linearly polarized optical field.}
     \label{fig:hBN_monolayer}
 \end{figure}
 
@@ -549,7 +549,7 @@ We use the auxiliary integral
 \begin{equation}
     \label{eq:auxiliar_radial_integral}
     \begin{aligned}
-        I_{0}(\alpha,\kappa_0) & =\int_{0}^{\infty}\mathds{K}(\kappa_0 r) \ee^{-\alpha r} \dr\\
+        I_{0}(\alpha,\kappa_0) & =\int_{0}^{\infty}\mathds{K}(\kappa_0 r)\, \ee^{-\alpha r} \dr\\
         & =\frac{2}{\pi\sqrt{\alpha^{2}+\kappa_0^{2}}}\left[\log\left(\frac{\kappa_0+\sqrt{\alpha^{2}+\kappa_0^{2}}}{\alpha}\right)+\log\left(\frac{\alpha+\sqrt{\alpha^{2}+\kappa_0^{2}}}{\kappa_0}\right)\right]
     \end{aligned}
 \end{equation}
@@ -1130,10 +1130,18 @@ In contrast, the peak due to the $2s$ state seems to intensify.
 
 To study more carefully the behaviour of the optical absorption with the anisotropy, and consequently, the oscillator strength, in Fig.~\ref{fig:absorption_peaks}\pnl{a} we plot the value of the absorption peaks due to the $1s$ (red lines) and $2s$ (black lines) states separately, for polarization along the $x$ (continuous lines) and $y$ directions (dashed lines), as a function of $\beta$, which is allowed to vary continuously.
 Indeed, we see that for polarization along the $x$ axis the $1s$ peak decreases monotonically as we approach the zero of $J_0(\beta)$, while the $2s$ peak tends to increase, until it reaches a maximum right before the zero of the Bessel function.
-Interestingly, we can have a $2s$ peak more intense than a $1s$ peak, a feature that can be observed in Figs.~\ref{fig:absorption}\pnl{a} (notice the gray and blue curves) and~\ref{fig:absorption}\pnl{c}.
+Interestingly, we can have a $2s$ peak more intense than a $1s$ peak, a feature that can be observed in Fig.~\ref{fig:absorption}\pnl{a} (notice the gray and blue curves) and~\ref{fig:absorption}\pnl{c}.
 This phenomenon has already been observed experimentally~\cite{Ju_2017} and explained theoretically~\cite{Henriques_PRB2022}.
 For light polarized along the $y$-direction, one can observe that the absorption for light polarized along the $y$-direction is not as intense as for light polarized along the $x$-direction.
 Furthermore, from Fig.~\ref{fig:absorption_peaks}\pnl{a}, we can note that it is now the $2s$ peak that decreases monotonically, while the $1s$ peak is maximum for $\beta \approx 0.9$.
+
+\begin{figure}[tp!]
+\centering
+\includegraphics[width=1.\textwidth]{Chapters/Figures/Chapter_5/sigma_grid}
+\mycaption[Optical conductivity of a periodically modulated hBN sheet.]{Sub-gap optical conductivity of hBN under a 1D periodic potential, as depicted in Fig.~\ref{fig:hBN_monolayer}. Panels~\pnl{a} and \pnl{b} show the real and imaginary parts of the conductivity, respectively, for light polarized along the $x$-axis. Panels~\pnl{c} and \pnl{d} show the real and imaginary parts of the conductivity, respectively, for light polarized along the $y$-axis. The in-set in panels~\pnl{a} and \pnl{b} show a zoom-in of the real and imaginary parts of the conductivity, respectively, for the cases $\beta=0$ and $\beta=0.53$. Results for different $\beta$ have been rescaled as noted in each panel, for clarity. We used $\Gamma=10$\,\unit{\milli\electronvolt}.}
+\label{fig:sigma_grid}
+\end{figure}
+
 
 That we can have a $1s$ peak higher than a $2s$ peak can be explained by inspecting Eqs.~\eqref{subeq:Fresnel_reflection_coefficient} and~\eqref{subeq:Fresnel_transmission_coefficient} more closely.
 Writing the conductivity in terms of its real and imaginary parts, $\sigma = \sigma' + \ii \sigma''$, and working out $\mathcal{R} = \qty|r|^2$ and $\mathcal{T} = \sqrt{\varepsilon_2 / \varepsilon_1} \qty|t|^2$ (casting the factor $\varepsilon_0 c$ into $\sigma$ for simplicity) we get
@@ -1142,6 +1150,13 @@ Writing the conductivity in terms of its real and imaginary parts, $\sigma = \si
 \label{eq:reflection_and_transmission}
     \mathcal{R} = \frac{(\sqrt{\varepsilon_2}- \sqrt{\varepsilon_1} + \sigma')^2 + (\sigma'')^2}{(\sqrt{\varepsilon_2} + \sqrt{\varepsilon_1} + \sigma')^2  + (\sigma'')^2} \,, \qq{and} \mathcal{T} = \frac{4 \varepsilon_1}{(\sqrt{\varepsilon_2} + \sqrt{\varepsilon_1} + \sigma')^2 + (\sigma'')^2}
 \end{equation}
+
+\begin{figure}[tp!]
+\centering
+\includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_5/absorption_of_omega}
+\mycaption[Optical absorption of a periodically modulated hBN sheet.]{Sub-gap optical absorption of the system at hand. Panels~\pnl{a} and \pnl{b} show the absorption for light polarized along the $x$ and $y$-directions, respectively. Each color corresponds to a different value of $\beta$, where $\beta=0$ corresponds to the case with no potential. We used the same values for $\beta$ of Fig.~\ref{fig:sigma_grid}. For each realization, two peaks are observed. The one occurring at lower energy corresponds to the $1s$ state, while the other corresponds to the $2s$ state.  We used for air, the material on top, $\varepsilon_1=1$, and for the quartz substrate $\varepsilon_2=2.16$.}
+\label{fig:absorption}
+\end{figure}
 
 \noindent If we analyze the previous expressions at the frequency of the $1s$ excitonic resonance where $\sigma'' = 0$ holds and let $\sigma' \to \infty$, which could correspond to the most extreme case of $\beta=2.3$, we can easily see that $\mathcal{R} \to 1$ and $\mathcal{T} \to 0$.
 Hence, the system reflects all the incident light.
@@ -1161,21 +1176,6 @@ Initially, without potential, the $1s$ resonance is still higher than the $2s$ r
 
 \noindent where the real part of the conductivity is computed at resonant frequencies corresponding to the excitonic energies $E_{1s}$ and $E_{2s}$.
 If we plot the previous expression as a function of $\sigma'$ as in Fig.~\ref{fig:absorption_peaks}\pnl{b}, we observe in fact that it is not monotonous, which explains why we can have in general a $2s$ peak higher than a $1s$ peak.
-
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=1.\textwidth]{Chapters/Figures/Chapter_5/sigma_grid}
-\mycaption[Optical conductivity of a periodically modulated hBN sheet.]{Sub-gap optical conductivity of hBN under a 1D periodic potential, as depicted in Fig.~\ref{fig:hBN_monolayer}. Panels~\pnl{a} and \pnl{b} show the real and imaginary parts of the conductivity, respectively, for light polarized along the $x$-axis. Panels~\pnl{c} and \pnl{d} show the real and imaginary parts of the conductivity, respectively, for light polarized along the $y$-axis. The in-set in panels~\pnl{a} and \pnl{b} show a zoom-in of the real and imaginary parts of the conductivity, respectively, for the cases $\beta=0$ and $\beta=0.53$. Results for different $\beta$ have been rescaled as noted in each panel, for clarity. We used $\Gamma=10$\,\unit{\milli\electronvolt}.}
-\label{fig:sigma_grid}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_5/absorption_of_omega}
-\mycaption[Optical absorption of a periodically modulated hBN sheet.]{Sub-gap optical absorption of the system at hand. Panels~\pnl{a} and \pnl{b} show the absorption for light polarized along the $x$ and $y$-directions, respectively. Each color corresponds to a different value of $\beta$, where $\beta=0$ corresponds to the case with no potential. We used the same values for $\beta$ of Fig.~\ref{fig:sigma_grid}. For each realization, two peaks are observed. The one occurring at lower energy corresponds to the $1s$ state, while the other corresponds to the $2s$ state.  We used for air, the material on top, $\varepsilon_1=1$, and for the quartz substrate $\varepsilon_2=2.16$.}
-\label{fig:absorption}
-\end{figure}
 
 \begin{figure}[H]
 \centering
