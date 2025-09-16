@@ -716,10 +716,10 @@ We can define a tensor like conductivity $\sigma_{\alpha\beta}$ as
 \noindent where we used the trick of replacing $\omega \to \epsilon_{n,\bk}-\epsilon_{n',\bk}$ to cancel the frequency in the numerator, which is allowed due to the presence of the Dirac delta function, and defined $v^{\alpha}_{n n'}(\bk) = \langle n,\bk|v_{\alpha}|n',\bk\rangle$.
 Particularizing for a semiconductor at zero temperature and simplifying, we are allowed to write
 
-\begin{equation}
+\begin{empheq}[box=\colorbox{lightgray}]{align}
     \label{eq:non_interacting_Re_optical_conductivity}
     \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{V}\sum_{vc,\bk}\frac{1}{\epsilon_{c,\bk}-\epsilon_{v,\bk}}   v^{\alpha}_{c v}(\bk)  v^{\beta}_{v c}(\bk)\delta(\hbar \omega - (\epsilon_{c,\bk}-\epsilon_{v,\bk}))
-\end{equation}
+\end{empheq}
 
 \noindent At this point we will not explain how to compute the position or velocity matrix elements in practice.
 They will be addressed in two different ways in chapters~\ref{ch:Optical_hBN_superlattice} and~\ref{ch:Screening}, so we postpone the explanation to those two chapters.
@@ -731,10 +731,11 @@ They will be addressed in two different ways in chapters~\ref{ch:Optical_hBN_sup
 In this section we are concerned with the contribution of excitons to the optical conductivity.
 If the material is subject to a drive from a uniform time-dependent electric field composed of a single harmonic $\omega$, the expression for the optical conductivity up to leading order, is given by~\cite{Pedersen_2015}
 
-\begin{equation}
+
+\begin{empheq}[box=\colorbox{lightgray}]{align}
     \sigma (\omega) = \frac{e^2}{8 \pi^3 \ii \hbar} \sum_{\nu} \qty[E_{\nu} \frac{\vectorbold{\Omega}_{\nu} \cdot \vectorbold{\Omega}^*_{\nu} }{E_{\nu} - \hbar \omega + \ii \hbar \Gamma} + E_{\nu} \frac{\vectorbold{\Omega}_{\nu} \cdot \vectorbold{\Omega}^*_{\nu} }{E_{\nu} + \hbar \omega - \ii \hbar \Gamma}],
-\label{eq:optical_conductivity_def}
-\end{equation}
+    \label{eq:optical_conductivity_def}
+\end{empheq}
 
 \noindent where the sum is over the excitonic states, $E_{\nu}$ being the energy of the $\nu$-th state, and $\vectorbold{\Omega}_{\nu}$ is the Berry curvature given by
 
@@ -747,10 +748,10 @@ If the material is subject to a drive from a uniform time-dependent electric fie
 If once more we wish to define the optical conductivity as a tensor, then we can deduct an expression similar to~\eqref{eq:non_interacting_Re_optical_conductivity}, we just have to replace the transition energy $\epsilon_{c,\bk}-\epsilon_{v,\bk}$ by the exciton energy $E_{\nu}$, and the velocity matrix elements by their interacting version given by a weighted sum over momentum of the noninteracting matrix elements, with the weight coinciding with the excitons wavefunction, similarly to what is written in~\eqref{eq:Berry_curvature_definition}.
 We can therefore write
 
-\begin{equation}
+\begin{empheq}[box=\colorbox{lightgray}]{align}
     \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{V}\sum_{\nu}\frac{1}{E_{\nu}} V^{\alpha}_{\nu} (V^{\beta}_{\nu})^{*} \delta(\hbar \omega - E_{\nu})\,,
     \label{eq:excitonic_Re_optical_conductivity}
-\end{equation}
+\end{empheq}
 
 \noindent if we define the interacting velocity matrix elements as $V^{\alpha}_{\nu} = \sum_{cv,\bk} \psi^{\nu}_{c,v} (\bk) v^{\alpha}_{c v}(\bk) $.
 
