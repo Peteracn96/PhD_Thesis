@@ -85,13 +85,10 @@ Symbolically, $\rho_\tot = \rho_\f + \rho_\b$ and $\bJ_\tot = \bJ_\f + \bJ_\b$ f
 The continuity equation is also verified by the bound charge $\rho_\b$ and current $\bJ_\b$ densities, and consequently, also by its counterpart total quantities.
 As said above, the fundamental fields $\bE$ and $\bB$ are connected to the fields $\bD$ and $\bH$, respectively, through a set of two equations called constitutive relations given by
 
-
 \begin{equation}
     \label{eq:constitutive_relation_electric_field}
     \bD = \epsz \bE + \bP
 \end{equation}
-
-
 
 \noindent and\footnote{This asymmetry in the constitutive relations is in fact due to a historical mistake, as it was believed that it was actually the vector field $\bH$ that had physical meaning instead of the $\bB$ one.}
 
@@ -99,8 +96,6 @@ As said above, the fundamental fields $\bE$ and $\bB$ are connected to the field
     \label{eq:constitutive_relation_magnetic_field}
     \bB = \mu_0 \qty(\bH + \bM)\,,
 \end{equation}
-
-
 
 \noindent where $\bP$ is the bound polarization volume density and $\bM$ the bound magnetization volume density, and the parameters $\epsz$ and $\mu_0$ are the vacuum electric permittivity and the vacuum magnetic permeability, correspondingly.
 Within the scope of this work, we study only materials with no magnetic response at optical frequencies nor with permanent magnetization, so that $\bM = \bzero$ and $\bB \qty(\br,t)  = \mu_0 \bH \qty(\br,t)$ will always hold.
@@ -132,8 +127,8 @@ By doing so, we can relate the fields on each side 1 and 2 of the interface, res
 \begin{subequations}
     \label{eq:boundary_conditions_perpendicular}
     \begin{align}
-        \bn_{12} \cdot (\bD_2 - \bD_1) &= \sigma_s \label{eq:boundary_condition_D} \qq{and}\\
-        \bn_{12} \cdot (\bB_2 - \bB_1) &= 0, \label{eq:boundary_condition_B}
+        \bn_{12} \vdot (\bD_2 - \bD_1) &= \sigma_s \label{eq:boundary_condition_D} \qq{and}\\
+        \bn_{12} \vdot (\bB_2 - \bB_1) &= 0, \label{eq:boundary_condition_B}
     \end{align}
 \end{subequations}
 
@@ -221,13 +216,13 @@ The relation between the electric field and the induced current is quantified by
 \noindent where $\sigma$ is the conductivity of the material (that can assume a tensorial form, just like the permittivity), and accounts for the excitation of free charges due to the applied electric field.
 It is a non-null conductivity that leads to losses by Joule effect (apart from the particular case of superconductivity, where a system conducts electricity without any losses).
 We introduce this quantity here, as it can be useful in electrodynamics to account simultaneously for a material's dielectric response and its conductivity in a single effective dielectric function.
-Let us then rewrite Maxwell's equations~\eqref{eq:Maxwells_equations} in reciprocal space and frequency domain by Fourier transforming them (or equivalently, assuming a dependence of the form $\bF(\br,t) = \bF_0 \ei[-]{(\omega t - \bk \cdot \br)}$ for all the fields)
+Let us then rewrite Maxwell's equations~\eqref{eq:Maxwells_equations} in reciprocal space and frequency domain by Fourier transforming them (or equivalently, assuming a dependence of the form $\bF(\br,t) = \bF_0 \ei[-]{(\omega t - \bk \vdot \br)}$ for all the fields)
 
 \begin{subequations}
     \begin{align}
-        \ii \bk \cdot \bD(\bk,\omega) &= \rho_\f(\bk,\omega) ,\label{subeq:Gauss_law_reciprocal} \\
+        \ii \bk \vdot \bD(\bk,\omega) &= \rho_\f(\bk,\omega) ,\label{subeq:Gauss_law_reciprocal} \\
         \ii \bk \times \bE(\bk,\omega) &= -\ii \omega \bB(\bk,\omega), \label{subeq:Faradays_law_reciprocal}\\
-        \ii \bk \cdot \bB(\bk,\omega) &= 0 ,\label{subeq:no_magnetic_monopoles_reciprocal}\\
+        \ii \bk \vdot \bB(\bk,\omega) &= 0 ,\label{subeq:no_magnetic_monopoles_reciprocal}\\
         \ii \bk \times \bH(\bk,\omega) &= \bJ_\f(\bk,\omega) - \ii \omega \epsz \vareps (\bk,\omega) \bE(\bk,\omega)\,, \label{subeq:Amperes_law_reciprocal}
     \end{align}
 \end{subequations}
@@ -251,7 +246,7 @@ Let us then rewrite Maxwell's equations~\eqref{eq:Maxwells_equations} in recipro
 
 
 \noindent This suggests redefining the total electric displacement field as $\bD \to \bD_\tot  = \bD +~\ii \omega^{-1} \bJ_\ind$.
-In this way, equation~\eqref{subeq:Gauss_law_reciprocal} can be rewritten in terms of only the external charge density, $ \ii \bk \cdot \bD_\tot(\bk,\omega) = \rho_\ext(\bk,\omega)$.
+In this way, equation~\eqref{subeq:Gauss_law_reciprocal} can be rewritten in terms of only the external charge density, $ \ii \bk \vdot \bD_\tot(\bk,\omega) = \rho_\ext(\bk,\omega)$.
 
 With only the external charge and current densities appearing explicitly in Maxwell's equations and a total displacement field incorporating the induced current, we can define a total electric field as $\bE_\tot = \bD_\tot/\epsz$ and interpret the dielectric function as the ratio between the external field and the total one: $\vareps(\bk,\omega) = |\bE_\ext(\bk,\omega)|/|\bE_\tot(\bk,\omega)|$.
 This interpretation is the cornerstone of the theory around the dielectric function.
@@ -294,7 +289,7 @@ that is, the polarization is proportional to the in-plane component of the total
 Substituting the electric field by the (symmetric of the) gradient of the potential in Gauss' law and the charge density by its Dirac delta like expression, we obtain the following Poisson equation
 
 \begin{equation}
-    \nabla\cdot\left[\nabla\phi\left(\br\right)+\chi_{e}^\BD\nabla_{||}\phi\left(\br_{||},z=0\right)\right]=-\frac{e}{\epsz}\delta\left(\br\right)\,,
+    \nabla\vdot\left[\nabla\phi\left(\br\right)+\chi_{e}^\BD\nabla_{||}\phi\left(\br_{||},z=0\right)\right]=-\frac{e}{\epsz}\delta\left(\br\right)\,,
 \end{equation}
 
 \noindent where the in-plane electric field contributing to the polarizability is given in terms of an in-plane gradient operation, $\nabla_{||}$, acting on the electrostatic potential computed at $z=0$ and at any position vector $\br_{||}$ on the plane.
@@ -313,7 +308,7 @@ To find an expression for such a potential, one Fourier transforms the previous 
 \end{equation}
 
 \noindent We call the parameter $r_0$ the screening length parameter, or simply screening parameter, and its value depends only on the material.
-This formula contains the expression for the \bd~Fourier transform of the bare Coulomb potential given by\footnote{We remark that this expression does not have units of energy, which can be traced to the used definition of Fourier transform in this chapter. That can be fixed by simply dividing by the area of the total system. It poses not a problem, as long as the final calculated quantity of interest has the right dimensions.}\todo{have to define somewhere the Fourier transforms}
+This formula contains the expression for the \bd~Fourier transform of the bare Coulomb potential given by\footnote{We remark that this expression does not have units of energy, which can be traced back to the used definition of Fourier transform in this chapter. That can be fixed by simply dividing by the area of the total system. It poses not a problem, as long as the final calculated quantity of interest has the right dimensions.}\todo{have to define somewhere the Fourier transforms}
 
 \begin{equation}
     v_{c}(q)=\frac{e}{2\epsz q}\,,
@@ -323,7 +318,7 @@ This formula contains the expression for the \bd~Fourier transform of the bare C
 We can then define an effective momentum-resolved dielectric function, $\varepsilon_\RK\left(q\right) \equiv 1+r_0 q$, called Rytova--Keldysh dielectric function, which accounts for screening in \bd~materials.
 Having previously assumed that the material is isotropic, then it depends only on the magnitude of the in-plane momentum $q = |\bq|$.
 It actually coincides with the static macroscopic dielectric function in \bd~materials in the high-wavelength (small $q$) limit.
-It carries the usual interpretation of being the ratio between the external potential $\phi^\ext\left(\br\right)=\phi_0^\ext\left(\bq\right) \ei{\bq \cdot \br}$ and the total (or screened) potential $\phi^\tot\left(\br\right)=\phi_0^\tot\text{\ensuremath{\left(\bq\right)}}\ei{\bq \cdot \br}$, which has a contribution from the external potential and another one from the potential induced by the external perturbation.
+It carries the usual interpretation of being the ratio between the external potential $\phi^\ext\left(\br\right)=\phi_0^\ext\left(\bq\right) \ei{\bq \vdot \br}$ and the total (or screened) potential $\phi^\tot\left(\br\right)=\phi_0^\tot\text{\ensuremath{\left(\bq\right)}}\ei{\bq \vdot \br}$, which has a contribution from the external potential and another one from the potential induced by the external perturbation.
 We actually introduced this interpretation in Section~\ref{subsec:constitutive_relations_linear_response} in terms of fields instead of potentials, but the idea is the same.
 The resulting effective Coulomb potential is called Rytova--Keldysh potential~\cite{Rytova_1967}.
 
@@ -460,14 +455,14 @@ These transverse oscillations can be predicted by Maxwell's equations~\eqref{eq:
     \end{align}
 \end{subequations}
 
-\noindent By combining these two equations and using the vector identity of the double cross product $\mathbf{a} \times [\mathbf{b} \times \mathbf{c}] = (\mathbf{a} \cdot \mathbf{c}) \mathbf{b} - (\mathbf{a} \cdot \mathbf{b}) \mathbf{c}$, we arrive at
+\noindent By combining these two equations and using the vector identity of the double cross product $\mathbf{a} \times [\mathbf{b} \times \mathbf{c}] = (\mathbf{a} \vdot \mathbf{c}) \mathbf{b} - (\mathbf{a} \vdot \mathbf{b}) \mathbf{c}$, we arrive at
 
 \begin{equation}
-    k^2 \bF(\bk,\omega) - \bk \big(\bk \cdot \bF(\bk,\omega)\big) = -\omega^2 \epsz \mu_0 \vareps_{\text{eq}}(\bk,\omega) \bF(\bk,\omega) \label{subeq:wave_equation_F}\,,\\
+    k^2 \bF(\bk,\omega) - \bk \big(\bk \vdot \bF(\bk,\omega)\big) = -\omega^2 \epsz \mu_0 \vareps_{\text{eq}}(\bk,\omega) \bF(\bk,\omega) \label{subeq:wave_equation_F}\,,\\
 \end{equation}
 
 \noindent for both fields $\bF = \bE, \bB$, and we used the definition for the equivalent permittivity~\eqref{eq:equivalent_permittivity}, while assuming that there are no external currents influencing the dynamics of the material ($\bJ_\ext = \bzero$).
-Now, if we assume that the oscillation of the electromagnetic field is transversal, then $\bk \cdot \bE = \bk \cdot \bB = 0$, and the equations above simplify to
+Now, if we assume that the oscillation of the electromagnetic field is transversal, then $\bk \vdot \bE = \bk \vdot \bB = 0$, and the equations above simplify to
 
 \begin{equation}
     \qty[k^2 - \vareps_{\text{eq}}(\bk,\omega) \frac{\omega^2}{c^2}] \bF (\bk,\omega) = \bzero\,,\, \bF \in \{\bE, \bB\}.
@@ -496,7 +491,7 @@ The phase velocity is the speed with which the phase of the wave-front propagate
 The group velocity is the speed with which the wave envelope travels, and can be smaller or greater than the phase velocity, in a normal or anomalous dispersive medium, respectively.
 To summarize, we can say that in a material the dispersion of propagating electromagnetic waves can be in general different from that of free light in vacuum, $\omega = k c$.
 
-Looking back at equation~\eqref{subeq:wave_equation_F}, and looking now for longitudinal oscillations with $\bk || \bE$ for which $\bk \cdot \bE \neq 0$, then we find instead
+Looking back at equation~\eqref{subeq:wave_equation_F}, and looking now for longitudinal oscillations with $\bk || \bE$ for which $\bk \vdot \bE \neq 0$, then we find instead
 
 \begin{equation}
     \vareps_{\text{eq}}(\bk,\omega) \frac{\omega^2}{c^2} \bF(\bk,\omega) = \bzero\,, \bF \in \{\bE, \bB\}.
@@ -715,9 +710,9 @@ For \gls{tm} modes and taking into account the tensor nature of the conductivity
 
 We have finally obtained the dispersion relation of \gls{tm} polarized polaritons (omitting all frequency dependencies for clarity)
 
-\begin{empheq}[box=\colorbox{lightgray}]{align}
+\begin{empheq}[innerbox=\colorbox{lightgray}, right={\,.}]{align}
     \label{eq:TM_polariton_dispersion_relation}
-    \frac{\varepsilon_1}{\kappa_1} + \frac{\varepsilon_2}{\kappa_2} + \ii  \frac{\sigma_{xx}}{\epsz \omega} = 0\,.
+    \frac{\varepsilon_1}{\kappa_1} + \frac{\varepsilon_2}{\kappa_2} + \ii  \frac{\sigma_{xx}}{\epsz \omega} = 0
 \end{empheq}
 
 We can see that \gls{tm} polarized polaritons are supported in the range of frequencies for which $\Im\{\sigma_{xx}(\omega)\} <0$ (condition that results in positive values for the extinction coefficients).
@@ -851,8 +846,8 @@ We can finally define the relative amount of radiation that is reflected and tra
 \noindent where the expressions for $r$ and $t$ can be found in equations~\eqref{subeq:Fresnel_reflection_coefficient} and~\eqref{subeq:Fresnel_transmission_coefficient}, respectively.
 We are in place now to compute the amount of radiation that is absorbed by the \bd~material, or simply absorption, through the identity
 
-\begin{empheq}[box=\colorbox{lightgray}]{equation}
-    \mathcal{A} = 1 - \mathcal{R} - \mathcal{T} = 1 - |r|^2 - \Re{\frac{n_2}{n_1}} |t|^2\,.
+\begin{empheq}[innerbox=\colorbox{lightgray}, right={\,.}]{equation}
+    \mathcal{A} = 1 - \mathcal{R} - \mathcal{T} = 1 - |r|^2 - \Re{\frac{n_2}{n_1}} |t|^2
     \label{eq:absorption}
 \end{empheq}
 

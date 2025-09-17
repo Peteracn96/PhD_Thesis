@@ -229,7 +229,7 @@ It can be rewritten in a more comprehensive form
 Performing the change of basis
 
 \begin{equation}
-    a_i^{\dagger} = \frac{1}{\sqrt{N}} \sum_{\bk} \ei{\bk \cdot \br_i} a_{\bk}^{\dagger}, \qq{and analogously for} b_j^{\dagger},
+    a_i^{\dagger} = \frac{1}{\sqrt{N}} \sum_{\bk} \ei{\bk \vdot \br_i} a_{\bk}^{\dagger}, \qq{and analogously for} b_j^{\dagger},
     \label{eq:second_quantization_change_of_basis}
 \end{equation}
 
@@ -247,7 +247,7 @@ and simplifying, we arrive at
         \end{array}\right), \quad \Psi_{\bk}=\left(\begin{array}{l}
                                                  a_{\bk} \\
                                                  b_{\bk}
-        \end{array}\right), \quad \Delta_{\bk} = \sum_{\boldsymbol{\delta}} \ei[-]{\bk \cdot \boldsymbol{\delta}}
+        \end{array}\right), \quad \Delta_{\bk} = \sum_{\boldsymbol{\delta}} \ei[-]{\bk \vdot \boldsymbol{\delta}}
     \end{array}
 \end{equation}
 
@@ -304,7 +304,7 @@ Linearizing \eqref{eq:Delta_of_k} with respect to momentum around the momentum $
 \noindent Following the same procedure but for the $\bK'$ point, we obtain
 
 \begin{equation}
-    H(\bK' + \bq) = \hbar \vF \bq \cdot \boldsymbol{\sigma} + M \sigma_z,
+    H(\bK' + \bq) = \hbar \vF \bq \vdot \boldsymbol{\sigma} + M \sigma_z,
 \end{equation}
 
 \noindent where now
@@ -403,7 +403,7 @@ We can define the quantity inside square brackets as the microscopic dielectric 
 Symbolically and making the space and time dependencies explicit we can write
 
 \begin{equation}\label{eq:dielectric_function_space_time}
-\varepsilon (\br,\br';t - t') = \delta(\br - \br') \delta(t-t') - \int  \int v_c(\br - \br'') P^\irr (\br',\br'';t-t') \dr'' \dt' \,.
+\varepsilon (\br,\br';t - t') = \delta(\br - \br') \delta(t-t') - \int  \int v_c(\br - \br'') P^\irr (\br'',\br';t-t') \dr'' \dt' \,.
 \end{equation}
 
 With the dielectric function defined, we can rewrite Dyson's equation for the Coulomb potential in the following way
@@ -488,7 +488,7 @@ The dielectric function in real-space and time domain, within \rpa~, writes~\cit
 
 \begin{equation}
     \label{eq:dielectric_function_real_time}
-    \varepsilon (\br,\br';t,t') = \delta(\br - \br') \delta(t-t') - \int  \int v_c(\br - \br'') \chi^0 (\br',\br'';t-t') \dr'' \dt' \,,
+    \varepsilon (\br,\br';t,t') = \delta(\br - \br') \delta(t-t') - \int  \int v_c(\br - \br'') \chi^0 (\br'',\br';t-t') \dr'' \dt' \,,
 \end{equation}
 
 \noindent where $v_c$ denotes the bare (unscreened) Coulomb potential and $\chi^0 (\br',\br'';t-t')$ is the \rpa~ irreducible polarizability, for which we have assumed time translation invariance.
@@ -508,7 +508,7 @@ Whence, we may time Fourier transform it to the frequency domain and write
 
 \begin{equation}
     \label{eq:dielectric_function_real_frequency}
-    \varepsilon (\br,\br';\omega) = \delta(\br - \br') - \int   v_c(\br - \br'') \chi^0 (\br',\br'';\omega) \dr''  \,,
+    \varepsilon (\br,\br';\omega) = \delta(\br - \br') - \int   v_c(\br - \br'') \chi^0 (\br'',\br';\omega) \dr''  \,,
 \end{equation}
 
 \noindent since the Fourier transform of the Dirac delta is the identity function, and the Fourier transform of a convolution translates to a multiplication.

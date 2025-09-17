@@ -56,7 +56,7 @@ Introduces the system, also with the figure.
 We start from the low-energy Hamiltonian for hBN around point $K'$ of the \bz~given by Eq.~\eqref{eq:low_energy_hamiltonian_hBN}, and convert the momentum coordinates into spatial derivatives as
 
 \begin{equation}
-    \mathcal{H}_{K}  = \hbar \vF \bk\cdot\boldsymbol{\sigma}+M\sigma_{z}=-\ii \hbar \vF \left(\frac{\partial}{\partial x}\sigma_{x}+\frac{\partial}{\partial y}\sigma_{y}\right)+M\sigma_{z}.
+    \mathcal{H}_{K}  = \hbar \vF \bk\vdot\boldsymbol{\sigma}+M\sigma_{z}=-\ii \hbar \vF \left(\frac{\partial}{\partial x}\sigma_{x}+\frac{\partial}{\partial y}\sigma_{y}\right)+M\sigma_{z}.
 \end{equation}
 
 Now we include a periodic potential $V(x)=V\left(x+L\right)$, with $L \gg a$ and $a$ the atomic lattice spacing:
@@ -209,12 +209,12 @@ We use the following basis states
 
 \begin{equation}
     \phi_{1} =\frac{1}{\sqrt{L L_y}} \begin{pmatrix}1\\0\end{pmatrix}
-    \ee^{\ii(\mathbf{q}+\mathbf{G}_{m}/2)\cdot\br} \qq{and}
+    \ee^{\ii(\mathbf{q}+\mathbf{G}_{m}/2)\vdot\br} \qq{and}
     \phi_{2} =\frac{1}{\sqrt{L L_y}} \begin{pmatrix}0\\1\end{pmatrix}
-    \ee^{\ii(\mathbf{q}-\mathbf{G}_{m}/2)\cdot\br},
+    \ee^{\ii(\mathbf{q}-\mathbf{G}_{m}/2)\vdot\br},
 \end{equation}
 
-\noindent that were before denoted by $f$ and $g$, which have a plane-wave like spatial part $\varphi_{i}(\br) = \exp{\ii ( \bq \pm \bG_m/2) \cdot \br},i=1,2,$ with $\br=(x,y)$, a spinorial part, the vectors of the reciprocal superlattice given by $\bG_m = m \bG = m G_0 \hat{\mathbf{x}}$, with $\vert\mathbf{q}\,\vert\ll\vert\mathbf{G}\vert$.
+\noindent that were before denoted by $f$ and $g$, which have a plane-wave like spatial part $\varphi_{i}(\br) = \exp{\ii ( \bq \pm \bG_m/2) \vdot \br},i=1,2,$ with $\br=(x,y)$, a spinorial part, the vectors of the reciprocal superlattice given by $\bG_m = m \bG = m G_0 \hat{\mathbf{x}}$, with $\vert\mathbf{q}\,\vert\ll\vert\mathbf{G}\vert$.
 We build the new Hamiltonian using these base states as
 
 \begin{equation}
@@ -232,7 +232,7 @@ We build the new Hamiltonian using these base states as
 
 \begin{equation}
 \begin{aligned}
-    \langle i\vert \ee^{\pm\ii \alpha (x)}\vert j\rangle= & \sum_{\ell=-\infty}^{\infty}f_{\ell}\frac{1}{LL_{y}}\int \ee^{-\ii(\mathbf{q}\pm\mathbf{G}_{m}/2)\cdot\br}\ee^{\pm i\ell Gx}\ee^{\ii(\mathbf{q}\pm\mathbf{G}_{m}/2)\cdot\br} \dr = \\
+    \langle i\vert \ee^{\pm\ii \alpha (x)}\vert j\rangle= & \sum_{\ell=-\infty}^{\infty}f_{\ell}\frac{1}{LL_{y}}\int \ee^{-\ii(\mathbf{q}\pm\mathbf{G}_{m}/2)\vdot\br}\ee^{\pm i\ell Gx}\ee^{\ii(\mathbf{q}\pm\mathbf{G}_{m}/2)\vdot\br} \dr = \\
     = &
         \begin{cases}
             \langle1\vert \ee^{\pm\ii \alpha (x)}\vert1\rangle=\sum_{\ell=-\infty}^{\infty}f_{\ell}\frac{1}{L}\int_{0}^{L} \ee^{\pm i\ell G_{0}x} \dd x =f_{0}\\
@@ -403,9 +403,9 @@ Analogously, the spinor for the valence band can be written as
 Here we perform a variational calculation to compute the binding energies of the excitons for the renormalized anisotropic dispersion.
 We wish to compare with the excitons of pristine monolayer \gls{hbn}, so in all the quantities seen in the previous section, we focus on the particular case $m=0$, for which the effective low-energy Hamiltonian writes
 
-\begin{empheq}[box=\colorbox{lightgray}]{align}
+\begin{empheq}[innerbox=\colorbox{lightgray}, right={\,.}]{align}
     \label{eq:effective_low_energy_H}
-    \overline{H}_0 = \hbar \vF [q_{x} \sigma_{x} +J_{0}(\beta)q_{y} \sigma_{y}]-M J_{0}(\beta) \sigma_{z} \,.
+    \overline{H}_0 = \hbar \vF [q_{x} \sigma_{x} +J_{0}(\beta)q_{y} \sigma_{y}]-M J_{0}(\beta) \sigma_{z}
 \end{empheq}
 
 The variational wavefunctions need to capture the anisotropy of the dispersion, and the matrix elements of the Hamiltonian for those wavefunctions are not to work out.
@@ -564,8 +564,8 @@ The integral of interest, that we will denote by $I$, relates to the previous on
 
 \noindent The final expression for the energy of the excitonic ground state can only be written in terms of this last integral, and writes
 
-\begin{empheq}[box=\fbox]{align}
-    E_{1s}(a_{1s},b_{1s})=\frac{\hbar^{2}}{4}\left(\frac{a_{1s}}{\mu_{x}}+\frac{b_{1s}}{\mu_{y}}\right)-\sqrt{a_{1s}b_{1s}}\frac{e}{4 \pi \epsz r_{0}} \frac{\pi}{2}\int_{0}^{2\pi}I(\alpha,\kappa_0) \,\dd \theta.
+\begin{empheq}[innerbox=\fbox, right={\,.}]{align}
+    E_{1s}(a_{1s},b_{1s})=\frac{\hbar^{2}}{4}\left(\frac{a_{1s}}{\mu_{x}}+\frac{b_{1s}}{\mu_{y}}\right)-\sqrt{a_{1s}b_{1s}}\frac{e}{4 \pi \epsz r_{0}} \frac{\pi}{2}\int_{0}^{2\pi}I(\alpha,\kappa_0) \,\dd \theta
 \end{empheq}
 
 Requiring an absolute minimum for this energy consists in solving $\partial E_{1s}/\partial a_{1s}=\partial E_{1s}/\partial b_{1s}=0$ for $a_{1s}$ and $b_{1s}$. 
@@ -621,8 +621,8 @@ After all substitutions, we obtain
 
 \noindent where we made use of the auxiliary function $I_0(\alpha,\kappa_0)$ defined in Eq.~\eqref{eq:auxiliar_radial_integral}, having thus for the binding energy
 
-\begin{empheq}[box=\fbox]{align}
-    E_{2x}(a_{2x},b_{2x}) = \frac{\hbar^{2}}{8}\left(\frac{3 a_{2x}}{\mu_{x}}+\frac{b_{2x}}{\mu_{y}}\right) - \frac{8 a_{2x} \sqrt{a_{2x} b_{2x}}}{3 \pi} \frac{e}{4 \pi \epsz r_{0}} \frac{\pi}{2}\int_{0}^{2\pi} \cos^2 \theta \frac{\partial^2}{\partial \alpha^2} I (\alpha, \kappa_0) \, \dd\theta.
+\begin{empheq}[innerbox=\fbox, right={\,.}]{align}
+    E_{2x}(a_{2x},b_{2x}) = \frac{\hbar^{2}}{8}\left(\frac{3 a_{2x}}{\mu_{x}}+\frac{b_{2x}}{\mu_{y}}\right) - \frac{8 a_{2x} \sqrt{a_{2x} b_{2x}}}{3 \pi} \frac{e}{4 \pi \epsz r_{0}} \frac{\pi}{2}\int_{0}^{2\pi} \cos^2 \theta \frac{\partial^2}{\partial \alpha^2} I (\alpha, \kappa_0) \, \dd\theta
 \end{empheq}
 
 The derivatives with respect to $a_{2x}$ and $b_{2x}$, respectively, read
@@ -640,8 +640,8 @@ Now we only need to solve $\frac{\partial E_{2x}}{\partial a_{2x}} = \frac{\part
 Since the calculations for the state $2y$ are analogous, we show only the key results.
 For the binding energy, we have
 
-\begin{empheq}[box=\fbox]{align}
-    E_{2y}(a_{2y},b_{2y}) = \frac{\hbar^{2}}{8}\left(\frac{a_{2y}}{\mu_{x}}+\frac{3 b_{2y}}{\mu_{y}}\right) - \frac{8 b_{2y} \sqrt{a_{2y} b_{2y}}}{3 \pi} \frac{e}{4 \pi \epsz r_{0}} \frac{\pi}{2}\int_{0}^{2\pi} \sin^2 \theta \frac{\partial^2}{\partial \alpha^2} I (\alpha, \kappa_0) \,\dd\theta ,
+\begin{empheq}[innerbox=\fbox, right={\,,}]{align}
+    E_{2y}(a_{2y},b_{2y}) = \frac{\hbar^{2}}{8}\left(\frac{a_{2y}}{\mu_{x}}+\frac{3 b_{2y}}{\mu_{y}}\right) - \frac{8 b_{2y} \sqrt{a_{2y} b_{2y}}}{3 \pi} \frac{e}{4 \pi \epsz r_{0}} \frac{\pi}{2}\int_{0}^{2\pi} \sin^2 \theta \frac{\partial^2}{\partial \alpha^2} I (\alpha, \kappa_0) \,\dd\theta
 \end{empheq}
 
 \noindent and for the derivatives of the binding energy we have
@@ -754,8 +754,8 @@ The potential term is computed through the integral
 
 \noindent In this way, the expression for the binding energy of the $2s$ state can be more compactly written as
 
-\begin{empheq}[box=\fbox]{align}
-    E_{2s}(a_{2s},b_{2s}) = \frac{\hbar^{2}}{4} F(a,b) - 2  \frac{e}{4 \pi \epsz  r_0} G(a, b) \,,
+\begin{empheq}[innerbox=\fbox, right={\,,}]{align}
+    E_{2s}(a_{2s},b_{2s}) = \frac{\hbar^{2}}{4} F(a,b) - 2  \frac{e}{4 \pi \epsz  r_0} G(a, b)
 \end{empheq}
 
 \noindent which the expression that we need to minimize.
@@ -842,7 +842,7 @@ Right in the next, we list the exciton wavefunctions in momentum space and then 
 
 We derive the wavefunction of the excitonic ground state in momentum space.
 For that, we just need to Fourier transform $\Psi_{1s}(\br)$.
-In the isotropic case, the integral is calculated by fixing the orientation of the wavenumber vector $\bk$, and then write $\bk\cdot\br= k r\cos\theta$, where $\theta$ is the angle between $\bk$ and $\br$, along with a change of variables from cartesian to polar coordinates.
+In the isotropic case, the integral is calculated by fixing the orientation of the wavenumber vector $\bk$, and then write $\bk\vdot\br= k r\cos\theta$, where $\theta$ is the angle between $\bk$ and $\br$, along with a change of variables from cartesian to polar coordinates.
 Now we need to do different.
 We perform instead the change of variables
 
@@ -858,7 +858,7 @@ We perform instead the change of variables
 
 \begin{equation}
     \begin{aligned}
-        \Psi_{1s}(\bk) & =\int \ee^{-\ii \bk \cdot \br}\,\Psi_{1s}(\br) \dr \\
+        \Psi_{1s}(\bk) & =\int \ee^{-\ii \bk \vdot \br}\,\Psi_{1s}(\br) \dr \\
         & = C_{1s}\int_{0}^{2\pi}\int_{0}^{\infty} \ee^{-\ii\rho\left(\frac{k_{x}}{\sqrt{a_{1s}}}\cos\theta+\frac{k_{y}}{\sqrt{b_{1s}}}\sin\theta\right)}\frac{\rho e^{-\rho}}{\sqrt{a_{1s}b_{1s}}} \dd \rho \dd \theta=\\
         & = C_{1s}\int_{0}^{2\pi}\frac{1}{\sqrt{a_{1s}b_{1s}}}\frac{1}{\left(1+\ii\frac{k_{x}}{\sqrt{a_{1s}}}\cos\theta+\ii\frac{k_{y}}{\sqrt{b_{1s}}}\sin\theta\right)^{2}}d\theta=\\
         & =\frac{2\sqrt{2\pi}}{\left(a_{1s}b_{1s}\right)^{1/4}}\frac{1}{\left(1+\frac{k_{x}^{2}}{a_{1s}}+\frac{k_{y}^{2}}{b_{1s}}\right)^{3/2}}\, ,
@@ -900,7 +900,7 @@ First, one considers from the commutator the term $H \br$, for instance.
 Then, we can insert a resolution of the identity $\sum_{n,\bk'} |n,\bk'\rangle \langle n,\bk'|$ between $H$ and $\br$, assuming it is complete.
 The matrix elements of $H$ between the Bloch states $\bra{v,\bk}$ and $\ket{n,\bk'}$ are real-space integrals.
 If we represent the Bloch wavefunctions in the tight-binding approximation per Eq.~\eqref{eq:Bloch_state_LCAO} as a linear combination of the atomic orbitals, then the matrix element transforms into a linear combination of integral which are the matrix elements of the Hamiltonian between the atomic orbitals, eventually located at different positions in the lattice---this is nothing more than the transfer integrals, which define the parameters of the tight-binding model.
-Since in the wavefunction we have a sum over unit cells $\bR$ with the imaginary exponential $\ee^{\ii \bk \cdot \bR}$, then at the end we would have to simply evaluate $\left(\bC^{v,\bk}\right)^{\dagger} H(\bk) \bC^{n,\bk'}$, where $H(\bk)$ is the Bloch Hamiltonian and the arrays $\bC^{n,\bk}$ are its eigenvectors, that we derived earlier and are given by Eqs.~\eqref{eq:valence_spinor} and~\eqref{eq:conduction_spinor} for the valence and conduction bands, respectively.
+Since in the wavefunction we have a sum over unit cells $\bR$ with the imaginary exponential $\ee^{\ii \bk \vdot \bR}$, then at the end we would have to simply evaluate $\left(\bC^{v,\bk}\right)^{\dagger} H(\bk) \bC^{n,\bk'}$, where $H(\bk)$ is the Bloch Hamiltonian and the arrays $\bC^{n,\bk}$ are its eigenvectors, that we derived earlier and are given by Eqs.~\eqref{eq:valence_spinor} and~\eqref{eq:conduction_spinor} for the valence and conduction bands, respectively.
 For the position operator we would have integrals of the form $\int \phi_{\beta}(\br - \bR -\bt_j)\, \br\, \phi_{\beta'}(\br - \bR' -\bt_{j'}) \dr$.
 In the tight-binding approximation the integral amounts to $\br_{j \beta,j' \beta'} \delta_{\bR \bR'}$, which simplifies the calculation.
 Then we have to use the fact that $\ket{n,\bk'}$ is an eigenstate of $H$, so in the sum of the resolution of the identity only the term $\ket{n,\bk'} = \ket{v,\bk}$ survives, simplifying even more the calculation.
@@ -908,7 +908,7 @@ Then at the end, if we choose the lattice gauge without loss of generality, we w
 
 \begin{equation*}
 \begin{gathered}
-    \sum_{\bR} \exp{\ii \bk \cdot \bR} \sum_{i\alpha,i'\alpha'} (C^{v \bk}_{i\alpha})^* H_{i\alpha,i'\alpha'}(\bR) C^{v \bk}_{i'\alpha'} \sum_{j'\beta',j\beta} (C^{v \bk}_{j'\beta'})^* \bar{\bar{\br}}_{j'\beta',j\beta} C^{c \bk}_{j\beta} \\
+    \sum_{\bR} \exp{\ii \bk \vdot \bR} \sum_{i\alpha,i'\alpha'} (C^{v \bk}_{i\alpha})^* H_{i\alpha,i'\alpha'}(\bR) C^{v \bk}_{i'\alpha'} \sum_{j'\beta',j\beta} (C^{v \bk}_{j'\beta'})^* \bar{\bar{\br}}_{j'\beta',j\beta} C^{c \bk}_{j\beta} \\
     = (\bC^{v,\bk})^\dagger H(\bk) \bC^{v,\bk} (\bC^{v,\bk})^{\dagger} \bar{\bar{\br}}\, \bC^{c \bk} = \\
     = (\bC^{v,\bk})^\dagger H(\bk) \bar{\bar{\br}}\, \bC^{c \bk} \,,
 \end{gathered}
@@ -919,8 +919,8 @@ Then at the end, if we choose the lattice gauge without loss of generality, we w
 We will not describe it further, as its details will be irrelevant at the end.
 Upon doing something similar for the other term in the commutator $\br H$, we arrive at the intermediate formula
 
-\begin{empheq}[box=\fbox]{align}
-    \langle v,\bk|[H,\br]|c,\bk\rangle = (\bC^{v,\bk})^\dagger [H(\bk),\bar{\bar{\br}}] \bC^{c \bk},
+\begin{empheq}[innerbox=\fbox, right={\,,}]{align}
+    \langle v,\bk|[H,\br]|c,\bk\rangle = (\bC^{v,\bk})^\dagger [H(\bk),\bar{\bar{\br}}] \bC^{c \bk}
 \end{empheq}
 
 Now we expand the Bloch Hamiltonian~\eqref{eq:Bloch_Hamiltonian_definition} around the $\bk$ point where the exciton is located at so that we can replace $H(\bk) \to \overline{H}_0$ where the low-energy Hamiltonian is now the renormalized one, and furthermore we allow for the momentum variable $\bq$ to become the momentum operator, and $\bar{\bar{\br}}$ the position operator.
@@ -1022,8 +1022,8 @@ The term of the Berry curvature that goes with the sine reads
 \end{equation}
 
 \noindent to be evaluated numerically as well.
-The Berry curvature is then simply $\boldsymbol{\Omega}_{1s} \cdot \hat{\mathbf{x}} = \Omega^x_{1s} = \Omega^{\cos}_{1s} + \Omega^{\sin}_{1s}$, where we put an $x$ in superscript to stress that the calculation was for light polarized along the $x$ direction.
-For light polarized along the $y$ direction, we can identify from the optical matrix element~\eqref{eq:optical_matrix_element} an extra factor of $J_0(\beta)$, and also a relative sign between the cosine and sine terms, so that the Berry curvature is now $\boldsymbol{\Omega}_{1s} \cdot \hat{\mathbf{y}} = \Omega^y_{1s} = J_0(\beta) (\Omega^{\cos}_{1s} - \Omega^{\sin}_{1s})$.
+The Berry curvature is then simply $\boldsymbol{\Omega}_{1s} \vdot \hat{\mathbf{x}} = \Omega^x_{1s} = \Omega^{\cos}_{1s} + \Omega^{\sin}_{1s}$, where we put an $x$ in superscript to stress that the calculation was for light polarized along the $x$ direction.
+For light polarized along the $y$ direction, we can identify from the optical matrix element~\eqref{eq:optical_matrix_element} an extra factor of $J_0(\beta)$, and also a relative sign between the cosine and sine terms, so that the Berry curvature is now $\boldsymbol{\Omega}_{1s} \vdot \hat{\mathbf{y}} = \Omega^y_{1s} = J_0(\beta) (\Omega^{\cos}_{1s} - \Omega^{\sin}_{1s})$.
 
 \subsubsection{Excited states $2x$, $2y$ and $2s$}
 \label{subsubsec:excited_states_2x_2y}
@@ -1062,16 +1062,14 @@ We are left only with the calculation of the optical conductivity deriving from 
 As in the case of the $1s$ state, the radial integral is analytical, and the angular integral has to be performed numerically.
 The expression of the radial integral, even though analytical, is complicated, so we will not write it down here.
 
-At the end, we have only the contributions from the $1s$ and $2s$ state to the optical conductivity, hence we write respectively for $x$ and $y$ polarization
+At the end, we have only the contributions from the $1s$ and $2s$ state to the optical conductivity, hence we write for $x$ polarization
 
-\begin{empheq}[box=\fbox]{align}
+\begin{empheq}[innerbox=\fbox, right={\,,}]{align}
     \label{eq:optical_conductivities}
-    \begin{aligned}
-        \sigma_{xx} (\omega) &= \frac{e^2}{8 \pi^3 \ii \hbar} \sum_{\nu=1s,2s} E_\nu \frac{|\Omega^x_\nu|^2 }{E_\nu - (\hbar \omega + \ii\Gamma)} + (\omega \to - \omega)^*, \qq{and}\\
-        \sigma_{yy} (\omega) &= \frac{e^2}{8 \pi^3 \ii \hbar} \sum_{\nu=1s,2s} E_\nu \frac{|\Omega^y_\nu|^2 }{E_\nu - (\hbar \omega + \ii\Gamma)} + (\omega \to - \omega)^*\,.
-    \end{aligned}
+    \sigma_{xx} (\omega) &= \frac{e^2}{8 \pi^3 \ii \hbar} \sum_{\nu=1s,2s} E_\nu \frac{|\Omega^x_\nu|^2 }{E_\nu - (\hbar \omega + \ii\Gamma)} + (\omega \to - \omega)^*
 \end{empheq}
 
+\noindent and for $y$ polarization the expression is analogous.
 We have seen now how to compute the optical conductivity for the system under study.
 In the next section we discuss the results obtained.
 
@@ -1098,7 +1096,7 @@ Naturally, the state $1s$ stays always the ground state.
 \begin{figure}[h]
 \centering
 \includegraphics[width=1.\textwidth]{Chapters/Figures/Chapter_5/Band_gap_and_binding_energies}
-\mycaption[Electronic band gap and excitonic binding energies of a periodically modulated hBN sheet.]{\pnl{a} Band gap and \pnl{b} binding energies of the excitonic states $1s$ (red continuous line), $2x$ (black dashed line), $2y$ (black continuous line) and $2s$ (red dashed line) as a function of $\beta$. In both panels, the top horizontal axis displays the value of the effective mass anisotropy defined as $\Delta \mu = (m_y-m_x)/m^*$. For hBN, the parameters are~\cite{Ferreira_2019}: $E_g=3.92$\,\unit{\electronvolt}, $\hbar v_F = 5.06$\,\unit{\electronvolt}$\cdot$\unit{\angstrom}, and $r_0=10$\,\unit{\angstrom}.}
+\mycaption[Electronic band gap and excitonic binding energies of a periodically modulated hBN sheet.]{\pnl{a} Band gap and \pnl{b} binding energies of the excitonic states $1s$ (red continuous line), $2x$ (black dashed line), $2y$ (black continuous line) and $2s$ (red dashed line) as a function of $\beta$. In both panels, the top horizontal axis displays the value of the effective mass anisotropy defined as $\Delta \mu = (m_y-m_x)/m^*$. For hBN, the parameters are~\cite{Ferreira_2019}: $E_g=3.92$\,\unit{\electronvolt}, $\hbar v_F = 5.06$\,\unit{\electronvolt}$\vdot$\unit{\angstrom}, and $r_0=10$\,\unit{\angstrom}.}
 \label{fig:Eb_of_beta}
 \end{figure}
 
@@ -1170,8 +1168,8 @@ Initially, without potential, the $1s$ resonance is still higher than the $2s$ r
 
 \noindent Looking at the resonant frequencies, we have always $\sigma''=0$ (unless the $2s$ resonance is close enough to the $1s$ resonance so that $\sigma'' \neq 0$) and then the absorption peak is given by
 
-\begin{empheq}[box=\fbox]{align}
-    \max_{\omega}{\mathcal{A}} = 4 \sqrt{\varepsilon_1} \frac{\sqrt{\varepsilon_2}- \sqrt{\varepsilon_1} + \sigma'}{(\sqrt{\varepsilon_2} + \sqrt{\varepsilon_1} + \sigma')^2}\,,
+\begin{empheq}[innerbox=\fbox, right={\,,}]{align}
+    \max_{\omega}{\mathcal{A}} = 4 \sqrt{\varepsilon_1} \frac{\sqrt{\varepsilon_2}- \sqrt{\varepsilon_1} + \sigma'}{(\sqrt{\varepsilon_2} + \sqrt{\varepsilon_1} + \sigma')^2}
 \end{empheq}
 
 \noindent where the real part of the conductivity is computed at resonant frequencies corresponding to the excitonic energies $E_{1s}$ and $E_{2s}$.
@@ -1205,9 +1203,9 @@ We recall that the dispersion relation for \gls{te} modes is
 \noindent where $\varepsilon_j$, $j=1,2$, is the relative electric permittivity of the two media cladding the hBN layer in the frequency region herein considered, $\kappa_j = \sqrt{q^2 - \varepsilon_j \omega^2/c^2}$, $\omega$ is the frequency of the polariton, $q$ is the in-plane wavenumber, and $\mu_0$ is the vacuum magnetic permeability.
 For \gls{tm}  modes, it is the magnetic field that lies on the plane of the 2D material, while the electric field is in the $xz$-plane. Their dispersion relation is
 
-\begin{empheq}[box=\fbox]{align}
+\begin{empheq}[innerbox=\fbox, right={\,.}]{align}
     \label{eq:TM_modes_disp_rel}
-    \frac{\varepsilon_1}{\kappa_1} + \frac{\varepsilon_2}{\kappa_2} + \ii  \frac{\sigma_{xx} (\omega)}{\varepsilon_0 \omega} = 0.
+    \frac{\varepsilon_1}{\kappa_1} + \frac{\varepsilon_2}{\kappa_2} + \ii  \frac{\sigma_{xx} (\omega)}{\varepsilon_0 \omega} = 0
 \end{empheq}
 
 As a rule of thumb, \gls{te} modes are supported when the imaginary part of the conductivity is negative, whereas \gls{tm}  modes are supported when the imaginary part of the conductivity is positive.
@@ -1249,7 +1247,7 @@ The top half of the figure corresponds to air, while the bottom half corresponds
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.8\textwidth]{Chapters/Figures/Chapter_5/EM_polariton_field}
+    \includegraphics[width=0.8\textwidth]{Chapters/Figures/Chapter_5/EM_polariton_field.png}
     \mycaption[Spatial map of the \gls{em} field of a \gls{tm}  polarized polariton]{Spatial map of the \gls{em} field of a \gls{tm} polarized polaritonic mode. The colorful intensity plot represents the intensity of the magnetic field, while the vector plot represents the off-plane components of electric field, with their respective (relative) intensities represented by the size of the vectors. The top half is the field in air, while the bottom half is in \ch{SiO2}. We picked the $(\omega,q)$ point in the dispersion of Fig.~\ref{fig:polaritons_disp_rel}\pnl{b} of highest (real) wavenumber. This plot does not take into account the imaginary part of the wavenumber. We used the follwoing parameters: $q=4.45$\,\unit{\nano\meter}$^{-1}$, $\hbar \omega = 5.68$\,\unit{\electronvolt}, $\varepsilon_1 = 1$ and $\varepsilon_2 = 2.16$.}
     \label{fig:TM_mode_map}
 \end{figure}
