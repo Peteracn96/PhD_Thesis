@@ -176,11 +176,13 @@ For now, let us assume that we can in principle compute the dielectric matrix an
 In that way, the screened Coulomb potential writes
 
 \begin{equation}
-    \label{eq:screened_dynamic_Coulomb_potential}
+    \label{eq:screened_static_Coulomb_potential}
     W_{\bG \bG'} (\bq) =  \varepsilon^{-1}_{\bG \bG'} (\bq) v_c(\bq + \bG')
 \end{equation}
 
-\noindent in the static approximation, which we will have to justify at some point, when we are about to compute the excitons.
+\noindent in the static approximation, which we have to justify.
+Looking at the dynamical expression of the polarizability, we can see that the frequency dependence comes from the denominator as $\hbar \omega - (\epsilon_{n',\bk+\bq} - \epsilon_{n,\bk})$.
+If the band gap that is estimated by $ \epsilon_{n',\bp} - \epsilon_{n,\bp}$ (assuming it is direct and located at the point $\bq$ in the \bz) is large enough when compared to the frequency, then we can approximate the screened Coulomb potential by its static limit, and in the interaction matrix elements discard an integration in frequencies.
 
 To finish the discussion, we revisit the interaction matrix elements in the \gls{bse} for the excitons with the numerical approach.
 Their expressions derived in section~\ref{subsec:interaction_matrix_elements_and_screening} remain the same, namely for the direct term we have
@@ -213,6 +215,7 @@ Here we analyze the numerical results obtained.
 \label{subsec:non_interacting_polarizability_results}
 
 Before we proceed with the calculation of the dielectric matrix, we need to study the convergence of the matrix elements of the polarizability $\chi^0_{\bG \bG'} (\bq)$ given in Eq.~\eqref{eq:static_polarizability_TRS} with the number of included conduction bands, for different $(\bG,\bG')$ pairs, and for different values of momentum $\bq$.
+\todo{Add a word on convergence with k-points.}
 
 In Fig.~\ref{fig:chi_00_hbndft} below we study the convergence of the polarizability with the number of empty bands included in the calculation for hBN, in particular the element $\chi^0_{\bzero \bzero} (\bq)$.
 The $(\bG,\bG') = (\bzero,\bzero)$ matrix element is commonly called in the literature the head element.
@@ -225,14 +228,14 @@ Something similar has seen before in other works in the literature, such as Ref.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{Chapters/Figures/Chapter_6/Chi00hBNDFTq1&q2}
+    \includegraphics[width=0.9\linewidth]{Chapters/Figures/Chapter_6/Chi00hBNDFTq1&q2}
     \mycaption[Convergence of the polarizability with the number of conduction bands: head element]{Matrix element $\chi^0_{\bzero \bzero} (\bq)$ of the polarizability for two different values of momentum $\bq$ as a function of included conduction bands for hBN, whose bands were obtained within \dft~with the HSE06 functional using the CRYSTAL package.}
     \label{fig:chi_00_hbndft}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{Chapters/Figures/Chapter_6/ChiG1_0hBNDFTq1&q2}
+    \includegraphics[width=0.9\linewidth]{Chapters/Figures/Chapter_6/ChiG1_0hBNDFTq1&q2}
     \mycaption[Convergence of the polarizability with the number of conduction bands: an off-diagonal]{Matrix element $\chi^0_{\bG_1 \bzero} (\bq)$ of the polarizability, where $\bG_1$ is the vector of the reciprocal lattice with the shortest length, for two different values of momentum $\bq$ as a function of included conduction bands for hBN. The left panels display the real part, while the right panels display the imaginary part. The model for hBN is the same as in Fig.~\ref{fig:chi_00_hbndft}.}
     \label{fig:chi_g1_0_hbndft}
 \end{figure}
@@ -247,17 +250,28 @@ Out of curiosity, in Fig.~\ref{fig:chi_g10_hbndft_mesh} we plot in the \bz~mesh 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{Figures/Electrons_in_solids/Screening/Chi00hBNDFTmesh.pdf}
+    \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/Chi00hBNDFTmesh}
     \mycaption[Polarizability in the \bz~mesh: head element]{Matrix element $\chi^0_{\bzero \bzero} (\bq)$ of the polarizability in the \bz~for hBN, whose bands were obtained within \dft~ with the HSE06 functional. Panel \textbf{a} displays the polarizability as a function of the magnitude of the momentum along three directions: red dots include all the $\bq$ points in the mesh, blue dots correspond to the direction along the horizontal axis and dashed purple markers correspond to the direction parallel to the reciprocal lattice vector along the side of the parallelogram. Panel \textbf{b} displays a color map of the (absolute) value of the polarizability in the \bz~mesh. The bar legend for the colors is inside the plot.}
     \label{fig:chi_00_hbndft_mesh}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{Figures/Electrons_in_solids/Screening/ChiG1_0hBNDFTmesh}
+    \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/ChiG1_0hBNDFTmesh}
     \mycaption[Polarizability in the \bz~mesh: an off-diagonal element]{Matrix element $\chi^0_{\bG_1 \bzero} (\bq)$ of the polarizability in the \bz~for hBN, whose bands were obtained within \dft~ with the HSE06 functional. Here $\bG_1 = \SIvector{-0.289052,0}{\angstrominverse}$. Panel \textbf{a} displays the real part of the polarizability, while panel \textbf{b} displays the imaginary part. The bar legend for the colors are inside the respective plots.}
     \label{fig:chi_g10_hbndft_mesh}
 \end{figure}
+
+As we now already have the polarizability, we can compute the matrix elements of the static dielectric function following Eq.~\eqref{eq:static_dielectric_function}.
+In fact, we have implemented a symmetrized version of the dielectric function given by
+
+\begin{empheq}[innerbox=\fbox, right={\,,}]{align}
+    \label{eq:static_dielectric_function_symmetric}
+    \varepsilon_{\bG \bG'} (\bq) = \delta_{\bG \bG'} - \sqrt{v_c(\bq + \bG)} \chi^0_{\bG \bG'} (\bq) \sqrt{v_c(\bq + \bG')}
+\end{empheq}
+
+\noindent for reasons that will become apparent later on.
+\todo{keep working on the figures in the notebook}
 
 
 \subsection{Inverse dielectric matrix}
