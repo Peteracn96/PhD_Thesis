@@ -94,7 +94,7 @@ It is just like the time-independent Schrödinger equation, but with an effectiv
 In 2D materials, the potential that describes accurately the screening effect has the form of the Rytova--Keldysh potential, that was already derived in section~\ref{subsubsec:dielectric_function_static_limit} when we were introducing classical effective models for the dielectric function. 
 
 The Wannier equation does not capture the full structure of the excitonic states (like nondegenerate $p$ states, or the symmetries of the crystal), hence we need to resort to more accurate descriptions of the excitonic problem.
-That is possible using a reciprocal space description of the excitonics, with oone can write down the \gls{bse}---an integral equation where finer details of the band structure and the Coulomb interaction are included.
+That is possible using a reciprocal space description of the excitonics, with oone can write the \gls{bse}---an integral equation where finer details of the band structure and the Coulomb interaction are included.
 In this work, we mention two versions of the \gls{bse}.
 One for effective low-energy models, and another one using exact diagonalization of the Bethe--Salpeter Hamiltonian.
 The \abinit~version of the \gls{bse} is not addressed here.
@@ -389,7 +389,7 @@ The parameters $t_{i,j}$ are the hopping or tight-binding parameters, while $V_{
 \todo{say somewhere that this approach is variational}
 
 Now, with the purpose of describing excitons, we need to start from a good enough description of the ground state of the system, $\ket{\GS}$.
-For undoped 2D semiconductors or insulators, whose ground state consists of all the valence bands completely filled, and all the conduction bands empty, we can write symbolically for the groundstate, or Fermi sea,
+For undoped 2D semiconductors or insulators, whose ground state consists of all the valence bands completely filled, and all the conduction bands empty, we can write mathematically for the groundstate, or Fermi sea,
 
 \begin{equation}
     \ket{\GS} = \prod_{n,\bk}^{\epsilon_{n \bk} \leq \EF} c_{n \bk}^\dagger \ket{0} \,,
@@ -512,7 +512,7 @@ About the self-energy, we have to make a technical remark.
 As a sanity check, it is instructive to look closely at~\eqref{eq:BSE_Hamiltonian_matrix_elements}, and check for hermiticity by replacing $v \leftrightarrow v'$, $c \leftrightarrow c'$ and $\bk \leftrightarrow \bk'$.
 If we do so, we arrive at the conclusion that the Bethe--Salpeter Hamiltonian is not hermitian, with the self-energy terms being the culprits.
 We can avoid this problem, if we work at the mean-field level, using a single Slater determinant for the \gs~ of~\eqref{eq:Hamiltonian_start}, or equivalently, making a \hf~approximation.
-We can then see the self-energy corrections as incorporated in the \qp~energies $\epsilon_{n \bk}$, and without any worries assume that any quasiparticle energy corrections has already been performed \textit{a priori} through in the diagonalization of the single-particle Hamiltonian by \abinit~methods.
+We can then see the self-energy corrections as incorporated in the \qp~energies $\epsilon_{n \bk}$, and without any worries assume that any quasi-particle energy corrections has already been performed \textit{a priori} through in the diagonalization of the single-particle Hamiltonian by \abinit~methods.
 In this way, the Bethe--Salpeter equation writes
 
 
