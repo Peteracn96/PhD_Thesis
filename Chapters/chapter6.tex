@@ -195,14 +195,14 @@ Their expressions derived in section~\ref{subsec:interaction_matrix_elements_and
 \noindent and for the exchange term
 
 \begin{empheq}[innerbox=\fbox,right={\,.}]{align}
-    \label{eq:coulomb_momentum_2D}
+    \label{eq:exchange_term}
     X_{vc,v'c'}(\bk,\bk',\bQ) = \frac{1}{N} \sum_{\bG,\bG'} \qty(I^{\bG}_{c \bk+\bQ, v \bk})^* W_{\bG \bG'}(\bQ) I^{\bG'}_{c' \bk' + \bQ, v' \bk'}
 \end{empheq}
 
 \noindent The reader shall notice that in both expressions there is a sum over reciprocal lattice vectors, which is in fact a double sum over $\bG$ and $\bG'$.
 This double sum accounts for local-field effects in the calculation of the excitons, which derives from the translational invariance being discrete and not continuous.
 If we have enough $(\bG,\bG')$ matrix elements in the dielectric function, in principle we will not need as many terms in the sums above.
-In practice we have two cutoffs, one for the dielectric function $G_c$ and another one for the excitons $G_{c,X}$.
+In practice, we have two cutoffs, one for the dielectric function $G_c$ and another one for the excitons $G_{c,X}$.
 To preserve basic symmetries and degeneracies, we hope that $G_{c,X}$ can be made small enough compared to $G_c$.
 We shall study that in our results in the next section.
 
@@ -217,14 +217,14 @@ Here we analyze the numerical results obtained.
 Before we proceed with the calculation of the dielectric matrix, we need to study the convergence of the matrix elements of the polarizability $\chi^0_{\bG \bG'} (\bq)$ given in Eq.~\eqref{eq:static_polarizability_TRS} with the number of included conduction bands, for different $(\bG,\bG')$ pairs, and for different values of momentum $\bq$.
 \todo{Add a word on convergence with k-points.}
 
-In Fig.~\ref{fig:chi_00_hbndft} below we study the convergence of the polarizability with the number of empty bands included in the calculation for hBN, in particular the element $\chi^0_{\bzero \bzero} (\bq)$.
+In Fig.~\ref{fig:chi_00_hbndft} below, we study the convergence of the polarizability with the number of empty bands included in the calculation for hBN, in particular the element $\chi^0_{\bzero \bzero} (\bq)$.
 The $(\bG,\bG') = (\bzero,\bzero)$ matrix element is commonly called in the literature the head element.
 In this example the band structure was obtained within \dft~with the HSE06 functional using CRYSTAL~\cite{CRYSTAL_23}, and 169 Fock matrices were included in the calculations.
 We see again that the polarizability converges with the number of empty bands included.
 In Fig.~\ref{fig:chi_g1_0_hbndft} we do a similar analysis to proof check that the polarizability converges as well when for different matrix elements other than the head.
 We picked an off-diagonal element to check for convergence of both real and imaginary parts.
 We can see that both real and imaginary parts converge of the chosen matrix element converge well with the number of conduction bands.
-Something similar has seen before in other works in the literature, such as Ref.~\cite{BerkeleyGW}, in figure 4 therein.
+Something similar has been seen before in other works in the literature, such as Ref.~\cite{BerkeleyGW}, in figure 4 therein.
 
 \begin{figure}[H]
     \centering
@@ -279,6 +279,22 @@ In fact, we have implemented a symmetrized version of the dielectric function gi
 
 \subsubsection{Local-field effects and convergence}
 \label{subsec:inv_dielectric_matrix_convergence}
+
+Here we study the convergence of the inverse dielectric matrix with the number of included reciprocal lattice vectors.
+This is the most sensitive point--to compute the inverse of the dielectric matrix, $\varepsilon^{-1}_{\bG \bG'} (\bq)$ choosing an appropriate cutoff $G_c$.
+For the matrix elements to converge, we need a high enough number of reciprocal lattice vectors.
+We compute the matrix $\varepsilon^{-1}_{\bG \bG'} (\bq)$ for $\bq \neq 0$ with an increasing number of reciprocal lattice vectors included, and inspect four matrix elements: the head element, two body elements, a diagonal one and an off-diagonal one, and a wing element.
+A wing element is an element of the form $\varepsilon^{-1}_{\bG \bzero} (\bq)$ or $\varepsilon^{-1}_{\bzero \bG} (\bq)$ with $\bG \neq \bzero$, and a body element is an element of the form $\varepsilon^{-1}_{\bG \bG'} (\bq)$ with $\bG \neq \bzero$ and $\bG' \neq \bzero$.
+In Fig.~\ref{fig:hBN_inv_epsilon_convergence} down below we showcase four matrix elements of the inverse dielectric matrix, one in each panel.
+For each point in each curve, we applied a cutoff $G_c$ in integer multiples of $3 \text{\unit{\aangstrom}}^{-1}$, but the horizontal axis shows the number of vectors included, and not the cutoff.
+We can notice a convergence tendency with the number of reciprocal lattice vectors, albeit quite slow.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/inv_epsilon_convergence_hBN_panels}
+    \mycaption[Convergence of the inverse dielectric matrix]{Selection of matrix elements $\varepsilon^{-1}_{\bG \bG'} (\bq)$ of the inverse of the dielectric matrix $\varepsilon^{-1}_{\bG \bG'} (\bq)$ computed at a point $\bq \neq \bzero$ in the \bz, for our model of \gls{hbn} from CRYSTAL.}
+    \label{fig:hBN_inv_epsilon_convergence}
+\end{figure}
 
 \subsubsection{Macroscopic 2D dielectric function}
 \label{subsubsec:macroscopic_dielectric_function}
