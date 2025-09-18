@@ -10,7 +10,83 @@
 \typeout{NT FILE appendix2.tex}%
 
 
-\chapter{Appendix 2 Lorem Ipsum}
-\label{app:lorem_ipsum2}
+\chapter{Static Noninteracting Polarizability in Time-Reversal Symmetrical insulators}
+\label{app:polarizability_TRS_proof}
+
+In this section we derive expression~\eqref{eq:static_polarizability_TRS} from section~\ref{subsec:non_interacting_polarizability} from its more general form~\eqref{eq:static_polarizability_repeated}, assuming the system is time-reversal symmetric.
+In a periodic system with no contribution to the Hamiltonian that violates \gls{trs}, there exists a unitary transformation $T$ such that
+
+\begin{equation}
+    T H^*(-\bk) T^\dagger = H(\bk) \,
+\end{equation}
+
+\noindent is verified for the Bloch Hamiltonian $H(\bk)$.
+Apart from systems with \gls{soc}, our Hamiltonian is diagonal in the spin.
+If there is spin then the transformation of \gls{trs} is sightly more complicated, but we refrain from using it, and will just ignore spin.
+Either way, we have verified numerically that for models where \gls{soc} is present, considering it or ignoring it makes no relevant difference in the calculation of the polarizability.
+Also, for time-reversal invariant systems, the quasiparticle energies naturally obey $\epsilon_{n, \bk} = \epsilon_{n,- \bk}$.
+
+The expression~\eqref{eq:static_polarizability_repeated} in the main text for the polarizability reads
+
+\begin{equation}
+\begin{aligned}
+     \chi^0_{\bG\bG'}(\bq) = &\sum_{vc,\bk \sigma} \Bigg[\frac{\langle c,\bk|\ee^{-\ii(\bq+\bG)\cdot\br}|v,\bk+\bq\rangle\langle v,\bk+\bq|\ee^{\ii(\bq+\bG')\cdot\br}|c,\bk\rangle}{\epsilon_{v,\bk+\bq}-\epsilon_{c,\bk}} \Bigg] + \\
+     & \sum_{vc,\bk \sigma} \Bigg[\frac{\langle v,\bk|\ee^{-\ii(\bq+\bG)\cdot\br}|c,\bk+\bq\rangle\langle c,\bk+\bq|\ee^{\ii(\bq+\bG')\cdot\br}|v,\bk\rangle}{\epsilon_{v,\bk} - \epsilon_{c,\bk+\bq}}\Bigg] \,.
+\end{aligned}
+\end{equation}
+
+\noindent Now we show that the second term on the \gls{rhs} of the previous expression equals the first one.
+First, we recall that the sum over momentum $\bk$ is over momenta in the \gls{bz}, which is center symmetric.
+Therefore, we can replace $\bk \to -\bk$ and then shift $\bk \to \bk + \bq$ to obtain
+
+\begin{equation}
+\begin{aligned}
+    &\sum_{vc,\bk\sigma} \frac{\langle v,-\bk-\bq|\ee^{-\ii(\bq+\bG)\cdot\br}|c,-\bk\rangle\langle c,-\bk|\ee^{\ii(\bq+\bG')\cdot\br}|v,-\bk-\bq\rangle}{\epsilon_{v,-\bk-\bq} - \epsilon_{c,-\bk}} = \\
+    & \sum_{vc,\bk\sigma} \frac{\langle v,-\bk-\bq|\ee^{-\ii(\bq+\bG)\cdot\br}|c,-\bk\rangle\langle c,-\bk|\ee^{\ii(\bq+\bG')\cdot\br}|v,-\bk-\bq\rangle}{\epsilon_{v,\bk+\bq} - \epsilon_{c,\bk}} \,
+\end{aligned}
+\end{equation}
+
+\noindent where we used \gls{trs} to write the equality, namely $\epsilon_{n, \bk} = \epsilon_{n,- \bk}$.
+Now we only need some sort of symmetry for the plane-wave matrix elements of the form $\langle n,\bk|\ee^{-\ii\bq\cdot\br}|n',\bk'\rangle$.
+For that, we recall here their expression in terms of the eigenvectors of the Bloch Hamiltonian, that we denote by $\bC^{n \bk}$.
+Being eigenvectors of the Bloch Hamiltonian, the tight-binding coefficients obey
 
 
+\begin{equation}
+\begin{gathered}
+    H(\bk) \bC^{n,\bk} = \epsilon_{n,\bk} \bC^{n,\bk} \Leftrightarrow H(-\bk) \bC^{n,-\bk} = \epsilon_{n,-\bk} \bC^{n,-\bk} \Leftrightarrow \\
+    \Leftrightarrow  H^*(-\bk) (\bC^{n,-\bk})^* = \epsilon_{n,\bk} (\bC^{n,-\bk})^*  \Leftrightarrow T H^*(-\bk) T^\dagger T (\bC^{n,-\bk})^* = \epsilon_{n,-\bk} T(\bC^{n,-\bk})^* \Leftrightarrow \\
+    \Leftrightarrow  H(\bk) T (\bC^{n,-\bk})^* = \epsilon_{n,\bk} T(\bC^{n,-\bk}) \,,
+\end{gathered} 
+\end{equation}
+
+\noindent where to get the last equality we used the identities verified by $H(\bk)$ and $\epsilon_{n,\bk}$ introduced above.
+So, in principle, we have $T (\bC^{n,-\bk})^* = \bC^{n,\bk}$.
+Now, for the matrix elements of interest, we introduce the following notation:
+
+\begin{equation}
+     \langle n,\bk | \ee^{-\ii(\bk' - \bk + \bG) \cdot \br} | n',\bk' \rangle = \sum_{i \alpha} (C_{i \alpha}^{n \bk})^* C_{i \alpha}^{n' \bk'}  \ee^{-\ii(\bk' - \bk + \bG)  \cdot \bt_i} \equiv (\bC^{n,\bk})^\dagger \cdot \big(\bC^{n',\bk'} \odot \underline{\varphi} \big) \,
+\end{equation}
+
+\noindent where the vector $\underline{\varphi}$ has by entries the phases $\ee^{-\ii(\bk' - \bk + \bG)  \cdot \bt_i}$, that is, $(\underline{\varphi})_{i\alpha} = \ee^{-\ii(\bk' - \bk + \bG)  \cdot \bt_i}$, and $\odot$ is used to denote element-wise product, usually called Hadamard product in the literature.
+Then, we only need to employ the identity $T (\bC^{n,-\bk})^* = \bC^{n,\bk}$ to obtain
+
+\begin{equation}
+\begin{aligned}
+    \langle n,\bk | \ee^{-\ii(\bk' - \bk + \bG) \cdot \br} | n',\bk' \rangle &=  (\bC^{n,\bk})^\dagger \cdot \big(\bC^{n',\bk'} \odot \underline{\varphi} \big) =  \Big((\bC^{n,-\bk})^\intercal T^\dagger \Big) \cdot \Big( \big(T (\bC^{n',-\bk'})^* \big) \odot \underline{\varphi} \Big) = \\
+    &= (\bC^{n,-\bk})^\intercal (T^\dagger  T) \Big((\bC^{n',-\bk'})^* \odot \underline{\varphi}\Big) = (\bC^{n',-\bk'})^\dagger \cdot \big(\bC^{n,-\bk} \odot \underline{\varphi}\big) = \\
+    &= \langle n',-\bk' | \ee^{-\ii(\bk' - \bk + \bG) \cdot \br} | n,-\bk \rangle \,, \qq{with $\intercal$ denoting transpose}
+\end{aligned}
+\end{equation}
+
+In this way, the second term in the polarizability can be rewritten as
+
+\begin{equation}
+\begin{aligned}
+    & \sum_{vc,\bk \sigma} \frac{\langle v,-\bk-\bq|\ee^{-\ii(\bq+\bG)\cdot\br}|c,-\bk\rangle\langle c,-\bk|\ee^{\ii(\bq+\bG')\cdot\br}|v,-\bk-\bq\rangle}{\epsilon_{v,\bk+\bq} - \epsilon_{c,\bk}} = \\
+    & \sum_{vc,\bk \sigma} \frac{\langle c,\bk |\ee^{-\ii(\bq+\bG)\cdot\br}|v,\bk+\bq\rangle \langle v,\bk+\bq|\ee^{\ii(\bq+\bG')\cdot\br}|c,\bk\rangle}{\epsilon_{v,\bk+\bq} - \epsilon_{c,\bk}}\,,
+\end{aligned}
+\end{equation}
+
+\noindent which concludes our proof.
+This identity has also been verified numerically.

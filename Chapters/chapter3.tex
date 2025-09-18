@@ -56,7 +56,7 @@ One central problem in condensed matter physics is to calculate the electronic b
 This means calculating all the bands at every point $\bk$ in the \gls{bz}.
 An electron in a specific band $n$ with crystal momentum $\bk$ has kinetic energy $\epsilon_{n \bk}$.
 In analogy with optics, we can call the $\bk$ dependence of the energy electronic dispersion, with the wave being now electronic instead of electromagnetic.
-From here onwards, when referring to the band structure, that we can denote symbolically by $\{\epsilon_{n \bk}\}$, we will always implicitly mean electronic band structure, as there are bands of other kinds (phononic, photonic, etc.).
+From here onwards, when referring to the band structure, that we can denote with symbols by $\{\epsilon_{n \bk}\}$, we will always implicitly mean electronic band structure, as there are bands of other kinds (phononic, photonic, etc.).
 Once the band structure, which is a ground-state characteristic of the material, is determined, one is invited to do post-calculations to find other ground state or exciting state properties.
 But first, we need to better understand the concepts related to the bands of a crystalline solid.
 
@@ -75,7 +75,7 @@ In the case the material conducts at high enough temperatures, then we call it a
 
 Within this formalism, the Bloch wavefunctions are the linear combination of atomic orbitals.
 This is called the \gls{lcao} method or approximation.
-Symbolically, we write for the wavefunction of an electron in the Bloch state of band $n$ with momentum $\bk$
+In math notation, we write for the wavefunction of an electron in the Bloch state of band $n$ with momentum $\bk$
 
 \begin{equation}
     \label{eq:Bloch_state_LCAO}
@@ -229,7 +229,7 @@ It can be rewritten in a more comprehensive form
 Performing the change of basis
 
 \begin{equation}
-    a_i^{\dagger} = \frac{1}{\sqrt{N}} \sum_{\bk} \ei{\bk \cdot \br_i} a_{\bk}^{\dagger}, \qq{and analogously for} b_j^{\dagger},
+    a_i^{\dagger} = \frac{1}{\sqrt{N}} \sum_{\bk} \ei{\bk \vdot \br_i} a_{\bk}^{\dagger}, \qq{and analogously for} b_j^{\dagger},
     \label{eq:second_quantization_change_of_basis}
 \end{equation}
 
@@ -247,7 +247,7 @@ and simplifying, we arrive at
         \end{array}\right), \quad \Psi_{\bk}=\left(\begin{array}{l}
                                                  a_{\bk} \\
                                                  b_{\bk}
-        \end{array}\right), \quad \Delta_{\bk} = \sum_{\boldsymbol{\delta}} \ei[-]{\bk \cdot \boldsymbol{\delta}}
+        \end{array}\right), \quad \Delta_{\bk} = \sum_{\boldsymbol{\delta}} \ei[-]{\bk \vdot \boldsymbol{\delta}}
     \end{array}
 \end{equation}
 
@@ -304,7 +304,7 @@ Linearizing \eqref{eq:Delta_of_k} with respect to momentum around the momentum $
 \noindent Following the same procedure but for the $\bK'$ point, we obtain
 
 \begin{equation}
-    H(\bK' + \bq) = \hbar \vF \bq \cdot \boldsymbol{\sigma} + M \sigma_z,
+    H(\bK' + \bq) = \hbar \vF \bq \vdot \boldsymbol{\sigma} + M \sigma_z,
 \end{equation}
 
 \noindent where now
@@ -400,10 +400,10 @@ one can also write a similar equation for the screened $W$ and bare Coulomb pote
 \end{equation}
 
 We can define the quantity inside square brackets as the microscopic dielectric function, whose macroscopic counterpart was discussed in the previous Chapter~\ref{ch:classical_electrodynamics}.
-Symbolically and making the space and time dependencies explicit we can write
+Mathematically, and making the space and time dependencies explicit, we can write
 
 \begin{equation}\label{eq:dielectric_function_space_time}
-\varepsilon (\br,\br';t - t') = \delta(\br - \br') \delta(t-t') - \int  \int v_c(\br - \br'') P^\irr (\br',\br'';t-t') \dr'' \dt' \,.
+\varepsilon (\br,\br';t - t') = \delta(\br - \br') \delta(t-t') - \int  \int v_c(\br - \br'') P^\irr (\br'',\br';t-t') \dr'' \dt' \,.
 \end{equation}
 
 With the dielectric function defined, we can rewrite Dyson's equation for the Coulomb potential in the following way
@@ -488,7 +488,7 @@ The dielectric function in real-space and time domain, within \rpa~, writes~\cit
 
 \begin{equation}
     \label{eq:dielectric_function_real_time}
-    \varepsilon (\br,\br';t,t') = \delta(\br - \br') \delta(t-t') - \int  \int v_c(\br - \br'') \chi^0 (\br',\br'';t-t') \dr'' \dt' \,,
+    \varepsilon (\br,\br';t,t') = \delta(\br - \br') \delta(t-t') - \int  \int v_c(\br - \br'') \chi^0 (\br'',\br';t-t') \dr'' \dt' \,,
 \end{equation}
 
 \noindent where $v_c$ denotes the bare (unscreened) Coulomb potential and $\chi^0 (\br',\br'';t-t')$ is the \rpa~ irreducible polarizability, for which we have assumed time translation invariance.
@@ -508,7 +508,7 @@ Whence, we may time Fourier transform it to the frequency domain and write
 
 \begin{equation}
     \label{eq:dielectric_function_real_frequency}
-    \varepsilon (\br,\br';\omega) = \delta(\br - \br') - \int   v_c(\br - \br'') \chi^0 (\br',\br'';\omega) \dr''  \,,
+    \varepsilon (\br,\br';\omega) = \delta(\br - \br') - \int   v_c(\br - \br'') \chi^0 (\br'',\br';\omega) \dr''  \,,
 \end{equation}
 
 \noindent since the Fourier transform of the Dirac delta is the identity function, and the Fourier transform of a convolution translates to a multiplication.

@@ -59,7 +59,7 @@ In this way, we are able to recover the original low-energy Hamiltonian of hBN (
 \section{Exchange energy correction to the band gap}
 \label{sec:exchange_energy}
 
-We recall the Bethe-Salpeter equation:
+We recall the Bethe--Salpeter equation:
 
 \begin{equation}
     \begin{split}
@@ -71,7 +71,7 @@ We recall the Bethe-Salpeter equation:
 \noindent We wish to compute the contribution to the band gap due to the exchange energy coming from the third term in the \gls{rhs} of the previous equation.
 We assume that this term renormalizes strongly the electronic band gap, but has no effect in the curvature of the bands.
 So we start from that term with $\bk = 0$.
-We denote the exchange energy by $\Delta_{\mathrm{ex}}$ and it writes
+We denote the exchange energy by $\Delta_{ex}$ and it writes
 
 \begin{equation}
     \Delta_{\mathrm{ex}} = \frac{1}{A} \sum_{\bp} V_{\bp} \left[F_{vvvv}(\bp ,0,\bp) - F_{vcvc}(\bp,0,\bp) \right] \,.
@@ -146,7 +146,7 @@ Using the auxiliar function $\gamma(\theta) = \sqrt{\cos^2 \theta + J_0^2(\beta)
 \noindent To perform the final integral, we make the change of variable $p \gamma(\theta) / k_0 = \tan u$.
 The differential becomes $ \dd p = k_0 \dd(\tan u)/\gamma(\theta) = k_0 \frac{1}{\cos^2 u}/\gamma(\theta) \dd u$, and the square root in the denominator transforms into $\sqrt{1 + p^2 \gamma^2(\theta)/k_0^2} = \sqrt{1 + \tan^2 u} = 1/\cos u$.
 When $p=0$ we have $u=0$, and when $p = \infty$ we have $u=\pi/2$.
-Furthermore, we introduce a new dimensionless parameter $\gamma \equiv r_0 k_0$, so that the integral, after defining $\alpha(\theta) = r_0 k_ 0/(\gamma(\theta) \kappa)$ and performing the radial integral which has an analytical expression, becomes now
+Furthermore, we introduce a new dimensionless parameter $\gamma \equiv r_0 k_0$, so that the integral becomes now
 
 \begin{equation}
     k_0 \int_0^{2\pi} \frac{1}{\gamma(\theta) \sqrt{1 + \alpha^2(\theta)}} \ln \left( \frac{1 + \alpha(\theta) + \sqrt{1 + \alpha^2(\theta)}}{1 + \alpha(\theta) - \sqrt{1 + \alpha^2(\theta)}} \right) \dd \theta

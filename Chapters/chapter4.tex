@@ -94,7 +94,7 @@ It is just like the time-independent Schrödinger equation, but with an effectiv
 In 2D materials, the potential that describes accurately the screening effect has the form of the Rytova--Keldysh potential, that was already derived in section~\ref{subsubsec:dielectric_function_static_limit} when we were introducing classical effective models for the dielectric function. 
 
 The Wannier equation does not capture the full structure of the excitonic states (like nondegenerate $p$ states, or the symmetries of the crystal), hence we need to resort to more accurate descriptions of the excitonic problem.
-That is possible using a reciprocal space description of the excitonics, with oone can write down the \gls{bse}---an integral equation where finer details of the band structure and the Coulomb interaction are included.
+That is possible using a reciprocal space description of the excitonics, with oone can write the \gls{bse}---an integral equation where finer details of the band structure and the Coulomb interaction are included.
 In this work, we mention two versions of the \gls{bse}.
 One for effective low-energy models, and another one using exact diagonalization of the Bethe--Salpeter Hamiltonian.
 The \abinit~version of the \gls{bse} is not addressed here.
@@ -157,7 +157,7 @@ To convert it to momentum space, we use the expansion of the field operators in 
 \noindent and writing the potential in terms of its Fourier transform
 
 \begin{equation}
-    V\left(\br - \br'\right) = \sum_{\bq} \ee^{\ii \bq \cdot(\br-\br')} V(\bq)\,.
+    V\left(\br - \br'\right) = \sum_{\bq} \ee^{\ii \bq \vdot(\br-\br')} V(\bq)\,.
 \end{equation}
 
 Replacing everything in~\eqref{eq:interaction_hamiltonian_field_operators}, we get
@@ -167,7 +167,7 @@ Replacing everything in~\eqref{eq:interaction_hamiltonian_field_operators}, we g
     \hat{V}=\frac{1}{2N^{2}}\sum_{\bq}\sum_{\{\bk_{i}\}}
     \sum_{\{\lambda_{i}\}}
     V(\bq)
-    \left(\int\psi_{\bk_{1},\lambda_{1}}^{*}(\br)\ee^{\ii\bq\cdot\br}\mathrm{\psi_{\bk_{4},\lambda_{4}}(\br)d}\br\right)\left(\int\psi_{\bk_{2},\lambda_{2}}^{*}(\br')\ee^{-\ii\bq\cdot\br'}\mathrm{\psi_{\bk_{3},\lambda_{3}}(\br')d}\br'\right)c_{\bk_{1},\lambda_{1}}^{\dagger}c_{\bk_{2},\lambda_{2}}^{\dagger}c_{\bk_{3},\lambda_{3}}c_{\bk_{4},\lambda_{4}}
+    \left(\int\psi_{\bk_{1},\lambda_{1}}^{*}(\br)\ee^{\ii\bq\vdot\br}\mathrm{\psi_{\bk_{4},\lambda_{4}}(\br)d}\br\right)\left(\int\psi_{\bk_{2},\lambda_{2}}^{*}(\br')\ee^{-\ii\bq\vdot\br'}\mathrm{\psi_{\bk_{3},\lambda_{3}}(\br')d}\br'\right)c_{\bk_{1},\lambda_{1}}^{\dagger}c_{\bk_{2},\lambda_{2}}^{\dagger}c_{\bk_{3},\lambda_{3}}c_{\bk_{4},\lambda_{4}}
 \end{equation}
 
 \noindent or using braket notation
@@ -177,14 +177,14 @@ Replacing everything in~\eqref{eq:interaction_hamiltonian_field_operators}, we g
     \hat{V}=\frac{1}{2N^{2}}\sum_{\bq}\sum_{\{\bk_{i}\}}
     \sum_{\{\lambda_{i}\}}
     V(\bq)
-    \mel{\bk_1,\lambda_1}{\ei{\bq \cdot \br}}{\bk_4,\lambda_4} \mel{\bk_2,\lambda_2}{\ei[-]{\bq \cdot \br'}}{\bk_3,\lambda_3} c_{\bk_{1},\lambda_{1}}^{\dagger}c_{\bk_{2},\lambda_{2}}^{\dagger}c_{\bk_{3},\lambda_{3}}c_{\bk_{4},\lambda_{4}}
+    \mel{\bk_1,\lambda_1}{\ei{\bq \vdot \br}}{\bk_4,\lambda_4} \mel{\bk_2,\lambda_2}{\ei[-]{\bq \vdot \br'}}{\bk_3,\lambda_3} c_{\bk_{1},\lambda_{1}}^{\dagger}c_{\bk_{2},\lambda_{2}}^{\dagger}c_{\bk_{3},\lambda_{3}}c_{\bk_{4},\lambda_{4}}
 \end{equation}
 
 An auxiliary calculation for the matrix elements follows.
 The Bloch wavefunctions, in the atomic gauge that we used to write hBN’s TB Bloch Hamiltonian, have the form
 
 \begin{equation}
-    \psi_{\bk,\lambda}\left(\br\right)=\frac{1}{\sqrt{N}}\sum_{\br,i\alpha}\ee^{\ii\bk\cdot(\br+\bt_{i})}C_{i\alpha}^{\bk,\lambda}\phi_{\alpha}\left(\br-\bR-\bt_{i}\right)
+    \psi_{\bk,\lambda}\left(\br\right)=\frac{1}{\sqrt{N}}\sum_{\br,i\alpha}\ee^{\ii\bk\vdot(\br+\bt_{i})}C_{i\alpha}^{\bk,\lambda}\phi_{\alpha}\left(\br-\bR-\bt_{i}\right)
 \end{equation}
 
 
@@ -192,9 +192,9 @@ So now we can compute the matrix elements
 
 \begin{equation}
     \begin{split}
-        \mel{\bk_1,\lambda_1}{\ei{\bq \cdot \br}}{\bk_4,\lambda_4} &=\int\psi_{\bk_{1},\lambda_{1}}^{*}(\br)\ee^{\ii\bq\cdot\br}\mathrm{\psi_{\bk_{4},\lambda_{4}}(\br)\,d}\br = \\
-        & = \int u_{\bk_{1},\lambda_{1}}^{*}(\br)\ee^{\ii(\bq-\bk_{1}+\bk_{4})\cdot\br}u_{\bk_{4},\lambda_{4}}(\br) \mathrm{d}\br\approx \\
-        & = \left \langle u_{\bk_{1},\lambda_{1}}^{*}(\br)u_{\bk_{4},\lambda_{4}}(\br) \right\rangle_{\mathrm{UC}} \underbrace{\int\ee^{\ii(\bq-\bk_{1}+\bk_{4})\cdot\br}\mathrm{d}\br}_{A\delta_{\bq,\bk_{1}-\bk_{4}}} \,.
+        \mel{\bk_1,\lambda_1}{\ei{\bq \vdot \br}}{\bk_4,\lambda_4} &=\int\psi_{\bk_{1},\lambda_{1}}^{*}(\br)\ee^{\ii\bq\vdot\br}\mathrm{\psi_{\bk_{4},\lambda_{4}}(\br)\,d}\br = \\
+        & = \int u_{\bk_{1},\lambda_{1}}^{*}(\br)\ee^{\ii(\bq-\bk_{1}+\bk_{4})\vdot\br}u_{\bk_{4},\lambda_{4}}(\br) \mathrm{d}\br\approx \\
+        & = \left \langle u_{\bk_{1},\lambda_{1}}^{*}(\br)u_{\bk_{4},\lambda_{4}}(\br) \right\rangle_{\mathrm{UC}} \underbrace{\int\ee^{\ii(\bq-\bk_{1}+\bk_{4})\vdot\br}\mathrm{d}\br}_{A\delta_{\bq,\bk_{1}-\bk_{4}}} \,.
     \end{split}
 \end{equation}
 
@@ -206,18 +206,18 @@ The average of the periodic part of the Bloch wavefunctions can be computed, als
 
 \begin{align*}
     \left\langle u_{\bk_{1},\lambda_{1}}^{*}(\br)u_{\bk_{4},\lambda_{4}}(\br)\right\rangle _{\mathrm{UC}} & =\frac{1}{A_{\mathrm{UC}}}\int u_{\bk_{1},\lambda_{1}}^{*}(\br)u_{\bk_{4},\lambda_{4}}(\br)\:\mathrm{d}\br=\\
-    & =\frac{1}{N A_{\mathrm{UC}}}\int\left(\sum_{\bR,i\alpha}\ee^{-\ii\bk_{1}\cdot(\br+\bt_{i}-\br)}\left(C_{i\alpha}^{\bk_{1},\lambda_{1}}\right)^{*}\phi_{\alpha}\left(\br-\bR-\bt_{i}\right)\right) \\
-    & \left(\sum_{\bR',j\beta}\ee^{\ii\bk_{4}\cdot(\br'+\bt_{j}-\br)}C_{j\beta}^{\bk_{4},\lambda_{4}}\phi_{\beta}\left(\br-\bR'-\bt_{j}\right)\right)\:\mathrm{d}\br=\\
-    & =\frac{1}{N A_{\mathrm{UC}}}\sum_{\bR,\bR}\ee^{-\ii\bk_{1}\cdot(\br+\bt_{i})}\ee^{\ii\bk_{4}\cdot(\br'+\bt_{j})}\sum_{i\alpha,j\beta}\left(C_{i\alpha}^{\bk_{1},\lambda_{1}}\right)^{*}C_{j\beta}^{\bk_{4},\lambda_{4}} \\
-    &\int\ee^{\ii(\bk_{1}-\bk_{4})\cdot\br}\underbrace{\phi_{\alpha}\left(\br-\bR-\bt_{i}\right)\phi_{\beta}\left(\br-\bR'-\bt_{j}\right)}_{\approx\delta_{ij}\delta_{\alpha\beta}\delta_{\br\br'}\delta(\br-\bR-\bt_{i})}\:\mathrm{d}\br\approx\\
-    & \approx \frac{1}{N A_{\mathrm{UC}}} \sum_{\bR} \cancel{\ee^{-\ii(\bk_{1}-\bk_{4})\cdot(\br+\bt_{i})}} \sum_{i\alpha,j\beta} \left(C_{i\alpha}^{\bk_{1},\lambda_{1}}\right)^{*} C_{j\beta}^{\bk_{4},\lambda_{4}} \cancel{\ee^{\ii(\bk_{1}-\bk_{4})\cdot(\br+\bt_{i})}} =\\
+    & =\frac{1}{N A_{\mathrm{UC}}}\int\left(\sum_{\bR,i\alpha}\ee^{-\ii\bk_{1}\vdot(\br+\bt_{i}-\br)}\left(C_{i\alpha}^{\bk_{1},\lambda_{1}}\right)^{*}\phi_{\alpha}\left(\br-\bR-\bt_{i}\right)\right) \\
+    & \left(\sum_{\bR',j\beta}\ee^{\ii\bk_{4}\vdot(\br'+\bt_{j}-\br)}C_{j\beta}^{\bk_{4},\lambda_{4}}\phi_{\beta}\left(\br-\bR'-\bt_{j}\right)\right)\:\mathrm{d}\br=\\
+    & =\frac{1}{N A_{\mathrm{UC}}}\sum_{\bR,\bR}\ee^{-\ii\bk_{1}\vdot(\br+\bt_{i})}\ee^{\ii\bk_{4}\vdot(\br'+\bt_{j})}\sum_{i\alpha,j\beta}\left(C_{i\alpha}^{\bk_{1},\lambda_{1}}\right)^{*}C_{j\beta}^{\bk_{4},\lambda_{4}} \\
+    &\int\ee^{\ii(\bk_{1}-\bk_{4})\vdot\br}\underbrace{\phi_{\alpha}\left(\br-\bR-\bt_{i}\right)\phi_{\beta}\left(\br-\bR'-\bt_{j}\right)}_{\approx\delta_{ij}\delta_{\alpha\beta}\delta_{\br\br'}\delta(\br-\bR-\bt_{i})}\:\mathrm{d}\br\approx\\
+    & \approx \frac{1}{N A_{\mathrm{UC}}} \sum_{\bR} \cancel{\ee^{-\ii(\bk_{1}-\bk_{4})\vdot(\br+\bt_{i})}} \sum_{i\alpha,j\beta} \left(C_{i\alpha}^{\bk_{1},\lambda_{1}}\right)^{*} C_{j\beta}^{\bk_{4},\lambda_{4}} \cancel{\ee^{\ii(\bk_{1}-\bk_{4})\vdot(\br+\bt_{i})}} =\\
     & =\frac{1}{A_{\mathrm{UC}}}\sum_{i\alpha}\left(C_{i\alpha}^{\bk_{1},\lambda_{1}}\right)^{*}C_{i\alpha}^{\bk_{4},\lambda_{4}}=\frac{1}{A_{\mathrm{UC}}}\left(\bC^{\bk_{1},\lambda_{1}}\right)^{\dagger}\bC^{\bk_{4},\lambda_{4}},\text{ since }\sum_{\bR}1=N.
 \end{align*}
 
 \noindent Finally, the plane-wave matrix element writes
 
 \begin{equation}
-    \mel{\bk_1,\lambda_1}{\ei{\bq \cdot \br}}{\bk_4,\lambda_4} = \frac{1}{A_{\mathrm{UC}}}\left(\bC^{\bk_{1},\lambda_{1}}\right)^{*}\bC^{\bk_{4},\lambda_{4}}A\delta_{\bq,\bk_{1}-\bk_{4}}=N\left(\bC^{\bk_{1},\lambda_{1}}\right)^{\dagger}\bC^{\bk_{4},\lambda_{4}}\delta_{\bq,\bk_{1}-\bk_{4}},
+    \mel{\bk_1,\lambda_1}{\ei{\bq \vdot \br}}{\bk_4,\lambda_4} = \frac{1}{A_{\mathrm{UC}}}\left(\bC^{\bk_{1},\lambda_{1}}\right)^{*}\bC^{\bk_{4},\lambda_{4}}A\delta_{\bq,\bk_{1}-\bk_{4}}=N\left(\bC^{\bk_{1},\lambda_{1}}\right)^{\dagger}\bC^{\bk_{4},\lambda_{4}}\delta_{\bq,\bk_{1}-\bk_{4}},
 \end{equation}
 
 \noindent while for the other matrix element the same reasoning applies.
@@ -299,7 +299,7 @@ We can interpret the last term as a renormalization of the single-particle bands
 It does not mean that it can be ignored, but we sweep it under the rug this time.
 Doing so, we arrive at the simplified form of the Bethe--Salpeter equation:
 
-\begin{empheq}[box=\colorbox{lightgray}]{equation}
+\begin{empheq}[innerbox=\colorbox{lightgray}, right={\,.}]{equation}
     E_\nu \phi_\nu(\bk)  =  (E_{\bk,c}-E_{\bk,v}) \phi_{\nu}(\bk)  - \frac{1}{A} \sum_{\bp} \phi_\nu (\bp) V_{\bk-\bp} F_{cvvc}(\bk,\bp,\bk-\bp)
     \label{eq:Bethe_Salpeter_equation}
 \end{empheq}
@@ -330,25 +330,25 @@ in the right hand side of (\ref{eq:Bethe_Salpeter_equation}) to 1, which is vali
 Now we apply a Fourier transform to the wavefunction
 
 \begin{equation}
-    \phi_{\nu} (\bk) = \frac{1}{\sqrt{A}} \sum_{\br} \ei{ \bk \cdot \br} \phi_{\nu} (\br)
+    \phi_{\nu} (\bk) = \frac{1}{\sqrt{A}} \sum_{\br} \ei{ \bk \vdot \br} \phi_{\nu} (\br)
 \end{equation}
 
 \noindent and to the potential
 
 \begin{equation}
-    V_{\bk - \bp} = \frac{1}{\sqrt{A}} \sum_{\br'} \ei{ (\bk - \bp) \cdot \br'} V (\br')
+    V_{\bk - \bp} = \frac{1}{\sqrt{A}} \sum_{\br'} \ei{ (\bk - \bp) \vdot \br'} V (\br')
 \end{equation}
 
 \noindent and use the identity
 
 \begin{equation}
-    \frac{1}{A} \sum_{\bp} \ei{ \bp \cdot (\br - \br')} = \delta_{\br,\br'},
+    \frac{1}{A} \sum_{\bp} \ei{ \bp \vdot (\br - \br')} = \delta_{\br,\br'},
 \end{equation}
 
 \noindent to recover the Wannier equation:
 
-\begin{empheq}[box=\colorbox{lightgray}]{equation}
-    E_{b, \nu} \psi_\nu (\br) = \frac{p^2}{2 \mu} \psi_\nu (\br) - V(\br) \psi_\nu (\br).
+\begin{empheq}[innerbox=\colorbox{lightgray}, right={\,.}]{equation}
+    E_{b, \nu} \psi_\nu (\br) = \frac{p^2}{2 \mu} \psi_\nu (\br) - V(\br) \psi_\nu (\br)
     \label{eq:Wannier_equation_derived}
 \end{empheq}
 
@@ -389,7 +389,7 @@ The parameters $t_{i,j}$ are the hopping or tight-binding parameters, while $V_{
 \todo{say somewhere that this approach is variational}
 
 Now, with the purpose of describing excitons, we need to start from a good enough description of the ground state of the system, $\ket{\GS}$.
-For undoped 2D semiconductors or insulators, whose ground state consists of all the valence bands completely filled, and all the conduction bands empty, we can write symbolically for the groundstate, or Fermi sea,
+For undoped 2D semiconductors or insulators, whose ground state consists of all the valence bands completely filled, and all the conduction bands empty, we can write mathematically for the groundstate, or Fermi sea,
 
 \begin{equation}
     \ket{\GS} = \prod_{n,\bk}^{\epsilon_{n \bk} \leq \EF} c_{n \bk}^\dagger \ket{0} \,,
@@ -512,11 +512,11 @@ About the self-energy, we have to make a technical remark.
 As a sanity check, it is instructive to look closely at~\eqref{eq:BSE_Hamiltonian_matrix_elements}, and check for hermiticity by replacing $v \leftrightarrow v'$, $c \leftrightarrow c'$ and $\bk \leftrightarrow \bk'$.
 If we do so, we arrive at the conclusion that the Bethe--Salpeter Hamiltonian is not hermitian, with the self-energy terms being the culprits.
 We can avoid this problem, if we work at the mean-field level, using a single Slater determinant for the \gs~ of~\eqref{eq:Hamiltonian_start}, or equivalently, making a \hf~approximation.
-We can then see the self-energy corrections as incorporated in the \qp~energies $\epsilon_{n \bk}$, and without any worries assume that any quasiparticle energy corrections has already been performed \textit{a priori} through in the diagonalization of the single-particle Hamiltonian by \abinit~methods.
+We can then see the self-energy corrections as incorporated in the \qp~energies $\epsilon_{n \bk}$, and without any worries assume that any quasi-particle energy corrections has already been performed \textit{a priori} through in the diagonalization of the single-particle Hamiltonian by \abinit~methods.
 In this way, the Bethe--Salpeter equation writes
 
 
-\begin{empheq}[box=\colorbox{lightgray}]{equation}
+\begin{empheq}[innerbox=\colorbox{lightgray}, right={\,,}]{equation}
    \qty(\epsilon_{c, \bk + \bQ} - \epsilon_{v, \bk}) A^{\bQ}_{vc}(\bk) + \sum_{v',c',\bk'} K_{vc,v'c'}(\bk,\bk',\bQ) A^{\bQ}_{v'c'}(\bk') = E_X A^{\bQ}_{vc}(\bk)
     \label{eq:exact_Bethe_Salpeter_equation}
 \end{empheq}
@@ -538,6 +538,7 @@ We shall discuss that right in the next section, where we explain how we can com
 
 
 \subsection{The interaction matrix elements and screening}
+\label{subsec:interaction_matrix_elements_and_screening}
 
 Let us first remind the reader that we use Bloch states of the form
 
@@ -583,8 +584,8 @@ Considering point-like orbitals where their spatial structure is overlooked and 
 \end{equation}
 
 \noindent which \textbf{is not} a Fourier transform.
-If we model the screening using the Rytova--Keldysh potential, then we can further write $W\qty(\bR + \bt_i; \bt_j) = V_\RK (\bR + \bt_i - \bt_j)$: the Rytova--Keldysh model is a classical one, the dielectric function is assumed to be a function of a single momentum, which implies assuming continuous translation invariance, which is an approximation.
-If we would like to go beyond classical mapproximations for screening, and take into account the inhomogenety of the crystal, we can develop the expression~\eqref{eq:direct_term_real_space_formula} by Fourier transforming the screened Coulomb potential, and write
+If we model the screening using the Rytova--Keldysh potential, then we can further write $W\qty(\bR + \bt_i; \bt_j) = V_\RK (\bR + \bt_i - \bt_j)$: the Rytova--Keldysh model is classical, the dielectric function is assumed to be a single momentum function, implying one has assumed continuous translation invariance, which is clearly an approximation.
+To go beyond classical models for screening and take into account the inhomogenety of the crystal, we can develop the expression~\eqref{eq:direct_term_real_space_formula} by Fourier transforming the screened Coulomb potential, and write
 
 \begin{equation}
     \begin{aligned}
@@ -603,11 +604,11 @@ If we would like to go beyond classical mapproximations for screening, and take 
 
 \begin{equation}
 \label{eq:plane_wave_matrix_element_definition}
-    I^{\bG}_{n \bk, n' \bk'} = \int \dr\, \psi^*_{n,\bk} (\br) \ee^{-\ii(\bq + \bG) \vdot \br} \psi_{n' \bk  + \bq} (\br)\,.
+    I^{\bG}_{n \bk, n' \bk'} = \int \dr\, \psi^*_{n,\bk} (\br) \ee^{-\ii(\bk  - \bk' + \bG) \vdot \br} \psi_{n' \bk'} (\br)\,.
 \end{equation}
 
 The final expression in equation~\eqref{eq:interaction_matrix_element_direct_reciprocal} is the one usually encountered in the literature pertaining to first-principle methods~\cite{BerkeleyGW,Yambo_2009}.
-These methods allow also to compute the dielectric matrix, and its inverse so that we one can calculate the matrix elements of the screened Coulomb potential through $W_{\bG\bG'}(\bq) = \vareps^{-1}_{\bG\bG'}(\bq) v_c(\bq + \bG')$, the static limit of~Eq.~\eqref{eq:screened_dynamic_Coulomb_potential}.
+These methods allow also to compute the dielectric matrix, and its inverse so that one can calculate the matrix elements of the screened Coulomb potential through $W_{\bG\bG'}(\bq) = \vareps^{-1}_{\bG\bG'}(\bq) v_c(\bq + \bG')$, the static limit of~Eq.~\eqref{eq:screened_dynamic_Coulomb_potential}.
 
 Regarding the exchange term, even though we typically will discard, for completion we present its expression, that is
 
@@ -651,7 +652,7 @@ We start from the dynamical longitudinal dielectric function as per~\eqref{eq:di
     \begin{split}
         \varepsilon_{\bG\bG'}(\bq,\omega) &= \delta_{\bG\bG'}-v_{c}(\bq+\bG)\chi_{\bG\bG'}^{0}(\bq,\omega)=\\
         &=\delta_{\bG\bG'}-\frac{e^{2}}{\varepsilon_{0}|\bq+\bG|^{2}V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk+\bq})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk+\bq}-\epsilon_{n,\bk})+\ii\hbar \alpha} \times \\
-        &\times \langle n,\bk| \ei[-]{(\bq+\bG)\cdot\br} |n',\bk+\bq\rangle\langle n',\bk+\bq|\ei{(\bq+\bG')\cdot\br}|n,\bk\rangle
+        &\times \langle n,\bk| \ei[-]{(\bq+\bG)\vdot\br} |n',\bk+\bq\rangle\langle n',\bk+\bq|\ei{(\bq+\bG')\vdot\br}|n,\bk\rangle
     \end{split}
 \end{equation}
 
@@ -661,20 +662,20 @@ Taking the local limit $\bq\to\bzero$ in the $\bG=\bG'=\bzero$ matrix element, w
 %\begin{equation}
 %    \begin{gathered}
 %        \varepsilon_{\bzero\bzero}(\bq\to\bzero,\omega)=1-\frac{e^{2}}{\varepsilon_{0}q^{2}V}
-%        \sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\langle n,\bk|-\ii\bq\cdot\br\,|n',\bk\rangle\langle n',\bk|\ii\bq\cdot\br\,|n,\bk\rangle=\\
+%        \sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\langle n,\bk|-\ii\bq\vdot\br\,|n',\bk\rangle\langle n',\bk|\ii\bq\vdot\br\,|n,\bk\rangle=\\
 %        %=1-\frac{e^{2}}{\varepsilon_{0}q^{2}V}
-%        %q^{2}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\hat{\mathbf{e}}_{\bq}\cdot\langle n,\bk|\br\,|n',\bk\rangle\hat{\mathbf{e}}_{\bq}\cdot\langle n',\bk|\br\,|n,\bk\rangle=\\
+%        %q^{2}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\br\,|n',\bk\rangle\hat{\mathbf{e}}_{\bq}\vdot\langle n',\bk|\br\,|n,\bk\rangle=\\
 %        %=1-\frac{e^{2}}{\varepsilon_{0}V}
-%        %\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\hat{\mathbf{e}}_{\bq}\cdot\langle n,\bk|\br\,|n',\bk\rangle\hat{\mathbf{e}}_{\bq}\cdot\langle n',\bk|\br\,|n,\bk\rangle=\\
-%        =1-\frac{e^{2}}{\varepsilon_{0} V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\left|\hat{\mathbf{e}}_{\bq}\cdot\langle n,\bk|\br\,|n',\bk\rangle\right|^2
+%        %\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\br\,|n',\bk\rangle\hat{\mathbf{e}}_{\bq}\vdot\langle n',\bk|\br\,|n,\bk\rangle=\\
+%        =1-\frac{e^{2}}{\varepsilon_{0} V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\left|\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\br\,|n',\bk\rangle\right|^2
 %    \end{gathered}
 %\end{equation}
 
 \begin{align}
     \varepsilon_{\bzero\bzero}(\bq\to\bzero,\omega) &= 1-\frac{e^{2}}{\varepsilon_{0}q^{2}V}
-    \sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\langle n,\bk|-\ii\bq\cdot\br\,|n',\bk\rangle\langle n',\bk|\ii\bq\cdot\br\,|n,\bk\rangle= \notag \\ % \notag suppresses the
+    \sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\langle n,\bk|-\ii\bq\vdot\br\,|n',\bk\rangle\langle n',\bk|\ii\bq\vdot\br\,|n,\bk\rangle= \notag \\ % \notag suppresses the
     % equation number
-    &=1-\frac{e^{2}}{\varepsilon_{0} V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\left|\hat{\mathbf{e}}_{\bq}\cdot\langle n,\bk|\br\,|n',\bk\rangle\right|^2
+    &=1-\frac{e^{2}}{\varepsilon_{0} V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\left|\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\br\,|n',\bk\rangle\right|^2
 \end{align}
 
 
@@ -685,10 +686,10 @@ Using relation $\varepsilon=1+\ii\frac{\sigma}{\omega\varepsilon_{0}}$, mentione
 \begin{equation}
     \begin{gathered}
         \sigma(\omega)=-\ii\omega\varepsilon_{0}(\varepsilon-1)=\\
-        =\ii\frac{\omega e^{2}}{V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\left|\hat{\mathbf{e}}_{\bq}\cdot\langle n,\bk|\br\,|n',\bk\rangle\right|^2=\\
-        =\ii\frac{\omega e^{2}}{V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\frac{\left|\hat{\mathbf{e}}_{\bq}\cdot\langle n,\bk|\left[H,\br\right]|n',\bk\rangle\right|{{}^2}}{\left(\epsilon_{n,\bk}-\epsilon_{n',\bk}\right)^{2}}=\\
-        =\frac{\ii e^{2}\hbar}{V}\sum_{nn',\bk}\hbar\omega\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\frac{\left|\hat{\mathbf{e}}_{\bq}\cdot\langle n,\bk|\bp/m|n',\bk\rangle\right|{{}^2}}{\left(\epsilon_{n,\bk}-\epsilon_{n',\bk}\right)^{2}}=\\
-        =\frac{\ii\hbar}{V}\sum_{nn',\bk}\hbar\omega\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\frac{\left|\hat{\mathbf{e}}_{\bq}\cdot\langle n,\bk|\mathbf{j}\,|n',\bk\rangle\right|{{}^2}}{\left(\epsilon_{n,\bk}-\epsilon_{n',\bk}\right)^{2}}
+        =\ii\frac{\omega e^{2}}{V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\left|\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\br\,|n',\bk\rangle\right|^2=\\
+        =\ii\frac{\omega e^{2}}{V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\frac{\left|\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\left[H,\br\right]|n',\bk\rangle\right|{{}^2}}{\left(\epsilon_{n,\bk}-\epsilon_{n',\bk}\right)^{2}}=\\
+        =\frac{\ii e^{2}\hbar}{V}\sum_{nn',\bk}\hbar\omega\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\frac{\left|\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\bp/m|n',\bk\rangle\right|{{}^2}}{\left(\epsilon_{n,\bk}-\epsilon_{n',\bk}\right)^{2}}=\\
+        =\frac{\ii\hbar}{V}\sum_{nn',\bk}\hbar\omega\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\frac{\left|\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\mathbf{j}\,|n',\bk\rangle\right|{{}^2}}{\left(\epsilon_{n,\bk}-\epsilon_{n',\bk}\right)^{2}}
     \end{gathered}
 \end{equation}
 
@@ -716,10 +717,10 @@ We can define a tensor like conductivity $\sigma_{\alpha\beta}$ as
 \noindent where we used the trick of replacing $\omega \to \epsilon_{n,\bk}-\epsilon_{n',\bk}$ to cancel the frequency in the numerator, which is allowed due to the presence of the Dirac delta function, and defined $v^{\alpha}_{n n'}(\bk) = \langle n,\bk|v_{\alpha}|n',\bk\rangle$.
 Particularizing for a semiconductor at zero temperature and simplifying, we are allowed to write
 
-\begin{equation}
+\begin{empheq}[innerbox=\colorbox{lightgray}, right={\,.}]{align}
     \label{eq:non_interacting_Re_optical_conductivity}
     \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{V}\sum_{vc,\bk}\frac{1}{\epsilon_{c,\bk}-\epsilon_{v,\bk}}   v^{\alpha}_{c v}(\bk)  v^{\beta}_{v c}(\bk)\delta(\hbar \omega - (\epsilon_{c,\bk}-\epsilon_{v,\bk}))
-\end{equation}
+\end{empheq}
 
 \noindent At this point we will not explain how to compute the position or velocity matrix elements in practice.
 They will be addressed in two different ways in chapters~\ref{ch:Optical_hBN_superlattice} and~\ref{ch:Screening}, so we postpone the explanation to those two chapters.
@@ -731,26 +732,27 @@ They will be addressed in two different ways in chapters~\ref{ch:Optical_hBN_sup
 In this section we are concerned with the contribution of excitons to the optical conductivity.
 If the material is subject to a drive from a uniform time-dependent electric field composed of a single harmonic $\omega$, the expression for the optical conductivity up to leading order, is given by~\cite{Pedersen_2015}
 
-\begin{equation}
-    \sigma (\omega) = \frac{e^2}{8 \pi^3 \ii \hbar} \sum_{\nu} \qty[E_{\nu} \frac{\vectorbold{\Omega}_{\nu} \cdot \vectorbold{\Omega}^*_{\nu} }{E_{\nu} - \hbar \omega + \ii \hbar \Gamma} + E_{\nu} \frac{\vectorbold{\Omega}_{\nu} \cdot \vectorbold{\Omega}^*_{\nu} }{E_{\nu} + \hbar \omega - \ii \hbar \Gamma}],
-\label{eq:optical_conductivity_def}
-\end{equation}
+
+\begin{empheq}[innerbox=\colorbox{lightgray}, right={\,,}]{align}
+    \sigma (\omega) = \frac{e^2}{8 \pi^3 \ii \hbar} \sum_{\nu} \qty[E_{\nu} \frac{\vectorbold{\Omega}_{\nu} \vdot \vectorbold{\Omega}^*_{\nu} }{E_{\nu} - \hbar \omega + \ii \hbar \Gamma} + E_{\nu} \frac{\vectorbold{\Omega}_{\nu} \vdot \vectorbold{\Omega}^*_{\nu} }{E_{\nu} + \hbar \omega - \ii \hbar \Gamma}]
+    \label{eq:optical_conductivity_def}
+\end{empheq}
 
 \noindent where the sum is over the excitonic states, $E_{\nu}$ being the energy of the $\nu$-th state, and $\vectorbold{\Omega}_{\nu}$ is the Berry curvature given by
 
 \begin{equation}
     \label{eq:Berry_curvature_definition}
-    \vectorbold{\Omega}_{\nu} = \sum_{cv,\bk} \psi^{\nu}_{c,v} (\bk) \langle v, \bk | \br \cdot \hat{\vectorbold{e}} | c, \bk \rangle,
+    \vectorbold{\Omega}_{\nu} = \sum_{cv,\bk} \psi^{\nu}_{c,v} (\bk) \langle v, \bk | \br \vdot \hat{\vectorbold{e}} | c, \bk \rangle,
 \end{equation}
 
 \noindent where $\br$ is the dipole operator, $\hat{\vectorbold{e}}$ is the polarization unit vector and $\psi^{\nu}_{c,v} (\bk)$ is the excitonic wavefunction for the pair of bands $(c,v)$.
 If once more we wish to define the optical conductivity as a tensor, then we can deduct an expression similar to~\eqref{eq:non_interacting_Re_optical_conductivity}, we just have to replace the transition energy $\epsilon_{c,\bk}-\epsilon_{v,\bk}$ by the exciton energy $E_{\nu}$, and the velocity matrix elements by their interacting version given by a weighted sum over momentum of the noninteracting matrix elements, with the weight coinciding with the excitons wavefunction, similarly to what is written in~\eqref{eq:Berry_curvature_definition}.
 We can therefore write
 
-\begin{equation}
-    \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{V}\sum_{\nu}\frac{1}{E_{\nu}} V^{\alpha}_{\nu} (V^{\beta}_{\nu})^{*} \delta(\hbar \omega - E_{\nu})\,,
+\begin{empheq}[innerbox=\colorbox{lightgray}, right={\,,}]{align}
+    \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{V}\sum_{\nu}\frac{1}{E_{\nu}} V^{\alpha}_{\nu} (V^{\beta}_{\nu})^{*} \delta(\hbar \omega - E_{\nu})
     \label{eq:excitonic_Re_optical_conductivity}
-\end{equation}
+\end{empheq}
 
 \noindent if we define the interacting velocity matrix elements as $V^{\alpha}_{\nu} = \sum_{cv,\bk} \psi^{\nu}_{c,v} (\bk) v^{\alpha}_{c v}(\bk) $.
 
