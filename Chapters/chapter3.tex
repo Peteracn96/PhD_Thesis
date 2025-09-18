@@ -538,7 +538,7 @@ The expression for these matrix elements can be obtained by direct Fourier trans
 
 \begin{equation}
     \label{eq:polarizability_momentum_frequency}
-    \chi^0_{\bG \bG'} (\bq;\omega) = \frac{1}{\Omega} \sum_{n,n'} \sum_{\bk,\sigma} (f_{n,\bk} - f_{n',\bk + \bq}) \frac{\mel{n,\bk}{\ee^{-\ii(\bq + \bG) \vdot \br}}{n',\bk + \bq} \mel{n',\bk + \bq}{\ee^{\ii(\bq + \bG') \vdot \br}}{n,\bk}}{\epsilon_{n,\bk} - \epsilon_{n',\bk + \bq} + \hw + \ii \hbar \alpha}\,,
+    \chi^0_{\bG \bG'} (\bq,\omega) = \frac{1}{\Omega} \sum_{n,n'} \sum_{\bk,\sigma} (f_{n,\bk} - f_{n',\bk + \bq}) \frac{\mel{n,\bk}{\ee^{-\ii(\bq + \bG) \vdot \br}}{n',\bk + \bq} \mel{n',\bk + \bq}{\ee^{\ii(\bq + \bG') \vdot \br}}{n,\bk}}{\epsilon_{n,\bk} - \epsilon_{n',\bk + \bq} + \hw + \ii \hbar \alpha}\,,
 \end{equation}
 
 \noindent where $\Omega$ is the volume of the crystal, $n$ and $n'$ are band indices and $\bG$ and $\bG'$ are the vectors of the reciprocal lattice.
@@ -548,7 +548,7 @@ Defining the polarizability in reciprocal space as a matrix allows for doing the
 
 \begin{equation}
     \label{eq:dielectric_function_momentum_frequency}
-    \varepsilon_{\bG \bG'} (\bq;\omega) = \delta_{\bG \bG'} - v_c(\bq + \bG) \chi^0_{\bG \bG'} (\bq;\omega) \,.
+    \varepsilon_{\bG \bG'} (\bq,\omega) = \delta_{\bG \bG'} - v_c(\bq + \bG) \chi^0_{\bG \bG'} (\bq,\omega) \,.
 \end{equation}
 
 This expression is usually introduced in condensed matter physics courses through the Lindhard function, which is the previous formula in the case of the jellium model, the free homogeneous electron gas.
@@ -580,7 +580,7 @@ In general, we need to account for the crystal structure, so that the screened C
 
 \begin{equation}
     \label{eq:screened_dynamic_Coulomb_potential}
-    W_{\bG \bG'} (\bq;\omega) =  \varepsilon^{-1}_{\bG \bG'} (\bq;\omega) v_c(\bq + \bG')\,,
+    W_{\bG \bG'} (\bq,\omega) =  \varepsilon^{-1}_{\bG \bG'} (\bq,\omega) v_c(\bq + \bG')\,,
 \end{equation}
 
 \noindent for which one needs the inverse dielectric matrix, satisfying $\sum_{\bG''} \varepsilon^{-1}_{\bG \bG''} \varepsilon_{\bG'' \bG'} = \delta_{\bG \bG'}$
