@@ -36,6 +36,24 @@ We start the chapter by...\todo{try to look for more typos}
 \section{The Hamiltonian of a Crystal}
 \label{sec:introductory_remarks}
 
+In classical mechanics, we follow all the degrees of freedom of a system, whose dynamics is governed by the Lagrangian function, in the Lagrangian formalism, or by the Hamiltonian function, in the Hamiltonian formalism.
+Both formalisms provide a set of equations governing the time evolution of the degrees of freedom of the system, that together with the initial conditions, determine the state of the system at any time in the future in the configuration space, for the Lagrangian formalism, or any state in the phase space, for the Hamiltonian formalism~\cite{goldstein:mechanics}.
+When the length scales of a system are so small so that they are no longer classical and are deemed quantum, then it is not possible to follow the exact trajectory of the system in time.
+The state of the system can no longer be identified with a set of coordinates and momenta for which we know their values at any instant in time.
+The state of the system is then a vector state $\ket{\Psi}$ living in a Hilbert space, any vector space endowed with a scalar product\footnote{For us physicists, it suffices to say that a Hilbert space is a vector space with an inner product, as long as that space is far enough from being pathological. For mathematicians, we have to add the condition of the space being complete for the distance induced by the (norm induced by the) inner product. The curious reader can consult Ref.~\cite{Kreyszig_1991} for more details.}
+That same state can evolve in time, and the time evolution is governed by the \gls{tise}, which writes
+
+\begin{equation}
+    \label{eq:time_dependent_Schrodinger_equation}
+    \ii \hbar \pdv{t} \ket{\Psi(t)} = \Ha \ket{\Psi(t)}\,,
+\end{equation}
+
+\noindent where $\hbar = h / 2\pi$ is the reduced Planck constant, and $\Ha$ is the Hamiltonian operator---no longer a function---of the system.
+The hat above the symbol $H$ is used to stress that we are dealing with an operator now, and not a function.
+We use the term operator to denote a transformation that maps a vector in a Hilbert space to another vector in another Hilbert space; hopefully, both Hilbert spaces coincide.
+At some point we shall drop the hat for ease of notation.
+
+
 \subsection{Born--Oppenheimer Approximation}
 \label{subsec:born_oppenheimer_approximation}
 
