@@ -53,7 +53,7 @@ The hat above the symbol $H$ is used to stress that we are dealing with an opera
 We use the term operator to denote a transformation that maps a vector in a Hilbert space to another vector in another Hilbert space; eventually, both Hilbert spaces coincide.
 At some point we shall drop the hat for ease of notation.
 
-If in the \gls{tdse} the Hamiltonian has no explicit dependence on time, then we can easily integrate Eq.~\ref{eq:time_dependent_Schrodinger_equation} and write a formal solution for the state as
+If in the \gls{tdse} the Hamiltonian has no explicit dependence on time, then we can easily integrate Eq.~\eqref{eq:time_dependent_Schrodinger_equation} and write a formal solution for the state as
 
 
 \begin{equation}
@@ -93,12 +93,12 @@ If we write each contribution using math notation, then, the total many-body Ham
 
 \begin{empheq}[innerbox=\fbox, right={\,,}]{align}
     \label{eq:many-body_Hamiltonian}
-    \Ha = \sum_i \frac{p_i^2}{2 m} + \sum_I \frac{P_I^2}{2 M_I} + \sum_{i,I} \frac{-Z_I e^2}{4 \pi \epsz \abs{\br_i - \bR_I}} + \frac{1}{2} \sum_{i \neq j} \frac{e^2}{4 \pi \epsz \abs{\br_i - \br_j}} + \frac{1}{2} \sum_{I \neq J} \frac{Z_I Z_J e^2}{4 \pi \epsz \abs{\bR_I - \bR_J}}\,,
+    \Ha = \sum_i \frac{p_i^2}{2 m} + \sum_I \frac{P_I^2}{2 M_I} + \sum_{i,I} \frac{-Z_I e^2}{4 \pi \epsz \abs{\br_i - \bR_I}} + \frac{1}{2} \sum_{i \neq j} \frac{e^2}{4 \pi \epsz \abs{\br_i - \br_j}} + \frac{1}{2} \sum_{I \neq J} \frac{Z_I Z_J e^2}{4 \pi \epsz \abs{\bR_I - \bR_J}}
 \end{empheq}
 
 \noindent if we write $m$ for the electron mass, $\br_i$ and $\bp_i$ for the position and momentum of the $i$-th electron, respectively, while $\bR_I$, $\mathbf{P}_I$, $M_I$ and $Z_I e$ are the $I$-th ion position, momentum, mass, and charge, respectively.
 This Hamiltonian is written in terms of the real space coordinates of the particles, meaning that we can write a function depending on all the coordinates, called the wavefunction.
-If the problem is that of a single particle, and if it can be found in the state $\ket{\psi}$, then the wavefunction is defined by $\psi(\br) \equiv \braket{\br}{\psi}$---we are just saying that the state of the system can be written in a representation of basis functions belonging to the Hilbert space of all the square-integrable complex valued functions defined in real space\footnote{Being square-integrable means that the integral of their absolute value squared over their domain is finite.}, normalized to 1.
+If the problem is that of a single particle, and if it can be found in the state $\ket{\psi}$, then the wavefunction is defined by $\psi(\br) \equiv \braket{\br}{\psi}$---we are just saying that the state of the system can be written in a representation of basis functions belonging to the Hilbert space of all the square-integrable complex valued functions defined in real space\footnote{Being square-integrable means that the integral of the absolute value squared over their domain is finite.}, normalized to 1.
 With symbols, $\braket{\psi}{\psi} = \int \dr |\psi(\br)|^2 = 1$.
 Obviously, we can see that solving for the eigenstates and eigenenergies of this Hamiltonian is a herculean task---some approximations are needed if we want to even aspire to describe the physics of this system.
 Not only that, but even if we could solve this problem in practice, the wavefunction would have so many variables (of the order of $10^{23}$), there would not be anything we could do in practice with so much information.
@@ -111,7 +111,7 @@ We can start already by saying that we work under low enough temperatures and sm
 In this chapter, we are concerned with the eigenstate with the lowest energy possible, called the ground state (of the crystal).
 A possible way to find the ground state of any system, is by using the variational principle.
 The variational method consists in admitting a trial state $\ket{\Psi}$ that depends on a given set of system parameters.
-In a crystal, let us say that the parameters coincide with the ion positions $\{\bR_I\}$.
+In a crystal, let us say that the parameters are the ion positions $\{\bR_I\}$.
 Then, we compute the expectation value of the Hamiltonian $\mel{\Psi}{\Ha}{\Psi} \equiv E$, and minimize it with respect to the parameters.
 That can be achieved by solving $\partial_{\bR_I} E = 0$ for all $\bR_I$.
 This is the philosophy of the so-called \abinit~methods, which will be discussed on passing in this work.
@@ -121,10 +121,11 @@ We will simply assume that the arrangement of the ions in the solid is known, fo
 To further narrow down what kind of systems we are studying, we will also assume that the arrangement of the ions in the solid forms a periodic structure; the crystal.
 Other types of solids can be found in nature, such as amorphous solids, like glasses, or solid materials with rotational symmetry but no translation symmetry, the quasicrystals~\cite{Chaikin_Lubensky_1995}.
 Herein, the ions occupy positions in the crystalline structure, also called the lattice, such that the potential felt by the electrons $\hat{V}_{e-\mathrm{ions}}(\br)$ from the ions is a periodic function, with the periodicity of the lattice.
-In this work, we will assume that the ionic degrees of freedom are frozen, that is, the ions are stationary, forming a background of positive charge.
-This is the adiabatic of Born--Oppenheimer approximation~\cite{Kittel_2004,Simon_Oxford_2013,Martin_2004}.
+We shall define more precisely what a lattice is in section~\ref{sec:single_particle_properties}.
+In this work, we will assume that the ionic degrees of freedom are frozen, where the ions are stationary and forming a background of positive charge.
+This is the adiabatic or Born--Oppenheimer approximation~\cite{Kittel_2004,Simon_Oxford_2013,Martin_2004}.
 Within this approximation, the electronic and ionic degrees of freedom decouple, and the problem of the electronic structure and excitations can be treated separately from finding the ground state of the lattice and its excitations, also called phonons.
-Interactions between electrons and phonons are thus disregarded in this work, as throughout this text electronic excitations occur at energy scales higher than those where lattice vibrations are relevant\footnote{An example where electron--phonon interaction is important is the \gls{bsc} theory of superconductivity; the microsopic theory that explains why some materials can conduct electricity without dissipation at ver low temperatures (or very high pressures). For the curious reader, one can consult Refs~\cite{Bruus_Flensberg_2004} and~\cite{Mahan} for in-depth technical treatments, or~\cite{Cohen_Louie_2016} for a not as deep technical discussion.}.
+Interactions between electrons and phonons are thus disregarded in this work, as throughout this text electronic excitations occur at energy scales higher than those where lattice vibrations are relevant\footnote{An example where electron--phonon interaction is important is the \gls{bcs} theory of superconductivity; the microsopic theory that explains why some materials can conduct electricity without dissipation at ver low temperatures (or very high pressures). For the curious reader, one can consult Refs~\cite{Bruus_Flensberg_2004} and~\cite{Mahan} for in-depth technical treatments, or~\cite{Cohen_Louie_2016} for a not as deep technical discussion.}.
 Therefore, the ions will remain static in their equilibrium positions at all times, and their role is just to act as a periodic potential on the valence electrons that form an electron gas.
 In the next subsection, we apply one more approximation---the independent electron approximation.
 
@@ -138,8 +139,8 @@ Upon ignoring in the full many-body Hamiltonian~\eqref{eq:many-body_Hamiltonian}
     \Ha = \sum_i  \frac{p_i^2}{2 m} + V_{e-\mathrm{ion}}(\br) \,.
 \end{equation}
 
-\noindent If we write the potential term in the previous expression as a sum over all electrons as $V_{e-\mathrm{ion}}(\br) = \sum_i v_i (\br)$ (with $v_i$ including a sum over all ions), then we have reduced the full many-body problem from Eq.~\eqref{eq:many-body_Hamiltonian} to a sum of single-particle Hamiltonians that are uncoupled, which is a noninteracting problem of identical particles.
-In that case, the solution of the problem encompassing all the electrons is separable.
+\noindent If we write the potential term in the previous expression as a sum over all electrons as $V_{e-\mathrm{ion}}(\br) = \sum_i v_i (\br)$ (with $v_i$ including a sum over all ions, and letting the hat drop), then we have reduced the full many-body problem from Eq.~\eqref{eq:many-body_Hamiltonian} to a sum of single-particle Hamiltonians that are uncoupled, which is a noninteracting problem of identical particles.
+In that case, the problem encompassing all the electrons is separable.
 The wavefunction including all $N$ electrons $\Psi(\br_1,\br_2,...,\br_N)$ can be written as a product of all the single-particle wavefunctions $\psi_i(\br_i)$ as $\Psi(\br_1,\br_2,...,\br_N)= \psi_1(\br_1) \psi_2(\br_2)...\psi_N(\br_N)$, with each unique wavefunction satisfying the \gls{tise}
 
 
@@ -153,25 +154,34 @@ We also ignore the spin in the discussion.
 In other words, this discussion applies to the ferromagnetic electron gas, where all spins have the same orientation\footnote{This discussion is allusive, and does not contradict what we have stated in the first chapter; in this work we do not study the magnetic properties of materials nor materials with permanent magnetization.}.
 In fact, to account for the statistics of the electrons, which are fermions, the wavefunction of all electrons must respect antisymmetry upon permutation of any two electrons.
 Say we permute electron $i$ with electron $j$, the wavefunction must obey $\Psi(\br_1,\br_2,...,\br_i,...,\br_j,...,\br_N) = -\Psi(\br_1,\br_2,...,\br_j,...,\br_i,...,\br_N)$.
-Then, the total wavefunction is the Slater determinant of all single-particle wavefunctions~\cite{Griffiths_QM_2018}, which is the determinant of the matrix that has by entries $\psi_i(\br_j)$, with $i,j=1,...N$, and properly normalized.
+Then, the total wavefunction is the Slater determinant of all single-particle wavefunctions~\cite{Griffiths_QM_2018}, which is the determinant of the matrix that has by entries $\psi_i(\br_j)$, with $i,j=1,...N$, along with a factor of $1/\sqrt{N\,!}$ for normalization.
 The noninteracting wavefunctions can then serve as a basis for the interacting problem.
-With them, we can estimate the ground state energy of the interacting electron gas in a crystalline solid using the Slater determinant as a variational wavefunction.
+With them, we can estimate the ground state energy of the interacting electron gas in a crystalline solid by using the Slater determinant as a variational wavefunction.
 This is called the \hf~method~\cite{Cohen_Louie_2016,Grosso_2014}, commonly introduced in introductory condensed matter physics courses for finding the eigenenergies of the Hamiltonian
-
 
 \begin{empheq}[innerbox=\fbox, right={\,.}]{align}
     \label{eq:HF_Hamiltonian}
     \Ha = \sum_i \left[\frac{p_i^2}{2 m} + v_{i}(\br)\right] + \frac{e^2}{4 \pi \epsz} \sum_{i \neq j} \frac{1}{\qty|\br_i - \br_j|}
 \end{empheq}
 
-The previous Hamiltonian is more realistic than the one in Eq.~\eqref{eq:single_particle_Hamiltonian}, for it accounts for the electron--electron interaction.
-If we know how to solve for the eigenergies and states of the Hamiltonian in Eq.~\eqref{eq:single_particle_Hamiltonian}, then we can solve the previous one approximately by treating the interactions as a perturbation.
+The previous Hamiltonian is more realistic than the one in Eq.~\eqref{eq:single_particle_Hamiltonian}, as it accounts for the electron--electron interaction.
+If we know how to solve for the eigenenergies and states of the Hamiltonian in Eq.~\eqref{eq:single_particle_Hamiltonian}, then we can solve the previous one approximately by treating the interactions as a perturbation.
 Alternatively, we can transform the interacting problem into an effective single-particle problem, where each electron feels an effective potential due to all the other electrons.
-There is a very sophisticated way of doing this, within the framework of \gls{dft}......
-
+There is a very sophisticated way of doing this, within the framework of \gls{dft}, the basis of \abinit~methods to obtain the electronic structure of a material, along other types of properties.
+By electronic structure we mean the electronic dispersion, defining how the energy of traveling electrons in a material depend on their momentum $\bp$.
+The electronic dispersion has been hinted at in the previous chapter, in analogy with the photonic dispersion.
+Within quantum mechanics, subatomic particles have a dual particle--wave behavior.
+Therefore, we can perceive traveling electrons as propagating waves, with their wavevector $\bk$ given by the de Broglie relation $\bp = \hbar \bk$.
+Traditionally in solid state physics, momentum and wavevector are used interchangeably.
+Therefore, from here onwards the symbol $\bp$ might denote wavevector instead of momentum without notice.
+We might also call momentum to a wavevector.
+After all, the conversion between the quantities is simply made by a multiplying factor.
+In the next section, we thoroughly discuss the concept of electronic dispersion in crystalline materials.
 
 \section{Single-Particle Properties of Electrons in Crystals}
 \label{sec:single_particle_properties}
+
+In the previous section, we have touched upon the concept of electronic dispersion in materials...
 
 \subsection{Bloch's Theorem}
 \label{subsec:bloch_theorem}
