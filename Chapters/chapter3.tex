@@ -41,7 +41,7 @@ Both formalisms provide a set of equations governing the time evolution of the d
 When the length scales of a system are so small so that they are no longer classical and are deemed quantum, then it is not possible to follow the exact trajectory of the system in time.
 The state of the system can no longer be identified with a set of coordinates and momenta for which we know their values at any instant in time.
 The state of the system is then a vector state $\ket{\Psi}$ living in a Hilbert space, any vector space endowed with a scalar product\footnote{For us physicists, it suffices to say that a Hilbert space is a vector space with an inner product, as long as that space is far enough from being pathological. For mathematicians, we have to add the condition of the space being complete for the distance induced by the (norm induced by the) inner product. The curious reader can consult Ref.~\cite{Kreyszig_1991} for more details.}
-That same state can evolve in time, and the time evolution is governed by the \gls{tise}, which writes
+That same state can evolve in time, and the time evolution is governed by the \gls{tdse}, which writes~\cite{Griffiths_QM_2018}
 
 \begin{equation}
     \label{eq:time_dependent_Schrodinger_equation}
@@ -50,15 +50,125 @@ That same state can evolve in time, and the time evolution is governed by the \g
 
 \noindent where $\hbar = h / 2\pi$ is the reduced Planck constant, and $\Ha$ is the Hamiltonian operator---no longer a function---of the system.
 The hat above the symbol $H$ is used to stress that we are dealing with an operator now, and not a function.
-We use the term operator to denote a transformation that maps a vector in a Hilbert space to another vector in another Hilbert space; hopefully, both Hilbert spaces coincide.
+We use the term operator to denote a transformation that maps a vector in a Hilbert space to another vector in another Hilbert space; eventually, both Hilbert spaces coincide.
 At some point we shall drop the hat for ease of notation.
 
+If in the \gls{tdse} the Hamiltonian has no explicit dependence on time, then we can easily integrate Eq.~\ref{eq:time_dependent_Schrodinger_equation} and write a formal solution for the state as
+
+
+\begin{equation}
+    \ket{\Psi(t)} = \ei[-]{\Ha (t-t_0)/\hbar} \ket{\Psi(t_0)}\,,
+\end{equation}
+
+\noindent if we know the state of the system $\ket{\Psi(t_0)}$ at the initial time $t_0$.
+We can therefore factor out the time dependence of the state.
+Now we assume that the time-independent part of the state of the system $\ket{\Psi(t_0)}$ can be written in terms of basis states $\ket{\phi_n}$, which are eigenstates of the Hamiltonian with eigenvalues $E_n$, such that $\ket{\Psi(t_0)} = \sum_n c_n \ket{\phi_n}$, with $\Ha \ket{\psi_n} = E_n \ket{\psi_n}$.
+The coefficients $c_n$ can then be computed by projecting $\braket{\phi_m}{\Psi(t_0)} = c_m$.
+However, to know the coefficients $c_n$, we need to know the eigenstates and eigenvalues $E_n$ of the Hamiltonian operator, which xan be found by solving the eigenvalue problem
+
+\begin{equation}
+    \label{eq:time_independent_Schrodinger_equation}
+    \Ha \ket{\phi_n} = E_n \ket{\phi_n}\,,
+\end{equation}
+
+\noindent which is called the \gls{tise}.
+The eigenvalues $E_n$, being eigenvalues of the Hamiltonian operator, they can be interpreted as energies, so we can call them eigenenergies.
+Solving the \gls{tise} is then a key problem in quantum mechanics, whenever $\partial_t \Ha = 0$.
+If the problem is simple enough that the Hamiltonian has a matrix representation, that is, if the Hilbert space is finite-dimensional, then before us there is a simple Linear Algebra problem.
+On the contrary, if the Hilbert space is infinite-dimensional, then commonly the \gls{tise} cannot be solved analytically, apart from very simple systems, like the particle in a box, the quantum harmonic oscillator, and the hydrogen atom among others~\cite{Griffiths_QM_2018}.
+Henceforth, along the years since the discovery of quantum mechanics, many techniques have been developed by physicists to attack different quantum problems, depending on the aspect of the Hamiltonian.
+In analogy with classical mechanics, in many cases the Hamiltonian of a system is the sum of two contributions; one coming from the kinetic energy $\hat{T}$, and the other from the potential energy $\hat{V}$.
+In a solid, we have many particles lying around, namely the heavy nuclei of the atoms composing the material, the core electrons tightly bound to the nuclei, and the valence electrons, which determine most of the material properties at energy scales typical to low-temperature condensed matter systems, from the \unit{\milli\electronvolt} up to the \unit{\electronvolt}.
+We will consider that the core electrons act simply to screen the potential felt by the valence electrons from the nuclei, treating them as positively charged ions.
+If the valence number of the atom is $Z$, then the ion charge is $+Ze$, where $e$ is the elementary charge.
+The total Hamiltonian of a solid is then the sum of several contributions as
+
+\begin{equation}
+    \label{eq:Hmaltonian_crystal}
+    \Ha = \hat{T}_e + \hat{T}_{\mathrm{ions}} + \hat{V}_{e-\mathrm{ions}} + \hat{V}_{e-e} + \hat{V}_{\mathrm{ions-ions}}\,,
+\end{equation}
+
+\noindent where $\hat{T}_e$ is the sum of the kinetic energies coming from the valence electrons, $\hat{T}_{\mathrm{ions}}$ is total kinetic energy of the ions, $\hat{V}_{e-\mathrm{ions}}$ is the potential energy coming from the Coulomb interaction between the outer electrons and the ions, $\hat{V}_{e-e}$ is the potential energy coming from the pair-wise interaction between the electrons, and finally $\hat{V}_{\mathrm{ions-ions}}$ is the potential energy coming from the interaction between the ions.
+If we write each contribution using math notation, then, the total many-body Hamiltonian is
+
+\begin{empheq}[innerbox=\fbox, right={\,,}]{align}
+    \label{eq:many-body_Hamiltonian}
+    \Ha = \sum_i \frac{p_i^2}{2 m} + \sum_I \frac{P_I^2}{2 M_I} + \sum_{i,I} \frac{-Z_I e^2}{4 \pi \epsz \abs{\br_i - \bR_I}} + \frac{1}{2} \sum_{i \neq j} \frac{e^2}{4 \pi \epsz \abs{\br_i - \br_j}} + \frac{1}{2} \sum_{I \neq J} \frac{Z_I Z_J e^2}{4 \pi \epsz \abs{\bR_I - \bR_J}}\,,
+\end{empheq}
+
+\noindent if we write $m$ for the electron mass, $\br_i$ and $\bp_i$ for the position and momentum of the $i$-th electron, respectively, while $\bR_I$, $\mathbf{P}_I$, $M_I$ and $Z_I e$ are the $I$-th ion position, momentum, mass, and charge, respectively.
+This Hamiltonian is written in terms of the real space coordinates of the particles, meaning that we can write a function depending on all the coordinates, called the wavefunction.
+If the problem is that of a single particle, and if it can be found in the state $\ket{\psi}$, then the wavefunction is defined by $\psi(\br) \equiv \braket{\br}{\psi}$---we are just saying that the state of the system can be written in a representation of basis functions belonging to the Hilbert space of all the square-integrable complex valued functions defined in real space\footnote{Being square-integrable means that the integral of their absolute value squared over their domain is finite.}, normalized to 1.
+With symbols, $\braket{\psi}{\psi} = \int \dr |\psi(\br)|^2 = 1$.
+Obviously, we can see that solving for the eigenstates and eigenenergies of this Hamiltonian is a herculean task---some approximations are needed if we want to even aspire to describe the physics of this system.
+Not only that, but even if we could solve this problem in practice, the wavefunction would have so many variables (of the order of $10^{23}$), there would not be anything we could do in practice with so much information.
+In the next subsections, we simplify our problem until we can somewhat describe the physics it contains.
+We can start already by saying that we work under low enough temperatures and small enough energies, such that the system we are dealing with is in fact a solid---the ions are bound to their neighbors through strong chemical bonds, making the whole material rigid~\cite{Simon_Oxford_2013}.
 
 \subsection{Born--Oppenheimer Approximation}
 \label{subsec:born_oppenheimer_approximation}
 
+In this chapter, we are concerned with the eigenstate with the lowest energy possible, called the ground state (of the crystal).
+A possible way to find the ground state of any system, is by using the variational principle.
+The variational method consists in admitting a trial state $\ket{\Psi}$ that depends on a given set of system parameters.
+In a crystal, let us say that the parameters coincide with the ion positions $\{\bR_I\}$.
+Then, we compute the expectation value of the Hamiltonian $\mel{\Psi}{\Ha}{\Psi} \equiv E$, and minimize it with respect to the parameters.
+That can be achieved by solving $\partial_{\bR_I} E = 0$ for all $\bR_I$.
+This is the philosophy of the so-called \abinit~methods, which will be discussed on passing in this work.
+Among other properties to be discussed later in this chapter, they permit finding the equilibrium positions of the atomic nuclei.
+We will simply assume that the arrangement of the ions in the solid is known, for instance, from X-ray experiments~\cite{Kittel_2004,Simon_Oxford_2013}.
+
+To further narrow down what kind of systems we are studying, we will also assume that the arrangement of the ions in the solid forms a periodic structure; the crystal.
+Other types of solids can be found in nature, such as amorphous solids, like glasses, or solid materials with rotational symmetry but no translation symmetry, the quasicrystals~\cite{Chaikin_Lubensky_1995}.
+Herein, the ions occupy positions in the crystalline structure, also called the lattice, such that the potential felt by the electrons $\hat{V}_{e-\mathrm{ions}}(\br)$ from the ions is a periodic function, with the periodicity of the lattice.
+In this work, we will assume that the ionic degrees of freedom are frozen, that is, the ions are stationary, forming a background of positive charge.
+This is the adiabatic of Born--Oppenheimer approximation~\cite{Kittel_2004,Simon_Oxford_2013,Martin_2004}.
+Within this approximation, the electronic and ionic degrees of freedom decouple, and the problem of the electronic structure and excitations can be treated separately from finding the ground state of the lattice and its excitations, also called phonons.
+Interactions between electrons and phonons are thus disregarded in this work, as throughout this text electronic excitations occur at energy scales higher than those where lattice vibrations are relevant\footnote{An example where electron--phonon interaction is important is the \gls{bsc} theory of superconductivity; the microsopic theory that explains why some materials can conduct electricity without dissipation at ver low temperatures (or very high pressures). For the curious reader, one can consult Refs~\cite{Bruus_Flensberg_2004} and~\cite{Mahan} for in-depth technical treatments, or~\cite{Cohen_Louie_2016} for a not as deep technical discussion.}.
+Therefore, the ions will remain static in their equilibrium positions at all times, and their role is just to act as a periodic potential on the valence electrons that form an electron gas.
+In the next subsection, we apply one more approximation---the independent electron approximation.
+
 \subsection{Noninteracting limit}
 \label{subsec:non_interacting_limit}
+
+Upon ignoring in the full many-body Hamiltonian~\eqref{eq:many-body_Hamiltonian} the contributions from the kinetic energy of the ions and their mutual interaction, and furthermore ignore the electron--electron interactions, we arrive at the Hamiltonian
+
+\begin{equation}
+    \label{eq:single_particle_Hamiltonian}
+    \Ha = \sum_i  \frac{p_i^2}{2 m} + V_{e-\mathrm{ion}}(\br) \,.
+\end{equation}
+
+\noindent If we write the potential term in the previous expression as a sum over all electrons as $V_{e-\mathrm{ion}}(\br) = \sum_i v_i (\br)$ (with $v_i$ including a sum over all ions), then we have reduced the full many-body problem from Eq.~\eqref{eq:many-body_Hamiltonian} to a sum of single-particle Hamiltonians that are uncoupled, which is a noninteracting problem of identical particles.
+In that case, the solution of the problem encompassing all the electrons is separable.
+The wavefunction including all $N$ electrons $\Psi(\br_1,\br_2,...,\br_N)$ can be written as a product of all the single-particle wavefunctions $\psi_i(\br_i)$ as $\Psi(\br_1,\br_2,...,\br_N)= \psi_1(\br_1) \psi_2(\br_2)...\psi_N(\br_N)$, with each unique wavefunction satisfying the \gls{tise}
+
+
+\begin{equation}
+    \label{eq:single_particle_Schrodinger_equation}
+    \left[ \frac{p^2}{2 m} + v_i(\br) \right] \psi_i(\br) = \epsilon_i \psi_i(\br)\,,
+\end{equation}
+
+\noindent where $\epsilon_i$ represents the energy of a single electron, and the total energy of the system is simply the sum of all energies $\epsilon_i$.
+We also ignore the spin in the discussion.
+In other words, this discussion applies to the ferromagnetic electron gas, where all spins have the same orientation\footnote{This discussion is allusive, and does not contradict what we have stated in the first chapter; in this work we do not study the magnetic properties of materials nor materials with permanent magnetization.}.
+In fact, to account for the statistics of the electrons, which are fermions, the wavefunction of all electrons must respect antisymmetry upon permutation of any two electrons.
+Say we permute electron $i$ with electron $j$, the wavefunction must obey $\Psi(\br_1,\br_2,...,\br_i,...,\br_j,...,\br_N) = -\Psi(\br_1,\br_2,...,\br_j,...,\br_i,...,\br_N)$.
+Then, the total wavefunction is the Slater determinant of all single-particle wavefunctions~\cite{Griffiths_QM_2018}, which is the determinant of the matrix that has by entries $\psi_i(\br_j)$, with $i,j=1,...N$, and properly normalized.
+The noninteracting wavefunctions can then serve as a basis for the interacting problem.
+With them, we can estimate the ground state energy of the interacting electron gas in a crystalline solid using the Slater determinant as a variational wavefunction.
+This is called the \hf~method~\cite{Cohen_Louie_2016,Grosso_2014}, commonly introduced in introductory condensed matter physics courses for finding the eigenenergies of the Hamiltonian
+
+
+\begin{empheq}[innerbox=\fbox, right={\,.}]{align}
+    \label{eq:HF_Hamiltonian}
+    \Ha = \sum_i \left[\frac{p_i^2}{2 m} + v_{i}(\br)\right] + \frac{e^2}{4 \pi \epsz} \sum_{i \neq j} \frac{1}{\qty|\br_i - \br_j|}
+\end{empheq}
+
+The previous Hamiltonian is more realistic than the one in Eq.~\eqref{eq:single_particle_Hamiltonian}, for it accounts for the electron--electron interaction.
+If we know how to solve for the eigenergies and states of the Hamiltonian in Eq.~\eqref{eq:single_particle_Hamiltonian}, then we can solve the previous one approximately by treating the interactions as a perturbation.
+Alternatively, we can transform the interacting problem into an effective single-particle problem, where each electron feels an effective potential due to all the other electrons.
+There is a very sophisticated way of doing this, within the framework of \gls{dft}......
+
 
 \section{Single-Particle Properties of Electrons in Crystals}
 \label{sec:single_particle_properties}
@@ -459,7 +569,7 @@ The most widely approximation used is to ignore the second term in the last equa
 \section{Dielectric Function and Screening: Quantum Picture}
 \label{sec:dielectric_function_quantum}
 
-Brief introduction stressing the difference between full, \rpa and noninteracting polarizability and dielectric function within self-consistent framework~\cite{Cohen_Louie_2016} and ~\cite{Bruus_Flensberg_2004}.
+Brief introduction stressing the difference between full, \rpa, and noninteracting polarizability and dielectric function within self-consistent framework~\cite{Cohen_Louie_2016} and ~\cite{Bruus_Flensberg_2004}.
 
 Later on in this work, we compute the inverse of the dielectric function to properly account for electrostatic screening in semiconductors and insulators.
 Having an accurate description of screening, one can readily compute the excitonic states.
@@ -538,7 +648,7 @@ Whence, we may time Fourier transform it to the frequency domain and write
 \noindent where $\bR$ is a vector of the Bravais lattice, this for a perfect crystal where \textbf{discrete} translation symmetry is not broken due to defects or boundaries.
 The same can be said about the polarizability $\chi^0$.
 This contrasts with the case of the previous chapter, were invariance.....\todo{complete the reasoning}
-We are still allowed to Fourier transform in space, but we need to keep track of two momenta, say $\bk$ and $\bk'$ instead of just one, so that the polarizability is a two-point function in momentum, $\chi^0 = \chi^0(\bk,\bk')$.
+We are still allowed to Fourier transform in space, but we need to keep track of two momenta, say, $\bk$ and $\bk'$ instead of just one, so that the polarizability is a two-point function in momentum, $\chi^0 = \chi^0(\bk,\bk')$.
 Luckily, as the polarizability still enjoy discrete translation symmetry, one can show that $\chi^0(\bk,\bk')$ is non-zero only if $\bk' = \bk + \mathbf{g}$, where $\mathbf{g}$ is a reciprocal lattice vector.
 Furthermore, we can write any momentum $\bk$ in terms of a vector in the first \gls{bz} $\bq$ and a vector of the reciprocal lattice $\bG$, $\bk = \bq + \bG$.
 The same can be said for the other momentum, $\bk' = \bq + \bG'$, with $\bG' = \bG + \mathbf{g}$ is just another vector of the reciprocal lattice.
@@ -603,5 +713,5 @@ In general, we need to account for the crystal structure, so that the screened C
 
 \noindent for which one needs the inverse dielectric matrix, satisfying $\sum_{\bG''} \varepsilon^{-1}_{\bG \bG''} \varepsilon_{\bG'' \bG'} = \delta_{\bG \bG'}$
 As we will see in the next chapter, it is of upmost importance to capture accurately the screening in semiconductors and insulators, mainly \bd~ones, in order to find realistic results for the excitonic states.
-Now that we have described the ground state properties of materials, we are in a position of introducing the exciton, an optical excitations of materials that can not be ignored when investigating the optical properties of insulators and semiconductors.
+Now that we have described the ground state properties of materials, we are in a position of introducing the exciton, an optical excitations of materials that cannot be ignored when investigating the optical properties of insulators and semiconductors.
 Excitons in \bd~materials are the subject of the next chapter.
