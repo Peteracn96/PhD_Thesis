@@ -15,26 +15,32 @@
 \chapter{Quantum Mechanics of Electrons in Crystalline Solids}
 \label{ch:quantum_mechanics_solids}
 
-We have seen in the previous chapter, that even though classical models explain fairly well many phenomena in electrodynamics, both qualitatively and quantitatively, classical physics cannot predict the precise values of their respective parameters, nor can it explain why they work so well for certain materials, while failing to describe others.
+We have seen in the previous chapter that, even though classical models explain many phenomena in electrodynamics fairly well, both qualitatively and quantitatively, classical physics cannot predict the precise values of their respective parameters, nor can it explain why they work so well for certain materials, while failing to describe others.
 To have a deeper understanding of these models and their regimes of validity, or to faithfully predict material properties in general, one has to adopt a microscopic description of the systems we want to study.
 This means that we have to look at the chemical composition of the material and at the spatial arrangement of the atoms making up the material.
 One has to look at the finer physics at length scales of the order of the angstrom, where classical physics is insufficient.
 
-The tools that allow us to study systems at this level are provided by quantum mechanics, whose father is Max Planck, the german physicist who solved the problem of the ultraviolet catastrophe---an ideal black body radiates an infinite amount of energy at higher frequencies deep into the ultraviolet range of the electromagnetic spectrum.
+The tools that allow us to surpass the shortcomings of classical physics are provided by quantum mechanics.
+It is said that the father of quantum mechanics is Max Planck, the german physicist who solved the problem of the ultraviolet catastrophe---an ideal black body radiates an infinite amount of energy at higher frequencies deep into the ultraviolet range of the electromagnetic spectrum.
 This was the classical prediction by the Rayleigh--Jeans law, which obviously makes no sense.
-It was the hypothesis by Planck that radiation is emitted in discrete amounts of energy, called quanta, that solved the mystery of the black body, giving birth to a new field in physics, which catalyzed a scientific revolution in the previous century.
-Quantum mechanics allowed to solve other problems in physics until then considered open, such as why does not the electron approach the nucleus of the atom as it orbits around it, since it should lose energy due to its curvilinear motion as predicted by the laws of classical electrodynamics.
+It was the hypothesis by Planck that radiation is emitted in discrete amounts of energy, called quanta, that solved the mystery of the black body.
+This grand landmark gave birth to a new field in physics, which catalyzed a scientific revolution in the previous century.
+Quantum mechanics allowed solving other problems in physics until then considered open.
+Such an example was to know why the electron does not fall into the nucleus of the atom in its orbital motion until it loses all its energy, as predicted by classical electrodynamics.
 
-With tools provided by the underlying principles and laws of quantum mechanics, along the years many techniques have been developed since its birth to attack many of varying degree of complexity.
+With tools provided by the underlying principles and laws of quantum mechanics, along the years many techniques have been developed since its birth to tackle.
 We keep our discussion narrowed to solids with a periodic atomic structure, called crystals, until the end of this thesis, and leave all other types of systems (amorphous solids, such as glasses, crystalline solids with defects, few-particle systems, etc.) out of the discussion.
 
-In the field of solid state physics, it is customary to separate the techniques in first-principles based, called \abinit~techniques and are usually computationally intensive, and second-principles based techniques, which are usually much less computationally demanding.
+In the field of solid state physics, it is customary to separate the techniques based in first-principles, called \abinit~techniques and are usually computationally intensive, and those based on second-principles, which are usually much less computationally demanding.
 In this thesis \abinit~approaches will be discussed on a passing note, as those can easily materialize into a thesis in itself, but are nonetheless very relevant in this work.
 
 We start the chapter by...\todo{try to look for more typos}
 
 \section{The Hamiltonian of a Crystal}
-\label{sec:introductory_remarks}
+\label{sec:crystal_hamiltonian}
+
+\subsection{The Schr\"{o}dinger equation}
+\label{subsec:schrodinger_equation}
 
 In classical mechanics, we follow all the degrees of freedom of a system, whose dynamics is governed by the Lagrangian function, in the Lagrangian formalism, or by the Hamiltonian function, in the Hamiltonian formalism.
 Both formalisms provide a set of equations governing the time evolution of the degrees of freedom of the system, that together with the initial conditions, determine the state of the system at any time in the future in the configuration space, for the Lagrangian formalism, or any state in the phase space, for the Hamiltonian formalism~\cite{goldstein:mechanics}.
@@ -74,17 +80,22 @@ However, to know the coefficients $c_n$, we need to know the eigenstates and eig
 \noindent which is called the \gls{tise}.
 The eigenvalues $E_n$, being eigenvalues of the Hamiltonian operator, they can be interpreted as energies, so we can call them eigenenergies.
 Solving the \gls{tise} is then a key problem in quantum mechanics, whenever $\partial_t \Ha = 0$.
-If the problem is simple enough that the Hamiltonian has a matrix representation, that is, if the Hilbert space is finite-dimensional, then before us there is a simple Linear Algebra problem.
-On the contrary, if the Hilbert space is infinite-dimensional, then commonly the \gls{tise} cannot be solved analytically, apart from very simple systems, like the particle in a box, the quantum harmonic oscillator, and the hydrogen atom among others~\cite{Griffiths_QM_2018}.
-Henceforth, along the years since the discovery of quantum mechanics, many techniques have been developed by physicists to attack different quantum problems, depending on the aspect of the Hamiltonian.
+If the problem is simple enough that the Hamiltonian has a matrix representation, that is, if the Hilbert space is finite-dimensional, then before us there is a simple linear algebra problem.
+On the contrary, if the Hilbert space is infinite-dimensional, then the \gls{tise} cannot be solved analytically, apart from a small list of systems, like the particle in a box, the quantum harmonic oscillator, and the hydrogen atom~\cite{Griffiths_QM_2018}, among others.
+Henceforth, along the years since the discovery of quantum mechanics, physicists have developed many techniques to attack different quantum problems, depending on the aspect of the Hamiltonian.
 In analogy with classical mechanics, in many cases the Hamiltonian of a system is the sum of two contributions; one coming from the kinetic energy $\hat{T}$, and the other from the potential energy $\hat{V}$.
+In the next subsection, we try to write an expression for the Hamiltonian of a crystal.
+
+\subsection{The many-body Hamiltonian of a crystal}
+\label{subsec:many_body_crystal_hamiltonian}
+
 In a solid, we have many particles lying around, namely the heavy nuclei of the atoms composing the material, the core electrons tightly bound to the nuclei, and the valence electrons, which determine most of the material properties at energy scales typical to low-temperature condensed matter systems, from the \unit{\milli\electronvolt} up to the \unit{\electronvolt}.
 We will consider that the core electrons act simply to screen the potential felt by the valence electrons from the nuclei, treating them as positively charged ions.
 If the valence number of the atom is $Z$, then the ion charge is $+Ze$, where $e$ is the elementary charge.
 The total Hamiltonian of a solid is then the sum of several contributions as
 
 \begin{equation}
-    \label{eq:Hmaltonian_crystal}
+    \label{eq:Hamiltonian_crystal}
     \Ha = \hat{T}_e + \hat{T}_{\mathrm{ions}} + \hat{V}_{e-\mathrm{ions}} + \hat{V}_{e-e} + \hat{V}_{\mathrm{ions-ions}}\,,
 \end{equation}
 
@@ -106,7 +117,7 @@ Not only that, but even if we could solve this problem in practice, the wavefunc
 In the next subsections, we simplify our problem until we can somewhat describe the physics it contains.
 We can start already by saying that we work under low enough temperatures and small enough energies, such that the system we are dealing with is in fact a solid---the ions are bound to their neighbors through strong chemical bonds, making the whole material rigid~\cite{Simon_Oxford_2013}.
 
-\subsection{Born--Oppenheimer Approximation}
+\subsection{Born--Oppenheimer approximation}
 \label{subsec:born_oppenheimer_approximation}
 
 In this chapter, we are concerned with the eigenstate with the lowest energy possible, called the ground state (of the crystal).
@@ -168,13 +179,13 @@ This is called the \hf~method~\cite{Cohen_Louie_2016,Grosso_2014}, commonly intr
 The previous Hamiltonian is more realistic than the one in Eq.~\eqref{eq:single_particle_Hamiltonian}, as it accounts for the electron--electron interaction.
 If we know how to solve for the eigenenergies and states of the Hamiltonian in Eq.~\eqref{eq:single_particle_Hamiltonian}, then we can solve the previous one approximately by treating the interactions as a perturbation.
 Alternatively, we can transform the interacting problem into an effective single-particle problem, where each electron feels an effective potential due to all the other electrons.
-There is a very sophisticated way of doing this, within the framework of \gls{dft}, the basis of \abinit~methods to obtain the electronic structure of a material, among other types of properties.
-By electronic structure we mean the electronic dispersion, defining how the energy of traveling electrons in a material depend on their momentum $\bp$.
+There is a very sophisticated way of doing this, within the framework of \gls{dft}, the basis of \abinit~methods to calculate the electronic properties of a material, among other types of properties.
+By electronic structure we mean the electronic dispersion, defining how the energy of traveling electrons in a material depends on their momentum $\bp$.
 The electronic dispersion has been hinted at in the previous chapter, in analogy with the photonic dispersion.
 Within quantum mechanics, subatomic particles have a dual particle--wave behavior.
 Therefore, we can perceive traveling electrons as propagating waves, with their wavevector $\bk$ given by the de Broglie relation $\bp = \hbar \bk$.
 Traditionally, in solid state physics the quantities momentum and wavevector are used interchangeably.
-Therefore, from here onwards, the symbol $\bp$ might denote wavevector instead of momentum without notice.
+Therefore, by abuse of language and notation, from here onwards, the symbol $\bp$ might denote wavevector instead of momentum without notice.
 We might also call momentum to a wavevector.
 After all, the conversion between the quantities is simply made by a multiplying factor.
 In the next section, we thoroughly discuss the concept of electronic dispersion in crystalline materials.
@@ -182,50 +193,159 @@ In the next section, we thoroughly discuss the concept of electronic dispersion 
 \section{Single-Particle Properties of Electrons in Crystals}
 \label{sec:single_particle_properties}
 
-In the previous section, we have touched upon the concept of electronic dispersion in materials...
+In the previous section, we have touched upon the concept of electronic dispersion in materials, which pertains to the nontrivial dependence of an electron's energy on momentum.
+Before we address that problem, there are still some concepts we wish to clarify.
+The first is the concept of lattice.
+It can be defined as an infinite, but discrete, set of points in space, such that all points are equivalent.
+Regardless of where one stands in the lattice, the landscape is the same.
+For example, let us look at an example, the triangular lattice depicted in Fig.~\ref{fig:triangular_lattice} below.
+As one can see, this set of points enjoys discrete translational symmetry.
+We call any translation vector $\bR$ that leaves the lattice invariant a lattice vector.
+In other words, a lattice vector connects any two points in the lattice.
+We call the smallest possible lattice vectors the primitive lattice vectors.
+In two dimensions, we need two primitive lattice vectors, whose span generates the entire lattice.
+In Fig.~\ref{fig:triangular_lattice}, the red vectors denoted by $\ba_1$ and $\ba_2$ are possible primitive lattice vectors.
+Evidently, their choice is not unique.
+Therefore, any lattice vector can be written as an integer linear combination of these vectors.
+Mathematically, we write
+
+\begin{equation}
+    \label{eq:lattice_vector_definition}
+    \bR = n_1 \ba_1 + n_2 \ba_2, \qq{with} n_1,n_2 \in \mathbb{Z}\,.
+\end{equation}
+
+The shaded gray area in the same figure represents a portion of the lattice, such that upon all possible translations by a lattice vector, we can generate the entire crystal.
+We call such a region a unit cell.
+The unit cell is, of course, not unique---we can choose different shapes and sizes, as long as the whole lattice can be generated by translating the tile.
+In Fig.~\ref{fig:triangular_lattice}, we display a tile with the smallest possible area, so it is called a primitive unit cell.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Chapters/Figures/Chapter_3/triangular_lattice}
+    \mycaption[An example of a 2D lattice: triangular lattice]{The triangular lattice. The vectors $\ba_1$ and $\ba_2$ are primite lattice vectors, and $\bR = - \ba_1 + 2 \ba_2$ is a lattice vector. The shaded gray are represents a posible primitive unit cell.}
+    \label{fig:triangular_lattice}
+\end{figure}
+
+We have defined a lattice as a set of points that are all equivalent.
+As examples, we have diamond, composed only of carbon atoms, or black phosphorus~\footnote{There are not infinitely many examples, since the total number of possible Bravais lattices is finite. In two dimensions there are only five, while in three dimensions there are in total fourteen.}.
+Nonetheless, we can find in nature many crystalline materials composed of more than one chemical element, and we cannot say that all points are equivalent in those materials.
+We can even have a crystal composed of a single chemical element, but cannot be classified as a lattice in the way we defined it.
+A striking example is graphene~\cite{Novoselov_Geim_2004}.
+Then, let us denote by Bravais lattice the way we defined a lattice initially.
+A lattice will then be a Bravais lattice plus a basis, or motif, where the unit cell is that of the underlying Bravais lattice, but including the atomic sites that ``spoil'' the equivalence of all points in the lattice.
+As an example, there is the hexagonal or honeycomb lattice, where the atomic sites are arranged in a hexagonal pattern.
+It can be seen as two interpenetrated triangular lattices, each one forming a sublattice.
+Graphene and \gls{hbn} can be found, as monolayers, in this configuration, which is depicted in Fig.~\ref{fig:hBN_lattice}.
+The latter example is very relevant in this work, as we shall see later.
+
+As lattices enjoy translation symmetry, then we can guess that momentum is a good quantum number to describe electronic states in these materials.
+Therefore, it is useful to have a description of the lattice in terms of wavevectors and set a framework to write periodic functions in Fourier series.
+In other words, we need an equivalent to the lattice in reciprocal space.
+Let us define the reciprocal lattice as the set of all vectors $\bG$ such that $\ei{\bG \vdot \bR} = 1$, for any lattice vector $\bR$~\cite{Simon_Oxford_2013,Kittel_2004,Ashcroft_Mermin,Bruus_Flensberg_2004}.
+In two dimensions, any reciprocal lattice vector can be written as
+
+\begin{equation}
+    \label{eq:reciprocal_lattice_vector_definition}
+    \bG = m_1 \bb_1 + m_2 \bb_2, \qq{with} m_1,m_2 \in \mathbb{Z}\,,
+\end{equation}
+
+\noindent where $\bb_1$ and $\bb_2$ are primitive vectors of the reciprocal lattice.
+They can be obtained by solving the set of equations of the form $\ba_i \vdot \bb_j = 2 \pi \delta_{ij}$, with $i,j=1,2$.
+In this way, given the expression for any lattice vector as per~\eqref{eq:lattice_vector_definition}, then the condition $\ei{\bG \vdot \bR} = 1$ is always fulfilled.
+The real space lattice is composed in general by a Bravais lattice and a basis, but it is always the direct Bravais lattice defining the reciprocal lattice.
+
+We define now the first Brillouin zone, or simply \gls{bz}, as the set of points $\bk$ such that $|\bk| < |\bk - \bG|$ for all $\bG \neq \bzero$.
+Explained in another way, let us fix a primitive unit cell of the reciprocal lattice, and set the origin inside that cell, say with $\bG = \bzero$.
+Then, if any point $\bk$ in that cell is closer to the origin than to any other point in the reciprocal lattice equivalent to the origin, then that cell is the \gls{bz}~\cite{Grosso_2014}.
+Any momentum in the reciprocal space can then be defined by another momentum in the \gls{bz} plus a reciprocal lattice vector.
+We can say that the momentum in a crystal, when it is conserved, it is conserved modulo a vector of the reciprocal lattice.
+Therefore, we can speak of crystal momentum as the relevant quantum number in crystals, instead of momentum~\cite{Simon_Oxford_2013}.
+We do not wish for the language used in this thesis to be too pedantic, in detriment of clarity.
+By one more abuse of language, let us speak of momentum when we are in fact dealing with crystal momentum.
+
+In this way, if we are working with a periodic function $f(\br)$ with the periodicity of the direct lattice, then it can be expanded in Fourier series as $f(\br) = \sum_{\bG} \ee^{\ii \bG \vdot \bR}$.
+These concepts will be key to understanding the Bloch theorem and its importance, to be explained in the next subsection.
 
 \subsection{Bloch's Theorem}
 \label{subsec:bloch_theorem}
 
+We have at this point all the necessary tools to state and understand Bloch's theorem\footnote{Its original form is actual for \gls{1d} systems, or equivalently, for ordinary differential equations, and is due to the mathematician Gaston Floquet. The very same mathematician of the Floquet formalism of time-periodic Hamiltonians in quantum mechanics~\cite{Holthaus_2015}.}, named after the physicist Felix Bloch.
+It has different formulations and ways to be proved.
+The formal proofs are here omitted, but we provide a short motivation for the statements below.
+Until it becomes relevant for the discussion, we shall ignore the spin of the electron.
 
-\subsection{Electronic band structure (methods)}
+\begin{theorem}[Bloch theorem]
+    \label{th:Bloch_theorem}
+    Let $H$ be a Hamiltonian with a potential $V(\br)$ periodic in space, $\psi_{\bk}(\br)$ the eigenfunction of an electron with momentum $\bk$ and $\epsilon(\bk)$ its eigenenergy.
+    Let $\bR$ be any lattice vector.
+    Then, the following statements hold and are equivalent:
+
+    \begin{enumerate}[label=(\arabic*),ref=(\arabic*)]
+        \item The wavefunction can be written in terms of a modulated plane wave $\psi_{\bk}(\br) = \ei{\bk \vdot \br} u_{\bk}(\br)$, with the function $u_{\bk}(\br)=u_{\bk}(\br + \bR)$ having the periodicity of the lattice;  \label{Bloch_theorem_I}
+        \item The wavefunction $\psi_{\bk}(\br)$ satisfies $\psi_{\bk}(\br + \bR) = \ei{\bk \vdot \bR} \psi_{\bk}(\br)\,$. \label{Bloch_theorem_II}
+    \end{enumerate}
+\end{theorem}
+
+The eigenfunction $\psi_{\bk}(\br)$ is known as the \underline{Bloch wavefunction}, while its periodic part $u_{\bk}(\br)$ is called the \underline{Bloch function}.
+This theorem can be motivated in a simple ad-hoc way, by assuming that the wavefunction of the electron $\psi_{\bk}(\br)$ can be appropriately expanded in a basis of plane waves as $\psi_{\bk}(\br) = \sum_{\bG} C^{\bk}_{\bG} \ei{(\bk - \bG) \vdot \br}$.
+If we factor out the exponential $\ei{\bk \vdot \br}$ from the sum, then the first statement of the theorem becomes evident.
+The second statement can be straightforwardly proved from the first one.
+From the second statement, by identifying $u_{\bk}(\br) = \ei[-]{\bk \vdot \br} \psi_{\bk}(\br)$, we can in turn arrive at the first statement.
+Statement~\ref{Bloch_theorem_II} can also be proved by translational symmetry arguments and basic concepts of group theory~\cite{Cohen_Louie_2016}.
+
+We have studied in this subsection the properties of electronic eigenstates in a crystal subject to a periodic potential.
+The dynamics of the electrons are governed by the noninteracting single-particle Hamiltonian in Eq.~\eqref{eq:single_particle_Hamiltonian}.
+For that reason, the properties here discussed are said to be at the single-particle level.
+The state the electron with momentum $\bk$ occupies is a single-particle state, also called a Bloch state in the context of solids.
+Bloch states will serve as a basis for the interacting problem, as we will see in the next chapter.
+In fact, for a single momentum $\bk$, we can have several energy states the electrons can populate.
+If we label them by an integer $n$, then a general Bloch state in braket notation writes $|\psi_{n \bk}\rangle$, or more concisely, $\ket{n,\bk}$.
+Then, the allowed energies are also labeled in the same way as $\epsilon_{n \bk}$.
+For a fixed $n$, we call the entire set of energies $\epsilon_{n \bk}$ with $\bk$ varying in the \bz~an energy band, or simply band.
+Then, the set of all bands $\{\epsilon_{n \bk}\}$ is called the (electronic) band structure of the material.
+These bands define the dispersive behavior of electron waves in a crystal.
+The ground state of the $N$-electron system is obtained by filling the bands, starting from the bands with lower energies, until there are no valence electrons left.
+In the following subsection, we discuss different methods to calculate the band structure.
+
+
+\subsection{Electronic band structure: tight-binding and \abinit~methods}
 \label{subsec:electronic_band_structure}
 
 One central problem in condensed matter physics is to calculate the electronic band structure of a given solid material.
 This means calculating all the bands at every point $\bk$ in the \gls{bz}.
 An electron in a specific band $n$ with crystal momentum $\bk$ has kinetic energy $\epsilon_{n \bk}$.
 In analogy with optics, we can call the $\bk$ dependence of the energy electronic dispersion, with the wave being now electronic instead of electromagnetic.
-From here onwards, when referring to the band structure, that we can denote with symbols by $\{\epsilon_{n \bk}\}$, we will always implicitly mean electronic band structure, as there are bands of other kinds (phononic, photonic, etc.).
-Once the band structure, which is a ground-state characteristic of the material, is determined, one is invited to do post-calculations to find other ground state or exciting state properties.
+From here onwards, when referring to the band structure $\{\epsilon_{n \bk}\}$, we will always implicitly mean electronic band structure, as there are bands of other kinds (phononic, photonic as we have seen in the previous chapter, etc.).
+Once the band structure, a ground state characteristic of the material, is determined, one is invited to do post-calculations to find other ground state or excited state properties.
 But first, we need to better understand the concepts related to the bands of a crystalline solid.
 
 \subsubsection{Tight-binding method}
 \label{subsubsec:tight_binding_method}
 
-There are several different descriptions for material band structures.
+There is a number of different descriptions for material band structures.
 Two simple ones are the nearly free electron model and the tight-binding model.
-In the first, one assumes the electron moves freely from atom to atom, so that we can assume the electrons can be found in plane-wave states with parabolic dispersion, and the crystalline structure is seen as a small perturbation.
+In the first, one assumes the electron moves freely from atom to atom, so that it can be found in a plane wave state with parabolic dispersion, and the crystalline structure is seen as a small perturbation.
 The electronic dispersion in the case of the nearly free electron model is simply given by $\varepsilon_{\bG} (\bk) = \hbar^2 \abs{\bk - \bG}^2 / 2m$, with the reciprocal lattice vectors $\bG$ labeling the bands.
 This model is particularly good for standard metals, like aluminum~\cite{Levinson_aluminum}, that have a compact or closest-packed crystal structure.
 
-In the opposite limit where the crystal is not compact and the atoms are further apart, electrons have more difficulty in moving from atom to atom, and then we say that they are tightly-bound to the atoms.
-We usually associate this type of crystals with materials with poor conducting properties, termed insulators.
-In the case the material conducts at high enough temperatures, then we call it a semiconductor.
+In the opposite limit where the crystal is not compact and the atoms are further apart, electrons have more difficulty in moving from atomic site to atomic site, and then we say that they are tightly-bound to the atoms.
+We usually associate this type of crystals with materials with poor conducting properties, those presenting a band gap.
+These can be classified as insulators or semiconductors, depending on how the size of the band gap compares with the thermal energy, as we have explained before in section~\ref{subsec:polaritonics_dispersion_relation}.
 
-Within this formalism, the Bloch wavefunctions are the linear combination of atomic orbitals.
+Within this formalism, the Bloch wavefunctions are the linear combination of atomic orbitals, instead of being written as a superposition of plane waves.
 This is called the \gls{lcao} method or approximation.
 In math notation, we write for the wavefunction of an electron in the Bloch state of band $n$ with momentum $\bk$
 
-\begin{equation}
+\begin{empheq}[innerbox=\fbox, right={\,,}]{align}
     \label{eq:Bloch_state_LCAO}
-    \psi_{n \bk} (\br) = \frac{1}{\sqrt{N}} \sum_{\bR} \ei{\bk \vdot \bR} \sum_{i \alpha} C_{i \alpha}^{n \bk} \phi_{\alpha} (\br - \bR - \bt_i)\,,
-\end{equation}
+    \psi_{n \bk} (\br) = \frac{1}{\sqrt{N}} \sum_{\bR} \ei{\bk \vdot \bR} \sum_{i \alpha} C_{i \alpha}^{n \bk} \phi_{\alpha} (\br - \bR - \bt_i)
+\end{empheq}
 
 \noindent where the sum in $\bR$ is over the vectors of the lattice (not over all the atomic sites), $i$ is an index that labels the atomic species at the position $\bt_i$ in the motif, and $\alpha$ is an index that labels the type of the atomic orbital ($1s,2s,2p,3s,\dots$).
 Usually we sum only over the atomic orbitals in the outer shells of the atom that are populated by the valence electrons.
-This is justifiable as the valence electrons are the only ones that participate in the physics we are looking at, namely phenomena involving energies from the~\unit{\milli\electronvolt} up to a few~\unit{\electronvolt}.
+This is justifiable, as the valence electrons are the only ones that participate in the physics we are looking at, as explained in the beginning of section~\ref{subsec:many_body_crystal_hamiltonian}.
 
-We introduce now the concept of Bloch Hamiltonian, a very useful one in the tight-binding method and in this work.
+We introduce now the concept of Bloch Hamiltonian, a very useful one in the tight-binding method, and in this work overall.
 We start by rewriting the Bloch state in Eq.~\eqref{eq:Bloch_state_LCAO} as
 
 \begin{equation}
@@ -234,16 +354,16 @@ We start by rewriting the Bloch state in Eq.~\eqref{eq:Bloch_state_LCAO} as
 \end{equation}
 
 \noindent where we defined the new function $\Phi_{i \alpha} (\bk,\br) = \ei{\bk \vdot \bR} \phi_\alpha (\br - \bR - \bt_i)$.
-The Bloch state~\eqref{eq:Bloch_state_LCAO_auxiliar} is an eigenstate of the Hamiltonian with energy $\epsilon$ (omitting band and momentum index for now):
+The Bloch state~\eqref{eq:Bloch_state_LCAO_auxiliar} is an eigenstate of the Hamiltonian with energy $\epsilon$ (omitting band and momentum indexes for now):
 
 \begin{equation}
-    \Ha \psi_{n \bk} (\br) = \epsilon \psi_{n \bk} (\br) \Leftrightarrow \sum_{i \alpha} C_{i \alpha}^{n \bk} \Ha\Phi_{i \alpha} (\bk,\br) = \epsilon \sum_{i \alpha} C_{i \alpha}^{n \bk} \Phi_{i \alpha} (\bk,\br) \,.
+    H \psi_{n \bk} (\br) = \epsilon \psi_{n \bk} (\br) \Leftrightarrow \sum_{i \alpha} C_{i \alpha}^{n \bk} H\Phi_{i \alpha} (\bk,\br) = \epsilon \sum_{i \alpha} C_{i \alpha}^{n \bk} \Phi_{i \alpha} (\bk,\br) \,.
 \end{equation}
 
 \noindent Now, we multiply by $\Phi^*_{j \beta} (\bk,\br)$ and integrate in space
 
 \begin{equation}
-    \sum_{i \alpha} C_{i \alpha}^{n \bk} \underbrace{\int \dr\, \Phi^*_{j \beta} (\bk,\br) \Ha \Phi_{i \alpha} (\bk,\br)}_{H_{j \beta, i \alpha} (\bk)} = \epsilon \sum_{i \alpha} C_{i \alpha}^{n \bk} \underbrace{ \int \dr\, \Phi^*_{j \beta} (\bk,\br) \Phi_{i \alpha} (\bk,\br)}_{S_{j \beta, i \alpha}(\bk)}
+    \sum_{i \alpha} C_{i \alpha}^{n \bk} \underbrace{\int \dr\, \Phi^*_{j \beta} (\bk,\br) H \Phi_{i \alpha} (\bk,\br)}_{H_{j \beta, i \alpha} (\bk)} = \epsilon \sum_{i \alpha} C_{i \alpha}^{n \bk} \underbrace{ \int \dr\, \Phi^*_{j \beta} (\bk,\br) \Phi_{i \alpha} (\bk,\br)}_{S_{j \beta, i \alpha}(\bk)}
 \end{equation}
 
 \noindent to obtain the eigenvalue problem
@@ -257,10 +377,11 @@ The Bloch state~\eqref{eq:Bloch_state_LCAO_auxiliar} is an eigenstate of the Ham
 \noindent where we defined the arrays $\bC^{n \bk}$ with entries $(\bC^{n \bk})_{i \alpha} = C_{i \alpha}^{n \bk}$, and the matrices $H(\bk)$ and $S(\bk)$ with matrix elements
 
 \begin{equation}
-    H_{j \beta, i \alpha}(\bk) = \mel{\Phi_{j \beta} (\bk,\br)}{\Ha}{\Phi_{i \alpha} (\bk,\br)} \qq{and} S_{j \beta, i \alpha}(\bk) = \braket{\Phi_{j \beta} (\bk,\br)}{\Phi_{i \alpha} (\bk,\br)} \,.
+    H_{j \beta, i \alpha}(\bk) = \mel{\Phi_{j \beta} (\bk,\br)}{H}{\Phi_{i \alpha} (\bk,\br)} \qq{and} S_{j \beta, i \alpha}(\bk) = \braket{\Phi_{j \beta} (\bk,\br)}{\Phi_{i \alpha} (\bk,\br)} \,,
 \end{equation}
 
-\noindent We call the $S$ matrix the overlap matrix, and for the matrix elements we can write
+\noindent respectively.
+We call the $S$ matrix the overlap matrix, and for the matrix elements we can write
 
 \begin{equation}
     \begin{split}
@@ -269,15 +390,15 @@ The Bloch state~\eqref{eq:Bloch_state_LCAO_auxiliar} is an eigenstate of the Ham
     \end{split}
 \end{equation}
 
-\noindent where from the 1st to the second line we fixed $\bR_i = \bzero $, which is valid since both sums are over vectors of the Bravais lattice.
-In matrix form we can write
+\noindent where from the 1st to the second line we fixed $\bR' = \bzero $, which is valid since both sums are over all vectors of the Bravais lattice.
+In matrix form, we can write
 
 \begin{equation}
     S(\bk) = \sum_{\bR} \ei{\bk \vdot \bR} s(\bR)\,.
 \end{equation}
 
-\noindent In this work, we work typically with basis of orthogonal orbitals, such that any two different orbitals do not overlap.
-This holds in particular for the case where the localized orbitals are not atomic orbitals, but Wannier functions, which are orthogonal by construction.
+\noindent Herein, we typically work in a basis of orthogonal orbitals, such that any two different orbitals do not overlap.
+This holds in particular for the case where the localized orbitals are not atomic orbitals, but Wannier functions instead, which are orthogonal by construction\footnote{The Wannier functions result from transforming, by linear superpositions, the basis of the Bloch wavefunctions~\eqref{eq:Bloch_state_LCAO} into a basis of localized functions~\cite{Marzari_2012}.}.
 This makes $S(\bk) = \mathds{1}$, simplifying the eigenvalue problem~\eqref{eq:Bloch_eigenvalue_problem}.
 Following an analogous procedure for the Hamiltonian, one obtains
 
@@ -286,28 +407,38 @@ Following an analogous procedure for the Hamiltonian, one obtains
     H(\bk) = \sum_{\bR} \ei{\bk \vdot \bR} H(\bR) \,,
 \end{equation}
 
-\noindent where $\bk$ denotes crystal momentum as usual, the sum is over all vectors of the Bravais lattice $\bR$, and $H(\bR)$ is the real space Hamiltonian at the site $\bR$, commonly called a Fock matrix, and has by matrix elements $H_{j \beta, i \alpha} (\bR) = \mel{\phi_{\beta} (\br - \bt_j)}{\Ha}{\phi_{\alpha} (\br - \bR - \bt_i)}$.
+\noindent where $\bk$ denotes crystal momentum as usual, the sum is over all vectors of the Bravais lattice $\bR$, and $H(\bR)$ is the real space Hamiltonian at the site $\bR$, commonly called a Fock matrix, and has by matrix elements $H_{j \beta, i \alpha} (\bR) = \mel{\phi_{\beta} (\br - \bt_j)}{H}{\phi_{\alpha} (\br - \bR - \bt_i)}$.
 These matrix elements are called transfer integrals.
-If $\bR \neq \bzero$, then they are a measure of how likely an electron is to hop from one orbital to another one in a different unit cell, and are called hopping parameters in the jargon of the tight-binding approach.
-The matrix $H(\bk)$ presented just now is the so-called Bloch Hamiltonian, and its eigenvalues form the band structure $\{\epsilon_{n \bk}\}$, and its eigenvectors are the arrays (or vectors) $\bC^{n \bk}$, whose elements are usually called the tight-binding coefficients.
+If $\bR \neq \bzero$, then they are a measure for how likely it is an electron to hop from one orbital to another one in a different unit cell, and are called hopping parameters in the jargon of the tight-binding approach.
+The matrix $H(\bk)$ presented just now is the so-called Bloch Hamiltonian.
+Its eigenvalues form the band structure $\{\epsilon_{n \bk}\}$, and its eigenvectors are the arrays (or vectors) $\bC^{n \bk}$, whose elements are usually called the tight-binding coefficients.
 
 The Bloch Hamiltonian deserves a pertinent technical remark, pertaining to the sum in Eq.~\eqref{eq:Bloch_Hamiltonian_definition} and the argument of the imaginary exponential.
 In Eq.~\eqref{eq:Bloch_Hamiltonian_definition} we use the Fock matrices summing over unit cells with positions $\bR$.
 There is in fact an alternative definition for the Bloch Hamiltonian, where the sum is over all lattice sites.
 The first case is called the \enquote{periodic} form or the \enquote{lattice-gauge} form, as it has the periodicity of the reciprocal lattice.
-It means that $H(\bk) = H(\bk + \bG)$ for any reciprocal lattice vector $\bG$, and it is not unique, as it depends on the choice of the unit cell.
+It means that $H(\bk) = H(\bk + \bG)$ for any reciprocal lattice vector $\bG$, but it is not unique, as it depends on the choice of the unit cell.
 The alternative case is called the \enquote{canonical} form, or the \enquote{atomic-gauge} form, and it is unique, but in general $H(\bk) \neq H(\bk + \bG)$ for a reciprocal lattice vector $\bG$.
 If there is only one atom per unit cell, which is the case of Bravais lattices, the two forms coincide, but if they do not, one can still go from one gauge to the other through a unitary transformation.
-Nonetheless, in all cases in this work it does not change the results; there might be problems though when dealing with geometric phases or topological invariants~\cite{Cayssol_2021}.
+Nonetheless, in all cases in this work it does not change the results; problems may arise though, when dealing with geometric phases or topological invariants~\cite{Cayssol_2021}.
 We present now a simple tight-binding model for a key \bd~material in this work, monolayer \gls{hbn}.
 \\
 \\
 \textit{\underline{Monolayer hexagonal boron nitride: a minimal tight-binding model}}
 
+In its multilayer form, \gls{hbn} is a rather interesting material.
+For instance, it is hyperbolic---besides its refractive index being anisotropic, the components of the permittivity tensor pertaining to the off-plane and in-plane directions have opposite signs~\cite{Caldwell_2019}.
+As a consequence, its isofrequency surfaces, the surfaces in momentum space over which the frequency is constant, are hyperboloids instead of spheres, which is the case for isotropic materials.
+The isofrequency surfaces, or contours, help visualise what happens to the polaritonic dispersion, which is relevant for developing applications in nanophotonics.
+This makes \gls{hbn} a promising material for photonic applications, such as hyperlensing; this in the mid-\gls{ir}.
+In this same range, it presents hyperbolic phonon--polaritons~\cite{Sun_2015}, which have been already experimentally observed in nanostructures~\cite{Brown_Davanco_2018}, and even in its monolayer form~\cite{Dai_Fang_2019,Li_2021}.
+In similarity with the plasmon--polariton discussed in the previous chapter, the phonon--polariton is the result of the hybridization between the excitation of the lattice, the phonon already mentioned previously in this chapter, and the photon.
+In the context of condensed matter physics, ....
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_3/hBN_lattice_&_BZ}
-    \mycaption[hBN lattice and Brillouin Zone]{Blue and yellow atoms represent different site types in the unit cell, the blue atoms and yellow atoms correspond to Boron and Nitrogen atoms, respectively.}
+    \mycaption[hBN lattice and Brillouin Zone]{Blue and yellow atoms represent different site types. The blue atoms and yellow atoms correspond to boron and nitrogen, respectively.}
     \label{fig:hBN_lattice}
 \end{figure}
 
@@ -331,7 +462,7 @@ With $a$ being the length of the chemical bonds,
     \label{eq:delta_vectors}
 \end{subequations}
 
-with the reciprocal lattice vectors
+\noindent with the primitive reciprocal lattice vectors
 
 \begin{subequations}
     \begin{align}
