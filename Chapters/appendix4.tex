@@ -1,0 +1,76 @@
+%!TEX root = ../template.tex %
+% !TeX spellcheck = e n_US
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% appendix4.tex
+%% NOVA thesis document file
+%%
+%% Chapter with example of appendix with a short dummy text
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\typeout{NT FILE appendix4.tex}%
+
+\chapter{2D dielectric function and optical conductivity equivalence}
+\label{app:2D_optical_conductivity}
+
+In this appendix we relate the dielectric function with the optical conductivity in \gls{2d} systems.
+The derivation presented here is adapted from unpublished notes by N.~M.~R.~Peres.
+
+Let us consider the Poisson equation
+
+\begin{equation}
+    \label{eq:Poisson_equation}
+    \nabla  \vdot  \bE(\br,t)=\frac{e}{\epsz}\delta(\br)+\frac{e}{\epsz}n_{\BD}(\br,t)\delta(z),
+\end{equation}
+
+\noindent and the continuity equation
+
+\begin{equation}
+    -e\frac{\partial n_{\BD}}{\partial t}+\nabla  \vdot  \bJ_{\BD}=0\,,
+\end{equation}
+
+\noindent that in the frequency--momentum domain is equivalent to
+
+\begin{equation}
+    \omega e n_{\BD}(\bk,\omega)=-\bk  \vdot  \bJ_{\BD}(\bk,\omega)\,.
+\end{equation}
+
+\noindent If we invoke Ohm's law $\bJ_{\BD}(\bk,\omega)=\sigma(\bk,\omega)\bE(\bk,\omega)$ and write the electric field in terms of a potential $\phi$ as $\bE(\bk,\omega)=-\ii\bk\phi(\bk,z=0,\omega)$, such that
+
+\begin{equation}
+    e n_{\BD}(\bk,\omega)=\frac{\ii}{\omega}\bk\sigma(\bk,\omega)\bk\phi(\bk,z=0,\omega)\,,
+\end{equation}
+
+\noindent Then, we perform a Fourier transform on Eq.~\eqref{eq:Poisson_equation}, while separating the in-plane wavevector from the off-plane one, that we shall denote by $\bk$ and $\kappa_{z}$, respectively.
+Doing so, we arrive at
+
+\begin{equation}
+    \begin{gathered}
+        -k^{2}\phi(\bk,\kappa_{z},\omega)-\kappa_{z}^{2}\phi(\bk,\kappa_{z},\omega)=\frac{e}{\epsz}+\frac{\ii}{\epsz\omega} \bk\sigma(\bk,\omega)\bk \phi(\bk,z=0,\omega)\Leftrightarrow\\
+        \Leftrightarrow\phi(\bk,\kappa_{z},\omega)=-\frac{1}{k^{2}+\kappa_{z}^{2}}\left(\frac{e}{\epsz}+\frac{\ii}{\epsz\omega} \bk\sigma(\bk,\omega)\bk \phi(\bk,z=0,\omega)\right).
+    \end{gathered}
+\end{equation}
+
+\noindent In the previous expression, if we do now the inverse Fourier transform only in the off-plane coordinate, we get
+
+\begin{equation}
+    \phi(\bk,z,\omega)=\frac{e}{2\epsz k}\mathrm{e}^{-kz}-\ii\frac{\bk\sigma(\bk,\omega)\bk}{\epsz\omega}\phi(\bk,z=0,\omega)\frac{\mathrm{e}^{-kz}}{2k}\,,
+\end{equation}
+
+\noindent that at $z=0$ implies
+
+\begin{equation}
+    \begin{gathered}
+        \phi(\bk,z=0,\omega)\left(1+\ii\frac{\bk\sigma(\bk,\omega)\bk}{2 k \epsz\omega}\right)=\frac{e}{2 \epsz k}\Leftrightarrow\\
+        \Leftrightarrow \phi(\bk,z=0,\omega)=\frac{v_{c}(k)}{\varepsilon(\bk,\omega)}\,,
+    \end{gathered}
+\end{equation}
+
+\noindent which allows identifying the dielectric function
+
+\begin{equation}
+    \varepsilon(\bk,\omega)=1+\ii\frac{\bk\sigma(\bk,\omega)\bk}{2k\epsz\omega}=1+\ii\frac{k \sigma(\bk,\omega)}{2\epsz\omega}\,.
+\end{equation}
+
+\noindent The second equality in the previous equation applies only for the isotropic case.
+This expression contrasts with the expression $\varepsilon(\bk,\omega)=1+\ii\sigma(\bk,\omega)/(\epsz\omega)$ that we encountered in the first chapter.
+Therein, we have implicitly assumed that the material was \gls{3d}, explaining the discrepancy between the two expressions.
