@@ -9,154 +9,147 @@
 
 \typeout{NT FILE appendix1.tex}%
 
-\chapter{Support information to Chapter~\ref{ch:Optical_hBN_superlattice}}
-\label{app:hBN_superlattice}
+\chapter{The Fourier Transform: definitions and identities}
+\label{app:fourier_transform}
 
+In this appendix, we summarize the definitions used for the Fourier transform and its inverse used throughout this thesis.
+The discussion presented here is adapted from Appendix A of Ref~\cite{Bruus_Flensberg_2004}.
+In the sense that at the end we consider as well the case of discrete translation symmetry, this discussion is also a generalization of the content presented by H.~Bruus and K.~Flensbergin~\cite{Bruus_Flensberg_2004}.
 
-\section{Recovering the original Hamiltonian}
-\label{sec:recover_original_hamiltonian}
+\section{Fourier transforms in time and frequency domains}
 
-To conciliate the renormalized low-energy Hamiltonian~\eqref{eq:new_Dirac_Hamiltonian} with the original one~\eqref{eq:low_energy_hamiltonian_hBN}, we take in the former the two limits $V_0 \to 0$ and $L \to \infty$ separately.
-In both cases, we should recover the latter.
-We take first the limit $V_0 \to 0$ to obtain
-%
-\begin{equation}
-    \bar{H}_{m} = \frac{m}{2}G_{0}\hbar v_{F}+\hbar v_{F}\sigma_{x}q_{x}
-\end{equation}
-%
-\noindent for $m \neq 0$, and
-%
-\begin{equation}
-\bar{H} =\hbar v_{F}[\sigma_{x}q_{x}+\sigma_{y}q_{y}]-\sigma_{z}M
-\end{equation}
-%
-\noindent for $m = 0$. 
-The latter case is simply the original low-energy Hamiltonian of hBN in the absence of potential as expected.
-There is only a difference in the sign of the mass term, but that is not critical.
-The result for $m \neq 0$ is not null, but we can interpret the two terms on the \gls{rhs} as follows.
-The first term  is purely a global shift in energies resultant from shifting the momentum along the $x$ direction by $m G_0/2$, a consequence of using basis states with the spatial dependent part of the form $\exp{\ii (\bq \pm m G_0 \hat{\mathbf{x}}/2)}$ used when deriving the renormalized low-energy Hamiltonian.
-The second term comes from the measurement of momentum from the edges of the mini Brillouin zone along the $x$ direction, which no longer exists since $V_0 = 0$.
-Therefore, it is not relevant.
-
-We take now the limit $L \to \infty$, that is, the limit of a constant potential.
-For each value of $m$ we have a Hamiltonian, but if we gather them all by summing over $m$ we get
-
-\begin{align}
-H_{\text{total}} &= 
-\sum_{m} \overline{H}_{m} = 
-\nonumber\\
-&= \sum_{m} \frac{m}{2} G_{0} \hbar v_{F} +
-\hbar v_{F} [\sigma_{x}q_{x}+\sigma_{y} q_{y} \sum_{m}J_{m}(\beta)] -
-\sigma_{z} M \sum_{m} J_{m}(\beta) = 
-\nonumber\\
-& \overset{L\to \infty}{=} \hbar v_{F}
-[\sigma_{x}q_{x}+\sigma_{y}q_{y}] - \sigma_{z}M,
-\end{align}
-%
-\noindent where to arrive at the final result we used the fact that $G_0 \to 0$ when $L \to \infty$ and the rule $\sum_{m} J_{m}(\beta) = 1$, valid for the Bessel functions of the first kind.
-In this way, we are able to recover the original low-energy Hamiltonian of hBN (with the small caveat of the sign in the mass term once more).
-
-\section{Exchange energy correction to the band gap}
-\label{sec:exchange_energy}
-
-We recall the Bethe--Salpeter equation:
+We define the direct and inverse Fourier transforms between time and frequency domains as
 
 \begin{equation}
-    \begin{split}
-        E_\nu \frac{1}{\sqrt{A}} \phi_\nu(\bk)  =&   \phi_{\nu}(\bk) (E_{\bk,c}-E_{\bk,v}) - \frac{1}{A} \sum_{\bp} \phi_{\nu} (\bp) V_{\bk-\bp} F_{cvvc}(\bk,\bp,\bk-\bp) +  \\
-        & + \frac{1}{A} \phi_{\nu}(\bk) \sum_{\bp} V_{\bp} \left[F_{vvvv}(\bp + \bk ,\bk,\bp) - F_{vcvc}(\bp + \bk,\bk,\bp) \right].
-    \end{split}
+    f(t)=\int_{-\infty}^{+\infty}\frac{\dd \omega}{2\pi}f(\omega)\,\ee^{-\ii\omega t}, \qq{and} f(\omega)=\int_{-\infty}^{+\infty}\dd t\,f(t)\,\ee^{\ii\omega t},
 \end{equation}
 
-\noindent We wish to compute the contribution to the band gap due to the exchange energy coming from the third term in the \gls{rhs} of the previous equation.
-We assume that this term renormalizes strongly the electronic band gap, but has no effect in the curvature of the bands.
-So we start from that term with $\bk = 0$.
-We denote the exchange energy by $\Delta_{ex}$ and it writes
+\noindent respectively.
+The following relations involving the Dirac delta function are also valid:
 
 \begin{equation}
-    \Delta_{\mathrm{ex}} = \frac{1}{A} \sum_{\bp} V_{\bp} \left[F_{vvvv}(\bp ,0,\bp) - F_{vcvc}(\bp,0,\bp) \right] \,.
+    \int_{-\infty}^{+\infty}\frac{\dd \omega}{2\pi}f(\omega)\,\ee^{-\ii\omega t}=\delta(t),\qq{and} \int_{-\infty}^{+\infty}\dd t\,f(t)\,\ee^{\ii\omega t}=\delta(\omega)\,.
 \end{equation}
 
-The first form factor is
+A two-point function in time of the form $f(t,t')$, can be written in terms of its Fourier components as
 
 \begin{equation}
-    F_{vvvv}(\bp ,0,\bp) = \langle v,0 | v, \bp \rangle \langle v,\bp | v, 0 \rangle = |\langle v,0 | v, \bp \rangle|^2.
+    f(t,t')=\int_{-\infty}^{+\infty}\dd \omega\int_{-\infty}^{+\infty}\dd \omega'\,f(\omega,\omega')\,\ee^{-\ii\omega t}\ee^{\ii\omega't'}.
 \end{equation}
 
-\noindent The overlap of the spinors (whose expressions one can consult in Eqs.~\eqref{eq:valence_spinor} and~\eqref{eq:conduction_spinor} reads
+\noindent If this function enjoys continuous time translation symmetry such that $f(t,t')=f(t-t')$, which will always be the case in this work, then one can show that the Fourier transformed function can only be nonzero if $\omega=\omega'$.
+More than that, it is of the form $f(\omega,\omega')=\widetilde{f}(\omega)\delta(\omega-\omega')$, and $\widetilde{f}(\omega)$ is the Fourier transform of $f(t-t')$ when we consider the time difference $t-t'$ as a single variable.
+Therefore, we are allowed to write
 
 \begin{equation}
-    \langle v,0 | v, \bp \rangle = \cos \frac{\xi_p}{2} \,, \qq{with} \xi_p = \arctan \frac{2 \hbar v_F p}{E_g}\,.
+    f(t-t')=\int_{-\infty}^{+\infty}\dd \omega\,\widetilde{f}(\omega)\,\ee^{-\ii\omega(t-t')}.
 \end{equation}
 
-\noindent This gives for the form factor
+
+\section{Fourier transforms in real and reciprocal spaces}
+
+\subsection{One-point functions}
+
+Let us consider first a system of finite volume $\mathcal{V}$ in real space with periodic, or Born--von Karman~\cite{Simon_Oxford_2013}, boundary conditions.
+Then, any function $f(\br)$ can be written in a Fourier series as
 
 \begin{equation}
-    F_{vvvv}(\bp ,0,\bp) = \cos^2\frac{\xi_p}{2} \,.
+    \label{eq:inverse_Fourier_discrete}
+    f(\br)=\frac{1}{\mathcal{V}}\sum_{\bk}f_{\bk}\ee^{\ii \bk \vdot \br},
 \end{equation}
 
-The second form factor is
+\noindent with the momentum $\bk$ assuming discrete values, and
 
 \begin{equation}
-    F_{vcvc}(\bp ,0,\bp) = \langle c,0 | v, \bp \rangle \langle v,\bp | c, 0 \rangle = |\langle c,0 | v, \bp \rangle|^2.
+    \label{eq:direct_Fourier_discrete}
+    f_{\bk}=\int_{\mathcal{V}}\dr\,f(\br)\,\ee^{-\ii \bk \vdot \br}.
 \end{equation}
 
-\noindent The spinors overlap (up to a phase) is now
+\noindent The following relations hold
 
 \begin{equation}
-    \langle c,0 | v, \bp \rangle = \sin \frac{\xi_p}{2} \,,
+    \int_{\mathcal{V}}\dr\,f(\br)\,\ee^{-\ii \bk \vdot \br}=\mathcal{V}\delta_{\bk,\bzero} \qq{and} \frac{1}{\mathcal{V}}\sum_{\bk}\ee^{\ii \bk \vdot \br}=\delta(\br)\,,
 \end{equation}
 
-\noindent hence
+\noindent where $\delta_{\bk,\mathbf{q}}$ is the Kronecker delta.
+
+If we let the volume of the region $\mathcal{V} \to \infty$ tend to infinity, then $\bk$ assumes continuous values, and the sums over momentum transform to integrals by the rule $\sum_{\bk}\to\frac{\mathcal{V}}{(2\pi)^{3}}\int\dd \bk$.
+In this way, relations~\eqref{eq:inverse_Fourier_discrete} and~\eqref{eq:direct_Fourier_discrete} can be written as
 
 \begin{equation}
-    F_{vcvc}(\bp ,0,\bp) = \sin^2\frac{\xi_p}{2} \,.
+    f(\br)=\int\frac{\dd \bk}{(2\pi)^{3}}f(\bk)\,\ee^{\ii \bk \vdot \br} \qq{and} f(\bk)=\int \dr f(\br)\,\ee^{-\ii \bk \vdot \br},
 \end{equation}
 
-\noindent Now we take the difference between the form factors
+\noindent respectively, and both relations below
 
 \begin{equation}
-    \begin{split}
-        F_{vvvv}(\bp ,0,\bp) - F_{vcvc}(\bp,0,\bp) &= \cos^2\frac{\xi_p}{2} - \sin^2\frac{\xi_p}{2} = \cos \xi_p = \cos \left(  \arctan \frac{2 \hbar v_F p(\beta)}{J_0(\beta) E_g} \right) = \\
-        &= \frac{1}{\sqrt{1 + \frac{p^2 \gamma^2(\theta)}{k_0^2}}} \,,
-    \end{split}
+    \int\frac{\dd \bk}{(2\pi)^{3}}\ee^{\ii \bk \vdot \br}=\delta(\br), \qq{and} \int \dd \br\, \ee^{-\ii \bk \vdot \br} = (2\pi)^{3}\delta(\bk)\,,
 \end{equation}
+ 
+\noindent hold as well.
+If the system under consideration is \bd~and not \gls{3d}, then instead of volume $\mathcal{V}$ we have area $A$, the momentum $\bk$ is a \bd~vector, the integrals over volume become integrals over area, and whenever we have $(2\pi)^{3}$ we would have $(2\pi)^{2}$ instead.
 
-\noindent where we defined the characteristic wavenumber
+\subsection{Two-point functions}
+
+Just like in the time domain example, there can also be real space resolved two-point functions.
+For a general function $f(\br,\br')$ where the position is \gls{3d} and defined in a region of infinite volume, its inverse Fourier transform writes
 
 \begin{equation}
-    k_0 \equiv |J_0 (\beta)| \frac{E_g}{2 \hbar v_F} \,.
+    \label{eq:inverse_Fourier_two_point_discrete}
+    f(\br,\br')=\int\frac{\dd \bk}{(2\pi)^{3}}\int\frac{\dd \bk'}{(2\pi)^{3}}\ee^{\ii \bk \vdot \br}\ee^{-\ii \bk' \vdot \br'}f(\bk,\bk')=\int\frac{\dd \bk}{(2\pi)^{3}}\widetilde{f}(\bk)\,\ee^{\ii \bk \vdot (\br-\br')},
 \end{equation}
 
-Using the auxiliar function $\gamma(\theta) = \sqrt{\cos^2 \theta + J_0^2(\beta) \sin^2 \theta}$, the exchange energy now reads
+\noindent where the second equality holds for translation invariant systems, and imposing $f(\bk,\bk')=\delta(\bk-\bk')\widetilde{f}(\bk)$.
+The direct Fourier transform then writes
 
 \begin{equation}
-    \Delta_{\mathrm{ex}} = \frac{1}{A} \sum_{\bp} V_{\bp}  \frac{1}{\sqrt{1 + \left(\frac{p \gamma(\theta)}{k_0}\right)^2}} = \frac{e}{8 \pi^2 \epsz \kappa} \int_0^{2\pi} \dd \theta \int_0^{\infty} \dd p  \frac{1}{ (1 + r_0 p/\kappa) \sqrt{1 + \left(\frac{p \gamma(\theta)}{k_0}\right)^2}} \,.
+    \widetilde{f}(\bk)=\int\dr\,\ee^{-\ii \bk \vdot \br}f(\br)\,,
 \end{equation}
 
-\noindent where we converted the sum into an integral as $\sum_{\bp} \to A/(2 \pi)^2  \int \dd \bp$, and used for the Rytova--Keldysh potential
+\noindent by choosing $\br'=\bzero$ without loss of generality.
+Something similar for the finite volume case writes
 
 \begin{equation}
-    V_{\bp} = \frac{e}{2 \epsz p (\kappa + r_0 p)} \,.
+    \label{eq:finite_volume_two_point_inverse_Fourier}
+    f(\br,\br')=\frac{1}{\mathcal{V}^{2}}\sum_{\bk,\bk'}\ee^{\ii \bk \vdot \br}\ee^{-\ii \bk' \vdot \br'}f(\bk,\bk')=\frac{1}{\mathcal{V}}\sum_{\bk}\widetilde{f}(\bk)\,\ee^{\ii \bk \vdot (\br-\br')}\,,
 \end{equation}
 
-\noindent being $\kappa$ the arithmetic average between the dielectric constants of the substrate and the cladding material.
+\noindent where the second equality is for systems with translation invariance, and identifying $f(\bk,\bk')=\mathcal{V}\delta_{\bk,\bk'}\widetilde{f}(\bk)$.
 
-
-\noindent To perform the final integral, we make the change of variable $p \gamma(\theta) / k_0 = \tan u$.
-The differential becomes $ \dd p = k_0 \dd(\tan u)/\gamma(\theta) = k_0 \frac{1}{\cos^2 u}/\gamma(\theta) \dd u$, and the square root in the denominator transforms into $\sqrt{1 + p^2 \gamma^2(\theta)/k_0^2} = \sqrt{1 + \tan^2 u} = 1/\cos u$.
-When $p=0$ we have $u=0$, and when $p = \infty$ we have $u=\pi/2$.
-Furthermore, we introduce a new dimensionless parameter $\gamma \equiv r_0 k_0$, so that the integral becomes now
+We give a typical, and very important example; the Fourier transform of the Coulomb potential.
+The derivations are skipped, and only the final results will be stated.
+The Fourier transform of the Coulomb potential $v_{c}$, that in electron-Volt and in real space reads
 
 \begin{equation}
-    k_0 \int_0^{2\pi} \frac{1}{\gamma(\theta) \sqrt{1 + \alpha^2(\theta)}} \ln \left( \frac{1 + \alpha(\theta) + \sqrt{1 + \alpha^2(\theta)}}{1 + \alpha(\theta) - \sqrt{1 + \alpha^2(\theta)}} \right) \dd \theta
+    v_{c}(\br-\br')=\frac{1}{4\pi \epsz }\frac{e}{|\br-\br'|}\,,
 \end{equation}
 
-\noindent Finally, we arrive at the expression for the exchange energy
+\noindent has different expressions in reciprocal space, depending on the dimensionality of the system.
+Designating by $k = |\bk|$ the length of the vector $\bk$, in \gls{3d}, the momentum resolved Coulomb potential is given by
 
 \begin{equation}
-    \Delta_{\mathrm{ex}} = \frac{e k_0}{8 \pi^2 \epsz \kappa} \int_0^{2\pi} \frac{1}{\gamma(\theta) \sqrt{1 + \alpha^2(\theta)}} \ln \left( \frac{1 + \alpha(\theta) + \sqrt{1 + \alpha^2(\theta)}}{1 + \alpha(\theta) - \sqrt{1 + \alpha^2(\theta)}} \right) \dd \theta \,\,
+    v_{c}(\bk)=\int\dd^{3}\br\,\frac{e}{4\pi \epsz |\br-\br'|}\ee^{-\ii \bk \vdot \br}=\frac{e}{ \epsz k^{2}}\,,
 \end{equation}
 
-\noindent which can be evaluated numerically without any computational effort.
+\noindent while in \bd~it assumes the form
 
+\begin{equation}
+    v_{c}(\bk)=\int\dd^{2}\br\,\frac{e}{4\pi \epsz |\br-\br'|}\ee^{-\ii \bk \vdot \br}=\frac{e}{2 \epsz k}\,.
+\end{equation}
+
+We remark that due to the definitions used in this work, the Coulomb potential, unlike in real space, does not have units of energy in reciprocal space.
+Nonetheless, the final quantities to compute will always have the right units.
+
+If the system enjoys discrete translation symmetry instead of continuous translation symmetry, when we want to describe solids microscopically, an expression similar to~\eqref{eq:finite_volume_two_point_inverse_Fourier} can still be worked out.
+But for that, we need to use the concepts from chapter~\ref{ch:quantum_mechanics_solids}, namely that of \acrlong{bz} and reciprocal lattice vectors.
+If the system enjoys discrete translational symmetry, one can prove that $f(\bk,\bk')\neq0$ only if $\bk'=\bk+\bG$, where $\bG$ is a vector of the reciprocal lattice.
+Besides that, using the fact that any momentum $\bq$ in the reciprocal lattice can be written as $\bq=\bk+\bG$, where $\bk$ is a vector in the \gls{bz}, we can rewrite the sums over momentum in~\eqref{eq:finite_volume_two_point_inverse_Fourier} as
+
+\begin{equation}
+\begin{aligned}
+    f(\br,\br') &= \frac{1}{\mathcal{V}^2}\sum_{\bk,\bk' \in \BZ} \sum_{\bG,\bG'} f(\bk+\bG,\bk'+\bG')\ee^{\ii \bk \vdot (\br-\br')}\ee^{\ii \bG \vdot \br} \ee^{-\ii \bG' \vdot \br'} = \\
+                &= \frac{1}{\mathcal{V}}\sum_{\bk \in \BZ}\sum_{\bG,\bG'}f(\bk+\bG,\bk+\bG')\ee^{\ii \bk \vdot (\br-\br')}\ee^{\ii \bG \vdot \br} \ee^{-\ii \bG' \vdot \br'},
+\end{aligned}
+\end{equation}
+
+\noindent if we indentify $f(\bk+\bG,\bk'+\bG')=\mathcal{V}\delta_{\bk,\bk'}f(\bk+\bG,\bk+\bG')$.
