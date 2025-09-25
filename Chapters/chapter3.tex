@@ -705,7 +705,7 @@ The study of solids using the methods of this framework, allow to explain exotic
 
 In this section, we discuss the main concepts needed for future parts of this work, but in a briefly manner.
 A detailed discussion of this topic would be too technical and long for the purpose of this thesis, and is beyond the scope of this text.
-We may say at this point, that to fully understand \gls{mbpt}, we need the second quantization or occupation number formalism of quantum mechanics~\cite{Fetter_Walecka}, that we have mentioned before in section~\ref{subsec:tight_binding_model}.
+We may say at this point, that to fully understand \gls{mbpt}, we need the second quantization, canonical quantization or occupation number formalism of quantum mechanics~\cite{Fetter_Walecka}, that we have mentioned before in section~\ref{subsec:tight_binding_model}.
 It was therein applied to a tight-binding model, but inserting interaction in this formalism is very natural.
 
 \subsection{Many-body perturbation theory and $GW$ approximation}
@@ -715,42 +715,125 @@ In physics, the concept of Green function is very important, with applications t
 In the context of condensed matter physics, its relevance in \gls{mbpt} is not questionable.
 The Green function, or propagator as in particle physics, is a quantity that helps providing a formal solution to the Schrödinger equation for the interacting problem.
 
-In the context of \gls{mbpt}, it is defined as
+In the context of \gls{mbpt}, it can be defined as
+
+% \begin{equation}
+%     \mathcal{G} (\nu t;\nu' t') = -\ii \theta(t-t') \langle [a_\nu(t), a_{\nu'}^\dagger(t')]_{\mp} \rangle,
+% \end{equation}
 
 \begin{equation}
-    \mathcal{G} (\nu t;\nu' t') = -\ii \theta(t-t') \langle [a_\nu(t), a_{\nu'}^\dagger(t')]_{\mp} \rangle,
+    \left[\ii \partial_t - \hat{H}\right] \mathcal{G} (\br \sigma t;\br' \sigma' t') = \delta(t-t') \delta(\br - \br') \delta_{\sigma \sigma'} \,,
 \end{equation}
 
-\noindent where....
+\noindent if we represent the second quantized Hamiltonian operator $\hat{H}$ in real space, and $\sigma$ representing the spin degree of freedom.
+We keep the hat for operators in the canonical quantization formalism, and their respective first-quantized version without the hat.
+The Hamiltonian is assumed to have two parts, a noninteracting part $\hat{H}_0$ and an interaction part $\hat{V}$.
+In the real space basis representation, the total Hamiltonian writes
 
-The many-body Green function obeys the Dyson equation
+\begin{empheq}[innerbox=\colorbox{lightgray}, right={\,,}]{align}
+    \label{eq:canonical_many_body_Hamiltonian}
+    \hat{H} = \sum_{\sigma} \int \dd{\br} \, \hat{\psi}^{\dagger}_{\sigma}(\br) H_0 \hat{\psi}(\br) + \frac{1}{2} \sum_{\sigma,\sigma'} \int \dd{\br} \int \dd{\br'} \, \hat{\psi}^{\dagger}_{\sigma}(\br) \hat{\psi}^{\dagger}_{\sigma'}(\br') W(\br , \br') \hat{\psi}_{\sigma'}(\br') \hat{\psi}_{\sigma}(\br) \,,
+\end{empheq}
+
+\noindent where the interaction potential $W(\br , \br')$ is the screened Coulomb interaction, if we are assuming that it is the only interaction in play.
+If the interaction allows spin flipping, then the potential should have two spin indices as well.
+The operators $\hat{\psi}^{\dagger}_{\sigma}(\br)$ and $\hat{\psi}_{\sigma}(\br)$ create and annihilate particles with spin $\sigma$ at position $\br$, respectively.
+They are commonly called the field operators.
+
+It is useful to also define the noninteracting Green function $\mathcal{G}^0$, which obeys the equation
 
 \begin{equation}
+    \left[\ii \partial_t - \hat{H}_0\right] \mathcal{G}^0 (\br \sigma t;\br' \sigma' t') = \delta(t-t') \delta(\br - \br') \delta_{\sigma \sigma'} \,.
+\end{equation}
+
+\noindent The noninteracting Green function can be written in the frequency domain as
+
+\begin{equation}
+    \mathcal{G}^0  = \frac{1}{\omega - H_0} \,,
+\end{equation}
+
+\noindent if we use a compact notation by omitting the basis.
+In the language of Feynamn diagrams, this operator corresponds to the free fermion propagator, being diagrammatically represented by a straight arrowed line.
+If we want to write something similar for the interacting Green function, we need to introduce the concept of self-energy $\Sigma$.
+Before that, we want to say that the introduction of the interaction term in the Hamiltonian, makes the interacting Green function $\mathcal{G}$ be in its diagrammatic form, and expansion containing an inifinite number of diagrams.
+Each diagram has two external free fermionic lines $\mathcal{G}^0$, connected by compositions of interaction lines coming from $W$ composed with free propagator lines coming from $\mathcal{G}^0$.
+The self-energy $\Sigma$ is defined as the sum of all irreducible diagrams appearing in the expansion of $\mathcal{G}$, without the external fermion lines.
+In this way, we can write the interacting Green function as
+
+\begin{equation}
+    \mathcal{G} = \frac{1}{\omega - H_0 - \Sigma(\omega)} \,.
+\end{equation}
+
+If in the previous expression we multiply both sides by the denominator from the left, we get $[\omega - H_0] \mathcal{G} - \Sigma(\omega) \mathcal{G} = \qty(\mathcal{G}^0)^{-1} \mathcal{G} - \Sigma(\omega) \mathcal{G} = 1$.
+Multiplying by the green function $\mathcal{G}^0$ from the left, simplifying and considering the real space basis and going back to the time domain, we get a Dyson equation for the many-body Green function, and it writes
+
+\begin{empheq}[innerbox=\fbox, right={\,.}]{align}
     \label{eq:Dysons_eq_repeated}
-    \mathcal{G} (b,a) = \mathcal{G}^0 (b,a) + \int \int  \dd{1} \dd{2} \, \mathcal{G} (b,1) \Sigma(1,2) \mathcal{G}^0(2,a)  \,,
-\end{equation}
+    \mathcal{G} (b,a) = \mathcal{G}^0 (b,a) + \int \dd{1} \dd{2} \, \mathcal{G} (b,1) \Sigma(1,2) \mathcal{G}^0(2,a)
+\end{empheq}
 
-one can also write a similar equation for the screened $W$ and bare Coulomb potential $v_c$ as
+\noindent where a digit or a letter $a$ or $b$ is an abbreviation for all the degrees of freedom.
+With symbols, it means $i=(\br_i,\sigma_i,t_i)$, and $\int \dd{i} = \sum_{\sigma_i} \int \dd{\br_i} \int \dd{t_i}$.
+
+It is possible to derive a similar equation for the density-density response function $\chi$, and the irreducible polarizability $\chi^\irr$, the latter being the sum of all irreducible diagrams in the expansion for $\chi$.
+The full interacting response function $\chi$  is not computable in practice, therefore we apply an approximation, called the \gls{rpa}, which neglects exchange and correlation in $\chi^\irr$ and only the Hartee diagram, also called bubble diagram, is kept, so that $\chi^\irr \approx \chi_{\RPA}^\irr \equiv \chi^0 = -\ii G_0(1,2) G_0(2,1)$.
+In general, beyond \rpa, the full polarizability writes
 
 \begin{equation}
+    \label{eq:polarizability_vertex}
+    \chi(1,2) = -\ii \int \dd{3} \dd{4}\, G(1,3) \Lambda(3,4,2) G(4,1^+) \,,
+\end{equation}
+
+\noindent where $\Lambda$ is the vertex function, and it is given By
+
+\begin{equation}
+    \label{eq:vertex_function}
+    \Lambda(1,2;3) = \delta(1,2) \delta(1,3) + \int \dd{4} \dd{5} \dd{6} \dd{7} \, \frac{\delta \Sigma(1,2)}{\delta G(4,5)} G(4,6) G(7,5)  \Lambda(6,7;3) \,.
+\end{equation}
+
+The full interacting screened $W$ and bare $v_c$ Coulomb potentials relate with the polarizability through another Dyson equation, that writes
+
+\begin{empheq}[innerbox=\fbox, right={\,.}]{align}
     \label{eq:Dysons_eq_Coulomb}
-    W (b,a) = v_c (b,a) + \int \int \dd{1}  \dd{2} \, v_c (b,1) P^\irr(1,2) W(2,a) \,,
-\end{equation}
+    W (b,a) = v_c (b,a) + \int  \dd{1} \dd{2} \, v_c (b,1) \chi(1,2) W(2,a)
+\end{empheq}
 
-\noindent where $P^\irr(1,2)$ is called the irreducible polarizability, and also sometimes referred as susceptibility (appearing as $\chi$). Leaving the isolated term with the bare potential on the \rhs~ and factoring the screened one, the last relation reads
+Equations~\eqref{eq:Dysons_eq_repeated},~\eqref{eq:polarizability_vertex},~\eqref{eq:vertex_function} and~\eqref{eq:Dysons_eq_Coulomb}, together with the equation for the self-energy $\Sigma$
+
 
 \begin{equation}
-    \int \dd{2} \left[\delta (b -2) - \int \dd{1} \, v_c (b,1) P^\irr(1,2) \right]W(2,a) = v_c (b,a) \,.
+    \label{eq:self_energy_vertex}
+    \Sigma(1,2) = \ii \int \dd{3} \dd{4}\, G(1,3^{+}) W(1,4) \Lambda(3,2;4)  \,,
 \end{equation}
 
+
+constitute a set of five coupled equations, called Hedin's equations~\cite{Hedin_1965,Louie_1986}.
+The most widely approximation used is to ignore the second term in the equation for the vertex, so that $\Gamma(1,2;3) \approx \delta(1,2) \delta(1,3)$.
+This approximation makes the equations for the polarizability~\eqref{eq:polarizability_vertex} and that for the self-energy~\eqref{eq:self_energy_vertex} decouple, giving origin to the famous \GW~approximation for the self-energy, and the \rpa~for the polarizability
+The latter is the topic to be discussed in the next section.
+
+Within \rpa, the Dyson equation for the Coulomb potential can be rewritten as
+
+\begin{equation}
+    W(b,a) = v_c (b,a) + \int \dd{1} \dd{2} \, v_c (b,1) \chi^0(1,2) W(2,a) \,,
+\end{equation}
+
+\noindent which is equivalent to
+
+\begin{equation}
+    \int \dd{2} \left[\delta (b -2) - \int \dd{1} \, v_c (b,1) \chi^0(1,2) \right]W(2,a) = v_c (b,a) \,.
+\end{equation}
+
+In the last two equations, we omitted the superscript label $\RPA$ in the screened potential for convenience.
 We can define the quantity inside square brackets as the microscopic dielectric function, whose macroscopic counterpart was discussed in the previous Chapter~\ref{ch:classical_electrodynamics}.
 Mathematically, and making the space and time dependencies explicit, we can write
 
-\begin{equation}\label{eq:dielectric_function_space_time}
-\varepsilon (\br,\br';t - t') = \delta(\br - \br') \delta(t-t') - \int  \int v_c(\br - \br'') P^\irr (\br'',\br';t-t') \dr'' \dt' \,.
-\end{equation}
+\begin{empheq}[innerbox=\fbox, right={\,.}]{align}
+    \label{eq:dielectric_function_space_time}
+    \varepsilon (\br,\br';t - t') = \delta(\br - \br') \delta(t-t') - \int \dr'' \int \dd t' v_c(\br - \br'') \chi^0(\br'',\br';t-t')
+\end{empheq}
 
-With the dielectric function defined, we can rewrite Dyson's equation for the Coulomb potential in the following way
+\noindent With the dielectric function defined, we can rewrite the Dyson equation for the Coulomb potential in the following way
 
 \begin{equation}
     \int \dd{2} \varepsilon (b,2)W(2,a) = v_c (b,a) \,,
@@ -763,66 +846,49 @@ With the dielectric function defined, we can rewrite Dyson's equation for the Co
     W(1,3) = \int \dd{2} \varepsilon^{-1} (1,2)v_c (2,3) \,.
 \end{equation}
 
-Most commonly, the irreducible polarizability is computed in the random-phase approximation, where it is approximated by a single electron-hole pair as
+\noindent The last equation together with the definition of the microscopic dielectric function in Eq.~\eqref{eq:dielectric_function_space_time}, are the two main ingredients to discuss the effect of screening in periodic solids.
+That is what the next section focuses on.
 
-\begin{equation}
-    P^\irr(1,2) \approx P^0(1,2) \equiv -\ii G_0(1,2) G_0(2,1).
-\end{equation}
-
-Equations~\eqref{eq:Dysons_eq_repeated} and~\eqref{eq:Dysons_eq_Coulomb} are in fact two of a set of five coupled equations, called Hedin's equations~\cite{Hedin_1965,Louie_1986} that read
-
-\begin{align}
-    \mathcal{G} (b,a) &= \mathcal{G}^0 (b,a) + \int d1 \, \mathcal{G} (b,1) V(1) \mathcal{G}^0(1,a) \\
-    W (1,2) &= v_c (1,2) + \int \dd{3} \dd{4} \, v_c (1,3) P^\irr(3,4) W(4,2) \\
-    P^\irr(1,2) &= -\ii \int \dd{3}  \dd{4}\, G(1,3) G(4,1^+) \Gamma(3,4;2) \label{eq:polarizability_full} \\
-    \Sigma(1,2) &= \int \dd{3} \dd{4}\, G(1,3) \Gamma(3,2;4) W(4,1^+) \\
-    \Gamma(1,2;3) &= \delta(1,2) \delta(1,3) + \int \dd{4} \dd{5} \dd{6} \dd{7} \, \frac{\delta \Sigma(1,2)}{\delta G(4,5)} G(4,6) G(7,5)  \Gamma(6,7;3) \,,
-\end{align}
-
-\noindent where $\Sigma$ is the two-body self-energy, and the quantity $\Gamma$ is called the vertex.
-The most widely approximation used is to ignore the second term in the last equation so that $\Gamma(1,2;3) \approx \delta(1,2) \delta(1,3)$, and in this way the third and fourth equations decouple, giving origin to the famous \GW approximation for the self-energy and the \rpa~for the polarizability, that we discuss in the next section.
 
 \section{Dielectric Function and Screening: Quantum Picture}
 \label{sec:dielectric_function_quantum}
 
-Brief introduction stressing the difference between full, \rpa, and noninteracting polarizability and dielectric function within self-consistent framework~\cite{Cohen_Louie_2016} and ~\cite{Bruus_Flensberg_2004}.
-
 Later on in this work, we compute the inverse of the dielectric function to properly account for electrostatic screening in semiconductors and insulators.
 Having an accurate description of screening, one can readily compute the excitonic states.
-Prior to that, one has to compute the polarizability, in particular, the noninteracting one.
-After, one can compute the dielectric function as per~\eqref{eq:dielectric_function_space_time}, but typically in reciprocal space, and then invert it.
-In alternative, one could rewrite~\eqref{eq:Dysons_eq_Coulomb} as $W(b,a) =\int \dd{c} \varepsilon^{-1}(b,c) v_c(c,a)$ where
+Prior to that, one has to compute the polarizability, in particular, the noninteracting one, since we compute the screened Coulomb potential in the \rpa.
+\textit{A posteriori}, one can compute the dielectric function as per~\eqref{eq:dielectric_function_space_time}, aleit in reciprocal space, and then invert it.
+
+In alternative of computing the dielectric function and then invert it, one could rewrite~\eqref{eq:Dysons_eq_Coulomb} as $W(b,a) =\int \dd{c} \varepsilon^{-1}(b,c) v_c(c,a)$ where
 
 \begin{equation}
     \label{eq:dielectric_function_inverse}
-    \varepsilon^{-1}(a,b) = \delta(a-b) + \int \dd{c} v_c(a,c) P(c,b) \,.
+    \varepsilon^{-1}(a,b) = \delta(a-b) + \int \dd{c} v_c(a,c) \chi^{\RPA}(c,b) \,.
 \end{equation}
 
 If we try to draft a diagrammatic expression for the polarizability based on Eq.~\eqref{eq:polarizability_full}, we would see that it consists of two propagator lines connected by every possible process allowed by the Coulomb interaction.
-Similarly to the green function, one can write a Dyson equation for the full polarizability as
+Similarly to the Green function and screened potential, one can write a Dyson equation for the full polarizability as~\cite{Bruus_Flensberg_2004,Martin_2004}
 
 \begin{equation}
-    P(1,2) = P^\irr(1,2) + \int \dd{3} \dd{4} \, P^\irr(1,3) v_c(3,4) P(4,2) \,,
+    \chi(1,2) = \chi^\irr(1,2) + \int \dd{3} \dd{4} \, \chi^\irr(1,3) v_c(3,4) \chi(4,2) \,,
 \end{equation}
 
-where $P^\irr$ consists of the diagrammatic expansion of the polarizability including only irreducible diagrams, and it is called the irreducible polarizability.
-We can now approximate the irreducible polarizability $P^\irr$ by its noninteracting counterpart $P^0$, where we keep only the simplest diagram, also called the bubble or Hartree diagram.
+where $\chi^\irr$ is the irreducible polarizability that was mentioned in the previous section.
+We can now approximate the irreducible polarizability $\chi^\irr$ by its noninteracting counterpart $\chi^0$, where we keep only the bubble diagram.
 In other words, we neglect correlation and exchange effects in the polarizability.
-Then, we get the full polarizability $P$ within \gls{rpa} that is
+Then, we get the full polarizability $\chi$ within \gls{rpa} that is
 
 \begin{equation}
-    P^\RPA(1,2) = P^0(1,2) + \int \dd{3} \dd{4} \, P^0(1,3) v_c(3,4) P^\RPA(4,2) \,.
+    \chi^\RPA(1,2) = \chi^0(1,2) + \int \dd{3} \dd{4} \, \chi^0(1,3) v_c(3,4) \chi^\RPA(4,2) \,.
 \end{equation}
 
-Then, the inverse dielectric function within \rpa~is obtained by replacing the full polarizability in Eq.~\eqref{eq:dielectric_function_inverse} by the \rpa~one:
+Then, the inverse dielectric function within \rpa~is can be obtained by replacing the full polarizability in Eq.~\eqref{eq:dielectric_function_inverse} by the \rpa~to write
 
 \begin{equation}
     \label{eq:inverse_dielectric_function_RPA}
     \varepsilon_\RPA^{-1}(a,b) = \delta(a-b) + \int \dd{c} v_c(a,c) P^\RPA(c,b) \,.
 \end{equation}
 
-For a thorough discussion of these details, we refer to Richard Martin's book in Ref~\cite{Martin_Reining_Ceperley_2016}.
-
+For a thorough discussion of these topics, we refer to Richard Martin's book in Ref~\cite{Martin_Reining_Ceperley_2016} and to the book~\cite{Bruus_Flensberg_2004} by H.~Bruus and K.~Flensberg.
 
 
 \subsection{RPA dielectric function}
@@ -835,7 +901,7 @@ The dielectric function in real-space and time domain, within \rpa~, writes~\cit
     \varepsilon (\br,\br';t,t') = \delta(\br - \br') \delta(t-t') - \int  \int v_c(\br - \br'') \chi^0 (\br'',\br';t-t') \dr'' \dt' \,,
 \end{equation}
 
-\noindent where $v_c$ denotes the bare (unscreened) Coulomb potential and $\chi^0 (\br',\br'';t-t')$ is the \rpa~ irreducible polarizability, for which we have assumed time translation invariance.
+\noindent where $v_c$ denotes the bare (unscreened) Coulomb potential and $\chi^0 (\br',\br'';t-t')$ is the \rpa~irreducible polarizability, for which we have assumed time translation invariance.
 The \gls{rpa} irreducible polarizability, in frequency domain, within a self-consistent field approach is given by~\cite{Cohen_Louie_2016}
 
 \begin{equation}
@@ -845,8 +911,7 @@ The \gls{rpa} irreducible polarizability, in frequency domain, within a self-con
 
 
 \noindent where $\alpha$ is a small infinitesimal parameter, $f_i$ denotes the Fermi-Dirac distribution computed at the energy $\epsilon_i$, and $\phi_i(\br)$ is the $i$-th state, with eigen-energy $\epsilon_i$, that can be obtained within a mean-field approach, such as within \hf~ or the Kohn-Sham framework of \dft.
-The many-body \wf of the associated independent particle system is then constructed through the Slater determinant of the Kohn-Sham orbitals.
-
+The many-body \wf~of the associated independent particle system is then constructed through the Slater determinant of the Kohn--Sham orbitals, which are used in the \abinit~calculations within \dft.
 We notice that the previous expression is a two time function that only depends on the difference between the time instants.
 Whence, we may time Fourier transform it to the frequency domain and write
 
@@ -856,12 +921,12 @@ Whence, we may time Fourier transform it to the frequency domain and write
 \end{equation}
 
 \noindent since the Fourier transform of the Dirac delta is the identity function, and the Fourier transform of a convolution translates to a multiplication.
-
+The microscopic dielectric function enjoy discrete translation symmetry, so that
 \begin{equation}
-    \varepsilon (\br,\br';\omega) = \varepsilon (\br + \bR,\br' + \bR;\omega)\,,
+    \varepsilon (\br,\br';\omega) = \varepsilon (\br + \bR,\br' + \bR;\omega)
 \end{equation}
 
-\noindent where $\bR$ is a vector of the Bravais lattice, this for a perfect crystal where \textbf{discrete} translation symmetry is not broken due to defects or boundaries.
+\noindent is true for any a vector of the lattice $\bR$, for a perfect crystal where \textbf{discrete} translation symmetry is not broken due to eventual defects or boundaries.
 The same can be said about the polarizability $\chi^0$.
 This contrasts with the case of the previous chapter, were invariance.....\todo{complete the reasoning}
 We are still allowed to Fourier transform in space, but we need to keep track of two momenta, say, $\bk$ and $\bk'$ instead of just one, so that the polarizability is a two-point function in momentum, $\chi^0 = \chi^0(\bk,\bk')$.
