@@ -96,10 +96,10 @@ The total Hamiltonian of a solid is then the sum of several contributions as
 
 \begin{equation}
     \label{eq:Hamiltonian_crystal}
-    \Ha = \hat{T}_e + \hat{T}_{\mathrm{ions}} + \hat{V}_{e-\mathrm{ions}} + \hat{V}_{e-e} + \hat{V}_{\mathrm{ions-ions}}\,,
+    \Ha = \hat{T}_e + \hat{T}_{\mathrm{ion}} + \hat{V}_{e-\mathrm{ion}} + \hat{V}_{e-e} + \hat{V}_{\mathrm{ions-ions}}\,,
 \end{equation}
 
-\noindent where $\hat{T}_e$ is the sum of the kinetic energies coming from the valence electrons, $\hat{T}_{\mathrm{ions}}$ is total kinetic energy of the ions, $\hat{V}_{e-\mathrm{ions}}$ is the potential energy coming from the Coulomb interaction between the outer electrons and the ions, $\hat{V}_{e-e}$ is the potential energy coming from the pair-wise interaction between the electrons, and finally $\hat{V}_{\mathrm{ions-ions}}$ is the potential energy coming from the interaction between the ions.
+\noindent where $\hat{T}_e$ is the sum of the kinetic energies coming from the valence electrons, $\hat{T}_{\mathrm{ion}}$ is total kinetic energy of the ions, $\hat{V}_{e-\mathrm{ion}}$ is the potential energy coming from the Coulomb interaction between the outer electrons and the ions, $\hat{V}_{e-e}$ is the potential energy coming from the pair-wise interaction between the electrons, and finally $\hat{V}_{\mathrm{ions-ions}}$ is the potential energy coming from the interaction between the ions.
 If we write each contribution using math notation, then, the total many-body Hamiltonian, in theorist units $e^2/4\pi \epsz = 1$ and dropping all hats, is
 
 \begin{empheq}[innerbox=\fbox, right={\,,}]{align}
@@ -132,7 +132,7 @@ We will simply assume that the arrangement of the ions in the solid is known, fo
 
 To further narrow down what kind of systems we are studying, we will also assume that the arrangement of the ions in the solid forms a periodic structure; the crystal.
 Other types of solids can be found in nature, such as amorphous solids, like glasses, or solid materials with rotational symmetry but no translation symmetry, the quasicrystals~\cite{Chaikin_Lubensky_1995}.
-Herein, the ions occupy positions in the crystalline structure, also called the lattice, such that the potential felt by the electrons $\hat{V}_{e-\mathrm{ions}}(\br)$ from the ions is a periodic function, with the periodicity of the lattice.
+Herein, the ions occupy positions in the crystalline structure, also called the lattice, such that the potential felt by the electrons $\hat{V}_{e-\mathrm{ion}}(\br)$ from the ions is a periodic function, with the periodicity of the lattice.
 We shall define more precisely what a lattice is in section~\ref{sec:single_particle_properties}.
 In this work, we will assume that the ionic degrees of freedom are frozen, where the ions are stationary and forming a background of positive charge.
 This is the adiabatic or Born--Oppenheimer approximation~\cite{Kittel_2004,Simon_Oxford_2013,Martin_2004}.
@@ -151,14 +151,14 @@ Upon ignoring in the full many-body Hamiltonian~\eqref{eq:many_body_Hamiltonian}
     H = \sum_i  \frac{p_i^2}{2 m} + V_{e-\mathrm{ion}}(\br) \,.
 \end{equation}
 
-\noindent If we write the potential term in the previous expression as a sum over all electrons as $V_{e-\mathrm{ion}}(\br) = \sum_i v_i (\br)$ (with $v_i$ including a sum over all ions), then we have reduced the full many-body problem from Eq.~\eqref{eq:many_body_Hamiltonian} to a sum of single-particle Hamiltonians that are uncoupled, which is a noninteracting problem of identical particles.
+\noindent If we write the potential term in the previous expression as a sum over all electrons as $V_{e-\mathrm{ion}}(\br) = \sum_i v (\br_i)$ (with $v$ including a sum over all ions like), then we have reduced the full many-body problem from Eq.~\eqref{eq:many_body_Hamiltonian} to a sum of single-particle Hamiltonians that are uncoupled, which is a noninteracting problem of identical particles.
 In that case, the problem encompassing all the electrons is separable.
 The wavefunction including all $N$ electrons, $\Psi(\br_1,\br_2,...,\br_N)$, can be written as a product of all the single-particle wavefunctions $\psi_i(\br_i)$ as $\Psi(\br_1,\br_2,...,\br_N)= \psi_1(\br_1) \psi_2(\br_2)...\psi_N(\br_N)$, with each unique wavefunction satisfying the \gls{tise}
 
 
 \begin{equation}
     \label{eq:single_particle_Schrodinger_equation}
-    \left[ \frac{p^2}{2 m} + v_i(\br) \right] \psi_i(\br) = \epsilon_i \psi_i(\br)\,,
+    \left[ \frac{p^2}{2 m} + v(\br) \right] \psi_i(\br) = \epsilon_i \psi_i(\br)\,,
 \end{equation}
 
 \noindent where $\epsilon_i$ represents the energy of a single electron, and the total energy of the system is simply the sum of all energies $\epsilon_i$.
@@ -173,7 +173,7 @@ This is called the \hf~method~\cite{Cohen_Louie_2016,Grosso_2014}, commonly intr
 
 \begin{empheq}[innerbox=\fbox, right={\,.}]{align}
     \label{eq:HF_Hamiltonian}
-    H = \sum_i \left[\frac{p_i^2}{2 m} + v_{i}(\br)\right] + \frac{1}{2} \sum_{i \neq j} \frac{1}{|\br_i - \br_j|}
+    H = \sum_i \left[\frac{p_i^2}{2 m} + v(\br_i)\right] + \frac{1}{2} \sum_{i \neq j} \frac{1}{|\br_i - \br_j|}
 \end{empheq}
 
 The previous Hamiltonian is more realistic than the one in Eq.~\eqref{eq:single_particle_Hamiltonian}, as it accounts for the electron--electron interaction.
@@ -222,7 +222,7 @@ In Fig.~\ref{fig:triangular_lattice}, we display a tile with the smallest possib
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.6\textwidth]{Chapters/Figures/Chapter_3/triangular_lattice}
-    \mycaption[An example of a 2D lattice: triangular lattice]{The triangular lattice. The vectors $\ba_1$ and $\ba_2$ are primite lattice vectors, and $\bR = - \ba_1 + 2 \ba_2$ is a lattice vector. The shaded gray are represents a posible primitive unit cell.}
+    \mycaption[An example of a 2D lattice: triangular lattice]{The triangular lattice. The vectors $\ba_1$ and $\ba_2$ are primite lattice vectors, and $\bR = - \ba_1 + 2 \ba_2$ is a lattice vector. The shaded gray are represents a possible primitive unit cell.}
     \label{fig:triangular_lattice}
 \end{figure}
 
@@ -274,7 +274,7 @@ It has different formulations and ways to be proved.
 The formal proofs are here omitted, but we provide a short motivation for the statements below.
 Until it becomes relevant for the discussion, we shall ignore the spin of the electron.
 
-\begin{theorem}[Bloch theorem]
+\begin{theorem-non}[Bloch Theorem]
     \label{th:Bloch_theorem}
     Let $H$ be a Hamiltonian with a potential $V(\br)$ periodic in space, $\psi_{\bk}(\br)$ the eigenfunction of an electron with momentum $\bk$ and $\epsilon(\bk)$ its eigenenergy.
     Let $\bR$ be any lattice vector.
@@ -284,7 +284,7 @@ Until it becomes relevant for the discussion, we shall ignore the spin of the el
         \item The wavefunction can be written in terms of a modulated plane wave $\psi_{\bk}(\br) = \ei{\bk \vdot \br} u_{\bk}(\br)$, with the function $u_{\bk}(\br)=u_{\bk}(\br + \bR)$ having the periodicity of the lattice;  \label{Bloch_theorem_I}
         \item The wavefunction $\psi_{\bk}(\br)$ satisfies $\psi_{\bk}(\br + \bR) = \ei{\bk \vdot \bR} \psi_{\bk}(\br)\,$. \label{Bloch_theorem_II}
     \end{enumerate}
-\end{theorem}
+\end{theorem-non}
 
 The eigenfunction $\psi_{\bk}(\br)$ is known as the \underline{Bloch wavefunction}, while its periodic part $u_{\bk}(\br)$ is called the \underline{Bloch function}.
 This theorem can be motivated in a simple ad-hoc way, by assuming that the wavefunction of the electron $\psi_{\bk}(\br)$ can be appropriately expanded in a basis of plane waves as $\psi_{\bk}(\br) = \sum_{\bG} C^{\bk}_{\bG} \ei{(\bk - \bG) \vdot \br}$.
@@ -433,7 +433,14 @@ The isofrequency surfaces, or contours, help visualise what happens to the polar
 This makes \gls{hbn} a promising material for photonic applications, such as hyperlensing; this in the mid-\gls{ir}.
 In this same range, it presents hyperbolic phonon--polaritons~\cite{Sun_2015}, which have been already experimentally observed in nanostructures~\cite{Brown_Davanco_2018}, and even in its monolayer form~\cite{Dai_Fang_2019,Li_2021}.
 In similarity with the plasmon--polariton discussed in the previous chapter, the phonon--polariton is the result of the hybridization between the excitation of the lattice, the phonon already mentioned previously in this chapter, and the photon.
-In the context of condensed matter physics, ....
+When it comes to transport properties, it is a wide band gap semiconductor, with an indirect gap of around $5.955$~\unit{\electronvolt}~\cite{Cassabois_Valvin_Gil_2016}.
+However, in its monolayer limit, the band gap is direct~\cite{Elias_2019} and slightly higher, around $6.08 \pm 0.2$~\unit{\electronvolt}~\cite{Roman_2021}.
+We make the remark that these are experimental observations.
+
+Theoretically, monolayer \gls{hbn} can be described by a minimal tight-binding model with staggered on-site energies and a single hopping amplitude between nearest-neighbours.
+This material is composed of boron and nitrogen atoms, alternating in a lattice arranged in hexagons, like in Fig.~\ref{fig:hBN_lattice}\pnl{a} below.
+In the language of section~\ref{sec:single_particle_properties}, it is a triangular lattice with a basis, having the unit cell (shaded gray area in Fig.~\ref{fig:hBN_lattice}\pnl{a}) two atoms.
+A typical choice for its \bz~is the one depicted in Fig.~\ref{fig:hBN_lattice}\pnl{b}, with a hexagonal shape.
 
 \begin{figure}[H]
     \centering
@@ -442,72 +449,61 @@ In the context of condensed matter physics, ....
     \label{fig:hBN_lattice}
 \end{figure}
 
-With $a$ being the length of the chemical bonds,
-
-\begin{subequations}
-    \begin{align}
-        \vectorbold{a}_1 &= \frac{a}{2}(3,\sqrt{3}), \\
-        \vectorbold{a}_2 &= \frac{a}{2}(3,-\sqrt{3}),
-    \end{align}
-\end{subequations}
-
-\noindent and
-
-\begin{subequations}
-    \begin{align}
-        \boldsymbol{\delta}_1 &= a(1,0), \\
-        \boldsymbol{\delta}_2 &= \frac{a}{2}(-\sqrt{3},1), \\
-        \boldsymbol{\delta}_2 &= \frac{a}{2}(-\sqrt{3},-1),\\
-    \end{align}
-    \label{eq:delta_vectors}
-\end{subequations}
-
-\noindent with the primitive reciprocal lattice vectors
-
-\begin{subequations}
-    \begin{align}
-        \vectorbold{b}_1 &= \left(\frac{2 \pi}{3 a},\frac{2 \pi}{\sqrt{3} a} \right), \\
-        \vectorbold{b}_2 &= \left(\frac{2 \pi}{3 a},-\frac{2 \pi}{\sqrt{3} a} \right),
-    \end{align}
-\end{subequations}
-
-and
-
-\begin{subequations}
-    \begin{align}
-        \bK &= \left(\frac{2 \pi}{3 a},\frac{2 \pi}{3\sqrt{3} a} \right), \\
-        \bK' &= \left(\frac{2 \pi}{3 a},-\frac{2 \pi}{3\sqrt{3} a} \right).
-    \end{align}
-\end{subequations}
-
-A minimal tight-binding Hamiltonian for \gls{hbn} in second quantization
+In Fig.~\ref{fig:hBN_lattice}\pnl{a}, if $a$ is the length of the chemical bonds, we have for the primitive lattice vectors $\ba_1$ and $\ba_2$ in red in Fig~\ref{fig:hBN_lattice}\pnl{a}, we have
 
 \begin{equation}
-    \hat{H}= \sum_i E_A a_i^{\dagger} a_i + \sum_j E_B b_j^{\dagger} b_j - t \sum_{\langle i j\rangle}  \left(a_i^{\dagger} b_j+b_j^{\dagger} a_i\right) ,
+    \ba_1 = \frac{a}{2}(3,\sqrt{3})\,, \qq{and} \ba_2 = \frac{a}{2}(3,-\sqrt{3}),
+\end{equation}
+
+\noindent and the nearest-neighbour positions with respect to the blue sites are given by
+
+\begin{equation}
+    \boldsymbol{\delta}_1 = a(1,0)\,, \boldsymbol{\delta}_2 = \frac{a}{2}(-\sqrt{3},1)\,, \qq{and} \boldsymbol{\delta}_3 = \frac{a}{2}(-\sqrt{3},-1)\,,
+    \label{eq:delta_vectors}
+\end{equation}
+
+\noindent which are represented by the green vectors, and the primitive reciprocal lattice vectors $\bb_1$ and $\bb_2$ in blue in Fig~\ref{fig:hBN_lattice}\pnl{b} are given by
+
+\begin{equation}
+    \bb_1 = \left(\frac{2 \pi}{3 a},\frac{2 \pi}{\sqrt{3} a} \right) \qq{and} \bb_2 = \left(\frac{2 \pi}{3 a},-\frac{2 \pi}{\sqrt{3} a} \right)\,.
+\end{equation}
+
+\noindent The coordinates of the high-symmetry points $K$ and $K'$ are given by
+
+\begin{equation}
+    \bK = \left(\frac{2 \pi}{3 a},\frac{2 \pi}{3\sqrt{3} a} \right) \qq{and} \bK' = \left(\frac{2 \pi}{3 a},-\frac{2 \pi}{3\sqrt{3} a} \right).
+\end{equation}
+
+A minimal tight-binding Hamiltonian for \gls{hbn}, in second quantization\footnote{In second quantization, we promote a ket state $\ket{\alpha}$ to an operator $\hat{a}_{\alpha}^{\dagger}$ that creates a particle in the state $\alpha$. A bra corresponds then to an annihilation operator. These operators act on states living in the Fock space. The states that belong to the Fock space describe how many particles populate each ket state living in its corresponding single-particle Hilbert space. The second quantization formalism is also called the occupation number representation~\cite{Fetter_Walecka}.}, writes
+
+\begin{equation}
+    H = \sum_i E_A a_i^{\dagger} a_i + \sum_j E_B b_j^{\dagger} b_j - t \sum_{\langle i j\rangle}  \left(a_i^{\dagger} b_j+b_j^{\dagger} a_i\right) ,
     \label{eq:graphene_tight_binding_Hamiltonian}
 \end{equation}
 
-where the operator $a_i^{\dagger}/a_i$ creates/annihilates an electron in the A sublattice at the position $\vectorbold{r}_i$ and $b_j^{\dagger}/b_j$ creates/annihilates an electron in the B sublattice at the position $\vectorbold{r}_j$.
-The sum is over nearest-neighbours.
+\noindent where the operator $a_i^{\dagger}/a_i$ creates/annihilates an electron in the A sublattice at the position $\br_i$ and $b_j^{\dagger}/b_j$ creates/annihilates an electron in the B sublattice at the position $\br_j$.
+The symbol $\langle i j \rangle$ under the sum symbol means that the sum is over nearest-neighbours.
 It can be rewritten in a more comprehensive form
 
 \begin{equation}
-    \hat{H} = \sum_i E_A a_i^{\dagger} a_i + \sum_j E_B b_j^{\dagger} b_j - t \sum_{i \in A} \sum_{\boldsymbol{\delta}}\left(a_i^{\dagger} b_{i+\boldsymbol{\delta}}+b_{i+\boldsymbol{\delta}}^{\dagger} a_i\right).
+    H = \sum_i E_A a_i^{\dagger} a_i + \sum_j E_B b_j^{\dagger} b_j - t \sum_{i \in A} \sum_{\boldsymbol{\delta}}\left(a_i^{\dagger} b_{i+\boldsymbol{\delta}}+b_{i+\boldsymbol{\delta}}^{\dagger} a_i\right).
     \label{eq:graphene_tight_binding_Hamiltonian_comprehensive}
 \end{equation}
 
-Performing the change of basis
+\noindent Performing the change of basis
 
 \begin{equation}
-    a_i^{\dagger} = \frac{1}{\sqrt{N}} \sum_{\bk} \ei{\bk \vdot \br_i} a_{\bk}^{\dagger}, \qq{and analogously for} b_j^{\dagger},
+    a_i^{\dagger} = \frac{1}{\sqrt{N}} \sum_{\bk} \ei{\bk \vdot \br_i} a_{\bk}^{\dagger}, \qq{analogously for} b_j^{\dagger},
     \label{eq:second_quantization_change_of_basis}
 \end{equation}
 
-and simplifying, we arrive at
+\noindent and simplifying, we arrive at
 
 \begin{equation}
-    \hat{H} = \sum_{\bk} \Psi_{\bk}^{\dagger} H(\bk) \Psi_{\bk},
+    H = \sum_{\bk} \Psi_{\bk}^{\dagger} H(\bk) \Psi_{\bk},
 \end{equation}
+
+\noindent where we can define the Bloch Hamiltonian $H(\bk)$ as
 
 \begin{equation}
     \begin{array}{l}
@@ -517,58 +513,59 @@ and simplifying, we arrive at
         \end{array}\right), \quad \Psi_{\bk}=\left(\begin{array}{l}
                                                  a_{\bk} \\
                                                  b_{\bk}
-        \end{array}\right), \quad \Delta_{\bk} = \sum_{\boldsymbol{\delta}} \ei[-]{\bk \vdot \boldsymbol{\delta}}
+        \end{array}\right), \quad \Delta_{\bk} = \sum_{\boldsymbol{\delta}} \ei[-]{\bk \vdot \boldsymbol{\delta}}\,.
     \end{array}
 \end{equation}
 
-Recalling the vectors $\boldsymbol{\delta}$ from Eq.~\eqref{eq:delta_vectors}, we have
+\noindent Recalling the vectors $\boldsymbol{\delta}$ from Eq.~\eqref{eq:delta_vectors}, we have
 
 \begin{equation}
     \label{eq:Delta_of_k}
     \Delta_{\bk} =\ei[-]{k_x a}\left[1+2 \ei{3 k_x a / 2} \cos \left(\frac{\sqrt{3}}{2} k_y a\right)\right].
 \end{equation}
 
-The dispersion relation for hBN is then given by~\cite{ribeiro_stability_2011}
+The dispersion relation for \gls{hbn} is then given by~\cite{ribeiro_stability_2011}
 
 \begin{equation}
     E(\bk) = E_0 \pm \frac{1}{2} \sqrt{E^2_g + 4 t^2 + 16 t^2 \cos \left(\frac{3 a }{2} k_x\right) \cos \left(\frac{\sqrt{3} a}{2}  k_y \right) + 16 t^2 \cos^2 \left(\frac{\sqrt{3} a}{2} k_y \right)},
 \end{equation}
 
-\noindent here $E_0 = (E_A + E_B)/2$ is the energy reference (which is arbitrary) and $E_g = E_A - E_B$ is the energy gap.
-One can see clearly the opening of a gap (in the corners of the Brillouin zone) in Figure \ref{fig:monolayer_hBN_bands}.
-Even though similar to graphene in the crystal structure, contrary to it, monolayer hBN is an insulator, with a gap around $5-7 \text{eV}$.
+\noindent here $E_0 = (E_A + E_B)/2$ is the energy reference (which is arbitrary) and $E_g = E_A - E_B$ is the energy band gap.
+One can see clearly the opening of a gap (in the corners of the Brillouin zone $K$ and $K'$) in Figure \ref{fig:monolayer_hBN_bands}.
+Even though similar to graphene in the crystal structure, contrary to it, monolayer \gls{hbn} is an insulator as we have said before.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_3/hBN_TB_bands}
-    \caption[Tight-binding hBN band structure]{hBN bands. $E_B=2$, $E_N=1$, $t=0.7$.}
+    \caption[Tight-binding band structure of monolayer hBN]{Band structure of monolayer \gls{hbn} in the tight-binding approximation. In panel \pnl{a} we display a \gls{3d} representation of the bands, while in \pnl{b} we plot the bands along the high-symmetry line $\Gamma-K-M-\Gamma$. We have used model parameters that do not realistically represent the band structure.}%$E_B=1.5$~\unit{\electronvolt}, $E_N=-1.5$~\unit{\electronvolt}, $t=0.7$~\unit{\electronvolt}.}
     \label{fig:monolayer_hBN_bands}
 \end{figure}
 
-Analysis of the continuum limit.
-Linearizing \eqref{eq:Delta_of_k} with respect to momentum around the momentum $\bK = (2 \pi / 3 a, 2 \pi / 3 \sqrt{3} a)$, defining the relative momentum $\bq$ by $\bk = \bK + \bq$, we have
+Sometimes, a low-energy approximation suffices for describing the material at hand.
+Below, we do an analysis of the low-energy, or continuum, limit of monolayer \gls{hbn}.
+Linearizing~\eqref{eq:Delta_of_k} with respect to momentum around the momentum $\bK = (2 \pi / 3 a, 2 \pi / 3 \sqrt{3} a)$, and defining the relative momentum $\bq$ by $\bk = \bK + \bq$, with $|\bq| \ll |\bK|$, we have
 
 \begin{equation}
     \Delta_{\bK + \bq} \simeq -\ii\, \ei[-]{\frac{2 \pi }{3} a} \frac{3 a}{2}(q_x+\ii q_y) \rightarrow - \frac{3 a}{2} (q_x + \ii q_y) .
 \end{equation}
 
-\noindent Replacing now in the Bloch Hamiltonian
+\noindent Replacing now in the Bloch Hamiltonian, we define the follwoing low-energy Hamiltonian
 
 \begin{equation}
     \label{eq:low_energy_hamiltonian_hBN}
-    \mathcal{H}_K \equiv H(\bK + \bq) \simeq  \frac{3 a t}{2 \hbar} (q_x \sigma_x - q_y \sigma_y) + M \sigma_z = \hbar \vF \bar{\bq} . \boldsymbol{\sigma} + M \sigma_z
+    \mathcal{H}_K \equiv H(\bK + \bq) \simeq  \frac{3 a t}{2 \hbar} (q_x \sigma_x - q_y \sigma_y) + M \sigma_z = \hbar \vF \bar{\bq} . \boldsymbol{\sigma} + M \sigma_z \,,
 \end{equation}
 
 \noindent where $M$ is half the band gap, $\sigma_x$, $\sigma_y$ and $\sigma_z$  are the Pauli matrices, and $\boldsymbol{\sigma} = (\sigma_x,\sigma_y)$ is Pauli matrices vector, $\vF$ is the Fermi velocity
 
 \begin{equation}
-    \vF = \frac{3 a t}{2 \hbar},
+    \vF = \frac{3 a t}{2 \hbar}\,,
 \end{equation}
 
 \noindent and
 
 \begin{equation}
-    \bar{\bq} = (q_x,-q_y,0).
+    \bar{\bq} = (q_x,-q_y,0)\,.
 \end{equation}
 
 \noindent Following the same procedure but for the $\bK'$ point, we obtain
@@ -589,18 +586,19 @@ Linearizing \eqref{eq:Delta_of_k} with respect to momentum around the momentum $
     \Delta_{\tau \bK + \bq} \simeq - \frac{3 a}{2}(q_x+\ii \tau q_y),
 \end{equation}
 
-\noindent where $\tau = \pm 1$, $\tau=1$ for the $K'$ point, and $\tau = -1$ for the $K$ point, represents the valley degree of freedom.
+\noindent where $\tau = \pm 1$, with $\tau=1$ for the $K'$ point and $\tau = -1$ for the $K$ point, represents the valley degree of freedom.
+In this way, the low-energy dispersion relation writes
 
 \begin{equation}
     E_{\pm} (\bq) = \pm \sqrt{E_g^2 + \hbar^2 \vF^2 |\bq|^2},
 \end{equation}
 
 \noindent $+$ for the top/conduction band, and $-$ for the bottom/valence band.
-Now it is explained why the dispersion relation near the points $\bK$ and $\bK'$ look like parabolas for low energies, the dispersion is quadratic in the vicinity of those points, which can be seen if we further expand the previous expression up to leading order in $|\bq|$.
-The energy spectrum enjoys valley degeneracy because we can ignore the spin--orbit coupling in this system, since boron and nitrogen are light elements.
-In this way, there is no coupling between the two valleys that would break the degeneracy.
+Now it is explained why the dispersion relation near the points $\bK$ and $\bK'$ look like parabolas for low energies; the dispersion is quadratic in the vicinity of those points, which can be seen if we further expand the previous expression up to leading order in $|\bq|$.
+The energy spectrum enjoys valley degeneracy because we can ignore the spin--orbit coupling in this system, since boron and nitrogen are very light elements.
+In this way, there is no coupling between the two valleys that would break the valley degeneracy.
 
-We can as well compute the effective masses of the electrons around $\bK'$, through
+We can as well compute the effective masses of the electrons around $\bK$, through
 
 \begin{equation}
     m^* = \left( \frac{1}{\hbar^2}\frac{\dd^2 E_{\pm}(q)}{\dd q^2} \bigg|_{q=0} \right)^{-1} = \pm \frac{E_g}{2 \vF^2},
@@ -617,37 +615,113 @@ The eigenvectors are
         \tau \ei[-]{\tau \theta_k} \sin \frac{\xi_k}{2} \\
         - \cos \frac{\xi_k}{2},
     \end{bmatrix}
-    \label{eq:mono_hBN_valence_spinor}
-\end{equation}
-
-\noindent for the valence band, and
-
-\begin{equation}
+    \qq{and}
     | c, \bk \rangle =
     \begin{bmatrix}
         \cos \frac{\xi_k}{2} \\
         \tau \ei[-]{\tau \theta_k} \sin \frac{\xi_k}{2}
     \end{bmatrix}
-    \label{eq:mono_hBN_conduction_spinor}
+    \label{eq:mono_hBN_valence_conduction_spinors}
 \end{equation}
 
-\noindent for the conduction band, where
+\noindent for the valence band and for the conduction band, respectively, where
 
 \begin{equation}
     \theta_k = \arctan \frac{k_y}{k_x} \qq{and}  \xi_k = \arctan \frac{2 \hbar \vF k}{E_g}.
 \end{equation}
 
+Even though the tight-binding Hamiltonian for \gls{hbn} provides a simple, yet insightful theoretical tool, we still need somehow to use realistic values for the parameters $t$ and $E_g$.
+These can be obtained through fitting the tight-binding band structure to a more realistic one, typically obtained through the so called first principle, or \abinit~methods, that we describe in the next section.
 
 \subsubsection{\textit{Ab initio} methods}
 \label{subsubsec:abinit_methods}
 
-Briefly discuss \dft~and Wannierization, as we need it for the framework of the screening and excitons with the code.
+If we wish to describe the electronic structure of a crystal, we are faced with the stationary many-body Schrödinger equation
+
+\begin{equation}
+    H \Psi(\br_1,\br_2,\dots,\br_N) = E \Psi(\br_1,\br_2,\dots,\br_N) \,,
+\end{equation}
+
+\noindent where $H$ is the many-body Hamiltonian in Eq.~\eqref{eq:many_body_Hamiltonian}, and $\Psi(\br_1,\br_2,\dots,\br_N)$ is the many-body wavefunction.
+As previously stated, there is no hope in solving the previous equation for the many-body wavefunction.
+That was a motivation for introducing the nearly-free electron model and the tight-binding model.
+But then, we are faced with the shortcomings of these models---they describe opposing limits, and provide no way of determining the model parameters.
+
+To overcome this dilemma, we have to take a different look into the many-body problem.
+Quite surprisingly, it is possible to describe a ground state of a crystal in terms of a function of a single variable, which is the electronic density $n(\br)$, instead of dealing with the $10^23$ variables of the many-body wavefunction.
+Physicist hypothesized that the ground state energy could be written as a functional of the electronic density.
+This statement, which is a consequence of the first Hohenberg--Kohn theorem, was put in rigorous grounds by Hohenberg and Kohn~\cite{Hohenberg_Kohn_1964}, the precursors of \gls{dft}.
+Together with the second Hohenberg--Kohn theorem, they form the pillars of \dft.
+The two theorems are very strong statements, that we proclaim below.
+
+\begin{theorem-non}[Hohenberg--Kohn Theorem I]
+    \label{th:HK_theorem_I}
+    The properties of any physical system, at zero temperature, are completely determined by its ground state electronic density.
+    This statement is a consequence of the following claims:
+
+    \begin{enumerate}[label=(\arabic*),ref=(\arabic*)]
+        \item The mapping from the potential $V_{e-\mathrm{ion}}(\br)$ to the electronic ground state density $n(\br)$ is one-to-one;\label{itm:HK_I_1}
+        \item The many-body wavefunction of the ground state of a system is solely determined by its many-body Hamiltonian, which in turn is determined solely by the potential $V_{e-\mathrm{ion}}(\br)$ and the number of electrons;\label{itm:HK_I_2}
+        \item Then, per~\ref{itm:HK_I_1} and~\ref{itm:HK_I_2}, the ground state density $n(\br)$ determines uniquely the many-body wavefunction, and consequently, the ground and excited states of the system.
+    \end{enumerate}
+\end{theorem-non}
+
+As said before, this theorem implies that the ground state energy is a functional of the electronic density, $E[n(\br)]$.
+By application of the variational principle, we can state the second Hohenberg--Kohn theorem below.
+
+\begin{theorem-non}[Hohenberg--Kohn Theorem II]
+    \label{th:HK_theorem_I}
+    The ground state density of a system minimizes the energy functional $E[n(\br)]$.
+    The ground state can therefore be found by minimizing ground state energy functional with respect to the density.
+\end{theorem-non}
+
+After stating the two Hohenberg--Kohn theorems, we could contextualize the problem of finding the electronic structure of any material with \abinit~methods.
+Nonetheless, even though the two theorems are powerful claims, they do not provide a practical method of finding the ground state density, and therefore, the properties of the system.
+In order to do that, Kohn and Sham~\cite{Kohn_Sham_1965} proposed a method, called the Kohn--Sham scheme.
+Without going into much detail, the Kohn--Sham scheme is a self-consistent method, where the full interacting many-body problem is mapped into an auxiliary noninteracting one, but with the same ground state density as the initial problem.
+
+The many-body effects are encoded in a contribution to the gorund state energy functional, called the exchange--correlation functional, denoted by $E_{\mathrm{xc}}[n(\br)]$.
+Even though this functional is universal, its exact analytical form is not known.
+Therefore, different degrees of approximation are used, like the \gls{lda}, or the \gls{gga}, which is a non-local approximation.
+It is well known that traditional \dft~suffers from a fundamental problem, called the band gap problem.
+In many materials, \dft~calculations underestimate the band gap, even drastically in some cases.
+In order to improve the outcome from \dft, there are some schemes that go beyond the Kohn--Sham scheme.
+One idea is to use hybrid functionals, consisting in mixing an approximated exchange--correlation functional, say \gls{lda} or \gls{gga}, with the exact Fock exchange.
+For a thorough treatment of these subjects, we refer the reader to Refs.~\cite{Martin_2004,Kohanoff_2006}.
+Later on in this work, we will mention the use of hybrid functionals in the first-principle calculations necessary for the framework developed for the screening in \bd~materials, pertaining to Chapter~\ref{ch:screening}.
+Our implementation for the screening is actually based on key concepts of the next chapter, where we present briefly the \gls{mbpt} formalism, which can also be used to predict electronic properties of materials
+
 
 \section{Many-Particle Description of Solids}
 \label{sec:many_particle_description}
 
+Up until now, we have been discussing essentially single-particle properties of solids.
+Even though matter is composed of many particles, the single-particle problem serves as a good basis for the full many-body problem.
+In the single-particle picture, pair-wise interactions are either discarded altogether, or treated at the mean-field level.
+Doing this can be a good starting point to study material properties, but it leaves out emergent phenomena coming from interactions.
+Just like in high-energy physics, where particles can be created or destroyed, in condensed matter some effects can only be described by introducing the concept of quasiparticle---a composite state coming from the coupling between different or identical particles in a solid, that can explain excitated state properties we could not understand otherwise.
+For that, we use the \gls{mbpt} formalism, which is the non-relativistic cousin of quantum field theory.
+The study of solids using the methods of this framework, allow to explain exotic phenomena, such as superconductivity as explained by the \gls{bcs} theory, the Fermi liquid theory, quantum magnetism, among others.
+
+In this section, we discuss the main concepts needed for future parts of this work, but in a briefly manner.
+A detailed discussion of this topic would be too technical and long for the purpose of this thesis, and is beyond the scope of this text.
+We may say at this point, that to fully understand \gls{mbpt}, we need the second quantization or occupation number formalism of quantum mechanics~\cite{Fetter_Walecka}, that we have mentioned before in section~\ref{subsec:tight_binding_model}.
+It was therein applied to a tight-binding model, but inserting interaction in this formalism is very natural.
+
 \subsection{Many-body perturbation theory and $GW$ approximation}
 \label{subsec:many_body_perturbation_theory}
+
+In physics, the concept of Green function is very important, with applications throughout many subfields.
+In the context of condensed matter physics, its relevance in \gls{mbpt} is not questionable.
+The Green function, or propagator as in particle physics, is a quantity that helps providing a formal solution to the Schrödinger equation for the interacting problem.
+
+In the context of \gls{mbpt}, it is defined as
+
+\begin{equation}
+    \mathcal{G} (\nu t;\nu' t') = -\ii \theta(t-t') \langle [a_\nu(t), a_{\nu'}^\dagger(t')]_{\mp} \rangle,
+\end{equation}
+
+\noindent where....
 
 The many-body Green function obeys the Dyson equation
 
