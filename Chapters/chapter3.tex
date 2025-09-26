@@ -109,11 +109,11 @@ If we write each contribution using math notation, then, the total many-body Ham
 
 \noindent if we write $m$ for the electron mass, $\br_i$ and $\bp_i$ for the position and momentum of the $i$-th electron, respectively, while $\bR_I$, $\mathbf{P}_I$, $M_I$ and $Z_I$ are the $I$-th ion position, momentum, mass, and number of valence electrons, respectively.
 The factors of $1/2$ in the terms for pairwise interactions is to avoid double counting, and the sums are over all pairs of particles (both pairs $(i,j)$ and $(j,i)$ are included in the sum).
-This Hamiltonian is written in terms of the real space coordinates of the particles, meaning that we can write a function depending on all the coordinates, called the wavefunction.
-If the problem is that of a single particle, and if it can be found in the state $\ket{\psi}$, then the wavefunction is defined by $\psi(\br) \equiv \braket{\br}{\psi}$---we are just saying that the state of the system can be written in a representation of basis functions belonging to the Hilbert space of all the square-integrable complex valued functions defined in real space\footnote{Being square-integrable means that the integral of the absolute value squared over their domain is finite.}, normalized to 1.
+This Hamiltonian is written in terms of the real space coordinates of the particles, meaning that we can write a function depending on all the coordinates, called the \wf.
+If the problem is that of a single particle, and if it can be found in the state $\ket{\psi}$, then the \wf~is defined by $\psi(\br) \equiv \braket{\br}{\psi}$---we are just saying that the state of the system can be written in a representation of basis functions belonging to the Hilbert space of all the square-integrable complex valued functions defined in real space\footnote{Being square-integrable means that the integral of the absolute value squared over their domain is finite.}, normalized to 1.
 With symbols, $\braket{\psi}{\psi} = \int \dr |\psi(\br)|^2 = 1$.
 Obviously, we can see that solving for the eigenstates and eigenenergies of this Hamiltonian is a herculean task---some approximations are needed if we want to even aspire to describe the physics of this system.
-Not only that, but even if we could solve this problem in practice, the wavefunction would have so many variables (of the order of $10^{23}$), there would not be anything we could do in practice with so much information.
+Not only that, but even if we could solve this problem in practice, the \wf~would have so many variables (of the order of $10^{23}$), there would not be anything we could do in practice with so much information.
 In the next subsections, we simplify our problem until we can somewhat describe the physics it contains.
 We can start already by saying that we work under low enough temperatures and small enough energies, such that the system we are dealing with is in fact a solid---the ions are bound to their neighbors through strong chemical bonds, making the whole material rigid~\cite{Simon_Oxford_2013}.
 
@@ -153,7 +153,7 @@ Upon ignoring in the full many-body Hamiltonian~\eqref{eq:many_body_Hamiltonian}
 
 \noindent If we write the potential term in the previous expression as a sum over all electrons as $V_{e-\mathrm{ion}}(\br) = \sum_i v (\br_i)$ (with $v$ including a sum over all ions like), then we have reduced the full many-body problem from Eq.~\eqref{eq:many_body_Hamiltonian} to a sum of single-particle Hamiltonians that are uncoupled, which is a noninteracting problem of identical particles.
 In that case, the problem encompassing all the electrons is separable.
-The wavefunction including all $N$ electrons, $\Psi(\br_1,\br_2,...,\br_N)$, can be written as a product of all the single-particle wavefunctions $\psi_i(\br_i)$ as $\Psi(\br_1,\br_2,...,\br_N)= \psi_1(\br_1) \psi_2(\br_2)...\psi_N(\br_N)$, with each unique wavefunction satisfying the \gls{tise}
+The \wf~including all $N$ electrons, $\Psi(\br_1,\br_2,...,\br_N)$, can be written as a product of all the single-particle \wf s $\psi_i(\br_i)$ as $\Psi(\br_1,\br_2,...,\br_N)= \psi_1(\br_1) \psi_2(\br_2)...\psi_N(\br_N)$, with each unique \wf~satisfying the \gls{tise}
 
 
 \begin{equation}
@@ -164,11 +164,11 @@ The wavefunction including all $N$ electrons, $\Psi(\br_1,\br_2,...,\br_N)$, can
 \noindent where $\epsilon_i$ represents the energy of a single electron, and the total energy of the system is simply the sum of all energies $\epsilon_i$.
 We also ignore the spin in the discussion.
 In other words, this discussion applies to the ferromagnetic electron gas, where all spins have the same orientation\footnote{This discussion is allusive, and does not contradict what we have stated in the first chapter; in this work we do not study the magnetic properties of materials nor materials with permanent magnetization.}.
-In fact, to account for the statistics of the electrons, which are fermions, the wavefunction of all electrons must respect antisymmetry upon permutation of any two electrons.
-Say we permute electron $i$ with electron $j$, the wavefunction must obey $\Psi(\br_1,\br_2,...,\br_i,...,\br_j,...,\br_N) = -\Psi(\br_1,\br_2,...,\br_j,...,\br_i,...,\br_N)$.
-Then, the total wavefunction is the Slater determinant of all single-particle wavefunctions~\cite{Griffiths_QM_2018}, which is the determinant of the matrix that has by entries $\psi_i(\br_j)$, with $i,j=1,...N$, along with a factor of $1/\sqrt{N\,!}$ for normalization.
-The noninteracting wavefunctions can then serve as a basis for the interacting problem.
-With them, we can estimate the ground state energy of the interacting electron gas in a crystalline solid by using the Slater determinant as a variational wavefunction.
+In fact, to account for the statistics of the electrons, which are fermions, the \wf~of all electrons must respect antisymmetry upon permutation of any two electrons.
+Say we permute electron $i$ with electron $j$, the \wf~must obey $\Psi(\br_1,\br_2,...,\br_i,...,\br_j,...,\br_N) = -\Psi(\br_1,\br_2,...,\br_j,...,\br_i,...,\br_N)$.
+Then, the total \wf~is the Slater determinant of all single-particle \wf s~\cite{Griffiths_QM_2018}, which is the determinant of the matrix that has by entries $\psi_i(\br_j)$, with $i,j=1,...N$, along with a factor of $1/\sqrt{N\,!}$ for normalization.
+The noninteracting \wf s can then serve as a basis for the interacting problem.
+With them, we can estimate the ground state energy of the interacting electron gas in a crystalline solid by using the Slater determinant as a variational \wf.
 This is called the \hf~method~\cite{Cohen_Louie_2016,Grosso_2014}, commonly introduced in introductory condensed matter physics courses for finding the eigenenergies of the Hamiltonian
 
 \begin{empheq}[innerbox=\fbox, right={\,.}]{align}
@@ -269,7 +269,7 @@ These concepts will be key to understanding the Bloch theorem and its importance
 \subsection{Bloch's Theorem}
 \label{subsec:bloch_theorem}
 
-We have at this point all the necessary tools to state and understand Bloch's theorem\footnote{Its original form is actual for \gls{1d} systems, or equivalently, for ordinary differential equations, and is due to the mathematician Gaston Floquet. The very same mathematician of the Floquet formalism of time-periodic Hamiltonians in quantum mechanics~\cite{Holthaus_2015}.}, named after the physicist Felix Bloch.
+We have at this point all the necessary tools to state and understand Bloch's theorem\footnote{Its original form is actual for \gls{1d} systems, or equivalently, for ordinary differential equations, and is due to the mathematician Gaston Floquet. The very same mathematician of the Floquet formalism of time-periodic Hamiltonians in quantum mechanics~\cite{Holthaus_2015}.\label{fn:Floquet_formalism}}, named after the physicist Felix Bloch.
 It has different formulations and ways to be proved.
 The formal proofs are here omitted, but we provide a short motivation for the statements below.
 Until it becomes relevant for the discussion, we shall ignore the spin of the electron.
@@ -281,13 +281,13 @@ Until it becomes relevant for the discussion, we shall ignore the spin of the el
     Then, the following statements hold and are equivalent:
 
     \begin{enumerate}[label=(\arabic*),ref=(\arabic*)]
-        \item The wavefunction can be written in terms of a modulated plane wave $\psi_{\bk}(\br) = \ei{\bk \vdot \br} u_{\bk}(\br)$, with the function $u_{\bk}(\br)=u_{\bk}(\br + \bR)$ having the periodicity of the lattice;  \label{Bloch_theorem_I}
-        \item The wavefunction $\psi_{\bk}(\br)$ satisfies $\psi_{\bk}(\br + \bR) = \ei{\bk \vdot \bR} \psi_{\bk}(\br)\,$. \label{Bloch_theorem_II}
+        \item The \wf~can be written in terms of a modulated plane wave $\psi_{\bk}(\br) = \ei{\bk \vdot \br} u_{\bk}(\br)$, with the function $u_{\bk}(\br)=u_{\bk}(\br + \bR)$ having the periodicity of the lattice;  \label{Bloch_theorem_I}
+        \item The \wf~$\psi_{\bk}(\br)$ satisfies $\psi_{\bk}(\br + \bR) = \ei{\bk \vdot \bR} \psi_{\bk}(\br)\,$. \label{Bloch_theorem_II}
     \end{enumerate}
 \end{theorem-non}
 
-The eigenfunction $\psi_{\bk}(\br)$ is known as the \underline{Bloch wavefunction}, while its periodic part $u_{\bk}(\br)$ is called the \underline{Bloch function}.
-This theorem can be motivated in a simple ad-hoc way, by assuming that the wavefunction of the electron $\psi_{\bk}(\br)$ can be appropriately expanded in a basis of plane waves as $\psi_{\bk}(\br) = \sum_{\bG} C^{\bk}_{\bG} \ei{(\bk - \bG) \vdot \br}$.
+The eigenfunction $\psi_{\bk}(\br)$ is known as the \underline{Bloch \wf}, while its periodic part $u_{\bk}(\br)$ is called the \underline{Bloch function}.
+This theorem can be motivated in a simple ad-hoc way, by assuming that the \wf~of the electron $\psi_{\bk}(\br)$ can be appropriately expanded in a basis of plane waves as $\psi_{\bk}(\br) = \sum_{\bG} C^{\bk}_{\bG} \ei{(\bk - \bG) \vdot \br}$.
 If we factor out the exponential $\ei{\bk \vdot \br}$ from the sum, then the first statement of the theorem becomes evident.
 The second statement can be straightforwardly proved from the first one.
 From the second statement, by identifying $u_{\bk}(\br) = \ei[-]{\bk \vdot \br} \psi_{\bk}(\br)$, we can in turn arrive at the first statement.
@@ -332,9 +332,9 @@ In the opposite limit where the crystal is not compact and the atoms are further
 We usually associate this type of crystals with materials with poor conducting properties, those presenting a band gap.
 These can be classified as insulators or semiconductors, depending on how the size of the band gap compares with the thermal energy, as we have explained before in section~\ref{subsec:polaritonics_dispersion_relation}.
 
-Within this formalism, the Bloch wavefunctions are the linear combination of atomic orbitals, instead of being written as a superposition of plane waves.
+Within this formalism, the Bloch \wf s are the linear combination of atomic orbitals, instead of being written as a superposition of plane waves.
 This is called the \gls{lcao} method or approximation.
-In math notation, we write for the wavefunction of an electron in the Bloch state of band $n$ with momentum $\bk$
+In math notation, we write for the \wf~of an electron in the Bloch state of band $n$ with momentum $\bk$
 
 \begin{empheq}[innerbox=\fbox, right={\,,}]{align}
     \label{eq:Bloch_state_LCAO}
@@ -398,7 +398,7 @@ In matrix form, we can write
 \end{equation}
 
 \noindent Herein, we typically work in a basis of orthogonal orbitals, such that any two different orbitals do not overlap.
-This holds in particular for the case where the localized orbitals are not atomic orbitals, but Wannier functions instead, which are orthogonal by construction\footnote{The Wannier functions result from transforming, by linear superpositions, the basis of the Bloch wavefunctions~\eqref{eq:Bloch_state_LCAO} into a basis of localized functions~\cite{Marzari_2012}.}.
+This holds in particular for the case where the localized orbitals are not atomic orbitals, but Wannier functions instead, which are orthogonal by construction\footnote{The Wannier functions result from transforming, by linear superpositions, the basis of the Bloch \wf s~\eqref{eq:Bloch_state_LCAO} into a basis of localized functions~\cite{Marzari_2012}.}.
 This makes $S(\bk) = \mathds{1}$, simplifying the eigenvalue problem~\eqref{eq:Bloch_eigenvalue_problem}.
 Following an analogous procedure for the Hamiltonian, one obtains
 
@@ -642,13 +642,13 @@ If we wish to describe the electronic structure of a crystal, we are faced with 
     H \Psi(\br_1,\br_2,\dots,\br_N) = E \Psi(\br_1,\br_2,\dots,\br_N) \,,
 \end{equation}
 
-\noindent where $H$ is the many-body Hamiltonian in Eq.~\eqref{eq:many_body_Hamiltonian}, and $\Psi(\br_1,\br_2,\dots,\br_N)$ is the many-body wavefunction.
-As previously stated, there is no hope in solving the previous equation for the many-body wavefunction.
+\noindent where $H$ is the many-body Hamiltonian in Eq.~\eqref{eq:many_body_Hamiltonian}, and $\Psi(\br_1,\br_2,\dots,\br_N)$ is the many-body \wf.
+As previously stated, there is no hope in solving the previous equation for the many-body \wf.
 That was a motivation for introducing the nearly-free electron model and the tight-binding model.
 But then, we are faced with the shortcomings of these models---they describe opposing limits, and provide no way of determining the model parameters.
 
 To overcome this dilemma, we have to take a different look into the many-body problem.
-Quite surprisingly, it is possible to describe a ground state of a crystal in terms of a function of a single variable, which is the electronic density $n(\br)$, instead of dealing with the $10^23$ variables of the many-body wavefunction.
+Quite surprisingly, it is possible to describe a ground state of a crystal in terms of a function of a single variable, which is the electronic density $n(\br)$, instead of dealing with the $10^23$ variables of the many-body \wf.
 Physicist hypothesized that the ground state energy could be written as a functional of the electronic density.
 This statement, which is a consequence of the first Hohenberg--Kohn theorem, was put in rigorous grounds by Hohenberg and Kohn~\cite{Hohenberg_Kohn_1964}, the precursors of \gls{dft}.
 Together with the second Hohenberg--Kohn theorem, they form the pillars of \dft.
@@ -661,8 +661,8 @@ The two theorems are very strong statements, that we proclaim below.
 
     \begin{enumerate}[label=(\arabic*),ref=(\arabic*)]
         \item The mapping from the potential $V_{e-\mathrm{ion}}(\br)$ to the electronic ground state density $n(\br)$ is one-to-one;\label{itm:HK_I_1}
-        \item The many-body wavefunction of the ground state of a system is solely determined by its many-body Hamiltonian, which in turn is determined solely by the potential $V_{e-\mathrm{ion}}(\br)$ and the number of electrons;\label{itm:HK_I_2}
-        \item Then, per~\ref{itm:HK_I_1} and~\ref{itm:HK_I_2}, the ground state density $n(\br)$ determines uniquely the many-body wavefunction, and consequently, the ground and excited states of the system.
+        \item The many-body \wf~of the ground state of a system is solely determined by its many-body Hamiltonian, which in turn is determined solely by the potential $V_{e-\mathrm{ion}}(\br)$ and the number of electrons;\label{itm:HK_I_2}
+        \item Then, per~\ref{itm:HK_I_1} and~\ref{itm:HK_I_2}, the ground state density $n(\br)$ determines uniquely the many-body \wf, and consequently, the ground and excited states of the system.
     \end{enumerate}
 \end{theorem-non}
 
@@ -670,7 +670,7 @@ As said before, this theorem implies that the ground state energy is a functiona
 By application of the variational principle, we can state the second Hohenberg--Kohn theorem below.
 
 \begin{theorem-non}[Hohenberg--Kohn Theorem II]
-    \label{th:HK_theorem_I}
+    \label{th:HK_theorem_II}
     The ground state density of a system minimizes the energy functional $E[n(\br)]$.
     The ground state can therefore be found by minimizing ground state energy functional with respect to the density.
 \end{theorem-non}
@@ -732,7 +732,7 @@ In the real space basis representation, the total Hamiltonian writes
 
 \begin{empheq}[innerbox=\colorbox{lightgray}, right={\,,}]{align}
     \label{eq:canonical_many_body_Hamiltonian}
-    \hat{H} = \sum_{\sigma} \int \dd{\br} \, \hat{\psi}^{\dagger}_{\sigma}(\br) H_0 \hat{\psi}(\br) + \frac{1}{2} \sum_{\sigma,\sigma'} \int \dd{\br} \int \dd{\br'} \, \hat{\psi}^{\dagger}_{\sigma}(\br) \hat{\psi}^{\dagger}_{\sigma'}(\br') W(\br , \br') \hat{\psi}_{\sigma'}(\br') \hat{\psi}_{\sigma}(\br) \,,
+    \hat{H} = \sum_{\sigma} \int \dd{\br} \, \hat{\psi}^{\dagger}_{\sigma}(\br) H_0 \hat{\psi}(\br) + \frac{1}{2} \sum_{\sigma,\sigma'} \int \dd{\br} \int \dd{\br'} \, \hat{\psi}^{\dagger}_{\sigma}(\br) \hat{\psi}^{\dagger}_{\sigma'}(\br') W(\br , \br') \hat{\psi}_{\sigma'}(\br') \hat{\psi}_{\sigma}(\br)
 \end{empheq}
 
 \noindent where the interaction potential $W(\br , \br')$ is the screened Coulomb interaction, if we are assuming that it is the only interaction in play.
@@ -767,50 +767,48 @@ In this way, we can write the interacting Green function as
 If in the previous expression we multiply both sides by the denominator from the left, we get $[\omega - H_0] \mathcal{G} - \Sigma(\omega) \mathcal{G} = \qty(\mathcal{G}^0)^{-1} \mathcal{G} - \Sigma(\omega) \mathcal{G} = 1$.
 Multiplying by the green function $\mathcal{G}^0$ from the left, simplifying and considering the real space basis and going back to the time domain, we get a Dyson equation for the many-body Green function, and it writes
 
-\begin{empheq}[innerbox=\fbox, right={\,.}]{align}
+\begin{empheq}[innerbox=\fbox, right={\,,}]{align}
     \label{eq:Dysons_eq_repeated}
     \mathcal{G} (b,a) = \mathcal{G}^0 (b,a) + \int \dd{1} \dd{2} \, \mathcal{G} (b,1) \Sigma(1,2) \mathcal{G}^0(2,a)
 \end{empheq}
 
-\noindent where a digit or a letter $a$ or $b$ is an abbreviation for all the degrees of freedom.
+\noindent where a digit or letter $a$ or $b$ is an abbreviation for all the degrees of freedom.
 With symbols, it means $i=(\br_i,\sigma_i,t_i)$, and $\int \dd{i} = \sum_{\sigma_i} \int \dd{\br_i} \int \dd{t_i}$.
 
 It is possible to derive a similar equation for the density-density response function $\chi$, and the irreducible polarizability $\chi^\irr$, the latter being the sum of all irreducible diagrams in the expansion for $\chi$.
-The full interacting response function $\chi$  is not computable in practice, therefore we apply an approximation, called the \gls{rpa}, which neglects exchange and correlation in $\chi^\irr$ and only the Hartee diagram, also called bubble diagram, is kept, so that $\chi^\irr \approx \chi_{\RPA}^\irr \equiv \chi^0 = -\ii G_0(1,2) G_0(2,1)$.
+The full interacting response function $\chi$  is not computable in practice, therefore we apply an approximation, called the \gls{rpa}, which neglects exchange and correlation in $\chi^\irr$ and only the Hartree diagram, also called bubble diagram, is kept, so that $\chi^\irr \approx \chi_{\RPA}^\irr \equiv \chi^0 = -\ii G_0(1,2) G_0(2,1)$.
 In general, beyond \rpa, the full polarizability writes
 
 \begin{equation}
     \label{eq:polarizability_vertex}
-    \chi(1,2) = -\ii \int \dd{3} \dd{4}\, G(1,3) \Lambda(3,4,2) G(4,1^+) \,,
+    \chi(1,2) = -\ii \int \dd{3} \dd{4}\, G(1,3) \Lambda(3,4;2) G(4,1^+) \,,
 \end{equation}
 
-\noindent where $\Lambda$ is the vertex function, and it is given By
+\noindent where $\Lambda$ is the vertex function, and it is given by
 
 \begin{equation}
     \label{eq:vertex_function}
     \Lambda(1,2;3) = \delta(1,2) \delta(1,3) + \int \dd{4} \dd{5} \dd{6} \dd{7} \, \frac{\delta \Sigma(1,2)}{\delta G(4,5)} G(4,6) G(7,5)  \Lambda(6,7;3) \,.
 \end{equation}
 
-The full interacting screened $W$ and bare $v_c$ Coulomb potentials relate with the polarizability through another Dyson equation, that writes
+The full interacting screened Coulomb potential $W$, and the bare one $v_c$, relate with the polarizability through another Dyson equation given by
 
 \begin{empheq}[innerbox=\fbox, right={\,.}]{align}
     \label{eq:Dysons_eq_Coulomb}
     W (b,a) = v_c (b,a) + \int  \dd{1} \dd{2} \, v_c (b,1) \chi(1,2) W(2,a)
 \end{empheq}
 
-Equations~\eqref{eq:Dysons_eq_repeated},~\eqref{eq:polarizability_vertex},~\eqref{eq:vertex_function} and~\eqref{eq:Dysons_eq_Coulomb}, together with the equation for the self-energy $\Sigma$
-
+\noindent Equations~\eqref{eq:Dysons_eq_repeated},~\eqref{eq:polarizability_vertex},~\eqref{eq:vertex_function} and~\eqref{eq:Dysons_eq_Coulomb}, together with the equation for the self-energy $\Sigma$
 
 \begin{equation}
     \label{eq:self_energy_vertex}
     \Sigma(1,2) = \ii \int \dd{3} \dd{4}\, G(1,3^{+}) W(1,4) \Lambda(3,2;4)  \,,
 \end{equation}
 
-
-constitute a set of five coupled equations, called Hedin's equations~\cite{Hedin_1965,Louie_1986}.
+\noindent constitute a set of five coupled equations, called Hedin's equations~\cite{Hedin_1965,Louie_1986}.
 The most widely approximation used is to ignore the second term in the equation for the vertex, so that $\Gamma(1,2;3) \approx \delta(1,2) \delta(1,3)$.
-This approximation makes the equations for the polarizability~\eqref{eq:polarizability_vertex} and that for the self-energy~\eqref{eq:self_energy_vertex} decouple, giving origin to the famous \GW~approximation for the self-energy, and the \rpa~for the polarizability
-The latter is the topic to be discussed in the next section.
+This approximation makes the equations for the polarizability~\eqref{eq:polarizability_vertex} and that for the self-energy~\eqref{eq:self_energy_vertex} decouple, giving origin to the famous \GW~approximation for the self-energy, and the \rpa~for the polarizability.
+The latter is a topic to be discussed in the next section.
 
 Within \rpa, the Dyson equation for the Coulomb potential can be rewritten as
 
@@ -824,13 +822,13 @@ Within \rpa, the Dyson equation for the Coulomb potential can be rewritten as
     \int \dd{2} \left[\delta (b -2) - \int \dd{1} \, v_c (b,1) \chi^0(1,2) \right]W(2,a) = v_c (b,a) \,.
 \end{equation}
 
-In the last two equations, we omitted the superscript label $\RPA$ in the screened potential for convenience.
-We can define the quantity inside square brackets as the microscopic dielectric function, whose macroscopic counterpart was discussed in the previous Chapter~\ref{ch:classical_electrodynamics}.
+\noindent In the last two equations, we omitted the label $\RPA$ in the screened potential for convenience.
+We can define the quantity inside square brackets as the microscopic dielectric function, whose macroscopic counterpart was discussed previously in Chapter~\ref{ch:classical_electrodynamics}.
 Mathematically, and making the space and time dependencies explicit, we can write
 
 \begin{empheq}[innerbox=\fbox, right={\,.}]{align}
     \label{eq:dielectric_function_space_time}
-    \varepsilon (\br,\br';t - t') = \delta(\br - \br') \delta(t-t') - \int \dr'' \int \dd t' v_c(\br - \br'') \chi^0(\br'',\br';t-t')
+    \varepsilon (\br,\br';t , t') = \delta(\br - \br') \delta(t-t') - \int \dr'' \int \dd t' v_c(\br - \br'') \chi^0(\br'',\br';t,t')
 \end{empheq}
 
 \noindent With the dielectric function defined, we can rewrite the Dyson equation for the Coulomb potential in the following way
@@ -846,7 +844,7 @@ Mathematically, and making the space and time dependencies explicit, we can writ
     W(1,3) = \int \dd{2} \varepsilon^{-1} (1,2)v_c (2,3) \,.
 \end{equation}
 
-\noindent The last equation together with the definition of the microscopic dielectric function in Eq.~\eqref{eq:dielectric_function_space_time}, are the two main ingredients to discuss the effect of screening in periodic solids.
+\noindent The last equation together with the definition of the microscopic dielectric function in Eq.~\eqref{eq:dielectric_function_space_time}, are the two main ingredients to discuss the effect of screening in periodic materials.
 That is what the next section focuses on.
 
 
@@ -856,53 +854,58 @@ That is what the next section focuses on.
 Later on in this work, we compute the inverse of the dielectric function to properly account for electrostatic screening in semiconductors and insulators.
 Having an accurate description of screening, one can readily compute the excitonic states.
 Prior to that, one has to compute the polarizability, in particular, the noninteracting one, since we compute the screened Coulomb potential in the \rpa.
-\textit{A posteriori}, one can compute the dielectric function as per~\eqref{eq:dielectric_function_space_time}, aleit in reciprocal space, and then invert it.
+\textit{A posteriori}, one can compute the dielectric function as per~\eqref{eq:dielectric_function_space_time}, albeit in reciprocal space, and then invert it.
 
-In alternative of computing the dielectric function and then invert it, one could rewrite~\eqref{eq:Dysons_eq_Coulomb} as $W(b,a) =\int \dd{c} \varepsilon^{-1}(b,c) v_c(c,a)$ where
+In alternative of computing the dielectric function and then invert it, one could rewrite~\eqref{eq:Dysons_eq_Coulomb} as $W(b,a) =\int \dd{c} \varepsilon^{-1}(b,c) v_c(c,a)$ where~\cite{Martin_Reining_Ceperley_2016}.
 
 \begin{equation}
     \label{eq:dielectric_function_inverse}
-    \varepsilon^{-1}(a,b) = \delta(a-b) + \int \dd{c} v_c(a,c) \chi^{\RPA}(c,b) \,.
+    \varepsilon^{-1}(a,b) = \delta(a-b) + \int \dd{c} v_c(a,c) \chi^{\RPA}(c,b) \,,
 \end{equation}
 
-If we try to draft a diagrammatic expression for the polarizability based on Eq.~\eqref{eq:polarizability_full}, we would see that it consists of two propagator lines connected by every possible process allowed by the Coulomb interaction.
-Similarly to the Green function and screened potential, one can write a Dyson equation for the full polarizability as~\cite{Bruus_Flensberg_2004,Martin_2004}
+\noindent and $\chi^{\RPA}$ is the interacting polarizability within \rpa, bo explained in a moment.
+If we try to write a diagrammatic expression for the polarizability based on Eq.~\eqref{eq:polarizability_full}, we would see that it consists of two propagator lines connected by every possible process allowed by the Coulomb interaction $W$, composed with the free fermion propagator $\mathcal{G}^0$.
+Similarly to the Green function and the screened potential, one can write a Dyson equation for the full polarizability as~\cite{Bruus_Flensberg_2004,Martin_2004}
 
 \begin{equation}
+    \label{eq:polarizability_full}
     \chi(1,2) = \chi^\irr(1,2) + \int \dd{3} \dd{4} \, \chi^\irr(1,3) v_c(3,4) \chi(4,2) \,,
 \end{equation}
 
-where $\chi^\irr$ is the irreducible polarizability that was mentioned in the previous section.
+\noindent where $\chi^\irr$ is the irreducible polarizability that was mentioned in the previous section.
 We can now approximate the irreducible polarizability $\chi^\irr$ by its noninteracting counterpart $\chi^0$, where we keep only the bubble diagram.
 In other words, we neglect correlation and exchange effects in the polarizability.
-Then, we get the full polarizability $\chi$ within \gls{rpa} that is
+Then, we get the full polarizability $\chi$ within \gls{rpa}, that is
 
 \begin{equation}
     \chi^\RPA(1,2) = \chi^0(1,2) + \int \dd{3} \dd{4} \, \chi^0(1,3) v_c(3,4) \chi^\RPA(4,2) \,.
 \end{equation}
 
-Then, the inverse dielectric function within \rpa~is can be obtained by replacing the full polarizability in Eq.~\eqref{eq:dielectric_function_inverse} by the \rpa~to write
+Then, the inverse dielectric function within \rpa~can be obtained by replacing the full polarizability in Eq.~\eqref{eq:dielectric_function_inverse} in its \rpa~form to write
 
 \begin{equation}
     \label{eq:inverse_dielectric_function_RPA}
-    \varepsilon_\RPA^{-1}(a,b) = \delta(a-b) + \int \dd{c} v_c(a,c) P^\RPA(c,b) \,.
+    \varepsilon_\RPA^{-1}(a,b) = \delta(a-b) + \int \dd{c} v_c(a,c) \chi^\RPA(c,b) \,.
 \end{equation}
 
 For a thorough discussion of these topics, we refer to Richard Martin's book in Ref~\cite{Martin_Reining_Ceperley_2016} and to the book~\cite{Bruus_Flensberg_2004} by H.~Bruus and K.~Flensberg.
+The first reference studies the many-electron interacting problem in depth, providing also computational schemes to address it.
+The latter reference addresses the interacting electron gas in the jellium model, which enjoys continuous translation symmetry.
+This allows for deep theoretical insights via analytical calculations.
 
 
 \subsection{RPA dielectric function}
 \label{subsec:rpa_dielectric_function}
 
-The dielectric function in real-space and time domain, within \rpa~, writes~\cite{Bruus_Flensberg_2004,Cohen_Louie_2016}
+We recapitulate the dielectric function in real-space and time domain, that within \rpa~, writes~\cite{Bruus_Flensberg_2004,Cohen_Louie_2016}
 
 \begin{equation}
     \label{eq:dielectric_function_real_time}
-    \varepsilon (\br,\br';t,t') = \delta(\br - \br') \delta(t-t') - \int  \int v_c(\br - \br'') \chi^0 (\br'',\br';t-t') \dr'' \dt' \,,
+    \varepsilon (\br,\br';t-t') = \delta(\br - \br') \delta(t-t') - \int  \int v_c(\br - \br'') \chi^0 (\br'',\br';t-t') \dr'' \dt' ,
 \end{equation}
 
-\noindent where $v_c$ denotes the bare (unscreened) Coulomb potential and $\chi^0 (\br',\br'';t-t')$ is the \rpa~irreducible polarizability, for which we have assumed time translation invariance.
-The \gls{rpa} irreducible polarizability, in frequency domain, within a self-consistent field approach is given by~\cite{Cohen_Louie_2016}
+\noindent where $v_c$ denotes the bare (unscreened) Coulomb potential and $\chi^0 (\br,\br';t-t')$ is the \rpa~irreducible polarizability, for which we have assumed time translation invariance\footnote{Even though we can perceive the dielectric function as a response to an external potential perturbation of the form $\phi_0 \exp{\ii(\bk \vdot \br - \omega t)}$, which is a time-periodic perturbation, we treat its response within the linear regime. This is valid as long as the amplitude $\phi_0$ is small enough. If it is too big, such that perturbative methods do not apply, then we have to account for the whole time dependence, as stated previously in footnote~\ref{fn:time_invariance_ch_2} of Chapter~\ref{:classical_electrodynamics}. If it still has periodicty, albeit discrete, we can work under the Floquet formalism of quantum mechanics, already metnioned too~\ref{fn:Floquet_formalism} in this chapter. If the perturbation is not periodic, then we need a full non-equilibrium framework. That can done, for instance, using the non-equilibrium Grenn function formalism, also called the Keldysh formalism~\cite{Di_Ventra_2008}.}.
+The \gls{rpa} irreducible polarizability, in the frequency domain, within a self-consistent field approach is given by~\cite{Cohen_Louie_2016}
 
 \begin{equation}
     \label{eq:polarizability_RPA_def}
@@ -910,9 +913,10 @@ The \gls{rpa} irreducible polarizability, in frequency domain, within a self-con
 \end{equation}
 
 
-\noindent where $\alpha$ is a small infinitesimal parameter, $f_i$ denotes the Fermi-Dirac distribution computed at the energy $\epsilon_i$, and $\phi_i(\br)$ is the $i$-th state, with eigen-energy $\epsilon_i$, that can be obtained within a mean-field approach, such as within \hf~ or the Kohn-Sham framework of \dft.
-The many-body \wf~of the associated independent particle system is then constructed through the Slater determinant of the Kohn--Sham orbitals, which are used in the \abinit~calculations within \dft.
-We notice that the previous expression is a two time function that only depends on the difference between the time instants.
+\noindent where $\alpha$ is a small infinitesimal parameter, $f_i$ denotes the Fermi--Dirac distribution computed at the energy $\epsilon_i$, and $\phi_i(\br)$ is the $i$-th state, with eigenenergy $\epsilon_i$, that can be obtained within a mean-field approach, such as within \hf~theory or the Kohn-Sham framework of \dft.
+The many-body \wf~of the associated independent particle system is then constructed through the Slater determinant of the orbitals $\phi_i(\br)$, for which we do not specify the subjacent basis that we denote by the indexes $i$ and $j$.
+
+We notice that the expression in Eq.~\eqref{eq:dielectric_function_real_time} is a two-time function with (continuous) time translation invariance.
 Whence, we may time Fourier transform it to the frequency domain and write
 
 \begin{equation}
@@ -921,56 +925,58 @@ Whence, we may time Fourier transform it to the frequency domain and write
 \end{equation}
 
 \noindent since the Fourier transform of the Dirac delta is the identity function, and the Fourier transform of a convolution translates to a multiplication.
-The microscopic dielectric function enjoy discrete translation symmetry, so that
+The microscopic dielectric function enjoys discrete translation symmetry, so that
+
 \begin{equation}
     \varepsilon (\br,\br';\omega) = \varepsilon (\br + \bR,\br' + \bR;\omega)
 \end{equation}
 
-\noindent is true for any a vector of the lattice $\bR$, for a perfect crystal where \textbf{discrete} translation symmetry is not broken due to eventual defects or boundaries.
+\noindent is true for any lattice vector $\bR$, in a perfect crystal where \textbf{discrete} translation symmetry is preserved due to the absence of defects or boundaries.
 The same can be said about the polarizability $\chi^0$.
-This contrasts with the case of the previous chapter, were invariance.....\todo{complete the reasoning}
-We are still allowed to Fourier transform in space, but we need to keep track of two momenta, say, $\bk$ and $\bk'$ instead of just one, so that the polarizability is a two-point function in momentum, $\chi^0 = \chi^0(\bk,\bk')$.
-Luckily, as the polarizability still enjoy discrete translation symmetry, one can show that $\chi^0(\bk,\bk')$ is non-zero only if $\bk' = \bk + \mathbf{g}$, where $\mathbf{g}$ is a reciprocal lattice vector.
-Furthermore, we can write any momentum $\bk$ in terms of a vector in the first \gls{bz} $\bq$ and a vector of the reciprocal lattice $\bG$, $\bk = \bq + \bG$.
-The same can be said for the other momentum, $\bk' = \bq + \bG'$, with $\bG' = \bG + \mathbf{g}$ is just another vector of the reciprocal lattice.
+This contrasts with the case of the previous chapter, where translation invariance was continuous.
+We are still allowed to Fourier transform in space, but we need to keep track of two momenta, say $\bk$ and $\bk'$, instead of a single one, so that the polarizability is a two-point function in momentum when Fourier transformed from real to reciprocal space, $\mathcal{F}\{\chi^0(\br,\br')\} (\bk,\bk') \equiv \chi^0(\bk,\bk')$.
+Luckily, as the polarizability still enjoys discrete translation symmetry, one can show that $\chi^0(\bk,\bk')$ is non-zero only if $\bk' = \bk + \mathbf{g}$, where $\mathbf{g}$ is a reciprocal lattice vector.
+Furthermore, we can write any momentum $\bk$ in terms of a vector in the first \gls{bz} $\bq$ plus a vector of the reciprocal lattice $\bG$, $\bk = \bq + \bG$.
+The same can be said for the other momentum $\bk' = \bq + \bG'$, with $\bG' = \bG + \mathbf{g}$ just being another vector of the reciprocal lattice.
 This allows us to write $\chi^0(\bk,\bk') = \chi^0(\bq + \bG,\bq' + \bG') \equiv \chi^0_{\bG \bG'}(\bq)$, where we can see the polarizability as an infinite matrix for each point $\bq \in \BZ$.
 For every momentum $\bq \in \BZ$, each pair of reciprocal lattice vectors $(\bG,\bG')$ corresponds to the matrix element $\chi^0_{\bG \bG'}(\bq)$.
 
-In a basis of Bloch states and at zero temperature, the polarizability in~\eqref{eq:polarizability_RPA_def} writes
+In a basis of Bloch states and at zero temperature, doing the substitution for the indexes $i \to n,\bk$ and $j \to n',\bk'$ in~\eqref{eq:polarizability_RPA_def}, the polarizability writes
 
 \begin{equation}
     \label{eq:polarizability_RPA_Bloch_states}
     \chi^0 (\br,\br';\omega) = \sum_{n \bk, n'\bk'} \left[ \frac{\psi_{n' \bk'}(\br) \psi_{n \bk}^*(\br) \psi_{n \bk}(\br') \psi_{n' \bk'}^*(\br') }{\hw -(\epsilon_{n' \bk'} - \epsilon_{n \bk})   + \ii \hbar \alpha} - \frac{ \psi_{n \bk}(\br) \psi_{n' \bk'}^*(\br) \psi_{n' \bk'}(\br') \psi_{n \bk}^*(\br') }{\hw + (\epsilon_{n' \bk'} - \epsilon_{n \bk}) + \ii \hbar \alpha} \right]\,.
 \end{equation}
 
-The expression for these matrix elements can be obtained by direct Fourier transform of expression~\eqref{eq:polarizability_RPA_Bloch_states} to obtain
+\noindent Its translation invariance can be proof checked by the identity $\psi_{n \bk}(\br + \bR) = \ee^{\ii \bk \vdot \bR} \psi_{n \bk}(\br)$ from the second statement~\ref{Bloch_theorem_II} of Bloch's theorem~\ref{th:Bloch_theorem}.
+The expression for the matrix elements $\chi^0_{\bG \bG'}(\bq)$ can be obtained by direct Fourier transform of the previous expression to obtain
 
 \begin{equation}
     \label{eq:polarizability_momentum_frequency}
-    \chi^0_{\bG \bG'} (\bq,\omega) = \frac{1}{\Omega} \sum_{n,n'} \sum_{\bk,\sigma} (f_{n,\bk} - f_{n',\bk + \bq}) \frac{\mel{n,\bk}{\ee^{-\ii(\bq + \bG) \vdot \br}}{n',\bk + \bq} \mel{n',\bk + \bq}{\ee^{\ii(\bq + \bG') \vdot \br}}{n,\bk}}{\epsilon_{n,\bk} - \epsilon_{n',\bk + \bq} + \hw + \ii \hbar \alpha}\,,
+    \chi^0_{\bG \bG'} (\bq,\omega) = \frac{1}{\mathcal{V}} \sum_{n,n'} \sum_{\bk,\sigma} (f_{n,\bk} - f_{n',\bk + \bq}) \frac{\mel{n,\bk}{\ee^{-\ii(\bq + \bG) \vdot \br}}{n',\bk + \bq} \mel{n',\bk + \bq}{\ee^{\ii(\bq + \bG') \vdot \br}}{n,\bk}}{\epsilon_{n,\bk} - \epsilon_{n',\bk + \bq} + \hw + \ii \hbar \alpha}\,,
 \end{equation}
 
-\noindent where $\Omega$ is the volume of the crystal, $n$ and $n'$ are band indices and $\bG$ and $\bG'$ are the vectors of the reciprocal lattice.
-For an insulator or semiconductor, the sum over $n$ is over occupied bands while that over $n'$ is over empty bands.
+\noindent where $\mathcal{V}$ is the volume of the crystal, $n$ and $n'$ are band indexes, $\bG$ and $\bG'$ are reciprocal lattice vectors, $\sigma$ represents spin and the sum over momentum $\bk$ is over the \bz.
 
-Defining the polarizability in reciprocal space as a matrix allows for doing the same for the dielectric function, that Fourier transformed to reciprocal space writes
+Defining the polarizability in reciprocal space as a matrix allows doing the same for the dielectric function, that Fourier transformed to reciprocal space writes
 
-\begin{equation}
+\begin{empheq}[innerbox=\colorbox{lightgray}, right={\,.}]{align}
     \label{eq:dielectric_function_momentum_frequency}
-    \varepsilon_{\bG \bG'} (\bq,\omega) = \delta_{\bG \bG'} - v_c(\bq + \bG) \chi^0_{\bG \bG'} (\bq,\omega) \,.
-\end{equation}
+    \varepsilon_{\bG \bG'} (\bq,\omega) = \delta_{\bG \bG'} - v_c(\bq + \bG) \chi^0_{\bG \bG'} (\bq,\omega)
+\end{empheq}
 
-This expression is usually introduced in condensed matter physics courses through the Lindhard function, which is the previous formula in the case of the jellium model, the free homogeneous electron gas.
-The matrix elements in Eq.~\eqref{eq:polarizability_momentum_frequency} are equal to 1 when $n=n'$, the dispersion is quadratic and there is no lattice, whence the polarizability and dielectric matrices are scalar functions of $\bq$.
+\noindent This expression is usually introduced in condensed matter physics courses through the Lindhard function, which is the previous formula in the case of the jellium model, the free homogeneous electron gas.
+The matrix elements in Eq.~\eqref{eq:polarizability_momentum_frequency} are equal to 1 when $n=n'$, the dispersion is quadratic and there is no crystalline structure, whence the polarizability and dielectric matrices are scalar functions of $\bq$.
 The Lindhard function then writes~\cite{GoncalvesPeres:2016,Cohen_Louie_2016,Ashcroft_Mermin}
 
-\begin{equation}
-    \varepsilon (\bq,\omega) = 1 - \frac{e^2}{\epsz q^2 V} \sum_{\bk} \frac{f_{\bk + \bq}-f_{\bk}}{\epsilon_{\bk + \bq}-\epsilon_{\bk} + \hbar \omega + \ii \hbar \alpha}\,.
-\end{equation}
+\begin{empheq}[innerbox=\fbox, right={\,.}]{align}
+    \label{eq:Lindhard_function}
+    \varepsilon (\bq,\omega) = 1 - \frac{2 e^2}{\epsz q^2 V} \sum_{\bk} \frac{f_{\bk + \bq}-f_{\bk}}{\epsilon_{\bk + \bq}-\epsilon_{\bk} + \hbar \omega + \ii \hbar \alpha}
+\end{empheq}
 
-We can see that it is a complicate function of both momentum and frequency.
-This was already expressed in the previous chapter, however we saw therein only the local and static limits separately.
-Taking the local limit $\bq \to 0$ in the previous expression and computing the sum (converted into an integral), one arrives naturally at
+\noindent In the Lindhard function (where the prefactor of $2$ comes from the spin degeneracy), we can notice its intricate dependence on both momentum and frequency.
+This was already a concern in the previous chapter, however we saw analyzed only the local and static limits separately.
+Taking the local limit $\bq \to \bzero$ in the previous expression and computing the sum (converted into an integral), one arrives naturally at
 
 \begin{equation}
     \varepsilon(\omega) = 1 - \frac{\omega_{\text{p}}^2}{\omega^2}\,,
@@ -979,12 +985,12 @@ Taking the local limit $\bq \to 0$ in the previous expression and computing the 
 \noindent where $\omega_{\text{p}}$ is the electron plasma frequency.
 The previous expression is the dielectric function of the undamped free electron gas that we discussed in the first chapter, found here through a microscopic approach.
 This provides a glimpse of the power of quantum mechanics, and reassures the claims made in the previous chapter on how models are used and introduced in classical physics, that in fact derive from physics that it can not describe.
-The tools provided by quantum mechanics allowed for obtaining the full dependence of the dielectric function on both momentum and frequency, something we were not able to do in the previous chapter (but that could somewhat be achieved using non-local hydrodynamic models).
+The tools provided by quantum mechanics allowed obtaining the full dependence of the dielectric function on both momentum and frequency, something we were not able to do in the previous chapter (that can somewhat be achieved classically using non-local hydrodynamic models).
 
 If the material in question is not a metal, but a semiconductor or insulator, then we can only aspire to compute the polarizability and the dielectric function numerically.
 The same can be stated about the screened Coulomb potential.
 In the jellium approximation, the screened Coulomb potential in reciprocal space is simply given by $W(\bq,\omega) = v_c(\bq)/\vareps(\bq,\omega)$, because there is continuous translation invariance.
-Assuming continuous translation invariance for insulators or semiconductors is questionable.
+However, assuming continuous translation invariance for insulators or semiconductors is questionable.
 In general, we need to account for the crystal structure, so that the screened Coulomb potential in momentum--frequency domain, obtained by Fourier transforming Eq.~\eqref{eq:W_as_of_vc}, writes
 
 \begin{equation}
@@ -992,7 +998,7 @@ In general, we need to account for the crystal structure, so that the screened C
     W_{\bG \bG'} (\bq,\omega) =  \varepsilon^{-1}_{\bG \bG'} (\bq,\omega) v_c(\bq + \bG')\,,
 \end{equation}
 
-\noindent for which one needs the inverse dielectric matrix, satisfying $\sum_{\bG''} \varepsilon^{-1}_{\bG \bG''} \varepsilon_{\bG'' \bG'} = \delta_{\bG \bG'}$
-As we will see in the next chapter, it is of upmost importance to capture accurately the screening in semiconductors and insulators, mainly \bd~ones, in order to find realistic results for the excitonic states.
-Now that we have described the ground state properties of materials, we are in a position of introducing the exciton, an optical excitations of materials that cannot be ignored when investigating the optical properties of insulators and semiconductors.
-Excitons in \bd~materials are the subject of the next chapter.
+\noindent for which one needs the inverse dielectric matrix, satisfying $\sum_{\bG''} \varepsilon^{-1}_{\bG \bG''} \varepsilon_{\bG'' \bG'} = \delta_{\bG \bG'}$ at every point $\bq$ in the \bz~and any frequency $\omega$.
+As we will see in the next chapter, it is of upmost importance to capture accurately the screening in semiconductors and insulators, mainly \bd~ones, in order to get realistic results for the excitonic states.
+Now that we have described the ground state properties of materials, we are in position to introduce the exciton, a quasiparticle emerging from optical excitations of solids, that cannot be ignored when investigating the optical properties of gapped materials.
+Excitons in \bd~materials are thus the subject of the next chapter.
