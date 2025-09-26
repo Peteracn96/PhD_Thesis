@@ -21,17 +21,17 @@ In the sense that at the end we consider as well the case of discrete translatio
 We define the direct and inverse Fourier transforms between time and frequency domains as
 
 \begin{equation}
-    f(t)=\int_{-\infty}^{+\infty}\frac{\dd \omega}{2\pi}f(\omega)\,\ee^{-\ii\omega t}, \qq{and} f(\omega)=\int_{-\infty}^{+\infty}\dd t\,f(t)\,\ee^{\ii\omega t},
+    f(t) = \mathcal{F}^{-1} \{f(\omega)\} (t) =\int_{-\infty}^{+\infty}\frac{\dd \omega}{2\pi}f(\omega)\,\ee^{-\ii\omega t}, \qq{and} f(\omega) = \mathcal{F} \{f(t)\} (\omega)=\int_{-\infty}^{+\infty}\dd t\,f(t)\,\ee^{\ii\omega t},
 \end{equation}
 
-\noindent respectively.
+\noindent respectively, where we used the symbols $\mathcal{F}$ and $\mathcal{F}^{-1}$ to denote Fourier transform and its inverse, respectively.
 The following relations involving the Dirac delta function are also valid:
 
 \begin{equation}
     \int_{-\infty}^{+\infty}\frac{\dd \omega}{2\pi}f(\omega)\,\ee^{-\ii\omega t}=\delta(t),\qq{and} \int_{-\infty}^{+\infty}\dd t\,f(t)\,\ee^{\ii\omega t}=\delta(\omega)\,.
 \end{equation}
 
-A two-point function in time of the form $f(t,t')$, can be written in terms of its Fourier components as
+A two-point function in time $f(t,t')$ can be written in terms of its Fourier components as
 
 \begin{equation}
     f(t,t')=\int_{-\infty}^{+\infty}\dd \omega\int_{-\infty}^{+\infty}\dd \omega'\,f(\omega,\omega')\,\ee^{-\ii\omega t}\ee^{\ii\omega't'}.
