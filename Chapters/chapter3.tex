@@ -17,24 +17,31 @@
 
 We have seen in the previous chapter that, even though classical models explain many phenomena in electrodynamics fairly well, both qualitatively and quantitatively, classical physics cannot predict the precise values of their respective parameters, nor can it explain why they work so well for certain materials, while failing to describe others.
 To have a deeper understanding of these models and their regimes of validity, or to faithfully predict material properties in general, one has to adopt a microscopic description of the systems we want to study.
-This means that we have to look at the chemical composition of the material and at the spatial arrangement of the atoms making up the material.
-One has to look at the finer physics at length scales of the order of the angstrom, where classical physics is insufficient.
+This means that we have to look at the chemical composition of the material and at the spatial arrangement of the atoms making it up.
+One has to look at the fine physics at length scales of the order of the angstrom, where classical physics is insufficient.
 
 The tools that allow us to surpass the shortcomings of classical physics are provided by quantum mechanics.
 It is said that the father of quantum mechanics is Max Planck, the german physicist who solved the problem of the ultraviolet catastrophe---an ideal black body radiates an infinite amount of energy at higher frequencies deep into the ultraviolet range of the electromagnetic spectrum.
-This was the classical prediction by the Rayleigh--Jeans law, which obviously makes no sense.
+This was the prediction by the classical Rayleigh--Jeans law, which is obviously unphysical.
 It was the hypothesis by Planck that radiation is emitted in discrete amounts of energy, called quanta, that solved the mystery of the black body.
 This grand landmark gave birth to a new field in physics, which catalyzed a scientific revolution in the previous century.
-Quantum mechanics allowed solving other problems in physics until then considered open.
-Such an example was to know why the electron does not fall into the nucleus of the atom in its orbital motion until it loses all its energy, as predicted by classical electrodynamics.
+Quantum mechanics allowed solving other open problems in physics.
+Such an example was knowing why the electron does not fall into the nucleus of the atom in its orbital motion until it loses all its energy, as predicted by classical electrodynamics.
+It was the danish physicist Niels Bohr, who came up with an atomic model that explained the stability of the atoms and their discrete energy levels.
 
-With tools provided by the underlying principles and laws of quantum mechanics, along the years many techniques have been developed since its birth to tackle.
-We keep our discussion narrowed to solids with a periodic atomic structure, called crystals, until the end of this thesis, and leave all other types of systems (amorphous solids, such as glasses, crystalline solids with defects, few-particle systems, etc.) out of the discussion.
+With the machinery provided by the principles and laws of quantum mechanics, many techniques have been developed since last century to approach different quantum systems.
+We keep our discussion narrowed to solids with a periodic atomic structure, called crystals, until the end of this thesis, and leave all other types of systems (amorphous solids, such as glasses, crystalline solids with defects, quasi-crystals, few-particle systems, etc.) out of the discussion.
 
-In the field of solid state physics, it is customary to separate the techniques based in first-principles, called \abinit~techniques and are usually computationally intensive, and those based on second-principles, which are usually much less computationally demanding.
-In this thesis \abinit~approaches will be discussed on a passing note, as those can easily materialize into a thesis in itself, but are nonetheless very relevant in this work.
+In the field of solid state physics, it is customary to separate the techniques based in first-principles, called \abinit~methods, that are usually very computational intensive, and those based on second-principles, which are usually much less computationally demanding.
+In this thesis, \abinit~approaches will be discussed on a passing note, as those can easily materialize into a thesis in itself, but are nonetheless very relevant for our work, which is essentially based in second-principles calculations.
 
-We start the chapter by...\todo{try to look for more typos}
+We start the chapter by introducing the Schr\"{o}dinger equation, the workhorse of basic quantum mechanics, alongside the concept of Hamiltonian operator.
+Next, we particularize the study to crystals, by writing the full many-body Hamiltonian of a crystal, followed by key approximations to reduce the complexity of the problem.
+Afterwards, we define the concepts of (direct) lattice and reciprocal lattice, and discuss single-particle properties of electrons in periodic solids, such as Bloch states and the band structure; these define the dispersive behavior of electronic waves in materials.
+First-principle methods at the mean-field level, such as \dft, are discussed in brief as well.
+We extend the discussion on first-principle methods to the many-particle description of electrons in solids, provided by the machinery of \gls{mbpt}.
+With all these concepts dominated, the reader should be capable of grasping the microscopic dielectric function, reserved for the last section of this chapter.
+The concept of dielectric function, introduced in the previous chapter on a classical footing, will be therein revisited through the lens of quantum mechanics.
 
 \section{The Hamiltonian of a Crystal}
 \label{sec:crystal_hamiltonian}
@@ -42,65 +49,67 @@ We start the chapter by...\todo{try to look for more typos}
 \subsection{The Schr\"{o}dinger equation}
 \label{subsec:schrodinger_equation}
 
-In classical mechanics, we follow all the degrees of freedom of a system, whose dynamics is governed by the Lagrangian function, in the Lagrangian formalism, or by the Hamiltonian function, in the Hamiltonian formalism.
-Both formalisms provide a set of equations governing the time evolution of the degrees of freedom of the system, that together with the initial conditions, determine the state of the system at any time in the future in the configuration space, for the Lagrangian formalism, or any state in the phase space, for the Hamiltonian formalism~\cite{goldstein:mechanics}.
-When the length scales of a system are so small so that they are no longer classical and are deemed quantum, then it is not possible to follow the exact trajectory of the system in time.
-The state of the system can no longer be identified with a set of coordinates and momenta for which we know their values at any instant in time.
-The state of the system is then a vector state $\ket{\Psi}$ living in a Hilbert space, any vector space endowed with a scalar product\footnote{For us physicists, it suffices to say that a Hilbert space is a vector space with an inner product, as long as that space is far enough from being pathological. For mathematicians, we have to add the condition of the space being complete for the distance induced by the (norm induced by the) inner product. The curious reader can consult Ref.~\cite{Kreyszig_1991} for more details.}
+In classical mechanics, we follow all the degrees of freedom of a system, whose dynamics is governed by the Lagrangian function in the Lagrangian formalism, or equivalently by the Hamiltonian function in the Hamiltonian formalism.
+Both formalisms provide a set of equations governing the time evolution of the degrees of freedom of the system, that together with the initial conditions, determine the state of the system at any time in the future in the configuration space for the Lagrangian formalism, or in the phase space for the Hamiltonian formalism~\cite{goldstein:mechanics}.
+When the length scale of a system is too small that it is no longer classical and is deemed quantum, then it is not possible to follow the exact trajectory of the system .
+The state of the system can no longer be identified with a set of coordinates and (canonical) momenta with precise values at any time instant.
+Instead, the state of the system is a vector state $\ket{\Psi}$ living in a Hilbert space.
+A Hilbert space is any vector linear space endowed with a scalar product\footnote{For us physicists, it suffices to say that a Hilbert space is a vector space with an inner product, which is not pathological. For mathematicians, we have to add the condition of the space being complete for the distance induced by the (norm induced by the) inner product. The curious reader can consult Ref.~\cite{Kreyszig_1991} for more details.}.
 That same state can evolve in time, and the time evolution is governed by the \gls{tdse}, which writes~\cite{Griffiths_QM_2018}
 
 \begin{equation}
     \label{eq:time_dependent_Schrodinger_equation}
-    \ii \hbar \pdv{t} \ket{\Psi(t)} = \Ha \ket{\Psi(t)}\,,
+    \ii \hbar \pdv{t} \ket{\Psi(t)} = \Ha \ket{\Psi(t)},
 \end{equation}
 
 \noindent where $\hbar = h / 2\pi$ is the reduced Planck constant, and $\Ha$ is the Hamiltonian operator---no longer a function---of the system.
-The hat above the symbol $H$ is used to stress that we are dealing with an operator now, and not a function.
-We use the term operator to denote a transformation that maps a vector in a Hilbert space to another vector in another Hilbert space; eventually, both Hilbert spaces coincide.
+The hat above the symbol $H$ is used to stress that we are dealing with an operator, not a function.
+We use the term operator to denote a linear transformation that maps a vector in a Hilbert space to another vector in another Hilbert space; eventually, both Hilbert spaces coincide.
+It is the generalization of a linear transformation from linear algebra.
 At some point we shall drop the hat for ease of notation.
 
 If in the \gls{tdse} the Hamiltonian has no explicit dependence on time, then we can easily integrate Eq.~\eqref{eq:time_dependent_Schrodinger_equation} and write a formal solution for the state as
 
 
 \begin{equation}
-    \ket{\Psi(t)} = \ei[-]{\Ha (t-t_0)/\hbar} \ket{\Psi(t_0)}\,,
+    \ket{\Psi(t)} = \ei[-]{\Ha (t-t_0)/\hbar} \ket{\Psi(t_0)},
 \end{equation}
 
 \noindent if we know the state of the system $\ket{\Psi(t_0)}$ at the initial time $t_0$.
-We can therefore factor out the time dependence of the state.
-Now we assume that the time-independent part of the state of the system $\ket{\Psi(t_0)}$ can be written in terms of basis states $\ket{\phi_n}$, which are eigenstates of the Hamiltonian with eigenvalues $E_n$, such that $\ket{\Psi(t_0)} = \sum_n c_n \ket{\phi_n}$, with $\Ha \ket{\psi_n} = E_n \ket{\psi_n}$.
+We can therefore factor out the time dependence of the state, which is encoded in the new operator $\exp{-\ii \Ha (t-t_0)}$, commonly called the time-evolution operator.
+Now we assume that the time-independent part of the state of the system, $\ket{\Psi(t_0)}$, can be written as a linear combination of basis states $\ket{\phi_n}$, which are eigenstates of the Hamiltonian with eigenvalues $E_n$, such that $\ket{\Psi(t_0)} = \sum_n c_n \ket{\phi_n}$, with $\Ha \ket{\psi_n} = E_n \ket{\psi_n}$.
 The coefficients $c_n$ can then be computed by projecting $\braket{\phi_m}{\Psi(t_0)} = c_m$.
-However, to know the coefficients $c_n$, we need to know the eigenstates and eigenvalues $E_n$ of the Hamiltonian operator, which xan be found by solving the eigenvalue problem
+However, to know the coefficients $c_n$, we need to know the eigenstates and the eigenvalues of the Hamiltonian operator, which can be found by solving the eigenvalue problem
 
 \begin{equation}
     \label{eq:time_independent_Schrodinger_equation}
-    \Ha \ket{\phi_n} = E_n \ket{\phi_n}\,,
+    \Ha \ket{\phi_n} = E_n \ket{\phi_n},
 \end{equation}
 
 \noindent which is called the \gls{tise}.
-The eigenvalues $E_n$, being eigenvalues of the Hamiltonian operator, they can be interpreted as energies, so we can call them eigenenergies.
+The eigenvalues $E_n$, being eigenvalues of the Hamiltonian operator, can be interpreted as energies and called eigenenergies.
 Solving the \gls{tise} is then a key problem in quantum mechanics, whenever $\partial_t \Ha = 0$.
-If the problem is simple enough that the Hamiltonian has a matrix representation, that is, if the Hilbert space is finite-dimensional, then before us there is a simple linear algebra problem.
-On the contrary, if the Hilbert space is infinite-dimensional, then the \gls{tise} cannot be solved analytically, apart from a small list of systems, like the particle in a box, the quantum harmonic oscillator, and the hydrogen atom~\cite{Griffiths_QM_2018}, among others.
-Henceforth, along the years since the discovery of quantum mechanics, physicists have developed many techniques to attack different quantum problems, depending on the aspect of the Hamiltonian.
-In analogy with classical mechanics, in many cases the Hamiltonian of a system is the sum of two contributions; one coming from the kinetic energy $\hat{T}$, and the other from the potential energy $\hat{V}$.
-In the next subsection, we try to write an expression for the Hamiltonian of a crystal.
+If the problem is simple enough that the Hamiltonian has a finite matrix representation, in other words, if the Hilbert space is finite-dimensional, then it is a typical eigenvalue/eigenvector problem from linear algebra.
+On the contrary, if the Hilbert space is infinite-dimensional, then the \gls{tise} cannot be solved analytically, apart from a small set of examples, like the particle in a box, the quantum harmonic oscillator, the hydrogen atom~\cite{Griffiths_QM_2018}, among others.
+Henceforth, since the birth of quantum mechanics, physicists have developed many techniques to study different systems, mainly depending on the aspect of the Hamiltonian.
+In analogy with classical mechanics, in many cases the Hamiltonian of a system is the sum of two contributions; one coming from the kinetic energy of the particle or particles involved, $\hat{T}$, and the other from the potential energy $\hat{V}$.
+In the next subsection, we try to write an expression for the Hamiltonian of a crystal as $\Ha = \hat{T} + \hat{V}$.
 
 \subsection{The many-body Hamiltonian of a crystal}
 \label{subsec:many_body_crystal_hamiltonian}
 
-In a solid, we have many particles lying around, namely the heavy nuclei of the atoms composing the material, the core electrons tightly bound to the nuclei, and the valence electrons, which determine most of the material properties at energy scales typical to low-temperature condensed matter systems, from the \unit{\milli\electronvolt} up to the \unit{\electronvolt}.
+In a solid, we have many particles lying around, namely the heavy nuclei of the atoms composing the material, the core electrons tightly bound to the nuclei and the outer valence electrons, the last determining most of the material properties at energy scales typical in condensed matter systems at low-temperatures, say from the \unit{\milli\electronvolt} up to the \unit{\electronvolt}.
 We will consider that the core electrons act simply to screen the potential felt by the valence electrons from the nuclei, treating them as positively charged ions.
 If the valence number of the atom is $Z$, then the ion charge is $+Ze$, where $e$ is the elementary charge.
 The total Hamiltonian of a solid is then the sum of several contributions as
 
 \begin{equation}
     \label{eq:Hamiltonian_crystal}
-    \Ha = \hat{T}_e + \hat{T}_{\mathrm{ion}} + \hat{V}_{e-\mathrm{ion}} + \hat{V}_{e-e} + \hat{V}_{\mathrm{ions-ions}}\,,
+    \Ha = \hat{T}_e + \hat{T}_{\mathrm{ion}} + \hat{V}_{e-\mathrm{ion}} + \hat{V}_{e-e} + \hat{V}_{\mathrm{ion-ion}}\,,
 \end{equation}
 
-\noindent where $\hat{T}_e$ is the sum of the kinetic energies coming from the valence electrons, $\hat{T}_{\mathrm{ion}}$ is total kinetic energy of the ions, $\hat{V}_{e-\mathrm{ion}}$ is the potential energy coming from the Coulomb interaction between the outer electrons and the ions, $\hat{V}_{e-e}$ is the potential energy coming from the pair-wise interaction between the electrons, and finally $\hat{V}_{\mathrm{ions-ions}}$ is the potential energy coming from the interaction between the ions.
-If we write each contribution using math notation, then, the total many-body Hamiltonian, in theorist units $e^2/4\pi \epsz = 1$ and dropping all hats, is
+\noindent where $\hat{T}_e$ is the sum of the kinetic energies coming from the valence electrons, $\hat{T}_{\mathrm{ion}}$ is total kinetic energy of the ions, $\hat{V}_{e-\mathrm{ion}}$ is the potential energy coming from the Coulomb interaction between the outer electrons and the ionic nuclei, $\hat{V}_{e-e}$ is the potential energy coming from the pairwise interaction among the electrons, and finally $\hat{V}_{\mathrm{ion-ion}}$ is the potential energy coming from the interaction among the ions.
+If we write each contribution using math notation, then, the total many-body Hamiltonian, in theorist units $e^2/4\pi \epsz = 1$ and dropping all the hats, is
 
 \begin{empheq}[innerbox=\fbox, right={\,,}]{align}
     \label{eq:many_body_Hamiltonian}
@@ -108,12 +117,12 @@ If we write each contribution using math notation, then, the total many-body Ham
 \end{empheq}
 
 \noindent if we write $m$ for the electron mass, $\br_i$ and $\bp_i$ for the position and momentum of the $i$-th electron, respectively, while $\bR_I$, $\mathbf{P}_I$, $M_I$ and $Z_I$ are the $I$-th ion position, momentum, mass, and number of valence electrons, respectively.
-The factors of $1/2$ in the terms for pairwise interactions is to avoid double counting, and the sums are over all pairs of particles (both pairs $(i,j)$ and $(j,i)$ are included in the sum).
-This Hamiltonian is written in terms of the real space coordinates of the particles, meaning that we can write a function depending on all the coordinates, called the \wf.
-If the problem is that of a single particle, and if it can be found in the state $\ket{\psi}$, then the \wf~is defined by $\psi(\br) \equiv \braket{\br}{\psi}$---we are just saying that the state of the system can be written in a representation of basis functions belonging to the Hilbert space of all the square-integrable complex valued functions defined in real space\footnote{Being square-integrable means that the integral of the absolute value squared over their domain is finite.}, normalized to 1.
-With symbols, $\braket{\psi}{\psi} = \int \dr |\psi(\br)|^2 = 1$.
-Obviously, we can see that solving for the eigenstates and eigenenergies of this Hamiltonian is a herculean task---some approximations are needed if we want to even aspire to describe the physics of this system.
-Not only that, but even if we could solve this problem in practice, the \wf~would have so many variables (of the order of $10^{23}$), there would not be anything we could do in practice with so much information.
+The factor of $1/2$ in the last two terms is used to avoid double counting, and the sums are over all pairs of particles (both pairs $(i,j)$ and $(j,i)$ are included in the sum; the same for the ions).
+This Hamiltonian is written in terms of the real space coordinates of the particles, meaning that in the \gls{tise} it acts on a function depending on all the coordinates, called the \wf.
+If the problem is that of a single particle that can be found in the state $| \psi \rangle$, then the \wf~is defined by $\psi(\br) \equiv \langle \br\, | \psi \rangle $---we are just saying that the state of the system can be written in a representation of basis functions belonging to the Hilbert space of all the square-integrable complex valued functions defined in real space\footnote{Being square-integrable means that the integral of the absolute value squared over their domain is finite.} normalized to 1.
+With symbols, normalized to 1 writes $\langle \psi | \psi \rangle = \int \dr |\psi(\br)|^2 = 1$.
+Obviously, we can see that solving for the eigenstates and eigenenergies of this Hamiltonian is a herculean task; some approximations are needed if we want to even aspire to describe the physics of this system.
+Not only that, but even if we could solve this problem in practice, the \wf~would have so many variables (of the order of $10^{23}$), that there would not be anything useful we could do with so much information.
 In the next subsections, we simplify our problem until we can somewhat describe the physics it contains.
 We can start already by saying that we work under low enough temperatures and small enough energies, such that the system we are dealing with is in fact a solid---the ions are bound to their neighbors through strong chemical bonds, making the whole material rigid~\cite{Simon_Oxford_2013}.
 
@@ -121,39 +130,38 @@ We can start already by saying that we work under low enough temperatures and sm
 \label{subsec:born_oppenheimer_approximation}
 
 In this chapter, we are concerned with the eigenstate with the lowest energy possible, called the ground state (of the crystal).
-A possible way to find the ground state of any system, is by using the variational principle.
-The variational method consists in admitting a trial state $\ket{\Psi}$ that depends on a given set of system parameters.
+A possible way to find the ground state, $| \GS \rangle$, of any system, is by applying the variational principle---for a Hamiltonian acting on states on a given Hilbert space $\mathcal{H}$, then for every state $| \psi \rangle \in \mathcal{H}$ the ground state energy verifies $E_{\GS} \leq \langle \psi | \psi \rangle$~\cite{Griffiths_QM_2018}.
+The variational method consists in admitting a trial state $\ket{\Psi}$ depending on a given set of system parameters.
 In a crystal, let us say that the parameters are the ion positions $\{\bR_I\}$.
-Then, we compute the expectation value of the Hamiltonian $\mel{\Psi}{H}{\Psi} \equiv E$, and minimize it with respect to the parameters.
-That can be achieved by solving $\partial_{\bR_I} E = 0$ for all $\bR_I$.
+Then, we compute the expectation value of the Hamiltonian $\mel{\Psi}{H}{\Psi} \equiv E$, and minimize it with respect to the parameters by solving $\partial_{\bR_I} E = 0$ for all $\bR_I$.
 This is the philosophy of the so-called \abinit~methods, which will be discussed on passing in this work.
 Among other properties to be discussed later in this chapter, they permit finding the equilibrium positions of the atomic nuclei.
 We will simply assume that the arrangement of the ions in the solid is known, for instance, from X-ray experiments~\cite{Kittel_2004,Simon_Oxford_2013}.
 
-To further narrow down what kind of systems we are studying, we will also assume that the arrangement of the ions in the solid forms a periodic structure; the crystal.
+To further narrow down the types of systems under consideration, we will assume that the arrangement of the ions in the solid forms a periodic structure; the crystal.
 Other types of solids can be found in nature, such as amorphous solids, like glasses, or solid materials with rotational symmetry but no translation symmetry, the quasicrystals~\cite{Chaikin_Lubensky_1995}.
-Herein, the ions occupy positions in the crystalline structure, also called the lattice, such that the potential felt by the electrons $\hat{V}_{e-\mathrm{ion}}(\br)$ from the ions is a periodic function, with the periodicity of the lattice.
+Herein, the ions occupy positions in the crystalline structure, also called the lattice, such that the potential felt by the electrons $\hat{V}_{e-\mathrm{ion}}(\br)$ from the ions is a periodic function with the periodicity of the lattice.
 We shall define more precisely what a lattice is in section~\ref{sec:single_particle_properties}.
-In this work, we will assume that the ionic degrees of freedom are frozen, where the ions are stationary and forming a background of positive charge.
+In this work, we will assume that the ionic degrees of freedom are frozen, where the ions are stationary, forming a background of positive charge.
 This is the adiabatic or Born--Oppenheimer approximation~\cite{Kittel_2004,Simon_Oxford_2013,Martin_2004}.
 Within this approximation, the electronic and ionic degrees of freedom decouple, and the problem of the electronic structure and excitations can be treated separately from finding the ground state of the lattice and its excitations, also called phonons.
-Interactions between electrons and phonons are thus disregarded in this work, as throughout this text electronic excitations occur at energy scales higher than those where lattice vibrations are relevant\footnote{An example where electron--phonon interaction is important is the \gls{bcs} theory of superconductivity; the microsopic theory that explains why some materials can conduct electricity without dissipation at ver low temperatures (or very high pressures). For the curious reader, one can consult Refs~\cite{Bruus_Flensberg_2004} and~\cite{Mahan} for in-depth technical treatments, or~\cite{Cohen_Louie_2016} for a not as deep technical discussion.}.
-Therefore, the ions will remain static in their equilibrium positions at all times, and their role is just to act as a periodic potential on the valence electrons that form an electron gas.
+Interactions between electrons and phonons are thus disregarded in this work, as throughout this text electronic excitations occur at energy scales higher than those where lattice vibrations are relevant\footnote{An example where the electron--phonon interaction is important is in the \gls{bcs} theory of superconductivity; the microsopic theory that explains why some materials can conduct electricity without dissipation at very low temperatures (or very high pressures). For the curious reader, one can consult Refs~\cite{Bruus_Flensberg_2004} and~\cite{Mahan} for in-depth technical treatments, or~\cite{Cohen_Louie_2016} for a not as technical discussion.}.
+Therefore, the ions will remain static in their equilibrium positions at all times, and their role is just to act as a periodic potential on the valence electrons that form the electron gas.
 In the next subsection, we apply one more approximation---the independent electron approximation.
 
 \subsection{Noninteracting limit}
 \label{subsec:non_interacting_limit}
 
-Upon ignoring in the full many-body Hamiltonian~\eqref{eq:many_body_Hamiltonian} the contributions from the kinetic energy of the ions and their mutual interaction, and furthermore ignore the electron--electron interactions, we arrive at the Hamiltonian
+Upon ignoring in the full many-body Hamiltonian~\eqref{eq:many_body_Hamiltonian} the contributions from the kinetic energy of the ions and their mutual interaction, and further ignore the electron--electron interactions, we arrive at the Hamiltonian
 
 \begin{equation}
     \label{eq:single_particle_Hamiltonian}
     H = \sum_i  \frac{p_i^2}{2 m} + V_{e-\mathrm{ion}}(\br) \,.
 \end{equation}
 
-\noindent If we write the potential term in the previous expression as a sum over all electrons as $V_{e-\mathrm{ion}}(\br) = \sum_i v (\br_i)$ (with $v$ including a sum over all ions like), then we have reduced the full many-body problem from Eq.~\eqref{eq:many_body_Hamiltonian} to a sum of single-particle Hamiltonians that are uncoupled, which is a noninteracting problem of identical particles.
+\noindent If we write the potential term in the previous expression as a sum over all electrons as $V_{e-\mathrm{ion}}(\br) = \sum_i v (\br_i)$ (with $v$ including a sum over all ions), then we have reduced the full many-body problem from Eq.~\eqref{eq:many_body_Hamiltonian} to a sum of single-particle Hamiltonians that are uncoupled, which is a noninteracting problem of identical particles.
 In that case, the problem encompassing all the electrons is separable.
-The \wf~including all $N$ electrons, $\Psi(\br_1,\br_2,...,\br_N)$, can be written as a product of all the single-particle \wf s $\psi_i(\br_i)$ as $\Psi(\br_1,\br_2,...,\br_N)= \psi_1(\br_1) \psi_2(\br_2)...\psi_N(\br_N)$, with each unique \wf~satisfying the \gls{tise}
+The \wf~including all $\mathcal{N}$ electrons, $\Psi(\br_1,\br_2,...,\br_N)$, can be written as a product of all the single-particle \wf s $\psi_i(\br_i)$ as $\Psi(\br_1,\br_2,...,\br_N)= \psi_1(\br_1) \psi_2(\br_2)...\psi_N(\br_N)$, with each single \wf~satisfying the \gls{tise}
 
 
 \begin{equation}
@@ -164,48 +172,48 @@ The \wf~including all $N$ electrons, $\Psi(\br_1,\br_2,...,\br_N)$, can be writt
 \noindent where $\epsilon_i$ represents the energy of a single electron, and the total energy of the system is simply the sum of all energies $\epsilon_i$.
 We also ignore the spin in the discussion.
 In other words, this discussion applies to the ferromagnetic electron gas, where all spins have the same orientation\footnote{This discussion is allusive, and does not contradict what we have stated in the first chapter; in this work we do not study the magnetic properties of materials nor materials with permanent magnetization.}.
-In fact, to account for the statistics of the electrons, which are fermions, the \wf~of all electrons must respect antisymmetry upon permutation of any two electrons.
-Say we permute electron $i$ with electron $j$, the \wf~must obey $\Psi(\br_1,\br_2,...,\br_i,...,\br_j,...,\br_N) = -\Psi(\br_1,\br_2,...,\br_j,...,\br_i,...,\br_N)$.
-Then, the total \wf~is the Slater determinant of all single-particle \wf s~\cite{Griffiths_QM_2018}, which is the determinant of the matrix that has by entries $\psi_i(\br_j)$, with $i,j=1,...N$, along with a factor of $1/\sqrt{N\,!}$ for normalization.
+In fact, to account for the statistics of the electrons, which are fermions, the \wf~of all electrons must be antisymmetric upon permutation of any two electrons.
+Say we permute electron $i$ with electron $j$, then \wf~must obey $\Psi(\br_1,\br_2,...,\br_i,...,\br_j,...,\br_N) = -\Psi(\br_1,\br_2,...,\br_j,...,\br_i,...,\br_N)$.
+Therefore, the total \wf~is the Slater determinant of all single-particle \wf s~\cite{Griffiths_QM_2018}, which is the determinant of the matrix that has by entries $\psi_i(\br_j)$, with $i,j=1,...N$, along with a factor of $1/\sqrt{N\,!}$ for normalization.
 The noninteracting \wf s can then serve as a basis for the interacting problem.
 With them, we can estimate the ground state energy of the interacting electron gas in a crystalline solid by using the Slater determinant as a variational \wf.
-This is called the \hf~method~\cite{Cohen_Louie_2016,Grosso_2014}, commonly introduced in introductory condensed matter physics courses for finding the eigenenergies of the Hamiltonian
+For that, one computes the expectation value of the interacting Hamiltonian
 
 \begin{empheq}[innerbox=\fbox, right={\,.}]{align}
     \label{eq:HF_Hamiltonian}
     H = \sum_i \left[\frac{p_i^2}{2 m} + v(\br_i)\right] + \frac{1}{2} \sum_{i \neq j} \frac{1}{|\br_i - \br_j|}
 \end{empheq}
 
-The previous Hamiltonian is more realistic than the one in Eq.~\eqref{eq:single_particle_Hamiltonian}, as it accounts for the electron--electron interaction.
-If we know how to solve for the eigenenergies and states of the Hamiltonian in Eq.~\eqref{eq:single_particle_Hamiltonian}, then we can solve the previous one approximately by treating the interactions as a perturbation.
-Alternatively, we can transform the interacting problem into an effective single-particle problem, where each electron feels an effective potential due to all the other electrons.
-There is a very sophisticated way of doing this, within the framework of \gls{dft}, the basis of \abinit~methods to calculate the electronic properties of a material, among other types of properties.
-By electronic structure we mean the electronic dispersion, defining how the energy of traveling electrons in a material depends on their momentum $\bp$.
+\noindent for the Slater determinant, and minimize it with respect to the single-particle \wf s $\psi_i(\br_j)$.
+This is called the \hf~method~\cite{Cohen_Louie_2016,Grosso_2014}, commonly introduced in introductory condensed matter physics courses as a first attempt in describing the ground state of the interacting electron gas.
+With the \hf~method, we transform the interacting problem into an effective single-particle problem described by a Schr\"{o}dinger equation of the type~\eqref{eq:single_particle_Schrodinger_equation}, where each electron feels an effective potential due to all the other electrons.
+There is a much more sophisticated way of doing so, within the framework of \gls{dft}, the foundation of \abinit~methods to calculate the electronic, mechanic, magnetic, thermal, etc., properties of extended or molecular systems.
+By electronic properties, or structure, in extended materials, we mean the electronic dispersion defining how the energy of electrons traveling in it depends on their momentum $\bk$.
 The electronic dispersion has been hinted at in the previous chapter, in analogy with the photonic dispersion.
 Within quantum mechanics, subatomic particles have a dual particle--wave behavior.
 Therefore, we can perceive traveling electrons as propagating waves, with their wavevector $\bk$ given by the de Broglie relation $\bp = \hbar \bk$.
-Traditionally, in solid state physics the quantities momentum and wavevector are used interchangeably.
+Traditionally, in solid state physics the quantities momentum and wavevector are used interchangeably, with $\bk$ being the predominant notation (quite commonly putting $\hbar = 1$).
 Therefore, by abuse of language and notation, from here onwards, the symbol $\bp$ might denote wavevector instead of momentum without notice.
 We might also call momentum to a wavevector.
-After all, the conversion between the quantities is simply made by a multiplying factor.
+After all, the conversion between the quantities is simply a multiplication factor.
 In the next section, we thoroughly discuss the concept of electronic dispersion in crystalline materials.
 
 \section{Single-Particle Properties of Electrons in Crystals}
 \label{sec:single_particle_properties}
 
-In the previous section, we have touched upon the concept of electronic dispersion in materials, which pertains to the nontrivial dependence of an electron's energy on momentum.
-Before we address that problem, there are still some concepts we wish to clarify.
+In the previous section, we have touched upon the concept of electronic dispersion in materials, which pertains to the nontrivial dependence of an electron energy on momentum.
+Before we address that problem, there are still some concepts we need to clarify.
 The first is the concept of lattice.
 It can be defined as an infinite, but discrete, set of points in space, such that all points are equivalent.
 Regardless of where one stands in the lattice, the landscape is the same.
-For example, let us look at an example, the triangular lattice depicted in Fig.~\ref{fig:triangular_lattice} below.
+Let us look at an example, the triangular lattice, depicted in Fig.~\ref{fig:triangular_lattice} below.
 As one can see, this set of points enjoys discrete translational symmetry.
 We call any translation vector $\bR$ that leaves the lattice invariant a lattice vector.
 In other words, a lattice vector connects any two points in the lattice.
 We call the smallest possible lattice vectors the primitive lattice vectors.
-In two dimensions, we need two primitive lattice vectors, whose span generates the entire lattice.
-In Fig.~\ref{fig:triangular_lattice}, the red vectors denoted by $\ba_1$ and $\ba_2$ are possible primitive lattice vectors.
-Evidently, their choice is not unique.
+In two dimensions, we need two primitive lattice vectors in order to span the entire lattice.
+In Fig.~\ref{fig:triangular_lattice}, the red vectors denoted by $\ba_1$ and $\ba_2$ are a possible choice for the primitive lattice vectors.
+Evidently, the choice is not unique.
 Therefore, any lattice vector can be written as an integer linear combination of these vectors.
 Mathematically, we write
 
@@ -216,29 +224,34 @@ Mathematically, we write
 
 The shaded gray area in the same figure represents a portion of the lattice, such that upon all possible translations by a lattice vector, we can generate the entire crystal.
 We call such a region a unit cell.
-The unit cell is, of course, not unique---we can choose different shapes and sizes, as long as the whole lattice can be generated by translating the tile.
-In Fig.~\ref{fig:triangular_lattice}, we display a tile with the smallest possible area, so it is called a primitive unit cell.
+The unit cell is, of course, not unique---we can choose different shapes and sizes, as long as the whole lattice can be generated by translations of the tile.
+In Fig.~\ref{fig:triangular_lattice}, we display a tile with the smallest possible area.
+Such a tile is called a primitive unit cell.
 
 \begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.6\textwidth]{Chapters/Figures/Chapter_3/triangular_lattice}
-    \mycaption[An example of a 2D lattice: triangular lattice]{The triangular lattice. The vectors $\ba_1$ and $\ba_2$ are primite lattice vectors, and $\bR = - \ba_1 + 2 \ba_2$ is a lattice vector. The shaded gray are represents a possible primitive unit cell.}
-    \label{fig:triangular_lattice}
+    \begin{minipage}{0.6\textwidth}
+        \includegraphics[width=0.8\textwidth]{Chapters/Figures/Chapter_3/triangular_lattice}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.4\textwidth}
+        \mycaption[An example of a 2D lattice: the triangular lattice]{Schematic of a triangular lattice. The vectors $\ba_1$ and $\ba_2$ are primite lattice vectors, and $\bR = - \ba_1 + 2 \ba_2$ is a lattice vector. The shaded gray are represents a possible primitive unit cell, and the lattice extends to infinity along the plane of the page.}
+        \label{fig:triangular_lattice}
+    \end{minipage}
 \end{figure}
 
 We have defined a lattice as a set of points that are all equivalent.
-As examples, we have diamond, composed only of carbon atoms, or black phosphorus~\footnote{There are not infinitely many examples, since the total number of possible Bravais lattices is finite. In two dimensions there are only five, while in three dimensions there are in total fourteen.}.
+As examples, we have diamond, composed only of carbon atoms, or black phosphorus.
 Nonetheless, we can find in nature many crystalline materials composed of more than one chemical element, and we cannot say that all points are equivalent in those materials.
 We can even have a crystal composed of a single chemical element, but cannot be classified as a lattice in the way we defined it.
 A striking example is graphene~\cite{Novoselov_Geim_2004}.
-Then, let us denote by Bravais lattice the way we defined a lattice initially.
+Then, let us denote by Bravais lattice the way we defined a lattice initially~\footnote{We gave two examples, among others. However, there are not infinitely many, since the total number of possible Bravais lattices is finite. In two dimensions there are only five, while in three dimensions there are in total fourteen.}.
 A lattice will then be a Bravais lattice plus a basis, or motif, where the unit cell is that of the underlying Bravais lattice, but including the atomic sites that ``spoil'' the equivalence of all points in the lattice.
 As an example, there is the hexagonal or honeycomb lattice, where the atomic sites are arranged in a hexagonal pattern.
 It can be seen as two interpenetrated triangular lattices, each one forming a sublattice.
 Graphene and \gls{hbn} can be found, as monolayers, in this configuration, which is depicted in Fig.~\ref{fig:hBN_lattice}.
-The latter example is very relevant in this work, as we shall see later.
+The latter material is very relevant in this work, as we shall see later.
 
-As lattices enjoy translation symmetry, then we can guess that momentum is a good quantum number to describe electronic states in these materials.
+As lattices enjoy translation symmetry, we can guess that momentum is a good quantum number to describe electronic states in these materials.
 Therefore, it is useful to have a description of the lattice in terms of wavevectors and set a framework to write periodic functions in Fourier series.
 In other words, we need an equivalent to the lattice in reciprocal space.
 Let us define the reciprocal lattice as the set of all vectors $\bG$ such that $\ei{\bG \vdot \bR} = 1$, for any lattice vector $\bR$~\cite{Simon_Oxford_2013,Kittel_2004,Ashcroft_Mermin,Bruus_Flensberg_2004}.
@@ -251,27 +264,27 @@ In two dimensions, any reciprocal lattice vector can be written as
 
 \noindent where $\bb_1$ and $\bb_2$ are primitive vectors of the reciprocal lattice.
 They can be obtained by solving the set of equations of the form $\ba_i \vdot \bb_j = 2 \pi \delta_{ij}$, with $i,j=1,2$.
-In this way, given the expression for any lattice vector as per~\eqref{eq:lattice_vector_definition}, then the condition $\ei{\bG \vdot \bR} = 1$ is always fulfilled.
-The real space lattice is composed in general by a Bravais lattice and a basis, but it is always the direct Bravais lattice defining the reciprocal lattice.
+In this way, given the expression for any lattice vector~\eqref{eq:lattice_vector_definition} and any reciprocal lattice vector~\eqref{eq:reciprocal_lattice_vector_definition}, the condition $\ei{\bG \vdot \bR} = 1$ is always fulfilled.
+The real space lattice is composed in general by a Bravais lattice and a basis, but it is always the direct underlying Bravais lattice defining the reciprocal lattice.
 
-We define now the first Brillouin zone, or simply \gls{bz}, as the set of points $\bk$ such that $|\bk| < |\bk - \bG|$ for all $\bG \neq \bzero$.
-Explained in another way, let us fix a primitive unit cell of the reciprocal lattice, and set the origin inside that cell, say with $\bG = \bzero$.
+We define now the first \gls{bz}, or simply \gls{bz}, as the set of points $\bk$ such that $|\bk| < |\bk - \bG|$ for all $\bG \neq \bzero$~\cite{Simon_Oxford_2013,Ashcroft_Mermin}.
+Explained in another way, let us fix a primitive unit cell of the reciprocal lattice, and set the origin inside that cell, say at $\bk = \bG = \bzero$.
 Then, if any point $\bk$ in that cell is closer to the origin than to any other point in the reciprocal lattice equivalent to the origin, then that cell is the \gls{bz}~\cite{Grosso_2014}.
 Any momentum in the reciprocal space can then be defined by another momentum in the \gls{bz} plus a reciprocal lattice vector.
 We can say that the momentum in a crystal, when it is conserved, it is conserved modulo a vector of the reciprocal lattice.
 Therefore, we can speak of crystal momentum as the relevant quantum number in crystals, instead of momentum~\cite{Simon_Oxford_2013}.
 We do not wish for the language used in this thesis to be too pedantic, in detriment of clarity.
-By one more abuse of language, let us speak of momentum when we are in fact dealing with crystal momentum.
+By (one more) abuse of language, let us speak of momentum when we are in fact dealing with crystal momentum.
 
-In this way, if we are working with a periodic function $f(\br)$ with the periodicity of the direct lattice, then it can be expanded in Fourier series as $f(\br) = \sum_{\bG} \ee^{\ii \bG \vdot \bR}$.
-These concepts will be key to understanding the Bloch theorem and its importance, to be explained in the next subsection.
+In this way, if we are working with a periodic function $f(\br)$ with the periodicity of the direct lattice, then it can be expanded in Fourier series as $f(\br) = \sum_{\bG} f_{\bG} \ee^{\ii \bG \vdot \bR}$, with the coefficients given by $f_{\bG} =1/A_{\mathrm{UC}} \int_{\mathrm{UC}} \dr \exp{\ii \bG \vdot \br} f(\br)$, an integral over the unit cell of area $A_{\mathrm{UC}}$.
+These concepts will be key for understanding the Bloch theorem and its importance, to be explained in the next subsection.
 
-\subsection{Bloch's Theorem}
+\subsection{Bloch Theorem}
 \label{subsec:bloch_theorem}
 
-We have at this point all the necessary tools to state and understand Bloch's theorem\footnote{Its original form is actual for \gls{1d} systems, or equivalently, for ordinary differential equations, and is due to the mathematician Gaston Floquet. The very same mathematician of the Floquet formalism of time-periodic Hamiltonians in quantum mechanics~\cite{Holthaus_2015}.\label{fn:Floquet_formalism}}, named after the physicist Felix Bloch.
+We have at this point all the necessary tools to state and understand Bloch theorem\footnote{Its original form is actual for \gls{1d} systems, or equivalently, for ordinary differential equations, and is due to the mathematician Gaston Floquet. The very same mathematician of the Floquet formalism of time-periodic Hamiltonians in quantum mechanics~\cite{Holthaus_2015}.\label{fn:Floquet_formalism}}, named after the physicist Felix Bloch.
 It has different formulations and ways to be proved.
-The formal proofs are here omitted, but we provide a short motivation for the statements below.
+The formal proofs are here omitted, but we provide a short motivation for its statements below.
 Until it becomes relevant for the discussion, we shall ignore the spin of the electron.
 
 \begin{theorem-non}[Bloch Theorem]
@@ -289,9 +302,9 @@ Until it becomes relevant for the discussion, we shall ignore the spin of the el
 The eigenfunction $\psi_{\bk}(\br)$ is known as the \underline{Bloch \wf}, while its periodic part $u_{\bk}(\br)$ is called the \underline{Bloch function}.
 This theorem can be motivated in a simple ad-hoc way, by assuming that the \wf~of the electron $\psi_{\bk}(\br)$ can be appropriately expanded in a basis of plane waves as $\psi_{\bk}(\br) = \sum_{\bG} C^{\bk}_{\bG} \ei{(\bk - \bG) \vdot \br}$.
 If we factor out the exponential $\ei{\bk \vdot \br}$ from the sum, then the first statement of the theorem becomes evident.
-The second statement can be straightforwardly proved from the first one.
-From the second statement, by identifying $u_{\bk}(\br) = \ei[-]{\bk \vdot \br} \psi_{\bk}(\br)$, we can in turn arrive at the first statement.
-Statement~\ref{Bloch_theorem_II} can also be proved by translational symmetry arguments and basic concepts of group theory~\cite{Cohen_Louie_2016}.
+The second statement is straightforward to prove from the first one.
+From the second statement, by identifying $u_{\bk}(\br) = \ei[-]{\bk \vdot \br} \psi_{\bk}(\br)$, we can in turn demonstrate the first statement.
+Statement~\ref{Bloch_theorem_II} can also be proved by translational symmetry arguments and basic concepts of group theory~\cite{Cohen_Louie_2016,Martin_2004}.
 
 We have studied in this subsection the properties of electronic eigenstates in a crystal subject to a periodic potential.
 The dynamics of the electrons are governed by the noninteracting single-particle Hamiltonian in Eq.~\eqref{eq:single_particle_Hamiltonian}.
@@ -301,10 +314,10 @@ Bloch states will serve as a basis for the interacting problem, as we will see i
 In fact, for a single momentum $\bk$, we can have several energy states the electrons can populate.
 If we label them by an integer $n$, then a general Bloch state in braket notation writes $|\psi_{n \bk}\rangle$, or more concisely, $\ket{n,\bk}$.
 Then, the allowed energies are also labeled in the same way as $\epsilon_{n \bk}$.
-For a fixed $n$, we call the entire set of energies $\epsilon_{n \bk}$ with $\bk$ varying in the \bz~an energy band, or simply band.
+For a fixed $n$, we call the entire set of energies $\epsilon_{n \bk}$ with $\bk$ varying in the \bz~an energy band, or just a band.
 Then, the set of all bands $\{\epsilon_{n \bk}\}$ is called the (electronic) band structure of the material.
 These bands define the dispersive behavior of electron waves in a crystal.
-The ground state of the $N$-electron system is obtained by filling the bands, starting from the bands with lower energies, until there are no valence electrons left.
+The ground state of the $\mathcal{N}$-electron system is obtained by filling the bands, starting from the bands with lower energies, until there are no valence electrons left.
 In the following subsection, we discuss different methods to calculate the band structure.
 
 
@@ -329,10 +342,10 @@ The electronic dispersion in the case of the nearly free electron model is simpl
 This model is particularly good for standard metals, like aluminum~\cite{Levinson_aluminum}, that have a compact or closest-packed crystal structure.
 
 In the opposite limit where the crystal is not compact and the atoms are further apart, electrons have more difficulty in moving from atomic site to atomic site, and then we say that they are tightly-bound to the atoms.
-We usually associate this type of crystals with materials with poor conducting properties, those presenting a band gap.
+We usually associate this type of crystals with materials with poor conducting properties, those presenting a band gap---the range of forbidden energies for which propagating electronic states are not allowed.
 These can be classified as insulators or semiconductors, depending on how the size of the band gap compares with the thermal energy, as we have explained before in section~\ref{subsec:polaritonics_dispersion_relation}.
 
-Within this formalism, the Bloch \wf s are the linear combination of atomic orbitals, instead of being written as a superposition of plane waves.
+Within this formalism, the Bloch \wf s are linear combinations of the atomic orbitals, instead of a superposition of plane waves.
 This is called the \gls{lcao} method or approximation.
 In math notation, we write for the \wf~of an electron in the Bloch state of band $n$ with momentum $\bk$
 
@@ -341,12 +354,12 @@ In math notation, we write for the \wf~of an electron in the Bloch state of band
     \psi_{n \bk} (\br) = \frac{1}{\sqrt{N}} \sum_{\bR} \ei{\bk \vdot \bR} \sum_{i \alpha} C_{i \alpha}^{n \bk} \phi_{\alpha} (\br - \bR - \bt_i)
 \end{empheq}
 
-\noindent where the sum in $\bR$ is over the vectors of the lattice (not over all the atomic sites), $i$ is an index that labels the atomic species at the position $\bt_i$ in the motif, and $\alpha$ is an index that labels the type of the atomic orbital ($1s,2s,2p,3s,\dots$).
-Usually we sum only over the atomic orbitals in the outer shells of the atom that are populated by the valence electrons.
+\noindent where the sum in $\bR$ is over the vectors of the lattice (not over all the atomic sites), or over all $N$ unit cells, $i$ is an index that labels the atomic species at the position $\bt_i$ in the motif, and $\alpha$ is an index that labels the type of the atomic orbital ($1s,2s,2p,3s,\dots$).
+Usually, we sum only over the atomic orbitals in the outer shells of the atom that are populated by the valence electrons.
 This is justifiable, as the valence electrons are the only ones that participate in the physics we are looking at, as explained in the beginning of section~\ref{subsec:many_body_crystal_hamiltonian}.
 
 We introduce now the concept of Bloch Hamiltonian, a very useful one in the tight-binding method, and in this work overall.
-We start by rewriting the Bloch state in Eq.~\eqref{eq:Bloch_state_LCAO} as
+We start by rewriting the Bloch state in Eq.~\eqref{eq:Bloch_state_LCAO}
 
 \begin{equation}
     \label{eq:Bloch_state_LCAO_auxiliar}
@@ -357,13 +370,13 @@ We start by rewriting the Bloch state in Eq.~\eqref{eq:Bloch_state_LCAO} as
 The Bloch state~\eqref{eq:Bloch_state_LCAO_auxiliar} is an eigenstate of the Hamiltonian with energy $\epsilon$ (omitting band and momentum indexes for now):
 
 \begin{equation}
-    H \psi_{n \bk} (\br) = \epsilon \psi_{n \bk} (\br) \Leftrightarrow \sum_{i \alpha} C_{i \alpha}^{n \bk} H\Phi_{i \alpha} (\bk,\br) = \epsilon \sum_{i \alpha} C_{i \alpha}^{n \bk} \Phi_{i \alpha} (\bk,\br) \,.
+    H \psi_{n \bk} (\br) = \epsilon\, \psi_{n \bk} (\br) \Leftrightarrow \sum_{i \alpha} C_{i \alpha}^{n \bk} H\Phi_{i \alpha} (\bk,\br) = \epsilon \sum_{i \alpha} C_{i \alpha}^{n \bk} \Phi_{i \alpha} (\bk,\br) \,.
 \end{equation}
 
 \noindent Now, we multiply by $\Phi^*_{j \beta} (\bk,\br)$ and integrate in space
 
 \begin{equation}
-    \sum_{i \alpha} C_{i \alpha}^{n \bk} \underbrace{\int \dr\, \Phi^*_{j \beta} (\bk,\br) H \Phi_{i \alpha} (\bk,\br)}_{H_{j \beta, i \alpha} (\bk)} = \epsilon \sum_{i \alpha} C_{i \alpha}^{n \bk} \underbrace{ \int \dr\, \Phi^*_{j \beta} (\bk,\br) \Phi_{i \alpha} (\bk,\br)}_{S_{j \beta, i \alpha}(\bk)}
+    \sum_{i \alpha} C_{i \alpha}^{n \bk} \underbrace{\int_{\vol} \dr\, \Phi^*_{j \beta} (\bk,\br) H \Phi_{i \alpha} (\bk,\br)}_{H_{j \beta, i \alpha} (\bk)} = \epsilon \sum_{i \alpha} C_{i \alpha}^{n \bk} \underbrace{ \int_{\vol} \dr\, \Phi^*_{j \beta} (\bk,\br) \Phi_{i \alpha} (\bk,\br)}_{S_{j \beta, i \alpha}(\bk)}
 \end{equation}
 
 \noindent to obtain the eigenvalue problem
@@ -377,7 +390,7 @@ The Bloch state~\eqref{eq:Bloch_state_LCAO_auxiliar} is an eigenstate of the Ham
 \noindent where we defined the arrays $\bC^{n \bk}$ with entries $(\bC^{n \bk})_{i \alpha} = C_{i \alpha}^{n \bk}$, and the matrices $H(\bk)$ and $S(\bk)$ with matrix elements
 
 \begin{equation}
-    H_{j \beta, i \alpha}(\bk) = \mel{\Phi_{j \beta} (\bk,\br)}{H}{\Phi_{i \alpha} (\bk,\br)} \qq{and} S_{j \beta, i \alpha}(\bk) = \braket{\Phi_{j \beta} (\bk,\br)}{\Phi_{i \alpha} (\bk,\br)} \,,
+    H_{j \beta, i \alpha}(\bk) = \mel{\Phi_{j \beta} (\bk,\br)}{H}{\Phi_{i \alpha} (\bk,\br)} \qq{and} S_{j \beta, i \alpha}(\bk) = \braket{\Phi_{j \beta} (\bk,\br)}{\Phi_{i \alpha} (\bk,\br)} ,
 \end{equation}
 
 \noindent respectively.
@@ -385,7 +398,7 @@ We call the $S$ matrix the overlap matrix, and for the matrix elements we can wr
 
 \begin{equation}
     \begin{split}
-        S_{j \beta, i \alpha}(\bk) &= \braket{\Phi_{j \beta} (\bk,\br)}{\Phi_{i \alpha} (\bk,\br)} = \frac{1}{N} \int \dr\, \sum_{\bR'\bR} \ei[-]{\bk \vdot (\bR'  - \bR) } \phi_\beta^*(\br - \bR' - \bt_j) \phi_\alpha (\br - \bR - \bt_i) = \\
+        S_{j \beta, i \alpha}(\bk) &= \braket{\Phi_{j \beta} (\bk,\br)}{\Phi_{i \alpha} (\bk,\br)} = \frac{1}{N} \int_{\vol} \dr\, \sum_{\bR'\bR} \ei[-]{\bk \vdot (\bR'  - \bR) } \phi_\beta^*(\br - \bR' - \bt_j) \phi_\alpha (\br - \bR - \bt_i) = \\
         &= \sum_{\bR} \ei{\bk \vdot \bR} \braket{\phi_{j \beta} (\br)}{\phi_{i \alpha} (\br - \bR - \bt_i)} = \sum_{\bR} \ei{\bk \vdot \bR} s_{j \beta, i \alpha} (\bR)\,,
     \end{split}
 \end{equation}
@@ -407,11 +420,11 @@ Following an analogous procedure for the Hamiltonian, one obtains
     H(\bk) = \sum_{\bR} \ei{\bk \vdot \bR} H(\bR) \,,
 \end{equation}
 
-\noindent where $\bk$ denotes crystal momentum as usual, the sum is over all vectors of the Bravais lattice $\bR$, and $H(\bR)$ is the real space Hamiltonian at the site $\bR$, commonly called a Fock matrix, and has by matrix elements $H_{j \beta, i \alpha} (\bR) = \mel{\phi_{\beta} (\br - \bt_j)}{H}{\phi_{\alpha} (\br - \bR - \bt_i)}$.
+\noindent where $\bk$ denotes crystal momentum as usual, the sum is over all vectors of the Bravais lattice $\bR$, and $H(\bR)$ is the real space Hamiltonian at the site $\bR$, commonly called a Fock matrix, and has by matrix elements $H_{j \beta, i \alpha} (\bR) = \langle \phi_{\beta} (\br - \bt_j) | H | \phi_{\alpha} (\br - \bR - \bt_i) \rangle$.
 These matrix elements are called transfer integrals.
 If $\bR \neq \bzero$, then they are a measure for how likely it is an electron to hop from one orbital to another one in a different unit cell, and are called hopping parameters in the jargon of the tight-binding approach.
 The matrix $H(\bk)$ presented just now is the so-called Bloch Hamiltonian.
-Its eigenvalues form the band structure $\{\epsilon_{n \bk}\}$, and its eigenvectors are the arrays (or vectors) $\bC^{n \bk}$, whose elements are usually called the tight-binding coefficients.
+Its eigenvalues form the band structure $\{\epsilon_{n \bk}\}$, and its eigenvectors are the arrays (or vectors) $\bC^{n \bk}$, whose elements are usually called tight-binding coefficients.
 
 The Bloch Hamiltonian deserves a pertinent technical remark, pertaining to the sum in Eq.~\eqref{eq:Bloch_Hamiltonian_definition} and the argument of the imaginary exponential.
 In Eq.~\eqref{eq:Bloch_Hamiltonian_definition} we use the Fock matrices summing over unit cells with positions $\bR$.
@@ -419,37 +432,38 @@ There is in fact an alternative definition for the Bloch Hamiltonian, where the 
 The first case is called the \enquote{periodic} form or the \enquote{lattice-gauge} form, as it has the periodicity of the reciprocal lattice.
 It means that $H(\bk) = H(\bk + \bG)$ for any reciprocal lattice vector $\bG$, but it is not unique, as it depends on the choice of the unit cell.
 The alternative case is called the \enquote{canonical} form, or the \enquote{atomic-gauge} form, and it is unique, but in general $H(\bk) \neq H(\bk + \bG)$ for a reciprocal lattice vector $\bG$.
-If there is only one atom per unit cell, which is the case of Bravais lattices, the two forms coincide, but if they do not, one can still go from one gauge to the other through a unitary transformation.
-Nonetheless, in all cases in this work it does not change the results; problems may arise though, when dealing with geometric phases or topological invariants~\cite{Cayssol_2021}.
+If there is only one atom per unit cell, which is the case of Bravais lattices, the two forms coincide, but if the unit cell contains at least two non-equivalent sites, one can still go from one gauge to the other through a unitary transformation.
+Nonetheless, in all cases in this work it does not change the results; problems may arise, though, when dealing with geometric phases or topological invariants~\cite{Cayssol_2021}.
 We present now a simple tight-binding model for a key \bd~material in this work, monolayer \gls{hbn}.
 \\
 \\
 \textit{\underline{Monolayer hexagonal boron nitride: a minimal tight-binding model}}
-
+\\
+\\
 In its multilayer form, \gls{hbn} is a rather interesting material.
-For instance, it is hyperbolic---besides its refractive index being anisotropic, the components of the permittivity tensor pertaining to the off-plane and in-plane directions have opposite signs~\cite{Caldwell_2019}.
-As a consequence, its isofrequency surfaces, the surfaces in momentum space over which the frequency is constant, are hyperboloids instead of spheres, which is the case for isotropic materials.
+For instance, it is hyperbolic in the mid-\gls{ir}---besides its refractive index being anisotropic, the components of the permittivity tensor pertaining to the off-plane and in-plane directions have opposite signs~\cite{Caldwell_2019}.
+As a consequence, its isofrequency surfaces, the surfaces in momentum space over which the frequency is constant, are hyperboloids instead of spheres as in isotropic materials.
 The isofrequency surfaces, or contours, help visualise what happens to the polaritonic dispersion, which is relevant for developing applications in nanophotonics.
-This makes \gls{hbn} a promising material for photonic applications, such as hyperlensing; this in the mid-\gls{ir}.
+This makes \gls{hbn} a promising material for photonic applications in the mid-\gls{ir}, such as hyperlensing.
 In this same range, it presents hyperbolic phonon--polaritons~\cite{Sun_2015}, which have been already experimentally observed in nanostructures~\cite{Brown_Davanco_2018}, and even in its monolayer form~\cite{Dai_Fang_2019,Li_2021}.
-In similarity with the plasmon--polariton discussed in the previous chapter, the phonon--polariton is the result of the hybridization between the excitation of the lattice, the phonon already mentioned previously in this chapter, and the photon.
+In similarity with the plasmon--polariton discussed in the previous chapter, the phonon--polariton is the result of the hybridization between the excitation of the lattice, the phonon (already mentioned in this chapter), and the photon.
 When it comes to transport properties, it is a wide band gap semiconductor, with an indirect gap of around $5.955$~\unit{\electronvolt}~\cite{Cassabois_Valvin_Gil_2016}.
 However, in its monolayer limit, the band gap is direct~\cite{Elias_2019} and slightly higher, around $6.08 \pm 0.2$~\unit{\electronvolt}~\cite{Roman_2021}.
-We make the remark that these are experimental observations.
+We emphasize that these are experimental observations.
 
 Theoretically, monolayer \gls{hbn} can be described by a minimal tight-binding model with staggered on-site energies and a single hopping amplitude between nearest-neighbours.
-This material is composed of boron and nitrogen atoms, alternating in a lattice arranged in hexagons, like in Fig.~\ref{fig:hBN_lattice}\pnl{a} below.
-In the language of section~\ref{sec:single_particle_properties}, it is a triangular lattice with a basis, having the unit cell (shaded gray area in Fig.~\ref{fig:hBN_lattice}\pnl{a}) two atoms.
+This material is composed of boron and nitrogen atoms, alternated in a lattice arranged in hexagons, like in Fig.~\ref{fig:hBN_lattice}\pnl{a} below.
+In the language of section~\ref{sec:single_particle_properties}, it is a triangular lattice with a basis, having the unit cell two atoms(shaded gray area in Fig.~\ref{fig:hBN_lattice}\pnl{a}).
 A typical choice for its \bz~is the one depicted in Fig.~\ref{fig:hBN_lattice}\pnl{b}, with a hexagonal shape.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_3/hBN_lattice_&_BZ}
-    \mycaption[hBN lattice and Brillouin Zone]{Blue and yellow atoms represent different site types. The blue atoms and yellow atoms correspond to boron and nitrogen, respectively.}
+    \mycaption[hBN lattice and Brillouin Zone]{In panel \pnl{a}, blue and yellow atoms represent different site types in the hexagonal lattice. The blue atoms and yellow atoms correspond to boron and nitrogen, respectively, in \gls{hbn}. The vectors $\ba_1$ and $\ba_2$ are possible primitive lattice vectors, and vectors $\boldsymbol{\delta}_{i=1,2,3}$ are vectors connecting the blue sites to their nearest-neighbours. The shaded gray area represents a possible choice for the primitive unit cell. In panel \pnl{b}, the \bz~of the hexagonal lattice is represented together with the primitive reciprocal lattice vectors $\bb_1$ and $\bb_2$.}
     \label{fig:hBN_lattice}
 \end{figure}
 
-In Fig.~\ref{fig:hBN_lattice}\pnl{a}, if $a$ is the length of the chemical bonds, we have for the primitive lattice vectors $\ba_1$ and $\ba_2$ in red in Fig~\ref{fig:hBN_lattice}\pnl{a}, we have
+In Fig.~\ref{fig:hBN_lattice}\pnl{a}, if $a$ is the length of the chemical bonds, we have for the primitive lattice vectors $\ba_1$ and $\ba_2$
 
 \begin{equation}
     \ba_1 = \frac{a}{2}(3,\sqrt{3})\,, \qq{and} \ba_2 = \frac{a}{2}(3,-\sqrt{3}),
@@ -458,7 +472,7 @@ In Fig.~\ref{fig:hBN_lattice}\pnl{a}, if $a$ is the length of the chemical bonds
 \noindent and the nearest-neighbour positions with respect to the blue sites are given by
 
 \begin{equation}
-    \boldsymbol{\delta}_1 = a(1,0)\,, \boldsymbol{\delta}_2 = \frac{a}{2}(-\sqrt{3},1)\,, \qq{and} \boldsymbol{\delta}_3 = \frac{a}{2}(-\sqrt{3},-1)\,,
+    \boldsymbol{\delta}_1 = a(1,0)\,, \, \boldsymbol{\delta}_2 = \frac{a}{2}(-\sqrt{3},1)\,, \qq{and} \boldsymbol{\delta}_3 = \frac{a}{2}(-\sqrt{3},-1)\,,
     \label{eq:delta_vectors}
 \end{equation}
 
@@ -474,14 +488,14 @@ In Fig.~\ref{fig:hBN_lattice}\pnl{a}, if $a$ is the length of the chemical bonds
     \bK = \left(\frac{2 \pi}{3 a},\frac{2 \pi}{3\sqrt{3} a} \right) \qq{and} \bK' = \left(\frac{2 \pi}{3 a},-\frac{2 \pi}{3\sqrt{3} a} \right).
 \end{equation}
 
-A minimal tight-binding Hamiltonian for \gls{hbn}, in second quantization\footnote{In second quantization, we promote a ket state $\ket{\alpha}$ to an operator $\hat{a}_{\alpha}^{\dagger}$ that creates a particle in the state $\alpha$. A bra corresponds then to an annihilation operator. These operators act on states living in the Fock space. The states that belong to the Fock space describe how many particles populate each ket state living in its corresponding single-particle Hilbert space. The second quantization formalism is also called the occupation number representation~\cite{Fetter_Walecka}.}, writes
+A minimal tight-binding Hamiltonian for \gls{hbn}, in second quantization\footnote{In second quantization, we promote a ket state $\ket{\alpha}$ to an operator $\hat{a}_{\alpha}^{\dagger}$ that creates a particle in the state $\alpha$. A bra corresponds then to an annihilation operator $\hat{a}_{\alpha}$, destroying a particle in the state $\alpha$. These operators act on states living in the Fock space, and obey commutation/anti-commutation relations for bosons/fermions. The states that belong to the Fock space describe how many particles populate each ket state living in its corresponding single-particle Hilbert space. The second quantization formalism is also called the occupation number representation~\cite{Fetter_Walecka}.}, writes
 
 \begin{equation}
     H = \sum_i E_A a_i^{\dagger} a_i + \sum_j E_B b_j^{\dagger} b_j - t \sum_{\langle i j\rangle}  \left(a_i^{\dagger} b_j+b_j^{\dagger} a_i\right) ,
     \label{eq:graphene_tight_binding_Hamiltonian}
 \end{equation}
 
-\noindent where the operator $a_i^{\dagger}/a_i$ creates/annihilates an electron in the A sublattice at the position $\br_i$ and $b_j^{\dagger}/b_j$ creates/annihilates an electron in the B sublattice at the position $\br_j$.
+\noindent where the operator $a_i^{\dagger}/a_i$ creates/annihilates an electron in the A sublattice at the position $\br_i$, and $b_j^{\dagger}/b_j$ creates/annihilates an electron in the B sublattice at the position $\br_j$.
 The symbol $\langle i j \rangle$ under the sum symbol means that the sum is over nearest-neighbours.
 It can be rewritten in a more comprehensive form
 
@@ -493,17 +507,17 @@ It can be rewritten in a more comprehensive form
 \noindent Performing the change of basis
 
 \begin{equation}
-    a_i^{\dagger} = \frac{1}{\sqrt{N}} \sum_{\bk} \ei{\bk \vdot \br_i} a_{\bk}^{\dagger}, \qq{analogously for} b_j^{\dagger},
+    a_i^{\dagger} = \frac{1}{\sqrt{N}} \sum_{\bk} \ei{\bk \vdot \br_i} a_{\bk}^{\dagger}\,, \qq{analogously for} b_j^{\dagger},
     \label{eq:second_quantization_change_of_basis}
 \end{equation}
 
 \noindent and simplifying, we arrive at
 
 \begin{equation}
-    H = \sum_{\bk} \Psi_{\bk}^{\dagger} H(\bk) \Psi_{\bk},
+    H = \sum_{\bk} \Psi_{\bk}^{\dagger} H(\bk) \Psi_{\bk}\,,
 \end{equation}
 
-\noindent where we can define the Bloch Hamiltonian $H(\bk)$ as
+\noindent where we can define the Bloch Hamiltonian $H(\bk)$, the spinor $\Psi_{\bk}$ and the function $\Delta_{\bk}$ as
 
 \begin{equation}
     \begin{array}{l}
@@ -527,12 +541,12 @@ It can be rewritten in a more comprehensive form
 The dispersion relation for \gls{hbn} is then given by~\cite{ribeiro_stability_2011}
 
 \begin{equation}
-    E(\bk) = E_0 \pm \frac{1}{2} \sqrt{E^2_g + 4 t^2 + 16 t^2 \cos \left(\frac{3 a }{2} k_x\right) \cos \left(\frac{\sqrt{3} a}{2}  k_y \right) + 16 t^2 \cos^2 \left(\frac{\sqrt{3} a}{2} k_y \right)},
+    E(\bk) = E_0 \pm \frac{1}{2} \sqrt{E^2_g + 4 t^2 + 16 t^2 \cos \left(\frac{3 a }{2} k_x\right) \cos \left(\frac{\sqrt{3} a}{2}  k_y \right) + 16 t^2 \cos^2 \left(\frac{\sqrt{3} a}{2} k_y \right)}\,,
 \end{equation}
 
 \noindent here $E_0 = (E_A + E_B)/2$ is the energy reference (which is arbitrary) and $E_g = E_A - E_B$ is the energy band gap.
 One can see clearly the opening of a gap (in the corners of the Brillouin zone $K$ and $K'$) in Figure \ref{fig:monolayer_hBN_bands}.
-Even though similar to graphene in the crystal structure, contrary to it, monolayer \gls{hbn} is an insulator as we have said before.
+Even though identical to graphene in the crystal structure, contrary to it, monolayer \gls{hbn} is an insulator as we have said before.
 
 \begin{figure}[H]
     \centering
@@ -542,18 +556,18 @@ Even though similar to graphene in the crystal structure, contrary to it, monola
 \end{figure}
 
 Sometimes, a low-energy approximation suffices for describing the material at hand.
-Below, we do an analysis of the low-energy, or continuum, limit of monolayer \gls{hbn}.
+Below, we do an analysis of the low-energy limit, or continuum limit, of monolayer \gls{hbn}.
 Linearizing~\eqref{eq:Delta_of_k} with respect to momentum around the momentum $\bK = (2 \pi / 3 a, 2 \pi / 3 \sqrt{3} a)$, and defining the relative momentum $\bq$ by $\bk = \bK + \bq$, with $|\bq| \ll |\bK|$, we have
 
 \begin{equation}
     \Delta_{\bK + \bq} \simeq -\ii\, \ei[-]{\frac{2 \pi }{3} a} \frac{3 a}{2}(q_x+\ii q_y) \rightarrow - \frac{3 a}{2} (q_x + \ii q_y) .
 \end{equation}
 
-\noindent Replacing now in the Bloch Hamiltonian, we define the follwoing low-energy Hamiltonian
+\noindent Replacing now in the Bloch Hamiltonian, we define the following low-energy Hamiltonian
 
 \begin{equation}
     \label{eq:low_energy_hamiltonian_hBN}
-    \mathcal{H}_K \equiv H(\bK + \bq) \simeq  \frac{3 a t}{2 \hbar} (q_x \sigma_x - q_y \sigma_y) + M \sigma_z = \hbar \vF \bar{\bq} . \boldsymbol{\sigma} + M \sigma_z \,,
+    \mathcal{H}_K \equiv H(\bK + \bq) \simeq  \frac{3 a t}{2 \hbar} (q_x \sigma_x - q_y \sigma_y) + M \sigma_z = \hbar \vF \bar{\bq} \vdot \boldsymbol{\sigma} + M \sigma_z ,
 \end{equation}
 
 \noindent where $M$ is half the band gap, $\sigma_x$, $\sigma_y$ and $\sigma_z$  are the Pauli matrices, and $\boldsymbol{\sigma} = (\sigma_x,\sigma_y)$ is Pauli matrices vector, $\vF$ is the Fermi velocity
@@ -568,7 +582,7 @@ Linearizing~\eqref{eq:Delta_of_k} with respect to momentum around the momentum $
     \bar{\bq} = (q_x,-q_y,0)\,.
 \end{equation}
 
-\noindent Following the same procedure but for the $\bK'$ point, we obtain
+\noindent Following the same procedure, but for the $\bK'$ point, we obtain
 
 \begin{equation}
     H(\bK' + \bq) = \hbar \vF \bq \vdot \boldsymbol{\sigma} + M \sigma_z,
@@ -577,7 +591,7 @@ Linearizing~\eqref{eq:Delta_of_k} with respect to momentum around the momentum $
 \noindent where now
 
 \begin{equation}
-    \bq = (q_x,q_y,0).
+    \bq = (q_x,q_y,0)\,.
 \end{equation}
 
 \noindent So we can write
@@ -590,7 +604,7 @@ Linearizing~\eqref{eq:Delta_of_k} with respect to momentum around the momentum $
 In this way, the low-energy dispersion relation writes
 
 \begin{equation}
-    E_{\pm} (\bq) = \pm \sqrt{E_g^2 + \hbar^2 \vF^2 |\bq|^2},
+    E_{\pm} (\bq) = \pm \sqrt{E_g^2 + \hbar^2 \vF^2 |\bq|^2}\,,
 \end{equation}
 
 \noindent $+$ for the top/conduction band, and $-$ for the bottom/valence band.
@@ -605,7 +619,7 @@ We can as well compute the effective masses of the electrons around $\bK$, throu
     \label{eq:effective_mass_formula}
 \end{equation}
 
-\noindent For later use, we compute the eigenvectors of the low energy Hamiltonian.
+\noindent For later use, we compute the eigenvectors of the low-energy Hamiltonian.
 We will use now a different, but equivalent, configuration for the lattices (rotated by 30 degrees).
 The eigenvectors are
 
@@ -620,7 +634,7 @@ The eigenvectors are
     \begin{bmatrix}
         \cos \frac{\xi_k}{2} \\
         \tau \ei[-]{\tau \theta_k} \sin \frac{\xi_k}{2}
-    \end{bmatrix}
+    \end{bmatrix}\,,
     \label{eq:mono_hBN_valence_conduction_spinors}
 \end{equation}
 
@@ -631,7 +645,7 @@ The eigenvectors are
 \end{equation}
 
 Even though the tight-binding Hamiltonian for \gls{hbn} provides a simple, yet insightful theoretical tool, we still need somehow to use realistic values for the parameters $t$ and $E_g$.
-These can be obtained through fitting the tight-binding band structure to a more realistic one, typically obtained through the so called first principle, or \abinit~methods, that we describe in the next section.
+These can be obtained through fitting the tight-binding band structure to a more realistic one, typically obtained through the first-principle methods, that we describe in the next section.
 
 \subsubsection{\textit{Ab initio} methods}
 \label{subsubsec:abinit_methods}
@@ -645,13 +659,13 @@ If we wish to describe the electronic structure of a crystal, we are faced with 
 \noindent where $H$ is the many-body Hamiltonian in Eq.~\eqref{eq:many_body_Hamiltonian}, and $\Psi(\br_1,\br_2,\dots,\br_N)$ is the many-body \wf.
 As previously stated, there is no hope in solving the previous equation for the many-body \wf.
 That was a motivation for introducing the nearly-free electron model and the tight-binding model.
-But then, we are faced with the shortcomings of these models---they describe opposing limits, and provide no way of determining the model parameters.
+But then, we are faced with the shortcomings of these models---they describe approximate opposing limits, and provide no way of determining the model parameters.
 
-To overcome this dilemma, we have to take a different look into the many-body problem.
-Quite surprisingly, it is possible to describe a ground state of a crystal in terms of a function of a single variable, which is the electronic density $n(\br)$, instead of dealing with the $10^23$ variables of the many-body \wf.
-Physicist hypothesized that the ground state energy could be written as a functional of the electronic density.
+To overcome this issue, we have to take a different look into the many-body problem.
+Quite surprisingly, it is possible to describe a ground state of a crystal in terms of a function of a single variable, which is the electronic density $n(\br)$, instead of dealing with $~10^{23}$ variables in the many-body \wf.
+Physicists hypothesized that the ground state energy could be written as a functional of the electronic density.
 This statement, which is a consequence of the first Hohenberg--Kohn theorem, was put in rigorous grounds by Hohenberg and Kohn~\cite{Hohenberg_Kohn_1964}, the precursors of \gls{dft}.
-Together with the second Hohenberg--Kohn theorem, they form the pillars of \dft.
+Together with the second Hohenberg--Kohn theorem, they constitute the pillars of \dft.
 The two theorems are very strong statements, that we proclaim below.
 
 \begin{theorem-non}[Hohenberg--Kohn Theorem I]
@@ -661,8 +675,8 @@ The two theorems are very strong statements, that we proclaim below.
 
     \begin{enumerate}[label=(\arabic*),ref=(\arabic*)]
         \item The mapping from the potential $V_{e-\mathrm{ion}}(\br)$ to the electronic ground state density $n(\br)$ is one-to-one;\label{itm:HK_I_1}
-        \item The many-body \wf~of the ground state of a system is solely determined by its many-body Hamiltonian, which in turn is determined solely by the potential $V_{e-\mathrm{ion}}(\br)$ and the number of electrons;\label{itm:HK_I_2}
-        \item Then, per~\ref{itm:HK_I_1} and~\ref{itm:HK_I_2}, the ground state density $n(\br)$ determines uniquely the many-body \wf, and consequently, the ground and excited states of the system.
+        \item The many-body \wf~of the ground state of a system is solely determined by its many-body Hamiltonian, which in turn is determined solely by the potential $V_{e-\mathrm{ion}}(\br)$ (and the number of electrons $\mathcal{N}$);\label{itm:HK_I_2}
+        \item Per~\ref{itm:HK_I_1} and~\ref{itm:HK_I_2}, the ground state density $n(\br)$ determines uniquely the many-body \wf, and consequently, the ground and excited states of the system.
     \end{enumerate}
 \end{theorem-non}
 
@@ -672,24 +686,24 @@ By application of the variational principle, we can state the second Hohenberg--
 \begin{theorem-non}[Hohenberg--Kohn Theorem II]
     \label{th:HK_theorem_II}
     The ground state density of a system minimizes the energy functional $E[n(\br)]$.
-    The ground state can therefore be found by minimizing ground state energy functional with respect to the density.
+    The ground state can therefore be found by minimizing the ground state energy functional with respect to the density.
 \end{theorem-non}
 
-After stating the two Hohenberg--Kohn theorems, we could contextualize the problem of finding the electronic structure of any material with \abinit~methods.
+The two Hohenberg--Kohn theorems contextualize the problem of finding the electronic structure of any material using \abinit~methods.
 Nonetheless, even though the two theorems are powerful claims, they do not provide a practical method of finding the ground state density, and therefore, the properties of the system.
 In order to do that, Kohn and Sham~\cite{Kohn_Sham_1965} proposed a method, called the Kohn--Sham scheme.
 Without going into much detail, the Kohn--Sham scheme is a self-consistent method, where the full interacting many-body problem is mapped into an auxiliary noninteracting one, but with the same ground state density as the initial problem.
 
-The many-body effects are encoded in a contribution to the gorund state energy functional, called the exchange--correlation functional, denoted by $E_{\mathrm{xc}}[n(\br)]$.
-Even though this functional is universal, its exact analytical form is not known.
-Therefore, different degrees of approximation are used, like the \gls{lda}, or the \gls{gga}, which is a non-local approximation.
+The many-body effects are encoded in a contribution to the ground state energy functional, called the exchange--correlation functional, denoted by $E_{\mathrm{xc}}[n(\br)]$.
+Even though this functional is universal, its exact analytical form (if it exists) is unknown.
+Therefore, different degrees of approximation are used, like the \gls{lda}, or the \gls{gga}, the latter being a non-local approximation.
 It is well known that traditional \dft~suffers from a fundamental problem, called the band gap problem.
 In many materials, \dft~calculations underestimate the band gap, even drastically in some cases.
-In order to improve the outcome from \dft, there are some schemes that go beyond the Kohn--Sham scheme.
+In order to improve the outcome from \dft, there are some schemes that go beyond the Kohn--Sham one.
 One idea is to use hybrid functionals, consisting in mixing an approximated exchange--correlation functional, say \gls{lda} or \gls{gga}, with the exact Fock exchange.
 For a thorough treatment of these subjects, we refer the reader to Refs.~\cite{Martin_2004,Kohanoff_2006}.
 Later on in this work, we will mention the use of hybrid functionals in the first-principle calculations necessary for the framework developed for the screening in \bd~materials, pertaining to Chapter~\ref{ch:screening}.
-Our implementation for the screening is actually based on key concepts of the next chapter, where we present briefly the \gls{mbpt} formalism, which can also be used to predict electronic properties of materials
+Our implementation for the screening is actually based on key concepts of the next section, where we present briefly the \acrlong{mbpt} formalism, which can also be used to predict electronic properties of materials.
 
 
 \section{Many-Particle Description of Solids}
@@ -697,21 +711,23 @@ Our implementation for the screening is actually based on key concepts of the ne
 
 Up until now, we have been discussing essentially single-particle properties of solids.
 Even though matter is composed of many particles, the single-particle problem serves as a good basis for the full many-body problem.
-In the single-particle picture, pair-wise interactions are either discarded altogether, or treated at the mean-field level.
+In the single-particle picture, pairwise interactions are either discarded altogether, or treated at the mean-field level.
 Doing this can be a good starting point to study material properties, but it leaves out emergent phenomena coming from interactions.
-Just like in high-energy physics, where particles can be created or destroyed, in condensed matter some effects can only be described by introducing the concept of quasiparticle---a composite state coming from the coupling between different or identical particles in a solid, that can explain excitated state properties we could not understand otherwise.
-For that, we use the \gls{mbpt} formalism, which is the non-relativistic cousin of quantum field theory.
-The study of solids using the methods of this framework, allow to explain exotic phenomena, such as superconductivity as explained by the \gls{bcs} theory, the Fermi liquid theory, quantum magnetism, among others.
+Just like in high-energy physics, where particles can be created or destroyed, in condensed matter some effects can only be described by introducing the concept of quasiparticle---a composite state coming from the coupling between different or identical particles in a solid, that can explain excited state properties we could not understand otherwise.
+For that, we need \glsfirst{mbpt} formalism, which is the non-relativistic cousin of quantum field theory.
+As quasiparticles can be created or destroyed, the second quantization formalism, also called the canonical quantization formalism, is necessary.
+It is extremely useful in condensed matter, not only for single-particle descriptions of matter (looking at our example of a tight-binding model in section~\ref{subsec:tight_binding_model}), but also to include interactions into the problem.
+Within \gls{mbpt}, the single-particle problem without interactions is assumed to be already solved (through the methods discussed in section~\ref{subsubsec:abinit_methods}, most frequently), and the interactions are treated as a perturbation.
+Apart from a couple of simple models, a full \abinit~treatment of the full interacting many-body problem beyond perturbation theory is not possible.
+Nonetheless, the methods of \gls{mbpt} can explain exotic physical phenomena in condensed matter, such as a microscopic description for superconductivity as explained by the \gls{bcs} theory, the Fermi liquid theory, quantum magnetism, among others.
 
 In this section, we discuss the main concepts needed for future parts of this work, but in a briefly manner.
 A detailed discussion of this topic would be too technical and long for the purpose of this thesis, and is beyond the scope of this text.
-We may say at this point, that to fully understand \gls{mbpt}, we need the second quantization, canonical quantization or occupation number formalism of quantum mechanics~\cite{Fetter_Walecka}, that we have mentioned before in section~\ref{subsec:tight_binding_model}.
-It was therein applied to a tight-binding model, but inserting interaction in this formalism is very natural.
 
 \subsection{Many-body perturbation theory and $GW$ approximation}
 \label{subsec:many_body_perturbation_theory}
 
-In physics, the concept of Green function is very important, with applications throughout many subfields.
+In physics, the concept of Green function is very important, with applications throughout many fields.
 In the context of condensed matter physics, its relevance in \gls{mbpt} is not questionable.
 The Green function, or propagator as in particle physics, is a quantity that helps providing a formal solution to the Schrödinger equation for the interacting problem.
 
@@ -727,12 +743,12 @@ In the context of \gls{mbpt}, it can be defined as
 
 \noindent if we represent the second quantized Hamiltonian operator $\hat{H}$ in real space, and $\sigma$ representing the spin degree of freedom.
 We keep the hat for operators in the canonical quantization formalism, and their respective first-quantized version without the hat.
-The Hamiltonian is assumed to have two parts, a noninteracting part $\hat{H}_0$ and an interaction part $\hat{V}$.
+The Hamiltonian is assumed to have two parts, a noninteracting part $\hat{H}_0$, and an interaction part $\hat{V}$.
 In the real space basis representation, the total Hamiltonian writes
 
 \begin{empheq}[innerbox=\colorbox{lightgray}, right={\,,}]{align}
     \label{eq:canonical_many_body_Hamiltonian}
-    \hat{H} = \sum_{\sigma} \int \dd{\br} \, \hat{\psi}^{\dagger}_{\sigma}(\br) H_0 \hat{\psi}(\br) + \frac{1}{2} \sum_{\sigma,\sigma'} \int \dd{\br} \int \dd{\br'} \, \hat{\psi}^{\dagger}_{\sigma}(\br) \hat{\psi}^{\dagger}_{\sigma'}(\br') W(\br , \br') \hat{\psi}_{\sigma'}(\br') \hat{\psi}_{\sigma}(\br)
+    \hat{H} = \sum_{\sigma} \int \dd{\br} \, \hat{\psi}^{\dagger}_{\sigma}(\br) H_0 \hat{\psi}_{\sigma}(\br) + \frac{1}{2} \sum_{\sigma,\sigma'} \int \dd{\br} \int \dd{\br'} \, \hat{\psi}^{\dagger}_{\sigma}(\br) \hat{\psi}^{\dagger}_{\sigma'}(\br') W(\br , \br') \hat{\psi}_{\sigma'}(\br') \hat{\psi}_{\sigma}(\br)
 \end{empheq}
 
 \noindent where the interaction potential $W(\br , \br')$ is the screened Coulomb interaction, if we are assuming that it is the only interaction in play.
@@ -753,42 +769,45 @@ It is useful to also define the noninteracting Green function $\mathcal{G}^0$, w
 \end{equation}
 
 \noindent if we use a compact notation by omitting the basis.
-In the language of Feynamn diagrams, this operator corresponds to the free fermion propagator, being diagrammatically represented by a straight arrowed line.
+In the language of Feynman diagrams, this operator corresponds to the free fermion propagator, being diagrammatically represented by a straight arrowed line.
 If we want to write something similar for the interacting Green function, we need to introduce the concept of self-energy $\Sigma$.
-Before that, we want to say that the introduction of the interaction term in the Hamiltonian, makes the interacting Green function $\mathcal{G}$ be in its diagrammatic form, and expansion containing an inifinite number of diagrams.
-Each diagram has two external free fermionic lines $\mathcal{G}^0$, connected by compositions of interaction lines coming from $W$ composed with free propagator lines coming from $\mathcal{G}^0$.
-The self-energy $\Sigma$ is defined as the sum of all irreducible diagrams appearing in the expansion of $\mathcal{G}$, without the external fermion lines.
-In this way, we can write the interacting Green function as
+Before that, we need to say that the introduction of the two-body interaction term in the Hamiltonian makes the interacting Green function $\mathcal{G}$ an infinite sum containing an infinite number of diagrams.
+Each diagram has two external free fermionic lines $\mathcal{G}^0$, connected by compositions of interaction lines that come from $W$, composed with free propagator lines coming from $\mathcal{G}^0$.
+The self-energy, $\Sigma$, is defined as the sum of all irreducible diagrams appearing in the expansion of $\mathcal{G}$, without the external fermion lines.
+This results in writing for the interacting Green function
 
 \begin{equation}
+    \label{eq:interacting_Green_function}
     \mathcal{G} = \frac{1}{\omega - H_0 - \Sigma(\omega)} \,.
 \end{equation}
 
 If in the previous expression we multiply both sides by the denominator from the left, we get $[\omega - H_0] \mathcal{G} - \Sigma(\omega) \mathcal{G} = \qty(\mathcal{G}^0)^{-1} \mathcal{G} - \Sigma(\omega) \mathcal{G} = 1$.
-Multiplying by the green function $\mathcal{G}^0$ from the left, simplifying and considering the real space basis and going back to the time domain, we get a Dyson equation for the many-body Green function, and it writes
+Multiplying by the green function $\mathcal{G}^0$ from the left, simplifying, considering the $\br$-space basis and going back to the time domain, we get a Dyson equation for the many-body Green function that writes
 
 \begin{empheq}[innerbox=\fbox, right={\,,}]{align}
     \label{eq:Dysons_eq_repeated}
     \mathcal{G} (b,a) = \mathcal{G}^0 (b,a) + \int \dd{1} \dd{2} \, \mathcal{G} (b,1) \Sigma(1,2) \mathcal{G}^0(2,a)
 \end{empheq}
 
-\noindent where a digit or letter $a$ or $b$ is an abbreviation for all the degrees of freedom.
+\noindent where a digit or letter is an abbreviation for all the degrees of freedom.
 With symbols, it means $i=(\br_i,\sigma_i,t_i)$, and $\int \dd{i} = \sum_{\sigma_i} \int \dd{\br_i} \int \dd{t_i}$.
 
 It is possible to derive a similar equation for the density-density response function $\chi$, and the irreducible polarizability $\chi^\irr$, the latter being the sum of all irreducible diagrams in the expansion for $\chi$.
-The full interacting response function $\chi$  is not computable in practice, therefore we apply an approximation, called the \gls{rpa}, which neglects exchange and correlation in $\chi^\irr$ and only the Hartree diagram, also called bubble diagram, is kept, so that $\chi^\irr \approx \chi_{\RPA}^\irr \equiv \chi^0 = -\ii G_0(1,2) G_0(2,1)$.
-In general, beyond \rpa, the full polarizability writes
+The full interacting response function $\chi$  is not computable in practice, therefore an approximation is typically made, called the \gls{rpa}.
+In the \rpa, one neglects exchange and correlation in $\chi^\irr$ and only the Hartree diagram, also called bubble diagram, is kept.
+Mathematically, we write $\chi^\irr \approx \chi_{\RPA}^\irr \equiv \chi^0 = -\ii G_0(1,2) G_0(2,1)$\footnote{The \rpa can also be obtained for the self-energy, by in its diagrammatic expansion retain only the most divergent diagrams~\cite{Bruus_Flensberg_2004}. Then all the contributions can be resummed, and through the geometric series a closed expression for  $\Sigma$ can be written.}.
+In general, beyond \rpa, the polarizability writes\todo{Have to reread the textbook by Bruus again, hopefully before submission. Is this one below the irreducible or the full?}
 
 \begin{equation}
     \label{eq:polarizability_vertex}
-    \chi(1,2) = -\ii \int \dd{3} \dd{4}\, G(1,3) \Lambda(3,4;2) G(4,1^+) \,,
+    \chi(1,2) = -\ii \int \dd{3} \dd{4}\, \mathcal{G}(1,3) \Lambda(3,4;2) \mathcal{G}(4,1^+) \,,
 \end{equation}
 
-\noindent where $\Lambda$ is the vertex function, and it is given by
+\noindent where $\Lambda$ is the vertex function, and is given by
 
 \begin{equation}
     \label{eq:vertex_function}
-    \Lambda(1,2;3) = \delta(1,2) \delta(1,3) + \int \dd{4} \dd{5} \dd{6} \dd{7} \, \frac{\delta \Sigma(1,2)}{\delta G(4,5)} G(4,6) G(7,5)  \Lambda(6,7;3) \,.
+    \Lambda(1,2;3) = \delta(1,2) \delta(1,3) + \int \dd{4} \dd{5} \dd{6} \dd{7} \, \frac{\delta \Sigma(1,2)}{\delta \mathcal{G}(4,5)} \mathcal{G}(4,6) \mathcal{G}(7,5)  \Lambda(6,7;3) \,.
 \end{equation}
 
 The full interacting screened Coulomb potential $W$, and the bare one $v_c$, relate with the polarizability through another Dyson equation given by
@@ -798,16 +817,16 @@ The full interacting screened Coulomb potential $W$, and the bare one $v_c$, rel
     W (b,a) = v_c (b,a) + \int  \dd{1} \dd{2} \, v_c (b,1) \chi(1,2) W(2,a)
 \end{empheq}
 
-\noindent Equations~\eqref{eq:Dysons_eq_repeated},~\eqref{eq:polarizability_vertex},~\eqref{eq:vertex_function} and~\eqref{eq:Dysons_eq_Coulomb}, together with the equation for the self-energy $\Sigma$
+\noindent Equations~\eqref{eq:Dysons_eq_repeated},~\eqref{eq:polarizability_vertex},~\eqref{eq:vertex_function} and~\eqref{eq:Dysons_eq_Coulomb}, together with the equation for the self-energy $\Sigma$\footnote{The self-energy is relevant to introduce the necessary corrections to the particle (or quasiparticle) band structure obtained with \dft, principally to correct the band gap, as explained in section~\ref{subsubsec:abinit_methods}. To see that, take a look at Eq.~\ref{eq:interacting_Green_function}; the self-energy enters in the denominator summing to the noninteracting Hamiltonian, thus it can be seen as a correction to $\hat{H}_0$. We should say in fact it is the real part of $\Sigma$ that corrects the band structure. The imaginary part has to do with the electron--electron scattering rates~\cite{Bruus_Flensberg_2004} and the quasiparticle life-times.}
 
 \begin{equation}
     \label{eq:self_energy_vertex}
-    \Sigma(1,2) = \ii \int \dd{3} \dd{4}\, G(1,3^{+}) W(1,4) \Lambda(3,2;4)  \,,
+    \Sigma(1,2) = \ii \int \dd{3} \dd{4}\, \mathcal{G}(1,3^{+}) W(1,4) \Lambda(3,2;4)  \,,
 \end{equation}
 
 \noindent constitute a set of five coupled equations, called Hedin's equations~\cite{Hedin_1965,Louie_1986}.
 The most widely approximation used is to ignore the second term in the equation for the vertex, so that $\Gamma(1,2;3) \approx \delta(1,2) \delta(1,3)$.
-This approximation makes the equations for the polarizability~\eqref{eq:polarizability_vertex} and that for the self-energy~\eqref{eq:self_energy_vertex} decouple, giving origin to the famous \GW~approximation for the self-energy, and the \rpa~for the polarizability.
+This approximation makes the equations for the polarizability~\eqref{eq:polarizability_vertex} and that for the self-energy~\eqref{eq:self_energy_vertex} decouple, giving origin to the famous \GW~approximation for the self-energy, and the \rpa~for the full, interacting, polarizability.
 The latter is a topic to be discussed in the next section.
 
 Within \rpa, the Dyson equation for the Coulomb potential can be rewritten as
@@ -844,7 +863,7 @@ Mathematically, and making the space and time dependencies explicit, we can writ
     W(1,3) = \int \dd{2} \varepsilon^{-1} (1,2)v_c (2,3) \,.
 \end{equation}
 
-\noindent The last equation together with the definition of the microscopic dielectric function in Eq.~\eqref{eq:dielectric_function_space_time}, are the two main ingredients to discuss the effect of screening in periodic materials.
+\noindent The last equation together with the definition of the microscopic dielectric function in Eq.~\eqref{eq:dielectric_function_space_time} are the two main ingredients to discuss the effect of screening in periodic materials.
 That is what the next section focuses on.
 
 
@@ -863,9 +882,9 @@ In alternative of computing the dielectric function and then invert it, one coul
     \varepsilon^{-1}(a,b) = \delta(a-b) + \int \dd{c} v_c(a,c) \chi^{\RPA}(c,b) \,,
 \end{equation}
 
-\noindent and $\chi^{\RPA}$ is the interacting polarizability within \rpa, bo explained in a moment.
+\noindent and $\chi^{\RPA}$ is the interacting polarizability within \rpa, to be explained in a moment.
 If we try to write a diagrammatic expression for the polarizability based on Eq.~\eqref{eq:polarizability_full}, we would see that it consists of two propagator lines connected by every possible process allowed by the Coulomb interaction $W$, composed with the free fermion propagator $\mathcal{G}^0$.
-Similarly to the Green function and the screened potential, one can write a Dyson equation for the full polarizability as~\cite{Bruus_Flensberg_2004,Martin_2004}
+Similarly to the Green function and the screened potential, one can write a Dyson equation for the full polarizability as~\cite{Bruus_Flensberg_2004,Martin_Reining_Ceperley_2016}
 
 \begin{equation}
     \label{eq:polarizability_full}
@@ -881,7 +900,7 @@ Then, we get the full polarizability $\chi$ within \gls{rpa}, that is
     \chi^\RPA(1,2) = \chi^0(1,2) + \int \dd{3} \dd{4} \, \chi^0(1,3) v_c(3,4) \chi^\RPA(4,2) \,.
 \end{equation}
 
-Then, the inverse dielectric function within \rpa~can be obtained by replacing the full polarizability in Eq.~\eqref{eq:dielectric_function_inverse} in its \rpa~form to write
+Then, the inverse dielectric function within \rpa~can be obtained by replacing the full polarizability in Eq.~\eqref{eq:dielectric_function_inverse} with its \rpa~form to write
 
 \begin{equation}
     \label{eq:inverse_dielectric_function_RPA}
@@ -889,7 +908,7 @@ Then, the inverse dielectric function within \rpa~can be obtained by replacing t
 \end{equation}
 
 For a thorough discussion of these topics, we refer to Richard Martin's book in Ref~\cite{Martin_Reining_Ceperley_2016} and to the book~\cite{Bruus_Flensberg_2004} by H.~Bruus and K.~Flensberg.
-The first reference studies the many-electron interacting problem in depth, providing also computational schemes to address it.
+The first reference studies the many-electron interacting problem in depth, providing also computational schemes to solve it in practice.
 The latter reference addresses the interacting electron gas in the jellium model, which enjoys continuous translation symmetry.
 This allows for deep theoretical insights via analytical calculations.
 
@@ -904,7 +923,7 @@ We recapitulate the dielectric function in real-space and time domain, that with
     \varepsilon (\br,\br';t-t') = \delta(\br - \br') \delta(t-t') - \int  \int v_c(\br - \br'') \chi^0 (\br'',\br';t-t') \dr'' \dt' ,
 \end{equation}
 
-\noindent where $v_c$ denotes the bare (unscreened) Coulomb potential and $\chi^0 (\br,\br';t-t')$ is the \rpa~irreducible polarizability, for which we have assumed time translation invariance\footnote{Even though we can perceive the dielectric function as a response to an external potential perturbation of the form $\phi_0 \exp{\ii(\bk \vdot \br - \omega t)}$, which is a time-periodic perturbation, we treat its response within the linear regime. This is valid as long as the amplitude $\phi_0$ is small enough. If it is too big, such that perturbative methods do not apply, then we have to account for the whole time dependence, as stated previously in footnote~\ref{fn:time_invariance_ch_2} of Chapter~\ref{:classical_electrodynamics}. If it still has periodicty, albeit discrete, we can work under the Floquet formalism of quantum mechanics, already metnioned too~\ref{fn:Floquet_formalism} in this chapter. If the perturbation is not periodic, then we need a full non-equilibrium framework. That can done, for instance, using the non-equilibrium Grenn function formalism, also called the Keldysh formalism~\cite{Di_Ventra_2008}.}.
+\noindent where $v_c$ denotes the bare (unscreened) Coulomb potential and $\chi^0 (\br,\br';t-t')$ is the \rpa~irreducible polarizability, for which we have assumed time translation invariance\footnote{Even though we can perceive the dielectric function as a response to an external potential perturbation of the form $\phi_0 \exp{\ii(\bk \vdot \br - \omega t)}$, which is a time-periodic perturbation, we treat its response within the linear regime. This is valid as long as the amplitude $\phi_0$ is small enough. If it is too big, such that perturbative methods do not apply, then we have to account for the whole time dependence, as stated previously in footnote~\ref{fn:time_invariance_ch_2} of Chapter~\ref{ch:classical_electrodynamics}. If it still has periodicity, albeit discrete, we can work under the Floquet formalism of quantum mechanics, already metnioned too~\ref{fn:Floquet_formalism} in this chapter. If the perturbation is not periodic, then we need a full non-equilibrium framework. That can done, for instance, using the non-equilibrium Grenn function formalism, also called the Keldysh formalism~\cite{Di_Ventra_2008}.}.
 The \gls{rpa} irreducible polarizability, in the frequency domain, within a self-consistent field approach is given by~\cite{Cohen_Louie_2016}
 
 \begin{equation}
@@ -913,8 +932,8 @@ The \gls{rpa} irreducible polarizability, in the frequency domain, within a self
 \end{equation}
 
 
-\noindent where $\alpha$ is a small infinitesimal parameter, $f_i$ denotes the Fermi--Dirac distribution computed at the energy $\epsilon_i$, and $\phi_i(\br)$ is the $i$-th state, with eigenenergy $\epsilon_i$, that can be obtained within a mean-field approach, such as within \hf~theory or the Kohn-Sham framework of \dft.
-The many-body \wf~of the associated independent particle system is then constructed through the Slater determinant of the orbitals $\phi_i(\br)$, for which we do not specify the subjacent basis that we denote by the indexes $i$ and $j$.
+\noindent where $\alpha$ is a small infinitesimal parameter, $f_i$ denotes the Fermi--Dirac distribution computed at the energy $\epsilon_i$, and $\phi_i(\br)$ is the $i$-th state, with eigenenergy $\epsilon_i$, that can be obtained within a mean-field approach, such as within \hf~theory or the Kohn--Sham framework of \dft.
+The many-body \wf~of the associated independent particle system is then constructed through the Slater determinant of the orbitals $\phi_i(\br)$, for which we do not specify the subjacent basis denoted by the indexes $i$ and $j$.
 
 We notice that the expression in Eq.~\eqref{eq:dielectric_function_real_time} is a two-time function with (continuous) time translation invariance.
 Whence, we may time Fourier transform it to the frequency domain and write
@@ -936,7 +955,7 @@ The same can be said about the polarizability $\chi^0$.
 This contrasts with the case of the previous chapter, where translation invariance was continuous.
 We are still allowed to Fourier transform in space, but we need to keep track of two momenta, say $\bk$ and $\bk'$, instead of a single one, so that the polarizability is a two-point function in momentum when Fourier transformed from real to reciprocal space, $\mathcal{F}\{\chi^0(\br,\br')\} (\bk,\bk') \equiv \chi^0(\bk,\bk')$.
 Luckily, as the polarizability still enjoys discrete translation symmetry, one can show that $\chi^0(\bk,\bk')$ is non-zero only if $\bk' = \bk + \mathbf{g}$, where $\mathbf{g}$ is a reciprocal lattice vector.
-Furthermore, we can write any momentum $\bk$ in terms of a vector in the first \gls{bz} $\bq$ plus a vector of the reciprocal lattice $\bG$, $\bk = \bq + \bG$.
+Furthermore, we can write any momentum $\bk$ in terms of a vector $\bq$ in the first \gls{bz} plus a vector of the reciprocal lattice $\bG$, $\bk = \bq + \bG$.
 The same can be said for the other momentum $\bk' = \bq + \bG'$, with $\bG' = \bG + \mathbf{g}$ just being another vector of the reciprocal lattice.
 This allows us to write $\chi^0(\bk,\bk') = \chi^0(\bq + \bG,\bq' + \bG') \equiv \chi^0_{\bG \bG'}(\bq)$, where we can see the polarizability as an infinite matrix for each point $\bq \in \BZ$.
 For every momentum $\bq \in \BZ$, each pair of reciprocal lattice vectors $(\bG,\bG')$ corresponds to the matrix element $\chi^0_{\bG \bG'}(\bq)$.
@@ -948,15 +967,15 @@ In a basis of Bloch states and at zero temperature, doing the substitution for t
     \chi^0 (\br,\br';\omega) = \sum_{n \bk, n'\bk'} \left[ \frac{\psi_{n' \bk'}(\br) \psi_{n \bk}^*(\br) \psi_{n \bk}(\br') \psi_{n' \bk'}^*(\br') }{\hw -(\epsilon_{n' \bk'} - \epsilon_{n \bk})   + \ii \hbar \alpha} - \frac{ \psi_{n \bk}(\br) \psi_{n' \bk'}^*(\br) \psi_{n' \bk'}(\br') \psi_{n \bk}^*(\br') }{\hw + (\epsilon_{n' \bk'} - \epsilon_{n \bk}) + \ii \hbar \alpha} \right]\,.
 \end{equation}
 
-\noindent Its translation invariance can be proof checked by the identity $\psi_{n \bk}(\br + \bR) = \ee^{\ii \bk \vdot \bR} \psi_{n \bk}(\br)$ from the second statement~\ref{Bloch_theorem_II} of Bloch's theorem~\ref{th:Bloch_theorem}.
+\noindent Its translation invariance can be proof checked by the identity $\psi_{n \bk}(\br + \bR) = \ee^{\ii \bk \vdot \bR} \psi_{n \bk}(\br)$, coming from the second statement~\ref{Bloch_theorem_II} of Bloch theorem.
 The expression for the matrix elements $\chi^0_{\bG \bG'}(\bq)$ can be obtained by direct Fourier transform of the previous expression to obtain
 
 \begin{equation}
     \label{eq:polarizability_momentum_frequency}
-    \chi^0_{\bG \bG'} (\bq,\omega) = \frac{1}{\mathcal{V}} \sum_{n,n'} \sum_{\bk,\sigma} (f_{n,\bk} - f_{n',\bk + \bq}) \frac{\mel{n,\bk}{\ee^{-\ii(\bq + \bG) \vdot \br}}{n',\bk + \bq} \mel{n',\bk + \bq}{\ee^{\ii(\bq + \bG') \vdot \br}}{n,\bk}}{\epsilon_{n,\bk} - \epsilon_{n',\bk + \bq} + \hw + \ii \hbar \alpha}\,,
+    \chi^0_{\bG \bG'} (\bq,\omega) = \frac{1}{\vol} \sum_{n,n'} \sum_{\bk,\sigma} (f_{n,\bk} - f_{n',\bk + \bq}) \frac{\mel{n,\bk}{\ee^{-\ii(\bq + \bG) \vdot \br}}{n',\bk + \bq} \mel{n',\bk + \bq}{\ee^{\ii(\bq + \bG') \vdot \br}}{n,\bk}}{\epsilon_{n,\bk} - \epsilon_{n',\bk + \bq} + \hw + \ii \hbar \alpha}\,,
 \end{equation}
 
-\noindent where $\mathcal{V}$ is the volume of the crystal, $n$ and $n'$ are band indexes, $\bG$ and $\bG'$ are reciprocal lattice vectors, $\sigma$ represents spin and the sum over momentum $\bk$ is over the \bz.
+\noindent where $\vol$ is the volume of the crystal, $n$ and $n'$ are band indexes, $\bG$ and $\bG'$ are reciprocal lattice vectors, $\sigma$ represents spin and the sum over momentum $\bk$ is over the \bz.
 
 Defining the polarizability in reciprocal space as a matrix allows doing the same for the dielectric function, that Fourier transformed to reciprocal space writes
 
@@ -989,7 +1008,7 @@ The tools provided by quantum mechanics allowed obtaining the full dependence of
 
 If the material in question is not a metal, but a semiconductor or insulator, then we can only aspire to compute the polarizability and the dielectric function numerically.
 The same can be stated about the screened Coulomb potential.
-In the jellium approximation, the screened Coulomb potential in reciprocal space is simply given by $W(\bq,\omega) = v_c(\bq)/\vareps(\bq,\omega)$, because there is continuous translation invariance.
+In the jellium approximation, the screened Coulomb potential in reciprocal space is simply given by $W(\bq,\omega) = v_c(\bq)/\vareps(\bq,\omega)$, because there is continuous translation invariance, and as a consequence, the macroscopic dielectric function and the microscopic one coincide.
 However, assuming continuous translation invariance for insulators or semiconductors is questionable.
 In general, we need to account for the crystal structure, so that the screened Coulomb potential in momentum--frequency domain, obtained by Fourier transforming Eq.~\eqref{eq:W_as_of_vc}, writes
 
@@ -998,7 +1017,16 @@ In general, we need to account for the crystal structure, so that the screened C
     W_{\bG \bG'} (\bq,\omega) =  \varepsilon^{-1}_{\bG \bG'} (\bq,\omega) v_c(\bq + \bG')\,,
 \end{equation}
 
-\noindent for which one needs the inverse dielectric matrix, satisfying $\sum_{\bG''} \varepsilon^{-1}_{\bG \bG''} \varepsilon_{\bG'' \bG'} = \delta_{\bG \bG'}$ at every point $\bq$ in the \bz~and any frequency $\omega$.
-As we will see in the next chapter, it is of upmost importance to capture accurately the screening in semiconductors and insulators, mainly \bd~ones, in order to get realistic results for the excitonic states.
+\noindent for which one needs the inverse dielectric matrix, satisfying $\sum_{\bG''} \varepsilon^{-1}_{\bG \bG''} \varepsilon_{\bG'' \bG'} = \delta_{\bG \bG'}$ at every point $\bq$ in the \bz~and for any frequency $\omega$.
+Only after having inverted the dielectric matrix, we can estimate the macroscopic dielectric function, $\varepsilon(\bq,\omega)$, through the definition
+
+\begin{empheq}[innerbox=\fbox, right={\,.}]{align}
+    \label{eq:macroscopic_dielectric_function_definition}
+    \varepsilon(\bq,\omega) = \frac{1}{\varepsilon^{-1}_{\bzero \bzero}(\bq,\omega)} \neq \varepsilon_{\bzero \bzero}(\bq,\omega)
+\end{empheq}
+
+In the previous definition, the inequality is in general true, due to the local field effects that come from the inhomogeneity of the crystal.
+This will be a very key aspect that we shall leave for later aspect, in Chapter~\ref{ch:screening}.
+As we will understand in the next chapter, it is of upmost importance to capture accurately the screening in semiconductors and insulators, mainly \bd~ones, in order to get realistic results for the excitonic states.
 Now that we have described the ground state properties of materials, we are in position to introduce the exciton, a quasiparticle emerging from optical excitations of solids, that cannot be ignored when investigating the optical properties of gapped materials.
-Excitons in \bd~materials are thus the subject of the next chapter.
+The theory of excitons in \bd~materials are thus the subject of the next chapter.

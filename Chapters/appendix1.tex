@@ -50,30 +50,30 @@ Therefore, we are allowed to write
 
 \subsection{One-point functions}
 
-Let us consider first a system of finite volume $\mathcal{V}$ in real space with periodic, or Born--von Karman~\cite{Simon_Oxford_2013}, boundary conditions.
+Let us consider first a system of finite volume $\vol$ in real space with periodic, or Born--von Karman~\cite{Simon_Oxford_2013}, boundary conditions.
 Then, any function $f(\br)$ can be written in a Fourier series as
 
 \begin{equation}
     \label{eq:inverse_Fourier_discrete}
-    f(\br)=\frac{1}{\mathcal{V}}\sum_{\bk}f_{\bk}\ee^{\ii \bk \vdot \br},
+    f(\br)=\frac{1}{\vol}\sum_{\bk}f_{\bk}\ee^{\ii \bk \vdot \br},
 \end{equation}
 
 \noindent with the momentum $\bk$ assuming discrete values, and
 
 \begin{equation}
     \label{eq:direct_Fourier_discrete}
-    f_{\bk}=\int_{\mathcal{V}}\dr\,f(\br)\,\ee^{-\ii \bk \vdot \br}.
+    f_{\bk}=\int_{\vol}\dr\,f(\br)\,\ee^{-\ii \bk \vdot \br}.
 \end{equation}
 
 \noindent The following relations hold
 
 \begin{equation}
-    \int_{\mathcal{V}}\dr\,f(\br)\,\ee^{-\ii \bk \vdot \br}=\mathcal{V}\delta_{\bk,\bzero} \qq{and} \frac{1}{\mathcal{V}}\sum_{\bk}\ee^{\ii \bk \vdot \br}=\delta(\br)\,,
+    \int_{\vol}\dr\,f(\br)\,\ee^{-\ii \bk \vdot \br}=\vol\delta_{\bk,\bzero} \qq{and} \frac{1}{\vol}\sum_{\bk}\ee^{\ii \bk \vdot \br}=\delta(\br)\,,
 \end{equation}
 
 \noindent where $\delta_{\bk,\mathbf{q}}$ is the Kronecker delta.
 
-If we let the volume of the region $\mathcal{V} \to \infty$ tend to infinity, then $\bk$ assumes continuous values, and the sums over momentum transform to integrals by the rule $\sum_{\bk}\to\frac{\mathcal{V}}{(2\pi)^{3}}\int\dd \bk$.
+If we let the volume of the region $\vol \to \infty$ tend to infinity, then $\bk$ assumes continuous values, and the sums over momentum transform to integrals by the rule $\sum_{\bk}\to\frac{\vol}{(2\pi)^{3}}\int\dd \bk$.
 In this way, relations~\eqref{eq:inverse_Fourier_discrete} and~\eqref{eq:direct_Fourier_discrete} can be written as
 
 \begin{equation}
@@ -87,7 +87,7 @@ In this way, relations~\eqref{eq:inverse_Fourier_discrete} and~\eqref{eq:direct_
 \end{equation}
  
 \noindent hold as well.
-If the system under consideration is \bd~and not \gls{3d}, then instead of volume $\mathcal{V}$ we have area $A$, the momentum $\bk$ is a \bd~vector, the integrals over volume become integrals over area, and whenever we have $(2\pi)^{3}$ we would have $(2\pi)^{2}$ instead.
+If the system under consideration is \bd~and not \gls{3d}, then instead of volume $\vol$ we have area $A$, the momentum $\bk$ is a \bd~vector, the integrals over volume become integrals over area, and whenever we have $(2\pi)^{3}$ we would have $(2\pi)^{2}$ instead.
 
 \subsection{Two-point functions}
 
@@ -111,10 +111,10 @@ Something similar for the finite volume case writes
 
 \begin{equation}
     \label{eq:finite_volume_two_point_inverse_Fourier}
-    f(\br,\br')=\frac{1}{\mathcal{V}^{2}}\sum_{\bk,\bk'}\ee^{\ii \bk \vdot \br}\ee^{-\ii \bk' \vdot \br'}f(\bk,\bk')=\frac{1}{\mathcal{V}}\sum_{\bk}\widetilde{f}(\bk)\,\ee^{\ii \bk \vdot (\br-\br')}\,,
+    f(\br,\br')=\frac{1}{\vol^{2}}\sum_{\bk,\bk'}\ee^{\ii \bk \vdot \br}\ee^{-\ii \bk' \vdot \br'}f(\bk,\bk')=\frac{1}{\vol}\sum_{\bk}\widetilde{f}(\bk)\,\ee^{\ii \bk \vdot (\br-\br')}\,,
 \end{equation}
 
-\noindent where the second equality is for systems with translation invariance, and identifying $f(\bk,\bk')=\mathcal{V}\delta_{\bk,\bk'}\widetilde{f}(\bk)$.
+\noindent where the second equality is for systems with translation invariance, and identifying $f(\bk,\bk')=\vol\delta_{\bk,\bk'}\widetilde{f}(\bk)$.
 
 We give a typical, and very important example; the Fourier transform of the Coulomb potential.
 The derivations are skipped, and only the final results will be stated.
@@ -147,9 +147,9 @@ Besides that, using the fact that any momentum $\bq$ in the reciprocal lattice c
 
 \begin{equation}
 \begin{aligned}
-    f(\br,\br') &= \frac{1}{\mathcal{V}^2}\sum_{\bk,\bk' \in \BZ} \sum_{\bG,\bG'} f(\bk+\bG,\bk'+\bG')\ee^{\ii \bk \vdot (\br-\br')}\ee^{\ii \bG \vdot \br} \ee^{-\ii \bG' \vdot \br'} = \\
-                &= \frac{1}{\mathcal{V}}\sum_{\bk \in \BZ}\sum_{\bG,\bG'}f(\bk+\bG,\bk+\bG')\ee^{\ii \bk \vdot (\br-\br')}\ee^{\ii \bG \vdot \br} \ee^{-\ii \bG' \vdot \br'},
+    f(\br,\br') &= \frac{1}{\vol^2}\sum_{\bk,\bk' \in \BZ} \sum_{\bG,\bG'} f(\bk+\bG,\bk'+\bG')\ee^{\ii \bk \vdot (\br-\br')}\ee^{\ii \bG \vdot \br} \ee^{-\ii \bG' \vdot \br'} = \\
+                &= \frac{1}{\vol}\sum_{\bk \in \BZ}\sum_{\bG,\bG'}f(\bk+\bG,\bk+\bG')\ee^{\ii \bk \vdot (\br-\br')}\ee^{\ii \bG \vdot \br} \ee^{-\ii \bG' \vdot \br'},
 \end{aligned}
 \end{equation}
 
-\noindent if we indentify $f(\bk+\bG,\bk'+\bG')=\mathcal{V}\delta_{\bk,\bk'}f(\bk+\bG,\bk+\bG')$.
+\noindent if we indentify $f(\bk+\bG,\bk'+\bG')=\vol\delta_{\bk,\bk'}f(\bk+\bG,\bk+\bG')$.
