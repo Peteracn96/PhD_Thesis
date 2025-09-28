@@ -2,7 +2,7 @@
   <configuration default="false" name="bibliography" type="BIBTEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
     <texify-bibtex>
       <compiler>BIBER</compiler>
-      <compiler-path>/usr/local/texlive/2024/bin/x86_64-linux/biber</compiler-path>
+      <compiler-path>$TeXLive$/biber</compiler-path>
       <compiler-arguments />
       <envs />
       <main-file>$PROJECT_DIR$/template.tex</main-file>

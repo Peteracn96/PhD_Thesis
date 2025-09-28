@@ -2,6 +2,7 @@
   <configuration default="false" name="glossary" type="MAKEINDEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
     <texify-makeindex>
       <program>MAKEGLOSSARIES</program>
+      <compiler-path>/usr/local/texlive/2025/bin/x86_64-linux/makeglossaries</compiler-path>
       <main-file>$PROJECT_DIR$/template.tex</main-file>
       <command-line-args />
       <work-dir>$PROJECT_DIR$/out</work-dir>
