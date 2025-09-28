@@ -21,15 +21,15 @@ Talk about band structure and a bit of the \abinit~methods used (CRYSTAL and Wan
 
 %Here we recall the expression of the microscopic dielectric function in 2D, and take it for insulators and semiconductors and the static limit.
 
-The dielectric function in real-space and time domain, within \rpa~, that we discussed in section~\ref{sec:dielectric_function_quantum} is worth recalling, and it writes
+The dielectric function in real-space and time domain, within \rpa, that we discussed in section~\ref{sec:dielectric_function_quantum} writes
 
 \begin{equation}
 \label{eq:dielectric_function_real_time_recalled}
     \varepsilon (\br,\br';t,t') = \delta(\br - \br') \delta(t-t') - \int  \int v_c(\br - \br'') \chi^0 (\br'',\br';t-t') \dr'' \dt' \,,
 \end{equation}
 
-\noindent where $v_c$ denotes the bare (without screening) Coulomb potential and $\chi_0 (\br',\br'';t-t')$ is the \rpa~irreducible polarizability, for which we have assumed time translation invariance.
-when Fourier transformed from time domain to frequency domain, and from real space to reciprocal space, it has the following aspect:
+\noindent where $v_c$ denotes the bare (without screening) Coulomb potential and $\chi^0 (\br',\br'';t-t')$ is the \rpa~irreducible polarizability, for which we have assumed time translation invariance.
+When Fourier transformed from the time domain to the frequency domain, and from real space to reciprocal space, it has the following form:
 
 \begin{equation}
     \label{eq:dielectric_function_momentum_frequency_repeated}
@@ -37,48 +37,48 @@ when Fourier transformed from time domain to frequency domain, and from real spa
 \end{equation}
 
 \noindent where $\bG$ and $\bG'$ are reciprocal lattice vectors, $\bq$ is a vector in the first \bz, and $\omega$ is the frequency.
-The quantity $\chi^0_{\bG \bG'} (\bq,\omega)$ is the non-interacting irreducible polarizability, that as per~\eqref{eq:polarizability_momentum_frequency} writes
+The quantity $\chi^0_{\bG \bG'} (\bq,\omega)$ is the noninteracting irreducible polarizability, that as per~\eqref{eq:polarizability_momentum_frequency} reads
 
 \begin{equation}
 \label{eq:polarizability_momentum_frequency_repeated}
-    \chi^0_{\bG \bG'} (\bq,\omega) = \frac{1}{\Omega} \sum_{n,n'} \sum_{\bk,\sigma} (f_{n,\bk} - f_{n',\bk + \bq}) \frac{\mel{n,\bk}{\ee^{-\ii(\bq + \bG) \vdot \br}}{n',\bk + \bq} \mel{n',\bk + \bq}{\ee^{\ii(\bq + \bG') \vdot \br}}{n,\bk}}{\epsilon_{n,\bk} - \epsilon_{n',\bk + \bq} + \hw + \ii \hbar \alpha}\,.
+    \chi^0_{\bG \bG'} (\bq,\omega) = \frac{1}{\vol} \sum_{n,n'} \sum_{\bk,\sigma} (f_{n,\bk} - f_{n',\bk + \bq}) \frac{\mel{n,\bk}{\ee^{-\ii(\bq + \bG) \vdot \br}}{n',\bk + \bq} \mel{n',\bk + \bq}{\ee^{\ii(\bq + \bG') \vdot \br}}{n,\bk}}{\epsilon_{n,\bk} - \epsilon_{n',\bk + \bq} + \hw + \ii \hbar \alpha}\,.
 \end{equation}
 
-\subsection{Non-interacting polarizability}
+\subsection{Noninteracting polarizability}
 \label{subsec:non_interacting_polarizability}
 
-Since we are interested in electrostatic screening and zero temperature for \bd~insulators and semiconductors (from now on, let us just simply say insulators and account for all \bd~gaped materials).
-Then, we replace the volume $\Omega$ with the area $A$, and we can simplify the polarizability to
+Since we are interested in electrostatic screening for \bd~insulators and semiconductors (from now on, let us just say insulators and account for all \bd~gapped materials), we replace the volume $\vol$ with the area $A$.
+We consider as well zero temperature, so that we can simplify the polarizability to
 
 \begin{equation}
     \label{eq:static_polarizability_repeated}
     \begin{aligned}
-        \chi^0_{\bG\bG'}(\bq,\omega = 0) = &\sum_{v c,\bk \sigma} \Bigg[\frac{\langle c,\bk|e^{-\ii(\bq+\bG)\cdot\br}|v,\bk+\bq\rangle\langle v,\bk+\bq|e^{i(\bq+\bG')\cdot\br}|c,\bk\rangle}{\epsilon_{v,\bk+\bq}-\epsilon_{c,\bk}} \Bigg] + \\
-        & \sum_{v c,\bk \sigma} \Bigg[\frac{\langle v,\bk|e^{-\ii(\bq+\bG)\cdot\br}|c,\bk+\bq\rangle\langle c,\bk+\bq|e^{i(\bq+\bG')\cdot\br}|v,\bk\rangle}{\epsilon_{v,\bk} - \epsilon_{c,\bk+\bq}}\Bigg] \,.
+        \chi^0_{\bG\bG'}(\bq,\omega = 0) = & \frac{1}{A} \sum_{v c,\bk \sigma} \Bigg[\frac{\langle c,\bk| \ee^{-\ii(\bq+\bG)\cdot\br}|v,\bk+\bq\rangle\langle v,\bk+\bq| \ee^{i(\bq+\bG')\cdot\br}|c,\bk\rangle}{\epsilon_{v,\bk+\bq}-\epsilon_{c,\bk}} \Bigg] + \\
+        & \frac{1}{A} \sum_{v c,\bk \sigma} \Bigg[\frac{\langle v,\bk| \ee^{-\ii(\bq+\bG)\cdot\br}|c,\bk+\bq\rangle\langle c,\bk+\bq| \ee^{i(\bq+\bG')\cdot\br}|v,\bk\rangle}{\epsilon_{v,\bk} - \epsilon_{c,\bk+\bq}}\Bigg] \,.
     \end{aligned}
 \end{equation}
 
-\noindent In the previous expression, if the system enjoys \gls{trs}, then the two terms in the \gls{rhs} add up, so that we can write at the end
+\noindent In the previous expression, if the system enjoys \gls{trs}, then the two terms in the \gls{rhs} add up so that we can write
 
 \begin{equation}
     \label{eq:static_polarizability_TRS}
-    \chi^0_{\bG \bG'} (\bq) = \frac{2}{A} \sum_{v c}  \sum_{\bk,\sigma} \frac{I^{\bG}_{c \bk, v \bk + \bq}  \qty(I^{\bG'}_{c \bk, v \bk + \bq})^*}{\epsilon_{v,\bk + \bq} - \epsilon_{c,\bk} } \,,
+    \chi^0_{\bG \bG'} (\bq) = \frac{2}{A} \sum_{v c}  \sum_{\bk,\sigma} \frac{I^{\bG}_{c \bk, v \bk + \bq}  \qty(I^{\bG'}_{c \bk, v \bk + \bq})^*}{\epsilon_{v,\bk + \bq} - \epsilon_{c,\bk} } ,
 \end{equation}
 
 \noindent where the sums over $v$ and $c$ run over full and empty bands, respectively, and the matrix elements in the numerator of the sum write
 
 \begin{equation}
 \label{eq:plane_wave_matrix_element_definition_chapter_6}
-    I^{\bG}_{n \bk, n' \bk'} = \mel{n,\bk}{\ee^{-\ii(\bk' - \bk + \bG) \vdot \br}}{n',\bk'} = \int \dr \psi^*_{n,\bk} (\br) \ee^{- \ii(\bk' - \bk + \bG) \vdot \br} \psi_{n' \bk'} (\br)\,,
+    I^{\bG}_{n \bk, n' \bk'} = \mel{n,\bk}{\ee^{-\ii(\bk' - \bk + \bG) \vdot \br}}{n',\bk'} = \int \dr \psi^*_{n,\bk} (\br)\, \ee^{- \ii(\bk' - \bk + \bG) \vdot \br} \psi_{n' \bk'} (\br)\,,
 \end{equation}
 
 \noindent that we recall from section~\ref{subsec:interaction_matrix_elements_and_screening}.
-We would like to take this opportuniy to make a brief remark.
+We would like to take this opportunity to make a brief remark.
 We have confirmed analytically that expression~\eqref{eq:static_polarizability_repeated} derives from its more general version in~\eqref{eq:polarizability_momentum_frequency_repeated}, which is an expression commonly found in textbooks~\cite{Cohen_Louie_2016}.
-However, the expression in~\eqref{eq:static_polarizability_TRS} is not commonly found in textbooks, but it has made its appearance in the literature~\cite{BerkeleyGW,Yambo_2009}, sometimes with typos.
-We stress that the prefactor of $2$ and the sum over spins $\sigma$ are key to get the screening properties right.
+However, the expression in~\eqref{eq:static_polarizability_TRS} is not commonly found in textbooks, but it has made its appearance in the literature~\cite{BerkeleyGW,Yambo_2009}.
+We stress that the prefactor of $2$ and the sum over spins $\sigma$ are key to correctly obtain the screening properties.
 We prove in appendix~\ref{app:polarizability_TRS_proof} that expression~\eqref{eq:static_polarizability_repeated} reduces to~\eqref{eq:static_polarizability_TRS} when \gls{trs} is present.
-All of our systems enjoy \gls{trs}, which can be broken, for instance, when a static magnetic field is applied.
+All systems considered in this thesis enjoy \gls{trs}, which can be broken, for instance, when a static magnetic field is applied.
 We have stated before in section~\ref{subsec:maxwell_equations} that we do not study magnetized media.
 
 We have gathered all the necessary knowledge to compute these matrix elements, and thus the matrix elements of the noninteracting polarizability $\chi^0_{\bG \bG'}(\bq)$.
@@ -99,12 +99,12 @@ This means that:
     \psi_{n \bk} (\br) = \frac{1}{\sqrt{N}} \sum_{\bR} \ei{\bk \vdot \bR} \sum_{i \alpha} C_{i \alpha}^{n \bk} \phi_{\alpha} (\br - \bR - \bt_i)\,,
 \end{equation}
 
-\noindent The matrix elements of interest whence write
+\noindent The matrix elements of interest therefore write
 
 \begin{equation}
     \label{eq:lane_wave_matrix_element}
     \begin{split}
-        I^{\bG}_{n \bk, n' \bk'} &= \int \dr\, \psi^*_{n,\bk} (\br) \ee^{-\ii(\bk' - \bk + \bG) \vdot \br} \psi_{n' \bk'} (\br) = \\
+        I^{\bG}_{n \bk, n' \bk'} &= \int \dr\, \psi^*_{n,\bk} (\br)\, \ee^{-\ii(\bk' - \bk + \bG) \vdot \br} \psi_{n' \bk'} (\br) = \\
         &= \frac{1}{N} \int \dr \left( \sum_{\bR} \ee^{- \ii \bk  \vdot \bR} \sum_{i \alpha} (C_{i \alpha}^{n \bk})^* \phi^*_{\alpha} (\br - \bR - \bt_i) \right) \ee^{-\ii(\bk' - \bk + \bG) \vdot \br} \times \\
         & \left( \sum_{\bR'} \ei{\bk' \vdot \bR'} \sum_{j \beta} C_{j \beta}^{n' \bk'} \phi_{\beta} (\br - \bR' - \bt_j) \right) = \\
         &= \frac{1}{N} \int \dr \sum_{\bR \bR'} \ee^{- \ii \bk \vdot \bR} \ei{\bk' \vdot \bR'} \sum_{i \alpha j \beta} (C_{i \alpha}^{n \bk})^* C_{j \beta}^{n' \bk'} \underbrace{\phi^*_{\alpha} (\br - \bR - \bt_i) \phi_{\beta} (\br - \bR' - \bt_j)}_{\approx \delta_{ij} \delta_{\alpha \beta} \delta_{\bR \bR'} \delta(\br - \bR - \bt_i)} \ee^{-\ii(\bk' - \bk + \bG) \vdot \br} = \\
@@ -116,14 +116,14 @@ This means that:
 \end{equation}
 
 \noindent where from the 4th line to the 5th line we did the approximation of point-like orbitals, and from the 7th line to the 8th line we used the fact that by definition $\ee^{-\ii \bG \vdot \bR} = 1$, and hence the sum over $\bR$ only contributes with a factor of $N$ that cancels at the end.
-Please note that the notation even though similar to that of Ref.~\cite{Xatu}, the definition for $I^{\bG}_{n \bk, n' \bk'}$ is not exactly the same.
+Note that even though the notation is similar to that of Ref.~\cite{Xatu}, the definition for $I^{\bG}_{n \bk, n' \bk'}$ is not exactly the same.
 
 To summarize, to compute a single polarizability matrix element $\chi^0_{\bG \bG'} (\bq)$ we need:
 
 \begin{itemize}
     \item The Bloch Hamiltonian $H(\bk)$ (regardless of the gauge) and to diagonalize it to obtain the band structure $\{\epsilon_{n \bk}\}$ in the set of points $\bk$ included in the sum and the eigenvectors $\{\bC^{n \bk}\}$ storing the tight-binding coefficients $C^{n \bk}_{i \alpha}$;
     \item The set of energies $\{\epsilon_{n \bk + \bq} \}$ and eigenvectors $\{\bC^{n \bk + \bq}\}$, where $\bq$ is the point in the \bz~we are computing the polarizability at;
-    \item The plane-wave matrix elements of the form $I^{\bG}_{c \bk, v \bk + \bq} = \sum_{i \alpha} (C_{i \alpha}^{c \bk})^* C_{i \alpha}^{v \bk + \bq}  \ee^{-\ii (\bq + \bG)  \vdot \bt_i}$, as we know the position of the atoms in the motif $\bt_i$ from the beginning;
+    \item The plane-wave matrix elements of the form $I^{\bG}_{c \bk, v \bk + \bq} = \sum_{i \alpha} (C_{i \alpha}^{c \bk})^* C_{i \alpha}^{v \bk + \bq}  \ee^{-\ii (\bq + \bG)  \vdot \bt_i}$, as we know the position of the atoms in the motif $\bt_i$ from the beginning.
 \end{itemize}
 
 Now we can compute the matrix elements of the dielectric matrix function, which we discuss in the next section.
@@ -146,15 +146,14 @@ A key aspect in our work, being a strictly \bd~implementation, is that the Fouri
     v_c(\bq) = \frac{e}{2 \epsz |\bq|}
 \end{empheq}
 
-\noindent As we will see later on, this poses a huge advantage when compared to \abinit~3D approaches, where the unscreened Coulomb potential is $v_c(\bq) = e/\epsz |\bq|^2$.
-In particular, when we have to compute the dielectric matrix at the origin.
+\noindent As we will see later on, this poses a huge advantage when compared to \abinit~3D approaches, where the unscreened Coulomb potential is $v_c(\bq) = e/\epsz |\bq|^2$, and in particular when we have to compute the dielectric matrix at the origin.
 As we will see, the polarizability matrix element $\chi^0_{\bzero \bzero} (\bq)$ approaches zero quadratically in $|\bq| = q$.
 This means that, when computing the matrix element $\varepsilon_{\bzero \bzero} (\bq)$ in the limit $\bq \to \bzero$, we face no numerical instabilities.
 The calculations are also much more efficient due to the reduced dimensionality of our approach.
 To compute the dielectric matrix and invert it, we have no off-plane contribution to the reciprocal lattice vectors, so the number of matrix elements to compute, at each point $\bq \in \BZ$, scales with $N^2$ instead of $N^3$.
 
 After having computed the dielectric matrix, we need to invert it.
-This poses a difficulty in the problem: there are infinite reciprocal lattice vectors, therefore we need to apply a cutoff $G_c$ for the vectors $\bG$ and truncate the dielectric matrix to invert it in practice.
+This poses a difficulty in the problem: there are infinite reciprocal lattice vectors, therefore, we need to apply a cutoff $G_c$ for the vectors $\bG$ and truncate the dielectric matrix to invert it in practice.
 Even if we have decided to follow the alternative approach for the \rpa~inverse dielectric function, given by~\cite{Dielectric_Genome}
 
 \begin{equation}
@@ -162,7 +161,7 @@ Even if we have decided to follow the alternative approach for the \rpa~inverse 
     \varepsilon^{-1}_{\bG \bG'} (\bq) = \delta_{\bG \bG'} + v_c(\bq + \bG) \chi^{\RPA}_{\bG \bG'} (\bq) \,,
 \end{equation}
 
-\noindent where $\chi^{\RPA}_{\bG \bG'} (\bq)$ is the interacting polarizability within \rpa, given by the Dyson equation~\cite{Bruus_Flensberg_2004}
+\noindent where $\chi^{\RPA}_{\bG \bG'} (\bq)$ is the interacting polarizability within \rpa, defined by the Dyson equation~\cite{Bruus_Flensberg_2004}
 
 \begin{equation}
     \label{eq:dyson_equation_repeated}
@@ -170,7 +169,7 @@ Even if we have decided to follow the alternative approach for the \rpa~inverse 
 \end{equation}
 
 \noindent when written in a compact form, where $V_c$ is the interaction kernel.
-Within \rpa, one ignores exchange and correlation, that is why the interaction kernel coincides with the bare Coulomb potential~\cite{Cohen_Louie_2016,Bruus_Flensberg_2004}, accounting only for the direct interaction.
+Within \rpa, one ignores exchange and correlation, which is why the interaction kernel coincides with the bare Coulomb potential~\cite{Cohen_Louie_2016,Bruus_Flensberg_2004}, accounting only for the direct interaction.
 In the previous equation, all quantities, when written in momentum space, are infinite matrices as well, so we would need to apply a cutoff for the vectors $\bG$ either way.
 This is in great contrast with the jellium model considered by H.~Bruus and K.~Flensberg in Ref~\cite{Bruus_Flensberg_2004}, where there is no underlying crystalline structure, and as a consequence, all quantities like the Coulomb potential, the polarizability and the dielectric function are simply scalars.
 For now, let us assume that we can in principle compute the dielectric matrix and invert it without any problems.
@@ -183,7 +182,7 @@ In that way, the screened Coulomb potential writes
 
 \noindent in the static approximation, which we have to justify.
 Looking at the dynamical expression of the polarizability, we can see that the frequency dependence comes from the denominator as $\hbar \omega - (\epsilon_{n',\bk+\bq} - \epsilon_{n,\bk})$.
-If the band gap that, estimated by $ \epsilon_{n',\bp} - \epsilon_{n,\bp}$ (assuming it is direct and located at the point $\bq$ in the \bz) is large enough when compared to the frequency, then we can approximate the screened Coulomb potential by its static limit, and in the interaction matrix elements discard an integration in frequency.
+If the band gap estimated by $ \epsilon_{n',\bp} - \epsilon_{n,\bp}$ (assuming it is direct and located at the point $\bp$ in the \bz) is large enough when compared to the frequency, then we can approximate the screened Coulomb potential by its static limit, and discard an integration in frequency in the interaction matrix elements.
 
 To finish the discussion, we revisit the interaction matrix elements in the \gls{bse} for the excitons with the numerical approach.
 Their expressions derived in section~\ref{subsec:interaction_matrix_elements_and_screening} remain the same.
@@ -214,7 +213,7 @@ We shall study that in our results in the next section.
 
 Here we analyze the numerical results obtained from the implementation of the theoretical concepts we have just described.
 We will follow the same order as in the previous section; we focus first on the polarizability, then on the dielectric matrix and its inverse, and finally the excitons.
-When discussing the dielectric function, we shall make the connection with the macroscopic dielectric function, and take the small $\bq$ limit.
+When discussing the dielectric function, we shall make the connection with the macroscopic dielectric function, and take the small-$\bq$ limit.
 In principle, we are able to recover the Rytova--Keldysh model and get an estimate for the screening parameter $r_0$.
 The material of choice is \gls{hbn} once more; but now, we work with a more realistic model as we shall describe.
 
@@ -244,7 +243,7 @@ That is the subject of the sections to come.
     \label{fig:hBN_DFT_bands}
 \end{figure}
 
-\subsection{Non-interacting polarizability}
+\subsection{Noninteracting polarizability}
 \label{subsec:non_interacting_polarizability_results}
 
 Before we proceed with the calculation of the dielectric matrix, we need to study the convergence of the matrix elements of the polarizability $\chi^0_{\bG \bG'} (\bq)$ given in Eq.~\eqref{eq:static_polarizability_TRS} with the number of included conduction bands, for different $(\bG,\bG')$ pairs, and for different values of momentum $\bq$.
@@ -256,7 +255,7 @@ In this example the band structure was obtained within \dft~with the HSE06 funct
 We see again that the polarizability converges with the number of empty bands included.
 In Fig.~\ref{fig:chi_g1_0_hbndft} we do a similar analysis to proof check that the polarizability converges as well when for different matrix elements other than the head.
 We picked an off-diagonal element to check for convergence of both real and imaginary parts.
-We can see that both real and imaginary parts converge of the chosen matrix element converge well with the number of conduction bands.
+We can see that both real and imaginary parts of the chosen matrix element converge well with the number of conduction bands.
 Something similar has been seen before in other works in the literature, such as Ref.~\cite{BerkeleyGW}, in figure 4 therein.
 
 \begin{figure}[H]
