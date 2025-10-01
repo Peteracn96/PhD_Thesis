@@ -136,7 +136,7 @@ We can start already by saying that we work under low enough temperatures and sm
 \label{subsec:born_oppenheimer_approximation}
 
 In this chapter, we are concerned with the eigenstate with the lowest energy possible, called the ground state (of the crystal).
-A possible way to find the ground state, $| \GS \rangle$, of any system, is by applying the variational principle---for a Hamiltonian acting on states on a given Hilbert space $\mathcal{H}$, then for every state $| \psi \rangle \in \mathcal{H}$ the ground state energy verifies $E_{\GS} \leq \langle \psi | \psi \rangle$~\cite{Griffiths_QM_2018}.
+A possible way to find the ground state, $| \GS \rangle$, of any system, is by applying the variational principle---for a Hamiltonian $\hat{H}$ acting on states on a given Hilbert space $\mathcal{H}$, then for every state $| \psi \rangle \in \mathcal{H}$ the ground state energy verifies $E_{\GS} \leq \langle \psi | \hat{H} | \psi \rangle$~\cite{Griffiths_QM_2018}.
 The variational method consists in admitting a trial state $\ket{\Psi}$ depending on a given set of system parameters.
 In a crystal, let us say that the parameters are the ion positions $\{\bR_I\}$.
 Then, we compute the expectation value of the Hamiltonian $\mel{\Psi}{H}{\Psi} \equiv E$, and minimize it with respect to the parameters by solving $\partial_{\bR_I} E = 0$ for all $\bR_I$.
@@ -167,7 +167,7 @@ Upon ignoring in the full many-body Hamiltonian~\eqref{eq:many_body_Hamiltonian}
 
 \noindent If we write the potential term in the previous expression as a sum over all electrons as $V_{e-\mathrm{ion}}(\br) = \sum_i v (\br_i)$ (with $v$ including a sum over all ions), then we have reduced the full many-body problem of Eq.~\eqref{eq:many_body_Hamiltonian} to a sum of single-particle Hamiltonians that are uncoupled, which is a noninteracting problem of identical particles.
 In that case, the problem encompassing all the electrons is separable.
-The \wf~including all $\mathcal{N}$ electrons, $\Psi(\br_1,\br_2,...,\br_N)$, can be written as a product of all the single-particle \wf s $\psi_i(\br_i)$ as $\Psi(\br_1,\br_2,...,\br_N)= \psi_1(\br_1) \psi_2(\br_2)...\psi_N(\br_N)$, with each single \wf~satisfying the \gls{tise}
+The \wf~including all $\mathcal{N}$ electrons, $\Psi(\br_1,\br_2,...,\br_{\mathcal{N}})$, can be written as a product of all the single-particle \wf s $\psi_i(\br_i)$ as $\Psi(\br_1,\br_2,...,\br_{\mathcal{N}})= \psi_1(\br_1) \psi_2(\br_2)...\psi_{\mathcal{N}}(\br_{\mathcal{N}})$, with each single \wf~satisfying the \gls{tise}
 
 
 \begin{equation}
@@ -179,8 +179,8 @@ The \wf~including all $\mathcal{N}$ electrons, $\Psi(\br_1,\br_2,...,\br_N)$, ca
 We also omit the quantum number for spin, since it is not relevant for the discussion.
 
 In fact, to account for the statistics of the electrons, which are fermions, the \wf~of all electrons must be antisymmetric upon permutation of any two electrons.
-Say we permute electron $i$ with electron $j$, then \wf~must obey $\Psi(\br_1,\br_2,...,\br_i,...,\br_j,...,\br_N) = -\Psi(\br_1,\br_2,...,\br_j,...,\br_i,...,\br_N)$.
-Therefore, the total \wf~is the Slater determinant of all single-particle \wf s~\cite{Griffiths_QM_2018}, which is the determinant of the matrix that has by entries $\psi_i(\br_j)$, with $i,j=1,...N$, along with a factor of $1/\sqrt{N\,!}$ for normalization\footnote{As an example, the determinantal wavefunction for a two-particle system is given by $\Psi(\br_1,\br_2) = \frac{1}{\sqrt{2!}}[\psi_1(\br_1) \psi_2(\br_2) - \psi_1(\br_2) \psi_2(\br_1)]$.}.
+Say we permute electron $i$ with electron $j$, then \wf~must obey $\Psi(\br_1,\br_2,...,\br_i,...,\br_j,...,\br_{\mathcal{N}}) = -\Psi(\br_1,\br_2,...,\br_j,...,\br_i,...,\br_{\mathcal{N}})$.
+Therefore, the total \wf~is the Slater determinant of all single-particle \wf s~\cite{Griffiths_QM_2018}, which is the determinant of the matrix that has by entries $\psi_i(\br_j)$, with $i,j=1,...,\mathcal{N}$, along with a factor of $1/\sqrt{\mathcal{N}\,!}$ for normalization\footnote{As an example, the determinantal wavefunction for a two-particle system is given by $\Psi(\br_1,\br_2) = \frac{1}{\sqrt{2!}}[\psi_1(\br_1) \psi_2(\br_2) - \psi_1(\br_2) \psi_2(\br_1)]$.}.
 The noninteracting \wf s can then serve as a basis for the interacting problem.
 With them, we can estimate the ground state energy of the interacting electron gas in a crystalline solid by using the Slater determinant as a variational \wf.
 For that, one computes the expectation value of the interacting Hamiltonian
@@ -235,14 +235,15 @@ Such a tile is called a primitive unit cell.
 If a unit cell has a larger area than the primitive one, it can be called a conventional unit cell, and is usually chosen to highlight the symmetries of the crystal.
 
 \begin{figure}[ht]
-    \begin{minipage}{0.5\textwidth}
+    \begin{minipage}[t]{0.5\textwidth}
         \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_3/triangular_lattice_new}
         \subcaption{Triangular lattice.}
         \label{subfig:triangular_lattice}
     \end{minipage}
-    \hspace{0.05\textwidth}%
-    \begin{minipage}{0.5\textwidth}
-        \includegraphics[scale=3.6]{Chapters/Figures/Chapter_3/copper_unit_cell}
+    \hspace{0.052\textwidth}%
+    \begin{minipage}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[scale=2.88]{Chapters/Figures/Chapter_3/copper_unit_cell}
         \subcaption{Conventional unit cell of copper.}
         \label{subfig:copper_unit_cell}
     \end{minipage}
@@ -251,7 +252,7 @@ If a unit cell has a larger area than the primitive one, it can be called a conv
 \end{figure}
 
 We have defined a lattice as a set of points that are all equivalent.
-An example that can be found in nature is copper, whose conventional unit cell is represented in Fig.~\ref{fig:triangular_lattice_and_copper_unit_cell}\pnl{(b)}.
+An example that can be found in nature is copper, the chemical element with symbol \ch{Cu}, which is a metal with lots of applications in industry, has the conventional unit cell represented in Fig.~\ref{fig:triangular_lattice_and_copper_unit_cell}\pnl{(b)}.
 Its crystalline structure is called the face-centered cubic lattice, one of the possible 14 Bravais lattices in \gls{3d}~\cite{Kittel_2004}.
 Nonetheless, we can find in nature many crystalline materials composed of more than one chemical element, therefore we cannot say that all points are equivalent in those materials.
 We can even have a crystal composed of a single chemical element, but cannot be classified as a lattice in the way we defined it.
@@ -658,16 +659,16 @@ The eigenvectors are
 Even though the tight-binding Hamiltonian for \gls{hbn} provides a simple, yet insightful theoretical tool, we still need somehow to use realistic values for the parameters $t$ and $E_g$.
 These can be obtained through fitting the tight-binding band structure to a more realistic one, typically obtained through the first-principle methods, that we describe in the next section.
 
-\subsubsection{\textit{Ab initio} methods}
+\subsubsection{\textit{Ab-initio} methods}
 \label{subsubsec:abinit_methods}
 
 If we wish to describe the electronic structure of a crystal, we are faced with the stationary many-body Schrödinger equation
 
 \begin{equation}
-    H \Psi(\br_1,\br_2,\dots,\br_N) = E \Psi(\br_1,\br_2,\dots,\br_N) \,,
+    H \Psi(\br_1,\br_2,\dots,\br_{\mathcal{N}}) = E \Psi(\br_1,\br_2,\dots,\br_{\mathcal{N}}) \,,
 \end{equation}
 
-\noindent where $H$ is the many-body Hamiltonian in Eq.~\eqref{eq:many_body_Hamiltonian}, and $\Psi(\br_1,\br_2,\dots,\br_N)$ is the many-body \wf.
+\noindent where $H$ is the many-body Hamiltonian in Eq.~\eqref{eq:many_body_Hamiltonian}, and $\Psi(\br_1,\br_2,\dots,\br_{\mathcal{N}})$ is the many-body \wf.
 As previously stated, there is no hope in solving the previous equation for the many-body \wf.
 That was a motivation for introducing the nearly-free electron model and the tight-binding model.
 But then, we are faced with the shortcomings of these models---they describe approximate opposing limits, and provide no way of determining the model parameters.
