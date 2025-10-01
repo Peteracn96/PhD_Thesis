@@ -17,15 +17,15 @@
 
 Optical spectroscopy is an important experimental tool for studying the band structure of crystals.
 Its utility stems from the possibility for a crystal to absorb a photon with energy $\hbar \omega$ by exciting an electron.
-If the crystal is an insulator, and the photon energy exceeds the \textit{electronic} band gap, then the electron can be promoted to the conduction band, leaving a hole in the valence band, experiencing a change in energy of $\hbar \omega = E_c(\bk) - E_v(\bk)$, where $E_v(\bk)$ was the energy the electron had while populating the valence band $v$, and $E_c(\bk)$ the energy the electron has after being excited to the empty conduction band $c$, just like depicted in Figure~\ref{fig:electron_hole_pair_formation}.
+If the crystal is an insulator, and the photon energy exceeds the \textit{electronic} bandgap, then the electron can be promoted to the conduction band, leaving a hole in the valence band, experiencing a change in energy of $\hbar \omega = E_c(\bk) - E_v(\bk)$, where $E_v(\bk)$ was the energy the electron had while populating the valence band $v$, and $E_c(\bk)$ the energy the electron has after being excited to the empty conduction band $c$, just like depicted in Figure~\ref{fig:electron_hole_pair_formation}.
 This direct interband transition may occur any point $\bk$ in the Brillouin zone for which energy is conserved.
 But it can also happen that the electron absorbs the photon energy if it is just below the gap energy.
-The minimum amount of energy required for that to happen is what defines the \textit{optical} band gap.
-This confers a structure to the absorption and reflection spectra for energies inside the band gap, 
+The minimum amount of energy required for that to happen is what defines the \textit{optical} bandgap.
+This confers a structure to the absorption and reflection spectra for energies inside the bandgap,
 which can only be explained at the interacting level beyond the single-particle picture, when we allow for the valence electrons experience Coulomb repulsion.
-As we will see in section ???, a repulsive interaction between the electrons can actually give rise to an attractive one, between the electron in the conduction band (red circle in Fig.~\ref{fig:electron_hole_pair_formation}) and the hole it left behind in the valence band (red circunference filled with white in Fig.~\ref{fig:electron_hole_pair_formation}).
+As we will see in section~\ref{sec:bethe_salpeter_equation_effective_models}, a repulsive interaction between the electrons can actually give rise to an attractive one, between the electron in the conduction band (red circle in Fig.~\ref{fig:electron_hole_pair_formation}) and the hole it left behind in the valence band (red circumference in Fig.~\ref{fig:electron_hole_pair_formation}).
 This attraction is in the origin of the formation of a bound electron--hole pair, the so-called exciton.
-The binding energy of a given exciton in a state $\nu$, $E_{b, \nu}$, is then difference between the energy of the electronic band gap, $\Delta$, and the optical one, $E_X$, which coincides with the energy of the excitonic ground state (measuring the energies setting the zero at the top of the valence band).
+The binding energy of a given exciton in a state $\nu$, $E_{b, \nu}$, is then difference between the energy of the electronic bandgap, $\Delta$, and the optical one, $E_X$, which coincides with the energy of the excitonic ground state (measuring the energies setting the zero at the top of the valence band).
 
 \begin{figure}[H]
     \centering
@@ -82,7 +82,7 @@ We can then predict that the exciton contribution to the optical spectrum is mor
 Furthermore, the Coulomb interaction in 2D materials is less screened than in 3D ones.
 In 2D materials excitons can form even at room temperatures~\cite{Morozov_Wolff_Mortensen_2021}.
 
-In a more accurate approach to the excitonic problem, the excitonic states and respective binding energies can be estimated by solving the Wannier equation~\cite{Wannier_1937} that writes
+In a more accurate approach to the excitonic problem, the excitonic states and respective binding energies can be estimated by solving the Wannier equation~\cite{Wannier_1937} that reads
 
 \begin{equation}
     E_{b, \nu} \psi_\nu (\br) =  \frac{p ^2}{2 \mu} \psi_\nu (\br) - V(\br) \psi_\nu (\br),
@@ -90,11 +90,11 @@ In a more accurate approach to the excitonic problem, the excitonic states and r
 \end{equation}
 
 \noindent where $\mu$ is the electron--hole reduced effective mass as before, and $V(\br)$ is the attractive potential that binds the electron and the hole together.
-It is just like the time-independent Schrödinger equation, but with an effective reduced mass.
+It is just like the time-independent Schr\"{o}dinger equation, but with an effective reduced mass.
 In 2D materials, the potential that describes accurately the screening effect has the form of the Rytova--Keldysh potential, that was already derived in section~\ref{subsubsec:dielectric_function_static_limit} when we were introducing classical effective models for the dielectric function. 
 
 The Wannier equation does not capture the full structure of the excitonic states (like nondegenerate $p$ states, or the symmetries of the crystal), hence we need to resort to more accurate descriptions of the excitonic problem.
-That is possible using a reciprocal space description of the excitonics, with oone can write the \gls{bse}---an integral equation where finer details of the band structure and the Coulomb interaction are included.
+That is possible using a reciprocal space description of the excitonics, with one can write the \gls{bse}---an integral equation where finer details of the band structure and the Coulomb interaction are included.
 In this work, we mention two versions of the \gls{bse}.
 One for effective low-energy models, and another one using exact diagonalization of the Bethe--Salpeter Hamiltonian.
 The \abinit~version of the \gls{bse} is not addressed here.
@@ -108,7 +108,7 @@ In the following section we derive the Bethe--Salpeter equation for effective mo
 \section{The Bethe--Salpeter Equation: application to effective models}
 \label{sec:bethe_salpeter_equation_effective_models}
 
-For a two band model, we define the exciton creation operator as
+For a two-bands model, we define the exciton creation operator as
 
 \begin{equation}
     b_\nu^{\dagger}=\frac{1}{\sqrt{A}} \sum_{\bk} \phi_{\nu}(\bk) c_{\bk, c}^{\dagger} c_{\bk, v}.
@@ -139,7 +139,7 @@ The Hamiltonian of the system
     \hat{H}_0 = \sum_{\bk, \lambda} E_{\bk, \lambda} c_{\bk, \lambda}^{\dagger} c_{\bk, \lambda},
 \end{equation}
 
-\noindent and the interacting one, in terms of the field operators, writes
+\noindent and the interacting one, in terms of the field operators, reads
 
 \begin{equation}
     \label{eq:interaction_hamiltonian_field_operators}
@@ -214,14 +214,14 @@ The average of the periodic part of the Bloch wavefunctions can be computed, als
     & =\frac{1}{A_{\mathrm{UC}}}\sum_{i\alpha}\left(C_{i\alpha}^{\bk_{1},\lambda_{1}}\right)^{*}C_{i\alpha}^{\bk_{4},\lambda_{4}}=\frac{1}{A_{\mathrm{UC}}}\left(\bC^{\bk_{1},\lambda_{1}}\right)^{\dagger}\bC^{\bk_{4},\lambda_{4}},\text{ since }\sum_{\bR}1=N.
 \end{align*}
 
-\noindent Finally, the plane-wave matrix element writes
+\noindent Finally, the plane-wave matrix element reads
 
 \begin{equation}
     \mel{\bk_1,\lambda_1}{\ei{\bq \vdot \br}}{\bk_4,\lambda_4} = \frac{1}{A_{\mathrm{UC}}}\left(\bC^{\bk_{1},\lambda_{1}}\right)^{*}\bC^{\bk_{4},\lambda_{4}}A\delta_{\bq,\bk_{1}-\bk_{4}}=N\left(\bC^{\bk_{1},\lambda_{1}}\right)^{\dagger}\bC^{\bk_{4},\lambda_{4}}\delta_{\bq,\bk_{1}-\bk_{4}},
 \end{equation}
 
 \noindent while for the other matrix element the same reasoning applies.
-In this way, the interaction term of the Hamiltonian, in momentum space, writes
+In this way, the interaction term of the Hamiltonian, in momentum space, reads
 
 
 \begin{align*}
@@ -306,8 +306,9 @@ Doing so, we arrive at the simplified form of the Bethe--Salpeter equation:
 
 \noindent An extension to multi-band systems is straightforward, but we refrain from doing so.
 The multi-band case is to be considered only in the next section.
+We just make the remark that the negative sign going with the term in the potential is correct and that the electron--hole interaction is for sure attractive, since we use the convention of a positive interaction potential for $V_{\bk}$.
 
-In this section we will derive the Wannier equation as in (\ref{eq:Wannier_equation}) from the BSE (we will focus only on the two bands case). For that we need to introduce two approximations. First we make the approximation of parabolic bands near zero momentum, that is,
+In this section we will derive the Wannier equation as in (\ref{eq:Wannier_equation}) from the BSE (we will focus only on the two-bands case). For that we need to introduce two approximations. First we make the approximation of parabolic bands near zero momentum, that is,
 
 \begin{equation}
     E_{\bk,\lambda} \simeq E_{\vectorbold{0},\lambda} + \frac{\hbar^2 k^2}{2 m_{\lambda}},
@@ -320,7 +321,7 @@ In this section we will derive the Wannier equation as in (\ref{eq:Wannier_equat
 \end{equation}
 
 \noindent where $E_g =  E_{\vectorbold{0},c}-E_{\vectorbold{0},v}$ is the energy difference between the top and bottom of the valence and conduction bands, respectively, and $\mu$ is the electron--hole effective reduced mass, as usual.
-in the right hand side of (\ref{eq:Bethe_Salpeter_equation}) to 1, which is valid for large band gaps. In this way equation (\ref{eq:Bethe_Salpeter_equation}) reads
+in the right hand side of (\ref{eq:Bethe_Salpeter_equation}) to 1, which is valid for large bandgaps. In this way equation (\ref{eq:Bethe_Salpeter_equation}) reads
 
 \begin{equation}
     E_{b,\nu} \phi_{\nu} (\bk) = \frac{\hbar^2 k^2}{2 \mu} \phi_{\nu} (\bk) - \frac{1}{A} \sum_{\bp} \phi_{\nu} (\bp) V_{\bk - \bp},
@@ -329,7 +330,7 @@ in the right hand side of (\ref{eq:Bethe_Salpeter_equation}) to 1, which is vali
 \noindent where $ E_{b,\nu} = E_{\nu} - E_g$ is the binding energy of the excitonic state $\nu$.
 Now we apply a Fourier transform to the previous equation.
 The term on the \gls{lhs} is direct, it becomes $ E_{b,\nu} \phi_{\nu} (\br)$.
-The numerator in the first term on the \gls{rhs} in real space representation writes simply $p^2$ acting on the wavefunction $\phi_{\nu} (\br)$.
+The numerator in the first term on the \gls{rhs} in real space representation reads simply $p^2$ acting on the wavefunction $\phi_{\nu} (\br)$.
 The second term on the \gls{rhs} is a convolution in momentum space, so it becomes a product in real space.
 To see that, let us perform the inverse Fourier transform of just that term, and write
 
@@ -419,7 +420,7 @@ Exciting an electron from the valence band $v$ with momentum $\bk$ to the conduc
 \noindent As a passing note, there is no need in our description for adopting a quasiparticle hole description for the holes.
 We see it simply as the absence of a negative elementary charge in the Fermi sea.
 
-If the exciton has center of mass momentum $\bQ$,and assuming that a basis of electron--hole pairs is appropriate for the excitonic states, then we write for excitonic state $\ket{X_{\bQ}}$
+If the exciton has center of mass momentum $\bQ$, and assuming that a basis of electron--hole pairs is appropriate for the excitonic states, then we write for excitonic state $\ket{X_{\bQ}}$
 
 \begin{equation}
     \ket{X_{\bQ}} = \sum_{v,c,\bk} A^{\bQ}_{vc}(\bk) \ket{v,c,\bk,\bQ} = \sum_{v,c,\bk} A^{\bQ}_{vc}(\bk) \cdagger_{c, \bk+\bQ} c_{v, \bk} \ket{\GS} \,.
@@ -434,7 +435,7 @@ The expansion coefficients $A^{\bQ}_{vc}(\bk)$ are determined by minimization of
     \fdv{E[X]}{X} = \fdv{X}  \left[\frac{\mel{X}{\Ha}{X}}{\braket{X}{X}}\right] = \fdv{\mel{X}{\Ha}{X}}{X} \braket{X}{X} - \underbrace{ \frac{\mel{X}{\Ha}{X}}{\braket{X}{X}}}_{E_X}  \fdv{\braket{X}{X}}{X} = 0 \,.
 \end{equation}
 
-\noindent Upon performing the variational derivatives and defining the following symbol $H_{vc,v'c'}(\bk,\bk',\bQ) \equiv \mel{v,c,\bk,\bQ}{\Ha}{v',c',\bk',\bQ}$ for the matrix elements of the Hamiltonian between two electron--hole pair states, we arrive at the equation
+\noindent Upon performing the variational derivatives and defining $H_{vc,v'c'}(\bk,\bk',\bQ) \equiv \mel{v,c,\bk,\bQ}{\Ha}{v',c',\bk',\bQ}$ for the matrix elements of the Hamiltonian between two electron--hole pair states, we arrive at the equation
 
 \begin{equation}
    \sum_{v',c',\bk'} H_{vc,v'c'}(\bk,\bk',\bQ) A^{\bQ}_{v'c'}(\bk') = E_X A^{\bQ}_{vc}(\bk) \,,
@@ -527,7 +528,7 @@ As a sanity check, it is instructive to look closely at~\eqref{eq:BSE_Hamiltonia
 If we do so, we arrive at the conclusion that the Bethe--Salpeter Hamiltonian is not hermitian, with the self-energy terms being the culprits.
 We can avoid this problem, if we work at the mean-field level, using a single Slater determinant for the \gs~ of~\eqref{eq:Hamiltonian_start}, or equivalently, making a \hf~approximation.
 We can then see the self-energy corrections as incorporated in the \qp~energies $\epsilon_{n \bk}$, and without any worries assume that any quasiparticle energy corrections has already been performed \textit{a priori} through in the diagonalization of the single-particle Hamiltonian by \abinit~methods.
-In this way, the Bethe--Salpeter equation writes
+In this way, the Bethe--Salpeter equation reads
 
 
 \begin{empheq}[innerbox=\colorbox{lightgray}, right={\,,}]{equation}
@@ -647,7 +648,7 @@ If instead we use for the screened Coulomb potential the Rytova--Keldysh model, 
 \noindent where $V_{\text{RK}}(\bq) = \frac{e}{2\epsz q\left(1+r_0 q\right)}$ is the momentum resolved Rytova--Keldysh potential, encountered in this work for the first time in section~\ref{subsubsec:dielectric_function_static_limit} of the very first chapter of this thesis.
 A striking difference between the expressions~\eqref{eq:interaction_matrix_elements_reciprocal_RK} and~\eqref{eq:interaction_matrix_element_direct_reciprocal} and~\eqref{eq:interaction_matrix_element_exchange_reciprocal}, is that in the latter there is a double sum over reciprocal lattice vectors $\bG$ and $\bG'$, while in the former there is only a single sum over reciprocal lattice vectors.
 The double sum allows for including non-local field effects in the interaction matrix elements.
-In the single sum, the inclusion of the reciprocal lattice vectors has the purpose of preserving the symmetry in the interaction between electrons with momenta $\bk$ and $\bk'$~\cite{Ridolfi_2015}---the \bd~Fourier transform of the Rytova--Keldysh potential from recirprocal space to real space must involve a sum over all momenta in the reciprocal lattice to recover the correct $\br$ dependence, and sum over all momenta can be decomposed in a sum over momenta in the \bz~with a sum over all reciprocal lattice vectors, so that the entire reciprocal lattice is covered.
+In the single sum, the inclusion of the reciprocal lattice vectors has the purpose of preserving the symmetry in the interaction between electrons with momenta $\bk$ and $\bk'$~\cite{Ridolfi_2015}---the \bd~Fourier transform of the Rytova--Keldysh potential from the reciprocal space to the real space must involve a sum over all momenta in the reciprocal lattice to recover the correct $\br$ dependence, and sum over all momenta can be decomposed in a sum over momenta in the \bz~with a sum over all reciprocal lattice vectors, so that the entire reciprocal lattice is covered.
 \textcolor{red}{We will touch upon this detail again later in this work. This sentence in red is cause I'm not completely sure of the significance of this, have to discuss with Juanjo again}
 
 \section{Optical effects in 2D semiconductors}
@@ -665,7 +666,7 @@ We start from the dynamical longitudinal dielectric function as per~\eqref{eq:di
 \begin{equation}
     \begin{split}
         \varepsilon_{\bG\bG'}(\bq,\omega) &= \delta_{\bG\bG'}-v_{c}(\bq+\bG)\chi_{\bG\bG'}^{0}(\bq,\omega)=\\
-        &=\delta_{\bG\bG'}-\frac{e^{2}}{\varepsilon_{0}|\bq+\bG|^{2}V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk+\bq})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk+\bq}-\epsilon_{n,\bk})+\ii\hbar \alpha} \times \\
+        &=\delta_{\bG\bG'}-\frac{e^{2}}{\varepsilon_{0}|\bq+\bG|^{2}V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk+\bq})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk+\bq}-\epsilon_{n,\bk})+\ii \eta} \times \\
         &\times \langle n,\bk| \ei[-]{(\bq+\bG)\vdot\br} |n',\bk+\bq\rangle\langle n',\bk+\bq|\ei{(\bq+\bG')\vdot\br}|n,\bk\rangle
     \end{split}
 \end{equation}
@@ -676,20 +677,20 @@ Taking the local limit $\bq\to\bzero$ in the $\bG=\bG'=\bzero$ matrix element, w
 %\begin{equation}
 %    \begin{gathered}
 %        \varepsilon_{\bzero\bzero}(\bq\to\bzero,\omega)=1-\frac{e^{2}}{\varepsilon_{0}q^{2}V}
-%        \sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\langle n,\bk|-\ii\bq\vdot\br\,|n',\bk\rangle\langle n',\bk|\ii\bq\vdot\br\,|n,\bk\rangle=\\
+%        \sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii \eta}\langle n,\bk|-\ii\bq\vdot\br\,|n',\bk\rangle\langle n',\bk|\ii\bq\vdot\br\,|n,\bk\rangle=\\
 %        %=1-\frac{e^{2}}{\varepsilon_{0}q^{2}V}
-%        %q^{2}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\br\,|n',\bk\rangle\hat{\mathbf{e}}_{\bq}\vdot\langle n',\bk|\br\,|n,\bk\rangle=\\
+%        %q^{2}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii \eta}\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\br\,|n',\bk\rangle\hat{\mathbf{e}}_{\bq}\vdot\langle n',\bk|\br\,|n,\bk\rangle=\\
 %        %=1-\frac{e^{2}}{\varepsilon_{0}V}
-%        %\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\br\,|n',\bk\rangle\hat{\mathbf{e}}_{\bq}\vdot\langle n',\bk|\br\,|n,\bk\rangle=\\
-%        =1-\frac{e^{2}}{\varepsilon_{0} V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\left|\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\br\,|n',\bk\rangle\right|^2
+%        %\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii \eta}\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\br\,|n',\bk\rangle\hat{\mathbf{e}}_{\bq}\vdot\langle n',\bk|\br\,|n,\bk\rangle=\\
+%        =1-\frac{e^{2}}{\varepsilon_{0} V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii \eta}\left|\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\br\,|n',\bk\rangle\right|^2
 %    \end{gathered}
 %\end{equation}
 
 \begin{align}
     \varepsilon_{\bzero\bzero}(\bq\to\bzero,\omega) &= 1-\frac{e^{2}}{\varepsilon_{0}q^{2}V}
-    \sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\langle n,\bk|-\ii\bq\vdot\br\,|n',\bk\rangle\langle n',\bk|\ii\bq\vdot\br\,|n,\bk\rangle= \notag \\ % \notag suppresses the
+    \sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii \eta}\langle n,\bk|-\ii\bq\vdot\br\,|n',\bk\rangle\langle n',\bk|\ii\bq\vdot\br\,|n,\bk\rangle= \notag \\ % \notag suppresses the
     % equation number
-    &=1-\frac{e^{2}}{\varepsilon_{0} V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\left|\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\br\,|n',\bk\rangle\right|^2
+    &=1-\frac{e^{2}}{\varepsilon_{0} V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii \eta}\left|\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\br\,|n',\bk\rangle\right|^2
 \end{align}
 
 
@@ -700,10 +701,10 @@ Using relation $\varepsilon=1+\ii\frac{\sigma}{\omega\varepsilon_{0}}$, mentione
 \begin{equation}
     \begin{gathered}
         \sigma(\omega)=-\ii\omega\varepsilon_{0}(\varepsilon-1)=\\
-        =\ii\frac{\omega e^{2}}{V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\left|\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\br\,|n',\bk\rangle\right|^2=\\
-        =\ii\frac{\omega e^{2}}{V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\frac{\left|\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\left[H,\br\right]|n',\bk\rangle\right|{{}^2}}{\left(\epsilon_{n,\bk}-\epsilon_{n',\bk}\right)^{2}}=\\
-        =\frac{\ii e^{2}\hbar}{V}\sum_{nn',\bk}\hbar\omega\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\frac{\left|\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\bp/m|n',\bk\rangle\right|{{}^2}}{\left(\epsilon_{n,\bk}-\epsilon_{n',\bk}\right)^{2}}=\\
-        =\frac{\ii\hbar}{V}\sum_{nn',\bk}\hbar\omega\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\frac{\left|\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\mathbf{j}\,|n',\bk\rangle\right|{{}^2}}{\left(\epsilon_{n,\bk}-\epsilon_{n',\bk}\right)^{2}}
+        =\ii\frac{\omega e^{2}}{V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii \eta}\left|\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\br\,|n',\bk\rangle\right|^2=\\
+        =\ii\frac{\omega e^{2}}{V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii \eta}\frac{\left|\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\left[H,\br\right]|n',\bk\rangle\right|{{}^2}}{\left(\epsilon_{n,\bk}-\epsilon_{n',\bk}\right)^{2}}=\\
+        =\frac{\ii e^{2}\hbar}{V}\sum_{nn',\bk}\hbar\omega\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii \eta}\frac{\left|\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\bp/m|n',\bk\rangle\right|{{}^2}}{\left(\epsilon_{n,\bk}-\epsilon_{n',\bk}\right)^{2}}=\\
+        =\frac{\ii\hbar}{V}\sum_{nn',\bk}\hbar\omega\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii \eta}\frac{\left|\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\mathbf{j}\,|n',\bk\rangle\right|{{}^2}}{\left(\epsilon_{n,\bk}-\epsilon_{n',\bk}\right)^{2}}
     \end{gathered}
 \end{equation}
 
@@ -712,7 +713,7 @@ We also introduce the unit vector $\hat{\mathbf{e}}_{\bq}=\bq/q$ to denote the o
 We can define a tensor like conductivity $\sigma_{\alpha\beta}$ as
 
 \begin{equation}
-    \sigma_{\alpha\beta}(\omega)=\frac{\ii\hbar}{V}\sum_{nn',\bk}\hbar\omega\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii\hbar \alpha}\frac{\langle n,\bk|j_{\alpha}|n',\bk\rangle\langle n',\bk|j_{\beta}|n,\bk\rangle}{\left(\epsilon_{n,\bk}-\epsilon_{n',\bk}\right)^{2}}
+    \sigma_{\alpha\beta}(\omega)=\frac{\ii\hbar}{V}\sum_{nn',\bk}\hbar\omega\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii \eta}\frac{\langle n,\bk|j_{\alpha}|n',\bk\rangle\langle n',\bk|j_{\beta}|n,\bk\rangle}{\left(\epsilon_{n,\bk}-\epsilon_{n',\bk}\right)^{2}}
 \end{equation}
 
 \noindent Using the Sokhotski--Plemelj identity
@@ -722,22 +723,25 @@ We can define a tensor like conductivity $\sigma_{\alpha\beta}$ as
     \frac{1}{x\pm \ii \eta}=\mathrm{P.V.}\!\left(\frac{1}{x-a}\right) \mp \ii\pi\delta(x-a),\quad \eta=0^+,
 \end{equation}
 
-\noindent the real part of the conductivity, in terms of matrix elements of the velocity operator, writes
+\noindent we obtain the so-called Kubo--Greenwood formula for the real part of the conductivity, and reads
 
 \begin{equation}
     \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\epsilon_{n,\bk}-\epsilon_{n',\bk}}  v^{\alpha}_{n n'}(\bk)  v^{\beta}_{n' n}(\bk) \delta(\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk}))
 \end{equation}
 
-\noindent where we used the trick of replacing $\omega \to \epsilon_{n,\bk}-\epsilon_{n',\bk}$ to cancel the frequency in the numerator, which is allowed due to the presence of the Dirac delta function, and defined $v^{\alpha}_{n n'}(\bk) = \langle n,\bk|v_{\alpha}|n',\bk\rangle$.
+\noindent if written in terms of the velocity operator matrix elements, where we used the trick of replacing $\omega \to \epsilon_{n,\bk}-\epsilon_{n',\bk}$ to cancel the frequency in the numerator, which is allowed due to the presence of the Dirac delta function, and defined $v^{\alpha}_{n n'}(\bk) = \langle n,\bk|v_{\alpha}|n',\bk\rangle$.
+The Kubo--Greenwood formula for the conductivity is actually a particular case of the more general Kubo formula, which accounts for all possible state transitions among all many-body states of the system~\cite{Mahan}.
+Being in practice impossible to calculate at the full interacting level, normally some sort of approximation is needed.
+THe Kubo--Greenwood formula is the Kubo formula without interactions, accounting only for transitions between single-particle states---this is called the \gls{ipa}~\cite{Aversa_Sipe_1995}.
 Particularizing for a semiconductor at zero temperature and simplifying, we are allowed to write
 
 \begin{empheq}[innerbox=\colorbox{lightgray}, right={\,.}]{align}
     \label{eq:non_interacting_Re_optical_conductivity}
-    \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{V}\sum_{vc,\bk}\frac{1}{\epsilon_{c,\bk}-\epsilon_{v,\bk}}   v^{\alpha}_{c v}(\bk)  v^{\beta}_{v c}(\bk)\delta(\hbar \omega - (\epsilon_{c,\bk}-\epsilon_{v,\bk}))
+    \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{V}\sum_{vc,\bk} \frac{v^{\alpha}_{c v}(\bk)  v^{\beta}_{v c}(\bk)}{\epsilon_{c,\bk}-\epsilon_{v,\bk}}   \delta[\hbar \omega - (\epsilon_{c,\bk}-\epsilon_{v,\bk})]
 \end{empheq}
 
 \noindent At this point we will not explain how to compute the position or velocity matrix elements in practice.
-They will be addressed in two different ways in chapters~\ref{ch:Optical_hBN_superlattice} and~\ref{ch:Screening}, so we postpone the explanation to those two chapters.
+They will be addressed in two different ways in chapters~\ref{ch:Optical_hBN_superlattice} and~\ref{ch:screening}, so we postpone the explanation to those two chapters.
 
 
 \subsection{Excitonic optical conductivity}
