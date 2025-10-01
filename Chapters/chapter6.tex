@@ -228,7 +228,7 @@ In this chapter, we work out a numerical model for \gls{hbn}, but for that, we n
 After all, it is with \abinit~methods that we can obtain tight-binding parameters for different materials.
 
 Herein, the model Hamiltonian for \gls{hbn} was obtained through \dft~calculations using the commercial package CRYSTAL~\cite{CRYSTAL_23}, which uses a basis of Gaussian functions.
-The hybrid functional HSE06\todo{need a Ref maybe} was used with the Perdew--Burkr--Ernzerhof functional within the \gls{gga}, with a $48\times48\times1$ $k$-grid.
+The hybrid functional HSE06\todo{need a Ref maybe} was used with the Perdew--Burke--Ernzerhof functional~\cite{Perdew_1996} within the \gls{gga}, with a $48\times48\times1$ $k$-grid.
 The output file $\texttt{hBN\_base\_HSE06.outp}$ extension can be found in the official repository for the Xatu code~\cite{Xatu}; \url{https://github.com/alejandrojuria/xatu}.
 This file contains the Fock matrices of the form $H(\bR)$ in a basis of localized Gaussian functions, sufficient in number to build the Bloch Hamiltonian $H(\bk) = \sum_{\bR} \ee^{\ii \bk \cdot \bR} H(\bR)$.
 If the reader needs to be reminded of these concepts, we refer to section~\ref{subsubsec:tight_binding_method} of chapter~\ref{ch:quantum_mechanics_solids}.

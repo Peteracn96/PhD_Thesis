@@ -177,7 +177,7 @@ The \wf~including all $\mathcal{N}$ electrons, $\Psi(\br_1,\br_2,...,\br_N)$, ca
 
 \noindent where $\epsilon_i$ represents the energy of a single electron, and the total energy of the system is simply the sum of all energies $\epsilon_i$.
 We also omit the quantum number for spin, since it is not relevant for the discussion.
-%In other words, this discussion applies to the ferromagnetic electron gas, where all spins have the same orientation\footnote{This discussion is allusive, and does not contradict what we have stated in the first chapter; in this work we do not study the magnetic properties of materials nor materials with permanent magnetization.}.
+
 In fact, to account for the statistics of the electrons, which are fermions, the \wf~of all electrons must be antisymmetric upon permutation of any two electrons.
 Say we permute electron $i$ with electron $j$, then \wf~must obey $\Psi(\br_1,\br_2,...,\br_i,...,\br_j,...,\br_N) = -\Psi(\br_1,\br_2,...,\br_j,...,\br_i,...,\br_N)$.
 Therefore, the total \wf~is the Slater determinant of all single-particle \wf s~\cite{Griffiths_QM_2018}, which is the determinant of the matrix that has by entries $\psi_i(\br_j)$, with $i,j=1,...N$, along with a factor of $1/\sqrt{N\,!}$ for normalization\footnote{As an example, the determinantal wavefunction for a two-particle system is given by $\Psi(\br_1,\br_2) = \frac{1}{\sqrt{2!}}[\psi_1(\br_1) \psi_2(\br_2) - \psi_1(\br_2) \psi_2(\br_1)]$.}.
@@ -744,10 +744,6 @@ The Green function, or propagator as in particle physics, is a quantity that hel
 
 In the context of \gls{mbpt}, working with units such that $\hbar = 1$, it can be defined as
 
-% \begin{equation}
-%     \mathcal{G} (\nu t;\nu' t') = -\ii \theta(t-t') \langle [a_\nu(t), a_{\nu'}^\dagger(t')]_{\mp} \rangle,
-% \end{equation}
-
 \begin{equation}
     \left[\ii \partial_t - \hat{H}\right] \mathcal{G} (\br \sigma t;\br' \sigma' t') = \delta(t-t') \delta(\br - \br') \delta_{\sigma \sigma'} \,,
 \end{equation}
@@ -810,17 +806,6 @@ The relation reads
     \label{eq:self_energy_vertex}
     \Sigma(1,2) = \ii \int \dd{3} \dd{4}\, \mathcal{G}(1,3^{+}) W(1,4) \Lambda(3,2;4)  \,,
 \end{equation}
-
-%It is possible to derive a similar equation for the density-density response function $\chi$, and the irreducible polarizability $\chi^\irr$, the latter being the sum of all irreducible diagrams in the expansion for $\chi$.
-%The full interacting response function $\chi$  is not computable in practice, therefore an approximation is typically made, called the \rpa.
-%In the \rpa, one neglects exchange and correlation in $\chi^\irr$ and only the Hartree diagram, also called bubble diagram, is kept.
-%Mathematically, we write $\chi^\irr \approx \chi_{\RPA}^\irr \equiv \chi^0 = -\ii G_0(1,2) G_0(2,1)$\footnote{The \rpa~can also be obtained for the self-energy, by in its diagrammatic expansion retain only the most divergent diagrams~\cite{Bruus_Flensberg_2004}. Then all the contributions can be resummed, and through the geometric series a closed expression for  $\Sigma$ can be written.}.
-%In general, beyond \rpa, the polarizability reads\todo{Have to reread the textbook by Bruus again, hopefully before submission. Is this one below the irreducible or the full?}
-%
-%\begin{equation}
-%    \label{eq:polarizability_vertex}
-%    \chi(1,2) = -\ii \int \dd{3} \dd{4}\, \mathcal{G}(1,3) \Lambda(3,4;2) \mathcal{G}(4,1^+) \,,
-%\end{equation}
 
 \noindent where $3^{+}$ stands for the time instant $t_3$ plus an infinitely small imaginary shift $\tau$ as $t_{3^{+}} = t_3 + \ii \tau$ for the purpose of performing contour integrals in the complex plane~\cite{Bruus_Flensberg_2004,Mahan}, and $\Lambda$ is the vertex function given by
 
