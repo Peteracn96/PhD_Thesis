@@ -1,0 +1,132 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%Strings/dk.ldf
+%% NOVA thesis configuration file
+%%
+%% Customization for language depedent strings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\typeout{NT FILE Strings/dk.ldf}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Danish - strings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\AtEndPreamble{
+\StartBabelCommands*{danish}{date}
+  \SetStringLoop{month#1name}{%
+      January,February,March,April,May,June,%
+      July,August,September,October,November,%
+      December}
+\EndBabelCommands
+}
+
+\bkmstring(frontmatter,dk):={Front Matter}
+\bkmstring(backmatter,dk):={Back Matter}
+\bkmstring(cover,dk):={Cover}
+\bkmstring(frontpage,dk):={Front Page}
+\bkmstring(backcover,dk):={Back Cover}
+\bkmstring(spine,dk):={Spine}
+\bkmstring(copyright,dk):={Copyright}
+\bkmstring(dedicatory,dk):={Dedicatory}
+\bkmstring(statement,dk):={Statement}
+\bkmstring(acknowledgements,dk):={Acknowledgements}
+\bkmstring(quote,dk):={Quote}
+\bkmstring(abstract,dk):={Resumé}
+\keywordsstring(dk):={Keywords}
+\notdefined(dk):={UNDEFINED}
+\specializationstring(dk):={Specialization in}
+\departmentofstring(dk):={Department of}
+\andstring(dk):={ and }
+\degreenameprefix(bsc,dk):={Bachelor in}
+\degreenameprefix(msc,dk):={Master in}
+\degreenameprefix(phd,dk):={Doctorate in}
+
+\adviserstring(a,1,m,dk):={Adviser}
+\adviserstring(a,1,f,dk):={Adviser}
+\adviserstring(a,2,m,dk):={Advisers}
+\adviserstring(a,2,f,dk):={Advisers}
+\adviserstring(c,1,m,dk):={Co-adviser}
+\adviserstring(c,1,f,dk):={Co-adviser}
+\adviserstring(c,2,m,dk):={Co-advisers}
+\adviserstring(c,2,f,dk):={Co-advisers}
+\adviserstring(ca,1,m,dk):={Co-adviser}
+\adviserstring(ca,1,f,dk):={Co-adviser}
+\adviserstring(ca,2,m,dk):={Co-advisers}
+\adviserstring(ca,2,f,dk):={Co-advisers}
+\adviserstring(t,1,m,dk):={Tutor}
+\adviserstring(t,1,f,dk):={Tutor}
+\adviserstring(t,2,m,dk):={Tutors}
+\adviserstring(t,2,f,dk):={Tutors}
+
+\degreestring(bsc,m,dk):={Bachelor of Science}
+\degreestring(bsc,f,dk):={Bachelor of Science}
+\degreestring(msc,m,dk):={Master of Science}
+\degreestring(msc,f,dk):={Master of Science}
+\degreestring(mscplan,m,dk):={Master of Science}
+\degreestring(mscplan,f,dk):={Master of Science}
+\degreestring(phd,m,dk):={Doctor of Philosophy}
+\degreestring(phd,f,dk):={Doctor of Philosophy}
+\degreestring(phdplan,m,dk):={Doctor of Philosophy}
+\degreestring(phdplan,f,dk):={Doctor of Philosophy}
+\degreestring(phdprop,m,dk):={Doctor of Philosophy}
+\degreestring(phdprop,f,dk):={Doctor of Philosophy}
+
+\doctypestring(bsc,dk):={Bachelor Report}
+\doctypestring(msc,dk):={Master of Science Dissertation}
+\doctypestring(mscplan,dk):={Master of Science Qualification}
+\doctypestring(phdplan,dk):={Doctorate Qualification}
+\doctypestring(phdprop,dk):={Doctorate Proposal}
+\doctypestring(phd,dk):={Doctorate Dissertation}
+
+\committeetitlestring(dk):={Examination Committee}
+\committeestring(c,1,m,dk):={Chair}
+\committeestring(c,1,f,dk):={Chair}
+\committeestring(c,2,m,dk):={Chairs}
+\committeestring(c,2,f,dk):={Chairs}
+\committeestring(r,1,m,dk):={Rapporteur}
+\committeestring(r,1,f,dk):={Rapporteur}
+\committeestring(r,2,m,dk):={Rapporteurs}
+\committeestring(r,2,f,dk):={Rapporteurs}
+\committeestring(a,1,m,dk):={Adviser}
+\committeestring(a,1,f,dk):={Adviser}
+\committeestring(a,2,m,dk):={Advisers}
+\committeestring(a,2,f,dk):={Advisers}
+\committeestring(ca,1,m,dk):={Co-adviser}
+\committeestring(ca,1,f,dk):={Co-adviser}
+\committeestring(ca,2,m,dk):={Co-advisers}
+\committeestring(ca,2,f,dk):={Co-advisers}
+\committeestring(m,1,m,dk):={Member}
+\committeestring(m,1,f,dk):={Member}
+\committeestring(m,2,m,dk):={Members}
+\committeestring(m,2,f,dk):={Members}
+\committeestring(g,1,m,dk):={Guest}
+\committeestring(g,1,f,dk):={Guest}
+\committeestring(g,2,m,dk):={Guests}
+\committeestring(g,2,f,dk):={Guests}
+
+\dissertationstring(bsc,dk)={Report submitted in partial fulfillment
+of the requirements for the degree of\\[1.25ex]%
+  \thedegreestring(\option{/novathesis/doctype},\expanded{\thedocauthor(gender)},\@LANG@COVER)\ in \textbf{\themajorfield(\@LANG@COVER)}}
+
+\dissertationstring(mscplan,dk)={Dissertation plan submitted in partial fulfillment
+of the requirements for the degree of\\[1.25ex]%
+  \thedegreestring(\option{/novathesis/doctype},\expanded{\thedocauthor(gender)},\@LANG@COVER)\ in \textbf{\themajorfield(\@LANG@COVER)}}
+
+\dissertationstring(msc,dk)={Dissertation submitted in partial fulfillment
+of the requirements for the degree of\\[1.25ex]%
+  \thedegreestring(\option{/novathesis/doctype},\expanded{\thedocauthor(gender)},\@LANG@COVER)\ in \textbf{\themajorfield(\@LANG@COVER)}}
+
+\dissertationstring(phdplan,dk)={Thesis plan submitted in partial fulfillment
+of the requirements for the degree of\\[1.25ex]%
+  \thedegreestring(\option{/novathesis/doctype},\expanded{\thedocauthor(gender)},\@LANG@COVER)\ in \textbf{\themajorfield(\@LANG@COVER)}}
+
+\dissertationstring(phdprop,dk)={Thesis proposal submitted in partial fulfillment
+of the requirements for the degree of\\[1.25ex]%
+  \thedegreestring(\option{/novathesis/doctype},\expanded{\thedocauthor(gender)},\@LANG@COVER)\ in \textbf{\themajorfield(\@LANG@COVER)}}
+
+\dissertationstring(phd,dk)={Thesis submitted in partial fulfillment
+of the requirements for the degree of\\[1.25ex]%
+  \thedegreestring(\option{/novathesis/doctype},\expanded{\thedocauthor(gender)},\@LANG@COVER)\ in \textbf{\themajorfield(\@LANG@COVER)}}
+
+\copyrighttextstring(dk)={The \theschool(\@LANG@COPYRIGHT)\ and the \theuniversity(\@LANG@COPYRIGHT)\ have the right, perpetual and without geographical boundaries, to file and publish this dissertation through printed copies reproduced on paper or on digital form, or by any other means known or that may be invented, and to disseminate through scientific repositories and admit its copying and distribution for non-commercial, educational or research purposes, as long as credit is given to the author and editor.}
+\acknowledgmentsstring(dk)={This document was created with the (pdf/Xe/Lua)\LaTeX\ processor and the \href{https://github.com/joaomlourenco/novathesis}{NOVAthesis} template (v\novathesisversion)~\@ntcite{novathesis-manual}.}

@@ -234,9 +234,9 @@
                                    }},
   % LANGUAGES
   lang/extra/.new list           = {},
-  lang/main/.new choice         = {en, pt, fr, it, de, es, gr},
-  lang/cover/.new choice        = {en, pt, fr, it, de, es, gr},
-  lang/copyright/.new choice    = {en, pt, fr, it, de, es, gr},
+    lang/main/.new choice         = {en, pt, fr, it, de, es, gr, dk},
+    lang/cover/.new choice        = {en, pt, fr, it, de, es, gr, dk},
+    lang/copyright/.new choice    = {en, pt, fr, it, de, es, gr, dk},
   lang/.new cmd                 = {\optionsalso{/novathesis/lang/main=#1,
                                                 /novathesis/lang/cover=#1,
                                                 /novathesis/lang/copyright=#1}},
@@ -379,11 +379,11 @@
 
 
 \options{/@nt/.new family,
-  lang/short/.new list={en, pt, fr, it, de, es, gr},
-  % lang/current/.new choice={en, pt, fr, it, de, es, gr},
+  lang/short/.new list={en, pt, fr, it, de, es, gr, dk},
+  % lang/current/.new choice={en, pt, fr, it, de, es, gr, dk},
   lang/loaded/.new list={},
-  % lang/shorttolong/.new choice={en=english, pt=portuguese, fr=french, it=italian, de=german, es=spanish, gr=greek},
-  fontenc/.new choice={en=T1, pt=T1, fr=T1, it=T1, de=T1, es=T1, gr=LGR},
+  % lang/shorttolong/.new choice={en=english, pt=portuguese, fr=french, it=italian, de=german, es=spanish, gr=greek, dk=danish},
+  fontenc/.new choice={en=T1, pt=T1, fr=T1, it=T1, de=T1, es=T1, gr=LGR, dk=T1},
 }
 
 \newdata{langlong}
@@ -394,6 +394,7 @@
 \langlong(de):={german}
 \langlong(es):={spanish}
 \langlong(gr):={greek}
+\langlong(dk):={danish}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% MANAGE FOLDERS PER CLASS
