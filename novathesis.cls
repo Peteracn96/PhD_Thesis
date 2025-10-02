@@ -1082,7 +1082,10 @@
             \hypertarget{loftarget}{\listoffigures*}}}}%
     {listoftables*}{\options{/@nt/list/listof/.newpush={%
             \pdfbookmark{\listtablename}{lottarget}%
-            \hypertarget{lottarget}{\listoftables*}}}}%
+            \hypertarget{lottarget}{\listoftables*}}}}
+    {listofpublications*}{\options{/@nt/list/listof/.newpush={%
+            \pdfbookmark{List of Publications}{lotparget}%
+            \hypertarget{lotparget}{\listofpublications*}}}}%
     {listoflistings}{\options{/@nt/list/listof/.newpush={%
             \pdfbookmark{\listoflistingscaption}{loltarget}%
             \hypertarget{loltarget}{\listoflistings}}}}%
@@ -2558,6 +2561,12 @@
     \NTRunHook{listof/post}%
 }
 
+\newcommand{\listofpublications}{
+    \phantomsection
+    \addcontentsline{toc}{chapter}{List of Publications}
+    \chapter*{List of Publications}%
+    \input{Chapters/publications}
+}
 
 % \def\option@listmatch@getval#1=#2{#2}
 \newcommand*{\option@listmatch}[2]{
