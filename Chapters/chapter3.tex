@@ -151,7 +151,7 @@ We shall define more precisely what a lattice is in section~\ref{sec:single_part
 In this work, we will assume that the ionic degrees of freedom are frozen, where the ions are stationary, forming a background of positive charge.
 This is the adiabatic or Born--Oppenheimer approximation~\cite{Kittel_2004,Simon_Oxford_2013,Martin_2004}.
 Within this approximation, the electronic and ionic degrees of freedom decouple, and the problem of the electronic structure and excitations can be treated separately from finding the ground state of the lattice and its excitations, also called phonons.
-Interactions between electrons and phonons are thus disregarded in this work, as throughout this text electronic excitations occur at energy scales higher than those where lattice vibrations are relevant\footnote{An example where the electron--phonon interaction is important is in the \gls{bcs} theory of superconductivity; the microsopic theory that explains why some materials can conduct electricity without dissipation at very low temperatures (or very high pressures). For the curious reader, one can consult Refs~\cite{Bruus_Flensberg_2004} and~\cite{Mahan} for in-depth technical treatments, or~\cite{Cohen_Louie_2016} for a not as technical discussion.}.
+Interactions between electrons and phonons are thus disregarded in this work, as throughout this text electronic excitations occur at energy scales higher than those where lattice vibrations are relevant\footnote{An example where the electron--phonon interaction is important is in the \gls{bcs} theory of superconductivity; the microscopic theory that explains why some materials can conduct electricity without dissipation at very low temperatures (or very high pressures). For the curious reader, one can consult Refs~\cite{Bruus_Flensberg_2004} and~\cite{Mahan} for in-depth technical treatments, or~\cite{Cohen_Louie_2016} for a not as technical discussion.}.
 Therefore, the ions will remain static in their equilibrium positions at all times, and their role is just to act as a periodic potential on the valence electrons that form the electron gas.
 In the next subsection, we apply one more approximation---the independent electron approximation.
 
@@ -191,7 +191,7 @@ For that, one computes the expectation value of the interacting Hamiltonian
 \end{empheq}
 
 \noindent for the Slater determinant, and minimize it with respect to the single-particle \wf s $\psi_i(\br_j)$.
-This is called the \hf~method~\cite{Cohen_Louie_2016,Grosso_2014}, commonly introduced in introductory condensed matter physics courses as a first attempt in describing the ground state of the interacting electron gas\footnote{A very first attempt consists in assuming the unsymmetrized wavefunction, mentioned at the end of the paragraph right before Eq.~\eqref{eq:single_particle_Schrodinger_equation}. That is called the Hartree method, which is faulty, as it does not account for exchange nor correltaion effects.}.
+This is called the \hf~method~\cite{Cohen_Louie_2016,Grosso_2014}, commonly introduced in introductory condensed matter physics courses as a first attempt in describing the ground state of the interacting electron gas\footnote{A very first attempt consists in assuming the unsymmetrized wavefunction, mentioned at the end of the paragraph right before Eq.~\eqref{eq:single_particle_Schrodinger_equation}. That is called the Hartree method, which is faulty, as it does not account for exchange nor correlation effects.}.
 With the \hf~method, we transform the interacting problem into an effective single-particle problem described by a Schr\"{o}dinger equation of the type~\eqref{eq:single_particle_Schrodinger_equation}, where each electron feels an effective potential due to all the other electrons.
 There is a much more sophisticated way of doing so, within the framework of \gls{dft}, the foundation of \abinit~methods to calculate the electronic, mechanic, magnetic, thermal, etc., properties of extended or molecular systems.
 By electronic properties, or structure, in extended materials, we mean the electronic dispersion defining how the energy of electrons traveling in it depends on their momentum $\bk$.
@@ -380,7 +380,7 @@ We start by rewriting the Bloch state in Eq.~\eqref{eq:Bloch_state_LCAO}
 \end{equation}
 
 \noindent where we defined the new function $\Phi_{i \alpha} (\bk,\br) = \ei{\bk \vdot \bR} \phi_\alpha (\br - \bR - \bt_i)$.
-The Bloch state~\eqref{eq:Bloch_state_LCAO_auxiliar} is an eigenstate of the Hamiltonian with energy $\epsilon$ (omitting band and momentum indeces for now):
+The Bloch state~\eqref{eq:Bloch_state_LCAO_auxiliar} is an eigenstate of the Hamiltonian with energy $\epsilon$ (omitting band and momentum indices for now):
 
 \begin{equation}
     H \psi_{n \bk} (\br) = \epsilon\, \psi_{n \bk} (\br) \Leftrightarrow \sum_{i \alpha} C_{i \alpha}^{n \bk} H\Phi_{i \alpha} (\bk,\br) = \epsilon \sum_{i \alpha} C_{i \alpha}^{n \bk} \Phi_{i \alpha} (\bk,\br) \,.
@@ -749,7 +749,7 @@ In the context of \gls{mbpt}, working with units such that $\hbar = 1$, it can b
     \left[\ii \partial_t - \hat{H}\right] \mathcal{G} (\br \sigma t;\br' \sigma' t') = \delta(t-t') \delta(\br - \br') \delta_{\sigma \sigma'} \,,
 \end{equation}
 
-\noindent if we represent the second quantized Hamiltonian operator $\hat{H}$ in real space, and $\sigma$ representing the spin degree of freedom.
+\noindent if we represent the second-quantized Hamiltonian operator $\hat{H}$ in real space, and $\sigma$ representing the spin degree of freedom.
 We keep the hat for operators in the canonical quantization formalism, and their respective first-quantized version without the hat.
 The Hamiltonian is assumed to have two parts, a noninteracting part $\hat{H}_0$, and an interaction part $\hat{V}$.
 In the real space basis representation, the total Hamiltonian reads
@@ -816,7 +816,7 @@ The relation reads
 \end{equation}
 
 Equations~\eqref{eq:Dysons_eq_repeated},~\eqref{eq:self_energy_vertex} and~\eqref{eq:vertex_function} are not sufficient to describe the problem, as we have four unknowns; the interacting Green function $\mathcal{G}$, the self-energy $\Sigma$, the screened Coulomb interaction $W$ and the vertex function $\Lambda$.
-We need as well the Dyson equation for the full interacting screened Coulomb potential $W$ and the bare one $v_c$, which given by
+We need as well the Dyson equation for the full interacting screened Coulomb potential $W$ and the bare one $v_c$, which is given by
 
 \begin{empheq}[innerbox=\fbox, right={\,}]{align}
     \label{eq:Dysons_eq_Coulomb}
@@ -868,7 +868,7 @@ Let us then rewrite the Dyson equation for the Coulomb interaction~\eqref{eq:Dys
     \varepsilon^{-1} = 1 + \chi^{\irr} W\,.
 \end{equation}
 
-\noindent This definition is not useful, as it is still written in terms of the unknown $W$.
+\noindent This definition is not immediately useful, as it is still written in terms of the unknown $W$.
 Let us then manipulate the same Dyson equation once more, and cast the term in $W$ from the \gls{rhs} to the \gls{lhs}, and solve for $W$ to find
 
 \begin{equation}
@@ -938,9 +938,9 @@ Then, the inverse dielectric function within \rpa~can be obtained by replacing t
 
 \noindent From now on, we omit the label $\RPA$ in the dielectric function or its inverse, and it will always be implicit that the dielectric function is computed within the \rpa.
 
-For a thorough discussion of these topics, we refer to Richard Martin's book in Ref~\cite{Martin_Reining_Ceperley_2016} and to the books by H.~Bruus and K.~Flensberg~\cite{Bruus_Flensberg_2004}, and the one by Gerald D.~Mahan~\cite{Mahan}.
+For a thorough discussion of these topics, we refer to Richard Martin's book in Ref.~\cite{Martin_Reining_Ceperley_2016} and to the books by H.~Bruus and K.~Flensberg~\cite{Bruus_Flensberg_2004}, and the one by Gerald D.~Mahan~\cite{Mahan}.
 The first reference studies the many-electron interacting problem in depth, providing also computational schemes to solve it in practice.
-The latter references address the interacting problem, with Ref.~\cite{Bruus_Flensberg_2004} working essentially with the jellium model for the electron gas (which enjoys continuous translation symmetry) This allows for deep theoretical insights via analytical calculations.
+The latter references address the interacting problem, with Ref.~\cite{Bruus_Flensberg_2004} working essentially with the jellium model for the electron gas (which enjoys continuous translation symmetry). This allows for deep theoretical insights via analytical calculations.
 On the other hand, Ref.~\cite{Mahan} is more general, and discusses at times the inhomogeneous electron gas.
 
 
@@ -954,7 +954,7 @@ We recapitulate the \rpa~dielectric function in real-space and time domain, whic
     \varepsilon (\br,\br';t-t') = \delta(\br - \br') \delta(t-t') - \int  \int v_c(\br - \br'') \chi^0 (\br'',\br';t-t') \dr'' \dt' ,
 \end{equation}
 
-\noindent where $v_c$ denotes the bare (unscreened) Coulomb potential, and $\chi^0 (\br,\br';t-t')$ is the \rpa~irreducible polarizability, for which we have assumed time translation invariance\footnote{Even though we can perceive the dielectric function as a response to an external potential perturbation of the form $\phi_0 \exp{\ii(\bk \vdot \br - \omega t)}$, which is a time-periodic perturbation, we treat its response within the linear regime. This is valid as long as the amplitude $\phi_0$ is small enough. If it is too big, such that perturbative methods do not apply, then we have to account for the whole time dependence, as stated previously in footnote~\ref{fn:time_invariance_ch_2} of Chapter~\ref{ch:classical_electrodynamics}. If it still has periodicity, albeit discrete, we can work under the Floquet formalism of quantum mechanics, already metnioned too~\ref{fn:Floquet_formalism} in this chapter. If the perturbation is not periodic, then we need a full non-equilibrium framework. That can be done, for instance, using the non-equilibrium Green function formalism, also called the Keldysh formalism~\cite{Di_Ventra_2008}.}.
+\noindent where $v_c$ denotes the bare (unscreened) Coulomb potential, and $\chi^0 (\br,\br';t-t')$ is the \rpa~irreducible polarizability, for which we have assumed time translation invariance\footnote{Even though we can perceive the dielectric function as a response to an external potential perturbation of the form $\phi_0 \exp{\ii(\bk \vdot \br - \omega t)}$, which is a time-periodic perturbation, we treat its response within the linear regime. This is valid as long as the amplitude $\phi_0$ is small enough. If it is too big, such that perturbative methods do not apply, then we have to account for the whole time dependence, as stated previously in footnote~\ref{fn:time_invariance_ch_2} of Chapter~\ref{ch:classical_electrodynamics}. If it still has periodicity, albeit discrete, we can work under the Floquet formalism of quantum mechanics, already mentioned too~\ref{fn:Floquet_formalism} in this chapter. If the perturbation is not periodic, then we need a full non-equilibrium framework. That can be done, for instance, using the non-equilibrium Green function formalism, also called the Keldysh formalism~\cite{Di_Ventra_2008}.}.
 The \rpa~irreducible polarizability, in the frequency domain, within a self-consistent field approach is given by~\cite{Cohen_Louie_2016}
 
 \begin{equation}
@@ -964,7 +964,7 @@ The \rpa~irreducible polarizability, in the frequency domain, within a self-cons
 
 
 \noindent where $\eta$ is a small infinitesimal parameter, $f_i$ denotes the Fermi--Dirac distribution computed at the energy $\epsilon_i$, and $\phi_i(\br)$ is the $i$-th state, with eigenenergy $\epsilon_i$, that can be obtained within a mean-field approach, such as within \hf~theory or the Kohn--Sham framework of \dft.
-The many-body \wf~of the associated independent particle system is then constructed through the Slater determinant of the orbitals $\phi_i(\br)$, for which we do not specify the subjacent basis denoted by the indeces $i$ and $j$.
+The many-body \wf~of the associated independent particle system is then constructed through the Slater determinant of the orbitals $\phi_i(\br)$, for which we do not specify the subjacent basis denoted by the indices $i$ and $j$.
 
 We notice that the expression in Eq.~\eqref{eq:dielectric_function_real_time} is a two-time function with (continuous) time translation invariance.
 Whence, we may time-Fourier transform it to the frequency domain and write
@@ -1006,7 +1006,7 @@ The expression for the matrix elements $\chi^0_{\bG \bG'}(\bq)$ can be obtained 
     \chi^0_{\bG \bG'} (\bq,\omega) = \frac{1}{\vol} \sum_{n,n'} \sum_{\bk,\sigma} (f_{n,\bk} - f_{n',\bk + \bq}) \frac{\mel{n,\bk}{\ee^{-\ii(\bq + \bG) \vdot \br}}{n',\bk + \bq} \mel{n',\bk + \bq}{\ee^{\ii(\bq + \bG') \vdot \br}}{n,\bk}}{\epsilon_{n,\bk} - \epsilon_{n',\bk + \bq} + \hw + \ii \eta}\,,
 \end{equation}
 
-\noindent where $\vol$ is the volume of the crystal, $n$ and $n'$ are band indeces, $\bG$ and $\bG'$ are reciprocal lattice vectors, $\sigma$ represents spin and the sum over momentum $\bk$ is over the \bz.
+\noindent where $\vol$ is the volume of the crystal, $n$ and $n'$ are band indices, $\bG$ and $\bG'$ are reciprocal lattice vectors, $\sigma$ represents spin and the sum over momentum $\bk$ is over the \bz.
 
 Defining the polarizability in reciprocal space as a matrix allows doing the same for the dielectric function, that Fourier transformed to reciprocal space reads
 
