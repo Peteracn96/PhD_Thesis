@@ -15,6 +15,16 @@
 In the intro of the chapter I can introduce the materials studied, revisiting hBN, and introduce \textbf{MoS2}.
 Talk about band structure and a bit of the \abinit~methods used (CRYSTAL and Wannierization).
 
+\textcolor{blue}{The following paragraph is in blue, to highlight that it was taken from the notes ipsis verbis. I believe it can be adapted to be included in the intro of the chapter.}
+
+\textcolor{blue}{We have not hitherto specified the form of the Coulomb potential, even though screening was the main focus of the previous sections.
+But it is well-known in the literature, that when dealing with pair-wise particle interactions, screening has to be taken into account~\cite{Latini_2015,Cudazzo_Tokatly_Rubio_2011}. \textcolor{blue}{(Ignoring screening is actually one of the pit-falls of the \hf~ method.)}
+This is why we had to develop a framework to incorporate it.
+The first version of the code~\cite{Xatu} accounted for screening by using a linear model, the Rytova-Keldysh potential, that we have already introduced in the previous section.
+Even though it works for a certain class of 2D semiconductors and insulators, such as monolayer \hbn, a further look into its form reveals that taking the $q \to 0$ limit in the static dielectric function leads to unphysical behaviours.
+For instance, the Rytova-Keldysh dielectric function obtained taking into account the layer thickness of the active material and the dielectric environment, it might happen that the linearized model has a negative slope~\cite{Trolle_Pedersen_Veniard_2017}.
+Furthermore, if we take the limit $q \to \infty$, then the screened potential  scales as $\sim 1/q^2$, whose (2D) inverse Fourier transform does scale with $\sim 1/r$.
+Here we make the extension of the code to go beyond thew Rytova-Keldysh approximation to compute the interaction matrix elements to build the Bethe-Salpeter Hamiltonian and solve the Bethe-Salpeter equation.}
 
 \section{Dielectric Function Revisited: Theory}
 \label{sec:dielectric_function_revisited}
