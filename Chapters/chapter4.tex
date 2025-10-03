@@ -15,18 +15,46 @@
 \section{Introduction}
 \label{sec:introduction}
 
-In previous chapters, we have discussed how with a classical description of electromagnetic phenomena in matter, with the matter properties being quantified by response functions like the dielectric function or conductivity, that have in fact a quantum mechanical origin, we are able to describe.....\todo{look again at Alex's thesis}
-Optical spectroscopy is an important experimental tool for studying the band structure of crystals.
-Its utility stems from the possibility for a crystal to absorb a photon with energy $\hbar \omega$ by exciting an electron.
-If the crystal is an insulator, and the photon energy exceeds the \textit{electronic} bandgap, then the electron can be promoted to the conduction band, leaving a hole in the valence band, experiencing a change in energy of $\hbar \omega = E_c(\bk) - E_v(\bk)$, where $E_v(\bk)$ was the energy the electron had while populating the valence band $v$, and $E_c(\bk)$ the energy the electron has after being excited to the empty conduction band $c$, just like depicted in Figure~\ref{fig:electron_hole_pair_formation}.
-This direct interband transition may occur any point $\bk$ in the Brillouin zone for which energy is conserved.
-But it can also happen that the electron absorbs the photon energy if it is just below the gap energy.
-The minimum amount of energy required for that to happen is what defines the \textit{optical} bandgap.
-This confers a structure to the absorption and reflection spectra for energies inside the bandgap,
-which can only be explained at the interacting level beyond the single-particle picture, when we allow for the valence electrons experience Coulomb repulsion.
-As we will see in section~\ref{sec:bethe_salpeter_equation_effective_models}, a repulsive interaction between the electrons can actually give rise to an attractive one, between the electron in the conduction band (red circle in Fig.~\ref{fig:electron_hole_pair_formation}) and the hole it left behind in the valence band (red circumference in Fig.~\ref{fig:electron_hole_pair_formation}).
-This attraction is in the origin of the formation of a bound electron--hole pair, the so-called exciton.
-The binding energy of a given exciton in a state $\nu$, $E_{b, \nu}$, is then difference between the energy of the electronic bandgap, $\Delta$, and the optical one, $E_X$, which coincides with the energy of the excitonic ground state (measuring the energies setting the zero at the top of the valence band).
+In previous chapters, we have discussed how a classical description of electrodynamics in matter together with a quantum description of its properties, we can describe different kinds of phenomena in solids.
+The tools of quantum mechanics provide means of calculating the dielectric function, and as we will see, also the conductivity.
+Given their equivalence established in the first chapter, knowing the dielectric function is sufficient to describe electrodynamic effects, such as dispersion, bulk plasmons in Drude metals, Ohmic losses and material absorption, the last two more directly through the conductivity.
+The fact that the classical description of plasmons, absorption and reflection in metals via Maxwell's equations and empiric dielectric functions is so successful, although it might seem surprising, can now be understood.
+Per our quantum description of matter, we have seen that gapped materials can be identified with insulators and semiconductors, poor conducting materials.
+This is so because the valence bands in such materials are filled, requiring large amounts of energy to excite electrons to the conduction band such that there is a nonvanishing current.
+In contrast, metals are good conductors because the highest valence band is partially filled.
+This means that it requires small amounts of energy to excite the electrons so that they can more easily participate in the charge flow.
+In other words, in gapped undoped materials and at low temperatures, the system can only be excited from the ground state via energetically costing interband transitions, whereas metals can be excited via energetically efficient intraband transitions.
+However, if the energies involved are high enough, a metal can experience interband transitions, which bring a contribution to the optical response that the Drude approach cannot capture.
+Such an example is gold~\cite{Christy_1972}, which displays a Drude-like optical conductivity until a certain frequency threshold, above which the optical measurements evidence the shortcomings of the classical model.
+Ad hoc corrections to the Drude model can be made~\cite{Meyer_2006}, but a complete picture is still missing.
+One rapidly sees that classical models cannot explain all phenomena in solids, in particular phenomena observed in optical spectroscopy that induce quantum effects with no classical analogue.
+
+Within quantum mechanics, we can describe material responses that stem from interband transitions with no classical counterpart, which are naturally incorporated in the dielectric function through the expression for the polarizability as per~\eqref{eq:polarizability_momentum_frequency}, which in fact includes interband and intraband transitions.
+Only in this way can we expect to describe the dielectric properties of insulators and semiconductors.
+However, the expression for the dielectric function obtained in the previous chapter was written in terms of a noninteracting polarizability, $\chi^0$, that accounts solely for single-particle transitions.
+An optical experiment, for instance, a photoluminescence or optical absorption one, would measure an optical response for frequencies above the bandgap, where conduction states can be populated by electrons exited from the valence bands by photon absorption.
+The same experiment, when swiping the frequency of the incident light along the bandgap, would detect any response.
+However, that is not what happens.
+One photoluminescence experiment has observed an absorption resonance for monolayer \gls{hbn} at an energy lying inside the electronic bandgap~\cite{Cassabois_2019}.
+This observation can only be explained by taking into account the electron--electron interactions beyond the mean-field level, and going beyond the single-particle picture.
+The two-body interaction allows a quantum system state that we could not predict from the machinery introduced so far---a many-body state.
+
+Up until now, we have been stressing that the full interacting response of condensed matter systems cannot be computed in practice, which is true.
+Nonetheless, we do not need the full interacting picture to explain the experimental observations.
+We just need to account for the Coulomb interaction between the electron, that was excited to the conduction band, and the absence of the negative charge that it left behind in the valence band---the positively charged hole.
+This interaction between the electron and the hole, just like the atomic nucleus in the hydrogen atom attracts the orbiting electron, can be so strong that the electron--hole pair form a bound state---the exciton.
+The situation is depicted in Figure~\ref{fig:electron_hole_pair_formation}, where the electron, the red circle in the figure, is in the conduction band, and the hole, the red circumference, is in the valence band.
+As we have just explained, a photon with an energy lying inside the bandgap can excite the material from its ground state to an excitonic state, or one of several excitonic states.
+The minimum amount of energy required for that to happen is what defines the \textit{optical} bandgap, which coincides with the energy of the \textit{excitonic} ground state.
+We can define the binding energy $E_{b, \nu}$ of a given exciton in a state $\nu$, depicted in the schematic at the right in Fig~\ref{fig:electron_hole_pair_formation}, as the difference between the energy of the electronic bandgap $\Delta$ and the optical one $E_X$, the latter coinciding with the energy of the excitonic ground state.
+Just like the ionization energy in the hydrogen atom, it can be interpreted as the energy that we have to provide to separate the electron from the hole, resulting in their recombination.
+
+
+These realizations do not mean that all the techniques introduced until now in the last two chapters are not useful; actually the opposite.
+As we will see, getting the Coulomb attraction, which is essentially electrostatic, right in a solid is essential in order to compute the excitons correctly.
+We mean that we need to take screening into account, by using an appropriate dielectric function.
+As we shall explain in a moment, this is crucial in \bd~materials.
+But first, let us try top draw some conclusions and gain intuition on the problem, before we appropriately tackle it.
 
 \begin{figure}[H]
     \centering
@@ -35,7 +63,8 @@ The binding energy of a given exciton in a state $\nu$, $E_{b, \nu}$, is then di
     \label{fig:electron_hole_pair_formation}
 \end{figure}
 
-The excitonic problem, consisting in finding the excitonic eigenenergies and eigenstates or wavefunctions, coincides with the hydrogen atom problem if the energy surfaces for the electron and the hole are spherical and nondegenerate, as stated in the book by Kittel~\cite{Kittel_2004}.
+As we shall see in this chapter, the excitonic problem, consisting of finding the excitonic eigenenergies and eigenstates or wavefunctions, can be quite envolved.
+Within a very crude approximation, it coincides with the hydrogen atom problem if the energy surfaces for the electron and the hole are spherical and nondegenerate~\cite{Kittel_2004}.
 From a heuristic point of view, the energy levels are given by a modified Rydberg formula
 
 \begin{equation}
@@ -731,7 +760,7 @@ We can define a tensor like conductivity $\sigma_{\alpha\beta}$ as
 \end{equation}
 
 \noindent if written in terms of the velocity operator matrix elements, where we used the trick of replacing $\omega \to \epsilon_{n,\bk}-\epsilon_{n',\bk}$ to cancel the frequency in the numerator, which is allowed due to the presence of the Dirac delta function, and defined $v^{\alpha}_{n n'}(\bk) = \langle n,\bk|v_{\alpha}|n',\bk\rangle$.
-The Kubo--Greenwood formula for the conductivity is actually a particular case of the more general Kubo formula, which accounts for all possible state transitions among all many-body states of the system~\cite{Mahan}.
+The Kubo--Greenwood formula for the conductivity is actually a particular case of the more general Kubo formula, which accounts for all possible state transitions among all many-body states of the system~\cite{Mahan,Coleman_2015}.
 Being in practice impossible to calculate at the full interacting level, normally some sort of approximation is needed.
 THe Kubo--Greenwood formula is the Kubo formula without interactions, accounting only for transitions between single-particle states---this is called the \gls{ipa}~\cite{Aversa_Sipe_1995}.
 Particularizing for a semiconductor at zero temperature and simplifying, we are allowed to write
