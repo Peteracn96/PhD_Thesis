@@ -11,7 +11,18 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \typeout{NT FILE chapter3.tex}%
-
+\tikzset{
+    bigger/.style={decoration={amplitude=1.0cm}},
+    every node/.append style={font=\small},
+    every edge/.append style={thick},
+    arrow/.style={thick, shorten >=5pt,shorten <=5pt,->},
+    fullprop/.style={double,postaction={decorate},
+    decoration={markings,mark=at position .6 with {\arrow[]{latex}}}},
+    bareprop/.style={postaction={decorate},
+    decoration={markings,mark=at position .57 with {\arrow[]{latex}}}},
+    barepotential/.style={postaction={decorate},
+    decoration={snake,amplitude=1.0cm}}
+}
 \chapter{Quantum Mechanics of Electrons in Crystalline Solids}
 \label{ch:quantum_mechanics_solids}
 
@@ -663,7 +674,7 @@ These can be obtained through fitting the tight-binding band structure to a more
 \subsubsection{\textit{Ab-initio} methods}
 \label{subsubsec:abinit_methods}
 
-If we wish to describe the electronic structure of a crystal, we are faced with the stationary many-body Schrödinger equation
+If we wish to describe the electronic structure of a crystal, we are faced with the stationary many-body Schr\"{o}dinger equation
 
 \begin{equation}
     H \Psi(\br_1,\br_2,\dots,\br_{\mathcal{N}}) = E \Psi(\br_1,\br_2,\dots,\br_{\mathcal{N}}) \,,
@@ -774,21 +785,59 @@ It is useful to also define the noninteracting Green function $\mathcal{G}^0$, w
 \noindent The noninteracting Green function can be written in the frequency domain as
 
 \begin{equation}
-    \mathcal{G}^0  = \frac{1}{\omega - H_0} \,,
+    \mathcal{G}^0  = \frac{1}{\omega - H_0} \equiv
+    \begin{tikzpicture}[baseline={([yshift=0.05ex]current bounding box.center)},vertex/.style={anchor=base, circle,fill=black!25,minimum size=18pt,inner sep=2pt}]
+        \begin{scope}[scale=2,shift={(0,0.0)}]
+            \coordinate (a) at (1.,0);
+            \coordinate (b) at (0.,0);
+
+            %legs
+            \draw (a) edge[bareprop] node[below] {} (b);
+        \end{scope}
+    \end{tikzpicture}\,,
 \end{equation}
 
-\noindent if we use a compact notation by omitting the basis.
-In the language of Feynman diagrams, this operator corresponds to the free fermion propagator, being diagrammatically represented by a straight arrowed line.
+\noindent if we use a compact notation by omitting the basis, and represent it as a single arrowed line using Feynman diagrams notation as represented in the \gls{rhs} of the equation.
+In the Feynman diagrammatic jargon, it is also called the free fermion propagator.
 If we want to write something similar for the interacting Green function, we need to introduce the concept of self-energy $\Sigma$.
 Before that, we need to say that the introduction of the two-body interaction term in the Hamiltonian makes the interacting Green function $\mathcal{G}$ an infinite sum containing an infinite number of diagrams.
-Each diagram has two external free fermionic lines $\mathcal{G}^0$, connected by compositions of interaction lines that come from $W$, composed with free propagator lines coming from $\mathcal{G}^0$.
+Each diagram has two external free fermionic lines $\mathcal{G}^0$, connected by compositions of free propagator lines coming from $\mathcal{G}^0$, with interaction lines stemming from the screened potential $W$, which in diagrammatic representation is given by a double wavy line as
+
+\begin{equation}
+    W \equiv \begin{tikzpicture}[baseline={([yshift=-0.5ex]current bounding box.center)},vertex/.style={anchor=base, circle,fill=black!25,minimum size=18pt,inner sep=2pt}]
+                 \def\radius{0.2}
+                 \def\SigmaShift{4.0}
+                 \begin{scope}[scale=2,shift={(0,0.0)}]
+                     \coordinate (a) at (1.,0);
+                     \coordinate (b) at (0.01,0);
+
+                     % screened potential
+                     \draw[line width=0.4mm,double] (a) decorate [decoration={snake}] {(a) -- (b)} (b);
+
+                     %\fill (b) circle (1.2pt) coordinate (b);
+                     %\fill (a) circle (1.2pt) coordinate (a);
+                 \end{scope}
+    \end{tikzpicture}\,.
+\end{equation}
+
 The self-energy, $\Sigma$, is defined as the sum of all irreducible diagrams appearing in the expansion of $\mathcal{G}$, without the external fermion lines.
 This results in writing for the interacting Green function
 
 \begin{equation}
     \label{eq:interacting_Green_function}
-    \mathcal{G} = \frac{1}{\omega - H_0 - \Sigma(\omega)} \,.
+    \mathcal{G} = \frac{1}{\omega - H_0 - \Sigma(\omega)} \equiv
+    \begin{tikzpicture}[baseline={([yshift=0.05ex]current bounding box.center)},vertex/.style={anchor=base, circle,fill=black!25,minimum size=18pt,inner sep=2pt}]
+        \begin{scope}[scale=2,shift={(0,0.0)}]
+            \coordinate (a) at (1.,0);
+            \coordinate (b) at (0.,0);
+
+            %legs
+            \draw (a) edge[fullprop] node[below] {} (b);
+        \end{scope}
+    \end{tikzpicture} \,,
 \end{equation}
+
+\noindent a double arrowed line in diagram notation, and is called the full, or interacting, fermion propagator.
 
 If in the previous expression we multiply both sides by the denominator from the left, we get $[\omega - H_0] \mathcal{G} - \Sigma(\omega) \mathcal{G} = \qty(\mathcal{G}^0)^{-1} \mathcal{G} - \Sigma(\omega) \mathcal{G} = 1$.
 Multiplying by the Green function $\mathcal{G}^0$ from the left, simplifying, considering the $\br$-space basis and going back to the time domain, we get a Dyson equation for the many-body Green function that reads
