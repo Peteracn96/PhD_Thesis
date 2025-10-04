@@ -30,6 +30,7 @@
 \bkmstring(dedicatory,en):={Dedicatory}
 \bkmstring(statement,en):={Statement}
 \bkmstring(acknowledgements,en):={Acknowledgements}
+\bkmstring(biography,en):={Author Biography}
 \bkmstring(quote,en):={Quote}
 \bkmstring(abstract,en):={Abstract}
 \keywordsstring(en):={Keywords}
