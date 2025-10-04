@@ -837,7 +837,7 @@ This results in writing for the interacting Green function
     \end{tikzpicture} \,,
 \end{equation}
 
-\noindent a double arrowed line in diagram notation, and is called the full, or interacting, fermion propagator.
+\noindent a double arrowed line in diagram notation, and is called the full or interacting fermion propagator.
 
 If in the previous expression we multiply both sides by the denominator from the left, we get $[\omega - H_0] \mathcal{G} - \Sigma(\omega) \mathcal{G} = \qty(\mathcal{G}^0)^{-1} \mathcal{G} - \Sigma(\omega) \mathcal{G} = 1$.
 Multiplying by the Green function $\mathcal{G}^0$ from the left, simplifying, considering the $\br$-space basis and going back to the time domain, we get a Dyson equation for the many-body Green function that reads
@@ -849,8 +849,79 @@ Multiplying by the Green function $\mathcal{G}^0$ from the left, simplifying, co
 
 \noindent where a digit or letter is an abbreviation for all the degrees of freedom.
 With symbols, it means $i=(\br_i,\sigma_i,t_i)$, and $\int \dd{i} = \sum_{\sigma_i} \int \dd{\br_i} \int \dd{t_i}$.
+This relation can also be written in diagrammatic notation as
 
-The self-energy\footnote{The self-energy is relevant to introduce the necessary corrections to the particle (or quasiparticle) band structure obtained with \dft, principally to correct the bandgap, as explained in section~\ref{subsubsec:abinit_methods}. To see that, take a look at Eq.~\ref{eq:interacting_Green_function}; the self-energy enters in the denominator summing to the noninteracting Hamiltonian, thus it can be seen as a correction to $\hat{H}_0$. We should say in fact it is the real part of $\Sigma$ that corrects the band structure. The imaginary part has to do with the electron--electron scattering rates~\cite{Bruus_Flensberg_2004} and the quasiparticle life-times.}, a quantity that derives from the two-body interaction between the electrons, is naturally related to the effective interaction between the electrons, $W$.
+\begin{equation}
+    \label{eq:Dyson_equation_G_Feynman}
+    \begin{tikzpicture}[baseline={([yshift=0.8ex]current bounding box.center)},vertex/.style={anchor=base, circle,fill=black!25,minimum size=18pt,inner sep=2pt}]
+        \begin{scope}[scale=2,shift={(0,0.0)}]
+            \coordinate (a) at (1.,0);
+            \coordinate (b) at (0.,0);
+
+            %legs
+            \draw (a) edge[fullprop] node[below] {} (b);
+
+            \fill (a) circle (1.2pt) coordinate (a);
+            \fill (b) circle (1.2pt) coordinate (b);
+
+            \node [scale = 0.3, fill = black, draw,label={[label distance=-0.5pt]-90:b}] at (b) {};
+            \node [scale = 0.3, fill = black, draw,label={[label distance=1pt]-90:a}] at (a) {};
+        \end{scope}
+    \end{tikzpicture}
+    = % yshift=0.2ex if a/b to be ommitted, 0.8 otherwise
+    \begin{tikzpicture}[baseline={([yshift=0.8ex]current bounding box.center)},vertex/.style={anchor=base, circle,fill=black!25,minimum size=18pt,inner sep=2pt}]
+        \def\radius{0.2}
+        \def\SigmaShift{4.0}
+        \begin{scope}[scale=2,shift={(0,0.0)}]
+            \coordinate (a) at (1.,0);
+            \coordinate (b) at (0.,0);
+
+            %legs
+            \draw (a) edge[bareprop] node[below] {} (b);
+
+            \fill (a) circle (1.2pt) coordinate (a);
+            \fill (b) circle (1.2pt) coordinate (b);
+
+            \node [scale = 0.3, fill = black, draw,label={[label distance=-0.5pt]-90:b}] at (b) {};
+            \node [scale = 0.3, fill = black, draw,label={[label distance=1pt]-90:a}] at (a) {};
+        \end{scope}
+    \end{tikzpicture}
+    +   % yshift=-0.6ex if a/b to be ommitted, -0.25 otherwise
+    \begin{tikzpicture}[baseline={([yshift=-0.25ex]current bounding box.center)},vertex/.style={anchor=base, circle,fill=black!25,minimum size=18pt,inner sep=2pt}]
+        \def\radius{0.2}
+        \def\SigmaShift{4.0}
+        \begin{scope}[scale=2,shift={(0,0.0)}]
+            \coordinate (a) at (3.,0);
+            \coordinate (2) at (2.,0);
+            \coordinate (C) at (2.-\radius,0);
+            \coordinate (1) at (2.-2*\radius,0);
+            \coordinate (b) at (1.-2*\radius,0);
+
+            %full fermion
+            \draw (a) edge[fullprop] node[below] {} (2);
+
+            % Self-Energy
+            \draw[line width=0.8mm, fill = gray, fill opacity=0.5] (C)  circle [radius=\radius];
+            \node [scale = 1.6] at (C) {$\Sigma$};
+
+            \fill (a) circle (1.2pt) coordinate (a);
+            \fill (2) circle (1.2pt) coordinate (2);
+            \fill (1) circle (1.2pt) coordinate (1);
+            \fill (b) circle (1.2pt) coordinate (b);
+
+            %bare fermion
+            \draw (1) edge[bareprop] node[below] {} (b);
+
+            \node [scale = 0.3, fill = black, draw,label={[label distance=-0.5pt]-90:b}] at (b) {};
+            \node [scale = 0.3, fill = black, draw,label={[label distance=1pt]-90:a}] at (a) {};
+            \node [scale = 0.3, fill = black, draw,label={[label distance=0.2pt]-95:1}] at (1) {};
+            \node [scale = 0.3, fill = black, draw,label={[label distance=0.2pt]-85:2}] at (2) {};
+        \end{scope}
+    \end{tikzpicture}
+\end{equation}
+
+\noindent if we represent the self-energy\footnote{The self-energy is relevant to introduce the necessary corrections to the particle (or quasiparticle) band structure obtained with \dft, mainly to correct the bandgap, as explained in section~\ref{subsubsec:abinit_methods}. To see that, take a look at Eq.~\ref{eq:interacting_Green_function}; the self-energy enters in the denominator summing with the noninteracting Hamiltonian, thus it can be seen as a renormalization of the Hamiltonian $\hat{H}_0$. We should say in fact it is the real part of $\Sigma$ that corrects the band structure. The imaginary part has to do with the electron--electron scattering rates~\cite{Bruus_Flensberg_2004} and the quasiparticle life-times.} by a gray filled circle.
+The self-energy derives from the two-body interaction between the electrons, therefore, it is naturally related to the effective interaction between the electrons, $W$.
 The relation reads
 
 \begin{equation}
@@ -858,7 +929,7 @@ The relation reads
     \Sigma(1,2) = \ii \int \dd{3} \dd{4}\, \mathcal{G}(1,3^{+}) W(1,4) \Lambda(3,2;4)  \,,
 \end{equation}
 
-\noindent where $3^{+}$ stands for the time instant $t_3$ plus an infinitely small imaginary shift $\tau$ as $t_{3^{+}} = t_3 + \ii \tau$ for the purpose of performing contour integrals in the complex plane~\cite{Bruus_Flensberg_2004,Mahan}, and $\Lambda$ is the vertex function given by
+\noindent where $3^{+}$ stands for the time instant $t_3$ plus an infinitely small imaginary shift $\tau$ as $t_{3^{+}} = t_3 + \ii \tau$, with the purpose of performing contour integrals in the complex plane~\cite{Bruus_Flensberg_2004,Mahan}, $\Lambda$ is called the vertex function, and it is defined by
 
 \begin{equation}
     \label{eq:vertex_function}
