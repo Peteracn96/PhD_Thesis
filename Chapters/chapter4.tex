@@ -42,17 +42,16 @@ The two-body interaction allows a quantum system state that we could not predict
 Up until now, we have been stressing that the full interacting response of condensed matter systems cannot be computed in practice, which is true.
 Nonetheless, we do not need the full interacting picture to explain the experimental observations.
 We just need to account for the Coulomb interaction between the electron, that was excited to the conduction band, and the absence of the negative charge that it left behind in the valence band---the positively charged hole.
-This interaction between the electron and the hole, just like the atomic nucleus in the hydrogen atom attracts the orbiting electron, can be so strong that the electron--hole pair form a bound state---the exciton.
+This interaction between the electron and the hole, just like the atomic nucleus in the hydrogen atom attracts the orbiting electron, can be so strong that the electron--hole pair form a bound state---the exciton~\cite{Datta_Marie_2024}.
 The situation is depicted in Figure~\ref{fig:electron_hole_pair_formation}, where the electron, the red circle in the figure, is in the conduction band, and the hole, the red circumference, is in the valence band.
 As we have just explained, a photon with an energy lying inside the bandgap can excite the material from its ground state to an excitonic state, or one of several excitonic states.
 The minimum amount of energy required for that to happen is what defines the \textit{optical} bandgap, which coincides with the energy of the \textit{excitonic} ground state.
 We can define the binding energy $E_{b, \nu}$ of a given exciton in a state $\nu$, depicted in the schematic at the right in Fig~\ref{fig:electron_hole_pair_formation}, as the difference between the energy of the electronic bandgap $\Delta$ and the optical one $E_X$, the latter coinciding with the energy of the excitonic ground state.
 Just like the ionization energy in the hydrogen atom, it can be interpreted as the energy that we have to provide to separate the electron from the hole, resulting in their recombination.
 
-
 These realizations do not mean that all the techniques introduced until now in the last two chapters are not useful; actually the opposite.
 As we will see, getting the Coulomb attraction, which is essentially electrostatic, right in a solid is essential in order to compute the excitons correctly.
-We mean that we need to take screening into account, by using an appropriate dielectric function.
+We mean that we need to take screening into account by using an appropriate dielectric function.
 As we shall explain in a moment, this is crucial in \bd~materials.
 But first, let us try top draw some conclusions and gain intuition on the problem, before we appropriately tackle it.
 
@@ -63,9 +62,14 @@ But first, let us try top draw some conclusions and gain intuition on the proble
     \label{fig:electron_hole_pair_formation}
 \end{figure}
 
-As we shall see in this chapter, the excitonic problem, consisting of finding the excitonic eigenenergies and eigenstates or wavefunctions, can be quite envolved.
-Within a very crude approximation, it coincides with the hydrogen atom problem if the energy surfaces for the electron and the hole are spherical and nondegenerate~\cite{Kittel_2004}.
-From a heuristic point of view, the energy levels are given by a modified Rydberg formula
+As we shall see in this chapter, the excitonic problem that consists of finding the excitonic eigenenergies and eigenstates (or wavefunctions) can be quite intricate.
+Nonetheless, we have argued that determining the excitonic properties of a material is key to capture their optoelectronic properties, in particular those related to the sub-bandgap physics of gapped materials.
+At the range of frequencies considered in this work, no other properties come into play, such as phonon or magnetic excitations.
+Herein, we only model the electronic and optical properties of \bd~materials, and how these relate with each other.
+There are several approaches to the exciton problem, and in this chapter we provide a couple of them, going up in difficulty and complexity.
+
+Within a very crude approximation, the problem of bound electron--hole complexes can be identified with the hydrogen atom problem if the energy surfaces for the electron and the hole are spherical and nondegenerate~\cite{Kittel_2004}.
+From a heuristic point of view, this implies that the energy levels are given by a modified Rydberg formula
 
 \begin{equation}
     E_{X,n} = E_g - \frac{R^*}{n^2},
@@ -77,14 +81,14 @@ From a heuristic point of view, the energy levels are given by a modified Rydber
     R^* = \frac{2 \mu^2 e^4}{\hbar^2 (8 \pi \varepsilon)^2}
 \end{equation}
 
-\noindent is the modified Rydberg constant, which instead of using the electron mass like usual, it uses the reduced mass between the electron and the hole effective masses:
+\noindent is the modified Rydberg constant, which instead of using the electron mass like usual, it uses the reduced mass between the electron and the hole effective masses
 
 \begin{equation}
     \frac{1}{\mu} = \frac{1}{m_e} + \frac{1}{m_h}.
 \end{equation}
 
-\noindent Here $\varepsilon$ is just the dielectric constant of the medium.
-This description is suited for weakly bound excitons, also called Wannier excitons.
+\noindent Here, $\varepsilon$ is just the dielectric constant of the medium.
+This description is suited for weakly bound excitons, also called Wannier excitons~\cite{Koch_2009}, originally proposed  Wannier~\cite{Wannier_1937} and Mott~\cite{Mott_Littleton_1938,Mott_1938_II,Mott_1938_III}.
 The characteristic size of the exciton is given by a modified expression for the Bohr radius:
 
 \begin{equation}
@@ -92,25 +96,24 @@ The characteristic size of the exciton is given by a modified expression for the
 \end{equation}
 
 \noindent which can extend over a couple of atomic sites.
-If the exciton is tightly bound, then it is called a Frenkel exciton.
+If the exciton is tightly bound, then it is called a Frenkel exciton~\cite{Frenkel_1931_I,Frenkel_1931_II,Davydov_1971}.
 In this case, the excitation is localized at a single atom.
-Wannier excitons can be found in inorganic semiconductors, like cuprous oxide, \ch{Cu2O}, or  gallium arsenide, \ch{GaAs}.
-For \ch{GaAs}, the binding energy of the ground state exciton is $3.4$ \unit{\milli\electronvolt}.
-Frenkel excitons are more common in crystalline inert gases, like crystalline krypton.
-In solid krypton, the ground state exciton has a binding energy of $1.5$ \unit{\electronvolt}.
-\todo{find references for the numbers above.}
+Wannier excitons can form in inorganic semiconductors, like cuprous oxide, \ch{Cu2O}, or  gallium arsenide, \ch{GaAs}.
+For \ch{GaAs}, the binding energy of the ground state exciton is $4.2$ \unit{\milli\electronvolt}~\cite{GaAs_exciton_1976}.
+Frenkel excitons are more common in ionic crystals~\cite{Knox_Inchauspe_1959}, such as \ch{CuCl} or \ch{NaCl} or organic molecular crystals~\cite{Nematiaram_Padula_Troisi_2021,Silinsh_1980}.
+In solid krypton, the ground state exciton has a binding energy of $1.75$ \unit{\electronvolt}~\cite{Laporte_1985}.
 
-If we wish to apply the description above of Wannier excitons to 2D materials, the excitonic binding energies are given now by the modified Rydberg formula for the 2D hydrogen atom
+If we wish to apply the description above of Wannier excitons to \bd~materials, the excitonic binding energies are given now by the modified Rydberg formula for the \bd~hydrogen atom~\cite{2D_Hydrogen_atom_1991}
 
 \begin{equation}
     E^{\BD}_{X,n} = - \frac{R^*}{\left(n-\frac{1}{2}\right)^2}.
 \end{equation}
 
-Focusing on the ground state $n=1$, we can see that $E^{\text{2D}}_{X,n=1} = 4 E_{X,n=1}$.
-Furthermore, the Bohr radius for 2D materials is half of that of the 3D case.
-We can then predict that the exciton contribution to the optical spectrum is more prominent in 2D materials when compared to 3D ones.
-Furthermore, the Coulomb interaction in 2D materials is less screened than in 3D ones.
-In 2D materials excitons can form even at room temperatures~\cite{Morozov_Wolff_Mortensen_2021}.
+Focusing on the ground state $n=1$, we can see that $E^{\BD}_{X,n=1} = 4 E_{X,n=1}$.
+Furthermore, the Bohr radius for \bd~materials is half of that of the \gls{3d} case~\cite{2D_Hydrogen_atom_1991}.
+We can then predict that the exciton contribution to the optical spectrum is more prominent in \bd~materials when compared to \gls{3d} ones.
+Furthermore, the Coulomb interaction in \bd~materials is less screened than in \gls{3d} ones.
+In \bd~materials excitons can form even at room temperatures~\cite{Morozov_Wolff_Mortensen_2021}.
 
 In a more accurate approach to the excitonic problem, the excitonic states and respective binding energies can be estimated by solving the Wannier equation~\cite{Wannier_1937} that reads
 
@@ -121,7 +124,7 @@ In a more accurate approach to the excitonic problem, the excitonic states and r
 
 \noindent where $\mu$ is the electron--hole reduced effective mass as before, and $V(\br)$ is the attractive potential that binds the electron and the hole together.
 It is just like the time-independent Schr\"{o}dinger equation, but with an effective reduced mass.
-In 2D materials, the potential that describes accurately the screening effect has the form of the Rytova--Keldysh potential, that was already derived in section~\ref{subsubsec:dielectric_function_static_limit} when we were introducing classical effective models for the dielectric function. 
+In \bd~materials, the potential that describes accurately the screening effect has the form of the Rytova--Keldysh potential, that was already derived in section~\ref{subsubsec:dielectric_function_static_limit} when we were introducing classical effective models for the dielectric function. 
 
 The Wannier equation does not capture the full structure of the excitonic states (like nondegenerate $p$ states, or the symmetries of the crystal), hence we need to resort to more accurate descriptions of the excitonic problem.
 That is possible using a reciprocal space description of the excitonics, with one can write the \gls{bse}---an integral equation where finer details of the band structure and the Coulomb interaction are included.
@@ -434,7 +437,7 @@ The parameters $t_{i,j}$ are the hopping or tight-binding parameters, while $V_{
 \todo{say somewhere that this approach is variational}
 
 Now, with the purpose of describing excitons, we need to start from a good enough description of the ground state of the system, $\ket{\GS}$.
-For undoped 2D semiconductors or insulators, whose ground state consists of all the valence bands completely filled, and all the conduction bands empty, we can write mathematically for the groundstate, or Fermi sea,
+For undoped \bd~semiconductors or insulators, whose ground state consists of all the valence bands completely filled, and all the conduction bands empty, we can write mathematically for the groundstate, or Fermi sea,
 
 \begin{equation}
     \ket{\GS} = \prod_{n,\bk}^{\epsilon_{n \bk} \leq \EF} c_{n \bk}^\dagger \ket{0} \,,
@@ -681,7 +684,7 @@ The double sum allows for including non-local field effects in the interaction m
 In the single sum, the inclusion of the reciprocal lattice vectors has the purpose of preserving the symmetry in the interaction between electrons with momenta $\bk$ and $\bk'$~\cite{Ridolfi_2015}---the \bd~Fourier transform of the Rytova--Keldysh potential from the reciprocal space to the real space must involve a sum over all momenta in the reciprocal lattice to recover the correct $\br$ dependence, and sum over all momenta can be decomposed in a sum over momenta in the \bz~with a sum over all reciprocal lattice vectors, so that the entire reciprocal lattice is covered.
 \textcolor{red}{We will touch upon this detail again later in this work. This sentence in red is cause I'm not completely sure of the significance of this, have to discuss with Juanjo again}
 
-\section{Optical effects in 2D semiconductors}
+\section{Optical effects in \bd~semiconductors}
 \label{sec:optical_effects}
 
 Here we provide the theory for the optical conductivity.
@@ -795,7 +798,7 @@ If the material is subject to a drive from a uniform time-dependent electric fie
 
 \noindent where $\br$ is the dipole operator, $\hat{\vectorbold{e}}$ is the polarization unit vector and $\psi^{\nu}_{c,v} (\bk)$ is the excitonic wavefunction for the pair of bands $(c,v)$.
 If once more we wish to define the optical conductivity as a tensor, then we can deduct an expression similar to~\eqref{eq:non_interacting_Re_optical_conductivity}, we just have to replace the transition energy $\epsilon_{c,\bk}-\epsilon_{v,\bk}$ by the exciton energy $E_{\nu}$, and the velocity matrix elements by their interacting version given by a weighted sum over momentum of the noninteracting matrix elements, with the weight coinciding with the excitons wavefunction, similarly to what is written in~\eqref{eq:Berry_curvature_definition}.
-We can therefore write\todo{Caution with this expression, since the material is 2D, come back here again after reading Nuno's notes.}
+We can therefore write\todo{Caution with this expression, since the material is \bd, come back here again after reading Nuno's notes.}
 
 \begin{empheq}[innerbox=\colorbox{lightgray}, right={\,,}]{align}
     \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{V}\sum_{\nu}\frac{1}{E_{\nu}} V^{\alpha}_{\nu} (V^{\beta}_{\nu})^{*} \delta(\hbar \omega - E_{\nu})
