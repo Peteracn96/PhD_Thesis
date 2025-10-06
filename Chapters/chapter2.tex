@@ -179,13 +179,16 @@ The operation between the permittivity (we omit from now onwards the word relati
 
 \begin{equation}
     \label{eq:displacement_field_constitutive_relation}
-    \bD\qty(\br,t) = \int_{\mathds{R}^3} \dr' \int_{-\infty}^t \dd{t'} \rttensor{\vareps}\qty(\br, \br'; t , t') \bE\qty(\br',t')\,,
+    \bD\qty(\br,t) = \int \dr' \int_{-\infty}^t \dd{t'} \rttensor{\vareps}\qty(\br, \br'; t , t') \bE\qty(\br',t')\,,
 \end{equation}
 
 \noindent where the permittivity is now a (tensorial) response function, i.e., a two-point function in real space and a two-point function in time.
+In this expression, we have assumed that the material extends to infinity in all directions, and have therefore ommitted the integration region in the space integral.
+From now on, whenever the integration region is not explicit in the notation, that will mean that the integral is over the entire space/material, either in two or three dimensions.
+If the integration region is bounded, then we will accordingly explicit the integration region in the integral symbol.
 Without knowing any details about the permittivity, we can promptly impose causality which implies that $\vareps\qty(\br, \br'; t , t') = 0$ if $t' > t$ (let us omit the tensor nature of the permittivity for now).
 The integral in Eq.~\eqref{eq:displacement_field_constitutive_relation} above could then be taken up to $+\infty$ (this is useful to take the Fourier transform in time, as we shall do just now).
-Furthermore, if the system enjoys \textit{continuous} time translational invariance\footnote{This assumption is only valid if we treat the external probe or driving field as a perturbation to the system, so small that the response is that of a material in (dynamic) equilibrium, and its intrinsic properties are time-independent. If the probe or field is strong enough, then it can drive the system to a non-equilibrium state, and in that case we have to account for the full dynamics of the composed system material+perturbation. Even if the external field is time periodic and the system still enjoys time translation invariance, albeit discrete, we must separate the two time dependences $t$ and $t'$. As stated above we work solely within a perturbative regime. Henceforth, this is not a big concern for us.\label{fn:time_invariance_ch_2}}, then the permittivity depends only on the time difference $t - t'$.
+Furthermore, if the system enjoys \textit{continuous} time translational invariance\footnote{This assumption is only valid if we treat the external probe or driving field as a perturbation to the system, so small that the response is that of a material in (dynamic) equilibrium, and its intrinsic properties are time-independent. If the probe or field is strong enough, then it can drive the system to a non-equilibrium state, and in that case we have to account for the full dynamics of the composed system material+perturbation~\cite{Sloan_Rivera_Joannopoulos_Soljacic_2024}. Even if the external field is time periodic and the system still enjoys time translation invariance, albeit discrete, we must separate the two time dependences $t$ and $t'$. As stated above we work solely within a perturbative regime. Henceforth, this is not a big concern for us.\label{fn:time_invariance_ch_2}}, then the permittivity depends only on the time difference $t - t'$.
 This property is extremely useful, as per the convolution theorem, we can perform a Fourier transform in a single variable of time $t-t'$, so that the permittivity and the electric field operate in the frequency domain through a mere multiplication at a single frequency $\omega$:
 
 \begin{equation}
@@ -209,7 +212,7 @@ Before we proceed, it is worthy to remind the reader that in electromagnetism we
 The relation between the electric field and the induced current is quantified by the famous (local and generalized) Ohm's law, that when assuming time and space translational invariance\footnote{Until the time when it will become relevant, we will not explicitly say that the invariance in space is continuous. In the context of solid state physics, translational invariance is discrete instead.}, and isotropy as well, reads
 
 \begin{equation}
-    \bJ_\ind\qty(\br,t) = \int_{\mathds{R}^3} \dr \int_{-\infty}^t \dd{t'} \sigma\qty(\br - \br'; t - t') \bE\qty(\br',t')\,,
+    \bJ_\ind\qty(\br,t) = \int \dr \int_{-\infty}^t \dd{t'} \sigma\qty(\br - \br'; t - t') \bE\qty(\br',t')\,,
 \end{equation}
 
 \noindent where $\sigma$ is the conductivity of the material (that can assume a tensorial form, just like the permittivity), and accounts for the excitation of free charges due to the applied electric field.
@@ -252,7 +255,7 @@ This interpretation is the cornerstone of the theory around the dielectric funct
 It is actually introduced like this in introductory electromagnetism courses, appearing usually as a single constant relative permittivity denoted by $\vareps_r$ in the denominator in Coulomb's law for the electrostatic force.
 In bulk materials, it is typically sufficient to speak of the relative permittivity as a constant of the material.
 Unfortunately (or the opposite), it is in general a very complicated function of space and time, although working in reciprocal space seems to ease things.
-This is a striking feature of \bd~materials, where the dependence on $\bk$ and $\omega$ cannot be ignored, even encoding rich physics such as spatial dispersion (nontrivial $\bk$ dependence), time dispersion (nontrivial $\omega$ dependence), screening in crystalline solids (main subject of Chapter~\ref{ch:screening}) and their nontrivial absorption spectra\todo{more references no?}, plasmons in metals and \bd~materials such as graphene~\cite{GoncalvesPeres:2016,Novoselov_Geim_2004}, the effect called Landau damping in the context of kinetic theory in plasma physics~\cite{Chen_Plasma_Physics}, among others.
+This is a striking feature of \bd~materials, where the dependence on $\bk$ and $\omega$ cannot be ignored, even encoding rich physics such as spatial dispersion~\cite{Kinsler_2021} (nontrivial $\bk$-dependence), temporal dispersion~\cite{Koutserimpas_2024} (nontrivial $\omega$-dependence), screening in crystalline solids~\cite{Nozieres_Pines_1958} (the main subject of Chapter~\ref{ch:screening}) and their nontrivial absorption spectra~\cite{Cardona_1987,Palik_1991,Logothetidis_Petalas_1996,Wang_Berkelbach_2021}, plasmons in metals and \bd~materials such as graphene~\cite{GoncalvesPeres:2016,Novoselov_Geim_2004}, the effect called Landau damping in the context of kinetic theory in plasma physics~\cite{Chen_Plasma_Physics}, among others.
 
 To familiarize a reader that has not extensive experience on the dielectric function, we provide in the next subsections two key examples of models for the dielectric function, one in the static limit $\omega \to 0$, and the other one in the local limit $\bk \to \bzero$.
 Isolating these two limits and considering the dependence on $\bk$ and $\omega$ separately is enough to realize how intricate this object can be.
@@ -270,7 +273,7 @@ In real space, the Coulomb potential is given by
 
 \begin{equation}
 \label{eq:Coulomb_potential_real_space}
-    v_c(\br) = \frac{e}{4\pi \epsz \qty|\br\,|}\,,
+    v_c(\br) = \frac{e}{4 \pi \epsz \abs{br}}\,,
 \end{equation}
 
 
