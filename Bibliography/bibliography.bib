@@ -79,7 +79,7 @@
 	author = {Cayssol, J. and Fuchs, J. N.},
 	title = {Topological and geometrical aspects of band theory},
 	journal = {Journal of Physics: Materials},
-	abstract = {This paper provides a pedagogical introduction to recent developments in geometrical and topological band theory following the discovery of graphene and topological insulators. Amusingly, many of these developments have a connection to contributions in high-energy physics by Dirac. The review starts by a presentation of the Dirac magnetic monopole, goes on with the Berry phase in a two-level system and the geometrical/topological band theory for Bloch electrons in crystals. Next, specific examples of tight-binding models giving rise to lattice versions of the Dirac equation in various space dimension are presented: in 1D (Su–Schrieffer–Heeger (SSH) and Rice–Mele models), 2D (graphene, boron nitride, Haldane model) and 3D (Weyl semi-metals). The focus is on topological insulators and topological semi-metals. The latter have a Fermi surface that is characterized as a topological defect. For topological insulators, the two alternative view points of twisted fiber bundles and of topological textures are developed. The minimal mathematical background in topology (essentially on homotopy groups and fiber bundles) is provided when needed. Topics rarely reviewed include: periodic versus canonical Bloch Hamiltonian (basis I/II issue), Zak versus Berry phase, the vanishing electric polarization of the SSH model and Dirac insulators.}
+	abstract = {This paper provides a pedagogical introduction to recent developments in geometrical and topological band theory following the discovery of graphene and topological insulators. Amusingly, many of these developments have a connection to contributions in high-energy physics by Dirac. The review starts by a presentation of the Dirac magnetic monopole, goes on with the Berry phase in a two-level system and the geometrical/topological band theory for Bloch electrons in crystals. Next, specific examples of tight-binding models giving rise to lattice versions of the Dirac equation in various space dimension are presented: in 1D (Su--Schrieffer--Heeger (SSH) and Rice--Mele models), 2D (graphene, boron nitride, Haldane model) and 3D (Weyl semi-metals). The focus is on topological insulators and topological semi-metals. The latter have a Fermi surface that is characterized as a topological defect. For topological insulators, the two alternative view points of twisted fiber bundles and of topological textures are developed. The minimal mathematical background in topology (essentially on homotopy groups and fiber bundles) is provided when needed. Topics rarely reviewed include: periodic versus canonical Bloch Hamiltonian (basis I/II issue), Zak versus Berry phase, the vanishing electric polarization of the SSH model and Dirac insulators.}
 }
 
 @article{Dreuw_2005,
@@ -111,231 +111,230 @@ eprint = { https://doi.org/10.1021/cr0505627}}
 }
 
 @article{Xatu,
-title = {Efficient computation of optical excitations in two-dimensional materials with the Xatu code},
-journal = {Computer Physics Communications},
-volume = {295},
-pages = {109001},
-year = {2024},
-issn = {0010-4655},
-doi = {https://doi.org/10.1016/j.cpc.2023.109001},
-url = {https://www.sciencedirect.com/science/article/pii/S0010465523003466},
-author = {Alejandro José Uría-Álvarez and Juan José Esteve-Paredes and M.A. García-Blázquez and Juan José Palacios},
-keywords = {Exciton, Bethe-Salpeter equation, Optics, Many-body physics, Localized orbitals, Tight-binding},
-abstract = {Here we describe an efficient numerical implementation of the Bethe-Salpeter equation to obtain the excitonic spectrum of semiconductors. This is done on the electronic structure calculated either at the simplest tight-binding level or through density functional theory calculations based on local orbitals. We use a simplified model for the electron-electron interactions which considers atomic orbitals as point-like orbitals and a phenomenological screening. The optical conductivity can then be optionally computed within the Kubo formalism. Our results for paradigmatic two-dimensional materials such as hBN and MoS2, when compared with those of more sophisticated first-principles methods, are excellent and envision a practical use of our implementation beyond the computational limitations of such methods.
-Program summary
-Program Title: Xatu CPC Library link to program files: https://doi.org/10.17632/kj4rt95pvc.1 Developer's repository link: https://github.com/alejandrojuria/xatu Licensing provisions: GPLv3 Programming language: C++, Fortran, Python Nature of problem: The exciton spectrum is obtained as the solution of the Bethe-Salpeter equation for insulators and semi-conductors. Constructing the equation involves determining the screening of the electrostatic interaction and then determining the matrix elements of the interaction kernel, which are computationally-intensive tasks, specially if one takes a purely ab-initio approach. Solution method: The Bethe-Salpeter equation can be efficiently set up and solved assuming that the basis of the reference electronic structure calculation, obtained either from tight-binding models or density functional theory with actual localized orbitals, corresponds to point-like localized orbitals. This, in addition to using an effective screening instead of computing the dielectric constant, allows to obtain the interaction kernel at very low computational cost and, thereof, the exciton spectrum as well as the light absorption of materials. Additional comments including restrictions and unusual features: The code requires using at least C++11, given that it uses version-specific features. All linear algebra routines have been delegated to the Armadillo library.}
-}
+	title = {Efficient computation of optical excitations in two-dimensional materials with the Xatu code},
+	journal = {Computer Physics Communications},
+	volume = {295},
+	pages = {109001},
+	year = {2024},
+	issn = {0010-4655},
+	doi = {https://doi.org/10.1016/j.cpc.2023.109001},
+	url = {https://www.sciencedirect.com/science/article/pii/S0010465523003466},
+	author = {Alejandro José Uría-Álvarez and Juan José Esteve-Paredes and M.A. García-Blázquez and Juan José Palacios},
+	keywords = {Exciton, Bethe-Salpeter equation, Optics, Many-body physics, Localized orbitals, Tight-binding},
+	abstract = {Here we describe an efficient numerical implementation of the Bethe-Salpeter equation to obtain the excitonic spectrum of semiconductors. This is done on the electronic structure calculated either at the simplest tight-binding level or through density functional theory calculations based on local orbitals. We use a simplified model for the electron-electron interactions which considers atomic orbitals as point-like orbitals and a phenomenological screening. The optical conductivity can then be optionally computed within the Kubo formalism. Our results for paradigmatic two-dimensional materials such as hBN and MoS2, when compared with those of more sophisticated first-principles methods, are excellent and envision a practical use of our implementation beyond the computational limitations of such methods.
+	Program summary
+	Program Title: Xatu CPC Library link to program files: https://doi.org/10.17632/kj4rt95pvc.1 Developer's repository link: https://github.com/alejandrojuria/xatu Licensing provisions: GPLv3 Programming language: C++, Fortran, Python Nature of problem: The exciton spectrum is obtained as the solution of the Bethe-Salpeter equation for insulators and semi-conductors. Constructing the equation involves determining the screening of the electrostatic interaction and then determining the matrix elements of the interaction kernel, which are computationally-intensive tasks, specially if one takes a purely ab-initio approach. Solution method: The Bethe-Salpeter equation can be efficiently set up and solved assuming that the basis of the reference electronic structure calculation, obtained either from tight-binding models or density functional theory with actual localized orbitals, corresponds to point-like localized orbitals. This, in addition to using an effective screening instead of computing the dielectric constant, allows to obtain the interaction kernel at very low computational cost and, thereof, the exciton spectrum as well as the light absorption of materials. Additional comments including restrictions and unusual features: The code requires using at least C++11, given that it uses version-specific features. All linear algebra routines have been delegated to the Armadillo library.}
+	}
 
 @article{Yambo_2009, 
-title={yambo: An ab initio tool for excited state calculations}, 
-volume={180}, 
-ISSN={0010-4655}, 
-DOI={10.1016/j.cpc.2009.02.003}, 
-abstractNote={yambo is an ab initio code for calculating quasiparticle energies and optical properties of electronic systems within the framework of many-body perturbation theory and time-dependent density functional theory. Quasiparticle energies are calculated within the GW approximation for the self-energy. Optical properties are evaluated either by solving the Bethe–Salpeter equation or by using the adiabatic local density approximation. yambo is a plane-wave code that, although particularly suited for calculations of periodic bulk systems, has been applied to a large variety of physical systems. yambo relies on efficient numerical techniques devised to treat systems with reduced dimensionality, or with a large number of degrees of freedom. The code has a user-friendly command-line based interface, flexible I/O procedures and is interfaced to several publicly available density functional ground-state codes.},
-number={8},
-journal={Computer Physics Communications},
-author={Marini, Andrea and Hogan, Conor and Grüning, Myrta and Varsano, Daniele},
-year={2009},
-month=aug,
-pages={1392–1403}}
+	title={yambo: An ab initio tool for excited state calculations}, 
+	volume={180}, 
+	ISSN={0010-4655}, 
+	DOI={10.1016/j.cpc.2009.02.003}, 
+	abstractNote={yambo is an ab initio code for calculating quasiparticle energies and optical properties of electronic systems within the framework of many-body perturbation theory and time-dependent density functional theory. Quasiparticle energies are calculated within the GW approximation for the self-energy. Optical properties are evaluated either by solving the Bethe--Salpeter equation or by using the adiabatic local density approximation. yambo is a plane-wave code that, although particularly suited for calculations of periodic bulk systems, has been applied to a large variety of physical systems. yambo relies on efficient numerical techniques devised to treat systems with reduced dimensionality, or with a large number of degrees of freedom. The code has a user-friendly command-line based interface, flexible I/O procedures and is interfaced to several publicly available density functional ground-state codes.},
+	number={8},
+	journal={Computer Physics Communications},
+	author={Marini, Andrea and Hogan, Conor and Grüning, Myrta and Varsano, Daniele},
+	year={2009},
+	month=aug,
+	pages={1392--1403}}
 
 @article{BerkeleyGW, 
-title={BerkeleyGW: A massively parallel computer package for the calculation of the quasiparticle and optical properties of materials and nanostructures}, 
-volume={183}, 
-ISSN={0010-4655}, 
-DOI={10.1016/j.cpc.2011.12.006}, 
-abstractNote={BerkeleyGW is a massively parallel computational package for electron excited-state properties that is based on the many-body perturbation theory employing the ab initio GW and GW plus Bethe–Salpeter equation methodology. It can be used in conjunction with many density-functional theory codes for ground-state properties, including PARATEC, PARSEC, Quantum ESPRESSO, SIESTA, and Octopus. The package can be used to compute the electronic and optical properties of a wide variety of material systems from bulk semiconductors and metals to nanostructured materials and molecules. The package scales to 10000s of CPUs and can be used to study systems containing up to 100s of atoms.}, 
-number={6}, 
-journal={Computer Physics Communications}, 
-author={Deslippe, Jack and Samsonidze, Georgy and Strubbe, David A. and Jain, Manish and Cohen, Marvin L. and Louie, Steven G.}, 
-year={2012}, 
-month=jun, 
-pages={1269–1289}}
+	title={BerkeleyGW: A massively parallel computer package for the calculation of the quasiparticle and optical properties of materials and nanostructures}, 
+	volume={183}, 
+	ISSN={0010-4655}, 
+	DOI={10.1016/j.cpc.2011.12.006}, 
+	abstractNote={BerkeleyGW is a massively parallel computational package for electron excited-state properties that is based on the many-body perturbation theory employing the ab initio GW and GW plus Bethe--Salpeter equation methodology. It can be used in conjunction with many density-functional theory codes for ground-state properties, including PARATEC, PARSEC, Quantum ESPRESSO, SIESTA, and Octopus. The package can be used to compute the electronic and optical properties of a wide variety of material systems from bulk semiconductors and metals to nanostructured materials and molecules. The package scales to 10000s of CPUs and can be used to study systems containing up to 100s of atoms.}, 
+	number={6}, 
+	journal={Computer Physics Communications}, 
+	author={Deslippe, Jack and Samsonidze, Georgy and Strubbe, David A. and Jain, Manish and Cohen, Marvin L. and Louie, Steven G.}, 
+	year={2012}, 
+	month=jun, 
+	pages={1269--1289}}
 
 @article{CRYSTAL_23,
-author = {Erba, Alessandro and Desmarais, Jacques K. and Casassa, Silvia and Civalleri, Bartolomeo and Donà, Lorenzo and Bush, Ian J. and Searle, Barry and Maschio, Lorenzo and Edith-Daga, Loredana and Cossard, Alessandro and Ribaldone, Chiara and Ascrizzi, Eleonora and Marana, Naiara L. and Flament, Jean-Pierre and Kirtman, Bernard},
-title = {CRYSTAL23: A Program for Computational Solid State Physics and Chemistry},
-journal = {Journal of Chemical Theory and Computation},
-volume = {19},
-number = {20},
-pages = {6891-6932},
-year = {2023},
-doi = {10.1021/acs.jctc.2c00958},
-note ={PMID: 36502394},
-URL = {https://doi.org/10.1021/acs.jctc.2c00958},
-eprint = {https://doi.org/10.1021/acs.jctc.2c00958}}
+	author = {Erba, Alessandro and Desmarais, Jacques K. and Casassa, Silvia and Civalleri, Bartolomeo and Donà, Lorenzo and Bush, Ian J. and Searle, Barry and Maschio, Lorenzo and Edith-Daga, Loredana and Cossard, Alessandro and Ribaldone, Chiara and Ascrizzi, Eleonora and Marana, Naiara L. and Flament, Jean-Pierre and Kirtman, Bernard},
+	title = {CRYSTAL23: A Program for Computational Solid State Physics and Chemistry},
+	journal = {Journal of Chemical Theory and Computation},
+	volume = {19},
+	number = {20},
+	pages = {6891-6932},
+	year = {2023},
+	doi = {10.1021/acs.jctc.2c00958},
+	note ={PMID: 36502394},
+	URL = {https://doi.org/10.1021/acs.jctc.2c00958},
+	eprint = {https://doi.org/10.1021/acs.jctc.2c00958}}
 
 @article{Pedersen_2015, 
-title={Intraband effects in excitonic second-harmonic generation},
-volume={92}, 
-DOI={10.1103/PhysRevB.92.235432}, 
-abstractNote={A theory for the nonlinear excitonic optical response of semiconductors is developed. By adopting the length gauge, intraband effects are rigorously taken into account. We show that the second-order nonlinear response mixing intra- and interband transitions can be expressed in terms of generalized derivatives of the exciton Green’s function. The theory is applied to hexagonal boron-nitride monolayers. For both the linear and nonlinear response, a dramatic influence of excitons is found. Hence, new discrete resonances appear as well as pronounced changes in the continuum spectrum.}, 
-number={23}, 
-journal={Physical Review B}, 
-publisher={American Physical Society}, 
-author={Pedersen, Thomas Garm}, 
-year={2015},
-pages={235432} }
+	title={Intraband effects in excitonic second-harmonic generation},
+	volume={92}, 
+	DOI={10.1103/PhysRevB.92.235432}, 
+	abstractNote={A theory for the nonlinear excitonic optical response of semiconductors is developed. By adopting the length gauge, intraband effects are rigorously taken into account. We show that the second-order nonlinear response mixing intra- and interband transitions can be expressed in terms of generalized derivatives of the exciton Green’s function. The theory is applied to hexagonal boron-nitride monolayers. For both the linear and nonlinear response, a dramatic influence of excitons is found. Hence, new discrete resonances appear as well as pronounced changes in the continuum spectrum.}, 
+	number={23}, 
+	journal={Physical Review B}, 
+	publisher={American Physical Society}, 
+	author={Pedersen, Thomas Garm}, 
+	year={2015},
+	pages={235432} }
 
 @article{Rodin_Carvalho_Castro_Neto_2014, 
-title={Excitons in anisotropic two-dimensional semiconducting crystals}, 
-volume={90}, 
-DOI={10.1103/PhysRevB.90.075429}, 
-abstractNote={The excitonic behavior of anisotropic two-dimensional crystals is investigated using numerical methods. We employ a screened potential arising due to the system polarizability to solve the central-potential problem using the Numerov approach. The dependence of the exciton energies on the interaction strength and mass anisotropy is demonstrated. We use our results to obtain the exciton binding energy in phosphorene as a function of the substrate dielectric constant.}, 
-number={7}, 
-journal={Physical Review B}, 
-publisher={American Physical Society}, 
-author={Rodin, A. S. and Carvalho, A. and Castro Neto, A. H.}, 
-year={2014}, 
-month={8}, 
-pages={075429} }
+	title={Excitons in anisotropic two-dimensional semiconducting crystals}, 
+	volume={90}, 
+	DOI={10.1103/PhysRevB.90.075429}, 
+	abstractNote={The excitonic behavior of anisotropic two-dimensional crystals is investigated using numerical methods. We employ a screened potential arising due to the system polarizability to solve the central-potential problem using the Numerov approach. The dependence of the exciton energies on the interaction strength and mass anisotropy is demonstrated. We use our results to obtain the exciton binding energy in phosphorene as a function of the substrate dielectric constant.}, 
+	number={7}, 
+	journal={Physical Review B}, 
+	publisher={American Physical Society}, 
+	author={Rodin, A. S. and Carvalho, A. and Castro Neto, A. H.}, 
+	year={2014}, 
+	month={8}, 
+	pages={075429} }
 
 @article{Gomes_Trallero-Giner_Vasilevskiy_2021, 
-title={Variational calculation of the lowest exciton states in phosphorene and transition metal dichalcogenides}, 
-volume={34}, 
-ISSN={0953-8984}, 
-DOI={10.1088/1361-648X/ac1765}, 
-abstractNote={Several transition metal dichalcogenides (TMDs) can be exfoliated to produce nearly two-dimensional (2D) semiconductor layers supporting robust excitons with non-hydrogenic Rydberg series of states. Black phosphorus (BP) can also be layered to create a nearly 2D material with interesting properties including its pronounced in-plane anisotropy that influences, in particular, exciton states making them different from those in other 2D semiconductors. We apply the Rayleigh–Ritz variational method to evaluate the energies and approximate the wavefunctions of the ground and lowest excited states of the exciton in a 2D semiconductor with anisotropic effective masses of electrons and holes. The electron–hole interaction is described by the Rytova–Keldysh potential, which is considered beyond the standard zero-thickness approximation. The exciton binding energies calculated for BP and TMD (molybdenum disulphide and tungsten disulphide) monolayers are compared with previously published data.}, 
-number={4}, 
-journal={Journal of Physics: Condensed Matter}, 
-publisher={IOP Publishing}, 
-author={Gomes, José Nuno S. and Trallero-Giner, Carlos and Vasilevskiy, Mikhail I.}, 
-year={2021}, 
-month={11}, 
-pages={045702}, 
-language={en} }
+	title={Variational calculation of the lowest exciton states in phosphorene and transition metal dichalcogenides}, 
+	volume={34}, 
+	ISSN={0953-8984}, 
+	DOI={10.1088/1361-648X/ac1765}, 
+	abstractNote={Several transition metal dichalcogenides (TMDs) can be exfoliated to produce nearly two-dimensional (2D) semiconductor layers supporting robust excitons with non-hydrogenic Rydberg series of states. Black phosphorus (BP) can also be layered to create a nearly 2D material with interesting properties including its pronounced in-plane anisotropy that influences, in particular, exciton states making them different from those in other 2D semiconductors. We apply the Rayleigh--Ritz variational method to evaluate the energies and approximate the wavefunctions of the ground and lowest excited states of the exciton in a 2D semiconductor with anisotropic effective masses of electrons and holes. The electron--hole interaction is described by the Rytova--Keldysh potential, which is considered beyond the standard zero-thickness approximation. The exciton binding energies calculated for BP and TMD (molybdenum disulphide and tungsten disulphide) monolayers are compared with previously published data.}, 
+	number={4}, 
+	journal={Journal of Physics: Condensed Matter}, 
+	publisher={IOP Publishing}, 
+	author={Gomes, José Nuno S. and Trallero-Giner, Carlos and Vasilevskiy, Mikhail I.}, 
+	year={2021}, 
+	month={11}, 
+	pages={045702}, 
+	language={en} }
 
 @article{Ferreira_2019,
-title={Excitons in Hexagonal Boron Nitride Single-Layer: a New Platform for Polaritonics in the Ultraviolet},
-volume={36},
-rights={&#169; 2019 Optical Society of America},
-ISSN={1520-8540},
-DOI={10.1364/JOSAB.36.000674},
-abstractNote={The Electronic and Optical Properties of {2D} Hexagonal Boron Nitride are studied Using first principle Calculations. GW and Bethe–Salpeter equation (BSE) methods are employed in order to predict with better accuracy the excited and Excitonic Properties of this Material. We determine the values of the band Gap (7.32 eV, indirect), Optical Gap (5.58 eV), and Excitonic binding Energies (2.19 eV) and analyze the Excitonic wave functions. We also calculate the Exciton Energies following an equation of motion formalism and the Elliot formula and find good agreement with the GW+BSE method. The Optical Properties are studied for the TM and TE modes, showing that {2D} Hexagonal Boron Nitride (hBN) is a good candidate for Polaritonics in the UV range. In particular, it is shown that a Single Layer of hBN can act as an almost perfect mirror for Ultraviolet electroMagnetic radiation.}, 
-number={3}, 
-journal={J. Opt. Soc. Am. B}, 
-publisher={Optica Publishing Group}, 
-author={Ferreira, F. and Chaves, A. J. and Peres, N. M. R. and Ribeiro, R. M.}, 
-year={2019}, 
-month=mar, 
-pages={674–683}}
+	title={Excitons in Hexagonal Boron Nitride Single-Layer: a New Platform for Polaritonics in the Ultraviolet},
+	volume={36},
+	rights={&#169; 2019 Optical Society of America},
+	ISSN={1520-8540},
+	DOI={10.1364/JOSAB.36.000674},
+	abstractNote={The Electronic and Optical Properties of {2D} Hexagonal Boron Nitride are studied Using first principle Calculations. GW and Bethe--Salpeter equation (BSE) methods are employed in order to predict with better accuracy the excited and Excitonic Properties of this Material. We determine the values of the band Gap (7.32 eV, indirect), Optical Gap (5.58 eV), and Excitonic binding Energies (2.19 eV) and analyze the Excitonic wave functions. We also calculate the Exciton Energies following an equation of motion formalism and the Elliot formula and find good agreement with the GW+BSE method. The Optical Properties are studied for the TM and TE modes, showing that {2D} Hexagonal Boron Nitride (hBN) is a good candidate for Polaritonics in the UV range. In particular, it is shown that a Single Layer of hBN can act as an almost perfect mirror for Ultraviolet electroMagnetic radiation.}, 
+	number={3}, 
+	journal={J. Opt. Soc. Am. B}, 
+	publisher={Optica Publishing Group}, 
+	author={Ferreira, F. and Chaves, A. J. and Peres, N. M. R. and Ribeiro, R. M.}, 
+	year={2019}, 
+	month=mar, 
+	pages={674--683}}
 
 @article{Elias_2019,
-title={Direct Band-Gap Crossover in Epitaxial Monolayer Boron Nitride},
-volume={10},
-DOI={10.1038/s41467-019-10610-5},
-number={11},
-journal={Nat. Commun.},
-author={Elias, C. and Valvin, P. and Pelini, T. and SummerField, A. and Mellor, C. J. and Cheng, T. S. and Eaves, L. and Foxon, C. T. and Beton, P. H. and Novikov, S. V. and Gil, B. and Cassabois, G.},
-year={2019},
-pages={2639}}
+	title={Direct Band-Gap Crossover in Epitaxial Monolayer Boron Nitride},
+	volume={10},
+	DOI={10.1038/s41467-019-10610-5},
+	number={11},
+	journal={Nat. Commun.},
+	author={Elias, C. and Valvin, P. and Pelini, T. and SummerField, A. and Mellor, C. J. and Cheng, T. S. and Eaves, L. and Foxon, C. T. and Beton, P. H. and Novikov, S. V. and Gil, B. and Cassabois, G.},
+	year={2019},
+	pages={2639}}
 
 @article{Ventura_2019, 
-title={Optical Absorption of Single-Layer Hexagonal Boron Nitride in the Ultraviolet}, volume={32}, 
-ISSN={0953-8984}, 
-DOI={10.1088/1361-648X/ab47b3}, 
-abstractNote={In this paper we theoretically describe the Absorption of Hexagonal Boron Nitride (hBN) Single Layer. We develop the necessary formalism and present an efficient method for solving the Wannier equation for Excitons. We give predictions for the Absorption of hBN on quartz and on graphite. We compare our predictions with recently published results (Elias et al 2019 Nat. Commun. 10 2639) for a Monolayer of hBN on graphite. The spontaneous radiative lifetime of Excitons in hBN is also computed. We argue that the Optical Properties of hBN in the Ultraviolet are very useful for the study of peptides and other biomolecules.}, 
-number={2}, 
-journal={J. Phys.: Cond. Matter}, 
-publisher={IOP Publishing}, 
-author={Henriques, J. C. G. and Ventura, G. B. and Fernandes, C. D. M. and Peres, N. M. R.}, 
-year={2019}, 
-month=oct, 
-pages={025304}}
+	title={Optical Absorption of Single-Layer Hexagonal Boron Nitride in the Ultraviolet}, volume={32}, 
+	ISSN={0953-8984}, 
+	DOI={10.1088/1361-648X/ab47b3}, 
+	abstractNote={In this paper we theoretically describe the Absorption of Hexagonal Boron Nitride (hBN) Single Layer. We develop the necessary formalism and present an efficient method for solving the Wannier equation for Excitons. We give predictions for the Absorption of hBN on quartz and on graphite. We compare our predictions with recently published results (Elias et al 2019 Nat. Commun. 10 2639) for a Monolayer of hBN on graphite. The spontaneous radiative lifetime of Excitons in hBN is also computed. We argue that the Optical Properties of hBN in the Ultraviolet are very useful for the study of peptides and other biomolecules.}, 
+	number={2}, 
+	journal={J. Phys.: Cond. Matter}, 
+	publisher={IOP Publishing}, 
+	author={Henriques, J. C. G. and Ventura, G. B. and Fernandes, C. D. M. and Peres, N. M. R.}, 
+	year={2019}, 
+	month=oct, 
+	pages={025304}}
 
 @article{Ju_2017, 
-title={Tunable Excitons in Bilayer Graphene}, 
-volume={358}, 
-DOI={10.1126/science.aam9175}, 
-abstractNote={Excitons—bound pairs of Electron and holes in solids—can be harnessed for optoElectronic Applications. Being able to tune the Exciton energy would bring functional flexibility to such Devices. Although Tunable Excitons have been predicted to form in Bilayer Graphene, observing them Experimentally has been difficult. Ju et al. used High-quality Bilayer Graphene samples sandwiched between Layers of Hexagonal Boron Nitride to observe Excitons in this Material. Exciton energy was tuned across a large range by controlling the gate voltages. Science, this issue p. 907 Photocurrent spectroscopy is used to observe Excitons in High-quality Bilayer Graphene samples. Excitons, the bound states of an Electron and a hole in a solid Material, play a key role in the Optical Properties of insulators and Semiconductors. Here, we report the observation of Excitons in Bilayer Graphene (BLG) Using photocurrent spectroscopy of High-quality BLG encapsulated in Hexagonal Boron Nitride. We observed two prominent Excitonic resonances with narrow line widths that are Tunable from the mid-infrared to the terahertz range. These Excitons obey Optical Selection Rules distinct from those in conventional Semiconductors and feature an Electron pseudoSpin winding number of 2. An external Magnetic Field induces a large splitting of the valley Excitons, corresponding to a g-Factor of about 20. These findings open up opportunities to explore Exciton physics with pseudoSpin texture in Electrically Tunable Graphene Systems.}, 
-number={6365}, 
-journal={Science}, 
-author={Ju, Long and Wang, Lei and Cao, Ting and Taniguchi, Takashi and Watanabe, Kenji and Louie, Steven G. and Rana, Farhan and Park, Jiwoong and Hone, James and Wang, Feng and McEuen, Paul L.}, 
-year={2017}, 
-pages={907–910}}
+	title={Tunable Excitons in Bilayer Graphene}, 
+	volume={358}, 
+	DOI={10.1126/science.aam9175}, 
+	abstractNote={Excitons—bound pairs of Electron and holes in solids—can be harnessed for optoElectronic Applications. Being able to tune the Exciton energy would bring functional flexibility to such Devices. Although Tunable Excitons have been predicted to form in Bilayer Graphene, observing them Experimentally has been difficult. Ju et al. used High-quality Bilayer Graphene samples sandwiched between Layers of Hexagonal Boron Nitride to observe Excitons in this Material. Exciton energy was tuned across a large range by controlling the gate voltages. Science, this issue p. 907 Photocurrent spectroscopy is used to observe Excitons in High-quality Bilayer Graphene samples. Excitons, the bound states of an Electron and a hole in a solid Material, play a key role in the Optical Properties of insulators and Semiconductors. Here, we report the observation of Excitons in Bilayer Graphene (BLG) Using photocurrent spectroscopy of High-quality BLG encapsulated in Hexagonal Boron Nitride. We observed two prominent Excitonic resonances with narrow line widths that are Tunable from the mid-infrared to the terahertz range. These Excitons obey Optical Selection Rules distinct from those in conventional Semiconductors and feature an Electron pseudoSpin winding number of 2. An external Magnetic Field induces a large splitting of the valley Excitons, corresponding to a g-Factor of about 20. These findings open up opportunities to explore Exciton physics with pseudoSpin texture in Electrically Tunable Graphene Systems.}, 
+	number={6365}, 
+	journal={Science}, 
+	author={Ju, Long and Wang, Lei and Cao, Ting and Taniguchi, Takashi and Watanabe, Kenji and Louie, Steven G. and Rana, Farhan and Park, Jiwoong and Hone, James and Wang, Feng and McEuen, Paul L.}, 
+	year={2017}, 
+	pages={907--910}}
 
 @article{Henriques_PRB2022,
-title = {Absorption and Optical Selection Rules of Tunable Excitons in Biased Bilayer Graphene},
-author = {Henriques, J. C. G. and Epstein, Itai and Peres, N. M. R.},
-journal = {Phys. Rev. B},
-volume = {105},
-issue = {4},
-pages = {045411},
-numpages = {9},
-year = {2022},
-doi = {10.1103/PhysRevB.105.045411}}
+	title = {Absorption and Optical Selection Rules of Tunable Excitons in Biased Bilayer Graphene},
+	author = {Henriques, J. C. G. and Epstein, Itai and Peres, N. M. R.},
+	journal = {Phys. Rev. B},
+	volume = {105},
+	issue = {4},
+	pages = {045411},
+	numpages = {9},
+	year = {2022},
+	doi = {10.1103/PhysRevB.105.045411}}
 
 @article{basov_nanoph10,
-author = {Basov, D.~N. and {Asenjo-Garcia}, A. and Schuck, P.~J. and
-Zhu, X. and Rubio, A.},
-title = {Polariton Panorama},
-journal = {NanoPhotonics},
-volume = {10},
-number = {1},
-pages = {549--577},
-year = {2021},
-doi = {10.1515/nanoph-2020-0449}}
+	author = {Basov, D.~N. and {Asenjo-Garcia}, A. and Schuck, P.~J. and
+	Zhu, X. and Rubio, A.},
+	title = {Polariton Panorama},
+	journal = {NanoPhotonics},
+	volume = {10},
+	number = {1},
+	pages = {549--577},
+	year = {2021},
+	doi = {10.1515/nanoph-2020-0449}}
 
 @article{Basov_Garcia_de_Abajo_2016,
-title={Polaritons in van der Waals materials},
-volume={354},
-ISSN={0036-8075, 1095-9203},
-DOI={10.1126/science.aag1992},
-number={6309},
-journal={Science},
-author={Basov, D. N. and Fogler, M. M. and García de Abajo, F. J.},
-year={2016},
-month={10},
-pages={aag1992}}
+	title={Polaritons in van der Waals materials},
+	volume={354},
+	ISSN={0036-8075, 1095-9203},
+	DOI={10.1126/science.aag1992},
+	number={6309},
+	journal={Science},
+	author={Basov, D. N. and Fogler, M. M. and García de Abajo, F. J.},
+	year={2016},
+	month={10},
+	pages={aag1992}}
 
 @article{Ivchenko_2021,
-title = {Sommerfeld Enhancement Factor in Two-Dimensional {Dirac} Materials},
-author = {Leppenen, N. V. and Golub, L. E. and Ivchenko, E. L.},
-journal = {Phys. Rev. B},
-volume = {103},
-issue = {23},
-pages = {235311},
-numpages = {9},
-year = {2021},
-month = {6},
-publisher = {American Physical Society},
-doi = {10.1103/PhysRevB.103.235311},
-url = {https://link.aps.org/doi/10.1103/PhysRevB.103.235311}
-}
+	title = {Sommerfeld Enhancement Factor in Two-Dimensional {Dirac} Materials},
+	author = {Leppenen, N. V. and Golub, L. E. and Ivchenko, E. L.},
+	journal = {Phys. Rev. B},
+	volume = {103},
+	issue = {23},
+	pages = {235311},
+	numpages = {9},
+	year = {2021},
+	month = {6},
+	publisher = {American Physical Society},
+	doi = {10.1103/PhysRevB.103.235311},
+	url = {https://link.aps.org/doi/10.1103/PhysRevB.103.235311}}
 
 @article{Wolff:2018,
-title = {Modal Expansions in Periodic Photonic Systems with Material Loss and Dispersion},
-author = {Wolff, Christian and Busch, Kurt and Mortensen, N. Asger},
-journal = {Phys. Rev. B},
-volume = {97},
-issue = {10},
-pages = {104203},
-year = {2018},
-doi = {10.1103/PhysRevB.97.104203}}
+	title = {Modal Expansions in Periodic Photonic Systems with Material Loss and Dispersion},
+	author = {Wolff, Christian and Busch, Kurt and Mortensen, N. Asger},
+	journal = {Phys. Rev. B},
+	volume = {97},
+	issue = {10},
+	pages = {104203},
+	year = {2018},
+	doi = {10.1103/PhysRevB.97.104203}}
 
 @article{Bludov_primer,
-author = {BLudov, YU. V. and Ferreira, Aires and Peres, N. M. R. and Vasilevskiy, M. I.},
-title = {A PRIMER ON SURFACE PLASMON-POLARITONS IN GRAPHENE},
-journal = {Int. J. Mod. Phys. B},
-volume = {27},
-number = {10},
-pages = {1341001},
-year = {2013},
-doi = {10.1142/S0217979213410014}}
+	author = {Bludov, YU. V. and Ferreira, Aires and Peres, N. M. R. and Vasilevskiy, M. I.},
+	title = {A PRIMER ON SURFACE PLASMON-POLARITONS IN GRAPHENE},
+	journal = {Int. J. Mod. Phys. B},
+	volume = {27},
+	number = {10},
+	pages = {1341001},
+	year = {2013},
+	doi = {10.1142/S0217979213410014}}
 
  @article{Dielectric_Genome, 
- title={Dielectric Genome of van der Waals Heterostructures}, 
- volume={15}, 
- ISSN={1530-6984}, 
- DOI={10.1021/acs.nanolett.5b01251}, 
- abstractNote={Vertical stacking of two-dimensional (2D) crystals, such as graphene and hexagonal boron nitride, has recently lead to a new class of materials known as van der Waals heterostructures (vdWHs) with unique and highly tunable electronic properties. Ab initio calculations should in principle provide a powerful tool for modeling and guiding the design of vdWHs, but in their traditional form such calculations are only feasible for commensurable structures with a few layers. Here we show that the dielectric properties of realistic, incommensurable vdWHs comprising hundreds of layers can be efficiently calculated using a multiscale approach where the dielectric functions of the individual layers (the dielectric building blocks) are computed ab initio and coupled together via the long-range Coulomb interaction. We use the method to illustrate the 2D–3D transition of the dielectric function of multilayer MoS2 crystals, the hybridization of quantum plasmons in thick graphene/hBN heterostructures, and to demonstrate the intricate effect of substrate screening on the non-Rydberg exciton series in supported WS2. The dielectric building blocks for a variety of 2D crystals are available in an open database together with the software for solving the coupled electrodynamic equations.},
- number={7},
- journal={Nano Letters},
- publisher={American Chemical Society},
- author={Andersen, Kirsten and Latini, Simone and Thygesen, Kristian S.},
- year={2015},
- month=jul,
- pages={4616–4621}}
+	title={Dielectric Genome of van der Waals Heterostructures}, 
+	volume={15}, 
+	ISSN={1530-6984}, 
+	DOI={10.1021/acs.nanolett.5b01251}, 
+	abstractNote={Vertical stacking of two-dimensional (2D) crystals, such as graphene and hexagonal boron nitride, has recently lead to a new class of materials known as van der Waals heterostructures (vdWHs) with unique and highly tunable electronic properties. Ab initio calculations should in principle provide a powerful tool for modeling and guiding the design of vdWHs, but in their traditional form such calculations are only feasible for commensurable structures with a few layers. Here we show that the dielectric properties of realistic, incommensurable vdWHs comprising hundreds of layers can be efficiently calculated using a multiscale approach where the dielectric functions of the individual layers (the dielectric building blocks) are computed ab initio and coupled together via the long-range Coulomb interaction. We use the method to illustrate the 2D--3D transition of the dielectric function of multilayer MoS2 crystals, the hybridization of quantum plasmons in thick graphene/hBN heterostructures, and to demonstrate the intricate effect of substrate screening on the non-Rydberg exciton series in supported WS2. The dielectric building blocks for a variety of 2D crystals are available in an open database together with the software for solving the coupled electrodynamic equations.},
+	number={7},
+	journal={Nano Letters},
+	publisher={American Chemical Society},
+	author={Andersen, Kirsten and Latini, Simone and Thygesen, Kristian S.},
+	year={2015},
+	month=jul,
+	pages={4616--4621}}
 
 @article{Marzari_2012,
 	title = {Maximally localized Wannier functions: Theory and applications},
@@ -417,7 +416,7 @@ doi = {10.1142/S0217979213410014}}
 	author={Datta, Shouvik and Marie, Xavier},
 	year={2024},
 	month={9},
-	pages={852–861} }
+	pages={852--861} }
 
 @article{Nematiaram_Padula_Troisi_2021,
 	title={Bright Frenkel Excitons in Molecular Crystals: A Survey},
@@ -430,7 +429,7 @@ doi = {10.1142/S0217979213410014}}
 	author={Nematiaram, Tahereh and Padula, Daniele and Troisi, Alessandro},
 	year={2021},
 	month={5},
-	pages={3368–3378}
+	pages={3368--3378}
 }
 
 @article{Giustino_2017,
@@ -478,6 +477,36 @@ doi = {10.1142/S0217979213410014}}
 	eprint = {https://pubs.aip.org/aip/jcp/article-pdf/doi/10.1063/1.2360270/13714369/164705_1_online.pdf},
 }
 
+@article{Wang_Berkelbach_2021,
+	title={Absorption Spectra of Solids from Periodic Equation-of-Motion Coupled-Cluster Theory},
+	volume={17},
+	ISSN={1549-9618},
+	DOI={10.1021/acs.jctc.1c00692},
+	abstractNote={We present ab initio absorption spectra of six three-dimensional semiconductors and insulators calculated using Gaussian-based periodic equation-of-motion coupled-cluster theory with single and double excitations (EOM-CCSD). The spectra are calculated efficiently by solving a system of linear equations at each frequency, giving access to an energy range of tens of electronvolts without explicit enumeration of excited states. We assess the impact of cost-saving approximations associated with Brillouin zone sampling, frozen orbitals, and the partitioned EOM-CCSD approximation. Although our most converged spectra exhibit line shapes that are in good agreement with experimental spectra, they are uniformly shifted to higher energies by about 1 eV, which is not explained by the remaining finite-size errors. We tentatively attribute this discrepancy to a combination of vibrational effects and the remaining electron correlation, i.e., triple excitations and above.},
+	number={10},
+	journal={Journal of Chemical Theory and Computation},
+	publisher={American Chemical Society},
+	author={Wang, Xiao and Berkelbach, Timothy C.},
+	year={2021},
+	month={10},
+	pages={6387--6394}}
+
+@article{Koutserimpas_2024,
+	author = {Theodoros T. Koutserimpas and Francesco Monticone},
+	journal = {Opt. Mater. Express},
+	keywords = {Indium tin oxide; Material properties; Optical materials; Optical properties; Transparent conducting oxides; Wave propagation},
+	number = {5},
+	pages = {1222--1236},
+	publisher = {Optica Publishing Group},
+	title = {Time-varying media, dispersion, and the principle of causality \[Invited\]},
+	volume = {14},
+	month = {5},
+	year = {2024},
+	url = {https://opg.optica.org/ome/abstract.cfm?URI=ome-14-5-1222},
+	doi = {10.1364/OME.515957},
+	abstract = {The article reviews general properties of time-varying dispersive materials. We first briefly discuss different dispersion models that have been proposed in the literature, the role of the causality principle, and the generalization of the Kramers-Kronig relations for the susceptibility of linear time-dependent media. Furthermore, we discuss the Kramers-Kronig-like relations for nonlinear optical processes, with a focus on those processes that may be used to realize strong and fast temporal modulations at optical frequencies to enable, for instance, photonic time-crystal phenomena.},
+}
+
 %----------------------
 %OLDER REFERENCES
 %----------------------
@@ -521,7 +550,7 @@ doi = {10.1142/S0217979213410014}}
 	publisher={American Physical Society},
 	author={Wannier, Gregory H.},
 	year={1937},
-	pages={191–197}}
+	pages={191--197}}
 
 @article{Mott_Littleton_1938,
 	title={Conduction in polar crystals. I. Electrolytic conduction in solid salts},
@@ -531,7 +560,7 @@ doi = {10.1142/S0217979213410014}}
 	journal={Trans. Faraday Soc.},
 	publisher={The Royal Society of Chemistry},
 	author={Mott, N. F. and Littleton, M. J.},
-	year={1938}, pages={485–499}}
+	year={1938}, pages={485--499}}
 
 @article{Mott_1938_II,
 	title={Conduction in polar crystals. II. The conduction band and ultra-violet absorption of alkali-halide crystals},
@@ -542,7 +571,7 @@ doi = {10.1142/S0217979213410014}}
 	publisher={The Royal Society of Chemistry},
 	author={Mott, N. F.},
 	year={1938},
-	pages={500–506} }
+	pages={500--506} }
 
 @article{Mott_1938_III,
   title={On the absorption of light by crystals},
@@ -553,6 +582,21 @@ doi = {10.1142/S0217979213410014}}
   pages={384--391},
   year={1938},
   publisher={The Royal Society London}
+}
+
+@article{Nozieres_Pines_1958,
+  title = {Electron Interaction in Solids. Collective Approach to the Dielectric Constant},
+  author = {Nozi\`eres, Philippe and Pines, David},
+  journal = {Phys. Rev.},
+  volume = {109},
+  issue = {3},
+  pages = {762--777},
+  numpages = {0},
+  year = {1958},
+  month = {2},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRev.109.762},
+  url = {https://link.aps.org/doi/10.1103/PhysRev.109.762}
 }
 
 @article{Knox_Inchauspe_1959,
@@ -624,7 +668,7 @@ doi = {10.1142/S0217979213410014}}
 	publisher={American Physical Society},
 	author={Pines, David and Bohm, David},
 	year={1952},
-	pages={338–353} }
+	pages={338--353} }
 
 @article{Levinson_aluminum,
 	title = {Experimental band structure of aluminum},
@@ -666,8 +710,23 @@ doi = {10.1142/S0217979213410014}}
 	doi = {10.1103/PhysRevB.34.5390}
 }
 
+@article{Cardona_1987,
+  title = {Temperature dependence of the dielectric function and interband critical points in silicon},
+  author = {Lautenschlager, P. and Garriga, M. and Vina, L. and Cardona, M.},
+  journal = {Phys. Rev. B},
+  volume = {36},
+  issue = {9},
+  pages = {4821--4830},
+  numpages = {0},
+  year = {1987},
+  month = {9},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevB.36.4821},
+  url = {https://link.aps.org/doi/10.1103/PhysRevB.36.4821}
+}
+
 @article{Hirata_1999,
-	title = {Time-dependent density functional theory within the Tamm–Dancoff approximation},
+	title = {Time-dependent density functional theory within the Tamm--Dancoff approximation},
 	journal = {Chemical Physics Letters},
 	volume = {314},
 	number = {3},
@@ -677,7 +736,7 @@ doi = {10.1142/S0217979213410014}}
 	doi = {https://doi.org/10.1016/S0009-2614(99)01149-5},
 	url = {https://www.sciencedirect.com/science/article/pii/S0009261499011495},
 	author = {So Hirata and Martin Head-Gordon},
-	abstract = {A computationally simple method for molecular excited states, namely, the Tamm–Dancoff approximation to time-dependent density functional theory, is proposed and implemented. This method yields excitation energies for several closed- and open-shell molecules that are essentially of the same quality as those obtained from time-dependent density functional theory itself, when the same exchange-correlation functional is used.}
+	abstract = {A computationally simple method for molecular excited states, namely, the Tamm--Dancoff approximation to time-dependent density functional theory, is proposed and implemented. This method yields excitation energies for several closed- and open-shell molecules that are essentially of the same quality as those obtained from time-dependent density functional theory itself, when the same exchange-correlation functional is used.}
 }
 
  @article{Hohenberg_Kohn_1964,
@@ -713,7 +772,7 @@ doi = {10.1142/S0217979213410014}}
 	author={Laporte, P. and Subtil, J. L. and Reininger, R. and Saile, V. and Steinberger, I. T.},
 	year={1985},
 	month=dec,
-	pages={525–528}
+	pages={525--528}
 }
 
 @article{2D_Hydrogen_atom_1991,
@@ -755,7 +814,16 @@ doi = {10.1142/S0217979213410014}}
 	journal={Physical Review Letters},
 	author={Perdew, John P.},
 	year={1996},
-	pages={3865–3868} }
+	pages={3865--3868} }
+
+@incollection{keldysh2024coulomb,
+  title={Coulomb interaction in thin semiconductor and semimetal films},
+  author={Keldysh, Leonid Veniaminovich},
+  booktitle={Selected Papers of Leonid V Keldysh},
+  pages={155--158},
+  year={2024},
+  publisher={World Scientific}
+}
 
 %----------------------
 %EXPERIMENTAL
@@ -781,7 +849,7 @@ doi = {10.1142/S0217979213410014}}
 	volume={9},
 	ISSN={2195-1071},
 	DOI={10.1002/adom.202101305},
-	abstractNote={Charge doping of materials with 2D and 3D quantum confinement is a flexible tool to tailor their excitonic emission. Here, using electron doping experiments on transition metal dichalcogenide (TMD) monolayers, reversible tuning of charged exciton emission within a redshift of up to 75 meV is demonstrated by applying very modest voltages (corresponding roughly to the band gap of TMDs), while also controlling the radiative lifetime and intensity. It is found that the neutral exciton ionization dynamics at increasing electron doping follows the Fermi–Dirac distribution, which allows to determine the size of the band gap as well as to extract experimental values for effective masses of electrons and holes at room temperature. The tunable excitonic emission, preserving coherence at room temperature, holds great promise for quantum technologies requiring deterministic coupling with integrated photonic and plasmonic devices.},
+	abstractNote={Charge doping of materials with 2D and 3D quantum confinement is a flexible tool to tailor their excitonic emission. Here, using electron doping experiments on transition metal dichalcogenide (TMD) monolayers, reversible tuning of charged exciton emission within a redshift of up to 75 meV is demonstrated by applying very modest voltages (corresponding roughly to the band gap of TMDs), while also controlling the radiative lifetime and intensity. It is found that the neutral exciton ionization dynamics at increasing electron doping follows the Fermi--Dirac distribution, which allows to determine the size of the band gap as well as to extract experimental values for effective masses of electrons and holes at room temperature. The tunable excitonic emission, preserving coherence at room temperature, holds great promise for quantum technologies requiring deterministic coupling with integrated photonic and plasmonic devices.},
 	number={22},
 	journal={Advanced Optical Materials},
 	author={Morozov, Sergii and Wolff, Christian and Mortensen, N. Asger},
@@ -801,7 +869,7 @@ doi = {10.1142/S0217979213410014}}
 	author={Sun, Zhiyuan and Gutiérrez-Rubio, Á. and Basov, D. N. and Fogler, M. M.},
 	year={2015},
 	month={7},
-	pages={4455–4460} }
+	pages={4455--4460} }
 
 @article{Christy_1972,
 	title = {Optical Constants of the Noble Metals},
@@ -834,6 +902,65 @@ doi = {10.1142/S0217979213410014}}
 	pages={2639},
 	language={en} }
 
+@article{Chernikov_2014,
+	title = {Exciton Binding Energy and Nonhydrogenic Rydberg Series in Monolayer ${\mathrm{WS}}_{2}$},
+	author = {Chernikov, Alexey and Berkelbach, Timothy C. and Hill, Heather M. and Rigosi, Albert and Li, Yilei and Aslan, Burak and Reichman, David R. and Hybertsen, Mark S. and Heinz, Tony F.},
+	journal = {Phys. Rev. Lett.},
+	volume = {113},
+	issue = {7},
+	pages = {076802},
+	numpages = {5},
+	year = {2014},
+	month = {8},
+	publisher = {American Physical Society},
+	doi = {10.1103/PhysRevLett.113.076802},
+	url = {https://link.aps.org/doi/10.1103/PhysRevLett.113.076802}
+}
+
+ @article{Kinsler_2021,
+	title={A new introduction to spatial dispersion: Reimagining the basic concepts},
+	volume={43},
+	ISSN={1569-4410},
+	DOI={https://doi.org/10.1016/j.photonics.2021.100897},
+	abstractNote={I describe three ways that the spatial properties of a wave propagation medium can cause dispersion, and propose that they should form the basics for correctly understanding and naming phenomena described as “spatial dispersion”. In particular, I emphasise the specific spatial properties which generate the resulting dispersive, i.e., spatially dispersive behaviour. The properties are geometry, structure, and dynamics.}, 
+	journal={Photonics and Nanostructures - Fundamentals and Applications},
+	author={Kinsler, Paul},
+	year={2021},
+	pages={100897}}
+
+@article{Sloan_Rivera_Joannopoulos_Soljacic_2024,
+	title={Optical Properties of Dispersive Time-Dependent Materials},
+	volume={11},
+	DOI={10.1021/acsphotonics.3c00773},
+	number={3},
+	journal={ACS Photonics},
+	publisher={American Chemical Society},
+	author={Sloan, Jamison and Rivera, Nicholas and Joannopoulos, John D. and Soljacic, Marin},
+	year={2024},
+	month={3},
+	pages={950--962}
+}
+
+@book{Palik_1991,
+	author={Palik, Edward D.},
+	title={Handbook of Optical Constants of Solids},
+	ISBN={9780125444156},
+	publisher={Academic Press},
+	year={1991},
+	volume={2},
+	url={https://www.sciencedirect.com/book/9780125444156/handbook-of-optical-constants-of-solids},
+	abstractNote={This set of five volumes, four volumes edited by Edward D. Palik and a volume by Gorachand Ghosh, is a unique resource for any science and technology},
+	journal={ScienceDirect}}
+
+@article{Logothetidis_Petalas_1996,
+	title={Dielectric function and reflectivity of 3C--silicon carbide and the component perpendicular to the c axis of 6H--silicon carbide in the energy region 1.5--9.5 eV}, volume={80}, ISSN={0021-8979}, DOI={10.1063/1.362975}, abstractNote={The optical properties of commercially available 3C‐ and 6H‐SiC single crystals were studied in the energy region 1.5--9.5 eV with conventional and synchrotron‐radiation spectroscopic ellipsometry. The surface perfection of the materials was investigated by transmission electron and atomic force microscopies. The calculated values for the effective and static dielectric functions were higher than those found in the literature. This is consistent with the fine structure and absolute values of the corresponding reflectance spectra, which were higher than those reported in other studies. The dispersion of the refractive indices in the energy region below and above the indirect gap is determined and can be used as reference and for the design and analysis of semiconductor structures and devices.},
+	number={3},
+	journal={Journal of Applied Physics},
+	author={Logothetidis, S. and Petalas, J.},
+	year={1996},
+	month={8},
+	pages={1768--1772} }
+
 %----------------------
 %MATERIALS
 %----------------------
@@ -851,7 +978,7 @@ doi = {10.1142/S0217979213410014}}
 	publisher={American Association for the Advancement of Science},
 	author={Novoselov, K. S. and Geim, A. K. and Morozov, S. V. and Jiang, D. and Zhang, Y. and Dubonos, S. V. and Grigorieva, I. V. and Firsov, A. A.},
 	year={2004},
-	pages={666–669} }
+	pages={666--669} }
 
 % hBN
 @article{Caldwell_2019,
@@ -867,7 +994,7 @@ doi = {10.1142/S0217979213410014}}
 	author={Caldwell, Joshua D. and Aharonovich, Igor and Cassabois, Guillaume and Edgar, James H. and Gil, Bernard and Basov, D. N.},
 	year={2019},
 	month=aug,
-	pages={552–567},
+	pages={552--567},
 	language={en}}
 
 @article{Brown_Davanco_2018,
@@ -880,7 +1007,7 @@ doi = {10.1142/S0217979213410014}}
 	journal={Nano Letters},
 	publisher={American Chemical Society},
 	author={Brown, Lisa V. and Davanco, Marcelo and Sun, Zhiyuan and Kretinin, Andrey and Chen, Yiguo and Matson, Joseph R. and Vurgaftman, Igor and Sharac, Nicholas and Giles, Alexander J. and Fogler, Michael M. and Taniguchi, Takashi and Watanabe, Kenji and Novoselov, Kostya S. and Maier, Stefan A. and Centrone, Andrea and Caldwell, Joshua D.},
-	year={2018}, month=mar, pages={1628–1636}}
+	year={2018}, month=mar, pages={1628--1636}}
 
 @article{Dai_Fang_2019,
 	title={Phonon Polaritons in Monolayers of Hexagonal Boron Nitride},
@@ -888,7 +1015,7 @@ doi = {10.1142/S0217979213410014}}
 	rights={© 2019 WILEY-VCH Verlag GmbH & Co. KGaA, Weinheim},
 	ISSN={1521-4095},
 	DOI={10.1002/adma.201806603},
-	abstractNote={Phonon polaritons in van der Waals materials reveal significant confinement accompanied with long propagation length: important virtues for tasks pertaining to the control of light and energy flow at the nanoscale. While previous studies of phonon polaritons have relied on relatively thick samples, here reported is the first observation of surface phonon polaritons in single atomic layers and bilayers of hexagonal boron nitride (hBN). Using antenna-based near-field microscopy, propagating surface phonon polaritons in mono- and bilayer hBN microcrystals are imaged. Phonon polaritons in monolayer hBN are confined in a volume about one million times smaller than the free-space photons. Both the polariton dispersion and their wavelength–thickness scaling law are altered compared to those of hBN bulk counterparts. These changes are attributed to phonon hardening in monolayer-thick crystals. The data reported here have bearing on applications of polaritons in metasurfaces and ultrathin optical elements.},
+	abstractNote={Phonon polaritons in van der Waals materials reveal significant confinement accompanied with long propagation length: important virtues for tasks pertaining to the control of light and energy flow at the nanoscale. While previous studies of phonon polaritons have relied on relatively thick samples, here reported is the first observation of surface phonon polaritons in single atomic layers and bilayers of hexagonal boron nitride (hBN). Using antenna-based near-field microscopy, propagating surface phonon polaritons in mono- and bilayer hBN microcrystals are imaged. Phonon polaritons in monolayer hBN are confined in a volume about one million times smaller than the free-space photons. Both the polariton dispersion and their wavelength--thickness scaling law are altered compared to those of hBN bulk counterparts. These changes are attributed to phonon hardening in monolayer-thick crystals. The data reported here have bearing on applications of polaritons in metasurfaces and ultrathin optical elements.},
 	number={37},
 	journal={Advanced Materials},
 	author={Dai, Siyuan and Fang, Wenjing and Rivera, Nicholas and Stehle, Yijing and Jiang, Bor-Yuan and Shen, Jialiang and Tay, Roland Yingjie and Ciccarino, Christopher J. and Ma, Qiong and Rodan-Legrain, Daniel and Jarillo-Herrero, Pablo and Teo, Edwin Hang Tong and Fogler, Michael M. and Narang, Prineha and Kong, Jing and Basov, Dimitri N.},
@@ -902,7 +1029,7 @@ doi = {10.1142/S0217979213410014}}
 	rights={2020 The Author(s), under exclusive licence to Springer Nature Limited},
 	ISSN={1476-4660},
 	DOI={10.1038/s41563-020-0763-z},
-	abstractNote={Phonon polaritons enable light confinement at deep subwavelength scales, with potential technological applications, such as subdiffraction imaging, sensing and engineering of spontaneous emission. However, the trade-off between the degree of confinement and the excitation efficiency of phonon polaritons prevents direct observation of these modes in monolayer hexagonal boron nitride (h-BN), where they are expected to reach ultrahigh confinement. Here, we use monochromatic electron energy-loss spectroscopy (about 7.5 meV energy resolution) in a scanning transmission electron microscope to measure phonon polaritons in monolayer h-BN, directly demonstrating the existence of these modes as the phonon Reststrahlen band (RS) disappears. We find phonon polaritons in monolayer h-BN to exhibit high confinement (>487 times smaller wavelength than that of light in free space) and ultraslow group velocity down to about 10−5c. The large momentum compensation provided by electron beams additionally allows us to excite phonon polaritons over nearly the entire RS band of multilayer h-BN. These results open up a broad range of opportunities for the engineering of metasurfaces and strongly enhanced light–matter interactions.},
+	abstractNote={Phonon polaritons enable light confinement at deep subwavelength scales, with potential technological applications, such as subdiffraction imaging, sensing and engineering of spontaneous emission. However, the trade-off between the degree of confinement and the excitation efficiency of phonon polaritons prevents direct observation of these modes in monolayer hexagonal boron nitride (h-BN), where they are expected to reach ultrahigh confinement. Here, we use monochromatic electron energy-loss spectroscopy (about 7.5 meV energy resolution) in a scanning transmission electron microscope to measure phonon polaritons in monolayer h-BN, directly demonstrating the existence of these modes as the phonon Reststrahlen band (RS) disappears. We find phonon polaritons in monolayer h-BN to exhibit high confinement (>487 times smaller wavelength than that of light in free space) and ultraslow group velocity down to about 10−5c. The large momentum compensation provided by electron beams additionally allows us to excite phonon polaritons over nearly the entire RS band of multilayer h-BN. These results open up a broad range of opportunities for the engineering of metasurfaces and strongly enhanced light--matter interactions.},
 	number={1},
 	journal={Nature Materials},
 	publisher={Nature Publishing Group},
@@ -940,6 +1067,30 @@ doi = {10.1142/S0217979213410014}}
 	year={2016},
 	month={4},
 	pages={262--266}}
+
+% TMDs
+@article{Manzeli_Ovchinnikov_Pasquier_Yazyev_Kis_2017,
+	title={2D transition metal dichalcogenides},
+	volume={2},
+	rights={2017 Macmillan Publishers Limited},
+	ISSN={2058-8437},DOI={10.1038/natrevmats.2017.33},
+	abstractNote={Graphene is very popular because of its many fascinating properties, but its lack of an electronic bandgap has stimulated the search for 2D materials with semiconducting character. Transition metal dichalcogenides (TMDCs), which are semiconductors of the type MX2, where M is a transition metal atom (such as Mo or W) and X is a chalcogen atom (such as S, Se or Te), provide a promising alternative. Because of its robustness, MoS2 is the most studied material in this family. TMDCs exhibit a unique combination of atomic-scale thickness, direct bandgap, strong spin--orbit coupling and favourable electronic and mechanical properties, which make them interesting for fundamental studies and for applications in high-end electronics, spintronics, optoelectronics, energy harvesting, flexible electronics, DNA sequencing and personalized medicine. In this Review, the methods used to synthesize TMDCs are examined and their properties are discussed, with particular attention to their charge density wave, superconductive and topological phases. The use of TMCDs in nanoelectronic devices is also explored, along with strategies to improve charge carrier mobility, high frequency operation and the use of strain engineering to tailor their properties.}, number={8}, journal={Nature Reviews Materials}, publisher={Nature Publishing Group},
+	author={Manzeli, Sajedeh and Ovchinnikov, Dmitry and Pasquier, Diego and Yazyev, Oleg V. and Kis, Andras},
+	year={2017},
+	month={10},
+	pages={17033},
+	language={en}}
+
+@article{Singh_Kumar_Late_Kumar_Patel_Singh_2018,
+	title={2D layered transition metal dichalcogenides (MoS2): Synthesis, applications and theoretical aspects},
+	volume={13},
+	ISSN={2352-9407},
+	DOI={https://doi.org/10.1016/j.apmt.2018.09.003},
+	abstractNote={Recently, graphene and other two-dimensional (2D) transition metal dichalcogenides (TMDCs) have been widely explored due to their unique optical, mechanical, electrical and sensing properties for versatile electronic and optoelectronic applications. The atomically thin layers of TMDC materials have shown potential to replace state-of-the-art silicon-based technology. Graphene has already revealed an excess of new physics and multifaceted applications in several areas. Similarly, mono-layers of TMDCs such as molybdenum disulfide (MoS2) have also shown excellent electrical and optical properties possessing a direct band-gap of ∼1.8eV combined with high mechanical flexibility. In contrast to semi-metallic graphene, the semiconducting behavior of MoS2 allows it to overcome the deficiencies of zero-band-gap graphene. This review summarizes the synthesis of 2D MoS2 by several techniques, i.e., mechanical and chemical exfoliation, RF-sputtering, atomic layer deposition (ALD) and chemical vapor deposition (CVD), etc. Furthermore, extensive studies based on potential applications of MoS2 such as the sensor, solar cells, field emission and as an efficient catalyst for hydrogen generation has been included. Theoretical aspects combined with the experimental observations to provide more insights on the dielectric, optical and topological behavior of MoS2 was highlighted.},
+	journal={Applied Materials Today},
+	author={Singh, Arun Kumar and Kumar, P. and Late, D. J. and Kumar, Ashok and Patel, S. and Singh, Jai},
+	year={2018},
+	pages={242--270}}
 
 %----------------------
 %TEXTBOOKS
@@ -1292,7 +1443,7 @@ doi = {10.1142/S0217979213410014}}
 @book{Andre_Goncalves_2020,
 	address={Cham},
 	series={Springer Theses},
-	title={Plasmonics and Light–Matter Interactions in Two-Dimensional Materials and in Metal Nanostructures: Classical and Quantum Considerations},
+	title={Plasmonics and Light--Matter Interactions in Two-Dimensional Materials and in Metal Nanostructures: Classical and Quantum Considerations},
 	rights={http://www.springer.com/tdm},
 	DOI={10.1007/978-3-030-38291-9},
 	publisher={Springer International Publishing},
@@ -1304,7 +1455,7 @@ doi = {10.1142/S0217979213410014}}
 @book{Ellie_2024,
 	address={Cham},
 	series={Springer Theses},
-	title={Strong Light–Matter Interactions in Extreme Plasmonic and Mie-Resonant Systems},
+	title={Strong Light--Matter Interactions in Extreme Plasmonic and Mie-Resonant Systems},
 	rights={https://www.springernature.com/gp/researchers/text-and-data-mining},
 	DOI={10.1007/978-3-031-67907-0},
 	publisher={Springer Nature Switzerland},
@@ -1314,25 +1465,46 @@ doi = {10.1142/S0217979213410014}}
 	language={en} }
 
 @phdthesis{Diana_PhD,
-       author = {{Qiu}, Diana Y.},
-        title = "{Many-body Effects on the Quasiparticle and Optical Properties of Quasi-two-dimensional Systems}",
-     keywords = {Materials science;Condensed matter physics},
-       school = {University of California, Berkeley},
-         year = 2017,
-        month = jan,
-       adsurl = {https://ui.adsabs.harvard.edu/abs/2017PhDT........17Q},
-      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+	author = {{Qiu}, Diana Y.},
+	title = "{Many-body Effects on the Quasiparticle and Optical Properties of Quasi-two-dimensional Systems}",
+	keywords = {Materials science;Condensed matter physics},
+	school = {University of California, Berkeley},
+	year = 2017,
+	month = {1},
+	adsurl = {https://ui.adsabs.harvard.edu/abs/2017PhDT........17Q},
+	adsnote = {Provided by the SAO/NASA Astrophysics Data System}
 }
 
 @phdthesis{Jornada_PhD,
-       author = {{Homrich da Jornada}, Felipe},
-        title = "{Quasiparticle and Optical Properties of Quasi-Two-Dimensional Systems}",
-     keywords = {Physics},
-       school = {University of California, Berkeley},
-         year = 2017,
-        month = jan,
-       adsurl = {https://ui.adsabs.harvard.edu/abs/2017PhDT.......208H},
-      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+	author = {{Homrich da Jornada}, Felipe},
+	title = "{Quasiparticle and Optical Properties of Quasi-Two-Dimensional Systems}",
+	keywords = {Physics},
+	school = {University of California, Berkeley},
+	year = 2017,
+	month = {1},
+	adsurl = {https://ui.adsabs.harvard.edu/abs/2017PhDT.......208H},
+	adsnote = {Provided by the SAO/NASA Astrophysics Data System}
 }
 
+@phdthesis{Alex_PhD,
+	author = {Uría-Álvarez, Alejandro José},
+	title = {Optical excitations and disorder in two-dimensional topological insulators (unpublished)},
+	keywords = {Physics},
+	school = {Universidad Autónoma de Madrid},
+	year = 2025,
+	month = {4}
+}
+
+%----------------------
+%MASTERS THESIS
+%----------------------
+
+@phdthesis{Henriques_thesis,
+	author = {Henriques, João Carlos Gomes},
+	title = {Excitons in two dimensional materials},
+	school = {Universidade do Minho},
+	year = 2021,
+	month = {7}
+	adsurl = {https://repositorium.uminho.pt/entities/publication/5bdcc4ed-d55d-46cf-ac3c-8f0632741ed6}
+}
 
