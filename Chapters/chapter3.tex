@@ -1270,31 +1270,118 @@ Let us then manipulate the same Dyson equation once more, and cast the term in $
 
 \begin{equation}
     \label{eq:full_polarizability_definition}
-    \chi = \frac{\chi^{\irr}}{1 - V_c \chi^{\irr}} = \chi^{\irr} + \chi^{\irr} V_c \chi %\equiv
-    % \begin{tikzpicture}[baseline={([yshift=-0.5ex]current bounding box.center)},vertex/.style={anchor=base, circle,fill=black!25,minimum size=18pt,inner sep=2pt}]
-    %     \def\radius{0.2}
-    %     \def\SigmaShift{4.0}
-    %     \begin{scope}[scale=2,shift={(0,0.0)}]
-    %         \coordinate (a) at (1.,0);
-    %         \coordinate (b) at (1.-2*\radius,0);
-    %         \coordinate (C) at (1.-1.0*\radius,0);
-
-    %         % Bubble diagram
-    %         \fill[gray] (C) circle (\radius);
-    %         \fill (a) circle (1.2pt) coordinate (a);
-    %         \fill (b) circle (1.2pt) coordinate (b);
-
-    %         \draw[line width=0.8mm, postaction={decorate}, decoration={markings,mark=at position .6 with {\arrow[rotate=-15]{latex}}}] (a) arc (0:180:\radius) (b) ;
-    %         \draw[line width=0.8mm, postaction={decorate}, decoration={markings,mark=at position .6 with {\arrow[rotate=-15]{latex}}}] (b) arc (-180:0:\radius) (a) ;
-
-    %         \node [scale = 1.6] at (C) {$\chi$};
-    %     \end{scope}
-    % \end{tikzpicture}\,,
+    \chi = \frac{\chi^{\irr}}{1 - V_c \chi^{\irr}} = \chi^{\irr} + \chi^{\irr} V_c \chi \,,
 \end{equation}
 
-\noindent where the second equality was obtained by multiplying both sides of the first equality by the denominator in the \gls{rhs} and solving for the polarizability $\chi$.%, that is now represented with a thick circumference and a gray background to distinguish it from the reducible one.
-At this stage, no approximation for the polarizability was done.
-In the previous equation, $\chi^{\irr}$ is the irreducible polarizability as per Eq.~\eqref{eq:polarizability_vertex}.
+\begin{equation}
+    \label{eq:full_polarizability_definition}   
+    \begin{tikzpicture}[baseline={([yshift=-0.5ex]current bounding box.center)},vertex/.style={anchor=base, circle,fill=black!25,minimum size=18pt,inner sep=2pt}]
+        \def\radius{0.2}
+        \begin{scope}[scale=2,shift={(0,0.0)}]
+            \coordinate (a) at (1.,0);
+            \coordinate (b) at (1.-2*\radius,0);
+            \coordinate (C) at (1.-1.0*\radius,0);
+
+            % Bubble diagram
+            \fill[gray] (C) circle (\radius);
+            \fill (a) circle (1.2pt) coordinate (a);
+            \fill (b) circle (1.2pt) coordinate (b);
+
+            \draw[line width=0.8mm, postaction={decorate}, decoration={markings,mark=at position .6 with {\arrow[rotate=-15]{latex}}}] (a) arc (0:180:\radius) (b) ;
+            \draw[line width=0.8mm, postaction={decorate}, decoration={markings,mark=at position .6 with {\arrow[rotate=-15]{latex}}}] (b) arc (-180:0:\radius) (a) ;
+
+            \node [scale = 1.6] at (C) {$\chi$};
+        \end{scope}
+    \end{tikzpicture}
+    \equiv
+    \chi = \frac{\chi^{\irr}}{1 - V_c \chi^{\irr}} = \chi^{\irr} + \chi^{\irr} V_c \chi\,,
+    \phantom{\,\chi + \chi V_c}
+\end{equation}
+
+\noindent where on the \gls{lhs} we introduced a new diagram, now for the reducible polarizability $\chi$, and the last equality was obtained by multiplying both sides of the first equality by the denominator in the \gls{rhs} and solving for the polarizability $\chi$.
+At this stage, no approximation for the polarizability was done, so $\chi^{\irr}$ is the (irreducible) polarizability defined by Eq.~\eqref{eq:polarizability_vertex}, with its diagram introduced in Eq.~\eqref{eq:Dyson_equation_W_Feynman}.
+For completeness, we write the diagrammatic Dyson equation relating the two polarizabilities $\chi$ and $\chi^{\irr}$
+
+\begin{equation}
+    \label{eq:Dyson_equation_chi_Feynman}
+    \begin{tikzpicture}[baseline={([yshift=-0.5ex]current bounding box.center)},vertex/.style={anchor=base, circle,fill=black!25,minimum size=18pt,inner sep=2pt}]
+        \def\radius{0.2}
+        \def\SigmaShift{4.0}
+        \begin{scope}[scale=2,shift={(0,0.0)}]
+            \coordinate (a) at (1.,0);
+            \coordinate (b) at (1.-2*\radius,0);
+            \coordinate (C) at (1.-1.0*\radius,0);
+            
+            % Bubble diagram
+            \fill[gray] (C) circle (\radius);
+            \fill (a) circle (1.2pt) coordinate (a);
+            \fill (b) circle (1.2pt) coordinate (b);
+            
+            \draw[line width=0.8mm, postaction={decorate}, decoration={markings,mark=at position .6 with {\arrow[rotate=-15]{latex}}}] (a) arc (0:180:\radius) (b) ;
+            \draw[line width=0.8mm, postaction={decorate}, decoration={markings,mark=at position .6 with {\arrow[rotate=-15]{latex}}}] (b) arc (-180:0:\radius) (a) ;
+            
+            \node [scale = 1.6] at (C) {$\chi$};
+        \end{scope}
+    \end{tikzpicture}
+    =
+    \begin{tikzpicture}[baseline={([yshift=-0.5ex]current bounding box.center)},vertex/.style={anchor=base, circle,fill=black!25,minimum size=18pt,inner sep=2pt}]
+        \def\radius{0.2}
+        \def\SigmaShift{4.0}
+        \begin{scope}[scale=2,shift={(0,0.0)}]
+        % coordinates
+        \coordinate (1) at (0.,0);
+        \coordinate (C) at (\radius,0);
+        \coordinate (2) at (2*\radius,0);
+            
+        % Bubble diagram
+        \fill (1) circle (1.2pt) coordinate (1);
+        \fill (2) circle (1.2pt) coordinate (2);
+        
+        \draw[line width=0.8mm, postaction={decorate}, decoration={markings,mark=at position .6 with {\arrow[rotate=-15]{latex}}}] (2) arc (0:180:\radius) (1) ;
+        \draw[line width=0.8mm, postaction={decorate}, decoration={markings,mark=at position .6 with {\arrow[rotate=-15]{latex}}}] (1) arc (-180:0:\radius) (2) ;
+        
+        \node [scale = 1.6] at (C) {$\chi$};
+        
+        \end{scope}
+    \end{tikzpicture}
++
+    \begin{tikzpicture}[baseline={([yshift=-0.5ex]current bounding box.center)},vertex/.style={anchor=base, circle,fill=black!25,minimum size=18pt,inner sep=2pt}]
+        \def\radius{0.2}
+        \def\SigmaShift{4.0}
+        \begin{scope}[scale=2,shift={(0,0.0)}]
+            \coordinate (a) at (3.,0);
+            \coordinate (C) at (3.-\radius,0);
+            \coordinate (2) at (3-2*\radius,0);
+            \coordinate (1) at (2.-2*\radius,0);
+            \coordinate (C2) at (2.-2*\radius-\radius,0);
+            \coordinate (b) at (2.-2*\radius-2*\radius,0);
+            
+            % Bubble diagram
+            \fill[gray] (C) circle (\radius);
+            \fill (a) circle (1.2pt) coordinate (a);
+            \fill (2) circle (1.2pt) coordinate (2);            
+            
+            \draw[line width=0.8mm, postaction={decorate}, decoration={markings,mark=at position .6 with {\arrow[rotate=-15]{latex}}}] (a) arc (0:180:\radius) (2) ;
+            \draw[line width=0.8mm, postaction={decorate}, decoration={markings,mark=at position .6 with {\arrow[rotate=-15]{latex}}}] (2) arc (-180:0:\radius) (a) ;
+            
+            \node [scale = 1.6] at (C) {$\chi$};
+
+            % bare potential
+            \draw[line width=0.4mm] (2)  decorate [decoration={snake}] {(2) -- (1)} (1);
+
+            % Bubble diagram
+            \fill (1) circle (1.2pt) coordinate (1);
+            \fill (b) circle (1.2pt) coordinate (b);
+            
+            \draw[line width=0.8mm, postaction={decorate}, decoration={markings,mark=at position .6 with {\arrow[rotate=-15]{latex}}}] (1) arc (0:180:\radius) (b) ;
+            \draw[line width=0.8mm, postaction={decorate}, decoration={markings,mark=at position .6 with {\arrow[rotate=-15]{latex}}}] (b) arc (-180:0:\radius) (1) ;
+            
+            \node [scale = 1.6] at (C2) {$\chi$};
+            
+        \end{scope}
+    \end{tikzpicture}
+\end{equation}
+
 Let us now manipulate the inverse dielectric function in Eq.~\eqref{eq:inverse_dielectric_function} above, by reducing both terms in the \gls{rhs} to the same denominator and simplifying to arrive at
 
 \begin{equation}
@@ -1333,8 +1420,9 @@ As an alternative to computing the dielectric function and then inverting it, on
     \chi^\RPA(1,2) = \chi^0(1,2) + \int \dd{3} \dd{4} \, \chi^0(1,3) v_c(3,4) \chi^\RPA(4,2) \,.
 \end{equation}
 
-\noindent We could have written the Dyson equation for the full reducible polarizability in Eq.~\eqref{eq:full_polarizability_definition} in its diagrammatic form, and its \rpa~version stated just above.
-In practice, we do not work with the full reducible polarizability, nor with its \rpa~version for which we would have to introduce another diagram, but that is not necessary for this work.
+\noindent We could have written the Dyson equation for the \rpa~reducible polarizabilities above in a diagrammatic notation.
+However, we do not work with this relationship in practice, and we would need an extra diagram for the \rpa~version of the reducible polarizability.
+At the end, it is only the \rpa~irreducible polarizability $\chi^0$ that we work with, and all the other polarizabilities were introduced for self-contained discussion.
 But if we worked with it, the inverse dielectric function within \rpa~could then be obtained by replacing the reducible polarizability in Eq.~\eqref{eq:dielectric_function_inverse} with its \rpa~form to write
 
 \begin{equation}
