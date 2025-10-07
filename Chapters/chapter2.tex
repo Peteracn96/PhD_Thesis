@@ -48,7 +48,7 @@ These coefficients will allow us to estimate the capacity of the surface in abso
 %        \text{Gauss' law}& & \div \bD &= \rho \label{subeq:Gauss_law} \\
 %        \text{Faraday's law}& & \rot \bE &= -\pdt[\bB] \label{subeq:Faraday_law}\\
 %        \text{Inexistence of magnetic monopoles}& & \div \bB &= 0 \label{subeq:no_magnetic_monopoles}\\
-%        \text{Ampère--Maxwell's law}& & \rot \bH &= \bJ + \pdt[\bD] \label{subeq:Ampere_law}
+%        \text{Amp\`ere--Maxwell's law}& & \rot \bH &= \bJ + \pdt[\bD] \label{subeq:Ampere_law}
 %    \end{align}
 %    \label{eq:Maxwells_equations}
 %\end{subequations}
@@ -60,7 +60,7 @@ The four central equations of classical electrodynamics, which govern the dynami
         \div \bD \left(\br,t\right) &= \rho_\f\left(\br,t\right), &  &\text{Gauss' law}  \label{subeq:Gauss_law} \\
         \rot \bE \left(\br,t\right) &= -\pdt[\bB\left(\br,t\right)], & &\text{Faraday's law}\ \label{subeq:Faraday_law}\\
          \div \bB \left(\br,t\right) &= 0\,, & &\text{Inexistence of magnetic monopoles} \label{subeq:no_magnetic_monopoles}\\
-         \rot \bH\left(\br,t\right) &= \bJ_\f\left(\br,t\right) + \pdt[\bD\left(\br,t\right)]\,. & &\text{Ampère--Maxwell's law} \label{subeq:Ampere_law}
+         \rot \bH\left(\br,t\right) &= \bJ_\f\left(\br,t\right) + \pdt[\bD\left(\br,t\right)]\,. & &\text{Amp\`ere--Maxwell's law} \label{subeq:Ampere_law}
     \end{align}
     \label{eq:Maxwells_equations}
 \end{subequations}
@@ -79,7 +79,7 @@ The free charge and current densities are not independent, as they are related t
     \pdt[\rho_\f] + \div \bJ_\f = 0,
 \end{equation}
 
-\noindent encoding the conservation of free electric charge, which can be seen by taking the divergence of Ampère--Maxwell's law.
+\noindent encoding the conservation of free electric charge, which can be seen by taking the divergence of Amp\`ere--Maxwell's law.
 The free charge and current densities can in turn be split into an external part, which is the one externally applied on the material, and an induced part resulting from the material response to the external perturbation.
 The continuity equation is also verified by the bound charge and bound current densities, and consequently, also by its counterpart total quantities.
 As said above, the fundamental fields $\bE$ and $\bB$ are connected to the fields $\bD$ and $\bH$, respectively, through a set of two equations called constitutive relations given by
@@ -229,7 +229,7 @@ Let us then rewrite Maxwell's equations~\eqref{eq:Maxwells_equations} in recipro
     \end{align}
 \end{subequations}
 
-\noindent and focus on Ampère--Maxwell's law alongside Ohm's law written in its Fourier transformed version as $\bJ_\ind(\bk,\omega) = \sigma(\bk,\omega) \bE(\bk,\omega)$, we can rewrite the last equation as
+\noindent and focus on Amp\`ere--Maxwell's law alongside Ohm's law written in its Fourier transformed version as $\bJ_\ind(\bk,\omega) = \sigma(\bk,\omega) \bE(\bk,\omega)$, we can rewrite the last equation as
 
 \begin{align*}
     \label{subeq:Amperes_law_reciprocal_equivalent}
@@ -427,7 +427,7 @@ We beg then for the reader's patience, as further clarifications will come in th
 Finding a simple enough analytical expression for the dielectric function that encompasses both non-local and dynamical effects is a daunting task, but it can still be done for a couple of cases.
 One striking example is the Lindhard function, the dielectric function for the \gls{3d} homogeneous noninteracting electron gas, named after the Danish physicist Jens Lindhard, who derived the function in 1954~\cite{Lindhard_1954}.
 For the reader more inclined to hydrodynamical and kinetic theories of \bd~materials and plasmas, we refer to Refs.~\cite{Chen_Plasma_Physics,Cosme_2025}, where one can find mesoscopic approaches to the dielectric and plasmonic properties of Dirac materials, for which analytical or semi-analytical expressions for the dielectric function can be found.
-Another thorough text on plasmonic properties of Dirac materials that is worth mentioning is the one by P. A. D. Gon\c{c}alves and N. M. R. Peres, Ref.~\cite{GoncalvesPeres:2016}.
+Another thorough text on plasmonic properties of Dirac materials that is worth mentioning is the one by P.~A.~D.~Gon\c{c}alves and N.~M.~R.~Peres, Ref.~\cite{GoncalvesPeres:2016}.
 Another honorable mention is the hydrodynamic Drude model~\cite{Bloch_1933,Andre_Goncalves_2020,}, a non-local extension of the Drude model from the hydrodynamic equations of motion of the electron gas, seen as a charged fluid moving in the ionic positive background of a metal.
 
 Using only concepts introduced in this chapter, in the next section we turn to a key topic within the realm of electrodynamics that has been gaining traction in the scientific community, pertaining to the interaction of light with matter, still through the lens of classical physics.
@@ -447,7 +447,7 @@ Before doing so, we will warm up by deriving the wave equation for the \gls{em} 
 
 It is well known that light propagates in vacuum at a very specific speed $c=1/\sqrt{\epsz \mu_0}$, like a wave, where the electric field and the magnetic field oscillate in phase at a given frequency, $\omega$, and with a given wavevector $\bk$ giving the direction of propagation.
 The electric field $\bE$, the magnetic field $\bB$ and the wavevector $\bk$ form a direct trihedron, that is, they verify orthogonality conditions akin to the three Cartesian axes.
-These transverse oscillations can be predicted by Maxwell's equations~\eqref{eq:Maxwells_equations} upon taking the cross product between $\bk$ and Faraday's law~\eqref{subeq:Faradays_law_reciprocal} from the left, and doing the same to Ampère--Maxwell's law~\eqref{subeq:Amperes_law_reciprocal} to write
+These transverse oscillations can be predicted by Maxwell's equations~\eqref{eq:Maxwells_equations} upon taking the cross product between $\bk$ and Faraday's law~\eqref{subeq:Faradays_law_reciprocal} from the left, and doing the same to Amp\`ere--Maxwell's law~\eqref{subeq:Amperes_law_reciprocal} to write
 
 \begin{subequations}
     \label{eq:wave_equation}
@@ -552,7 +552,7 @@ So we write
 \end{equation}
 
 \noindent where the lowercase $\mathbf{f}$ is $\mathbf{e}$ in the case of the electric field or $\mathbf{h}$ in the case of the magnetic field, if we factor out the $z$ dependence from the $x$ and $t$ dependences for both fields; the system is $y$ invariant.
-To obtain an equation governing the $z$ dependence, we take the curl of Faraday's law~\eqref{subeq:Faraday_law} and use Ampère--Maxwell's law~\eqref{subeq:Ampere_law}, with both laws in frequency domain.
+To obtain an equation governing the $z$ dependence, we take the curl of Faraday's law~\eqref{subeq:Faraday_law} and use Amp\`ere--Maxwell's law~\eqref{subeq:Ampere_law}, with both laws in frequency domain.
 Furthermore, we work with the total displacement field $\bD$ defined in Section~\ref{subsec:constitutive_relations_linear_response} and with no contribution coming from external currents such that $\bJ = \bzero$. We can then write for the electric field the so-called Helmholtz equation
 
 \begin{equation}
@@ -574,7 +574,7 @@ Replacing the electric field $\bE$ by expression~\eqref{eq:oscillatory_electric_
 \end{equation}
 
 Now what is left is to relate the components of the electric field with the components of the magnetic field.
-This is achieved by using again Faraday's law~\eqref{subeq:Faraday_law}, and Ampère--Maxwell's law~\eqref{subeq:Ampere_law} in frequency domain with no external current sources, but for the uppercase electric field $\bE$ and the magnetic excitation field $\bH$, not the undercase fields dependent only on $z$.
+This is achieved by using again Faraday's law~\eqref{subeq:Faraday_law}, and Amp\`ere--Maxwell's law~\eqref{subeq:Ampere_law} in frequency domain with no external current sources, but for the uppercase electric field $\bE$ and the magnetic excitation field $\bH$, not the undercase fields dependent only on $z$.
 We rewrite those two laws in terms of Cartesian coordinates omitting the frequency dependence in the material's permittivity, using $y$ invariance so that $\partial_y = 0$ and replacing $\partial_x \to \ii q$ to write
 
 %\begin{equation} % no text
@@ -594,9 +594,9 @@ We rewrite those two laws in terms of Cartesian coordinates omitting the frequen
         \partial_z E_y &=-\ii \omega \mu_0 H_x, &  &\text{Faraday's law: $x$ component;}  \label{subeq:Faraday_law_x} \\
         \partial_z E_x-\ii q E_z &=\ii \omega \mu_0 H_y, & &\text{Faraday's law: $y$ component;}\ \label{subeq:Faraday_law_y}\\
         \ii q E_y &=\ii \omega \mu_0 H_z\,, & &\text{Faraday's law: $z$ component;} \label{subeq:Faraday_law_z}\\
-        \partial_z H_y &=\ii \omega \varepsilon_0 \varepsilon E_x\,, & &\text{Ampère--Maxwell's law: $x$ component;} \label{subeq:Ampere_law_x}\\
-        \partial_z H_x-\ii q H_z &=-\ii \omega \varepsilon_0 \varepsilon E_y\,, & &\text{Ampère--Maxwell's law: $y$ component;} \label{subeq:Ampere_law_y}\\
-        \ii q H_y &=-\ii \omega \varepsilon_0 \varepsilon E_z\,, & &\text{Ampère--Maxwell's law: $z$ component.} \label{subeq:Ampere_law_z}
+        \partial_z H_y &=\ii \omega \varepsilon_0 \varepsilon E_x\,, & &\text{Amp\`ere--Maxwell's law: $x$ component;} \label{subeq:Ampere_law_x}\\
+        \partial_z H_x-\ii q H_z &=-\ii \omega \varepsilon_0 \varepsilon E_y\,, & &\text{Amp\`ere--Maxwell's law: $y$ component;} \label{subeq:Ampere_law_y}\\
+        \ii q H_y &=-\ii \omega \varepsilon_0 \varepsilon E_z\,, & &\text{Amp\`ere--Maxwell's law: $z$ component.} \label{subeq:Ampere_law_z}
     \end{align}
     \label{eq:Maxwells_equations_components}
 \end{subequations}
@@ -606,9 +606,9 @@ We rewrite those two laws in terms of Cartesian coordinates omitting the frequen
 %        \text{Faraday's law: $x$ component}, &  &\partial_z E_y &=-\ii \omega \mu_0 H_x\,,  \label{subeq:Faraday_law_x} \\
 %        \text{Faraday's law: $y$ component}, & &\partial_z E_x-\ii q E_z &=\ii \omega \mu_0 H_y\,, \label{subeq:Faraday_law_y}\\
 %        \text{Faraday's law: $z$ component},  & &\ii q E_y &=\ii \omega \mu_0 H_z\,, \label{subeq:Faraday_law_z}\\
-%        \text{Ampère--Maxwell's law: $x$ component}, & &\partial_z H_y &=\ii \omega \varepsilon_0 \varepsilon E_x \label{subeq:Ampere_law_x}\\
-%        \text{Ampère--Maxwell's law: $y$ component}, & &\partial_z H_x-\ii q H_z &=-\ii \omega \varepsilon_0 \varepsilon E_y\,, \label{subeq:Ampere_law_y}\\
-%        \text{Ampère--Maxwell's law: $z$ component}, & &\ii q H_y &=-\ii \omega \varepsilon_0 \varepsilon E_z\,. \label{subeq:Ampere_law_z}
+%        \text{Amp\`ere--Maxwell's law: $x$ component}, & &\partial_z H_y &=\ii \omega \varepsilon_0 \varepsilon E_x \label{subeq:Ampere_law_x}\\
+%        \text{Amp\`ere--Maxwell's law: $y$ component}, & &\partial_z H_x-\ii q H_z &=-\ii \omega \varepsilon_0 \varepsilon E_y\,, \label{subeq:Ampere_law_y}\\
+%        \text{Amp\`ere--Maxwell's law: $z$ component}, & &\ii q H_y &=-\ii \omega \varepsilon_0 \varepsilon E_z\,. \label{subeq:Ampere_law_z}
 %    \end{align}
 %    \label{eq:Maxwells_equations_components}
 %\end{subequations}
