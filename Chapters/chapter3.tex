@@ -52,7 +52,7 @@ We start the chapter by introducing the Schr\"{o}dinger equation, the workhorse 
 Next, we particularize the study to crystals, by writing the full many-body Hamiltonian of a crystal, followed by key approximations to reduce the complexity of the problem.
 Afterwards, we define the concepts of (direct) lattice and reciprocal lattice, and discuss single-particle properties of electrons in periodic solids, such as Bloch states and the band structure; these define the dispersive behavior of electronic waves in materials.
 First-principle methods at the mean-field level, such as \dft, are discussed in brief as well.
-We extend the discussion on first-principle methods to the many-particle description of electrons in solids, provided by the machinery of \gls{mbpt}.
+We extend the discussion on first-principle methods to the many-particle description of electrons in solids, provided by the machinery of \gls{mbpt}\@.
 With all these concepts understood, the reader should be capable of grasping the microscopic dielectric function, reserved for the last section of this chapter.
 The concept of dielectric function, introduced in the previous chapter on a classical footing, will be therein revisited through the lens of quantum mechanics.
 
@@ -350,7 +350,7 @@ In the following subsection, we discuss different methods to calculate the band 
 \label{subsec:electronic_band_structure}
 
 One central problem in condensed matter physics is to calculate the electronic band structure of a given solid material.
-This means calculating all the bands at every point $\bk$ in the \gls{bz}.
+This means calculating all the bands at every point $\bk$ in the \gls{bz}\@.
 An electron in a specific band $n$ with crystal momentum $\bk$ has kinetic energy $\epsilon_{n \bk}$.
 In analogy with optics, we can call the $\bk$ dependence of the energy electronic dispersion, with the wave being now electronic instead of electromagnetic.
 From here onwards, when referring to the band structure $\{\epsilon_{n \bk}\}$, we will always implicitly mean electronic band structure, as there are bands of other kinds (phononic, photonic as we have seen in the previous chapter, etc.).
@@ -459,7 +459,7 @@ It means that $H(\bk) = H(\bk + \bG)$ for any reciprocal lattice vector $\bG$, b
 The alternative case is called the \enquote{canonical} form, or the \enquote{atomic-gauge} form, and it is unique, but in general $H(\bk) \neq H(\bk + \bG)$ for a reciprocal lattice vector $\bG$.
 If there is only one atom per unit cell, which is the case of Bravais lattices, the two forms coincide, but if the unit cell contains at least two non-equivalent sites, one can still go from one gauge to the other through a unitary transformation.
 Nonetheless, in all cases in this work the results do not change with the chosen gauge; problems may arise, though, when dealing with geometric phases or topological invariants~\cite{Cayssol_2021}.
-We present now a simple tight-binding model for a key \bd~material in this work, monolayer \gls{hbn}.
+We present now a simple tight-binding model for a key \bd~material in this work, monolayer \gls{hbn}\@.
 \\
 \\
 \textit{\underline{Monolayer hexagonal boron nitride: a minimal tight-binding model}}
@@ -484,7 +484,7 @@ A typical choice for its \bz~is the one depicted in Fig.~\ref{fig:hBN_lattice}\p
 \begin{figure}[hb]
     \centering
     \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_3/hBN_lattice_&_BZ}
-    \mycaption[hBN lattice and Brillouin Zone]{In panel \pnl{a}, blue and yellow atoms represent different site types in the hexagonal lattice. The blue atoms and yellow atoms correspond to boron and nitrogen, respectively, in \gls{hbn}. The vectors $\ba_1$ and $\ba_2$ are possible primitive lattice vectors, and vectors $\boldsymbol{\delta}_{i=1,2,3}$ are vectors connecting the blue sites to their nearest-neighbours. The shaded gray area represents a possible choice for the primitive unit cell. In panel \pnl{b}, the \bz~of the hexagonal lattice is represented together with the primitive reciprocal lattice vectors $\bb_1$ and $\bb_2$.}
+    \mycaption[hBN lattice and Brillouin Zone]{In panel \pnl{a}, blue and yellow atoms represent different site types in the hexagonal lattice. The blue atoms and yellow atoms correspond to boron and nitrogen, respectively, in \gls{hbn}\@. The vectors $\ba_1$ and $\ba_2$ are possible primitive lattice vectors, and vectors $\boldsymbol{\delta}_{i=1,2,3}$ are vectors connecting the blue sites to their nearest-neighbours. The shaded gray area represents a possible choice for the primitive unit cell. In panel \pnl{b}, the \bz~of the hexagonal lattice is represented together with the primitive reciprocal lattice vectors $\bb_1$ and $\bb_2$.}
     \label{fig:hBN_lattice}
 \end{figure}
 
@@ -581,7 +581,7 @@ Even though identical to graphene in the crystal structure, contrary to it, mono
 \end{figure}
 
 Sometimes, a low-energy approximation suffices for describing the material at hand.
-Below, we do an analysis of the low-energy limit, or continuum limit, of monolayer \gls{hbn}.
+Below, we do an analysis of the low-energy limit, or continuum limit, of monolayer \gls{hbn}\@.
 Linearizing~\eqref{eq:Delta_of_k} with respect to momentum around the momentum $\bK = (2 \pi / 3 a, 2 \pi / 3 \sqrt{3} a)$, and defining the relative momentum $\bq$ by $\bk = \bK + \bq$, with $|\bq| \ll |\bK|$, we have
 
 \begin{equation}
@@ -688,8 +688,8 @@ But then, we are faced with the shortcomings of these models---they describe app
 To overcome this issue, we have to take a different look into the many-body problem.
 Quite surprisingly, it is possible to describe a ground state of a crystal in terms of a function of a single variable, which is the electronic density $n(\br)$, instead of dealing with $~10^{23}$ variables in the many-body \wf.
 Physicists hypothesized that the ground state energy could be written as a functional of the electronic density.
-This statement, which is a consequence of the first Hohenberg--Kohn theorem, was put in rigorous grounds by Hohenberg and Kohn~\cite{Hohenberg_Kohn_1964}, the founders of \gls{dft}.
-Together with the second Hohenberg--Kohn theorem, they constitute the pillars of \dft.
+This statement, which is a consequence of the first Hohenberg--Kohn theorem, was put in rigorous grounds by Hohenberg and Kohn~\cite{Hohenberg_Kohn_1964}, the founders of \gls{dft}\@.
+Together with the second Hohenberg--Kohn theorem, they constitute the pillars of \dft\@.
 The two theorems are very strong statements, that we proclaim below.
 
 \begin{theorem-non}[Hohenberg--Kohn Theorem I]
@@ -1061,7 +1061,7 @@ To close the problem, we need the equation relating the polarizability to the Gr
     \chi(1,2) = -\ii \int \dd{3} \dd{4}\, \mathcal{G}(1,3) \Lambda(3,4;2) \mathcal{G}(4,1^+) \,.
 \end{equation}
 
-\noindent Equations~\eqref{eq:Dysons_eq_repeated} to~\eqref{eq:polarizability_vertex} constitute a set of five coupled equations, called Hedin's equations~\cite{Hedin_1965,Louie_1986}.
+\noindent Equations~\eqref{eq:Dysons_eq_repeated} to~\eqref{eq:polarizability_vertex} constitute a set of five coupled equations, called Hedin's\footnote{As a historical curiosity, the Hedin's equations are named after the swedish physicist Lars Hedin, who was an emmeritus professor at the university of Lund. He invented the $GW$ approximation with its high impact article Ref.~\cite{Hedin_1965}, igniting the Green function formalism of the many-body problem, used up until this day.} equations~\cite{Hedin_1965,Louie_1986}.
 The most widely-used approximation is to ignore the second term in the equation for the vertex, so that $\Gamma(1,2;3) \approx \delta(1,2) \delta(1,3)$.
 This approximation makes the equations for the polarizability~\eqref{eq:polarizability_vertex} and that for the self-energy~\eqref{eq:self_energy_vertex} decouple, giving origin to the famous \GW~approximation for the self-energy~\cite{Martin_Reining_Ceperley_2016}.%, which offers an equivalent interpretation of the \rpa~self-energy~\cite{Bruus_Flensberg_2004}.
 The polarizability and the dielectric function are the topic discussed in the next section.
@@ -1392,7 +1392,7 @@ We have then found an expression for the microscopic dielectric function that, a
 
 \noindent Finally, to find the final expression for the microscopic dielectric function we work with later on, we use the \rpa~irreducible polarizability, which reads $\chi^{\irr} \approx \chi^{\irr,\RPA} = \chi^0$, where $\chi^0$ is the noninteracting polarizability, that we shall discuss with detail in the next subsection.
 Within \rpa, the irreducible polarizability written in the Hedin's equation~\eqref{eq:polarizability_vertex} reduces to $\chi^{\irr,\RPA} (1,2) = \chi^0 (1,2) = - \ii \int \dd{3} \mathcal{G}_0(1,3) \mathcal{G}_0(3,2)$, whose diagram we have found before in Eq.~\eqref{eq:Dyson_equation_W_Feynman_RPA}.
-Henceforth, if we recover the explicit $\br$-space and time dependencies, we can write
+Henceforth, if we recover the explicit spacetime-dependence, we can write
 
 \begin{empheq}[innerbox=\fbox, right={\,.}]{align}
     \label{eq:dielectric_function_space_time}
@@ -1477,7 +1477,7 @@ The \rpa~irreducible polarizability, in the frequency domain, within a self-cons
 \end{equation}
 
 
-\noindent where $\eta$ is a small infinitesimal parameter, $f_i$ denotes the Fermi--Dirac distribution computed at the energy $\epsilon_i$, and $\phi_i(\br)$ is the $i$-th state, with eigenenergy $\epsilon_i$, that can be obtained within a mean-field approach, such as within \hf~theory or the Kohn--Sham framework of \dft.
+\noindent where $\eta$ is a small infinitesimal parameter, $f_i$ denotes the Fermi--Dirac distribution computed at the energy $\epsilon_i$, and $\phi_i(\br)$ is the $i$-th state, with eigenenergy $\epsilon_i$, that can be obtained within a mean-field approach, such as within \hf~theory or the Kohn--Sham framework of \dft\@.
 The many-body \wf~of the associated independent particle system is then constructed through the Slater determinant of the orbitals $\phi_i(\br)$, for which we do not specify the subjacent basis denoted by the indices $i$ and $j$.
 
 We notice that the expression in Eq.~\eqref{eq:dielectric_function_real_time} is a two-time function with (continuous) time translation invariance.
