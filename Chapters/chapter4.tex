@@ -143,7 +143,7 @@ One can go beyond by using a reciprocal space description of the excitons throug
 
 In this work, we work with two versions of the \gls{bse}\@.
 One that we will apply to effective low-energy models, and another one using exact diagonalization methods.
-The \abinit~version of the \gls{bse} is not addressed here.
+The \abinit~version of the \gls{bse}\footnote{For a reader fond of high-energy physics, we leave here a historical. The \gls{bse} was introduced in the literature by Y.~Nambu in 1950~\cite{Nambu_1950} and is named after the physicists Hans Bethe and Edwin Salpeter, who derived it in 1951~\cite{Bethe_Salpeter_1951}. Its original formulation is in the context of quantum field theories, where bound fermion-pairs can arise as well. One example is the electron--positron pair, positronium. Either in the context of particle physics or condensed matter, the starting point of the derivation is defining a four-point, or two-particle, interacting Green function. Just like in section~\ref{sec:many_particle_description} for the many-particle description of solids, where we introduced the diagram notation, one can also write the \acrlong{bse} in a diagrammatic form (which of course has its own version in particle physics).}. is not addressed here.
 Besides being technically more involved, it is extremely demanding computationally, so it is necessary to come up with more efficient approaches.
 Nonetheless, it can be frequently encountered in the literature, in particular works using \abinit~methods for the optical response of materials~\cite{BerkeleyGW,Yambo_2009,}.
 If the reader is curious about it, we refer to the original work~\cite{Louie_2000} by M.~Rohlfing and S.~G.~Louie, or the PhD thesis~\cite{Alex_PhD} for a more recent text with a derivation adapted from~\cite{Louie_2000}.
@@ -159,11 +159,17 @@ To finalize the chapter, we derive expressions to study the optical response of 
 In this section we derive the \gls{bse}, an integral equation written in momentum space allowing a more accurate description of a material's excitonic properties.
 A $\bk$-space description of the problem feels natural, given the concepts introduced in the previous chapter.
 We will use the tools therein acquired to our advantage.
-This derivation is adapted from a Master's thesis in Ref.~\cite{Henriques_thesis}, where one can look into it with more detail.
+This derivation is adapted from a Master's thesis in Ref.~\cite{Henriques_thesis} and the tutorial in Ref.~\cite{}, where one can look into it with more detail.
 Here we explain as well how to arrive at the interaction Hamiltonian in momentum space, which is not as easy as in high-energy physics, because one has to account for the crystalline structure of the material.
 Instead of working within a plane-wave representation, we work with a basis of Bloch states, but we shall exemplify how in a moment.
 
 We have seen that the ground state of insulators, or semiconductors at low enough temperatures, comprises all the valence bands filled and the conduction bands empty.
+Many times, in the context of many-particle physics, the ground state is called Fermi sea.
+The Fermi sea comes from populating the electronic states of the material starting from the lowest energy states, and filling up the states with increasing energy, until charge neutrality has been reached.
+If there is no electronic bandgap, the energy of the highest occupied state, at zero temperature, is called the Fermi energy or Fermi level, $\EF$ in symbols.
+In metals, the Fermi energy lies within the band width of the highest valence band, which is partially filled.
+In semiconductors and insulators, the Fermi energy lies in the midway between the energy of the highest occupied state and the energy of the lowest unoccupied state.
+In general, it can be defined as the chemical potential\footnote{Usualy introduced in the context of thermodynamics and statistical physics, the chemical potential can be defined as .....} at zero temperature~\cite{Simon_Oxford_2013}.
 Since we introduced the exciton as a bound electron--hole complex, we will assume that the unbound electron--hole states serve as a good basis in which we can expand the excitonic states.
 To simplify the reasoning, we assume that only the top valence band and the lowest conduction band contribute to the exciton.
 In this way, in the second quantization formalism we can write the generic exciton state $\nu$ as the coherent superposition of electron--hole pairs in the following way
@@ -193,13 +199,13 @@ Since the operators $b$ and $b^{\dagger}$ are quadratic in fermionic operators, 
 The total Hamiltonian of the system
 
 \begin{equation}
-    \hat{H} = \hat{H}_0 + \hat{V}
+    \Ha = \Ho + \hat{V}
 \end{equation}
 
 \noindent has two parts, the kinetic or noninteracting one, that after diagonalized and ignoring spin, reads
 
 \begin{equation}
-    \hat{H}_0 = \sum_{\bk, \lambda} \epsilon_{\bk, \lambda} c_{\bk, \lambda}^{\dagger} c_{\bk, \lambda},
+    \Ho = \sum_{\bk, \lambda} \epsilon_{\bk, \lambda} c_{\bk, \lambda}^{\dagger} c_{\bk, \lambda},
 \end{equation}
 
 \noindent where $\lambda$ is the band index, $\epsilon_{\bk, \lambda}$ is the energy of an electron with momentum $\bk$ in the band $\lambda$, and the interacting one, that in a real space basis reads
@@ -313,29 +319,29 @@ If that is not the case, then the valley degree of freedom should be accounted f
 We assume that the system can be well described by the bosonic $b$ operators, and that the numbers $\nu$ are good quantum numbers, in the sense that the Hamiltonian is diagonal in this basis, which allows us to write
 
 \begin{equation}
-    \hat{H}_X = \sum_{\nu} E_{\nu} b_{\nu}^{\dagger} b_{\nu}\,,
+    \Ha_X = \sum_{\nu} E_{\nu} b_{\nu}^{\dagger} b_{\nu}\,,
 \end{equation}
 
-\noindent where we introduced the notation $\hat{H}_X$ for the Hamiltonian written in the basis of exciton states $\nu$.
-Now the strategy is the following: we take the commutator $[\hat{H}_X, b_{\nu}^{\dagger}]$ between $\hat{H}_X$ and the creation operator $b_{\nu}^{\dagger}$; next, we take the same commutator, but with the initial total Hamiltonian $\hat{H}$ instead (this step is the most involved one); finally, we equate both results and the Bethe--Salpeter equation is then automatically extracted.
+\noindent where we introduced the notation $\Ha_X$ for the Hamiltonian written in the basis of exciton states $\nu$.
+Now the strategy is the following: we take the commutator $[\Ha_X, b_{\nu}^{\dagger}]$ between $\Ha_X$ and the creation operator $b_{\nu}^{\dagger}$; next, we take the same commutator, but with the initial total Hamiltonian $\Ha$ instead (this step is the most involved one); finally, we equate both results and the Bethe--Salpeter equation is then automatically extracted.
 The first commutator is straightforward:
 
 \begin{equation}
-    [\hat{H}_X, b_{\nu}^{\dagger}] = E_{\nu} b_\nu^{\dagger} = E_\nu \frac{1}{\sqrt{A}} \sum_{\bk} \phi_\nu(\bk) c_{\bk, c}^{\dagger} c_{\bk, v}\,,
+    [\Ha_X, b_{\nu}^{\dagger}] = E_{\nu} b_\nu^{\dagger} = E_\nu \frac{1}{\sqrt{A}} \sum_{\bk} \phi_\nu(\bk) c_{\bk, c}^{\dagger} c_{\bk, v}\,,
 \end{equation}
 
 \noindent where we, to write the second equality, explicitly wrote the bosonic creation operator in terms of electron--hole pairs.
-Now with the total Hamiltonian $\hat{H}$ in terms of fermionic operators, we need to compute
+Now with the total Hamiltonian $\Ha$ in terms of fermionic operators, we need to compute
 
 \begin{equation}
-[\hat{H}, b_{\nu}^{\dagger}] = [\hat{H}_0, b_{\nu}^{\dagger}] + [\hat{V}, b_{\nu}^{\dagger}]\,,
+[\Ha, b_{\nu}^{\dagger}] = [\Ho, b_{\nu}^{\dagger}] + [\hat{V}, b_{\nu}^{\dagger}]\,,
 \end{equation}
 
 \noindent but we better work out both contributions separately.
 First, the commutator with the kinetic component that after simplifying, evaluates to
 
 \begin{equation}
-    [\hat{H}_0, b_{\nu}^{\dagger}] = \sum_{\bk, \lambda} \epsilon_{\bk \lambda} \sum_{\bq} \frac{\phi_{\nu}(\bq)}{\sqrt{A}} \left [c_{\bk, \lambda}^{\dagger} c_{\bk, \lambda}, c_{\bq,c}^{\dagger} c_{\bq,v} \right ] = \frac{1}{\sqrt{A}} \sum_{\bk} \phi_{\nu}(\bk) (\epsilon_{\bk,c}-\epsilon_{\bk,v}) c_{\bk, c}^{\dagger} c_{\bk, v}\,.
+    [\Ho, b_{\nu}^{\dagger}] = \sum_{\bk, \lambda} \epsilon_{\bk \lambda} \sum_{\bq} \frac{\phi_{\nu}(\bq)}{\sqrt{A}} \left [c_{\bk, \lambda}^{\dagger} c_{\bk, \lambda}, c_{\bq,c}^{\dagger} c_{\bq,v} \right ] = \frac{1}{\sqrt{A}} \sum_{\bk} \phi_{\nu}(\bk) (\epsilon_{\bk,c}-\epsilon_{\bk,v}) c_{\bk, c}^{\dagger} c_{\bk, v}\,.
 \end{equation}
 
 Now we have to do the commutator with the interacting term.
@@ -374,7 +380,7 @@ Therefore, we can apply the rule
 \noindent After that, we need to gather all the contributions, while recovering the sums in momentum to simplify the expression---equal terms simply add up or cancel.
 One can also smartly use the properties of the form factor, changing the order in which the $\bC$ arrays appear.
 To arrive at the final result, a couple of shifts in momentum might also be in order.
-At the end, we can set $[\hat{H}_X, b_{\nu}^{\dagger}] = [\hat{H}_0, b_{\nu}^{\dagger}] + [\hat{V}, b_{\nu}^{\dagger}]$, from which we can extract the Bethe--Salpeter equation for the exciton wavefunction $\phi_\nu(\bk)$ and its respective energy $E_\nu$
+At the end, we can set $[\Ha_X, b_{\nu}^{\dagger}] = [\Ho, b_{\nu}^{\dagger}] + [\hat{V}, b_{\nu}^{\dagger}]$, from which we can extract the Bethe--Salpeter equation for the exciton wavefunction $\phi_\nu(\bk)$ and its respective energy $E_\nu$
 
 \begin{equation}
     \begin{split}
@@ -470,12 +476,13 @@ The momentum space approach is heavier numerically but produces more accurate re
 To solve the \gls{bse} as presented in this section, we have to do so numerically.
 This formalism can be readily applied to isotropic systems, like \gls{hbn}.
 \textcolor{red}{We explain how it can be used to extract the excitons for monolayer \gls{hbn} in the Appendix <placeholder>. [This if we decide to include it, but is not strictly necessary.]}
-Basically, one can separate the angular dependence of the wavefunction from the radial dependence, and in that way the problem can be cast into an eigenvalue problem for a big matrix, with only one momentum variable.
+Basically, one can separate the angular dependence of the wavefunction from the radial dependence, and in that way the problem can be cast into a \gls{1d} integral equation, that after discretizing the momentum is converted into an eigenvalue problem with only one momentum variable.
+How to do so in practice is explained in detail in Refs.~\cite{Mauricio_2022} and~\cite{Henriques_Epstein_Peres_2022}, namely in their respective appendices.
 In contrast with isotropic systems, for anisotropic systems one cannot separate the angular and radial variables, and one has then to construct a big matrix with two momentum variables.
 But for such systems, the \gls{bse} formalism of the next section is more useful.
 However, in Chapter~\ref{ch:Optical_hBN_superlattice} we approach the anisotropic excitonic problem for nanostructured \gls{hbn} using the Wannier formalism---with this method we obtain interesting results with very low computational effort.
-If one wishes to use a more detailed description for excitons, then the one presented in the next section is more appropriate.
-It constitutes a playground to test the results obtained in Chapter~\ref{ch:screening} for our numerical modeling of screening.
+If one wishes to use a more detailed description for excitons, for instance, if a simple \gls{tb} description for the material is not possible (e.g. \ch{MoS2}, phosphorene, etc.), then the one presented in the next section is more appropriate.
+It constitutes as well a playground to test the results obtained in Chapter~\ref{ch:screening} for our numerical modeling of screening.
 
 Before we report the research outcomes in this dissertation, we still have to introduce another picture for the excitonic problem, based on the numerical diagonalization of the \gls{bse}, but still within a \gls{tb} approach.
 After that, we have to revisit the concept of dielectric function, but now in the local and dynamical limit.
@@ -485,20 +492,24 @@ In that way, we shall reintroduce the concept of optical conductivity, the nonin
 \label{sec:bethe_salpeter_equation_exact}
 
 In this section, we dwell on a second-principles-based approach to the calculation of the excitons, within an atomistic description where the tight-binding approximation discussed previously is key.
-The discussion is adapted from~\cite{Xatu} and~\cite{Alex_PhD}.
-This approach presents technical and computational advantages to first-principles-based methodologies, something pretty much established in the literature, such as the \GW-\bse~ method~\cite{Louie_2000,BerkeleyGW,Diana_PhD,Jornada_PhD}.
+The discussion is adapted from~\cite{Alex_PhD} and~\cite{Xatu}.
+This approach presents technical and computational advantages to first-principles-based methodologies for excitons in extended systems, something pretty much established in the literature, such as the \GW-\bse~ method~\cite{Louie_2000,BerkeleyGW,Diana_PhD,Jornada_PhD}.
 Even though more numerically inefficient as solving the Wannier equation or the\bse~applied to effective models, this method is still much more efficient as \abinit~ones, but nonetheless we can expect with it more detailed insights into the excitonic problem.
-It can be useful if, for instance, one is interested in the symmetries of the excitonic states, which in principle are inherited from the symmetries of the crystal, something we cannot capture with effective models, since the symmetries of the initial Hamiltonian may not be preserved when taking the low-energy limit.
+It can be useful if, for instance, when one is interested in bigger systems, or when the symmetries of the excitonic states are of relevance, which in principle are inherited from the symmetries of the crystal, something we cannot capture with effective models, since the symmetries of the initial Hamiltonian may not be preserved when taking the low-energy limit.
+
+The starting point is to write down the electronic Hamiltonian
 
 \begin{equation}
     \label{eq:Hamiltonian_start}
-    \Ha= \Ho + \V = \sum_{i,j} t_{i,j} \cdagger_i c_j + \sum_{i,j,k,l} V_{i,j,k,l} \cdagger_i \cdagger_j c_l c_k\,,
+    \Ha = \Ho + \V = \sum_{i,j} t_{i,j} \cdagger_i c_j + \sum_{i,j,k,l} V_{i,j,k,l} \cdagger_i \cdagger_j c_l c_k\,,
 \end{equation}
 
-\noindent where the first term corresponds to the interaction between the valence electrons and the ions (with static degrees of freedom), and the second term corresponds to the electrostatic Coulomb interaction between the electrons.
-The single-particle physics is encoded in $\Ho$, while many-particle physics, in particular excitons, is encoded in $\V$, just as in the previous section.
-However, instead of departing from the many-body Hamiltonian in real space in terms of field operators, we depart from a Hamiltonian still in real space, but the working basis is atomistic, i.e., we adopt the tight-binding description from the section~\ref{subsubsec:tight_binding_method} of the previous chapter.
-However, there we considered only the single-particle properties of crystalline solids, while here we turn to the many-particle ones.
+\noindent where the indices include the relevant degrees of freedom (orbital site and orbital type), the first term corresponds to the interaction between the valence electrons and the ions (with frozen degrees of freedom), and the second term corresponds to the electrostatic Coulomb interaction between the electrons.
+The single-particle physics is encoded in $\Ho$, to which all the techniques and results discussed in Section~\ref{sec:single_particle_properties} apply (and the ones within \rpa~from Section~\ref{sec:dielectric_function_quantum} as well).
+In the Section~\ref{sec:single_particle_properties}, where we discussed single-particle properties of electrons in crystals,  particle--particle interactions were not completely discarded, in the sense that the electronic eigenstates--the Bloch states---that describe the ground state of the material, were previously obtained through self-consistent calculations (\gls{hf} or \gls{dft}), where interactions and correlations are treated at the mean-field
+The many-particle physics, including excitons, is encoded in $\V$ without which excitons cannot be described, in concordance with the previous section.
+Instead of departing from the many-body Hamiltonian in real space in terms of field operators, we depart from a Hamiltonian in real space already in an atomistic basis, i.e., we adopt the tight-binding description from the Section~\ref{subsubsec:tight_binding_method} of the previous chapter.
+
 Therefore, the sums in Eq.~\eqref{eq:Hamiltonian_start} run over indices including orbitals and position degrees of freedom (and eventually spin).
 The sums in Eq.~\eqref{eq:Hamiltonian_start} run over indices including orbitals and position degrees of freedom (and eventually spin).
 The parameters $t_{i,j}$ are the hopping or tight-binding parameters, while $V_{i,j,k,l}$ are the interaction matrix elements\footnote{Note that by matrix elements, we mean the symbols $V_{i,j,k,l}$, which are matrix elements of the first quantized interaction term $V$ between single-particle states belonging to the one-particle Hilbert space, and not matrix elements of the second quantized operator $\V$ between states living in the Fock space.}
@@ -651,7 +662,7 @@ In this way, the Bethe--Salpeter equation reads
 
 \noindent where the energies $\{\epsilon_{n, \bk}\}$ are now \hf~\qp~energies, and where we have defined the interaction kernel as $K = -\qty(D - X)$.
 This approximation in the \bse~is commonly called in the literature the Tamm--Dancoff approximation~\cite{Dreuw_2005,Hirata_1999}, avoiding any complex diagonalization procedures.
-We would also like to note that the Tamm--Dancoff approximation was for the first time introduced in the context of \mbpt~, where a similar issue for the \bse~ arises.
+We would also like to note that the Tamm--Dancoff approximation was for the first time introduced in the context of \mbpt, where a similar issue for the \bse~arises.
 Nonetheless, there are two striking differences between the \bse~ we solve and the one obtained with \mbpt~\cite{Jornada_PhD,Diana_PhD}.
 In the latter, the problem has a frequency dependence that we do not find here.
 The screening is dynamic, and that entails performing an integral in frequencies to compute the interaction matrix elements.
