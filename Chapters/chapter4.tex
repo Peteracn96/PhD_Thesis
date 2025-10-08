@@ -11,7 +11,7 @@
 
 \chapter{Excitonic effects in Two-dimensional Semiconductors}
 \label{ch:Excitons}
-
+\glsresetall
 \section{Introduction}
 \label{sec:introduction}
 
@@ -79,13 +79,13 @@ From a heuristic point of view, this implies that the energy levels are given by
 
 \begin{equation}
     \label{eq:Rydberg_modified}
-    R^* = \frac{2 \mu^2 e^4}{\hbar^2 (8 \pi \varepsilon_r)^2}
+    R^* = \frac{2 \mu_{eh}^2 e^4}{\hbar^2 (8 \pi \varepsilon_r)^2}
 \end{equation}
 
 \noindent is the modified Rydberg constant, which instead of using the electron mass like usual, it uses the reduced mass between the electron and the hole effective masses
 
 \begin{equation}
-    \frac{1}{\mu} = \frac{1}{m_e} + \frac{1}{m_h}\,.
+    \frac{1}{\mu_{eh}} = \frac{1}{m_e} + \frac{1}{m_h}\,.
 \end{equation}
 
 \noindent Here $\varepsilon_r$ is just the dielectric constant of the medium.
@@ -93,7 +93,7 @@ This description is suited for weakly bound excitons, also-called Wannier excito
 The characteristic size of the exciton is given by a modified expression for the Bohr radius:
 
 \begin{equation}
-    a_B^* = \frac{4 \pi \varepsilon_r \varepsilon_0 \hbar^2}{\mu^2 e^2}\,,
+    a_B^* = \frac{4 \pi \varepsilon_r \varepsilon_0 \hbar^2}{\mu_{eh}^2 e^2}\,,
 \end{equation}
 
 \noindent which can extend over a couple of atomic sites.
@@ -127,13 +127,13 @@ In order to explain the peculiarities of the excitons in two dimensions, we can 
 The excitonic states and respective binding energies can be estimated by solving the Wannier--Mott equation~\cite{Wannier_1937}, or simply Wannier equation, that reads
 
 \begin{equation}
-    E_{b, \nu} \psi_\nu (\br) =  \frac{p ^2}{2 \mu} \psi_\nu (\br) - V(\br) \psi_\nu (\br),
+    E_{b, \nu} \psi_\nu (\br) =  \frac{p ^2}{2 \mu_{eh}} \psi_\nu (\br) - V(\br) \psi_\nu (\br),
 \label{eq:Wannier_equation}
 \end{equation}
 
-\noindent where $\mu$ is the electron--hole reduced effective mass as before, and $V(\br)$ is the attractive potential.
+\noindent where $\mu_{eh}$ is the electron--hole reduced effective mass as before, and $V(\br)$ is the attractive potential.
 One can notice similarities with the \gls{tise} for the hydrogen atom, but with an effective reduced mass (between two particles that have a comparable mass), and an attractive potential, but including now screening effects from the material itself.
-We have seen before, in the section~\ref{subsubsec:dielectric_function_static_limit}, that for \bd~materials the dielectric function in the static limit has nontrivial momentum dependence.
+We have seen before, in the Section~\ref{subsubsec:dielectric_function_static_limit}, that for \bd~materials the dielectric function in the static limit has nontrivial momentum dependence.
 It is linear in $q$ as $\varepsilon(q) = 1 + r_0 q$, and we called this permittivity with the model parameter $r_0$ the Rytova--Keldysh dielectric function, giving origin to the Rytova--Keldysh potential~\cite{keldysh2024coulomb}.
 
 The Wannier equation does not capture the full structure of the excitonic states (like nondegenerate $p$ states or the symmetries of the crystal), hence we need to resort to more accurate descriptions of the excitonic problem.
@@ -143,10 +143,12 @@ One can go beyond by using a reciprocal space description of the excitons throug
 
 In this work, we work with two versions of the \gls{bse}\@.
 One that we will apply to effective low-energy models, and another one using exact diagonalization methods.
-The \abinit~version of the \gls{bse}\footnote{For a reader fond of high-energy physics, we leave here a historical. The \gls{bse} was introduced in the literature by Y.~Nambu in 1950~\cite{Nambu_1950} and is named after the physicists Hans Bethe and Edwin Salpeter, who derived it in 1951~\cite{Bethe_Salpeter_1951}. Its original formulation is in the context of quantum field theories, where bound fermion-pairs can arise as well. One example is the electron--positron pair, positronium. Either in the context of particle physics or condensed matter, the starting point of the derivation is defining a four-point, or two-particle, interacting Green function. Just like in section~\ref{sec:many_particle_description} for the many-particle description of solids, where we introduced the diagram notation, one can also write the \acrlong{bse} in a diagrammatic form (which of course has its own version in particle physics).}. is not addressed here.
+The \abinit~version of the \gls{bse}\footnote{For a reader fond of high-energy physics, we leave here a historical note. The \gls{bse} was first introduced in the literature by Y.~Nambu in 1950~\cite{Nambu_1950}, and is named after the physicists Hans Bethe and Edwin Salpeter who derived it in 1951~\cite{Bethe_Salpeter_1951}, with posterior contributions by Gell-Mann and Low~\cite{Gell-Mann_Low_1951}. Its original formulation is in the context of quantum field theories, where composite two-fermion states can arise as well. One example is the electron--positron pair, positronium. Either in its covariant form or nonrelativistic form, the starting point of the derivation is defining a four-point, or two-particle, interacting Green function~\cite{Gell-Mann_Low_1951,Martin_Reining_Ceperley_2016}. Notwithstanding their differences, both formalisms can be conciliated into a relativistic many-body theory~\cite{Lindgren_2011}. Just like in Section~\ref{sec:many_particle_description} for the many-particle description of solids, where we introduced the diagram notation, one can also write the \glsxtrlong{bse} in a diagrammatic form (which of course has its own version in particle physics).}. is not addressed here.
 Besides being technically more involved, it is extremely demanding computationally, so it is necessary to come up with more efficient approaches.
 Nonetheless, it can be frequently encountered in the literature, in particular works using \abinit~methods for the optical response of materials~\cite{BerkeleyGW,Yambo_2009,}.
 If the reader is curious about it, we refer to the original work~\cite{Louie_2000} by M.~Rohlfing and S.~G.~Louie, or the PhD thesis~\cite{Alex_PhD} for a more recent text with a derivation adapted from~\cite{Louie_2000}.
+Combined with the $GW$ method for calculating quasiparticle band structures, the state-of-the-art for exciton and optical response calculations is called the $GW$+\gls{bse} method or approach, constituting the theoretical basis of several packages~\cite{Yambo_2009,BerkeleyGW,Perfetto_Stefanucci_2018,Vorwerk_Aurich_Cocchi_Draxl_2019,GPAW_2025}, which has made its way to chemistry as well~\cite{Blase_2020,Amblard_Blase_Duchemin_2023,Amblard_Blase_Duchemin_2024,TURBOMOLE_2013,TURBOMOLE_2023}.
+On par with $GW$+\gls{bse}, there is another formalism for predicting the optoelectronic properties of materials, the time-dependent density functional theory formalism~\cite{Runge_Gross_1984,Rubio_2002}, the extension of the \gls{dft} formalism we mentioned in Section~\ref{subsubsec:abinit_methods}.
 
 In the following section we derive the Bethe--Salpeter equation applied to effective models, followed by a derivation of the Wannier equation.
 The section after dwells once more on the \gls{bse}, but with using exact diagonalization methods as they are implemented in the code we contributed to in this thesis.
@@ -169,11 +171,11 @@ The Fermi sea comes from populating the electronic states of the material starti
 If there is no electronic bandgap, the energy of the highest occupied state, at zero temperature, is called the Fermi energy or Fermi level, $\EF$ in symbols.
 In metals, the Fermi energy lies within the band width of the highest valence band, which is partially filled.
 In semiconductors and insulators, the Fermi energy lies in the midway between the energy of the highest occupied state and the energy of the lowest unoccupied state.
-In general, it can be defined as the chemical potential\footnote{Usualy introduced in the context of thermodynamics and statistical physics, the chemical potential can be defined as .....} at zero temperature~\cite{Simon_Oxford_2013}.
+In general, it can be defined as the chemical potential\footnote{Usualy introduced in the context of thermodynamics and statistical physics, the chemical potential of a system, usually denoted by $\mu$, can be defined in terms of the thermodynamical potential (and other ones as well) $F=U-TS$, called the Helmholtz free energy, where $U$ is the internal energy of the system, $T$ its (absolute) temperature and $S$ its entropy. In the system is in thermal equilibrium and in contact with a reservoir (at the temperature $T$) with which it can exchnage particles, then the chemical potential can be defined as $\mu = F_{\mathcal{N} + 1} - F_{\mathcal{N}}$, where $\mathcal{N}$ is the number of particles in the system. Only in the thermodynamic limit where $\mathcal{N} \to \infty$ we can define the chemical potential in an equivalent way by the derivative $\partial F/\partial \mathcal{N}$~\cite{Blundell_Blundell_2009}. If otherwise the system is composed of few particles, then we are not allowd to take the derivative with respect to $\mathcal{N}$.} at zero temperature~\cite{Simon_Oxford_2013}.
+
 Since we introduced the exciton as a bound electron--hole complex, we will assume that the unbound electron--hole states serve as a good basis in which we can expand the excitonic states.
 To simplify the reasoning, we assume that only the top valence band and the lowest conduction band contribute to the exciton.
 In this way, in the second quantization formalism we can write the generic exciton state $\nu$ as the coherent superposition of electron--hole pairs in the following way
-
 
 \begin{equation}
     b_\nu^{\dagger}=\frac{1}{\sqrt{A}} \sum_{\bk} \phi_{\nu}(\bk) c_{\bk, c}^{\dagger} c_{\bk, v}\,,
@@ -402,6 +404,7 @@ Doing so, we arrive at the simplified form of the Bethe--Salpeter equation:
 \end{empheq}
 
 \noindent The extension to multi-band systems is straightforward, but we do not need it.
+The exchange term in the Coulomb interaction is neglected, but this does not strongly affect the exciton binding energy~\cite{Thygesen_2017}.
 The multi-band case is to be considered only in the next section and with a different formalism altogether.
 We just make the remark that the negative sign going with the term in the potential is correct, and the electron--hole interaction is for sure attractive, since we use the convention of a positive interaction potential for $V(\bk)$.
 
@@ -417,15 +420,15 @@ First, we make the parabolic dispersion approximation, that is
 It follows that
 
 \begin{equation}
-    \epsilon_{\bk,c}-\epsilon_{\bk,v} \simeq E_g + \frac{\hbar^2 k^2}{2 \mu},
+    \epsilon_{\bk,c}-\epsilon_{\bk,v} \simeq E_g + \frac{\hbar^2 k^2}{2 \mu_{eh}},
 \end{equation}
 
-\noindent where $E_g =  \epsilon_{\bzero,c}-\epsilon_{\bzero,v}$ is the energy difference between the top and bottom of the valence and conduction bands, respectively, and $\mu$ is the electron--hole effective reduced mass as usual.
+\noindent where $E_g =  \epsilon_{\bzero,c}-\epsilon_{\bzero,v}$ is the energy difference between the top and bottom of the valence and conduction bands, respectively, and $\mu_{eh}$ is the electron--hole effective reduced mass as usual.
 In the \gls{rhs} of~\eqref{eq:Bethe_Salpeter_equation}, we approximate $F \approx 1$, which is valid for large enough bandgaps~\cite{Ventura_2019}.
 In this way, the equation~\eqref{eq:Bethe_Salpeter_equation} reads
 
 \begin{equation}
-    E_{b,\nu} \phi_{\nu} (\bk) = \frac{\hbar^2 k^2}{2 \mu} \phi_{\nu} (\bk) - \frac{1}{A} \sum_{\bp} \phi_{\nu} (\bp) V(\bk - \bp),
+    E_{b,\nu} \phi_{\nu} (\bk) = \frac{\hbar^2 k^2}{2 \mu_{eh}} \phi_{\nu} (\bk) - \frac{1}{A} \sum_{\bp} \phi_{\nu} (\bp) V(\bk - \bp),
 \end{equation}
 
 \noindent where $ E_{b,\nu} = E_{\nu} - E_g$ is the binding energy of the excitonic state $\nu$.
@@ -433,7 +436,7 @@ Next, we apply a Fourier transform to the previous equation.
 The term on the \gls{lhs} is direct, it becomes $ E_{b,\nu} \phi_{\nu} (\br)$.
 The numerator in the first term on the \gls{rhs} in real space representation reads simply $p^2$ acting on the wavefunction $\phi_{\nu} (\br)$.
 The second term on the \gls{rhs} is a convolution in momentum space, so it becomes a product in real space.
-To see that, let us perform the inverse Fourier transform of just that term and write\footnote{Any details about Fourier trnasforming that are eventually skipped can be found in App.~\ref{app:Ventura_2019}.}
+To see that, let us perform the inverse Fourier transform of just that term and write\footnote{Any details about Fourier transforming that are eventually skipped can be found in App.~\ref{app:fourier_transform}.}
 
 \begin{equation}
     \label{eq:potential_inverse_Fourier_transform}
@@ -465,7 +468,7 @@ To see that, let us perform the inverse Fourier transform of just that term and 
 % \noindent to recover the Wannier equation:
 
 \begin{empheq}[innerbox=\colorbox{lightgray}, right={\,.}]{equation}
-    E_{b, \nu} \psi_\nu (\br) = \frac{p^2}{2 \mu} \psi_\nu (\br) - V(\br) \psi_\nu (\br)
+    E_{b, \nu} \psi_\nu (\br) = \frac{p^2}{2 \mu_{eh}} \psi_\nu (\br) - V(\br) \psi_\nu (\br)
     \label{eq:Wannier_equation_derived}
 \end{empheq}
 
@@ -491,95 +494,95 @@ In that way, we shall reintroduce the concept of optical conductivity, the nonin
 \section{The Bethe--Salpeter Equation: exact diagonalization}
 \label{sec:bethe_salpeter_equation_exact}
 
-In this section, we dwell on a second-principles-based approach to the calculation of the excitons, within an atomistic description where the tight-binding approximation discussed previously is key.
+In this section, we dwell on a second-principles-based approach to the calculation of the excitons, within an atomistic description where the \gls{tb} approximation discussed previously is key.
 The discussion is adapted from~\cite{Alex_PhD} and~\cite{Xatu}.
 This approach presents technical and computational advantages to first-principles-based methodologies for excitons in extended systems, something pretty much established in the literature, such as the \GW-\bse~ method~\cite{Louie_2000,BerkeleyGW,Diana_PhD,Jornada_PhD}.
-Even though more numerically inefficient as solving the Wannier equation or the\bse~applied to effective models, this method is still much more efficient as \abinit~ones, but nonetheless we can expect with it more detailed insights into the excitonic problem.
+Even though more numerically inefficient as solving the Wannier equation or the \bse~applied to effective models, this method is still much more efficient as \abinit~ones, but nonetheless we can expect with it more detailed insights into the excitonic problem.
 It can be useful if, for instance, when one is interested in bigger systems, or when the symmetries of the excitonic states are of relevance, which in principle are inherited from the symmetries of the crystal, something we cannot capture with effective models, since the symmetries of the initial Hamiltonian may not be preserved when taking the low-energy limit.
 
 The starting point is to write down the electronic Hamiltonian
 
 \begin{equation}
     \label{eq:Hamiltonian_start}
-    \Ha = \Ho + \V = \sum_{i,j} t_{i,j} \cdagger_i c_j + \sum_{i,j,k,l} V_{i,j,k,l} \cdagger_i \cdagger_j c_l c_k\,,
+    \Ha = \Ho + \V = \sum_{i,j} t_{i j} \cdagger_i c_j + \sum_{i,j,k,l} V_{ijkl} \cdagger_i \cdagger_j c_l c_k\,,
 \end{equation}
 
 \noindent where the indices include the relevant degrees of freedom (orbital site and orbital type), the first term corresponds to the interaction between the valence electrons and the ions (with frozen degrees of freedom), and the second term corresponds to the electrostatic Coulomb interaction between the electrons.
-The single-particle physics is encoded in $\Ho$, to which all the techniques and results discussed in Section~\ref{sec:single_particle_properties} apply (and the ones within \rpa~from Section~\ref{sec:dielectric_function_quantum} as well).
-In the Section~\ref{sec:single_particle_properties}, where we discussed single-particle properties of electrons in crystals,  particle--particle interactions were not completely discarded, in the sense that the electronic eigenstates--the Bloch states---that describe the ground state of the material, were previously obtained through self-consistent calculations (\gls{hf} or \gls{dft}), where interactions and correlations are treated at the mean-field
-The many-particle physics, including excitons, is encoded in $\V$ without which excitons cannot be described, in concordance with the previous section.
-Instead of departing from the many-body Hamiltonian in real space in terms of field operators, we depart from a Hamiltonian in real space already in an atomistic basis, i.e., we adopt the tight-binding description from the Section~\ref{subsubsec:tight_binding_method} of the previous chapter.
+The single-particle physics is encoded in $\Ho$, to which all the techniques and results discussed in Section~\ref{sec:single_particle_properties} apply (and the ones within the \rpa~from Section~\ref{sec:dielectric_function_quantum} as well).
+In the Section~\ref{sec:single_particle_properties}, where we discussed single-particle properties of electrons in crystals,  particle--particle interactions were not completely discarded, in the sense that the electronic eigenstates---the Bloch states---that describe the ground state of the material, were previously obtained through self-consistent calculations (\gls{hf} or \gls{dft}), where interactions and correlations are treated at the mean-field level.
+The many-particle physics (e.g. excitons) is encoded in $\V$ without which excitons cannot be described, in concordance with the previous section.
+Instead of departing from the many-body Hamiltonian with the interaction term in terms of field operators, we depart from a Hamiltonian in real space already written in an atomistic basis, i.e., we adopt the \gls{tb} description from the Section~\ref{subsubsec:tight_binding_method} of the previous chapter.
 
-Therefore, the sums in Eq.~\eqref{eq:Hamiltonian_start} run over indices including orbitals and position degrees of freedom (and eventually spin).
 The sums in Eq.~\eqref{eq:Hamiltonian_start} run over indices including orbitals and position degrees of freedom (and eventually spin).
-The parameters $t_{i,j}$ are the hopping or tight-binding parameters, while $V_{i,j,k,l}$ are the interaction matrix elements\footnote{Note that by matrix elements, we mean the symbols $V_{i,j,k,l}$, which are matrix elements of the first quantized interaction term $V$ between single-particle states belonging to the one-particle Hilbert space, and not matrix elements of the second quantized operator $\V$ between states living in the Fock space.}
+The parameters $t_{i j}$ are the hopping (if $i \neq j$) or tight-binding parameters, while $V_{ijkl}$ are the interaction matrix elements\footnote{Note that by matrix elements, we mean the symbols $V_{ijkl}$, which are matrix elements of the first quantized interaction term $V$ between single-particle states belonging to the one-particle Hilbert space, and not matrix elements of the second quantized operator $\V$ between states living in the Fock space.}
 
 \begin{equation}
-    V_{i,j,k,l} = \mel{kl}{V}{ij} = \int \dr \int \dr' \phi^*_i(\br) \phi^*_j(\br') V(\br,\br') \phi_k(\br) \phi_l(\br'),
+    V_{ijkl} = \mel{i,j}{V}{k,l} = \int \dr \int \dr' \phi^*_i(\br) \phi^*_j(\br') V(\br,\br') \phi_k(\br) \phi_l(\br'),
 \end{equation}
 
 \noindent At this point, we do not particularize how we model the screening, postponing that for later on.
 
 \subsection{The Bethe--Salpeter equation rederived}
 
-\todo{say somewhere that this approach is variational}
-
 Now, with the purpose of describing excitons, we need to start from a good enough ground state $\ket{\GS}$.
 For undoped \bd~semiconductors or insulators, whose ground state consists of all the valence bands filled and empty conduction bands, we can write mathematically for the ground state
 
 \begin{equation}
-    \ket{\GS} = \prod_{n,\bk}^{\epsilon_{n \bk} \leq \EF} c_{n \bk}^\dagger \ket{0} \,,
+    \ket{\GS} = \prod_{n,\bk}^{\epsilon_{n \bk} \leq \EF} c_{n \bk}^\dagger \ket{0} ,
 \end{equation}
 
-\noindent where $\ket{0}$ denotes the \enquote{vacuum} state (the crystal in the absence of electrons) and $\EF$ is the Fermi energy.\todo{define Fermi energy}
+\noindent where $\ket{0}$ denotes the \enquote{vacuum} state (the crystal in the absence of electrons) and $\EF$ is the Fermi energy.
 Exciting an electron from the valence band $v$ with momentum $\bk$ to the conduction band $c$ with momentum $\bk+\bQ$, we are before an electron--hole pair, whose state can be formally written as
 
 \begin{equation}
-    \ket{v,c,\bk,\bQ} \equiv \cdagger_{c, \bk+\bQ} c_{v, \bk} \ket{\GS}\,.
+    \ket{v,c,\bk,\bQ} \equiv \cdagger_{c, \bk+\bQ} c_{v, \bk} \ket{\GS} .
 \end{equation}
 
-\noindent As a passing note, there is no need in our description for adopting a quasiparticle hole description for the holes.
-We see it simply as the absence of a negative elementary charge in the Fermi sea.
+\noindent As a passing note, there is no technical reason why we should adopt a quasiparticle hole description for the holes (i.e., define a hole creation/annihilation operator $h$ as $h=c/\cdagger$).
+Just like in the previous section, we see it simply as the absence of a negative elementary charge in the Fermi sea.
 
 If the exciton has a center of mass momentum $\bQ$, and assuming that a basis of electron--hole pairs is appropriate for the excitonic states, then we write for a generic exciton state $\ket{X_{\bQ}}$
 
 \begin{equation}
-    \ket{X_{\bQ}} = \sum_{v,c,\bk} A^{\bQ}_{vc}(\bk) \ket{v,c,\bk,\bQ} = \sum_{v,c,\bk} A^{\bQ}_{vc}(\bk) \cdagger_{c, \bk+\bQ} c_{v, \bk} \ket{\GS} \,.
+    \ket{X_{\bQ}} = \sum_{v,c,\bk} A^{\bQ}_{vc}(\bk) \ket{v,c,\bk,\bQ} = \sum_{v,c,\bk} A^{\bQ}_{vc}(\bk) \cdagger_{c, \bk+\bQ} c_{v, \bk} \ket{\GS} .
 \end{equation}
 
 In this way, the exciton state is written as a linear combination of electron--hole pair states summing over valence bands, conduction bands and momentum.
 We can consider the quantum number $\bQ$ a good one since the interaction conserves momentum, as all electron--hole pairs share the same center of mass momentum $\bQ$.
-The expansion coefficients $A^{\bQ}_{vc}(\bk)$ are determined by minimization of the expectation value (omitting the $\bQ$ subscript momentarily) $\mel{X}{\Ha}{X}$ with respect to $\ket{X}$:
+Up until now, we have just reintroduced the problem as in the beginning of Section~\ref{sec:bethe_salpeter_equation_effective_models}, albeit with a different notation.
+The main difference resides in the approach for determining the coefficients $A^{\bQ}_{vc}(\bk)$ (previously labeled by $\phi_{\nu}(\bk)$, that we identified as the exciton wavefunction).
+Herein, we follow a variational approach (see the beginning of Section~\ref{subsec:born_oppenheimer_approximation}).
+Hence, the expansion coefficients $A^{\bQ}_{vc}(\bk)$ are determined by minimization of the expectation value $\mel{X}{\Ha}{X}$  (omitting the $\bQ$ subscript momentarily) with respect to $\ket{X}$:
 
 \begin{equation}
 \label{eq:expectation_value_exciton}
     \fdv{E[X]}{X} = \fdv{X}  \left[\frac{\mel{X}{\Ha}{X}}{\braket{X}{X}}\right] = \fdv{\mel{X}{\Ha}{X}}{X} \braket{X}{X} - \underbrace{ \frac{\mel{X}{\Ha}{X}}{\braket{X}{X}}}_{E_X}  \fdv{\braket{X}{X}}{X} = 0 \,.
 \end{equation}
 
-\noindent Upon performing the variational derivatives and defining $H_{vc,v'c'}(\bk,\bk',\bQ) \equiv \mel{v,c,\bk,\bQ}{\Ha}{v',c',\bk',\bQ}$ for the matrix elements of the Hamiltonian between two electron--hole pair states, we arrive at the equation
+\noindent Upon performing the variational derivatives and using the notation $H_{vc,v'c'}(\bk,\bk',\bQ)$ for the matrix elements of the Hamiltonian $\mel{v,c,\bk,\bQ}{\Ha}{v',c',\bk',\bQ} \equiv H_{vc,v'c'}(\bk,\bk',\bQ)$ between two electron--hole pair states, we arrive at the equation
 
 \begin{equation}
+    \label{eq:BSE_compact_form}
    \sum_{v',c',\bk'} H_{vc,v'c'}(\bk,\bk',\bQ) A^{\bQ}_{v'c'}(\bk') = E_X A^{\bQ}_{vc}(\bk) \,,
 \end{equation}
 
-\noindent which is a different way of writing the \bse, and the symbols $H_{vc,v'c'}(\bk,\bk',\bQ)$ are matrix elements of what we call the Bethe--Salpeter Hamiltonian.
+\noindent which is a different way of writing the \bse, and the symbols $H_{vc,v'c'}(\bk,\bk',\bQ)$ are the matrix elements of what we call the Bethe--Salpeter Hamiltonian.
 
-The expansion of the excitonic state in a basis of electron--hole pairs is in fact an ansatz, or an assumption that the basis is adequate (or complete, technically speaking) to be able to write the true excitonic states.
-Instead of considering all the possible combinations of electron--hole excitations, where several electrons would populate the conduction bands leaving as many holes behind in the valence bands, do the calculations with a reduced Fock space.
-We admit only one electron at a time be excited from the valence band with momentum $\bk$ to a conduction band with momentum $\bk + \bQ$.
-We explained this in layperson terms, but we could have made the discussion more rigorous.
-However, that can be already found in the literature~\cite{Xatu,Alex_PhD}.
+The expansion of the excitonic state in a basis of electron--hole pairs is an ansatz under the assumption that the basis is adequate (or complete, technically speaking), so that we can write the true excitonic states in that basis.
+Instead of considering all the possible combinations of electron--hole excitations, where several electrons would populate the conduction bands leaving as many holes behind in the valence bands, we do the calculations in a reduced Fock space where the only excited states are unbound electron--hole pairs, presuming that this is a good enough approximation.
+For a more rigorous discussion of this aspect, we refer to Refs.~\cite{Xatu,Alex_PhD}.
 
-We need to compute the matrix elements $H_{vc,v'c'}(\bk,\bk',\bQ)$.
-Naturally, it has to be done numerically in practice, which also means that we have to truncate the Bethe--Salpeter Hamiltonian and work with an approximate finite matrix representation.
+We need to compute the matrix elements $H_{vc,v'c'}(\bk,\bk',\bQ)$ of the Bethe--Salpeter Hamiltonian.
+Naturally, this has to be done numerically in practice, which also means that we have to truncate the Bethe--Salpeter Hamiltonian and work with an approximate finite-matrix representation.
 Physically speaking, this approximation means that we are considering only a finite number of valence and conduction bands, and a finite number of momentum points in the \bz~(or unit cells, equivalently).
 Mathematically, it means that we are working with a truncated basis for $\Ho$, which in practice is not complete.
-In other words, we have to compute the matrix elements for each pair of momentum points $(\bk,\bk')$ in the \bz~mesh, for each pair $(vc,v'c')$ of $(vc)$ pairs of valence and conduction bands.
-The results later on will have to be converged against the number of points in the \bz~and the number of valence and conduction bands included to get the expected degeneracies and symmetries.
-Naturally, we select only the valence and conduction bands more relevant for the excitons, those closer to the Fermi level $\EF$.
+In other words, we have to compute the matrix elements for each pair of momenta $(\bk,\bk')$ in the \bz~mesh and for each pair $(vc,v'c')$ of pairs of valence bands $v,v'$ and of conduction bands $c,c'$.
+We have to ensure that the number of $\bk$ points and valence and conduction bands included are enough to converge the results.
+By converged results, we mean that we can obtain the expected degeneracies and symmetries.
+Naturally, we select only the valence and conduction bands more relevant for the excitons, those closer to the Fermi level.
 
-Even if they are to be evaluated numerically at the end, let us see how far we can go with only analytical expressions.
-The Bethe--Salpeter Hamiltonian matrix elements are given by $H_{vc,v'c'}(\bk,\bk',\bQ) = \mel{v,c,\bk,\bQ}{\Ha}{v',c',\bk',\bQ} = \mel{v,c,\bk,\bQ}{\Ho}{v',c',\bk',\bQ} + \mel{v,c,\bk,\bQ}{\V}{v',c',\bk',\bQ}$, matrix elements between states of uncoupled electron--hole pairs.
+Before we explain how to compute the matrix elements for the \gls{bse}, let us see how far we can go with only analytical expressions.
+The Bethe--Salpeter Hamiltonian matrix elements are given by $H_{vc,v'c'}(\bk,\bk',\bQ) = \mel{v,c,\bk,\bQ}{\Ho}{v',c',\bk',\bQ} + \mel{v,c,\bk,\bQ}{\V}{v',c',\bk',\bQ}$.
 The first term corresponds to the matrix elements of the Hamiltonian at the mean-field level between two electron--hole pair states, while the second term corresponds to the interaction matrix elements.
 We work out first the matrix elements of $\Ho$, as they are easier to deal with.
 For that, let us assume that the operator $\Ho$ can be written in a spectral representation of Bloch states labeled by $\ket{n,\bk}$.
@@ -590,47 +593,48 @@ Then, in its second-quantized form, the single-particle Hamiltonian reads
 \label{eq:Hamiltonian_single_particle}
 \end{equation}
 
-\noindent assuming that the process of diagonalizing it has been effectuated.
+\noindent assuming that the diagonalization has been done.
 Replacing the expression above in the matrix element of $\Ho$, it is not hard to show that
 
 \begin{equation}
-    \mel{v,c,\bk,\bQ}{\Ho}{v',c',\bk',\bQ} = \qty(\epsilon_{c, \bk + \bQ} - \epsilon_{v, \bk}) \delta_{v,v'} \delta_{\bk,\bk'} \delta_{c,c'} \qq{up to a global shift of}\EF \,.
+    \label{eq:single_particle_matrix_element}
+    \mel{v,c,\bk,\bQ}{\Ho}{v',c',\bk',\bQ} = \qty(\epsilon_{c, \bk + \bQ} - \epsilon_{v, \bk}) \delta_{v,v'} \delta_{\bk,\bk'} \delta_{c,c'}\, \qq{up to a shift of $\EF$.}
 \end{equation}
 
 The interaction matrix elements are tricky to compute, as the interaction operator $\V$ is a two-body operator, quartic in the creation and annihilation operators.
 Nonetheless, in this section we refrain from performing any kind of mean-field approximation and compute the matrix elements exactly.
-Doing so is not hard, but it is, once again, very tedious.
-We do not perform all the steps and just explain briefly how to proceed.
-For convenience, we make a brief change and abuse of notation, and relabel as $(v',\bk') \to v'$, $(c',\bk' + \bQ) \to c'$, $(v,\bk) \to v$ and $(c,\bk + \bQ) \to c$, and keep the notation for $\V$ used above.
-Then we have
+Doing so is not hard, is just tedious.
+We do not perform all the steps, and instead explain briefly how to proceed.
+For convenience, we make a brief change and abuse of notation, and relabel $(v',\bk') \to v'$, $(c',\bk' + \bQ) \to c'$, $(v,\bk) \to v$ and $(c,\bk + \bQ) \to c$, and keep the notation for $\V$ used above.
+Then, we have
 
 \begin{align*}
-    \mel{v,c,\bk,\bQ}{\V}{v',c',\bk',\bQ} &= \sum_{i,j,k,l} V_{i,j,k,l} \mel{v,c,\bk,\bQ}{\cdagger_i \cdagger_j c_l c_k}{v',c',\bk',\bQ} = \\
-    &= \sum_{i,j,k,l} V_{i,j,k,l} \mel{\GS}{\cdagger_{v} c_c \cdagger_i \cdagger_j c_l c_k \cdagger_{v'} c_{c'}}{\GS}\,.
-    \label{eq:interaction_matrix_element}
+    \mel{v,c,\bk,\bQ}{\V}{v',c',\bk',\bQ} &= \sum_{i,j,k,l} V_{ijkl} \mel{v,c,\bk,\bQ}{\cdagger_i \cdagger_j c_l c_k}{v',c',\bk',\bQ} = \\
+    &= \sum_{i,j,k,l} V_{ijkl} \mel{\GS}{\cdagger_{v} c_c \cdagger_i \cdagger_j c_l c_k \cdagger_{v'} c_{c'}}{\GS} .
 \end{align*}
 
-\noindent We pick, for instance, the pair $c_c \cdagger_i$ and use the anti-commutation relations to move the creation operator to the left, and the annihilation operator to the right, giving rise to two new terms.
-Then, in each term, we select a new pair of creation and annihilation operators $\cdagger c$ and repeat the process, making new terms appear.
-Following this procedure recursively, until we exhaust all our options for pairs of creation and annihilation operators, and end up only with a matrix element of a single $\cdagger c$ pair to evaluate, we arrive at
+\noindent For instance, we pick the pair $c_c \cdagger_i$ and use the anti-commutation relations to move the creation operator to the left, and the annihilation operator to the right, giving rise to two new matrix elements.
+Then, in each term, we select a new pair of creation and annihilation operators $\cdagger c$ and repeat the process, making more terms appear.
+Following this procedure recursively, until we exhaust all our options of pairs of creation and annihilation operators, and end up only with a matrix element of a single $\cdagger c$ pair to evaluate, we arrive at
 
-\begin{align*}
-    \mel{v,c,\bk,\bQ}{\V}{v',c',\bk',\bQ} = &V_{c'vv'c} - V_{c'vcv'} + \Kd{v v'} \sum_j \qty(V_{c'jcj} - V_{c'jjc}) + \Kd{c c'} \sum_j \qty(V_{vjjv'} - V_{vjv'j}) + \\
-    &+ \Kd{v v'} \Kd{c c'} \frac{1}{2} \sum_{ij} \qty(V_{ijij} - V_{ijji})\,.
-\end{align*}
+\begin{align}
+    \label{eq:many_particle_matrix_element}
+    \mel{v,c,\bk,\bQ}{\V}{v',c',\bk',\bQ} = &V_{c'vv'c} - V_{c'vcv'} + \delta_{v v'} \sum_j \qty(V_{c'jcj} - V_{c'jjc}) + \\
+     & \delta_{c c'} \sum_j \qty(V_{vjjv'} - V_{vjv'j}) + \delta_{v v'} \delta_{c c'} \frac{1}{2} \sum_{ij} \qty(V_{ijij} - V_{ijji})\,.
+\end{align}
 
-\noindent Summing the single-particle and two-particle contributions, we have for the Bethe--Salpeter Hamiltonian matrix elements
+\noindent Summing the two contributions~\eqref{eq:single_particle_matrix_element} and~\eqref{eq:many_particle_matrix_element}, we have for the Bethe--Salpeter Hamiltonian matrix elements
 
 \begin{equation}
     \begin{aligned}
         H_{vc,v'c'}(\bk,\bk',\bQ) = &\delta_{\bk,\bk'} \delta_{v,v'} \qty[\epsilon_{c, \bk + \bQ}  \delta_{c,c'} + \Sigma_{c c'}(\bk + \bQ, \bk' + \bQ)] - \\
-        &-\delta_{\bk,\bk'} \delta_{c,c'} \qty[\epsilon_{v, \bk}  \delta_{v,v'} + \Sigma_{v' v}(\bk + \bQ, \bk' + \bQ)] - \\
-        &-(D - X)_{vc,v'c'}(\bk,\bk',\bQ)\,,
+        &\delta_{\bk,\bk'} \delta_{c,c'} \qty[\epsilon_{v, \bk}  \delta_{v,v'} + \Sigma_{v' v}(\bk + \bQ, \bk' + \bQ)] - \\
+        &(D - X)_{vc,v'c'}(\bk,\bk',\bQ)\,,
     \end{aligned}
     \label{eq:BSE_Hamiltonian_matrix_elements}
 \end{equation}
 
-\noindent where we have defined the direct and exchange interaction matrix elements, as
+\noindent where we have defined the direct and exchange interaction matrix elements as
 
 \begin{subequations}
     \label{eq:direct_and_exchange_terms}
@@ -640,7 +644,7 @@ Following this procedure recursively, until we exhaust all our options for pairs
     \end{align}
 \end{subequations}
 
-\noindent respectively and the self-energy, accounting for the interaction between the electron (or hole) with the Fermi sea, as
+\noindent respectively, and the self-energy accounting for the interaction between the electron (or hole) with the Fermi sea as
 
 \begin{equation}
     \Sigma_{nm} (\bk,\bk') = \sum_{j,\bk''}^{\text{occ}}\qty(V_{n\bk,j\bk'',m\bk',j\bk''} - V_{n\bk,j\bk'',j\bk'',m\bk'})\,,
@@ -648,11 +652,14 @@ Following this procedure recursively, until we exhaust all our options for pairs
 
 \noindent where the sum is only over occupied bands.
 About the self-energy, we have to make a technical remark.
-As a sanity check, it is instructive to look closely at~\eqref{eq:BSE_Hamiltonian_matrix_elements}, and check for hermiticity by replacing $v \leftrightarrow v'$, $c \leftrightarrow c'$ and $\bk \leftrightarrow \bk'$.
-If we do so, we arrive at the conclusion that the Bethe--Salpeter Hamiltonian is not hermitian, with the self-energy terms being the culprits.
-We can avoid this problem if we work at the mean-field level, using a single Slater determinant for the \gs~ of~\eqref{eq:Hamiltonian_start}, or equivalently, making a \hf~approximation.
-We can then see the self-energy corrections as incorporated in the \qp~energies $\epsilon_{n \bk}$, and without any worries assume that any quasiparticle energy corrections have already been performed \textit{a priori} through in the diagonalization of the single-particle Hamiltonian by \abinit~methods.
-In this way, the Bethe--Salpeter equation reads
+In principle, we could solve the \gls{bse}~\eqref{eq:BSE_Hamiltonian_matrix_elements} as is.
+But that is not what we do.
+The Hamiltonian that we depart from in Eq.~\eqref{eq:Hamiltonian_start} is such that the single-particle part has \gls{tb} parameters $t_{i j}$ that come from diagonalizing the Hamiltonian~\eqref{eq:HF_Hamiltonian} including interactions, but at the mean-field level via \gls{hf}~theory or \gls{dft}~\cite{Ozfidan_2014}.
+In that way, we can then see the self-energy corrections as already incorporated in the quasiparticle energies $\epsilon_{n \bk}$
+On the other hand, if we were to solve the \gls{bse} as per~\eqref{eq:BSE_Hamiltonian_matrix_elements}, the Hamiltonian to diagonalize in order to obtain the single-particle properties would have to be the one in~\eqref{eq:single_particle_Hamiltonian}, the noninteracting limit of the many-body crystal Hamiltonian in the Born--Oppenheimer approximation.
+Then, we would have a distinct set of \gls{tb} parameters $t'_{i j}$, and another initial band structure $\epsilon'_{n \bk}$.
+The caveat is that the cancellation might not be exact. In math notation, it means that $\epsilon_{n \bk} = \epsilon'_{n \bk} + \Sigma_{n n}(\bk + \bQ, \bk + \bQ)$ might be false.
+But if we assume that it is true, then the \gls{bse} in Eq.~\eqref{eq:BSE_Hamiltonian_matrix_elements} reduces to
 
 
 \begin{empheq}[innerbox=\colorbox{lightgray}, right={\,,}]{equation}
@@ -660,53 +667,58 @@ In this way, the Bethe--Salpeter equation reads
     \label{eq:exact_Bethe_Salpeter_equation}
 \end{empheq}
 
-\noindent where the energies $\{\epsilon_{n, \bk}\}$ are now \hf~\qp~energies, and where we have defined the interaction kernel as $K = -\qty(D - X)$.
-This approximation in the \bse~is commonly called in the literature the Tamm--Dancoff approximation~\cite{Dreuw_2005,Hirata_1999}, avoiding any complex diagonalization procedures.
-We would also like to note that the Tamm--Dancoff approximation was for the first time introduced in the context of \mbpt, where a similar issue for the \bse~arises.
-Nonetheless, there are two striking differences between the \bse~ we solve and the one obtained with \mbpt~\cite{Jornada_PhD,Diana_PhD}.
+\noindent where the energies $\{\epsilon_{n, \bk}\}$ are now mean-field \qp~energies, and $K = -\qty(D - X)$ is the interaction kernel.
+This \gls{bse} is similar to the one obtained with \mbpt~\cite{Jornada_PhD,Diana_PhD}.
+However, our version is an already approximated version when compared to the \mbpt~one, which includes terms that render the Bethe--Salpeter Hamiltonian non-Hermitian.
+Typically, in the literature one usually does the Tamm--Dancoff approximation~\cite{Dreuw_2005,Hirata_1999}, avoiding any complex diagonalization procedures.
+The \gls{bse} obtained in that way resembles ours.
+Nonetheless, there are two striking differences between the \bse~we solve and the one obtained within \mbpt~\cite{Jornada_PhD,Diana_PhD}.
 In the latter, the problem has a frequency dependence that we do not find here.
-The screening is dynamic, and that entails performing an integral in frequencies to compute the interaction matrix elements.
+The screening is dynamic, and that entails performing an integral in the frequency to compute the interaction matrix elements.
 Here we model the screening using a static dielectric function, so we work always in the static limit $\omega \to 0$.
 On one hand, this approximation is also common in \abinit~calculations in practice, although in that context it has to be justified.
 On the other hand, the general case $\omega \neq 0$ hinders heavily the numerical calculations.
-The other difference we can point out is that within \mbpt~, the exchange term is a matrix element of the \textbf{bare} Coulomb potential, while only the direct term is a matrix element of the \textbf{screened} Coulomb potential.
-In our case, both direct and exchange terms are matrix elements of the same Coulomb potential, and there is no reason for the exchange term to involve the bare Coulomb potential (it is usually discarded either way).
+The other difference we can point out is that within \mbpt, the exchange term $X$ is a matrix element of the \textbf{bare} Coulomb potential, while only the direct term is a matrix element of the \textbf{screened} Coulomb potential.
+In our case, both direct and exchange terms are matrix elements of the same Coulomb potential, and there is no reason for the exchange term to involve the bare Coulomb potential (either way, it is usually discarded).
 
-We have not hitherto specified the form of the Coulomb potential, even though screening was a key concept in previous chapters.
-We shall discuss that right in the next section, where we explain how we can compute the interaction matrix elements in the Bethe--Salpeter equation.
+We have not hitherto specified the form of the Coulomb potential, even though screening was an important topic in previous chapters.
+We shall discuss that right in the next section, where we explain how we can compute the interaction matrix elements in the Bethe--Salpeter equation taking into account screening effects in the Coulomb potential.
 
 
 \subsection{The interaction matrix elements and screening}
 \label{subsec:interaction_matrix_elements_and_screening}
 
-Let us first remind the reader that we use Bloch states of the form
+Before working out the expression for the interaction matrix elements $D$ and $X$, let us first remind the reader that we use Bloch wavefunctions, that in the lattice gauge, read
 
 \begin{equation}
     \psi_{n \bk} (\br) = \frac{1}{\sqrt{N}} \sum_{\bR} \ei{\bk \vdot \bR} \sum_{i \alpha} C_{i \alpha}^{n \bk} \phi_{\alpha} (\br - \bR - \bt_i)\,,
 \label{eq:Bloch_states_again}
 \end{equation}
 
-\noindent where the tight-binding coefficients are determined by diagonalizing the Bloch Hamiltonian (as explained in Sec.~\ref{subsubsec:tight_binding_method}), and the atomic orbitals denoted by $\phi_\alpha$ are orthogonal, as we work under the tight-binding formalism\footnote{They in general may not be orthogonal. If the model Hamiltonian has been obtained by a Wannier interpolation, that they are orthogonal by construction. However, if the Hamiltonian comes from calculations on a basis of localized functions other than Wannier functions, then they are not orthogonal in general. This is not a problem at the end, because one can always follow an orthogonalization procedure. The code we work with does just that. We shall remind the reader again once it comes the time of discussing the code developed.}.
-Focusing first on the direct interaction term, per~\eqref{subeq:direct_term}, in terms of Bloch states is
+\noindent where the tight-binding coefficients are determined by diagonalizing the Bloch Hamiltonian (as explained in Sec.~\ref{subsubsec:tight_binding_method}), and the atomic orbitals denoted by $\phi_\alpha$ are orthogonal, as we work under the \gls{tb} formalism\footnote{In general, they are not orthogonal. If the model Hamiltonian has been obtained by a Wannier interpolation and is written in a basis of Wannier functions, then they are orthogonal by construction. However, if the Hamiltonian comes from calculations on a basis of localized functions other than Wannier functions, they may not be orthogonal. This is not a problem at the end, because one can always follow an orthogonalization procedure. The code we work with does that. We shall remind the reader again, once it comes the time of discussing the code developed.}.
+Focusing first on the direct interaction term as per~\eqref{subeq:direct_term}, that in terms of Bloch states is
 
 \begin{equation}
     \label{eq:direct_term_real_space_formula}
-    D_{vc,v'c'}(\bk,\bk',\bQ) = \int \dr \int \dr' \psi^*_{c,\bk+\bQ}(\br) \psi^*_{v',\bk'}(\br') W(\br,\br') \psi_{c',\bk'+\bQ}(\br) \psi^*_{v,\bk}(\br')\,.
+    D_{vc,v'c'}(\bk,\bk',\bQ) = \int \dr \int \dr' \psi^*_{c,\bk+\bQ}(\br) \psi^*_{v',\bk'}(\br') W(\br,\br') \psi_{c',\bk'+\bQ}(\br) \psi_{v,\bk}(\br')\,,
 \end{equation}
 
 \noindent where we have denoted now the screened potential by $W$ instead of $V$.
-Upon replacing the Bloch states by their expression~\eqref{eq:Bloch_states_again}, at some point we need to evaluate four-body integrals of the form
+Upon substitution of the Bloch states by their expression in Eq.~\eqref{eq:Bloch_states_again}, at some point we need to evaluate four-body integrals of the form
 
 \begin{equation}
     \int \dr \int \dr' \phi^*_{\alpha} (\br) \phi^*_{\beta} (\br') W(\br,\br') \phi_{\alpha'} (\br) \phi_{\beta'} (\br')\,,
 \end{equation}
 
-\noindent with the position vectors as arguments of the orbitals may have a shift in position of the form $\br \to \br - \bR - \bt_i$.
-In \abinit~calculations......
-Considering point-like orbitals where their spatial structure is overlooked and assuming orthogonality, whenever a product between orbitals appears, we can make the substitution
+\noindent with the position vectors in the argument of the orbitals may have a shift in position of the form $\br \to \br - \bR - \bt_i$ that we did not write explicitly.
+In \abinit~calculations, these integrals are tipycally evaluated by Fourier transforming the screened Coulomb potential, so that the integrals in $\br$ and $\br'$ factor our, and each integral ends up being a Fourier transform of the product between two orbitals.
+Those Fourier transforms are computed numerically via fast Fourier transforms algorithms, as there are libraries providing them~\cite{FFTW05}.
+However, in this work we can reduce the degree of complexity by making the point-like orbital approximation, that we have already introduced in Section~\ref{sec:bethe_salpeter_equation_effective_models}.
+It consists in overlooking the spatial structure of the orbitals and assuming orthogonality whenever a product between orbitals appears.
+We can make the substitution
 
 \begin{equation}
-    \phi_{\alpha} (\br - \bR - \bt_{i}) \phi_{\beta} (\br - \bR' - \bt_j) \approx \delta_{\alpha \beta} \delta_{\bR \bR'} \delta_{ij} \delta(\br - \bR - \bt_i)\,
+    \phi_{\alpha} (\br - \bR - \bt_{i}) \phi_{\beta} (\br - \bR' - \bt_j) \approx \delta_{\alpha \beta} \delta_{\bR \bR'} \delta_{ij} \delta(\br - \bR - \bt_i)\,.
 \end{equation}
 
 \noindent This allows for performing the space integrals directly and analytically, so that we obtain a relatively simple expression for the direct term:
@@ -723,57 +735,58 @@ Considering point-like orbitals where their spatial structure is overlooked and 
 \end{equation}
 
 \noindent which \textbf{is not} a Fourier transform.
-If we model the screening using the Rytova--Keldysh potential, then we can further write $W\qty(\bR + \bt_i; \bt_j) = V_\RK (\bR + \bt_i - \bt_j)$: the Rytova--Keldysh model is classical, the dielectric function is assumed to be a single momentum function, implying one has assumed continuous translation invariance, which is clearly an approximation.
-To go beyond classical models for screening and take into account the inhomogeneity of the crystal, we can develop the expression~\eqref{eq:direct_term_real_space_formula} by Fourier transforming the screened Coulomb potential, and write
+If we model the screening using the Rytova--Keldysh potential, then we can further write $W\qty(\bR + \bt_i; \bt_j) = V_\RK (\bR + \bt_i - \bt_j)$.
+The Rytova--Keldysh model is classical, as the dielectric function is assumed to be a function of a single momentum, implying one has assumed continuous translation invariance, which is clearly an approximation.
+Within the spirit of \abinit~approaches, where the matrix elements are evaluated in $\bk$-space, we can go beyond classical models for screening and take into account the inhomogeneity of the crystal.
+We just have to develop the expression~\eqref{eq:direct_term_real_space_formula} by (inverse) Fourier transforming the screened Coulomb potential.
+According to Eq.~\eqref{eq:two_point_discrete_inverse_Fourier} in Appendix~\ref{app:fourier_transform}, assuming that the system is \gls{3d} with volume $\vol$, we can write
 
 \begin{equation}
     \begin{aligned}
         \label{eq:interaction_matrix_element_direct_reciprocal}
-        &D_{vc,v'c'}(\bk,\bk',\bQ) = \\
-        &\int \dr \int \dr' \psi^*_{c,\bk+\bQ}(\br) \psi^*_{v',\bk'}(\br') \left(\frac{1}{A^2} \sum_{\bq,\bq'} \ei{\bq \vdot \br} W(\bq,\bq')\ee^{-\ii \bq' \vdot \br'}\right) \psi_{c',\bk'+\bQ}(\br) \psi^*_{v,\bk}(\br') = \\
-        &=\int \dr \int \dr' \psi^*_{c,\bk+\bQ}(\br) \psi^*_{v',\bk'}(\br') \left(\frac{1}{A} \sum_{\bq \in \mathrm{BZ}} \sum_{\bG,\bG'} \ei{(\bq + \bG) \vdot \br} W(\bq + \bG,\bq + \bG')\ee^{-\ii (\bq + \bG') \vdot \br'}\right) \psi_{c',\bk'+\bQ}(\br) \psi^*_{v,\bk}(\br') = \\
-        &= \frac{1}{A} \sum_{\bq \in \mathrm{BZ}} \sum_{\bG,\bG'}
-        \qty(\int \dr  \psi^*_{c,\bk+\bQ}(\br) \ei{(\bq + \bG) \vdot \br} \psi_{c',\bk'+\bQ}(\br))  W_{\bG \bG'}(\bq) \qty(\int \dr' \psi^*_{v',\bk'}(\br') \ee^{-\ii (\bq + \bG') \vdot \br'}  \psi^*_{v,\bk}(\br')) = \\
-        &= \frac{1}{A} \sum_{\bq \in \mathrm{BZ}} \delta_{\bq,\bk - \bk'} \sum_{\bG,\bG'} \bra{c,\bk+\bQ} \ei{(\bq + \bG) \vdot \br} \ket{c',\bk'+\bQ} W_{\bG \bG'}(\bq) \bra{v',\bk'} \ee^{-\ii (\bq + \bG') \vdot \br} \ket{v,\bk} = \\
-        &=  \frac{1}{A} \sum_{\bG,\bG'} \qty(I^{\bG}_{c \bk+\bQ, c' \bk'+\bQ})^* W_{\bG \bG'}(\bk - \bk') I^{\bG'}_{v \bk, v' \bk'}
+        D_{vc,v'c'}(\bk,\bk',\bQ) =& \int \dr \int \dr' \psi^*_{c,\bk+\bQ}(\br) \psi^*_{v',\bk'}(\br') W(\br,\br') \psi_{c',\bk'+\bQ}(\br) \psi_{v,\bk}(\br') = \\
+        =& \frac{1}{\vol} \sum_{\bq \in \mathrm{BZ}} \delta_{\bq,\bk - \bk'} \sum_{\bG,\bG'} \bra{c,\bk+\bQ} \ei{(\bq + \bG) \vdot \br} \ket{c',\bk'+\bQ} W_{\bG \bG'}(\bq) \times \\
+         & \bra{v',\bk'} \ee^{-\ii (\bq + \bG') \vdot \br} \ket{v,\bk} = \\
+        =& \frac{1}{\vol} \sum_{\bG,\bG'} \qty(I^{\bG}_{c' \bk'+\bQ, c \bk+\bQ})^* W_{\bG \bG'}(\bk - \bk') I^{\bG'}_{v' \bk',v \bk}\,,
     \end{aligned}
 \end{equation}
 
-\noindent where we introduced the inverse Fourier transform for the screened potential (consult App.~\ref{app:fourier_transform}), and introduced the definition
+\noindent where the second equality was obtained by replacing the $\br$-resolved potential with its inverse Fourier transform and using the braket notation for the real space integrals, and in the last equality we introduced the definition
 
 \begin{equation}
 \label{eq:plane_wave_matrix_element_definition}
-    I^{\bG}_{n \bk, n' \bk'} = \int \dr\, \psi^*_{n,\bk} (\br) \ee^{-\ii(\bk  - \bk' + \bG) \vdot \br} \psi_{n' \bk'} (\br)\,.
+    I^{\bG}_{n \bk, n' \bk'} \equiv \bra{n,\bk} \ee^{-\ii (\bk - \bk' + \bG) \vdot \br} \ket{n',\bk'} = \int \dr\, \psi^*_{n,\bk} (\br) \ee^{-\ii(\bk  - \bk' + \bG) \vdot \br} \psi_{n' \bk'} (\br)\,.
 \end{equation}
 
 The final expression in equation~\eqref{eq:interaction_matrix_element_direct_reciprocal} is the one usually encountered in the literature pertaining to first-principle methods~\cite{BerkeleyGW,Yambo_2009}.
-These methods allow also computing the dielectric matrix and its inverse, so that one can calculate the matrix elements of the screened Coulomb potential through $W_{\bG\bG'}(\bq) = \vareps^{-1}_{\bG\bG'}(\bq) v_c(\bq + \bG')$, the static limit of Eq.~\eqref{eq:screened_dynamic_Coulomb_potential}.
+Those methods allow also computing the dielectric matrix and its inverse, so that one can calculate the matrix elements of the screened Coulomb potential through $W_{\bG\bG'}(\bq) = \vareps^{-1}_{\bG\bG'}(\bq) v_c(\bq + \bG')$, the static limit of Eq.~\eqref{eq:screened_dynamic_Coulomb_potential}.
 
-Regarding the exchange term, even though we typically will discard, for completion we present its expression, that is
+Regarding the exchange term, even though one typically discards it, for completion we present its expression
 
 \begin{equation}
     \label{eq:interaction_matrix_element_exchange_reciprocal}
     \begin{split}
-        X_{vc,v'c'}(\bk,\bk',\bQ) &= \frac{1}{N} \sum_{i \alpha}  \sum_{j \beta} \qty(C_{i \alpha}^{c \bk+ \bQ})^*   C_{i \alpha}^{v \bk} C_{j \beta}^{c' \bk' + \bQ} \qty(C_{j \beta}^{v' \bk'})^* V_{ij}(\bQ)  \\
-                                  &= \frac{1}{N} \sum_{\bG,\bG'} \qty(I^{\bG}_{c \bk+\bQ, v \bk})^* W_{\bG \bG'}(\bQ) I^{\bG'}_{c' \bk' + \bQ, v' \bk'}.
+        X_{vc,v'c'}(\bk,\bk',\bQ) &= \frac{1}{N} \sum_{i \alpha}  \sum_{j \beta} \qty(C_{i \alpha}^{c \bk+ \bQ})^*   C_{i \alpha}^{v \bk} C_{j \beta}^{c' \bk' + \bQ} \qty(C_{j \beta}^{v' \bk'})^* V_{ij}(\bQ) = \\
+                                  &= \frac{1}{\vol} \sum_{\bG,\bG'} \qty(I^{\bG}_{v \bk , c \bk+\bQ})^* W_{\bG \bG'}(\bQ) I^{\bG'}_{v' \bk',  c' \bk' + \bQ}.
     \end{split}
 \end{equation}
 
-If instead we use for the screened Coulomb potential the Rytova--Keldysh model, but work in reciprocal space, then the expressions for the direct and exchange terms write
+If we use for the screened Coulomb potential the Rytova--Keldysh model, which only applies for \bd~materials, and work in reciprocal space, then the expressions for the direct $D$ and exchange $X$ terms write
 
 \begin{subequations}
     \label{eq:interaction_matrix_elements_reciprocal_RK}
     \begin{align}
-        D_{vc,v'c'}(\bk,\bk',\bQ) &= \frac{1}{N} \sum_{\bG} I^{\bG}_{c \bk+\bQ, c' \bk'+\bQ} V_{\text{RK}}(\bk - \bk' + \bG) (I^{\bG}_{v \bk, v' \bk'})^* \label{eq:direct_interaction_matrix_element_reciprocal_RK} \\
-        X_{vc,v'c'}(\bk,\bk',\bQ) &= \frac{1}{N} \sum_{\bG} I^{\bG}_{c \bk+\bQ, v \bk} V_{\text{RK}}(\bQ + \bG) (I^{\bG}_{c' \bk' + \bQ, v' \bk'})^* \,, \label{eq:exchange_interaction_matrix_element_reciprocal_RK}
+        D_{vc,v'c'}(\bk,\bk',\bQ) &= \frac{1}{A} \sum_{\bG} \qty(I^{\bG}_{c' \bk'+\bQ, c \bk+\bQ})^* V_{\text{RK}}(\bk - \bk' + \bG) I^{\bG'}_{v' \bk',v \bk} \label{eq:direct_interaction_matrix_element_reciprocal_RK}\,\text{ and} \\
+        X_{vc,v'c'}(\bk,\bk',\bQ) &= \frac{1}{A} \sum_{\bG} \qty(I^{\bG}_{c \bk+\bQ ,  v \bk})^* V_{\text{RK}}(\bQ + \bG) I^{\bG'}_{v' \bk',  c' \bk' + \bQ} \,, \label{eq:exchange_interaction_matrix_element_reciprocal_RK}
     \end{align}
 \end{subequations}
 
 \noindent where $V_{\text{RK}}(\bq) = \frac{e}{2\epsz q\left(1+r_0 q\right)}$ is the momentum-resolved Rytova--Keldysh potential, encountered in this work for the first time in the Section~\ref{subsubsec:dielectric_function_static_limit} of the very first chapter of this thesis.
-A striking difference between the expressions~\eqref{eq:interaction_matrix_elements_reciprocal_RK} and~\eqref{eq:interaction_matrix_element_direct_reciprocal} and~\eqref{eq:interaction_matrix_element_exchange_reciprocal}, is that in the latter there is a double sum over reciprocal lattice vectors $\bG$ and $\bG'$, while in the former there is only a single sum over reciprocal lattice vectors.
-The double sum allows for including non-local field effects in the interaction matrix elements.
-In the single sum, the inclusion of the reciprocal lattice vectors has the purpose of preserving the symmetry in the interaction between electrons. % with momenta $\bk$ and $\bk'$~\cite{Ridolfi_2015}---the \bd~Fourier transform of the Rytova--Keldysh potential from the reciprocal space to the real space must involve a sum over all momenta in the reciprocal lattice to recover the correct $\br$ dependence, and the sum over all momenta can be decomposed into a sum over momenta in the \bz~with a sum over all reciprocal lattice vectors, so that the entire reciprocal lattice is covered.
-We will touch upon this detail again later in this work. \todo[inline]{Come back here later at the end of the writing}
+We also had to replace $\vol \to A$.
+A striking difference between the expressions~\eqref{eq:interaction_matrix_elements_reciprocal_RK} and~\eqref{eq:interaction_matrix_element_direct_reciprocal} and~\eqref{eq:interaction_matrix_element_exchange_reciprocal}, is that in the last there is a double sum over reciprocal lattice vectors $\bG$ and $\bG'$, while in the first two there is only a single sum over reciprocal lattice vectors.
+The double sum introduces non-local field effects in the interaction matrix elements.
+In the single sum, the inclusion of the reciprocal lattice vectors has the purpose of preserving the symmetry in the interaction between electrons~\cite{Ridolfi_2015}. % with momenta $\bk$ and $\bk'$~\cite{Ridolfi_2015}---the \bd~Fourier transform of the Rytova--Keldysh potential from the reciprocal space to the real space must involve a sum over all momenta in the reciprocal lattice to recover the correct $\br$ dependence, and the sum over all momenta can be decomposed into a sum over momenta in the \bz~with a sum over all reciprocal lattice vectors, so that the entire reciprocal lattice is covered.
+We will touch upon this detail again later in this work.\todo{Come back here later at the end of the writing, if we discussed the issue $G=0$ in hBN's exciton.}
 
 \section{Optical effects in two-dimensional semiconductors}
 \label{sec:optical_effects}
