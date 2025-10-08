@@ -31,7 +31,7 @@ Here we make the extension of the code to go beyond thew Rytova-Keldysh approxim
 
 %Here we recall the expression of the microscopic dielectric function in 2D, and take it for insulators and semiconductors and the static limit.
 
-The dielectric function in real-space and time domain, within \rpa, that we discussed in section~\ref{sec:dielectric_function_quantum} writes
+The dielectric function in real-space and time domain, within \rpa, that we discussed in Section~\ref{sec:dielectric_function_quantum} writes
 
 \begin{equation}
 \label{eq:dielectric_function_real_time_recalled}
@@ -82,14 +82,14 @@ We consider as well zero temperature, so that we can simplify the polarizability
     I^{\bG}_{n \bk, n' \bk'} = \mel{n,\bk}{\ee^{-\ii(\bk' - \bk + \bG) \vdot \br}}{n',\bk'} = \int \dr \psi^*_{n,\bk} (\br)\, \ee^{- \ii(\bk' - \bk + \bG) \vdot \br} \psi_{n' \bk'} (\br)\,,
 \end{equation}
 
-\noindent that we recall from section~\ref{subsec:interaction_matrix_elements_and_screening}.
+\noindent that we recall from Section~\ref{subsec:interaction_matrix_elements_and_screening}.
 We would like to take this opportunity to make a brief remark.
 We have confirmed analytically that expression~\eqref{eq:static_polarizability_repeated} derives from its more general version in~\eqref{eq:polarizability_momentum_frequency_repeated}, which is an expression commonly found in textbooks~\cite{Cohen_Louie_2016}.
 However, the expression in~\eqref{eq:static_polarizability_TRS} is not commonly found in textbooks, but it has made its appearance in the literature~\cite{BerkeleyGW,Yambo_2009}.
 We stress that the prefactor of $2$ and the sum over spins $\sigma$ are key to correctly obtain the screening properties.
 We prove in appendix~\ref{app:polarizability_TRS_proof} that expression~\eqref{eq:static_polarizability_repeated} reduces to~\eqref{eq:static_polarizability_TRS} when \gls{trs} is present.
 All systems considered in this thesis enjoy \gls{trs}, which can be broken, for instance, when a static magnetic field is applied.
-We have stated before in section~\ref{subsec:maxwell_equations} that we do not study magnetized media.
+We have stated before in Section~\ref{subsec:maxwell_equations} that we do not study magnetized media.
 
 We have gathered all the necessary knowledge to compute these matrix elements, and thus the matrix elements of the noninteracting polarizability $\chi^0_{\bG \bG'}(\bq)$.
 One novelty in this work, is that the material is in practice \bd, as we have no repeated off-plane images like in first-principle approaches.
@@ -195,7 +195,7 @@ Looking at the dynamical expression of the polarizability, we can see that the f
 If the band gap estimated by $ \epsilon_{n',\bp} - \epsilon_{n,\bp}$ (assuming it is direct and located at the point $\bp$ in the \bz) is large enough when compared to the frequency, then we can approximate the screened Coulomb potential by its static limit, and discard an integration in frequency in the interaction matrix elements.
 
 To finish the discussion, we revisit the interaction matrix elements in the \gls{bse} for the excitons with the numerical approach.
-Their expressions derived in section~\ref{subsec:interaction_matrix_elements_and_screening} remain the same.
+Their expressions derived in Section~\ref{subsec:interaction_matrix_elements_and_screening} remain the same.
 Namely for the direct term we have
 
 \begin{empheq}[innerbox=\fbox, right={\,,}]{align}
@@ -227,11 +227,11 @@ When discussing the dielectric function, we shall make the connection with the m
 In principle, we are able to recover the Rytova--Keldysh model and get an estimate for the screening parameter $r_0$.
 The material of choice is \gls{hbn} once more; but now, we work with a more realistic model as we shall describe.
 
-\subsection{\gls{hbn} revisited: DFT band structure and Hamiltonian model}
+\subsection{hBN revisited: DFT band structure and Hamiltonian model}
 \label{subsec:hBN_revisited}
 
 In this section we describe our model Hamiltonian for \gls{hbn}, a \bd~material quite important in this work.
-We have seen before a minimal tight-binding model for \gls{hbn} in section~\ref{subsubsec:tight_binding_method}, with only two parameters; the onsite energy difference between boron and nitrogen atoms, and the hopping parameter between first neighbor sites.
+We have seen before a minimal tight-binding model for \gls{hbn} in Section~\ref{subsubsec:tight_binding_method}, with only two parameters; the onsite energy difference between boron and nitrogen atoms, and the hopping parameter between first neighbor sites.
 Then later on chapter~\ref{ch:Optical_hBN_superlattice}, we used a model based on the initial one considered in chapter~\ref{ch:quantum_mechanics_solids} to study excitons and the excitonic optical response in a \gls{hbn} nanostructure.
 We also used the Rytova--keldysh model to account for the screening.
 In this chapter, we work out a numerical model for \gls{hbn}, but for that, we need a more realistic model for that material using \abinit~methods.
@@ -241,9 +241,9 @@ Herein, the model Hamiltonian for \gls{hbn} was obtained through \dft~calculatio
 The hybrid functional HSE06\todo{need a Ref maybe} was used with the Perdew--Burke--Ernzerhof functional~\cite{Perdew_1996} within the \gls{gga}, with a $48\times48\times1$ $k$-grid.
 The output file $\texttt{hBN\_base\_HSE06.outp}$ extension can be found in the official repository for the Xatu code~\cite{Xatu}; \url{https://github.com/alejandrojuria/xatu}.
 This file contains the Fock matrices of the form $H(\bR)$ in a basis of localized Gaussian functions, sufficient in number to build the Bloch Hamiltonian $H(\bk) = \sum_{\bR} \ee^{\ii \bk \cdot \bR} H(\bR)$.
-If the reader needs to be reminded of these concepts, we refer to section~\ref{subsubsec:tight_binding_method} of chapter~\ref{ch:quantum_mechanics_solids}.
+If the reader needs to be reminded of these concepts, we refer to Section~\ref{subsubsec:tight_binding_method} of chapter~\ref{ch:quantum_mechanics_solids}.
 Upon diagonalization of the Bloch Hamiltonian along the high-symmetry line $\Gamma-K-M-\Gamma$, we obtained the band structure displayed in Fig.~\ref{fig:hBN_DFT_bands} below.
-With this model Hamiltonian, namely the band structure and the eigenvectors of the Bloch Hamiltonian, we construct a numerical model for the screening properties of \gls{hbn}, needed later on to compute the excitons through exact diagonalization of the \bse, in particular the interaction matrix elements, as discussed in section~\ref{subsec:interaction_matrix_elements_and_screening}.
+With this model Hamiltonian, namely the band structure and the eigenvectors of the Bloch Hamiltonian, we construct a numerical model for the screening properties of \gls{hbn}, needed later on to compute the excitons through exact diagonalization of the \bse, in particular the interaction matrix elements, as discussed in Section~\ref{subsec:interaction_matrix_elements_and_screening}.
 That is the subject of the sections to come.
 
 \begin{figure}[H]

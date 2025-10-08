@@ -158,7 +158,7 @@ We will simply assume that the arrangement of the ions in the solid is known, fo
 To further narrow down the types of systems under consideration, we will only treat solids where the arrangement of the ions forms a periodic structure, the crystal.
 Other types of solids can be found in nature, such as amorphous solids, like glasses, or solid materials with rotational symmetry but no translation symmetry, the quasicrystals~\cite{Chaikin_Lubensky_1995}.
 Herein, the ions occupy positions in the crystalline structure, also called the lattice, such that the potential felt by the electrons $\hat{V}_{e-\mathrm{ion}}(\br)$ from the ions is a periodic function with the periodicity of the lattice.
-We shall define more precisely what a lattice is in section~\ref{sec:single_particle_properties}.
+We shall define more precisely what a lattice is in Section~\ref{sec:single_particle_properties}.
 In this work, we will assume that the ionic degrees of freedom are frozen, where the ions are stationary, forming a background of positive charge.
 This is the adiabatic or Born--Oppenheimer approximation~\cite{Kittel_2004,Simon_Oxford_2013,Martin_2004}.
 Within this approximation, the electronic and ionic degrees of freedom decouple, and the problem of the electronic structure and excitations can be treated separately from finding the ground state of the lattice and its excitations, also called phonons.
@@ -361,14 +361,14 @@ But first, we need to better understand the concepts related to the bands of a c
 \label{subsubsec:tight_binding_method}
 
 There is a number of different descriptions for material band structures.
-Two simple ones are the nearly free electron model and the tight-binding model.
+Two simple ones are the nearly free electron model and the \gls{tb} model.
 In the first, one assumes the electron moves freely from atom to atom, so that it can be found in a plane wave state with parabolic dispersion, and the crystalline structure is seen as a small perturbation.
 The electronic dispersion in the case of the nearly free electron model is simply given by $\varepsilon_{\bG} (\bk) = \hbar^2 \abs{\bk - \bG}^2 / 2m$, with the reciprocal lattice vectors $\bG$ labeling the bands.
 This model is particularly good for standard metals, like aluminum~\cite{Levinson_aluminum}, that have a compact or close-packed crystal structure.
 
 In the opposite limit, where the crystal is not compact and the atoms are further apart, electrons have more difficulty in moving from atomic site to atomic site, and then we say that they are tightly-bound to the atoms.
 We usually associate this type of crystals with materials with poor conducting properties, those presenting a bandgap---the range of forbidden energies for which propagating electronic states are not allowed.
-These can be classified as insulators or semiconductors, depending on how the size of the bandgap compares with the thermal energy, as we have explained before in section~\ref{subsec:polaritonics_dispersion_relation}.
+These can be classified as insulators or semiconductors, depending on how the size of the bandgap compares with the thermal energy, as we have explained before in Section~\ref{subsec:polaritonics_dispersion_relation}.
 
 Within this formalism, the Bloch \wf s are linear combinations of the atomic orbitals, instead of a superposition of plane waves.
 This is called the \gls{lcao} method or approximation.
@@ -381,9 +381,9 @@ In math notation, we write for the \wf~of an electron in the Bloch state of band
 
 \noindent where the sum in $\bR$ is over the vectors of the lattice (not over all the atomic sites), or over all $N$ unit cells, $i$ is an index that labels the atomic species at the position $\bt_i$ in the motif, and $\alpha$ is an index that labels the type of the atomic orbital ($1s,2s,2p,3s,\dots$).
 Usually, we sum only over the atomic orbitals in the outer shells of the atom that are populated by the valence electrons.
-This is justifiable, as the valence electrons are the only ones that participate in the physics we are looking at, as explained in the beginning of section~\ref{subsec:many_body_crystal_hamiltonian}.
+This is justifiable, as the valence electrons are the only ones that participate in the physics we are looking at, as explained in the beginning of Section~\ref{subsec:many_body_crystal_hamiltonian}.
 
-We introduce now the concept of Bloch Hamiltonian, a very useful one in the tight-binding method, and in this work overall.
+We introduce now the concept of Bloch Hamiltonian, a very useful one in the \gls{tb} method, and in this work overall.
 We start by rewriting the Bloch state in Eq.~\eqref{eq:Bloch_state_LCAO}
 
 \begin{equation}
@@ -447,7 +447,7 @@ Following an analogous procedure for the Hamiltonian, one obtains
 
 \noindent where $\bk$ denotes crystal momentum as usual, the sum is over all vectors of the Bravais lattice $\bR$, and $H(\bR)$ is the real space Hamiltonian at the site $\bR$, commonly called a Fock matrix, and has matrix elements $H_{j \beta, i \alpha} (\bR) = \langle \phi_{\beta} (\br - \bt_j) | H | \phi_{\alpha} (\br - \bR - \bt_i) \rangle$.
 These matrix elements are called transfer integrals.
-If $\bR \neq \bzero$, then they are a measure for how likely it is for an electron to hop from one orbital to another one in a different unit cell, and are called hopping parameters in the jargon of the tight-binding approach.
+If $\bR \neq \bzero$, then they are a measure for how likely it is for an electron to hop from one orbital to another one in a different unit cell, and are called hopping parameters in the jargon of the \gls{tb} approach.
 The matrix $H(\bk)$ presented just now is the so-called Bloch Hamiltonian.
 Its eigenvalues form the band structure $\{\epsilon_{n \bk}\}$, and its eigenvectors are the arrays (or vectors) $\bC^{n \bk}$, whose elements are usually called tight-binding coefficients.
 
@@ -459,7 +459,7 @@ It means that $H(\bk) = H(\bk + \bG)$ for any reciprocal lattice vector $\bG$, b
 The alternative case is called the \enquote{canonical} form, or the \enquote{atomic-gauge} form, and it is unique, but in general $H(\bk) \neq H(\bk + \bG)$ for a reciprocal lattice vector $\bG$.
 If there is only one atom per unit cell, which is the case of Bravais lattices, the two forms coincide, but if the unit cell contains at least two non-equivalent sites, one can still go from one gauge to the other through a unitary transformation.
 Nonetheless, in all cases in this work the results do not change with the chosen gauge; problems may arise, though, when dealing with geometric phases or topological invariants~\cite{Cayssol_2021}.
-We present now a simple tight-binding model for a key \bd~material in this work, monolayer \gls{hbn}\@.
+We present now a simple \gls{tb} model for a key \bd~material in this work, monolayer \gls{hbn}\@.
 \\
 \\
 \textit{\underline{Monolayer hexagonal boron nitride: a minimal tight-binding model}}
@@ -476,9 +476,9 @@ When it comes to transport properties, it is a wide-bandgap semiconductor, with 
 However, in its monolayer limit, the bandgap is direct~\cite{Elias_2019} and slightly higher, around $6.08 \pm 0.2$~\unit{\electronvolt}~\cite{Roman_2021}.
 We emphasize that these are experimental observations.
 
-Theoretically, monolayer \gls{hbn} can be described by a minimal tight-binding model with staggered on-site energies and a single hopping amplitude between nearest-neighbours.
+Theoretically, monolayer \gls{hbn} can be described by a minimal \gls{tb} model with staggered on-site energies and a single hopping amplitude between nearest-neighbours.
 This material is composed of boron and nitrogen atoms, alternated in a lattice arranged in hexagons, like in Fig.~\ref{fig:hBN_lattice}\pnl{a} below.
-In the language of section~\ref{sec:single_particle_properties}, it is a triangular lattice with a basis, having the unit cell two atoms(shaded gray area in Fig.~\ref{fig:hBN_lattice}\pnl{a}).
+In the language of Section~\ref{sec:single_particle_properties}, it is a triangular lattice with a basis, having the unit cell two atoms(shaded gray area in Fig.~\ref{fig:hBN_lattice}\pnl{a}).
 A typical choice for its \bz~is the one depicted in Fig.~\ref{fig:hBN_lattice}\pnl{b}, with a hexagonal shape.
 
 \begin{figure}[hb]
@@ -513,7 +513,7 @@ In Fig.~\ref{fig:hBN_lattice}\pnl{a}, if $a$ is the length of the chemical bonds
     \bK = \left(\frac{2 \pi}{3 a},\frac{2 \pi}{3\sqrt{3} a} \right) \qq{and} \bK' = \left(\frac{2 \pi}{3 a},-\frac{2 \pi}{3\sqrt{3} a} \right).
 \end{equation}
 
-A minimal tight-binding Hamiltonian for \gls{hbn}, in second quantization\footnote{In second quantization, we promote a ket state $\ket{\alpha}$ to an operator $\hat{a}_{\alpha}^{\dagger}$ that creates a particle in the state $\alpha$. A bra corresponds then to an annihilation operator $\hat{a}_{\alpha}$, destroying a particle in the state $\alpha$. These operators act on states living in the Fock space, and obey commutation/anti-commutation relations for bosons/fermions. The states that belong to the Fock space describe how many particles populate each ket state living in its corresponding single-particle Hilbert space. The second quantization formalism is also called the occupation number representation~\cite{Fetter_Walecka}.}, reads
+A minimal \gls{tb} Hamiltonian for \gls{hbn}, in second quantization\footnote{In second quantization, we promote a ket state $\ket{\alpha}$ to an operator $\hat{a}_{\alpha}^{\dagger}$ that creates a particle in the state $\alpha$. A bra corresponds then to an annihilation operator $\hat{a}_{\alpha}$, destroying a particle in the state $\alpha$. These operators act on states living in the Fock space, and obey commutation/anti-commutation relations for bosons/fermions. The states that belong to the Fock space describe how many particles populate each ket state living in its corresponding single-particle Hilbert space. The second quantization formalism is also called the occupation number representation~\cite{Fetter_Walecka}.}, reads
 
 \begin{equation}
     H = \sum_i E_A a_i^{\dagger} a_i + \sum_j E_B b_j^{\dagger} b_j - t \sum_{\langle i j\rangle}  \left(a_i^{\dagger} b_j+b_j^{\dagger} a_i\right) ,
@@ -668,8 +668,8 @@ The eigenvectors are
     \theta_k = \arctan \frac{k_y}{k_x} \qq{and}  \xi_k = \arctan \frac{2 \hbar \vF k}{E_g}.
 \end{equation}
 
-Even though the tight-binding Hamiltonian for \gls{hbn} provides a simple, yet insightful theoretical tool, we still need somehow to use realistic values for the parameters $t$ and $E_g$.
-These can be obtained through fitting the tight-binding band structure to a more realistic one, typically obtained through the first-principle methods, that we describe in the next section.
+Even though the \gls{tb} Hamiltonian for \gls{hbn} provides a simple, yet insightful theoretical tool, we still need somehow to use realistic values for the parameters $t$ and $E_g$.
+These can be obtained through fitting the \gls{tb} band structure to a more realistic one, typically obtained through the first-principle methods, that we describe in the next section.
 
 \subsubsection{\textit{Ab-initio} methods}
 \label{subsubsec:abinit_methods}
@@ -682,7 +682,7 @@ If we wish to describe the electronic structure of a crystal, we are faced with 
 
 \noindent where $H$ is the many-body Hamiltonian in Eq.~\eqref{eq:many_body_Hamiltonian}, and $\Psi(\br_1,\br_2,\dots,\br_{\mathcal{N}})$ is the many-body \wf.
 As previously stated, there is no hope in solving the previous equation for the many-body \wf.
-That was a motivation for introducing the nearly-free electron model and the tight-binding model.
+That was a motivation for introducing the nearly-free electron model and the \gls{tb} model.
 But then, we are faced with the shortcomings of these models---they describe approximate opposing limits, and provide no way of determining the model parameters.
 
 To overcome this issue, we have to take a different look into the many-body problem.
@@ -740,8 +740,8 @@ Doing this can be a good starting point to study material properties, but it lea
 Just like in high-energy physics, where particles can be created or destroyed, in condensed matter some effects can only be described by introducing the concept of quasiparticle---a composite state coming from the coupling between different or identical particles in a solid, that can explain ground state or excited state properties we could not understand otherwise.
 For that, we need \glsfirst{mbpt} formalism, which is the non-relativistic cousin of quantum field theory.
 As quasiparticles can be created or destroyed, the second quantization formalism, also called the canonical quantization formalism, is necessary.
-It is extremely useful in condensed matter, not only for single-particle descriptions of matter (looking at our example of a tight-binding model in section~\ref{subsubsec:tight_binding_method}), but also to incorporate interactions in the model Hamiltonian.
-Within \gls{mbpt}, the single-particle problem without interactions is assumed to be already solved (through the methods discussed in section~\ref{subsubsec:abinit_methods}, most frequently), and the interactions are treated as a perturbation.
+It is extremely useful in condensed matter, not only for single-particle descriptions of matter (looking at our example of a \gls{tb} model in Section~\ref{subsubsec:tight_binding_method}), but also to incorporate interactions in the model Hamiltonian.
+Within \gls{mbpt}, the single-particle problem without interactions is assumed to be already solved (through the methods discussed in Section~\ref{subsubsec:abinit_methods}, most frequently), and the interactions are treated as a perturbation.
 Apart from a couple of simple models, a full \abinit~treatment of the full interacting many-body problem beyond perturbation theory is not possible.
 Nonetheless, the methods of \gls{mbpt} can explain exotic physical phenomena in condensed matter, such as a microscopic description for superconductivity as explained by the \gls{bcs} theory, the Fermi liquid theory, quantum magnetism, among others.
 
@@ -920,7 +920,7 @@ This relation can also be written in diagrammatic notation as
     \end{tikzpicture}
 \end{equation}
 
-\noindent if we represent the self-energy\footnote{The self-energy is relevant to introduce the necessary corrections to the particle (or quasiparticle) band structure obtained with \dft, mainly to correct the bandgap, as explained in section~\ref{subsubsec:abinit_methods}. To see that, take a look at Eq.~\ref{eq:interacting_Green_function}; the self-energy enters in the denominator summing with the noninteracting Hamiltonian, thus it can be seen as a renormalization of the Hamiltonian $\hat{H}_0$. We should say in fact it is the real part of $\Sigma$ that corrects the band structure. The imaginary part has to do with the electron--electron scattering rates~\cite{Bruus_Flensberg_2004} and the quasiparticle life-times.} by a gray filled circle.
+\noindent if we represent the self-energy\footnote{The self-energy is relevant to introduce the necessary corrections to the particle (or quasiparticle) band structure obtained with \dft, mainly to correct the bandgap, as explained in Section~\ref{subsubsec:abinit_methods}. To see that, take a look at Eq.~\ref{eq:interacting_Green_function}; the self-energy enters in the denominator summing with the noninteracting Hamiltonian, thus it can be seen as a renormalization of the Hamiltonian $\hat{H}_0$. We should say in fact it is the real part of $\Sigma$ that corrects the band structure. The imaginary part has to do with the electron--electron scattering rates~\cite{Bruus_Flensberg_2004} and the quasiparticle life-times.} by a gray filled circle.
 The self-energy derives from the two-body interaction between the electrons, therefore, it is naturally related to the effective interaction between the electrons, $W$.
 The relation reads
 
@@ -1573,5 +1573,7 @@ Only after having inverted the dielectric matrix, can we estimate the macroscopi
 In the previous definition, the inequality is in general true, due to the local field effects that come from the inhomogeneity of the crystal.
 This will be a key aspect that we shall leave for later aspect, in Chapter~\ref{ch:screening}.
 As we will understand in the next chapter, it is of upmost importance to capture accurately the screening in semiconductors and insulators, mainly \bd~ones, in order to get realistic results for the excitonic states.
+Even if one is not doing excitons and simply working at the noninteracting level, incorporating screening effects in the calculations is necessary for accurate predictions.
+As a matter of fact, the absence of screening is one of the pitfalls of the \gls{hf} method in extended systems.
 Now that we have described the ground state properties of materials, we are in position to introduce the exciton, a quasiparticle emerging from optical excitations of solids, that cannot be ignored when investigating the optical properties of gapped materials.
 The theory of excitons in \bd~materials is thus the subject of the next chapter.
