@@ -136,7 +136,7 @@ eprint = { https://doi.org/10.1021/cr0505627}}
 	journal={Computer Physics Communications},
 	author={Marini, Andrea and Hogan, Conor and Grüning, Myrta and Varsano, Daniele},
 	year={2009},
-	month=aug,
+	month={8},
 	pages={1392--1403}}
 
 @article{BerkeleyGW, 
@@ -149,8 +149,103 @@ eprint = { https://doi.org/10.1021/cr0505627}}
 	journal={Computer Physics Communications}, 
 	author={Deslippe, Jack and Samsonidze, Georgy and Strubbe, David A. and Jain, Manish and Cohen, Marvin L. and Louie, Steven G.}, 
 	year={2012}, 
-	month=jun, 
+	month={6}, 
 	pages={1269--1289}}
+
+@article{Vorwerk_Aurich_Cocchi_Draxl_2019,
+	title={Bethe--Salpeter equation for absorption and scattering spectroscopy: implementation in the exciting code},
+	volume={1},
+	ISSN={2516-1075},
+	DOI={10.1088/2516-1075/ab3123},
+	abstractNote={The Bethe--Salpeter equation for the electron--hole correlation function is the state-of-the-art formalism for optical and core spectroscopy in condensed matter. Solutions of this equation yield the full dielectric response, including both the absorption and the inelastic scattering spectra. Here, we present an efficient implementation within the all-electron full-potential code exciting, which employs the linearized augmented plane-wave (L)APW+LO basis set. Being an all-electron code, exciting allows the calculation of optical and core excitations on the same footing. The implementation fully includes the effects of finite momentum transfer which may occur in inelastic x-ray spectroscopy and electron energy-loss spectroscopy. Our implementation does not require the application of the Tamm--Dancoff approximation that is commonly employed in the determination of absorption spectra in condensed matter. The interface with parallel linear-algebra libraries enables the calculation for complex systems. The capability of our implementation to compute, analyze, and interpret the results of different spectroscopic techniques is demonstrated by selected examples of prototypical inorganic and organic semiconductors and insulators.},
+	number={3},
+	journal={Electronic Structure},
+	publisher={IOP Publishing},
+	author={Vorwerk, Christian and Aurich, Benjamin and Cocchi, Caterina and Draxl, Claudia},
+	year={2019},
+	month={8},
+	pages={037001} }
+
+@article{Perfetto_Stefanucci_2018,
+	title={CHEERS: a tool for correlated hole-electron evolution from real-time simulations},
+	volume={30},
+	ISSN={0953-8984},
+	DOI={10.1088/1361-648X/aae675},
+	abstractNote={We put forward a practical nonequilibrium Green's function (NEGF) scheme to perform real-time evolutions of many-body interacting systems driven out of equilibrium by external fields. CHEERS is a computational tool to solve the NEGF equation of motion in the so called generalized Kadanoff--Baym ansatz and it can be used for model systems as well as first-principles Hamiltonians. Dynamical correlation (or memory) effects are added to the Hartree--Fock dynamics through a many-body self-energy. Applications to time-dependent quantum transport, time-resolved photoabsorption and other ultrafast phenomena are discussed.},
+	number={46},
+	journal={Journal of Physics: Condensed Matter},
+	publisher={IOP Publishing},
+	author={Perfetto, E and Stefanucci, G},
+	year={2018},
+	month={10},
+	pages={465901},
+	language={en} }
+
+@article{GPAW_2025,
+	title={GPAW: An open Python package for electronic structure calculations},
+	volume={160}, 
+	ISSN={0021-9606},
+	DOI={10.1063/5.0182685},
+	abstractNote={We review the GPAW open-source Python package for electronic structure calculations. GPAW is based on the projector-augmented wave method and can solve the self-consistent density functional theory (DFT) equations using three different wave-function representations, namely real-space grids, plane waves, and numerical atomic orbitals. The three representations are complementary and mutually independent and can be connected by transformations via the real-space grid. This multi-basis feature renders GPAW highly versatile and unique among similar codes. By virtue of its modular structure, the GPAW code constitutes an ideal platform for the implementation of new features and methodologies. Moreover, it is well integrated with the Atomic Simulation Environment (ASE), providing a flexible and dynamic user interface. In addition to ground-state DFT calculations, GPAW supports many-body GW band structures, optical excitations from the Bethe--Salpeter Equation, variational calculations of excited states in molecules and solids via direct optimization, and real-time propagation of the Kohn--Sham equations within time-dependent DFT. A range of more advanced methods to describe magnetic excitations and non-collinear magnetism in solids are also now available. In addition, GPAW can calculate non-linear optical tensors of solids, charged crystal point defects, and much more. Recently, support for graphics processing unit (GPU) acceleration has been achieved with minor modifications to the GPAW code thanks to the CuPy library. We end the review with an outlook, describing some future plans for GPAW.},
+	number={9},
+	journal={The Journal of Chemical Physics},
+	author={Mortensen, Jens Jørgen and Larsen, Ask Hjorth and Kuisma, Mikael and Ivanov, Aleksei V. and Taghizadeh, Alireza and Peterson, Andrew and Haldar, Anubhab and Dohn, Asmus Ougaard and Schäfer, Christian and Jónsson, Elvar Örn and Hermes, Eric D. and Nilsson, Fredrik Andreas and Kastlunger, Georg and Levi, Gianluca and Jónsson, Hannes and Häkkinen, Hannu and Fojt, Jakub and Kangsabanik, Jiban and Sødequist, Joachim and Lehtomäki, Jouko and Heske, Julian and Enkovaara, Jussi and Winther, Kirsten Trøstrup and Dulak, Marcin and Melander, Marko M. and Ovesen, Martin and Louhivuori, Martti and Walter, Michael and Gjerding, Morten and Lopez-Acevedo, Olga and Erhart, Paul and Warmbier, Robert and Würdemann, Rolf and Kaappa, Sami and Latini, Simone and Boland, Tara Maria and Bligaard, Thomas and Skovhus, Thorbjørn and Susi, Toma and Maxson, Tristan and Rossi, Tuomas and Chen, Xi and Schmerwitz, Yorick Leonard A. and Schiøtz, Jakob and Olsen, Thomas and Jacobsen, Karsten Wedel and Thygesen, Kristian Sommer},
+	year={2024},
+	month={3},
+	pages={092503} }
+
+@article{Amblard_Blase_Duchemin_2023,
+	title={Many-body GW calculations with very large scale polarizable environments made affordable: A fully ab initio QM/QM approach},
+	volume={159},
+	ISSN={0021-9606},
+	DOI={10.1063/5.0168755},
+	abstractNote={We present a many-body GW formalism for quantum subsystems embedded in discrete polarizable environments containing up to several hundred thousand atoms described at a fully ab initio random phase approximation level. Our approach is based on a fragment approximation in the construction of the Green's function and independent-electron susceptibilities. Further, the environing fragments susceptibility matrices are reduced to a minimal but accurate representation preserving low order polarizability tensors through a constrained minimization scheme. This approach dramatically reduces the cost associated with inverting the Dyson equation for the screened Coulomb potential W, while preserving the description of short to long-range screening effects. The efficiency and accuracy of the present scheme is exemplified in the paradigmatic cases of fullerene bulk, surface, subsurface, and slabs with varying number of layers.},
+	number={16},
+	journal={The Journal of Chemical Physics},
+	author={Amblard, David and Blase, Xavier and Duchemin, Ivan},
+	year={2023},
+	month={10},
+	pages={164107} }
+
+@article{Amblard_Blase_Duchemin_2024,
+	title={Static versus dynamically polarizable environments within the many-body GW formalism},
+	volume={160},
+	ISSN={0021-9606},
+	DOI={10.1063/5.0203637},
+	abstractNote={Continuum- or discrete-polarizable models for the study of optoelectronic processes in embedded subsystems rely mostly on the restriction of the surrounding electronic dielectric response to its low frequency limit. Such a description hinges on the assumption that the electrons in the surrounding medium react instantaneously to any excitation in the central subsystem, thus treating the environment in the adiabatic limit. Exploiting a recently developed embedded GW formalism with an environment described at the fully ab initio level, we assess the merits of the adiabatic limit with respect to an environment where the full dynamics of the dielectric response are considered. Furthermore, we show how to properly take the static limit of the environment's susceptibility by introducing the so-called Coulomb-hole and screened-exchange contributions to the reaction field. As a first application, we consider a C60 molecule at the surface of a C60 crystal, namely, a case where the dynamics of the embedded and embedding subsystems are similar. The common adiabatic assumption, when properly treated, generates errors below 10% on the polarization energy associated with frontier energy levels and associated energy gaps. Finally, we consider a water molecule inside a metallic nanotube, the worst case for the environment’s adiabatic limit. The error on the gap polarization energy remains below 10%, even though the error on the frontier orbital polarization energies can reach a few tenths of an electronvolt.},
+	number={15},
+	journal={The Journal of Chemical Physics},
+	author={Amblard, David and Blase, Xavier and Duchemin, Ivan},
+	year={2024},
+	month={4},
+	pages={154104} }
+
+@article{TURBOMOLE_2023,
+	author = {Franzke, Yannick J. and Holzer, Christof and Andersen, Josefine H. and Begušić, Tomislav and Bruder, Florian and Coriani, Sonia and Della Sala, Fabio and Fabiano, Eduardo and Fedotov, Daniil A. and F{\"u}rst, Susanne and Gillhuber, Sebastian and Grotjahn, Robin and Kaupp, Martin and Kehry, Max and Krstić, Marjan and Mack, Fabian and Majumdar, Sourav and Nguyen, Brian D. and Parker, Shane M. and Pauly, Fabian and Pausch, Ansgar and Perlt, Eva and Phun, Gabriel S. and Rajabi, Ahmadreza and Rappoport, Dmitrij and Samal, Bibek and Schrader, Tim and Sharma, Manas and Tapavicza, Enrico and Treß, Robert S. and Voora, Vamsee and Wodyński, Artur and Yu, Jason M. and Zerulla, Benedikt and Furche, Filipp and Hättig, Christof and Sierka, Marek and Tew, David P. and Weigend, Florian},
+	title = {TURBOMOLE: Today and Tomorrow},
+	journal = {Journal of Chemical Theory and Computation},
+	volume = {19},
+	number = {20},
+	pages = {6859-6890},
+	year = {2023},
+	doi = {10.1021/acs.jctc.3c00347},
+	note ={PMID: 37382508},
+	URL = {https://doi.org/10.1021/acs.jctc.3c00347},
+	eprint = {https://doi.org/10.1021/acs.jctc.3c00347}}
+
+@article{TURBOMOLE_2013,
+	author = {van Setten, M. J. and Weigend, F. and Evers, F.},
+	title = {The GW-Method for Quantum Chemistry Applications: Theory and Implementation},
+	journal = {Journal of Chemical Theory and Computation},
+	volume = {9},
+	number = {1},
+	pages = {232-246},
+	year = {2013},
+	doi = {10.1021/ct300648t},
+	note ={PMID: 26589026},
+	URL = {https://doi.org/10.1021/ct300648t},
+	eprint = {https://doi.org/10.1021/ct300648t}}
+
 
 @article{CRYSTAL_23,
 	author = {Erba, Alessandro and Desmarais, Jacques K. and Casassa, Silvia and Civalleri, Bartolomeo and Donà, Lorenzo and Bush, Ian J. and Searle, Barry and Maschio, Lorenzo and Edith-Daga, Loredana and Cossard, Alessandro and Ribaldone, Chiara and Ascrizzi, Eleonora and Marana, Naiara L. and Flament, Jean-Pierre and Kirtman, Bernard},
@@ -407,6 +502,20 @@ eprint = { https://doi.org/10.1021/cr0505627}}
 	url = {https://link.aps.org/doi/10.1103/PhysRevB.92.245123}
 }
 
+ @article{Thygesen_2017,
+	title={Calculating excitons, plasmons, and quasiparticles in 2D materials and van der Waals heterostructures},
+	volume={4},
+	ISSN={2053-1583},
+	DOI={10.1088/2053-1583/aa6432},
+	abstractNote={Atomically thin two-dimensional (2D) materials host a rich set of electronic states that differ substantially from those of their bulk counterparts due to quantum confinement and enhanced many-body effects. This Topical Review focuses on the theory and computation of excitons, plasmons and quasiparticle band structures in 2D materials and their heterostructures. The general theory is illustrated by applications to various types of 2D materials including transition metal dichalcogenides, graphene, phosphorene, and hexagonal boron nitride. The weak and highly non-local dielectric function of atomically thin crystals is shown to be responsible for many of the unique properties exhibited by the 2D materials such as the formation of strongly bound, non-Hydrogenic excitons, large band gap renormalization effects, and the different signatures of excitons and plasmons in electron energy loss spectroscopy (EELS). Among other topics covered are spin–orbit coupling, trions, interlayer excitons, exciton dissociation, and environmental screening. Technical issues associated with the application of the many-body GW method and the Bethe–Salpeter equation (BSE) to 2D materials are also discussed. A combined quantum/classical method is introduced and used throughout to account for dielectric screening and self-energy effects from substrates and van der Waals heterostructures including the difficult case of non-matching lattices.},
+	number={2},
+	journal={2D Materials},
+	publisher={IOP Publishing},
+	author={Thygesen, Kristian Sommer},
+	year={2017},
+	month={6},
+	pages={022004}}
+
 @article{Trolle_Pedersen_Veniard_2017,
 	title={Model dielectric function for 2D semiconductors including substrate screening},
 	volume={7},
@@ -524,7 +633,7 @@ eprint = { https://doi.org/10.1021/cr0505627}}
 	number = {5},
 	pages = {1222--1236},
 	publisher = {Optica Publishing Group},
-	title = {Time-varying media, dispersion, and the principle of causality \[Invited\]},
+	title = {Time-varying media, dispersion, and the principle of causality},
 	volume = {14},
 	month = {5},
 	year = {2024},
@@ -533,6 +642,74 @@ eprint = { https://doi.org/10.1021/cr0505627}}
 	abstract = {The article reviews general properties of time-varying dispersive materials. We first briefly discuss different dispersion models that have been proposed in the literature, the role of the causality principle, and the generalization of the Kramers-Kronig relations for the susceptibility of linear time-dependent media. Furthermore, we discuss the Kramers-Kronig-like relations for nonlinear optical processes, with a focus on those processes that may be used to realize strong and fast temporal modulations at optical frequencies to enable, for instance, photonic time-crystal phenomena.},
 }
 
+@article{Blase_2020,
+	author = {Blase, Xavier and Duchemin, Ivan and Jacquemin, Denis and Loos, Pierre-Fran{\c{c}}ois},
+	title = {The Bethe--Salpeter Equation Formalism: From Physics to Chemistry},
+	journal = {The Journal of Physical Chemistry Letters},
+	volume = {11},
+	number = {17},
+	pages = {7371-7382},
+	year = {2020},
+	doi = {10.1021/acs.jpclett.0c01875},
+	note ={PMID: 32787315},
+	URL = {https://doi.org/10.1021/acs.jpclett.0c01875},
+	eprint = {https://doi.org/10.1021/acs.jpclett.0c01875}}
+
+@article{Rubio_2002,
+	title = {Electronic excitations: density-functional versus many-body Green's-function approaches},
+	author = {Onida, Giovanni and Reining, Lucia and Rubio, Angel},
+	journal = {Rev. Mod. Phys.},
+	volume = {74},
+	issue = {2},
+	pages = {601--659},
+	numpages = {0},
+	year = {2002},
+	month = {6},
+	publisher = {American Physical Society},
+	doi = {10.1103/RevModPhys.74.601},
+	url = {https://link.aps.org/doi/10.1103/RevModPhys.74.601}}
+
+@article{Runge_Gross_1984,
+  title = {Density-Functional Theory for Time-Dependent Systems},
+  author = {Runge, Erich and Gross, E. K. U.},
+  journal = {Phys. Rev. Lett.},
+  volume = {52},
+  issue = {12},
+  pages = {997--1000},
+  numpages = {0},
+  year = {1984},
+  month = {3},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevLett.52.997},
+  url = {https://link.aps.org/doi/10.1103/PhysRevLett.52.997}
+}
+
+@article{Ozfidan_2014,
+	title = {Microscopic theory of the optical properties of colloidal graphene quantum dots},
+	author = {Ozfidan, Isil and Korkusinski, Marek and G\"u\ifmmode \mbox{\c{c}}\else \c{c}\fi{}l\"u, A. Devrim and McGuire, John A. and Hawrylak, Pawel},
+	journal = {Phys. Rev. B},
+	volume = {89},
+	issue = {8},
+	pages = {085310},
+	numpages = {9},
+	year = {2014},
+	month = {2},
+	publisher = {American Physical Society},
+	doi = {10.1103/PhysRevB.89.085310},
+	url = {https://link.aps.org/doi/10.1103/PhysRevB.89.085310}
+}
+
+
+@article{FFTW05,
+  author = 	 {Frigo, Matteo and Johnson, Steven~G.},
+  title = 	 {The Design and Implementation of {FFTW3}},
+  journal =  {Proceedings of the IEEE},
+  year = 	 2005,
+  volume =	 93,
+  number =	 2,
+  pages =	 {216--231},
+  note =	 {Special issue on ``Program Generation, Optimization, and Platform Adaptation''}
+}
 %----------------------
 %OLDER REFERENCES
 %----------------------
@@ -620,7 +797,7 @@ eprint = { https://doi.org/10.1021/cr0505627}}
 	author={Nambu, Yoichiro},
 	year={1950},
 	month={7},
-	pages={614–633} }
+	pages={614--633} }
 
 @article{Bethe_Salpeter_1951,
 	title = {A Relativistic Equation for Bound-State Problems},
@@ -635,6 +812,21 @@ eprint = { https://doi.org/10.1021/cr0505627}}
 	publisher = {American Physical Society},
 	doi = {10.1103/PhysRev.84.1232},
 	url = {https://link.aps.org/doi/10.1103/PhysRev.84.1232}
+}
+
+@article{Gell-Mann_Low_1951,
+  title = {Bound States in Quantum Field Theory},
+  author = {Gell-Mann, Murray and Low, Francis},
+  journal = {Phys. Rev.},
+  volume = {84},
+  issue = {2},
+  pages = {350--354},
+  numpages = {0},
+  year = {1951},
+  month = {10},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRev.84.350},
+  url = {https://link.aps.org/doi/10.1103/PhysRev.84.350}
 }
 
 @article{Nozieres_Pines_1958,
@@ -876,6 +1068,21 @@ eprint = { https://doi.org/10.1021/cr0505627}}
   pages={155--158},
   year={2024},
   publisher={World Scientific}
+}
+
+@article{Victor_Nuno_2025,
+  title = {Organic-inorganic polaritonics: Linking Frenkel and Wannier-Mott excitons},
+  author = {Duarte, V. G. M. and Chaves, A. J. and Peres, N. M. R.},
+  journal = {Phys. Rev. B},
+  volume = {111},
+  issue = {20},
+  pages = {L201404},
+  numpages = {7},
+  year = {2025},
+  month = {May},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevB.111.L201404},
+  url = {https://link.aps.org/doi/10.1103/PhysRevB.111.L201404}
 }
 
 %----------------------
@@ -1390,18 +1597,18 @@ eprint = { https://doi.org/10.1021/cr0505627}}
 	doi = {10.1016/C2010-0-66724-1}}
 
 @book{Fetter_Walecka,
-  added-at = {2010-10-02T18:22:22.000+0200},
-  address = {Boston},
-  author = {Fetter, A. L. and Walecka, J. D.},
-  biburl = {https://www.bibsonomy.org/bibtex/2a89d5cbb622c7993781f36e0bc778c51/brouder},
-  interhash = {ddd2e05f64a10d64dbfd4c85ca8315ce},
-  intrahash = {a89d5cbb622c7993781f36e0bc778c51},
-  keywords = {imported},
-  publisher = {McGraw-Hill},
-  timestamp = {2010-10-02T18:22:26.000+0200},
-  title = {Quantum Theory of Many-Particle Systems},
-  year = {1971}
-  }
+	added-at = {2010-10-02T18:22:22.000+0200},
+	address = {Boston},
+	author = {Fetter, A. L. and Walecka, J. D.},
+	biburl = {https://www.bibsonomy.org/bibtex/2a89d5cbb622c7993781f36e0bc778c51/brouder},
+	interhash = {ddd2e05f64a10d64dbfd4c85ca8315ce},
+	intrahash = {a89d5cbb622c7993781f36e0bc778c51},
+	keywords = {imported},
+	publisher = {McGraw-Hill},
+	timestamp = {2010-10-02T18:22:26.000+0200},
+	title = {Quantum Theory of Many-Particle Systems},
+	year = {1971}
+	}
   
 @book{Wen_2007,
 	title={Quantum Field Theory of Many-Body Systems: From the Origin of Sound to an Origin of Light and Electrons},
@@ -1477,6 +1684,31 @@ eprint = { https://doi.org/10.1021/cr0505627}}
 	author={Sakurai, J. J. and Napolitano, Jim},
 	year={2020},
 	pages={288--370}}
+
+@book{Lindgren_2011,
+	address={New York, NY},
+	series={Springer Series on Atomic, Optical, and Plasma Physics},
+	title={Relativistic Many-Body Theory},
+	volume={63},
+	rights={http://www.springer.com/tdm},
+	ISBN={978-1-4419-8308-4},
+	url={http://link.springer.com/10.1007/978-1-4419-8309-1},
+	DOI={10.1007/978-1-4419-8309-1},
+	publisher={Springer},
+	author={Lindgren, Ingvar},
+	year={2011},
+	collection={Springer Series on Atomic, Optical, and Plasma Physics} }
+
+@book{Blundell_Blundell_2009,
+	title={Concepts in Thermal Physics},
+	ISBN={978-0-19-956209-1},
+	url={https://doi.org/10.1093/acprof:oso/9780199562091.001.0001},
+	DOI={10.1093/acprof:oso/9780199562091.001.0001},
+	abstractNote={An understanding of thermal physics is crucial to much of modern physics, chemistry, and engineering. This book provides a modern introduction to the main principles that are foundational to thermal physics, thermodynamics, and statistical mechanics. The key concepts are carefully presented in a clear way, and new ideas are illustrated with worked examples as well as a description of the historical background to their discovery. Applications are presented to subjects as diverse as stellar astrophysics, information and communication theory, condensed matter physics, and climate change. Each chapter concludes with detailed exercises. This second edition of the text maintains the structure and style of the first edition but extends its coverage of thermodynamics and statistical mechanics to include several new topics, including osmosis, diffusion problems, Bayes theorem, radiative transfer, the Ising model, and Monte Carlo methods. New examples and exercises have been added throughout.},
+	publisher={Oxford University Press},
+	author={Blundell, Stephen J. and Blundell, Katherine M.},
+	year={2009},
+	month={10} }
 
 %----------------------
 %PhD THESIS
@@ -1560,4 +1792,3 @@ eprint = { https://doi.org/10.1021/cr0505627}}
 	month = {7},
 	url = "https://repositorium.uminho.pt/entities/publication/5bdcc4ed-d55d-46cf-ac3c-8f0632741ed6"
 }
-

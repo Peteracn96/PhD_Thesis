@@ -145,7 +145,7 @@ But for that, we need to use the concepts from chapter~\ref{ch:quantum_mechanics
 If the system enjoys discrete translational symmetry, one can prove that $f(\bk,\bk')\neq0$ only if $\bk'=\bk+\bG$, where $\bG$ is a vector of the reciprocal lattice.
 Besides that, using the fact that any momentum $\bq$ in the reciprocal lattice can be written as $\bq=\bk+\bG$, where $\bk$ is a vector in the \gls{bz}, we can rewrite the sums over momentum in~\eqref{eq:finite_volume_two_point_inverse_Fourier} as
 
-\begin{equation}
+\begin{equation}\label{eq:two_point_discrete_inverse_Fourier}
 \begin{aligned}
     f(\br,\br') &= \frac{1}{\vol^2}\sum_{\bk,\bk' \in \BZ} \sum_{\bG,\bG'} f(\bk+\bG,\bk'+\bG')\ee^{\ii \bk \vdot (\br-\br')}\ee^{\ii \bG \vdot \br} \ee^{-\ii \bG' \vdot \br'} = \\
                 &= \frac{1}{\vol}\sum_{\bk \in \BZ}\sum_{\bG,\bG'}f(\bk+\bG,\bk+\bG')\ee^{\ii \bk \vdot (\br-\br')}\ee^{\ii \bG \vdot \br} \ee^{-\ii \bG' \vdot \br'},
