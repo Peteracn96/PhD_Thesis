@@ -1445,7 +1445,7 @@ We recapitulate the \rpa~dielectric function in real-space and time domain, whic
 \end{equation}
 
 \noindent where $v_c$ denotes the bare (unscreened) Coulomb potential, and $\chi^0 (\br,\br';t-t')$ is the \rpa~irreducible polarizability, for which we have assumed time translation invariance\footnote{Even though we can perceive the dielectric function as a response to an external potential perturbation of the form $\phi_0 \exp{\ii(\bk \vdot \br - \omega t)}$, which is a time-periodic perturbation, we treat it within the linear regime. This is valid as long as the amplitude $\phi_0$ is small enough. If it is too big, such that perturbative methods do not apply, then we have to account for the whole time dependence, as stated previously in footnote~\ref{fn:time_invariance_ch_2} of Chapter~\ref{ch:classical_electrodynamics}. If it still has periodicity, albeit discrete, we can work under the Floquet formalism of quantum mechanics, already mentioned too~\ref{fn:Floquet_formalism} in this chapter. If the perturbation is not periodic, then we need a full non-equilibrium framework. That can be done, for instance, using the non-equilibrium Green function formalism, also called the Keldysh formalism~\cite{Di_Ventra_2008}.}.
-The \rpa~irreducible polarizability, in the frequency domain, within a self-consistent field approach is given by~\cite{Cohen_Louie_2016}
+The \rpa~irreducible polarizability, in the frequency domain, at finite temperature $T$ and within a self-consistent field approach is given by~\cite{Cohen_Louie_2016}
 
 \begin{equation}
     \label{eq:polarizability_RPA_def}
@@ -1477,8 +1477,16 @@ The \rpa~irreducible polarizability, in the frequency domain, within a self-cons
 \end{equation}
 
 
-\noindent where $\eta$ is a small infinitesimal parameter, $f_i$ denotes the Fermi--Dirac distribution computed at the energy $\epsilon_i$, and $\phi_i(\br)$ is the $i$-th state, with eigenenergy $\epsilon_i$, that can be obtained within a mean-field approach, such as within \hf~theory or the Kohn--Sham framework of \dft\@.
+\noindent where $\eta$ is a small infinitesimal parameter, $f_i = (\exp{\beta (\epsilon_i - \mu)} + 1)^{-1}$ is the Fermi--Dirac distribution~\cite{Blundell_Blundell_2009,Huang} computed at the energy $\epsilon_i$, with $\beta = 1/(k_B T)$ where $k_B$ is the Boltzmann constant and $\mu$ being the chemical potential that we define at the end of the paragraph, and $\phi_i(\br)$ is the $i$-th state with eigenenergy $\epsilon_i$.
+The states $\phi_i(\br)$ are obtained within a mean-field approach, such as within \hf~theory or the Kohn--Sham framework of \dft\@.
 The many-body \wf~of the associated independent particle system is then constructed through the Slater determinant of the orbitals $\phi_i(\br)$, for which we do not specify the subjacent basis denoted by the indices $i$ and $j$.
+The only thing left to define is the chemical potential.
+We will mention it in the next chapter as well, so we better define it now.
+Usually introduced in the context of thermodynamics~\cite{Blundell_Blundell_2009} and statistical physics~\cite{Huang}, the chemical potential of a system, usually denoted by $\mu$, can be defined in terms of the thermodynamical potential (or other potentials as well) $F=U-TS$, called the Helmholtz free energy, where $U$ is the internal energy of the system, $T$ its (absolute) temperature and $S$ its entropy.
+If the system is in thermal equilibrium and in contact with a reservoir (at the temperature $T$) with which it can exchange heat and particles, then the chemical potential can be defined as $\mu = F_{\mathcal{N} + 1} - F_{\mathcal{N}}$, where $\mathcal{N}$ is the number of particles in the system.
+In words, $\mu$ is a measure of the energy cost to add or remove a particle from the system.
+Only in the thermodynamic limit where $\mathcal{N} \to \infty$ we can define the chemical potential in an equivalent way by the derivative $\partial F/\partial \mathcal{N}$~\cite{Blundell_Blundell_2009}.
+Otherwise, if the system is composed of few particles, then we are not allowed to take the derivative with respect to $\mathcal{N}$.
 
 We notice that the expression in Eq.~\eqref{eq:dielectric_function_real_time} is a two-time function with (continuous) time translation invariance.
 Whence, we may time-Fourier transform it to the frequency domain and write
@@ -1498,22 +1506,24 @@ The microscopic dielectric function enjoys discrete translation symmetry, so tha
 \noindent is true for any lattice vector $\bR$, in a perfect crystal where \textbf{discrete} translation symmetry is preserved due to the absence of defects or boundaries.
 The same can be said about the polarizability $\chi^0$.
 This contrasts with the case of the previous chapter, where translation invariance was continuous.
-We are still allowed to Fourier transform in space, but we need to keep track of two momenta, say $\bk$ and $\bk'$, instead of a single one, so that the polarizability is a two-point function in momentum when Fourier transformed from real to reciprocal space, $\mathcal{F}\{\chi^0(\br,\br')\} (\bk,\bk') \equiv \chi^0(\bk,\bk')$.
+We are still allowed to Fourier transform in space, but we need to keep track of two momenta, say $\bk$ and $\bk'$, instead of a single one, so that the polarizability is a two-point function in momentum when Fourier transformed from real to reciprocal space, $\mathcal{F}\{\chi^0(\br,\br')\} (\bk,\bk') \equiv \chi^0(\bk,\bk')$, if for moments we ommit the $\omega$-dependence.
 Luckily, as the polarizability still enjoys discrete translation symmetry, one can show that $\chi^0(\bk,\bk')$ is non-zero only if $\bk' = \bk + \mathbf{g}$, where $\mathbf{g}$ is a reciprocal lattice vector.
 Furthermore, we can write any momentum $\bk$ in terms of a vector $\bq$ in the first \gls{bz} plus a vector of the reciprocal lattice $\bG$, $\bk = \bq + \bG$.
 The same can be said for the other momentum $\bk' = \bq + \bG'$, with $\bG' = \bG + \mathbf{g}$ just being another vector of the reciprocal lattice.
 This allows us to write $\chi^0(\bk,\bk') = \chi^0(\bq + \bG,\bq' + \bG') \equiv \chi^0_{\bG \bG'}(\bq)$, where we can see the polarizability as an infinite matrix for each point $\bq \in \BZ$.
 For every momentum $\bq \in \BZ$, each pair of reciprocal lattice vectors $(\bG,\bG')$ corresponds to the matrix element $\chi^0_{\bG \bG'}(\bq)$.
 
-In a basis of Bloch states and at zero temperature, doing the substitution for the indeces $i \to n,\bk$ and $j \to n',\bk'$ in~\eqref{eq:polarizability_RPA_def}, the polarizability reads
+Using the property $\psi_{n \bk}(\br + \bR) = \ee^{\ii \bk \vdot \bR} \psi_{n \bk}(\br)$ for Bloch states, coming from the second statement~\ref{Bloch_theorem_II} of Bloch theorem, we can show that the polarizability $\chi^0(\br,\br';\omega)$ as per~\eqref{eq:polarizability_RPA_def} enjoys discrete translation symmetry under vectors of the lattice, if we particularize the basis states $\phi_i(\br)$ to a basis of Bloch states $\psi_{n \bk}(\br)$.
+The expression for the matrix elements $\chi^0_{\bG \bG'}(\bq)$ can be obtained by Fourier transforming~\eqref{eq:polarizability_RPA_def} represented in a Bloch state basis, and they read
+% In a basis of Bloch states and at zero temperature, doing the substitution for the indeces $i \to n,\bk$ and $j \to n',\bk'$ in~\eqref{eq:polarizability_RPA_def}, the polarizability reads
 
-\begin{equation}
-    \label{eq:polarizability_RPA_Bloch_states}
-    \chi^0 (\br,\br';\omega) = \sum_{n \bk, n'\bk'} \left[ \frac{\psi_{n' \bk'}(\br) \psi_{n \bk}^*(\br) \psi_{n \bk}(\br') \psi_{n' \bk'}^*(\br') }{\hw -(\epsilon_{n' \bk'} - \epsilon_{n \bk})   + \ii \eta} - \frac{ \psi_{n \bk}(\br) \psi_{n' \bk'}^*(\br) \psi_{n' \bk'}(\br') \psi_{n \bk}^*(\br') }{\hw + (\epsilon_{n' \bk'} - \epsilon_{n \bk}) + \ii \eta} \right]\,.
-\end{equation}
+% \begin{equation}
+%     \label{eq:polarizability_RPA_Bloch_states}
+%     \chi^0 (\br,\br';\omega) = \sum_{n \bk, n'\bk'} \left[ \frac{\psi_{n' \bk'}(\br) \psi_{n \bk}^*(\br) \psi_{n \bk}(\br') \psi_{n' \bk'}^*(\br') }{\hw -(\epsilon_{n' \bk'} - \epsilon_{n \bk})   + \ii \eta} - \frac{ \psi_{n \bk}(\br) \psi_{n' \bk'}^*(\br) \psi_{n' \bk'}(\br') \psi_{n \bk}^*(\br') }{\hw + (\epsilon_{n' \bk'} - \epsilon_{n \bk}) + \ii \eta} \right]\,.
+% \end{equation}
 
-\noindent Its translation invariance can be proof checked by the identity $\psi_{n \bk}(\br + \bR) = \ee^{\ii \bk \vdot \bR} \psi_{n \bk}(\br)$, coming from the second statement~\ref{Bloch_theorem_II} of Bloch theorem.
-The expression for the matrix elements $\chi^0_{\bG \bG'}(\bq)$ can be obtained by direct Fourier transform of the previous expression to obtain
+% \noindent Its translation invariance can be proof checked by the identity $\psi_{n \bk}(\br + \bR) = \ee^{\ii \bk \vdot \bR} \psi_{n \bk}(\br)$, coming from the second statement~\ref{Bloch_theorem_II} of Bloch theorem.
+% The expression for the matrix elements $\chi^0_{\bG \bG'}(\bq)$ can be obtained by direct Fourier transform of the previous expression to obtain
 
 \begin{equation}
     \label{eq:polarizability_momentum_frequency}
