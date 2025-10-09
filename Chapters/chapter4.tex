@@ -25,35 +25,38 @@ In contrast, metals are good conductors because the highest valence band is part
 This means that it requires small amounts of energy to excite the electrons so that they can more easily participate in the charge flow.
 In other words, in gapped undoped materials and at low temperatures, the system can only be excited from the ground state via energetically costing interband transitions, whereas metals can be excited via energetically efficient intraband transitions.
 However, if the energies involved are high enough, a metal can experience interband transitions, which bring a contribution to the optical response that the Drude approach cannot capture.
-Such an example is gold~\cite{Christy_1972}, which displays a Drude-like optical conductivity until a certain frequency threshold, above which the optical measurements evidence the shortcomings of the classical model.
+Such an example is gold~\cite{Christy_1972}, which displays a Drude-like optical conductivity until a certain frequency threshold, while above that frequency the optical measurements deviate from the classical model highlighting its shortcomings.
 Ad hoc corrections to the Drude model can be made~\cite{Meyer_2006}, but a complete picture is still missing.
-One rapidly sees that classical models cannot explain all phenomena in solids, in particular phenomena observed in optical spectroscopy that induce quantum effects with no classical analogue.
+One rapidly sees that classical models cannot explain all phenomena in solids, in particular phenomena observed in optical spectroscopy experiments detecting quantum effects with no classical analogue.
 
-Within quantum mechanics, we can quantify material responses that stem from interband transitions with no classical counterpart, which are naturally incorporated in the dielectric function through the expression for the polarizability as per~\eqref{eq:polarizability_momentum_frequency}, which in fact includes interband and intraband transitions.
+Within quantum mechanics, we can quantify the material responses that stem from interband transitions not accounted for in classical models, but that are naturally incorporated in the microscopic dielectric function through the expression for the polarizability~\eqref{eq:polarizability_momentum_frequency}, that in fact includes both interband and intraband transitions in a single expression.
 Only in this way can we expect to describe the dielectric properties of insulators and semiconductors.
 However, the expression for the dielectric function obtained in the previous chapter was written in terms of a noninteracting polarizability $\chi^0$, that accounts solely for single-particle transitions.
-An optical experiment, for instance, a photoluminescence or optical absorption one, would measure an optical response for frequencies above the bandgap, where conduction states can be populated by electrons exited from the valence bands by photon absorption.
-The same experiment, when swiping the frequency of the incident light along the bandgap, would detect any response.
+An optical experiment, for instance, a photoluminescence or optical absorption one, for frequencies above the bandgap would measure an optical response due to the excitation of electrons from the valence bands to the conduction bands when they absorb a photon.
+Then, in principle, the same experiment when tuning the frequency to sub-gap energies would not detect any response.
 However, that is not what happens.
 One photoluminescence experiment has observed an absorption resonance for monolayer \gls{hbn} at an energy lying inside the electronic bandgap~\cite{Cassabois_2019}.
 This observation can only be explained by taking into account the electron--electron interactions beyond the mean-field level and going beyond the single-particle picture.
-The two-body interaction allows a quantum system state that we could not predict from the machinery introduced so far---a many-body state.
+The two-body interactions can promote a quantum state that we could not predict from the machinery introduced so far---that is called a many-body state.
 
 Up until now, we have been stressing that the full interacting response of condensed matter systems cannot be computed in practice, which is true.
+That is why, in a first instance, we kept the discussion within the independent particle picture which we can compute in practice, while the full interacting one being out of our capacity, even if in experiments we see everything that is in play.
 Nonetheless, we do not need the full interacting picture to explain the experimental observations.
-We just need to account for the Coulomb interaction between the electron, that was excited to the conduction band, and the absence of the negative charge that it left behind in the valence band---the positively charged hole.
-This interaction between the electron and the hole, just like the atomic nucleus in the hydrogen atom attracts the orbiting electron, can be so strong that the electron--hole pair form a bound state---the exciton~\cite{Datta_Marie_2024}.
-The situation is depicted in Figure~\ref{fig:electron_hole_pair_formation}, where the electron, the red circle in the figure, is in the conduction band, and the hole, the red circumference, is in the valence band.
-As we have just explained, a photon with an energy lying inside the bandgap can excite the material from its ground state to an excitonic state, or one of several excitonic states.
-The minimum amount of energy required for that to happen is what defines the \textit{optical} bandgap, which coincides with the energy of the \textit{excitonic} ground state.
-We can define the binding energy $E_{b, \nu}$ of a given exciton in a state $\nu$, depicted in the schematic at the right in Fig~\ref{fig:electron_hole_pair_formation}, as the difference between the energy of the electronic bandgap $\Delta$ and the optical one $E_X$, the latter coinciding with the energy of the excitonic ground state.
+We just need to account for the Coulomb interaction between the electron that was excited to the conduction band, and the absence of the negative charge that it left behind in the valence band---the positively charged hole.
+This interaction between the electron and the hole, just like between the proton and the electron in the hydrogen atom, can be so strong that the electron--hole pair form a bound state---the exciton~\cite{Datta_Marie_2024}.
+The situation is depicted in Figure~\ref{fig:electron_hole_pair_formation} at the left, where the electron as the red circle is in the conduction band, while the hole as the red circumference is in the valence band.
+Due to Coulomb attraction, extra states inside the bandgap can form, as represented in Figure~\ref{fig:electron_hole_pair_formation} at the right.
+The material can be excited from its ground state to one of several excitonic states represented in the figure by a series of discrete energy levels, if the energy of the photon coincides with one of those energies.
+The minimum amount of energy required for that to happen is what defines the \textit{optical} bandgap, coinciding with the energy of the \textit{excitonic} ground state.
+We can define the binding energy $E_{b, \nu}$ of a given exciton in a state $\nu$, depicted in the schematic at the right in Fig~\ref{fig:electron_hole_pair_formation}, as the difference between the energy of the electronic bandgap $\Delta$ and the energy of the exciton one $E_{\nu}$.
 Just like the ionization energy in the hydrogen atom, it can be interpreted as the energy that we have to provide to separate the electron from the hole, resulting in their recombination.
 
-These realizations do not mean that all the techniques introduced until now in the last two chapters are not useful; actually the opposite.
-As we will see, getting the Coulomb attraction, which is essentially electrostatic, right in a solid is essential in order to compute the excitons correctly.
+These facts do not imply that all the techniques introduced until now in the last two chapters are not useful; actually the opposite.
+As we will see, getting the Coulomb attraction right in a solid is essential in order to compute the excitons correctly.
 We mean that we need to take screening into account by using an appropriate dielectric function.
+Screening effects at the noninteracting level can actually describe quite well interactions in a solid constituting the base of the calculations to determine the excitons.
 As we shall explain in a moment, this is crucial in \bd~materials.
-But first, let us try top draw some conclusions and gain intuition on the problem before we appropriately tackle it.
+Before getting too technical, let us first try top draw some conclusions and gain intuition on the problem before we appropriately tackle it.
 
 \begin{figure}[H]
     \centering
@@ -171,7 +174,7 @@ The Fermi sea comes from populating the electronic states of the material starti
 If there is no electronic bandgap, the energy of the highest occupied state, at zero temperature, is called the Fermi energy or Fermi level, $\EF$ in symbols.
 In metals, the Fermi energy lies within the band width of the highest valence band, which is partially filled.
 In semiconductors and insulators, the Fermi energy lies in the midway between the energy of the highest occupied state and the energy of the lowest unoccupied state.
-In general, it can be defined as the chemical potential\footnote{Usualy introduced in the context of thermodynamics and statistical physics, the chemical potential of a system, usually denoted by $\mu$, can be defined in terms of the thermodynamical potential (and other ones as well) $F=U-TS$, called the Helmholtz free energy, where $U$ is the internal energy of the system, $T$ its (absolute) temperature and $S$ its entropy. In the system is in thermal equilibrium and in contact with a reservoir (at the temperature $T$) with which it can exchnage particles, then the chemical potential can be defined as $\mu = F_{\mathcal{N} + 1} - F_{\mathcal{N}}$, where $\mathcal{N}$ is the number of particles in the system. Only in the thermodynamic limit where $\mathcal{N} \to \infty$ we can define the chemical potential in an equivalent way by the derivative $\partial F/\partial \mathcal{N}$~\cite{Blundell_Blundell_2009}. If otherwise the system is composed of few particles, then we are not allowd to take the derivative with respect to $\mathcal{N}$.} at zero temperature~\cite{Simon_Oxford_2013}.
+More generally, it can be defined as the chemical potential, defined in the last chapter in Section~\ref{subsec:rpa_dielectric_function}, at zero temperature~\cite{Simon_Oxford_2013}.
 
 Since we introduced the exciton as a bound electron--hole complex, we will assume that the unbound electron--hole states serve as a good basis in which we can expand the excitonic states.
 To simplify the reasoning, we assume that only the top valence band and the lowest conduction band contribute to the exciton.
@@ -267,7 +270,7 @@ The Bloch wavefunctions, in the atomic gauge that we used to write the TB Bloch 
 
 \begin{equation}
     \begin{split}
-        \mel{\bk_1,\lambda_1}{\ei{\bq \vdot \br}}{\bk_4,\lambda_4} &= \int_A \psi_{\bk_{1},\lambda_{1}}^{*}(\br)\,\ee^{\ii\bq\vdot\br}\psi_{\bk_{4},\lambda_{4}}(\br)\,\dr = \\
+        \mel{\bk_1,\lambda_1}{\ei{\bq \vdot \br}}{\bk_4,\lambda_4} &= \int_A \psi_{\bk_{1},\lambda_{1}}^{*}(\br)\,\ee^{\ii \bq \vdot \br}\psi_{\bk_{4},\lambda_{4}}(\br)\,\dr = \\
         & = \int_A u_{\bk_{1},\lambda_{1}}^{*}(\br)\,\ee^{\ii(\bq-\bk_{1}+\bk_{4})\vdot\br}u_{\bk_{4},\lambda_{4}}(\br)\,\dr \approx \\
         & \approx \left \langle u_{\bk_{1},\lambda_{1}}^{*}(\br)u_{\bk_{4},\lambda_{4}}(\br) \right\rangle_{\mathrm{UC}} \underbrace{\int_A \ee^{\ii(\bq-\bk_{1}+\bk_{4})\vdot\br} \dr }_{A\delta_{\bq,\bk_{1}-\bk_{4}}} \,.
     \end{split}
@@ -658,7 +661,8 @@ The Hamiltonian that we depart from in Eq.~\eqref{eq:Hamiltonian_start} is such 
 In that way, we can then see the self-energy corrections as already incorporated in the quasiparticle energies $\epsilon_{n \bk}$
 On the other hand, if we were to solve the \gls{bse} as per~\eqref{eq:BSE_Hamiltonian_matrix_elements}, the Hamiltonian to diagonalize in order to obtain the single-particle properties would have to be the one in~\eqref{eq:single_particle_Hamiltonian}, the noninteracting limit of the many-body crystal Hamiltonian in the Born--Oppenheimer approximation.
 Then, we would have a distinct set of \gls{tb} parameters $t'_{i j}$, and another initial band structure $\epsilon'_{n \bk}$.
-The caveat is that the cancellation might not be exact. In math notation, it means that $\epsilon_{n \bk} = \epsilon'_{n \bk} + \Sigma_{n n}(\bk + \bQ, \bk + \bQ)$ might be false.
+The caveat is that the cancellation might not be exact.
+In math notation, it means that $\epsilon_{n \bk} = \epsilon'_{n \bk} + \Sigma_{n n}(\bk + \bQ, \bk + \bQ)$ might be false.
 But if we assume that it is true, then the \gls{bse} in Eq.~\eqref{eq:BSE_Hamiltonian_matrix_elements} reduces to
 
 
@@ -791,92 +795,142 @@ We will touch upon this detail again later in this work.\todo{Come back here lat
 \section{Optical effects in two-dimensional semiconductors}
 \label{sec:optical_effects}
 
-Here we provide the theory for the optical conductivity.
-Even though the expressions derived apply to \gls{3d} materials, as they are based on the dielectric function from Section~\ref{subsec:rpa_dielectric_function} which is actually \gls{3d}, they can be obtained in analogous ways for \bd~materials.
-Henceforth, they serve as a basis for what will be discussed in Chapters~\ref{ch:Optical_hBN_superlattice} and~\ref{ch:screening} when we will put in practice the tools developed until now.
+In this section, we provide the theory for the optical conductivity at the noninteracting level, and at the interacting level due to excitonic effects.
+The expressions derived are designed for \gls{3d} materials, as they are based on the dielectric function in Eq.~\eqref{eq:dielectric_function_momentum_frequency}, with the polarizability given by its expression in Eq.~\eqref{eq:polarizability_momentum_frequency} which applies to the \gls{3d} case.
+Nonetheless, they can be readily adapted for \bd~materials by analogy.
+HTherefore, this section serves as a technical base for what will be discussed in Chapters~\ref{ch:Optical_hBN_superlattice} and~\ref{ch:screening}, when we shall put in practice the tools developed until now particularized for \bd~materials.
 
 \subsection{Noninteracting optical conductivity}
 \label{subsec:non_interacting_conductivity}
 
-
-We could follow a more technical strategy to derive the expression for the optical conductivity as in Refs~\cite{Bruus_Flensberg_2004,Mahan}, but since we have at our disposal the dielectric function, we will simply use it instead.
-We start from the dynamical longitudinal dielectric function as per~\eqref{eq:dielectric_function_momentum_frequency}, that we recall here:
+Herein, we derive the expression for the dynamical optical conductivity in the local limit, $\sigma(\omega)$.
+To do so, we could adopt a more technical approach as in Refs~\cite{Bruus_Flensberg_2004,Mahan}, but since we have at our disposal the dielectric function, we promptly use it to reach our goal.
+We start from the dynamical longitudinal dielectric function as per~\eqref{eq:dielectric_function_momentum_frequency}, that we recall
 
 \begin{equation}
     \begin{split}
-        \varepsilon_{\bG\bG'}(\bq,\omega) &= \delta_{\bG\bG'}-v_{c}(\bq+\bG)\chi_{\bG\bG'}^{0}(\bq,\omega)=\\
-        &=\delta_{\bG\bG'}-\frac{e^{2}}{\varepsilon_{0}|\bq+\bG|^{2}V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk+\bq})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk+\bq}-\epsilon_{n,\bk})+\ii \eta} \times \\
-        &\times \langle n,\bk| \ei[-]{(\bq+\bG)\vdot\br} |n',\bk+\bq\rangle\langle n',\bk+\bq|\ei{(\bq+\bG')\vdot\br}|n,\bk\rangle
+        \varepsilon_{\bG\bG'}(\bq,\omega) =& \delta_{\bG\bG'}-v_{c}(\bq+\bG)\chi_{\bG\bG'}^{0}(\bq,\omega)=\\
+                                          =& \delta_{\bG\bG'}-\frac{e^{2}}{\epsz|\bq+\bG|^{2}\vol}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk+\bq})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk+\bq}-\epsilon_{n,\bk})+\ii \eta} \times \\
+                                           & \langle n,\bk| \ei[-]{(\bq+\bG)\vdot\br} |n',\bk+\bq\rangle\langle n',\bk+\bq|\ei{(\bq+\bG')\vdot\br}|n,\bk\rangle
     \end{split}
 \end{equation}
 
-\noindent where we used the \gls{3d} Fourier transform of the Coulomb potential, and recovered the square in the electron charge for convenience, while $V$ is the volume of the system, assumed to be \gls{3d}\@.
+\noindent where we used the \gls{3d} Fourier transform of the Coulomb potential, and recovered the square in the electron charge for convenience, whereas $\vol$ is the volume of the system assumed to be \gls{3d}\@.
 Taking the local limit $\bq\to\bzero$ in the $\bG=\bG'=\bzero$ matrix element, we get
 
 %\begin{equation}
 %    \begin{gathered}
-%        \varepsilon_{\bzero\bzero}(\bq\to\bzero,\omega)=1-\frac{e^{2}}{\varepsilon_{0}q^{2}V}
-%        \sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii \eta}\langle n,\bk|-\ii\bq\vdot\br\,|n',\bk\rangle\langle n',\bk|\ii\bq\vdot\br\,|n,\bk\rangle=\\
-%        %=1-\frac{e^{2}}{\varepsilon_{0}q^{2}V}
-%        %q^{2}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii \eta}\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\br\,|n',\bk\rangle\hat{\mathbf{e}}_{\bq}\vdot\langle n',\bk|\br\,|n,\bk\rangle=\\
-%        %=1-\frac{e^{2}}{\varepsilon_{0}V}
-%        %\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii \eta}\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\br\,|n',\bk\rangle\hat{\mathbf{e}}_{\bq}\vdot\langle n',\bk|\br\,|n,\bk\rangle=\\
-%        =1-\frac{e^{2}}{\varepsilon_{0} V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii \eta}\left|\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\br\,|n',\bk\rangle\right|^2
+%        \varepsilon_{\bzero\bzero}(\bq\to\bzero,\omega)=1-\frac{e^{2}}{\epsz q^{2}V}
+%        \sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk} - \epsilon_{n,\bk}) + \ii \eta}\langle n,\bk|-\ii \bq \vdot \br |n',\bk\rangle\langle n',\bk|\ii \bq \vdot \br |n,\bk\rangle=\\
+%        %=1-\frac{e^{2}}{\epsz q^{2}V}
+%        %q^{2}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk} - \epsilon_{n,\bk}) + \ii \eta}\uvec{e}_{\bq}\vdot\langle n,\bk|\br |n',\bk\rangle\uvec{e}_{\bq}\vdot\langle n',\bk|\br |n,\bk\rangle=\\
+%        %=1-\frac{e^{2}}{\epszV}
+%        %\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk} - \epsilon_{n,\bk}) + \ii \eta}\uvec{e}_{\bq}\vdot\langle n,\bk|\br |n',\bk\rangle\uvec{e}_{\bq}\vdot\langle n',\bk|\br |n,\bk\rangle=\\
+%        =1-\frac{e^{2}}{\epsz V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk} - \epsilon_{n,\bk}) + \ii \eta}\left|\uvec{e}_{\bq}\vdot\langle n,\bk|\br |n',\bk\rangle\right|^2
 %    \end{gathered}
 %\end{equation}
 
 \begin{align}
-    \varepsilon_{\bzero\bzero}(\bq\to\bzero,\omega) &= 1-\frac{e^{2}}{\varepsilon_{0}q^{2}V}
-    \sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii \eta}\langle n,\bk|-\ii\bq\vdot\br\,|n',\bk\rangle\langle n',\bk|\ii\bq\vdot\br\,|n,\bk\rangle= \notag \\ % \notag suppresses the
+    \varepsilon_{\bzero\bzero}(\bq\to\bzero,\omega) &= 1-\frac{e^{2}}{\epsz q^{2} \vol}
+    \sum_{nn',\bk}\frac{f(\epsilon_{n',\bk}) - f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk} - \epsilon_{n,\bk}) + \ii \eta}\langle n,\bk|-\ii \bq \vdot \br |n',\bk\rangle\langle n',\bk|\ii \bq \vdot \br|n,\bk\rangle= \notag \\ % \notag suppresses the
     % equation number
-    &=1-\frac{e^{2}}{\varepsilon_{0} V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii \eta}\left|\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\br\,|n',\bk\rangle\right|^2
+    &=1-\frac{e^{2}}{\epsz \vol}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk}) - f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk} - \epsilon_{n,\bk}) + \ii \eta}\left|\uvec{e}_{\bq}\vdot\langle n,\bk|\br|n',\bk\rangle\right|^2 ,
 \end{align}
 
 
-\noindent To arrive at the previous expression, we expanded the exponential to first order in $\bq$.
-Assuming that the wavelength is so large that we can expand the exponential and keep only the first contributing term is called the dipole approximation\footnote{The optical transition is induced by the dipole operator $-e \br$, hence the name of the approximation.}.
-Using relation $\varepsilon=1+\ii\frac{\sigma}{\omega\varepsilon_{0}}$, mentioned before for the first time in Chapter one as Eq.~\eqref{eq:equivalent_permittivity}, we find
+\noindent where to arrive at the last expression we expanded the exponential to first order in $\bq$, and defined the unit vector with the direction of $\bq$ as $\uvec{e}_{\bq}=\bq/q$.
+Expanding the exponential only up to first order is called the dipole approximation\footnote{The optical transition is induced by the dipole operator $-e \br$, hence the name of the approximation.}.
+It is valid as long as the wavelength is larger than typical length scales of the system, for instance, the unit cell, this in the context of solid state physics.
+This approximation simplifies calculations a lot in other contexts, such as optics~\cite{Hohenester_2020,Novotny_Hecht_2012,Agarwal_2012} or atomic physics~\cite{Sakurai,Zettili_2009,Foot_2004} (which are not completely unrelated).
+Using relation $\varepsilon=1+\ii\frac{\sigma}{\omega\epsz}$, mentioned before for the first time in Eq.~\eqref{eq:equivalent_permittivity} from Section~\ref{sec:dielectric_function_classical}, we find
 
 \begin{equation}
-    \begin{gathered}
-        \sigma(\omega)=-\ii\omega\varepsilon_{0}(\varepsilon-1)=\\
-        =\ii\frac{\omega e^{2}}{V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii \eta}\left|\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\br\,|n',\bk\rangle\right|^2=\\
-        =\ii\frac{\omega e^{2}}{V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii \eta}\frac{\left|\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\left[H,\br\right]|n',\bk\rangle\right|{{}^2}}{\left(\epsilon_{n,\bk}-\epsilon_{n',\bk}\right)^{2}}=\\
-        =\frac{\ii e^{2}\hbar}{V}\sum_{nn',\bk}\hbar\omega\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii \eta}\frac{\left|\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\bp/m|n',\bk\rangle\right|{{}^2}}{\left(\epsilon_{n,\bk}-\epsilon_{n',\bk}\right)^{2}}=\\
-        =\frac{\ii\hbar}{V}\sum_{nn',\bk}\hbar\omega\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii \eta}\frac{\left|\hat{\mathbf{e}}_{\bq}\vdot\langle n,\bk|\mathbf{j}\,|n',\bk\rangle\right|{{}^2}}{\left(\epsilon_{n,\bk}-\epsilon_{n',\bk}\right)^{2}}
-    \end{gathered}
+    \label{eq:optical_conductivity_manipulation}
+    \begin{aligned}
+        \sigma(\omega)&=-\ii\omega\epsz[\varepsilon(\omega)-1] = \ii\frac{\omega e^{2}}{\vol}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk} - \epsilon_{n,\bk}) + \ii \eta}\left|\uvec{e}_{\bq}\vdot\langle n,\bk|\br|n',\bk\rangle\right|^2 \stackrel{\textcolor{red}{!1}}{=}\\
+        &=\ii\frac{\omega e^{2}}{\vol}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk} - \epsilon_{n,\bk}) + \ii \eta}\frac{\left|\uvec{e}_{\bq}\vdot\langle n,\bk|\left[H_0,\br\right]|n',\bk\rangle\right|^2}{\left(\epsilon_{n,\bk}-\epsilon_{n',\bk}\right)^{2}}\stackrel{\textcolor{black}{\checkmark}}{=} \\
+        &=\ii\frac{\omega e^{2} \hbar^2}{\vol}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk} - \epsilon_{n,\bk}) + \ii \eta}\frac{\left|\uvec{e}_{\bq}\vdot\langle n,\bk|\mathbf{v}|n',\bk\rangle\right|^2}{\left(\epsilon_{n,\bk}-\epsilon_{n',\bk}\right)^{2}} \stackrel{\textcolor{black}{\checkmark}}{=} \\
+        &=\frac{\ii\hbar}{\vol}\sum_{nn',\bk}\hbar\omega\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk} - \epsilon_{n,\bk}) + \ii \eta}\frac{\left|\uvec{e}_{\bq}\vdot\langle n,\bk|\mathbf{j}|n',\bk\rangle\right|^2}{\left(\epsilon_{n,\bk}-\epsilon_{n',\bk}\right)^{2}} \stackrel{\textcolor{red}{!2}}{=} \\
+        &=\frac{\ii e^{2}\hbar}{\vol}\sum_{nn',\bk}\hbar\omega\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk} - \epsilon_{n,\bk}) + \ii \eta}\frac{\left|\uvec{e}_{\bq} \vdot \mel{n,\bk}{\frac{\bp}{m}}{n',\bk} \right|^2}{\left(\epsilon_{n,\bk}-\epsilon_{n',\bk}\right)^{2}}\,,
+    \end{aligned}
 \end{equation}
 
-\noindent  where we have used the identities $\bp=\ii m/\hbar\left[H,\br\right]$ and $\mathbf{j}=-e\mathbf{v}=-e\bp/m$\footnote{We advert here the reader for an important detail. In general, the position, velocity and momentum operators are not in general interchangeable when doing calculations for extended systems. In the context of atomic physics, there is no issue at all. The same cannot be said about infinite crystalline solids. With the intention of not interrupting the flow of the text, we postpone a more detailed discussion.}.
-We also introduce the unit vector $\hat{\mathbf{e}}_{\bq}=\bq/q$ to denote the orientation of the wave vector $\bq$.
-We can define a tensor like conductivity $\sigma_{\alpha\beta}$ as
+\noindent  where we have used the identities $\mathbf{v} = \frac{\ii}{\hbar} \left[H_0,\br\right]$\footnote{If the reader is not very familiar with concepts of quantum mechanics, this identity might require justification. There is in quantum mechanics the Heisenberg picture, where the states are static, but the operators evolve in time. Given an operator $\hat{O}_\mathrm{S}$ in the picture we have been working with so far, the Schr\"{o}dinger picture, the same opertor in the Heisenberg picture reads $\hat{O}_{\mathrm{H}} = \hat{U}^{\dagger} (t) \hat{O}_{\mathrm{S}}(t) \hat{U}(t)$, where $\hat{U}(t)$ is the time-evolution operator. By using the \gls{tdse}, one can show that $\frac{\dd \hat{O}_{\mathrm{H}}}{\dd t} = \ii/\hbar [H_{\mathrm{H}},\hat{O}_{\mathrm{H}}] + \left(\frac{\partial \hat{O}_{\mathrm{S}}}{\partial t}\right)_{\mathrm{H}}$. If the Hamiltonian has no explicit time-dependence, which could be that of a crystal, then one can show that if $\hat{O}_{\mathrm{S}}$ is also time-independent, then $H_{\mathrm{H}} = H_{\mathrm{S}} \equiv H$ and $\frac{\dd \hat{O}_{\mathrm{H}}}{\dd t} = \ii/\hbar [H_{\mathrm{H}},\hat{O}_{\mathrm{H}}]$. This is the quantum version of the identity $\frac{\dd A}{\dd t} = \{A,H\}$ in classical mechanics, where $A$ is an observable with no explicit $t$-dependence, $H$ the Hamiltonian function and $\{\cdot,\cdot\}$ are the Poisson parenthesis~\cite{goldstein:mechanics,Landau1976Mechanics}.},
+ $\mathbf{j}=-e\mathbf{v}$, and also $\bp = m \mathbf{v}$ with $m$ being the electron mass.
+The Hamiltonian at hand $H_0$ is the Hamiltonian in the noninteracting limit.
+We advert here the reader for important technical details commonly overlooked in the literature.
+In the equation above, only the equalities marked with \textcolor{black}{\checkmark} are exact.
+The others marked with exclamation marks are not, because in general, the position $\br$, velocity $\mathbf{v}$ and momentum $\bp$ operators are not interchangeable when doing calculations for extended systems.
+In the context of atomic physics, there is no issue at all, but the same cannot be said about infinite crystalline solids.
+For instance, the relation $\bp = m \mathbf{v}$ is only true if the potential entering the Hamiltonian is local\footnote{And also if \gls{soc} is not  included~\cite{Esteve_PhD}.}, since in such a case $-\ii \hbar \mathbf{v} = [H_0,\br] = [p^2/2m,\br] + [V(\br),\br] = - \frac{\ii \hbar}{ m}\bp + 0 = - \frac{\ii \hbar}{m} \bp$, by virtue of the identity $[AB,C] = A[B,C] + [A,C] B$ and the canonical commutation relation $[x_i,p_j] = - \ii \hbar \delta_{i j}$~\cite{Griffiths_2023}.
+If the potential is nonlocal, an issue that may arise in \abinit~calculations using the pseudopotentials~\cite{Martin_2004}, then we have unwished terms in the commutator $[V(\br,\br'),\br] \neq 0$, making the passage marked with \textcolor{red}{!2} not exact.
+Moreover, we highlighted the equality from the second line to the third line with \textcolor{red}{!1} because it is not exact as well, if the matrix elements are computed for a finite volume (with periodic boundary conditions).
+If the matrix element is computed in a finite volume, according to B.~Gu and collaborators~\cite{Gu_2013}, there is an extra term $C$ in the relation between the position and velocity matrix elements, reading
 
 \begin{equation}
-    \sigma_{\alpha\beta}(\omega)=\frac{\ii\hbar}{V}\sum_{nn',\bk}\hbar\omega\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})+\ii \eta}\frac{\langle n,\bk|j_{\alpha}|n',\bk\rangle\langle n',\bk|j_{\beta}|n,\bk\rangle}{\left(\epsilon_{n,\bk}-\epsilon_{n',\bk}\right)^{2}}
+    \langle n,\bk|\mathbf{v}|n',\bk'\rangle_{\vol} = \frac{\ii}{\hbar} (\epsilon_{n,\bk} - \epsilon_{n',\bk'}) \langle n,\bk|\br|n',\bk'\rangle_{\vol} + C_{n \bk, n' \bk'}\,,
 \end{equation}
 
-\noindent Using the Sokhotski--Plemelj identity
+\noindent with the term $C_{n \bk, n' \bk'}$ coming from an integral over the boundary of the solid.
+Notice that we have used the subscript $\vol$ to represent a bounded integration region.
+Retaining only the first term in the \gls{rhs} is incorrect, because the integral of the position operator over a finite volume depends on the choice of the origin, while the \gls{lhs} clearly does not.
+The second term on the \gls{rhs} compensates for this.
+For the position matrix elements to not depend on the placement of the origin, we could extend the integral to infinity.
+However, the Bloch states $\psi_{n \bk}(\br)$ do not decay to zero at infinity, henceforth the integral is ill-defined.
+To circumvent this technical difficulty, Blount in Ref.~\cite{Blount_1962} obtained an expression for the position matrix elements, where only the diagonal ones depend on the origin, by choosing a distribution normalization for the Bloch states, instead of normalizing them to a finite volume and using a distribution basis.
+The work by J.~J.~Esteve and J.~J.~Palacios in Ref.~\cite[Esteve_2023] showed that the relation
+
+\begin{equation}
+    \langle n,\bk|\mathbf{v}|n',\bk'\rangle_{\infty} = \frac{\ii}{\hbar} (\epsilon_{n,\bk} - \epsilon_{n',\bk'}) \langle n,\bk|\br|n',\bk'\rangle_{\infty}
+\end{equation}
+
+\noindent is true when the integrals are computed for an infinite system, hence the $\infty$ in subscript, with open boundary conditions.
+Only in this sense the relation above matches with the one from atomic physics.
+On a closing note, it is also possible to compute the momentum matrix elements in practice using the representation $-\ii/\hbar \nabla_{\br}$.
+However, this involves taking spatial derivatives of atomic orbitals, if we work with a Bloch state basis within \gls{lcao}, which is not favorable.
+We decide then to keep going by working with velocity or momentum matrix elements, which we will calculate in practice later on.
+The framework consisting of using only position or momentum matrix elements is called the \underline{length gauge}.
+It is called so because the interaction Hamiltonian between the material and the impinging electromagnetic field is written in terms of the position or dipole operator, $\br$.
+This is valid in the dipole approximation, that we explained above.
+On the contrary, one can work with momentum matrix elements, if we determine the light--matter interaction Hamiltonian by using the minimal substitution in the canonical momentum as $\bp \to \bq + e/c \mathbf{A}$~\cite{goldstein:mechanics}, where $\mathbf{A}$ is the vector potential~\cite{Jackson:electrodynamics}.
+This is called the \underline{velocity gauge}.
+For a discussion on both gauges, we recommend Ref.~\cite{Pedersen_2017}, while for a more thorough discussion of all these technical details we refer to the PhD thesis by J.~J.~Esteve Parede in Ref.~\cite{Esteve_PhD}.
+
+In the manipulation of the expression for the optical conductivity in Eq~\eqref{eq:optical_conductivity_manipulation}, we took the chance to write it in terms of the current operator as well.
+We will use that expression to make a bridge between the \rpa~formalism adopted here, and the Kubo or linear response formalism~\cite{Kubo_1957}.
+We start by introducing the conductivity tensor $\rttensor{\sigma}$ with components $\sigma_{\alpha\beta}$ given by
+
+\begin{equation}
+    \label{eq:conductivity_tensor_components}
+    \sigma_{\alpha\beta}(\omega)=\frac{\ii\hbar}{\vol}\sum_{nn',\bk}\hbar\omega\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\hbar \omega - (\epsilon_{n',\bk} - \epsilon_{n,\bk}) + \ii \eta}\frac{\langle n,\bk|j_{\alpha}|n',\bk\rangle\langle n',\bk|j_{\beta}|n,\bk\rangle}{\left(\epsilon_{n,\bk}-\epsilon_{n',\bk}\right)^{2}}\,.
+\end{equation}
+
+\noindent We just generalized the matrix element of the current operator in the fourth line of Eq.~\ref{eq:optical_conductivity_manipulation} in absolute value squared, to a product between the matrix elements of two current operator components $\alpha$ and $\beta$.
+The initial conductivity can be obtained by simply extracting the diagonal component of the conductivity tensor defined just now.
+In symbols, $\sigma(\omega) = \uvec{e}_{\bq} \vdot \rttensor{\sigma} \vdot \uvec{e}_{\bq}$-
+We manipulate now the components of the conductivity tensor.
+By using the Sokhotski--Plemelj identity~\cite{Muskhelishvili_1977}
 
 \begin{equation}
     \label{eq:sokhotski_plemelj}
-    \frac{1}{x\pm \ii \eta}=\mathrm{P.V.}\!\left(\frac{1}{x-a}\right) \mp \ii\pi\delta(x-a),\quad \eta=0^+,
+    \frac{1}{(x-a) \pm \ii \eta}=\mathrm{P.V.}\!\left(\frac{1}{x-a}\right) \mp \ii\pi\delta(x-a),\quad \eta=0^+,
 \end{equation}
 
-\noindent we obtain the so-called Kubo--Greenwood formula for the real part of the conductivity reading
+\noindent where $\mathrm{P.V.}$ denotes Cauchy principal value, on the first fraction inside the sum in Eq.~\ref{eq:conductivity_tensor_components}, we obtain the so-called Kubo--Greenwood formula for the real part of the conductivity
 
 \begin{equation}
-    \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{V}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\epsilon_{n,\bk}-\epsilon_{n',\bk}}  v^{\alpha}_{n n'}(\bk)  v^{\beta}_{n' n}(\bk) \delta(\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk}))
+    \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi \hbar}{\vol}\sum_{nn',\bk}\frac{f(\epsilon_{n',\bk})-f(\epsilon_{n,\bk})}{\epsilon_{n,\bk}-\epsilon_{n',\bk}}  j^{\alpha}_{n n'}(\bk)  j^{\beta}_{n' n}(\bk) \delta[\hbar \omega - (\epsilon_{n',\bk}-\epsilon_{n,\bk})] \,,
 \end{equation}
 
-\noindent if written in terms of the velocity operator matrix elements, where we used the trick of replacing $\omega \to \epsilon_{n,\bk}-\epsilon_{n',\bk}$ to cancel the frequency in the numerator, which is allowed due to the presence of the Dirac delta function, and defined $v^{\alpha}_{n n'}(\bk) = \langle n,\bk|v_{\alpha}|n',\bk\rangle$.
+\noindent if written in terms of the current operator matrix elements $j^{\alpha}_{n n'}(\bk) \equiv \langle n,\bk|j_{\alpha}|n',\bk\rangle$, where we also did the trick of replacing $\hbar \omega \to \epsilon_{n,\bk}-\epsilon_{n',\bk}$ in the first factor inside the sum in Eq.~\eqref{eq:conductivity_tensor_components} to cancel the frequency in the numerator, which is allowed due to the presence of the Dirac delta function.
 The Kubo--Greenwood formula for the conductivity is actually a particular case of the more general Kubo formula, which accounts for all possible state transitions among all many-body states of the system~\cite{Mahan,Coleman_2015}.
 Being in practice impossible to calculate at the full interacting level, normally some sort of approximation is needed.
-THe Kubo--Greenwood formula is the Kubo formula without interactions, accounting only for transitions between single-particle states---this is called the \gls{ipa}~\cite{Aversa_Sipe_1995}.
-Particularizing for a semiconductor at zero temperature and simplifying, we are allowed to write
+Tee Kubo--Greenwood formula is the noninteracting Kubo formula, accounting only for transitions between single-particle states---this is called the \gls{ipa}~\cite{Aversa_Sipe_1995}.
+Particularizing for a semiconductor at zero temperature for which the Fermi--Dirac distribution is just a Heaviside step function and simplifying, we can write the real part of the conductivity tensor, now in terms of velocity operator matrix elements, as
 
 \begin{empheq}[innerbox=\colorbox{lightgray}, right={\,.}]{align}
     \label{eq:non_interacting_Re_optical_conductivity}
-    \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{V}\sum_{vc,\bk} \frac{v^{\alpha}_{c v}(\bk)  v^{\beta}_{v c}(\bk)}{\epsilon_{c,\bk}-\epsilon_{v,\bk}}   \delta[\hbar \omega - (\epsilon_{c,\bk}-\epsilon_{v,\bk})]
+    \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{\vol}\sum_{vc,\bk} \frac{v^{\alpha}_{c v}(\bk)  v^{\beta}_{v c}(\bk)}{\epsilon_{c,\bk}-\epsilon_{v,\bk}}   \delta[\hbar \omega - (\epsilon_{c,\bk}-\epsilon_{v,\bk})]
 \end{empheq}
 
 \noindent At this point we will not explain how to compute the position or velocity matrix elements in practice.
@@ -886,9 +940,10 @@ They will be addressed in two different ways in chapters~\ref{ch:Optical_hBN_sup
 \subsection{Excitonic optical conductivity}
 \label{subsec:excitonic_conductivity}
 
-In this section we are concerned with the contribution of excitons to the optical conductivity.
-If the material is subject to a drive from a uniform time-dependent electric field composed of a single harmonic $\omega$, the expression for the optical conductivity up to leading order is given by~\cite{Pedersen_2015}
+In this section we are concerned with the contribution of the excitons to the optical conductivity.
+Only going beyond the \gls{ipa} we can compare the theoretical predictions with the optical measurements for frequencies lying inside the band gap, as we discussed in the Section~\ref{sec:introduction} of this chapter.
 
+If the material is subject to a drive from a spatially uniform time-dependent electric field composed of a single harmonic $\omega$, the expression for the linear optical conductivity is given by~\cite{Pedersen_2015}
 
 \begin{empheq}[innerbox=\colorbox{lightgray}, right={\,,}]{align}
     \sigma (\omega) = \frac{e^2}{8 \pi^3 \ii \hbar} \sum_{\nu} \qty[E_{\nu} \frac{\vectorbold{\Omega}_{\nu} \vdot \vectorbold{\Omega}^*_{\nu} }{E_{\nu} - \hbar \omega + \ii \hbar \Gamma} + E_{\nu} \frac{\vectorbold{\Omega}_{\nu} \vdot \vectorbold{\Omega}^*_{\nu} }{E_{\nu} + \hbar \omega - \ii \hbar \Gamma}]
@@ -902,16 +957,16 @@ If the material is subject to a drive from a uniform time-dependent electric fie
     \vectorbold{\Omega}_{\nu} = \sum_{cv,\bk} \psi^{\nu}_{c,v} (\bk) \langle v, \bk | \br \vdot \hat{\vectorbold{e}} | c, \bk \rangle,
 \end{equation}
 
-\noindent where $\br$ is the dipole operator, $\hat{\vectorbold{e}}$ is the polarization unit vector and $\psi^{\nu}_{c,v} (\bk)$ is the excitonic wavefunction for the pair of bands $(c,v)$.
-If once more we wish to define the optical conductivity as a tensor, then we can deduct an expression similar to~\eqref{eq:non_interacting_Re_optical_conductivity}, we just have to replace the transition energy $\epsilon_{c,\bk}-\epsilon_{v,\bk}$ by the exciton energy $E_{\nu}$, and the velocity matrix elements by their interacting version given by a weighted sum over momentum of the noninteracting matrix elements, with the weight coinciding with the excitons wavefunction, similarly to what is written in~\eqref{eq:Berry_curvature_definition}.
+\noindent where $\br$ is the dipole operator, $\hat{\vectorbold{e}}$ is the polarization unit vector, and $\psi^{\nu}_{c,v} (\bk)$ is the excitonic wavefunction for the pair of bands $(c,v)$.
+If, once more, we wish to define the optical conductivity as a tensor, then we can deduce an expression similar to~\eqref{eq:non_interacting_Re_optical_conductivity}, we just have to replace the transition energy $\epsilon_{c,\bk}-\epsilon_{v,\bk}$ by the exciton energy $E_{\nu}$, and the velocity matrix elements by their interacting version given by a weighted sum over momentum of the noninteracting matrix elements, with the weight coinciding with the excitons wavefunction, similarly to what is written in~\eqref{eq:Berry_curvature_definition}.
 We can therefore write\todo{Caution with this expression, since the material is \bd, come back here again after reading Nuno's notes.}
 
 \begin{empheq}[innerbox=\colorbox{lightgray}, right={\,,}]{align}
-    \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{V}\sum_{\nu}\frac{1}{E_{\nu}} V^{\alpha}_{\nu} (V^{\beta}_{\nu})^{*} \delta(\hbar \omega - E_{\nu})
+    \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{\vol}\sum_{\nu}\frac{1}{E_{\nu}} V^{\alpha}_{\nu} (V^{\beta}_{\nu})^{*} \delta(\hbar \omega - E_{\nu})
     \label{eq:excitonic_Re_optical_conductivity}
 \end{empheq}
 
 \noindent if we define the interacting velocity matrix elements as $V^{\alpha}_{\nu} = \sum_{cv,\bk} \psi^{\nu}_{c,v} (\bk) v^{\alpha}_{c v}(\bk) $.
 
-Everything is set for the main contribution to the literature of the work developed during the PhD studies.
-We devote the next two chapters to the two first-author publications resultant from this work.
+Everything is set for the main contribution to the literature of the work developed during the course of the PhD.
+We devote the next two chapters to each of the two first-author publications consisting of the novel contribution to the literature.
