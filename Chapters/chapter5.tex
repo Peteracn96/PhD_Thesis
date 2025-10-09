@@ -215,7 +215,7 @@ We use the following basis states
     \ee^{\ii(\mathbf{q}-\mathbf{G}_{m}/2)\vdot\br},
 \end{equation}
 
-\noindent that were before denoted by $f$ and $g$, which have a plane-wave like spatial part $\varphi_{i}(\br) = \exp{\ii ( \bq \pm \bG_m/2) \vdot \br},i=1,2,$ with $\br=(x,y)$, a spinorial part, the vectors of the reciprocal superlattice given by $\bG_m = m \bG = m G_0 \hat{\mathbf{x}}$, with $\vert\mathbf{q}\,\vert\ll\vert\mathbf{G}\vert$.
+\noindent that were before denoted by $f$ and $g$, which have a plane-wave like spatial part $\varphi_{i}(\br) = \exp{\ii ( \bq \pm \bG_m/2) \vdot \br},i=1,2,$ with $\br=(x,y)$, a spinorial part, the vectors of the reciprocal superlattice given by $\bG_m = m \bG = m G_0 \uvec{x}$, with $\vert\mathbf{q}\,\vert\ll\vert\mathbf{G}\vert$.
 We build the new Hamiltonian using these base states as
 
 \begin{equation}
@@ -832,7 +832,7 @@ If we now subject the material to a drive from a monochromatic field with freque
 \end{equation}
 
 \noindent where there is no sum over bands as we consider the most simple two-band model for \gls{hbn}, and $\Psi_{\nu} (\bk)$ is the wavefunction of the excitonic state $\nu$ in momentum space, and the braket is the optical matrix element we have encountered before in Section~\ref{subsec:non_interacting_conductivity}.
-Herein, we consider light polarized along the $x$ direction and along the $y$ direction separately, so that the polarization vector will write $\hat{\vectorbold{e}} = \hat{\mathbf{x}}$ or $\hat{\vectorbold{e}} = \hat{\mathbf{y}}$ accordingly.
+Herein, we consider light polarized along the $x$ direction and along the $y$ direction separately, so that the polarization vector will write $\hat{\vectorbold{e}} = \uvec{x}$ or $\hat{\vectorbold{e}} = \uvec{y}$ accordingly.
 After computing the optical matrix element, we shall compute its dot product with $\hat{\vectorbold{e}}$.
 We will then have two distinct conductivities $\sigma_{xx}$ and $\sigma_{yy}$.
 
@@ -929,7 +929,7 @@ Then, the matrix element between the Bloch states of the commutator between the 
 
 \begin{equation}
     \label{eq:commutator_matrix_element}
-    \langle v,\bk|[H,\br]|c,\bk\rangle [H,\br] \approx -\ii \hbar  \vF  (\bC^{v,\bq})^\dagger \left( \sigma_{x}\hat{\mathbf{x}}+J_{0}(\beta)\sigma_{y}\hat{\mathbf{y}} \right) \bC^{c,\bq}\,,
+    \langle v,\bk|[H,\br]|c,\bk\rangle [H,\br] \approx -\ii \hbar  \vF  (\bC^{v,\bq})^\dagger \left( \sigma_{x}\uvec{x}+J_{0}(\beta)\sigma_{y}\uvec{y} \right) \bC^{c,\bq}\,,
 \end{equation}
 
 \noindent where the arrays $\bC^{v/c,\bq}$ are the spinors of the low-energy Hamiltonian that we have defined before in Eqs.~\eqref{eq:valence_spinor} and~\eqref{eq:conduction_spinor} for the valence and conduction bands, respectively.
@@ -937,7 +937,7 @@ Inserting them in~\eqref{eq:commutator_matrix_element} and going back to the opt
 
 \begin{equation}
     \label{eq:optical_matrix_element_final}
-    \langle v,\bk|\br\,|c,\bk\rangle \approx \frac{\ii\hbar  \vF }{E_{v,\bq}-E_{c,\bq}}\left[\cos^{2}\frac{\xi_{q}}{2}\left(\hat{\mathbf{x}}-J_{0}(\beta)\hat{\mathbf{y}}\right)-\ee^{-2 \ii \theta_{q}(\beta)}\sin^{2}\frac{\xi_{q}}{2}\left(\hat{\mathbf{x}}+J_{0}(\beta)\hat{\mathbf{y}}\right)\right]
+    \langle v,\bk|\br\,|c,\bk\rangle \approx \frac{\ii\hbar  \vF }{E_{v,\bq}-E_{c,\bq}}\left[\cos^{2}\frac{\xi_{q}}{2}\left(\uvec{x}-J_{0}(\beta)\uvec{y}\right)-\ee^{-2 \ii \theta_{q}(\beta)}\sin^{2}\frac{\xi_{q}}{2}\left(\uvec{x}+J_{0}(\beta)\uvec{y}\right)\right]
 \end{equation}
 
 %Writing the imaginary exponential with its non-trivial dependence on $\theta$,
@@ -1023,8 +1023,8 @@ The term of the Berry curvature that goes with the sine reads
 \end{equation}
 
 \noindent to be evaluated numerically as well.
-The Berry curvature is then simply $\boldsymbol{\Omega}_{1s} \vdot \hat{\mathbf{x}} = \Omega^x_{1s} = \Omega^{\cos}_{1s} + \Omega^{\sin}_{1s}$, where we put an $x$ in superscript to stress that the calculation was for light polarized along the $x$ direction.
-For light polarized along the $y$ direction, we can identify from the optical matrix element~\eqref{eq:optical_matrix_element} an extra factor of $J_0(\beta)$, and also a relative sign between the cosine and sine terms, so that the Berry curvature is now $\boldsymbol{\Omega}_{1s} \vdot \hat{\mathbf{y}} = \Omega^y_{1s} = J_0(\beta) (\Omega^{\cos}_{1s} - \Omega^{\sin}_{1s})$.
+The Berry curvature is then simply $\boldsymbol{\Omega}_{1s} \vdot \uvec{x} = \Omega^x_{1s} = \Omega^{\cos}_{1s} + \Omega^{\sin}_{1s}$, where we put an $x$ in superscript to stress that the calculation was for light polarized along the $x$ direction.
+For light polarized along the $y$ direction, we can identify from the optical matrix element~\eqref{eq:optical_matrix_element} an extra factor of $J_0(\beta)$, and also a relative sign between the cosine and sine terms, so that the Berry curvature is now $\boldsymbol{\Omega}_{1s} \vdot \uvec{y} = \Omega^y_{1s} = J_0(\beta) (\Omega^{\cos}_{1s} - \Omega^{\sin}_{1s})$.
 
 \subsubsection{Excited states $2x$, $2y$ and $2s$}
 \label{subsubsec:excited_states_2x_2y}
