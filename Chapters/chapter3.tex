@@ -85,14 +85,14 @@ At some point we shall drop the hat for ease of notation.
 
 If in the \gls{tdse} the Hamiltonian has no explicit dependence on time, then we can easily integrate Eq.~\eqref{eq:time_dependent_Schrodinger_equation} and write a formal solution for the state as
 
-
 \begin{equation}
-    \ket{\Psi(t)} = \ei[-]{\Ha (t-t_0)/\hbar} \ket{\Psi(t_0)},
+    \label{eq:time_evolution_operator}
+    \ket{\Psi(t)} = \ei[-]{\Ha (t-t_0)/\hbar} \ket{\Psi(t_0)} \equiv \hat{U}(t) \ket{\Psi(t_0)},
 \end{equation}
 
-\noindent if we know the state of the system $\ket{\Psi(t_0)}$ at the initial time $t_0$.
-We can therefore factor out the time dependence of the state, which is encoded in the new operator $\exp{-\ii \Ha (t-t_0)}$, commonly called the time-evolution operator.
-Now we assume that the time-independent part of the state of the system, $\ket{\Psi(t_0)}$, can be written as a linear combination of basis states $\ket{\phi_n}$, which are eigenstates of the Hamiltonian with eigenvalues $E_n$, such that $\ket{\Psi(t_0)} = \sum_n c_n \ket{\phi_n}$, with $\Ha \ket{\psi_n} = E_n \ket{\psi_n}$.
+\noindent if we know the state of the system $\ket{\Psi(t_0)}$ at the initial time $t_0$, and where we defined the time-evolution operator $\hat{U}(t) = \mathrm{exp} \{-\ii \Ha (t-t_0)\}$.
+We can therefore factor out the time dependence of the state, which is encoded in the operator $\hat{U}(t)$\footnote{If the Hamiltonian depends explicitly on time, we can still find an expression for the time-evolution operator, albeit more complicate. It is usually left out from introductory textbooks on quantum mechanics. But one can consult Ref.~\cite{Sakurai} for details.}.
+Now we assume that the time-independent part of the state of the system, $\ket{\Psi(t_0)}$, can be written as a linear combination of basis states $\ket{\phi_n}$, which are eigenstates of the Hamiltonian with eigenvalues $E_n$, such that $\ket{\Psi(t_0)} = \sum_n c_n \ket{\phi_n}$, with $\Ha \ket{\phi_n} = E_n \ket{\phi_n}$.
 We may also assume that the basis set $\{\ket{\phi_n}\}$ is orthonormal and complete.
 A set of basis states being complete means that any vector state in the Hilbert space can be written as a linear combination of the states $| \phi_n \rangle$.
 The coefficients $c_n$ can then be computed by projecting $\braket{\phi_m}{\Psi(t_0)} = c_m$.
