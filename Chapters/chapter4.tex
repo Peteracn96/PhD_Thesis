@@ -146,7 +146,7 @@ Nonetheless, the Wannier--Mott formalism offers good theoretical insights, even 
 One can go beyond Wannier--Mott by using a reciprocal space description of the excitons through the so-called \gls{bse}---an integral equation where finer details of the band structure, the Coulomb interaction and the system Hamiltonian are included.
 
 In this work, we develop two versions of the \gls{bse}\@, one that we will apply to effective low-energy models, and another one using exact diagonalization methods.
-The \abinit~version of the \gls{bse}\footnote{For a reader fond of high-energy physics, we leave here a historical note. The \gls{bse} was first introduced in the literature by Y.~Nambu in 1950~\cite{Nambu_1950}, and is named after the physicists Hans Bethe and Edwin Salpeter who derived it in 1951~\cite{Bethe_Salpeter_1951}, with posterior contributions by Gell-Mann and Low~\cite{Gell-Mann_Low_1951}. Its original formulation is in the context of quantum field theories, where composite two-fermion states can arise as well. One example is the electron--positron pair, positronium. Either in its covariant form or nonrelativistic form, the starting point to derive the \gls{bse} is defining a four-point, or two-particle, interacting Green function~\cite{Gell-Mann_Low_1951,Martin_Reining_Ceperley_2016}. Notwithstanding their differences, both formalisms can be conciliated into a relativistic many-body theory~\cite{Lindgren_2011}. Just like in Section~\ref{sec:many_particle_description} for the many-particle description of solids where we introduced the diagram notation, one can also write the \gls{bse} in a diagrammatic form (which of course has its own particle physics version ).} is not addressed here.
+The \abinit~version of the \gls{bse}\footnote{For a reader fond of high-energy physics, we leave here a historical note. The \gls{bse} was first introduced in the literature by Y.~Nambu in 1950~\cite{Nambu_1950}, and is named after the physicists Hans Bethe and Edwin Salpeter who derived it in 1951~\cite{Bethe_Salpeter_1951}, with posterior contributions by Gell-Mann and Low~\cite{Gell-Mann_Low_1951}. Its original formulation is in the context of quantum field theories, where composite two-fermion states can arise as well. One example is the electron--positron pair, positronium. Either in its covariant form or nonrelativistic form, the starting point to derive the \gls{bse} is defining a four-point, or two-particle, interacting Green function~\cite{Gell-Mann_Low_1951,Martin_Reining_Ceperley_2016}. Notwithstanding their differences, both formalisms can be conciliated into a relativistic many-body theory~\cite{Lindgren_2011}. Just like in Section~\ref{sec:many_particle_description} for the many-particle description of solids where we introduced the diagram notation, one can also write the \gls{bse} in a diagrammatic form (which of course has its own particle physics version).} is not addressed here.
 Besides being technically more involved, it is extremely demanding computationally, so it is necessary to come up with more efficient approaches.
 Nonetheless, it can be frequently encountered in the literature, in particular works using \abinit~methods for the optical response of materials~\cite{BerkeleyGW,Yambo_2009}.
 If the reader is curious about it, we refer to the original work by M.~Rohlfing and S.~G.~Louie~\cite{Louie_2000}, or the PhD thesis by Alejandro J.~Ur\'ia-\'Alvarez~\cite{Alex_PhD} for a more recent text with a derivation adapted from~\cite{Louie_2000}.
@@ -286,13 +286,14 @@ The average of the periodic part of the Bloch wavefunctions over a unit cell can
 
 \begin{align}
     \label{eq:envelope_function_approximation}
-    \left\langle u_{\lambda_1, \bk_1}^{*}(\br)u_{\lambda_4, \bk_4}(\br)\right\rangle _{\mathrm{UC}} =& \frac{1}{A_{\mathrm{UC}}} \int_{\mathrm{UC}} u_{\lambda_1, \bk_1}^{*}(\br) u_{\lambda_4, \bk_4}(\br)\, \dr =\\
-    =& \frac{1}{N A_{\mathrm{UC}}} \int_{\mathrm{UC}} \Bigg(\sum_{\bR,i\alpha}\ee^{-\ii\bk_{1}\vdot(\bR + \bt_{i} - \br)} \left(C_{i \alpha}^{\lambda_1 \bk_1}\right)^{*}\phi_{\alpha}\left(\br-\bR-\bt_{i}\right)\Bigg) \times \\
-    & \times \Bigg(\sum_{\bR',j\beta} \ee^{\ii\bk_{4}\vdot(\bR'+\bt_{j}-\br)} C_{j \beta}^{lambda_4 \bk_4}\phi_{\beta}\left(\br-\bR'-\bt_{j}\right)\Bigg)\dr =\\
-    =&\frac{1}{N A_{\mathrm{UC}}} \sum_{\bR,\bR'}\ee^{-\ii\bk_{1}\vdot(\bR + \bt_{i} - \br)} \ee^{\ii\bk_{4}\vdot(\bR'+\bt_{j}-\br)} \sum_{i\alpha,j\beta}\left(C_{i \alpha}^{\lambda_1 \bk_1}\right)^{*}C_{j \beta}^{lambda_4 \bk_4} \times \\
-    & \times \int_{\mathrm{UC}} \ee^{\ii(\bk_{1}-\bk_{4})\vdot\br}\underbrace{\phi_{\alpha}\left(\br-\bR-\bt_{i}\right)\phi_{\beta} \left(\br-\bR'-\bt_{j}\right)}_{\approx \delta_{ij} \delta_{\alpha \beta} \delta_{\bR \bR'} \delta(\br-\bR-\bt_{i})}\dr\approx\\
-    \approx & \frac{1}{N A_{\mathrm{UC}}} \sum_{\bR} \cancel{\ee^{-\ii(\bk_{1}-\bk_{4})\vdot(\bR+\bt_{i})}} \sum_{i\alpha,j\beta} \left(C_{i \alpha}^{\lambda_1 \bk_1}\right)^{*} C_{j \beta}^{lambda_4 \bk_4} \cancel{\ee^{\ii(\bk_{1}-\bk_{4})\vdot(\bR+\bt_{i})}} =\\
-    =&\frac{1}{A_{\mathrm{UC}}} \sum_{i\alpha}\left(C_{i \alpha}^{\lambda_1 \bk_1}\right)^{*} C_{i\alpha}^{\bk_{4},\lambda_{4}} = \frac{1}{A_{\mathrm{UC}}}\left(\bC^{\lambda_1 \bk_1}\right)^{\dagger}\bC^{\lambda_4 \bk_4},\text{ since }\sum_{\bR}1=N.
+    \left\langle u_{\lambda_1, \bk_1}^{*}(\br)u_{\lambda_4, \bk_4}(\br)\right\rangle _{\mathrm{UC}} =& \frac{1}{A_{\mathrm{UC}}} \int_{\mathrm{UC}} u_{\lambda_1, \bk_1}^{*}(\br) u_{\lambda_4, \bk_4}(\br)\, \dr = \notag\\
+    =& \frac{1}{N A_{\mathrm{UC}}} \int_{\mathrm{UC}} \Bigg(\sum_{\bR,i\alpha}\ee^{-\ii\bk_{1}\vdot(\bR + \bt_{i} - \br)} \left(C_{i \alpha}^{\lambda_1 \bk_1}\right)^{*}\phi_{\alpha}\left(\br-\bR-\bt_{i}\right)\Bigg) \times \notag \\
+    & \times \Bigg(\sum_{\bR',j\beta} \ee^{\ii\bk_{4}\vdot(\bR'+\bt_{j}-\br)} C_{j \beta}^{\lambda_4 \bk_4}\phi_{\beta}\left(\br-\bR'-\bt_{j}\right)\Bigg)\dr = \notag \\
+    =&\frac{1}{N A_{\mathrm{UC}}} \sum_{\bR,\bR'}\ee^{-\ii\bk_{1}\vdot(\bR + \bt_{i} - \br)} \ee^{\ii\bk_{4}\vdot(\bR'+\bt_{j}-\br)} \sum_{i\alpha,j\beta}\left(C_{i \alpha}^{\lambda_1 \bk_1}\right)^{*}C_{j \beta}^{\lambda_4 \bk_4} \times \notag \\
+    & \times \int_{\mathrm{UC}} \ee^{\ii(\bk_{1}-\bk_{4})\vdot\br}\underbrace{\phi_{\alpha}\left(\br-\bR-\bt_{i}\right)\phi_{\beta} \left(\br-\bR'-\bt_{j}\right)}_{\approx \delta_{ij} \delta_{\alpha \beta} \delta_{\bR \bR'} \delta(\br-\bR-\bt_{i})}\dr \approx \notag\\
+    \approx & \frac{1}{N A_{\mathrm{UC}}} \sum_{\bR} \cancel{\ee^{-\ii(\bk_{1}-\bk_{4})\vdot(\bR+\bt_{i})}} \sum_{i\alpha,j\beta} \left(C_{i \alpha}^{\lambda_1 \bk_1}\right)^{*} C_{j \beta}^{\lambda_4 \bk_4} \cancel{\ee^{\ii(\bk_{1}-\bk_{4})\vdot(\bR+\bt_{i})}} = \notag \\
+    =&\frac{1}{A_{\mathrm{UC}}} \sum_{i\alpha}\left(C_{i \alpha}^{\lambda_1 \bk_1}\right)^{*} C_{i\alpha}^{\bk_{4},\lambda_{4}} = \frac{1}{A_{\mathrm{UC}}}\left(\bC^{\lambda_1 \bk_1}\right)^{\dagger}\bC^{\lambda_4 \bk_4}, \notag \\
+    &\text{since }\sum_{\bR}1=N\,.
 \end{align}
 
 \noindent Finally, the plane-wave matrix element reads
@@ -304,7 +305,7 @@ The average of the periodic part of the Bloch wavefunctions over a unit cell can
     \end{aligned}
 \end{equation}
 
-\noindent whereas for the other matrix element, the same reasoning applies.
+\noindent whereas for the other matrix element the same reasoning applies.
 In this way, the interaction term of the Hamiltonian in momentum space reads
 
 
