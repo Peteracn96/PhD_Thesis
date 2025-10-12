@@ -12,18 +12,18 @@
 \chapter{Optical Properties of Nanostructured hBN}
 \label{ch:Optical_hBN_superlattice}
 \glsresetall
-In previous chapters, we studied the phenomenology and technical aspects of the exciton formation, and the optical response they confer to \bd~materials.
-We have seen also at the end of Chapter~\ref{ch:classical_electrodynamics} how light can couple to material excitations to form the polariton.
-In this chapter we analyse the exciton--polariton, resultant from the hybridization of the exciton with the \gls{em} field.
+In previous chapters, we studied the phenomenology and theoretical aspects of the exciton formation and their contribution to the optical response.
+We have seen also at the end of Chapter~\ref{ch:classical_electrodynamics}, how light can couple to material polar excitations to form the polariton.
+In this chapter we analyze the exciton--polariton, resultant from the hybridization of the exciton, introduced in the previous chapter, with the \gls{em} field.
 
 Herein, we revisit \gls{hbn}, whose tight-binding model has been presented in Section~\ref{subsubsec:tight_binding_method}, a prototypical \bd~material to study excitons.
-We seek to be able to tune the optical properties of \gls{hbn}, so for that we apply a \gls{1d} electrostatic potential, resulting in an emergent \gls{1d} superlattice.
+We wish to engineer the optical properties of \gls{hbn}, by applying a \gls{1d} electrostatic potential, resulting in an emergent \gls{1d} superlattice.
 Choosing an appropriate form for the potential, it is possible to obtain an analytical expression for the renormalized Hamiltonian for any potential strength, without resorting to perturbative methods.
 Since we have an analytical expression for the low-energy Hamiltonian, we can extract the effective masses analytically, which speeds up the process of obtaining the binding energies of the excitons.
-For that, we apply the Wannier equation formalism, that we propose to solve using the variational method.
+For that, we solve the Wannier equation using the variational method.
 However, due to the potential being \gls{1d}, we introduce a degree of anisotropy on the dispersion which depends on the periodicity and amplitude of the potential.
 The fact that the method of the \bse~introduced before for effective models is only useful for isotropic systems justifies the choice for the methods adopted.
-The \bse~method through exact diagonalization of the Bethe--Salpeter Hamiltonian is unfortunately not applicable here---the introduction of the electrostatic potential renders our material effectively \gls{1d}, and the code developed in this work is relevant only for \bd~materials.
+The \bse~method through exact diagonalization of the Bethe--Salpeter Hamiltonian is unfortunately not applicable here---the introduction of the electrostatic potential may spoil the translational invariance, and the code developed in this work is relevant only for periodic \bd~materials.
 Furthermore, the theory behind the code is based on the typical system of solid state physics, an infinite crystal with discrete translational symmetry.
 The approach adopted in this chapter allows for considering any periodicity for the potential, either commensurate or incommensurate with the underlying lattice, meaning that the resultant material can be periodic or not.
 Eventual problems posed by an incommensurate potential are not critical, as we work with the low-energy limit of the tight-binding Hamiltonian for \gls{hbn}.
@@ -33,7 +33,7 @@ With the optical conductivity, we can finally compute the dispersion relation of
 We divide this chapter into five parts.
 In the first section, we introduce the system under study while properly contextualizing and motivating this work.
 In particular, the peculiar properties of \gls{hbn} on different application fronts shall be stressed once again, as we also did in Section~\ref{subsubsec:tight_binding_method} when we introduced the tight-binding model for \gls{hbn}.
-After the motivation the work, the technical aspects of this work follow.
+After motivating this work, its technical aspects are in order.
 First, we derive the expression for the renormalized low-energy Hamiltonian and discuss the new emergent electronic structure.
 Next, we focus on solving the excitonic problem, that is, finding the excitonic binding energies and wavefunctions for the ``new'' engineered \gls{hbn}.
 Afterward, we focus on the optical conductivity that we can use to compute the dispersion relation for the exciton--polariton.
@@ -45,15 +45,28 @@ Some techniques introduced hitherto in the previous chapters will be put in prac
 \section{Nanostructured hBN: a One-dimensional Superlattice}
 \label{sec:nanostructured_hBN}
 
-Introduces the system, also with the figure.
-To cite
+The material we study in this chapter, \acrlong{hbn}, is a \acrlong{2d} material, one among the big family of \bd~materials that have been proposed or discovered since the isolation of a single graphene layer in 2004~\cite{Novoselov_Geim_2004}.
+Many materials exhibiting physical phenomena once classified as exotic by the scientific community, like superconductors~\cite{Dong_2021}, strange metals~\cite{Li_2024}, topological insulators~\cite{Zhang_Liu_Qi_Dai_Fang_Zhang_2009} and ferroelectric materials~\cite{Wang_Meng_2023} are now quite familiar to the physicists working in the field of \bd~materials.
+Using natural \bd~materials with alluring properties by themselves and in te advent of current technological and scientific developments, both experimentalist and theoretical physicists envision stacking monolayers of the same or different materials to form composite structures, just like pieces of Lego, called \gls{vdw} materials~\cite{Geim_Grigorieva_2013}.
+If the structure consists of monolayers of distinct compounds, then it is called a \gls{vdw} heterostructure, otherwise it is called a \gls{vdw} homostructure.
+The several stacked monolayers present strong chemical bonds along their in-plane extension, and bond with the other layers through weaker \gls{vdw} forces.
+A typical naturally occurring example is graphite, that some scientists like to call multilayer graphene, which is known to conduct electricity.
 
-\begin{enumerate}
-    \item \cite{Woessner_2015} about encapsulation of graphene in hBN.
-    \item \cite{Li_Pershin_2022} about quantum emitters in hBN.
-    \item \cite{Geim_Grigorieva_2013} for VdWHs
-    \item \cite{Rizzo_Zhang_2023} for phonon-polaritons in midIR in hBN
-\end{enumerate}
+The material we study, \gls{hbn}, unlike graphene which is a semi-metal, presents a wide bandgap as explained before in Section~\ref{subsubsec:tight_binding_method}.
+These two materials have been combined before by using two \gls{hbn} layers to encapsulate one layer of graphene~\cite{Woessner_2015} to achieve highly confined plasmonic modes in graphene while minimizing losses.
+It has also been seen experimentally that graphene displays ballistic transport when encapsulated with a thin film of \gls{hbn}~\cite{Banszerus_2016}.
+The choice of \gls{hbn} as an encapsulating material is justified by its extremely flat surface and low defect-density~\cite{Abidi_2019}.
+Its low density of defects is actually one reason why this material is also promising for applications in quantum optics, as the defects can act as single-photon emitters~\cite{Li_Pershin_2022}.
+It is also promising for applications in nanophotonics, as we have already discussed in Section~\ref{subsubsec:tight_binding_method}, due to its intriguing optical properties in the mid-\gls{ir}, where phonon--polaritons have also been observed~\cite{Rizzo_Zhang_2023}.
+
+The observation of superconductivity in twisted bilayer graphene~\cite{Cao_2018} gave birth to a new field in condensed matter physics, called twistronics~\cite{Hennighausen_Kar_2021,Aggarwal_Narula_Ghosh_2023}, where bilayer systems with a relative twist angle display emergent phenomena that its isolated counterparts do not.
+The exotic phenomena that we mentioned above that physicists have been so hard trying to seek, are now at reach by tuning the twist angle between stacked monolayers~\cite{Cao_2020,Zhang_2022,Du_Xiao_2024}.
+By tuning the twist angle, one can produce different patterns on the atomic arrangement, called moir\'e patterns or superlattices, and in that way invent completely new materials with different electronic, optical, and magnetic properties, among others.
+Nowadays, the field of twistronics is a hot playground for theoretical physicists, where they predict exotic effects stemming from strong correlations in moir\'e materials~\cite{Lopes_dos_2007,Xian_Rubio_2019,Song_Bernevig_2022}.
+The effect of the moir\'e superlattice has on the electronic properties of a material can also be emulated by applying an external potential on a \bd~material of interest~\cite{Fu_Pixley_2020,Lee_Pixley_2022}.
+
+In this work, we emulate a \gls{1d} superlattice by......
+hBN, initially interesting in the UV cite Nuno's JosaB, the potential makes, as we will see in a moment, hBn interesting from the UV down to the IR...
 
 \begin{figure}[t]
     \centering
