@@ -147,7 +147,7 @@ We can start already by saying that we work under low enough temperatures and sm
 \label{subsec:born_oppenheimer_approximation}
 
 In this chapter, we are concerned with the eigenstate with the lowest energy possible, called the ground state (of the crystal).
-A possible way to find the ground state, $| \GS \rangle$, of any system, is by applying the variational principle---for a Hamiltonian $\hat{H}$ acting on states on a given Hilbert space $\mathcal{H}$, then for every state $| \psi \rangle \in \mathcal{H}$ the ground state energy verifies $E_{\GS} \leq \langle \psi | \hat{H} | \psi \rangle$~\cite{Griffiths_QM_2018}.
+A possible way to find the ground state, $| \GS \rangle$, of any system, is by applying the variational principle---for a Hamiltonian $\hat{H}$ acting on states on a given Hilbert space $\mathcal{H}$, then for every state $| \psi \rangle \in \mathcal{H}$ the ground-state energy verifies $E_{\GS} \leq \langle \psi | \hat{H} | \psi \rangle$~\cite{Griffiths_QM_2018}.
 The variational method consists in admitting a trial state $\ket{\Psi}$ depending on a given set of system parameters.
 In a crystal, let us say that the parameters are the ion positions $\{\bR_I\}$.
 Then, we compute the expectation value of the Hamiltonian $\mel{\Psi}{H}{\Psi} \equiv E$, and minimize it with respect to the parameters by solving $\partial_{\bR_I} E = 0$ for all $\bR_I$.
@@ -193,7 +193,7 @@ In fact, to account for the statistics of the electrons, which are fermions, the
 Say we permute electron $i$ with electron $j$, then \wf~must obey $\Psi(\br_1,\br_2,...,\br_i,...,\br_j,...,\br_{\mathcal{N}}) = -\Psi(\br_1,\br_2,...,\br_j,...,\br_i,...,\br_{\mathcal{N}})$.
 Therefore, the total \wf~is the Slater determinant of all single-particle \wf s~\cite{Griffiths_QM_2018}, which is the determinant of the matrix that has by entries $\psi_i(\br_j)$, with $i,j=1,...,\mathcal{N}$, along with a factor of $1/\sqrt{\mathcal{N}\,!}$ for normalization\footnote{As an example, the determinantal wavefunction for a two-particle system is given by $\Psi(\br_1,\br_2) = \frac{1}{\sqrt{2!}}[\psi_1(\br_1) \psi_2(\br_2) - \psi_1(\br_2) \psi_2(\br_1)]$.}.
 The noninteracting \wf s can then serve as a basis for the interacting problem.
-With them, we can estimate the ground state energy of the interacting electron gas in a crystalline solid by using the Slater determinant as a variational \wf.
+With them, we can estimate the ground-state energy of the interacting electron gas in a crystalline solid by using the Slater determinant as a variational \wf.
 For that, one computes the expectation value of the interacting Hamiltonian
 
 \begin{empheq}[innerbox=\fbox, right={\,.}]{align}
@@ -513,7 +513,7 @@ In Fig.~\ref{fig:hBN_lattice}\pnl{a}, if $a$ is the length of the chemical bonds
     \bK = \left(\frac{2 \pi}{3 a},\frac{2 \pi}{3\sqrt{3} a} \right) \qq{and} \bK' = \left(\frac{2 \pi}{3 a},-\frac{2 \pi}{3\sqrt{3} a} \right).
 \end{equation}
 
-A minimal \gls{tb} Hamiltonian for \gls{hbn}, in second quantization\footnote{In second quantization, we promote a ket state $\ket{\alpha}$ to an operator $\hat{a}_{\alpha}^{\dagger}$ that creates a particle in the state $\alpha$. A bra corresponds then to an annihilation operator $\hat{a}_{\alpha}$, destroying a particle in the state $\alpha$. These operators act on states living in the Fock space, and obey commutation/anti-commutation relations for bosons/fermions. The states that belong to the Fock space describe how many particles populate each ket state living in its corresponding single-particle Hilbert space. The second quantization formalism is also called the occupation number representation~\cite{Fetter_Walecka}.}, reads
+A minimal \gls{tb} Hamiltonian for \gls{hbn}, in second quantization\footnote{In the second quantization formalism, we promote a ket state $\ket{\alpha}$ to an operator $\hat{a}_{\alpha}^{\dagger}$ that creates a particle in the state $\alpha$. Then, a bra corresponds to an annihilation operator $\hat{a}_{\alpha}$, destroying a particle in the state $\alpha$. These operators act on states living in the Fock space, and obey commutation/anti-commutation relations for bosons/fermions. In symbols, denoting $[\hat{O}_1,\hat{O}_2] = \hat{O}_1 \hat{O}_2 - \hat{O}_2\hat{O}_1$ and $\{\hat{O}_1,\hat{O}_2\} =  \hat{O}_1 \hat{O}_2 + \hat{O}_2\hat{O}_1$ for the commutation and anticommutation operations, respectively, we have $[\hat{a}_{\alpha},\hat{a}_{\alpha'}^{\dagger}] = \delta_{\alpha,\alpha'}$ and $[\hat{a}_{\alpha},\hat{a}_{\alpha'}] = [\hat{a}_{\alpha}^{\dagger},\hat{a}_{\alpha'}^{\dagger}] = 0$ for bosons, while the relations $\{\hat{a}_{\alpha},\hat{a}_{\alpha'}^{\dagger}\} = \delta_{\alpha,\alpha'}$ and $\{\hat{a}_{\alpha},\hat{a}_{\alpha'}\} = \{\hat{a}_{\alpha}^{\dagger},\hat{a}_{\alpha'}^{\dagger}\} = 0$ are valid for fermions. The states that belong to the Fock space describe how many particles populate each ket state living in its corresponding single-particle Hilbert space. The second quantization formalism is also called the occupation number representation~\cite{Fetter_Walecka}.\label{fn:second_quantization_definitions}}, reads
 
 \begin{equation}
     H = \sum_i E_A a_i^{\dagger} a_i + \sum_j E_B b_j^{\dagger} b_j - t \sum_{\langle i j\rangle}  \left(a_i^{\dagger} b_j+b_j^{\dagger} a_i\right) ,
@@ -687,7 +687,7 @@ But then, we are faced with the shortcomings of these models---they describe app
 
 To overcome this issue, we have to take a different look into the many-body problem.
 Quite surprisingly, it is possible to describe a ground state of a crystal in terms of a function of a single variable, which is the electronic density $n(\br)$, instead of dealing with $~10^{23}$ variables in the many-body \wf.
-Physicists hypothesized that the ground state energy could be written as a functional of the electronic density.
+Physicists hypothesized that the ground-state energy could be written as a functional of the electronic density.
 This statement, which is a consequence of the first Hohenberg--Kohn theorem, was put in rigorous grounds by Hohenberg and Kohn~\cite{Hohenberg_Kohn_1964}, the founders of \gls{dft}\@.
 Together with the second Hohenberg--Kohn theorem, they constitute the pillars of \dft\@.
 The two theorems are very strong statements, that we proclaim below.
@@ -704,13 +704,13 @@ The two theorems are very strong statements, that we proclaim below.
     \end{enumerate}
 \end{theorem-non}
 
-As said before, this theorem implies that the ground state energy is a functional of the electronic density, $E[n(\br)]$.
+As said before, this theorem implies that the ground-state energy is a functional of the electronic density, $E[n(\br)]$.
 By application of the variational principle, we can state the second Hohenberg--Kohn theorem below.
 
 \begin{theorem-non}[Hohenberg--Kohn Theorem II]
     \label{th:HK_theorem_II}
     The ground state density of a system minimizes the energy functional $E[n(\br)]$.
-    The ground state can therefore be found by minimizing the ground state energy functional with respect to the density.
+    The ground state can therefore be found by minimizing the ground-state energy functional with respect to the density.
 \end{theorem-non}
 
 The two Hohenberg--Kohn theorems contextualize the problem of finding the electronic structure of any material using \abinit~methods.
@@ -718,7 +718,7 @@ Nonetheless, even though the two theorems are powerful claims, they do not provi
 In order to do that, Kohn and Sham~\cite{Kohn_Sham_1965} proposed a method, called the Kohn--Sham scheme.
 Without going into much detail, the Kohn--Sham scheme is a self-consistent method, where the full interacting many-body problem is mapped into an auxiliary noninteracting one, but with the same ground state density as the initial problem.
 
-The many-body effects are encoded in a contribution to the ground state energy functional, called the exchange--correlation functional, denoted by $E_{\mathrm{xc}}[n(\br)]$.
+The many-body effects are encoded in a contribution to the ground-state energy functional, called the exchange--correlation functional, denoted by $E_{\mathrm{xc}}[n(\br)]$.
 Even though this functional is universal, its exact analytical form (if it exists) is unknown.
 Therefore, different degrees of approximation are used, like the \gls{lda}, or the \gls{gga}, the latter being a non-local approximation.
 It is well known that traditional \dft~suffers from a fundamental problem, called the bandgap problem.
