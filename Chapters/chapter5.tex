@@ -14,7 +14,7 @@
 \glsresetall
 In previous chapters, we studied the phenomenology and theoretical aspects of the exciton formation and their contribution to the optical response.
 We have seen also at the end of Chapter~\ref{ch:classical_electrodynamics}, how light can couple to material polar excitations to form the polariton.
-In this chapter we analyze the exciton--polariton, resultant from the hybridization of the exciton, introduced in the previous chapter, with the \gls{em} field.
+In this chapter we analyze the exciton--polariton resultant from the hybridization of the exciton with the \gls{em} field.
 
 Herein, we revisit \gls{hbn}, whose tight-binding model has been presented in Section~\ref{subsubsec:tight_binding_method}, a prototypical \bd~material to study excitons.
 We wish to engineer the optical properties of \gls{hbn}, by applying a \gls{1d} electrostatic potential, resulting in an emergent \gls{1d} superlattice.
@@ -29,6 +29,8 @@ The approach adopted in this chapter allows for considering any periodicity for 
 Eventual problems posed by an incommensurate potential are not critical, as we work with the low-energy limit of the tight-binding Hamiltonian for \gls{hbn}.
 The variational method offers also the advantage of obtaining an analytical expression for the optical conductivity, apart from a final angular integral that can only be performed analytically in the anisotropic case.
 With the optical conductivity, we can finally compute the dispersion relation of the exciton--polariton.
+The results that we provide in this chapter have already been reported in the literature in Ref.~\cite{Ninhos_Tserkezis_Mortensen_Peres_2024}.
+Herein, we adapt the discussion to the structure of this thesis, giving at certain times insights that were not given in the original publication, essentially due to updates in the literature and the extra freedom of discussion allowed by a dissertation.
 
 We divide this chapter into five parts.
 In the first section, we introduce the system under study while properly contextualizing and motivating this work.
@@ -40,12 +42,10 @@ Afterward, we focus on the optical conductivity that we can use to compute the d
 Throughout the chapter, we stress the difficulties introduced by potential and consequent dispersion anisotropy along our reasoning.
 Some techniques introduced hitherto in the previous chapters will be put in practice.
 
-\todo[inline]{Don't forget that reference of the 1D modulated monolayer from the people from DTU}
-
 \section{Nanostructured hBN: a One-dimensional Superlattice}
 \label{sec:nanostructured_hBN}
 
-The material we study in this chapter, \acrlong{hbn}, is a \acrlong{2d} material, one among the big family of \bd~materials that have been proposed or discovered since the isolation of a single graphene layer in 2004~\cite{Novoselov_Geim_2004}.
+The material we study in this chapter, \acrlong{hbn} (\gls{hbn}), is a \gls{2d} material, one among the big family of \bd~materials that have been proposed or discovered since the isolation of a single graphene layer in 2004~\cite{Novoselov_Geim_2004}.
 Many materials exhibiting physical phenomena once classified as exotic by the scientific community, like superconductors~\cite{Dong_2021}, strange metals~\cite{Li_2024}, topological insulators~\cite{Zhang_Liu_Qi_Dai_Fang_Zhang_2009} and ferroelectric materials~\cite{Wang_Meng_2023} are now quite familiar to the physicists working in the field of \bd~materials.
 Using natural \bd~materials with alluring properties by themselves and in te advent of current technological and scientific developments, both experimentalist and theoretical physicists envision stacking monolayers of the same or different materials to form composite structures, just like pieces of Lego, called \gls{vdw} materials~\cite{Geim_Grigorieva_2013}.
 If the structure consists of monolayers of distinct compounds, then it is called a \gls{vdw} heterostructure, otherwise it is called a \gls{vdw} homostructure.
@@ -65,8 +65,18 @@ By tuning the twist angle, one can produce different patterns on the atomic arra
 Nowadays, the field of twistronics is a hot playground for theoretical physicists, where they predict exotic effects stemming from strong correlations in moir\'e materials~\cite{Lopes_dos_2007,Xian_Rubio_2019,Song_Bernevig_2022}.
 The effect of the moir\'e superlattice has on the electronic properties of a material can also be emulated by applying an external potential on a \bd~material of interest~\cite{Fu_Pixley_2020,Lee_Pixley_2022}.
 
-In this work, we emulate a \gls{1d} superlattice by......
-hBN, initially interesting in the UV cite Nuno's JosaB, the potential makes, as we will see in a moment, hBn interesting from the UV down to the IR...
+In this work, we emulate a \gls{1d} superlattice by externally modulating a \gls{hbn} monolayer with an electrostatic potential induced by a patterned grating, as shown in Fig.~\ref{fig:hBN_monolayer}.
+In the same figure, the grating is composed of long metallic rods with an alternated bias, that lye under a quartz substrate with permittivity $\varepsilon_2$ that acts as a substrate for the \gls{hbn} monolayer.
+The period of the potential, $L$, is also marked in the figure.
+This display serves as a suggestion of a possible experimental setup, and has essentially illustrative purposes.
+
+Admittedly interesting in the \gls{uv} range of the radiation spectrum due to its strong excitonic optical response~\cite{Ferreira_Chaves_Peres_Ribeiro_2019}, we can deem \gls{hbn} promising for polaritonics in the deep \gls{uv} down to the mid \gls{ir} by electrostatic modulation.
+Quite relevant to this work is the experiment in Ref.~\cite{Danielsen_Lassaline_2025} reported after our publication~\cite{Ninhos_Tserkezis_Mortensen_Peres_2024}, where they observed exciton--polaritons in a Fourier-tailored \gls{hbn} flake in a \gls{vdw} heterostructure, where a nonzero Rabi splitting indicates that the strong-coupling regime was achieved~\cite{Danielsen_Lassaline_2025}.
+However, in the experimental work the Fourier surface has more than one Fourier component, whereas in our theoretical work we consider a single spatial harmonic defined by the period $L$.
+Notwithstanding the use of a more simple potential, we believe that qualitative comparisons are fair.
+
+Still, in Figure~\ref{fig:hBN_monolayer} one can see a schematic representation of a plane wave with frequency $\omega$ impinging on the \gls{hbn} flake that responds to this external perturbation.
+We quantify that response when computing the optical conductivity explained in Section~\ref{sec:exciton_optical_response}.
 
 \begin{figure}[t]
     \centering
@@ -75,23 +85,31 @@ hBN, initially interesting in the UV cite Nuno's JosaB, the potential makes, as 
     \label{fig:hBN_monolayer}
 \end{figure}
 
-
 \section{Electronic Band Structure of Modulated hBN}
 \label{sec:electronic_band_structure_modulated_hBN}
 
-We start from the low-energy Hamiltonian for \gls{hbn} around point $K'$ of the \bz~given by Eq.~\eqref{eq:low_energy_hamiltonian_hBN}, and convert the momentum coordinates into spatial derivatives as
+The idea of subjecting a \bd~material to an external \gls{1d} periodic potential in order to change its electronic properties is not exactly new.
+The authors in Refs.~\cite{Nature_Louie_2008,PRL_Louie_2008} investigated a graphene monolayer subjected to a \gls{1d} potential to find that the dispersion, initially isotropic, renormalizes along one of the directions while leaving the other intact; new Dirac quasiparticles with an anisotropic low-energy dispersion emerge.
+In Ref.~\cite{Louie_2010}, an identical idea for a graphene \gls{1d} superlattice was put in practice, that time with a periodically modulated magnetic field, to see that the carrier velocity renormalizes isotropically, contrary to what they expected.
+In another theoretical work~\cite{Stauber_2017}, the effect of introducing an external potential affects the plasmonic effects in graphene, in particular the plasmonic modes along the direction of the potential variation, while the ones perpendicular to it are left unchanged
+We shall see that the introduction of a nonvanishing mass term in the Hamiltonian (and changing the hopping parameter accordingly) when going from graphene to \gls{hbn}, leads to an anisotropic effective mass tensor, where both components in the diagonal renormalize; the enhancement of the anisotropy in the electron dispersion is more pronounced than the massless case.
+Only after determining how exactly this anisotropy affects the dispersion of \gls{hbn}, will we see how the excitonic properties are affected.
+First and foremost, we need to determine the renormalized Hamiltonian, in the light of what was done for the gapless case of graphene in Ref.~\cite{PRL_Louie_2008}.
+
+We start from the low-energy Hamiltonian for \gls{hbn} around the point $K'$ of the \bz~given by Eq.~\eqref{eq:low_energy_hamiltonian_hBN}, and convert the momentum coordinates into spatial derivatives as
 
 \begin{equation}
-    \mathcal{H}_{K}  = \hbar \vF \bk\vdot\boldsymbol{\sigma}+M\sigma_{z}=-\ii \hbar \vF \left(\frac{\partial}{\partial x}\sigma_{x}+\frac{\partial}{\partial y}\sigma_{y}\right)+M\sigma_{z}.
+    \mathcal{H}_{K}  = \hbar \vF \bk\vdot\boldsymbol{\sigma}+M\sigma_{z}=-\ii \hbar \vF \left(\frac{\partial}{\partial x}\sigma_{x}+\frac{\partial}{\partial y}\sigma_{y}\right)+M\sigma_{z}\,.
 \end{equation}
 
-Now we include a periodic potential $V(x)=V\left(x+L\right)$, with $L \gg a$ and $a$ the atomic lattice spacing:
+Now, we include a periodic potential $V(x)=V\left(x+L\right)$, with $L \gg a$ and $a$ the atomic lattice spacing, in the Hamiltonian
 
 \begin{equation}
-    H = \mathcal{H}_{K}  + V(x),
+    \label{eq:total_H}
+    H = \mathcal{H}_{K}  + V(x)\,,
 \end{equation}
 
-\noindent with the 2 by 2 identity matrix implicit.
+\noindent with the two-by-two identity matrix implicit in the potential term.
 It is awkward to have the initial Hamiltonian in reciprocal space, while the external potential is in real space.
 The potential term can be removed by introducing the unitary transformation
 
@@ -109,45 +127,49 @@ The potential term can be removed by introducing the unitary transformation
     \alpha(x)=\frac{2}{\hbar \vF }\int_{0}^{x} V(x') \,\dd x'.
 \end{equation}
 
-Applying this transformation to the Hamiltonian we obtain
+\noindent Applying this transformation to the Hamiltonian in Eq.~\eqref{eq:total_H}, we obtain
 
 \begin{equation}
-    \overline{H}=U_{\alpha}^{\dagger}[\mathcal{H}_{K} +V(x)]U_{\alpha}=U_{\alpha}^{\dagger}\mathcal{H}_{K} U_{\alpha}+V(x).\label{eq:transformed_H}
+    \label{eq:transformed_H}
+    \overline{H}=U_{\alpha}^{\dagger}[\mathcal{H}_{K} +V(x)]U_{\alpha}=U_{\alpha}^{\dagger}\mathcal{H}_{K} U_{\alpha}+V(x)\,.
 \end{equation}
 
-Now we need to simplify the term in $\mathcal{H}_{K} $ that reads
+\noindent Now, we need to massage the term in $\mathcal{H}_{K}$, reading
 
 \begin{equation}
-    U_{\alpha}^{\dagger}\mathcal{H}_{K} U_{\alpha}=\hbar \vF  \left[U_{\alpha}^{\dagger}\sigma_{x}\frac{\partial}{\partial x}U_{\alpha}+U_{\alpha}^{\dagger}\sigma_{y}U_{\alpha}\frac{\partial}{\partial y}\right]+MU_{\alpha}^{\dagger}\sigma_{z}U_{\alpha}.\label{eq:transformed_H0}
+    \label{eq:transformed_H0}
+    U_{\alpha}^{\dagger}\mathcal{H}_{K} U_{\alpha}=\hbar \vF  \left[U_{\alpha}^{\dagger}\sigma_{x}\frac{\partial}{\partial x}U_{\alpha}+U_{\alpha}^{\dagger}\sigma_{y}U_{\alpha}\frac{\partial}{\partial y}\right]+MU_{\alpha}^{\dagger}\sigma_{z}U_{\alpha}\,.
 \end{equation}
 
-The term in $\sigma_{z}$ is the simplest and evaluates to
+\noindent The term in $\sigma_{z}$ is the simplest to simplify, and it evaluates to
 
 \begin{equation}
-    M U_{\alpha}^{\dagger}\sigma_{z} U_{\alpha}=\left(\begin{array}{cc}
+    M\, U_{\alpha}^{\dagger}\sigma_{z} U_{\alpha}=\left(\begin{array}{cc}
                                                         0 & -M \ee^{\ii \alpha}\\
                                                         -M \ee^{-\ii \alpha} & 0
     \end{array}\right).
 \end{equation}
 
-For the term involving the derivative in order to $y$, we evaluate the matrix element between two arbitrary wavefunctions in real space,
-that, in the end, turn out to be the basis functions. 
+\noindent To work out the term involving the $y$-derivative, we evaluate the matrix element of that term between two arbitrary wavefunctions resolved in real space, $\varphi_i(\br)$ and $\varphi_j(\br)$.
+Later we particularize those wavefunctions to wavefunctions electronic states.
 We write
 
 \begin{align}
-    H_{y}[\varphi_{i},\varphi_{j}]  & =\hbar \vF  \int \varphi_{i}^{\ast}(\br)U_{\alpha}^{\dagger}\sigma_{y}U_{\alpha}\frac{\partial\varphi_{j}(\br)}{\partial y} \dd x \dd y = \frac{\hbar \vF }{2}\int \varphi_{i}^{\ast}(\br)
+    & H_{y}[\varphi_{i},\varphi_{j}]  = \hbar \vF  \int \varphi_{i}^{\ast}(\br)U_{\alpha}^{\dagger}\sigma_{y}U_{\alpha}\frac{\partial\varphi_{j}(\br)}{\partial y}\ \dd x \phantom{.} \dd y = \notag \\
+    & \frac{\hbar \vF }{2}\int \varphi_{i}^{\ast}(\br)
         \left(\begin{array}{cc}
-                0 & -\ee^{\ii \alpha(x)}\\
+                0 & -\ee^{\ii \alpha(x)} \\
                 \ee^{-\ii \alpha(x)}  & 0
-              \end{array}\right) 
-              \frac{\partial\varphi_{j}(\br)}{\partial y} \dd x - \notag \\
-              & - \frac{\hbar \vF }{2}\int \frac{\partial\varphi_{i}^{\ast}(\br)}{\partial y}
-              \left(\begin{array}{cc}
-                        0 & -\ee^{\ii \alpha(x)}\\
-                        \ee^{-\ii \alpha(x)} & 0
-                    \end{array}\right)\varphi_{i}(\br) \,\dd x .
+              \end{array}\right)
+              \frac{\partial\varphi_{j}(\br)}{\partial y} \,\dd x  - \\
+    & \frac{\hbar \vF }{2}\int \frac{\partial\varphi_{i}^{\ast}(\br)}{\partial y}
+          \left(\begin{array}{cc}
+            0 & -\ee^{\ii \alpha(x)}\\
+            \ee^{-\ii \alpha(x)} & 0
+        \end{array}\right)\varphi_{i}(\br) \,\dd x .
 \end{align}
     
+\noindent where some clarifications are needed.
 In the previous equation, the under-script $y$ in $H_{y}[\varphi_{i},\varphi_{j}]$ stands for the term with $\sigma_{y}$ in equation (\ref{eq:transformed_H0}) and for the variable we are deriving with respect with.
 We also split the initial integral into two equal terms with a prefactor of $1/2$, and performed an integration by parts in only one of those terms.
 
@@ -183,13 +205,13 @@ We associate the terms involving the derivative of the unitary operator and obta
 \noindent where we defined
 
 \begin{equation}
-    H_{x}\left[f,g\right]=\frac{\hbar \vF }{2} \int f U_{\alpha}^{\dagger}\sigma_{x}U_{\alpha}\frac{\partial g}{\partial x} \dd x \dd y-\frac{\hbar \vF }{2}\int \frac{\partial f}{\partial x}U_{\alpha}^{\dagger}\sigma_{x}U_{\alpha} g\, \dd x \dd y ,
+    H_{x}\left[f,g\right]=\frac{\hbar \vF }{2} \int f U_{\alpha}^{\dagger}\sigma_{x}U_{\alpha}\frac{\partial g}{\partial x} \dd x\, \dd y-\frac{\hbar \vF }{2}\int \frac{\partial f}{\partial x}U_{\alpha}^{\dagger}\sigma_{x}U_{\alpha} g\, \dd x\, \dd y ,
 \end{equation}
 
 \noindent with the term $H_y$ having a similar form, and
 
 \begin{equation}
-    H_{z}\left[f,g\right]=\int f M U_{\alpha}^{\dagger}\sigma_{z}U_{\alpha}g\, \dd x \dd y.
+    H_{z}\left[f,g\right]=\int f M U_{\alpha}^{\dagger}\sigma_{z}U_{\alpha}g\, \dd x\, \dd y.
 \end{equation}
 
 \noindent Later on we will particularize $f$ and $g$.
@@ -472,12 +494,12 @@ For each of these states, we compute the expectation value of the Hamiltonian an
 By solving the minimization condition, we find the values for $a_\alpha$ and $b_\alpha$.
 Then, we go back to the expression for the wavefunction and for the expectation value to obtain the approximate eigenstate and energy, respectively.
 We repeat the procedure separately for each of the four states.
-Naturally, we start with the easiest case, the ground state.
+Naturally, we start with the easiest case, the ground-state.
 
 \subsection{Ground State $1s$}
 \label{subsec:ground_state_1s}
 
-As a trial wavefunction for the ground state we use
+As a trial wavefunction for the ground-state we use
 
 \begin{equation}
     \Psi_{1s}(x,y)=C_{1s} \ee^{-\sqrt{a_{1s}x^{2}+b_{1s}y^{2}}},
@@ -490,7 +512,7 @@ C_{1s} = \sqrt{\frac{2}{\pi}}\left(a_{1s}b_{1s}\right)^{1/4}.
 \end{equation}
 
 \noindent is easily determined by the normalisation condition $\braket{\Psi_{1s}}{\Psi_{1s}} = 1$.
-To compute the expression for the ground state energy $E_{1s}$ in terms of the variational parameters, we need to evaluate
+To compute the expression for the ground-state energy $E_{1s}$ in terms of the variational parameters, we need to evaluate
 
 \begin{equation}
     E_{1s}\left(a_{1s},b_{1s}\right)=\langle\Psi_{1s}|H|\Psi_{1s}\rangle=\langle\Psi_{1s}|\mathcal{K}|\Psi_{1s}\rangle+\langle\Psi_{1s}|V|\Psi_{1s}\rangle.
@@ -525,7 +547,7 @@ To compute the expression for the ground state energy $E_{1s}$ in terms of the v
 The infinitesimal element of area in the old coordinates transforms into
 
 \begin{equation}
-\dd x \dd y=\frac{\dd X \dd Y}{s_{x}s_{y}},
+\dd x\, \dd y=\frac{\dd X \dd Y}{s_{x}s_{y}},
 \end{equation}
 
 \noindent so the integral (\ref{eq:integral_in_x_y}) now reads
@@ -588,7 +610,7 @@ The integral of interest, that we will denote by $I$, relates to the previous on
 \end{equation}
 
 
-\noindent The final expression for the energy of the excitonic ground state can only be written in terms of this last integral, and writes
+\noindent The final expression for the energy of the excitonic ground-state can only be written in terms of this last integral, and writes
 
 \begin{empheq}[innerbox=\fbox, right={\,.}]{align}
     E_{1s}(a_{1s},b_{1s})=\frac{\hbar^{2}}{4}\left(\frac{a_{1s}}{\mu_{x}}+\frac{b_{1s}}{\mu_{y}}\right)-\sqrt{a_{1s}b_{1s}}\frac{e}{4 \pi \epsz r_{0}} \frac{\pi}{2}\int_{0}^{2\pi}I(\alpha,\kappa_0) \,\dd \theta
@@ -698,7 +720,7 @@ To see this, let us write
 
 \begin{equation}
     \begin{aligned}
-        \langle \Psi_{1s} | \Psi_{2s} \rangle &= C_{1s} C_{2s} \int_{-\infty}^{\infty} \int_{-\infty}^{\infty}\left(1-d\sqrt{ax^{2}+by^{2}}\right) \ee^{-\sqrt{ax^{2}+by^{2}}} \ee^{-\sqrt{a_{1s}x^{2}+b_{1s}y^{2}}} \dd x \dd y = 0 \rightarrow \\
+        \langle \Psi_{1s} | \Psi_{2s} \rangle &= C_{1s} C_{2s} \int_{-\infty}^{\infty} \int_{-\infty}^{\infty}\left(1-d\sqrt{ax^{2}+by^{2}}\right) \ee^{-\sqrt{ax^{2}+by^{2}}} \ee^{-\sqrt{a_{1s}x^{2}+b_{1s}y^{2}}} \dd x\, \dd y = 0 \rightarrow \\
         &\rightarrow d = \frac{\mathcal{I}_1}{\mathcal{I}_2} \,,
     \end{aligned}
 \end{equation}
@@ -707,8 +729,8 @@ To see this, let us write
 
 \begin{equation}
     \begin{aligned}
-        \mathcal{I}_1 &= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty}  \ee^{-\sqrt{ax^{2}+by^{2}}} \ee^{-\sqrt{a_{1s}x^{2}+b_{1s}y^{2}}} \dd x \dd y  \\
-        \mathcal{I}_2 &= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \sqrt{ax^{2}+by^{2}} \ee^{-\sqrt{ax^{2}+by^{2}}} \ee^{-\sqrt{a_{1s}x^{2}+b_{1s}y^{2}}}  \dd x \dd y \,.
+        \mathcal{I}_1 &= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty}  \ee^{-\sqrt{ax^{2}+by^{2}}} \ee^{-\sqrt{a_{1s}x^{2}+b_{1s}y^{2}}} \dd x\, \dd y  \\
+        \mathcal{I}_2 &= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \sqrt{ax^{2}+by^{2}} \ee^{-\sqrt{ax^{2}+by^{2}}} \ee^{-\sqrt{a_{1s}x^{2}+b_{1s}y^{2}}}  \dd x\, \dd y \,.
     \end{aligned}
 \end{equation}
 
@@ -866,7 +888,7 @@ Right in the next, we list the exciton wavefunctions in momentum space and then 
 \subsection{Exciton wavefunctions in momentum space}
 \label{subsec:exciton_wavefunctions_momentum_space}
 
-We derive the wavefunction of the excitonic ground state in momentum space.
+We derive the wavefunction of the excitonic ground-state in momentum space.
 For that, we just need to Fourier transform $\Psi_{1s}(\br)$.
 In the isotropic case, the integral is calculated by fixing the orientation of the wavenumber vector $\bk$, and then write $\bk\vdot\br= k r\cos\theta$, where $\theta$ is the angle between $\bk$ and $\br$, along with a change of variables from cartesian to polar coordinates.
 Now we need to do different.
@@ -975,7 +997,7 @@ Inserting them in~\eqref{eq:commutator_matrix_element} and going back to the opt
 %Then the second term in the optical matrix element~\eqref{eq:optical_matrix_element_final} when integrated in the angle $\theta$ when computing the Berry curvature as per~\eqref{eq:Berry_curvature_definition}, after converting the sum in momentum to an integral, it would result in
 
 Finally, we can compute the Berry curvature for each excitonic state.
-We split the discussion into the ground state and the excited states.
+We split the discussion into the ground-state and the excited states.
 
 \subsubsection{Ground state $1s$}
 \label{subsubsec:ground_state_1s}
@@ -1117,7 +1139,7 @@ Regarding the binding energies, Fig.~\ref{fig:Eb_of_beta}\pnl{b} shows that the 
 Also, the binding energies of the states $1s$, $2x$ and $2s$ decrease as we increase $\beta$, but that of the $2y$ state is nonmonotonic.
 Nonetheless, the state $2y$ is always the first excited state.
 Initially, the second excited state is $2x$, but for $\beta \approx 1.5$, the $2s$ takes its place.
-Naturally, the state $1s$ stays always the ground state.
+Naturally, the state $1s$ stays always the ground-state.
 
 \begin{figure}[h]
 \centering
