@@ -308,9 +308,8 @@ The average of the periodic part of the Bloch wavefunctions over a unit cell can
 \noindent whereas for the other matrix element the same reasoning applies.
 In this way, the interaction term of the Hamiltonian in momentum space reads
 
-
 \begin{align}
-    \V =  & \frac{1}{2 \area N^{2}}\sum_{\bq}\sum_{\{\bk_{i},\lambda_{i}\}} V N^{2} \left(\bC^{\lambda_1 \bk_1}\right)^{\dagger} \bC^{\lambda_4 \bk_4} \delta_{\bq,\bk_{1}-\bk_{4}} \left(\bC^{\lambda_2 \bk_2}\right)^{\dagger} \bC^{\lambda_3 \bk_3} \delta_{\bq,\bk_{3}-\bk_{2}} \times \\
+    \V  = & \frac{1}{2 \area N^{2}}\sum_{\bq}\sum_{\{\bk_{i},\lambda_{i}\}} V N^{2} \left(\bC^{\lambda_1 \bk_1}\right)^{\dagger} \bC^{\lambda_4 \bk_4} \delta_{\bq,\bk_{1}-\bk_{4}} \left(\bC^{\lambda_2 \bk_2}\right)^{\dagger} \bC^{\lambda_3 \bk_3} \delta_{\bq,\bk_{3}-\bk_{2}} \times \\
           & \times  c_{\lambda_1 \bk_1}^{\dagger} c_{\lambda_2 \bk_2}^{\dagger} c_{\lambda_3 \bk_3} c_{\lambda_4 \bk_4} = \\
         = & \frac{1}{2 \area N^{2}}\sum_{\bq,\bk_{3},\bk_{4}} \sum_{\{\lambda_{i}\}}V(\bq) N^{2}\left(\bC^{\lambda_1 \bk_{4}+\bq}\right)^{\dagger} \bC^{\lambda_4 \bk_4}\left(\bC^{\lambda_2 \bk_{3}-\bq}\right)^{\dagger}\bC^{\lambda_3 \bk_3} \\
           & \times  c_{\lambda_1 \bk_4 + \bq}^{\dagger} c_{\lambda_2 \bk_3 - \bq}^{\dagger} c_{\lambda_3 \bk_3} c_{\lambda_4 \bk_4} = \\
@@ -322,6 +321,7 @@ In this way, the interaction term of the Hamiltonian in momentum space reads
 For simplicity, we can take spinors of the low-energy Bloch Hamiltonian for the vectors $\bC^{\lambda \bk}$, which is not a problem if the exciton is localized around a specific point in the \bz.
 In general, there may exist more than one of those points.
 For instance, in the example of \gls{hbn}, to which we will apply this formalism, there are the nonequivalent $K$ and $K'$ points in the \bz~where the bandgap and the exciton are located.
+And in that case, the arrays $\bC^{\lambda \bk}$ assume the form of the spinors in Eq.~\eqref{eq:mono_hBN_valence_conduction_spinors}.
 As both valleys share the same value for the bandgap, the exciton states enjoy valley degeneracy.
 This means that the \gls{bse} can be solved for only one of the valleys without loss of generality.
 If the exciton does not enjoy valley degeneracy, then the valley degree of freedom has to be accounted for.
@@ -875,12 +875,12 @@ Using the famous relation $\varepsilon=1+\ii\frac{\sigma}{\omega\epsz}$, mention
 
 \noindent  where we have used the identities $\mathbf{v} = \frac{\ii}{\hbar} \left[H_0,\br\right]$\footnote{If the reader is not very familiar with concepts of quantum mechanics, this identity might require justification. There is in quantum mechanics the Heisenberg picture, where the states are static, but the operators evolve in time. Given an operator $\hat{O}_\mathrm{S}$ in the picture we have been working with so far, the Schr\"{o}dinger picture, the same opertor in the Heisenberg picture reads $\hat{O}_{\mathrm{H}} = \hat{U}^{\dagger} (t) \hat{O}_{\mathrm{S}}(t) \hat{U}(t)$, where $\hat{U}(t)$ is the time-evolution operator. By using the \gls{tdse}, one can show that $\frac{\dd \hat{O}_{\mathrm{H}}}{\dd t} = \ii/\hbar [H_{\mathrm{H}},\hat{O}_{\mathrm{H}}] + \left(\frac{\partial \hat{O}_{\mathrm{S}}}{\partial t}\right)_{\mathrm{H}}$. If the Hamiltonian has no explicit time-dependence, which could be that of a crystal, then one can show that if $\hat{O}_{\mathrm{S}}$ is also time-independent, then (by virtue of the time-evolution operator as in Eq.~\eqref{eq:time_evolution_operator}) $H_{\mathrm{H}} = H_{\mathrm{S}} \equiv H$ and $\frac{\dd \hat{O}_{\mathrm{H}}}{\dd t} = \ii/\hbar [H_{\mathrm{H}},\hat{O}_{\mathrm{H}}]$. This is the quantum version of the identity $\frac{\dd A}{\dd t} = \{A,H\}$ in classical mechanics, where $A$ is an observable with no explicit $t$-dependence, $H$ the Hamiltonian function and $\{\cdot,\cdot\}$ are the Poisson brackets~\cite{goldstein:mechanics,Landau1976Mechanics}.},
  $\mathbf{j}=-e\mathbf{v}$, and also $\bp = m \mathbf{v}$, with $m$ being the electron mass.
-The Hamiltonian at hand $H_0$ is the Hamiltonian in the noninteracting limit.
+The Hamiltonian at hand $H_0$ is the Hamiltonian in the noninteracting limit (or interacting, but at the mean-field level).
 We advert here the reader for important technical details commonly overlooked in the literature.
 In the equation above, only the equalities marked with \textcolor{black}{\checkmark} are exact.
 The others marked with exclamation marks are not, because in general, the position $\br$, velocity $\mathbf{v}$ and momentum $\bp$ operators are not interchangeable when doing calculations for extended systems.
 In the context of atomic physics, there is no issue at all, but the same cannot be said about infinite crystalline solids.
-For instance, the relation $\bp = m \mathbf{v}$ is only true if the potential entering the Hamiltonian is local\footnote{And also if \gls{soc} is not  included~\cite{Esteve_PhD}.}, since in such a case $-\ii \hbar \mathbf{v} = [H_0,\br] = [p^2/2m,\br] + [V(\br),\br] = - \frac{\ii \hbar}{ m}\bp + 0 = - \frac{\ii \hbar}{m} \bp$, by virtue of the identity $[AB,C] = A[B,C] + [A,C] B$ and the canonical commutation relation $[x_i,p_j] = - \ii \hbar \delta_{i j}$~\cite{Griffiths_2023}.
+For instance, the relation $\bp = m \mathbf{v}$ is only true if the potential entering the Hamiltonian is local\footnote{And also if \gls{soc} is not  included~\cite{Esteve_PhD}.}, since in such a case $-\ii \hbar \mathbf{v} = [H_0,\br] = [p^2/2m,\br] + [V(\br),\br] = - \frac{\ii \hbar}{m}\bp + 0 = - \frac{\ii \hbar}{m} \bp$, by virtue of the identity $[AB,C] = A[B,C] + [A,C] B$ and the canonical commutation relation $[x_i,p_j] = \ii \hbar \delta_{i j}$~\cite{Griffiths_2023}.
 If the potential is nonlocal, an issue that may arise in \abinit~calculations using the pseudopotentials~\cite{Martin_2004}, then we have undesired terms in the commutator $[V(\br,\br'),\br] \neq 0$, making the passage marked with \textcolor{red}{!2} not exact.
 Moreover, we highlighted the equality from the second line to the third line with \textcolor{red}{!1} because it is not exact as well, if the matrix elements are computed for a finite volume (with periodic boundary conditions).
 If the matrix element is computed in a finite volume, according to B.~Gu and collaborators~\cite{Gu_2013}, there is an extra term $\mathcal{C}$ in the relation between the position and velocity matrix elements, reading
