@@ -544,7 +544,7 @@ It can be rewritten in a more comprehensive form
     H = \sum_{\bk} \Psi_{\bk}^{\dagger} H(\bk) \Psi_{\bk}\,,
 \end{equation}
 
-\noindent where we can define the Bloch Hamiltonian $H(\bk)$, the spinor $\Psi_{\bk}$ and the function $\Delta_{\bk}$ as
+\noindent where we can define the Bloch Hamiltonian $H(\bk)$, the vector $\Psi_{\bk}$ and the function $\Delta_{\bk}$ as
 
 \begin{equation}
     \begin{array}{l}
@@ -578,7 +578,7 @@ Even though identical to graphene in the crystal structure, contrary to it, mono
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_3/hBN_TB_bands}
-    \caption[Tight-binding band structure of monolayer hBN]{Band structure of monolayer \gls{hbn} in the tight-binding approximation. In panel \pnl{a} we display a \gls{3d} representation of the bands, while in \pnl{b} we plot the bands along the high-symmetry line $\Gamma-K-M-\Gamma$. We have used model parameters distinct from the ones from the literature, otherwise the band structure in the \gls{3d} plot would be harder to visualize.}%$E_B=1.5$~\unit{\electronvolt}, $E_N=-1.5$~\unit{\electronvolt}, $t=0.7$~\unit{\electronvolt}.}
+    \caption[Tight-binding band structure of monolayer hBN]{Band structure of monolayer \gls{hbn} in the tight-binding approximation. In panel \pnl{a} we display a \gls{3d} representation of the bands, which have a parabolic dispersion near the corners of the \bz. In \pnl{b}, we plot the bands along the high-symmetry line $\Gamma-K-M-\Gamma$. We have used model parameters distinct from the ones from the literature, otherwise the band structure in the \gls{3d} plot would be harder to visualize.}%$E_B=1.5$~\unit{\electronvolt}, $E_N=-1.5$~\unit{\electronvolt}, $t=0.7$~\unit{\electronvolt}.}
     \label{fig:monolayer_hBN_bands}
 \end{figure}
 
@@ -587,14 +587,14 @@ Below, we do an analysis of the low-energy limit, or continuum limit, of monolay
 Linearizing~\eqref{eq:Delta_of_k} with respect to momentum around the momentum $\bK = (2 \pi / 3 a, 2 \pi / 3 \sqrt{3} a)$, and defining the relative momentum $\bq$ by $\bk = \bK + \bq$, with $|\bq| \ll |\bK|$, we have
 
 \begin{equation}
-    \Delta_{\bK + \bq} \simeq -\ii\, \ei[-]{\frac{2 \pi }{3} a} \frac{3 a}{2}(q_x+\ii q_y) \rightarrow - \frac{3 a}{2} (q_x + \ii q_y) .
+    \Delta_{\bK + \bq} \simeq -\ii\, \ei[-]{\frac{2 \pi }{3} a} \frac{3 a}{2}(q_x+\ii q_y) \rightarrow - \frac{3 a}{2} (q_x + \ii q_y) \,.
 \end{equation}
 
 \noindent Replacing now in the Bloch Hamiltonian, we define the following low-energy Hamiltonian
 
 \begin{equation}
-    \label{eq:low_energy_hamiltonian_hBN}
-    \mathcal{H}_K \equiv H(\bK + \bq) \simeq  \frac{3 a t}{2 \hbar} (q_x \sigma_x - q_y \sigma_y) + M \sigma_z = \hbar \vF \bar{\bq} \vdot \boldsymbol{\sigma} + M \sigma_z ,
+    \label{eq:low_energy_hamiltonian_hBN_K}
+    \mathcal{H}_K \equiv H(\bK + \bq) \simeq  \frac{3 a t}{2 \hbar} (q_x \sigma_x - q_y \sigma_y) + M \sigma_z = \hbar \vF \bar{\bq} \vdot \boldsymbol{\sigma} + M \sigma_z \,,
 \end{equation}
 
 \noindent where $M$ is half the bandgap, $\sigma_x$, $\sigma_y$ and $\sigma_z$  are the Pauli matrices, and $\boldsymbol{\sigma} = (\sigma_x,\sigma_y)$ is Pauli matrices vector, $\vF$ is the Fermi velocity
@@ -612,7 +612,8 @@ Linearizing~\eqref{eq:Delta_of_k} with respect to momentum around the momentum $
 \noindent Following the same procedure, but for the $\bK'$ point, we obtain
 
 \begin{equation}
-    H(\bK' + \bq) = \hbar \vF \bq \vdot \boldsymbol{\sigma} + M \sigma_z,
+    \label{eq:low_energy_hamiltonian_hBN_K_prime}
+    \mathcal{H}_{K'} \equiv H(\bK' + \bq) = \hbar \vF \bq \vdot \boldsymbol{\sigma} + M \sigma_z\,,
 \end{equation}
 
 \noindent where now
@@ -624,50 +625,54 @@ Linearizing~\eqref{eq:Delta_of_k} with respect to momentum around the momentum $
 \noindent So we can write
 
 \begin{equation}
-    \Delta_{\tau \bK + \bq} \simeq - \frac{3 a}{2}(q_x+\ii \tau q_y),
+    \Delta_{\tau \bK + \bq} \simeq - \frac{3 a}{2}(q_x+\ii \tau q_y)\,,
 \end{equation}
 
-\noindent where $\tau = \pm 1$, with $\tau=1$ for the $K'$ point and $\tau = -1$ for the $K$ point, represents the valley degree of freedom.
+\noindent where $\tau = \pm 1$, with $\tau=1$ for the $K'$ point, also called $K'$ valley, and $\tau = -1$ for the $K$ point or valley.
+Thus, we say that $\tau$ represents the valley degree of freedom.
 In this way, the low-energy dispersion relation reads
 
 \begin{equation}
-    E_{\pm} (\bq) = \pm \sqrt{E_g^2 + \hbar^2 \vF^2 |\bq|^2}\,,
+    E_{\pm} (\bq) = \pm \sqrt{E_g^2 + \hbar^2 \vF^2 q^2}\,,
 \end{equation}
 
 \noindent $+$ for the top/conduction band, and $-$ for the bottom/valence band.
-Now it is explained why the dispersion relation near the points $\bK$ and $\bK'$ look like parabolas for low energies; the dispersion is quadratic in the vicinity of those points, which can be seen if we further expand the previous expression up to leading order in $|\bq|$.
-The energy spectrum enjoys spin degeneracy at the $K$ and $K'$ values, because the spin--orbit coupling in this system is negligible, since boron and nitrogen are very light elements.
+One can see why the dispersion relation near the $K$ and $K'$ valleys look like parabolas for low energies; the dispersion is quadratic in the vicinity of those points, which can be seen if we further expand the previous expression up to leading order in $q = |\bq|$.
+The energy spectrum enjoys valley degeneracy, since the \gls{soc}, a contribution to the Hamiltonian which couples the spin $\vec{S}$ with the orbital angular momentum $\vec{L}$, in this system is negligible, since boron and nitrogen are very light elements.
+This is in contrast with other materials composed of heavier chemical elements, such as molybdenum disulfide, \ch{MoS2}.
+We shall analyze this material in more detail in Chapter~\ref{ch:screening}.
 
 We can as well compute the effective masses of the electrons with momentum in the vicinity of $\bK$ (or $\bK'$), through
 
 \begin{equation}
-    m^* = \left( \frac{1}{\hbar^2}\frac{\dd^2 E_{\pm}(q)}{\dd q^2} \bigg|_{q=0} \right)^{-1} = \pm \frac{E_g}{2 \vF^2},
+    m^* = \left( \frac{1}{\hbar^2}\frac{\dd^2 E_{\pm}(q)}{\dd q^2} \bigg|_{q=0} \right)^{-1} = \pm \frac{E_g}{2 \vF^2}\,,
     \label{eq:effective_mass_formula}
 \end{equation}
 
 \noindent For later use, we compute the eigenvectors of the low-energy Hamiltonian.
 We will use now a different, but equivalent, configuration for the lattices (rotated by 30 degrees).
-The eigenvectors are
+The eigenvectors, also called spinors, are
 
 \begin{equation}
-    \bC^{v \bk} =
-    \begin{bmatrix}
-        \tau \ei[-]{\tau \theta_k} \sin \frac{\xi_k}{2} \\
-        - \cos \frac{\xi_k}{2},
-    \end{bmatrix}
+    \bC^{v \bq} =
+    \begin{pmatrix}
+        \tau \ei[-]{\tau \theta_q} \sin \frac{\xi_q}{2} \\
+        - \cos \frac{\xi_q}{2},
+    \end{pmatrix}
     \qq{and}
-    \bC^{c \bk} =
-    \begin{bmatrix}
-        \cos \frac{\xi_k}{2} \\
-        \tau \ei[-]{\tau \theta_k} \sin \frac{\xi_k}{2}
-    \end{bmatrix},
+    \bC^{c \bq} =
+    \begin{pmatrix}
+        \cos \frac{\xi_q}{2} \\
+        \tau \ei[-]{\tau \theta_q} \sin \frac{\xi_q}{2}
+    \end{pmatrix},
     \label{eq:mono_hBN_valence_conduction_spinors}
 \end{equation}
 
 \noindent for the valence band and for the conduction band, respectively, where
 
 \begin{equation}
-    \theta_k = \arctan \frac{k_y}{k_x} \qq{and}  \xi_k = \arctan \frac{2 \hbar \vF k}{E_g}.
+    \label{eq:theta_xi_isotropic_definitions}
+    \theta_q = \arctan \left(\frac{q_y}{q_x}\right) \qq{and}  \xi_q = \arctan \left(\frac{2 \hbar \vF q}{E_g}\right)\,.
 \end{equation}
 
 Even though the \gls{tb} Hamiltonian for \gls{hbn} provides a simple, yet insightful theoretical tool, we still need somehow to use realistic values for the parameters $t$ and $E_g$.
