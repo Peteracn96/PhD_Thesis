@@ -136,14 +136,14 @@ The potential term can be removed by introducing the unitary transformation
 
 \begin{equation}
     \label{eq:transformed_H}
-    \overline{H}=\mathbb{U}_{\alpha}^{\dagger}[\mathcal{H}_{K} +V(x)]\mathbb{U}_{\alpha}=\mathbb{U}_{\alpha}^{\dagger}\mathcal{H}_{K} \mathbb{U}_{\alpha}+V(x)\,.
+    \overline{H}=\mathbb{U}_{\alpha}^{\dagger}[\mathcal{H}_{K'} +V(x)]\mathbb{U}_{\alpha}=\mathbb{U}_{\alpha}^{\dagger}\mathcal{H}_{K'} \mathbb{U}_{\alpha}+V(x)\,.
 \end{equation}
 
-\noindent Now, we need to massage the term in $\mathcal{H}_{K}$, reading
+\noindent Now, we need to massage the term in $\mathcal{H}_{K'}$, reading
 
 \begin{equation}
     \label{eq:transformed_H0}
-    \mathbb{U}_{\alpha}^{\dagger}\mathcal{H}_{K} \mathbb{U}_{\alpha}=\hbar \vF  \left[\mathbb{U}_{\alpha}^{\dagger}\sigma_{x}\frac{\partial}{\partial x}\mathbb{U}_{\alpha}+\mathbb{U}_{\alpha}^{\dagger}\sigma_{y}\mathbb{U}_{\alpha}\frac{\partial}{\partial y}\right] + M \mathbb{U}_{\alpha}^{\dagger}\sigma_{z}\mathbb{U}_{\alpha}\,.
+    \mathbb{U}_{\alpha}^{\dagger}\mathcal{H}_{K'} \mathbb{U}_{\alpha}=\hbar \vF  \left[\mathbb{U}_{\alpha}^{\dagger}\sigma_{x}\frac{\partial}{\partial x}\mathbb{U}_{\alpha}+\mathbb{U}_{\alpha}^{\dagger}\sigma_{y}\mathbb{U}_{\alpha}\frac{\partial}{\partial y}\right] + M \mathbb{U}_{\alpha}^{\dagger}\sigma_{z}\mathbb{U}_{\alpha}\,.
 \end{equation}
 
 \noindent The term in $\sigma_{z}$ is the simplest to simplify, and it evaluates to
@@ -378,7 +378,9 @@ If we focus on the Hamiltonian matching with the original, which corresponds to 
 Since $\vert J_{0}(\beta)\vert < 1$, an electron traveling along the $y$-direction is slowed down compared to its speed if traveling along the $x$-direction.
 This leads to an anisotropic low-energy dispersion.
 Also, the energy gap $E_g = 2M$, that we can identify as the \gls{dft} bandgap at the \gls{lda} level, renormalizes to $E_g \rightarrow 2M \vert J_{0}(\beta) \vert \equiv \Delta_g (\beta)$.
-We will keep the notation $\Delta_g(\beta)$ for the renormalized \gls{dft} gap, that, as we will see later on, is not the total bandgap.
+We will keep the notation $\Delta_g(\beta)$ for the renormalized \gls{dft} gap, that, as we commented before in the paragraph after Eq.~\eqref{eq:hBN_dispersion_relation}, is not the total bandgap.
+The total bandgap includes an exchange correction, $\Delta_{\mathrm{xc}}$, coming from the third term on the \gls{rhs} of Eq.~\eqref{eq:BSE_full} that we swept under the rug at the time where we derived the \gls{bse} for the first time in the previous chapter.
+We will see in Section~\ref{sec:results} that this contribution to the bandgap renormalizes as well.
 Therefore, it is possible to reduce the gap of \gls{hbn} choosing an appropriate value for either $V_{0}$ or $L$ (actually, the product $V_{0}L$).
 With this mechanism, we can control both the gap and the excitonic states, which now become that of an anisotropic material (similarly to phosphorene).
 
@@ -499,7 +501,13 @@ These two permittivities are the static ones and account for electrostatic scree
 Joining the two contributions, we have for the Wannier Hamiltonian
 
 \begin{equation}
-    H = \frac{p_{x}^{2}}{2\mu_{x}}+\frac{p_{y}^{2}}{2\mu_{y}}+V_{\RK}(r)\,.
+    H = \frac{p_{x}^{2}}{2\mu_{x}}+\frac{p_{y}^{2}}{2\mu_{y}}+V_{\RK}(r)\,,
+\end{equation}
+
+\noindent so that the excitonic problem can be encoded in the Wannier equation
+
+\begin{equation}
+    H \Psi_{\nu} = E_{b,\nu} \Psi_{\nu}\,.
 \end{equation}
 
 As trial wavefunctions for the ground state $1s$ and the first 3 excited states $2x$, $2y$ and $2s$, we pick the expressions
@@ -517,14 +525,15 @@ As trial wavefunctions for the ground state $1s$ and the first 3 excited states 
 These wavefunctions are an approximation of the true ones, but we assume that they describe the problem well enough.
 They coincide with the wavefunctions used by Jos\'e Nuno S.~Gomes and co-authors in Ref.~\cite{Gomes_Trallero-Giner_Vasilevskiy_2021} for phosphorene.
 Therefore, the expressions that we use to calculate the binding energies are the same ones as in Ref.~\cite{Gomes_Trallero-Giner_Vasilevskiy_2021}, we just complement the information therein provided.
-Each wavefunction has two variational parameters that we denote by $a_\alpha$ and $b_\alpha$, with $\alpha = 1s, 2x, 2y, 2s$.
+Each wavefunction has two variational parameters that we denote by $a_\nu$ and $b_\nu$, with $\alpha = 1s, 2x, 2y, 2s$.
 In this way the anisotropy of the dispersion is accounted for.
-In the isotropic case where $a_\alpha = b_\alpha$, then we recover the wavefunctions that are the analytical solutions of the \bd~hydrogen atom~\cite{2D_Hydrogen_atom_1991}.
+In the isotropic case where $a_\nu = b_\nu$, then we recover the wavefunctions that are the analytical solutions of the \bd~hydrogen atom~\cite{2D_Hydrogen_atom_1991}.
 For each of these states, we compute the expectation value of the Hamiltonian and minimize it with respect to both parameters.
-By solving the minimization condition, we find the values for $a_\alpha$ and $b_\alpha$.
+By solving the minimization condition, we find the values for $a_\nu$ and $b_\nu$.
 Then, we go back to the expression for the wavefunction and for the expectation value to obtain the (approximate) eigenstate and energy, respectively.
 We repeat the procedure separately for each of the four states.
 Naturally, we start with the easiest case, the ground state.
+In the discussions that follow for each state, we will for moments denote the binding energy by $E_{\nu}$ without the subscript $b$, instead of $E_{b,\nu}$, just for ease of notation.
 
 \subsection{Ground State $1s$}
 \label{subsec:ground_state_1s}
@@ -1028,7 +1037,7 @@ Inserting them in~\eqref{eq:commutator_matrix_element} and going back to the opt
 
 \begin{equation}
     \label{eq:optical_matrix_element_final}
-    \langle v,\bk|\br|c,\bk\rangle \approx \frac{\ii\hbar  \vF}{\epsilon_{v \bk}-\epsilon_{c \bk}}\left\{\cos^{2}\frac{\xi_{q}}{2}\left[\uvec{x}-J_{0}(\beta)\uvec{y}\right]-\ee^{-2 \ii \theta_{q}(\beta)}\sin^{2}\frac{\xi_{q}}{2}\left[\uvec{x}+J_{0}(\beta)\uvec{y}\right]\right\}\,.
+    \langle v,\bk|\br|c,\bk\rangle \approx \frac{\ii\hbar  \vF}{\epsilon_{v \bk}-\epsilon_{c \bk}}\left\{\cos^{2}\!\left(\frac{\xi_{q}}{2}\right)\left[\uvec{x}-J_{0}(\beta)\uvec{y}\right]-\ee^{-2 \ii \theta_{q}(\beta)}\sin^{2}\!\left(\frac{\xi_{q}}{2}\right)\left[\uvec{x}+J_{0}(\beta)\uvec{y}\right]\right\}\,.
 \end{equation}
 
 %Writing the imaginary exponential with its non-trivial dependence on $\theta$,
@@ -1066,8 +1075,8 @@ We recall that the variational wavefunction of the $1s$ state in momentum space,
 \begin{equation}
     \begin{aligned}
         \epsilon_{c \bk}-\epsilon_{v \bk} &= \sqrt{E_{g}^{2}J_{0}^{2}(\beta)+4\hbar^{2} \vF ^{2}[k_{x}^2 + J^2_{0}(\beta)k_{y}^2]} = \sqrt{E_{g}^{2}J_{0}^{2}(\beta) + 4\hbar^{2} \vF ^{2}k^{2} \gamma^{2}(\theta)}\,, \\
-        \cos^{2}\frac{\xi_{q}}{2} &= \frac{1}{2} + \frac{1}{2\sqrt{1+\left(\frac{2 \hbar  \vF k \gamma(\theta)}{J_{0}(\beta)E_{g}}\right)^{2}}}\,, \qq{and} \\
-        \sin^{2}\frac{\xi_{q}}{2} &= \frac{1}{2} - \frac{1}{2\sqrt{1+\left(\frac{2 \hbar  \vF k \gamma(\theta)}{J_{0}(\beta)E_{g}}\right)^{2}}}\,,
+        \cos^2\!\left(\frac{\xi_{q}}{2}\right) &= \frac{1}{2} + \frac{1}{2\sqrt{1+\left(\frac{2 \hbar  \vF k \gamma(\theta)}{J_{0}(\beta)E_{g}}\right)^{2}}}\,, \qq{and} \\
+        \sin^{2}\!\left(\frac{\xi_{q}}{2}\right) &= \frac{1}{2} - \frac{1}{2\sqrt{1+\left(\frac{2 \hbar  \vF k \gamma(\theta)}{J_{0}(\beta)E_{g}}\right)^{2}}}\,,
     \end{aligned}
 \end{equation}
 
@@ -1183,23 +1192,37 @@ We finish with the results for the dispersion of the exciton--polaritons and the
 
 As we have seen in Section~\ref{sec:electronic_band_structure_modulated_hBN}, the effective masses renormalize as $m_x = m^* |J_{0}(\beta)|$ and $m_y = m^*/ |J_{0}(\beta)| $, where $m^* = E_g/2\vF^2$ is the isotropic effective mass of electrons in pristine \gls{hbn}.
 This means that as $J_{0}(\beta) \to 0$, the dispersion becomes more and more anisotropic.
-To study the effects of this anisotropy in the electronic properties of the system at hand, we compute the bandgap and the binding energies of the excitonic states $1s$, $2x$, $2y$ and $2s$ for varying $\beta$, from the case $\beta=0$ without potential, to $\beta=2.4$ sufficiently close to the zero of the Bessel function $J_0(\beta)$.
-We stress that the bandgap includes the electron--electron exchange correction, that also renormalizes with $\beta$ (see Section~\ref{sec:exchange_energy} of the appendix~\ref{app:hBN_superlattice}).
+To study the effects of this anisotropy in the electronic and excitonic properties of the system, we compute the bandgap and the binding energies of the excitonic states $1s$, $2x$, $2y$ and $2s$ for varying $\beta$, from the case $\beta=0$ without potential, to $\beta=2.4$ sufficiently close to the first zero of the Bessel function $J_0(\beta)$.
+We stress that the bandgap includes the electron--electron exchange correction $\Delta_{\mathrm{ex}}(\beta)$, that also renormalizes with $\beta$, whose calculation is detailed in Section~\ref{sec:exchange_energy} of the Appendix~\ref{app:hBN_superlattice}.
 The results are displayed in Fig.~\ref{fig:Eb_of_beta}.
-It can be seen in Fig.~\ref{fig:Eb_of_beta}\pnl{a} that by manipulating the value of $\beta$, we can tune the bandgap.
-When $\beta$ reaches the zero of $J_0(\beta)$, the gap closes.
-Regarding the binding energies, Fig.~\ref{fig:Eb_of_beta}\pnl{b} shows that the anisotropy lifts the degeneracy between the states $2x$ and $2y$.
-Also, the binding energies of the states $1s$, $2x$ and $2s$ decrease as we increase $\beta$, but that of the $2y$ state is nonmonotonic.
-Nonetheless, the state $2y$ is always the first excited state.
-Initially, the second excited state is $2x$, but for $\beta \approx 1.5$, the $2s$ takes its place.
-Naturally, the state $1s$ stays always the ground state.
+The value of the total bandgap, also called the fundamental gap, for $\beta=0$ is the one of pristine monolayer \gls{hbn}, that with our estimation is of $6.2$ \unit{\electronvolt}, closer to the values reported in the literature from \gls{dft} calculations using hybrid functionals~\cite{PhysRevB.106.045118}, or taking into account many-body effects using the $GW$+\gls{bse} approach.
+The work by F.~Ferreira et al. in Ref.~\cite{Ferreira_2019} has, in Table 1 therein, a comprehensive list of values for the bandgap of \gls{hbn} obtained from different works that use the $GW$ and $GW$+\gls{bse} methods, while Table I from Ref.~\cite{PhysRevB.106.045118} displays analogous results from \abinit~calculations as well, at both \gls{dft} and $GW$ levels.
 
-\begin{figure}[h]
+In Figure~\ref{fig:Eb_of_beta}\pnl{a} we display the total bandgap $\Delta = \Delta_g(\beta) + \Delta_{\mathrm{ex}}(\beta)$ as a function of $\beta$.
+As one increases the potential strength $V_0$ (or the period $L$) the bandgap of \gls{hbn} decreases, with the bandgap closing at the first zero of $J_0$.
+This information is relevant to calculate the sub-gap optical conductivity because the excitonic levels $E_{\nu}$ define the resonant frequencies.
+Knowing the bandgap $\Delta$ and the binding energy $E_{b,\nu}$, we know the exciton energies $E_\nu = \Delta - |E_{b,\nu}|$.
+The exciton binding energies, obtained in the light of the variational principle, are represented in Figure~\ref{fig:Eb_of_beta}\pnl{b}.
+The $s$ states are in red, and the $p$ states $2x$ and $2y$ are in black.
+The $p$ states being originally degenerate in the isotropic case of $\beta=0$, which is expectable from using the Wannier--Mott description, are not degenerate anymore in the anisotropic case $\beta \neq 0$.
+Even though the binding energies generically decrease with increasing $\beta$, the $2y$ state presents a non-monotic behavior, but is always the first excited state.
+On the contrary, the binding energy of the $2x$ state always decreases, and at some point around $\beta \approx 1.6$, the binding energies of the $2x$ and $2s$ states match.
+After that point, the $2s$ state is now the second excited state, whereas the $2x$ is the highest one, at least among these four states.
+Not surprisingly, the $1s$ state stays always as the ground state.
+One can use variational wavefunctions for even higher energy states, but typically, the optical response is dominated by the lowest energy states.
+Moreover, as they go higher in energy, successive states become closer in energy, and therefore higher to distinct.
+And as we get closer to the end of bandgap, the \gls{ipa} optical response, that we do not analyze in this work, starts to dominate.
+
+\begin{figure}[ht]
 \centering
 \includegraphics[width=1.\textwidth]{Chapters/Figures/Chapter_5/Band_gap_and_binding_energies}
 \mycaption[Electronic bandgap and excitonic binding energies of a periodically modulated \gls{hbn} sheet]{\pnl{a} Bandgap and \pnl{b} binding energies of the excitonic states $1s$ (red continuous line), $2x$ (black dashed line), $2y$ (black continuous line) and $2s$ (red dashed line) as a function of $\beta$. In both panels, the top horizontal axis displays the value of the effective mass anisotropy defined as $\Delta \mu = (m_y-m_x)/m^*$. For \gls{hbn}, the parameters are~\cite{Ferreira_2019}: $E_g=3.92$\,\unit{\electronvolt}, $\hbar v_F = 5.06$\,\unit{\electronvolt}$\vdot$\unit{\angstrom}, and $r_0=10$\,\unit{\angstrom}.}
 \label{fig:Eb_of_beta}
 \end{figure}
+
+To obtain these binding energies, we applied the variational method as explained in Section~\ref{sec:anisotropic_exciton_states}, in which we have to find the variational parameters that minimize the binding energy.
+So, for each value of $\beta$, we have to find the roots of the equations of the form $\partial E_{\nu} / \partial a_{\nu} = \partial E_{\nu} / \partial b_{\nu} = 0$, where the forms of the derivatives for each one of the states $1s$, $2x$ and $2y$, and $2s$ are given at the end of the Subsections~\ref{subsec:ground_state_1s},~\ref{subsec:excited_states_2x_2y} and~\ref{subsec:excited_state_2s}, respectively.
+This was done using the method \lstinline[language=Mathematica]|FindRoot| of the software Mathematica~\cite{Mathematica}.
 
 \subsection{Sub-gap optical conductivity and absorption}
 \label{subsec:optical_conductivity_and_absorption}
