@@ -568,12 +568,16 @@ It can be rewritten in a more comprehensive form
 The dispersion relation for \gls{hbn} is then given by~\cite{ribeiro_stability_2011}
 
 \begin{equation}
-    E(\bk) = E_0 \pm \frac{1}{2} \sqrt{E^2_g + 4 t^2 + 16 t^2 \cos \left(\frac{3 a }{2} k_x\right) \cos \left(\frac{\sqrt{3} a}{2}  k_y \right) + 16 t^2 \cos^2 \left(\frac{\sqrt{3} a}{2} k_y \right)}\,,
+    \label{eq:hBN_dispersion_relation}
+    \epsilon_{\pm}(\bk) = E_0 \pm \frac{1}{2} \sqrt{E^2_g + 4 t^2 + 16 t^2 \cos \left(\frac{3 a }{2} k_x\right) \cos \left(\frac{\sqrt{3} a}{2}  k_y \right) + 16 t^2 \cos^2 \left(\frac{\sqrt{3} a}{2} k_y \right)}\,,
 \end{equation}
 
-\noindent where $E_0 = (E_A + E_B)/2$ is the energy reference (which is arbitrary) and $E_g = E_A - E_B$ is the bandgap.
+\noindent where $E_0 = (E_A + E_B)/2$ is the energy reference (which is arbitrary) and $E_g = E_A - E_B$ is the bandgap, $+$ for the top, or conduction, band and $-$ for bottom, or valence, valence band.
 One can see clearly the opening of a gap (in the corners of the Brillouin zone $K$ and $K'$) in Figure \ref{fig:monolayer_hBN_bands}.
 Even though identical to graphene in the crystal structure, contrary to it, monolayer \gls{hbn} is an insulator as we have said before.
+The parameters of the \gls{tb} model for \gls{hbn} we use are $\hbar \vF= 5.06$ \unit{\electronvolt \angstrom} and $E_g = 3.92$ \unit{\electronvolt}, and they are taken from Ref.~\cite{ribeiro_stability_2011}.
+This value for the bandgap comes from \gls{dft} calculations within \gls{lda}, which gives the right curvature, or effective mass, for the bands at the $K$ and $K'$ points in the \bz, but is know in the literature from underestimating the true value of the bandgap~\cite{Bagayoko_2014}, which includes an exchange contribution.
+We will come back to this point later in this text.
 
 \begin{figure}[H]
     \centering
@@ -636,7 +640,7 @@ In this way, the low-energy dispersion relation reads
     E_{\pm} (\bq) = \pm \sqrt{E_g^2 + \hbar^2 \vF^2 q^2}\,,
 \end{equation}
 
-\noindent $+$ for the top/conduction band, and $-$ for the bottom/valence band.
+\noindent $+$ for the conduction band, and $-$ for the valence band.
 One can see why the dispersion relation near the $K$ and $K'$ valleys look like parabolas for low energies; the dispersion is quadratic in the vicinity of those points, which can be seen if we further expand the previous expression up to leading order in $q = |\bq|$.
 The energy spectrum enjoys valley degeneracy, since the \gls{soc}, a contribution to the Hamiltonian which couples the spin $\vec{S}$ with the orbital angular momentum $\vec{L}$, in this system is negligible, since boron and nitrogen are very light elements.
 This is in contrast with other materials composed of heavier chemical elements, such as molybdenum disulfide, \ch{MoS2}.

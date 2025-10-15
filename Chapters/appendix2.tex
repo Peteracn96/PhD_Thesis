@@ -64,18 +64,18 @@ We recall the Bethe--Salpeter equation:
 
 \begin{equation}
     \begin{split}
-        E_\nu \frac{1}{\sqrt{A}} \phi_\nu(\bk)  =&   \phi_{\nu}(\bk) (E_{\bk,c}-E_{\bk,v}) - \frac{1}{A} \sum_{\bp} \phi_{\nu} (\bp) V_{\bk-\bp} F_{cvvc}(\bk,\bp,\bk-\bp) +  \\
-        & + \frac{1}{A} \phi_{\nu}(\bk) \sum_{\bp} V_{\bp} \left[F_{vvvv}(\bp + \bk ,\bk,\bp) - F_{vcvc}(\bp + \bk,\bk,\bp) \right].
+        E_\nu \frac{1}{\sqrt{A}} \phi_\nu(\bk)  =&   \phi_{\nu}(\bk) (E_{\bk,c}-E_{\bk,v}) - \frac{1}{\area} \sum_{\bp} \phi_{\nu} (\bp) V_{\bk-\bp} F_{cvvc}(\bk,\bp,\bk-\bp) +  \\
+        & + \frac{1}{\area} \phi_{\nu}(\bk) \sum_{\bp} V_{\bp} \left[F_{vvvv}(\bp + \bk ,\bk,\bp) - F_{vcvc}(\bp + \bk,\bk,\bp) \right].
     \end{split}
 \end{equation}
 
 \noindent We wish to compute the contribution to the band gap due to the exchange energy coming from the third term in the \gls{rhs} of the previous equation.
 We assume that this term renormalizes strongly the electronic band gap, but has no effect in the curvature of the bands.
 So we start from that term with $\bk = 0$.
-We denote the exchange energy by $\Delta_{ex}$ and it writes
+We denote the exchange energy by $\Delta_{\mathrm{ex}}$ and it writes
 
 \begin{equation}
-    \Delta_{\mathrm{ex}} = \frac{1}{A} \sum_{\bp} V_{\bp} \left[F_{vvvv}(\bp ,0,\bp) - F_{vcvc}(\bp,0,\bp) \right] \,.
+    \Delta_{\mathrm{ex}} = \frac{1}{\area} \sum_{\bp} V_{\bp} \left[F_{vvvv}(\bp ,0,\bp) - F_{vcvc}(\bp,0,\bp) \right] \,.
 \end{equation}
 
 The first form factor is
@@ -132,7 +132,7 @@ The second form factor is
 Using the auxiliar function $\gamma(\theta) = \sqrt{\cos^2 \theta + J_0^2(\beta) \sin^2 \theta}$, the exchange energy now reads
 
 \begin{equation}
-    \Delta_{\mathrm{ex}} = \frac{1}{A} \sum_{\bp} V_{\bp}  \frac{1}{\sqrt{1 + \left(\frac{p \gamma(\theta)}{k_0}\right)^2}} = \frac{e}{8 \pi^2 \epsz \kappa} \int_0^{2\pi} \dd \theta \int_0^{\infty} \dd p  \frac{1}{ (1 + r_0 p/\kappa) \sqrt{1 + \left(\frac{p \gamma(\theta)}{k_0}\right)^2}} \,.
+    \Delta_{\mathrm{ex}} = \frac{1}{\area} \sum_{\bp} V_{\bp}  \frac{1}{\sqrt{1 + \left(\frac{p \gamma(\theta)}{k_0}\right)^2}} = \frac{e}{8 \pi^2 \epsz \kappa} \int_0^{2\pi} \dd \theta \int_0^{\infty} \dd p  \frac{1}{ (1 + r_0 p/\kappa) \sqrt{1 + \left(\frac{p \gamma(\theta)}{k_0}\right)^2}} \,.
 \end{equation}
 
 \noindent where we converted the sum into an integral as $\sum_{\bp} \to A/(2 \pi)^2  \int \dd \bp$, and used for the Rytova--Keldysh potential
