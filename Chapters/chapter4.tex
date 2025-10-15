@@ -968,20 +968,21 @@ Only going beyond the \gls{ipa} can we compare the theoretical predictions with 
 If the material is subject to a drive from a spatially uniform time-dependent electric field composed of a single harmonic $\omega$, the linear optical conductivity, according to the work of T.~Pedersen in~\cite{Pedersen_2015}, is given by
 
 \begin{empheq}[innerbox=\colorbox{lightgray}, right={\,,}]{align}
-    \sigma (\omega) = \frac{e^2}{8 \pi^3 \ii \hbar} \sum_{\nu} \qty[E_{\nu} \frac{\vectorbold{\Omega}_{\nu} \vdot \vectorbold{\Omega}^*_{\nu} }{E_{\nu} - \hbar \omega + \ii \hbar \Gamma} + E_{\nu} \frac{\vectorbold{\Omega}_{\nu} \vdot \vectorbold{\Omega}^*_{\nu} }{E_{\nu} + \hbar \omega - \ii \hbar \Gamma}]
+    \sigma (\omega) = \frac{e^2}{8 \pi^3 \ii \hbar} \sum_{\nu} \qty[E_{\nu} \frac{|\Omega_{\nu}|^2}{E_{\nu} - \hbar \omega + \ii \hbar \Gamma} + E_{\nu} \frac{|\Omega_{\nu}|^2}{E_{\nu} + \hbar \omega - \ii \hbar \Gamma}]
     \label{eq:optical_conductivity_def}
 \end{empheq}
 
-\noindent where the sum is over the excitonic states, $E_{\nu}$ being the energy of the $\nu$-th state, and $\vectorbold{\Omega}_{\nu}$ is the Berry curvature given by
+\noindent where the sum is over the excitonic states, $E_{\nu}$ being the energy of the $\nu$-th state, and the oscillator strength $|\Omega_{\nu}|^2$ is given in terms of the quantity $\Omega_\nu$, which reads
 
 \begin{equation}
     \label{eq:Berry_curvature_definition}
-    \vectorbold{\Omega}_{\nu} = \sum_{cv,\bk} \psi^{\nu}_{c v} (\bk) \langle v, \bk | \br \vdot \hat{\vectorbold{e}} | c, \bk \rangle,
+    \Omega_{\nu} = \sum_{cv,\bk} \psi^{\nu}_{c v} (\bk) \langle v, \bk | \br \vdot \uvec{e} | c, \bk \rangle,
 \end{equation}
 
-\noindent where $\br$ is the dipole operator, $\uvec{e}$ is the polarization unit vector, and $\psi^{\nu}_{c v} (\bk)$ is the excitonic wavefunction for the pair of bands $(c,v)$.
+\noindent where $\br$ is the position operator (or dipole operator, up to a factor of $-e$), $\uvec{e}$ is the polarization unit vector, and $\psi^{\nu}_{c v} (\bk)$ is the excitonic wavefunction for the pair of bands $(c,v)$.
+This quantity is connected to the dipole matrix element $\langle v, \bk | \br | c, \bk \rangle$, which can be identified with the Berry connection $\vec{\Omega}^{n m}(\bk) = \langle u_{n \bk} | \ii \grad_{\bk} u_{m \bk} \rangle_{\mathrm{UC}}$\footnote{In general, the Berry connection $\vec{\Omega}$ of a given quantum system when it goes around a closed loop in a parameter space, where we can denote the set of parameters by $\boldsymbol{\lambda}$  is given by $\vec{\Omega}(\boldsymbol{\lambda}) = \langle u_{\boldsymbol{\lambda}} | \ii \grad_{\boldsymbol{\lambda}} u_{\boldsymbol{\lambda}} \rangle$, and the Berry phase is given by $\phi = \oint \vec{\Omega}(\boldsymbol{\lambda}) \vdot \dd \boldsymbol{\lambda}$. In \gls{3d} through Stokes theorem and defining the Berry curvature $\boldsymbol{\Omega} = \boldsymbol{\nabla}_{\boldsymbol{\lambda}} \cp \vec{\Omega}$, one can write for the Berry phase, also called geometrical phase, an equivalent expression in terms of a surface integral. The concepts of Berry connection, Berry curvature and Berry phase have applications in different disciplines in physics. One particular case are Chern insulators, where a nonvanishing surface integral of the Berry curvature over a closed manifold---the Chern number---related with the quantum anomalous Hall effect, the appearance of a nonvanishing Hall current in a nonmagnetized medium~\cite{RevModPhys.82.1539}. In a \bd~periodic material, a crystal, we can take for the parameters $\boldsymbol{\lambda} = \bk = (k_x,k_y)$, and one can then define a more general Berry connection $\vec{\Omega}^{n m}(\bk) =  \langle u_{n \bk} | \ii \grad_{\bk} u_{m \bk} \rangle_{\mathrm{UC}}$, where $| u_{n \bk} \rangle$ is the periodic part of the Bloch state, and the braket is taken over the unit cell. These concepts are relevant in photonic crystals~\cite{PhysRevLett.115.253901,Zhao_2020} and magnetic materials.}.
 If, once more, we wish to define the optical conductivity as a tensor, then we can deduce an expression similar to~\eqref{eq:non_interacting_Re_optical_conductivity}, we just have to replace the transition energy $\epsilon_{c \bk}-\epsilon_{v \bk}$ by the exciton energy $E_{\nu}$, and the velocity matrix elements by their interacting version given by a weighted sum over momentum of the noninteracting matrix elements, with the weight coinciding with the excitons wavefunction, similarly to what is written in~\eqref{eq:Berry_curvature_definition}.
-We can therefore write\todo{Caution with this expression, since the material is \bd, come back here again after chapters 5 and 6.}
+We can therefore write\todo[inline]{Caution with this expression, since the material is \bd, come back here again after chapters 5 and 6.}
 
 \begin{empheq}[innerbox=\colorbox{lightgray}, right={\,,}]{align}
     \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{\vol}\sum_{\nu}\frac{1}{E_{\nu}} V^{\alpha}_{\nu} (V^{\beta}_{\nu})^{*} \delta(\hbar \omega - E_{\nu})

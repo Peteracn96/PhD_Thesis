@@ -899,18 +899,19 @@ In the next section we see how we can compute the excitonic optical conductivity
 If we subject a material to a drive from a monochromatic field with frequency $\omega$, the expression for the excitonic optical conductivity in the linear regime and in the dipole approximation, is given by the following sum over the excitonic states $\nu = 1s,2x,2y,2s$~\cite{Pedersen_2015}
 
 \begin{equation}
-    \sigma (\omega) = \frac{e^2}{8 \pi^3 \ii \hbar} \sum_\nu \left[ E_\nu \frac{|\boldsymbol{\Omega}_\nu|^2 }{E_\nu - (\hbar \omega+\ii\Gamma)} + E_\nu \frac{|\boldsymbol{\Omega}_\nu|^2 }{E_\nu + (\hbar \omega+\ii\Gamma)} \right]
+    \sigma (\omega) = \frac{e^2}{8 \pi^3 \ii \hbar} \sum_\nu \left[ E_\nu \frac{|\Omega_\nu|^2 }{E_\nu - (\hbar \omega+\ii\Gamma)} + E_\nu \frac{|\Omega_\nu|^2 }{E_\nu + (\hbar \omega+\ii\Gamma)} \right]
     \label{eq:optical_conductivity}
 \end{equation}
 
-\noindent where the quantity $\Omega_\nu$ is the Berry curvature of the excitonic state $\nu$, and recalling its expression~\eqref{eq:Berry_curvature_definition}, it is computed by
+\noindent where the quantity $\Omega_\nu$ depends on the exciton wavefunction $\Psi_\nu(\bk)$, and recalling its expression~\eqref{eq:Berry_curvature_definition}, it is computed by
 
 \begin{equation}
     \label{eq:Berry_curvature_definition_new}
-    \boldsymbol{\Omega}_\nu =  \sum_{\bk} \Psi_{\nu} (\bk) \langle v, \bk | \br\, | c, \bk \rangle\,,
+    \Omega_\nu =  \sum_{\bk} \Psi_{\nu} (\bk) \uvec{e} \vdot \langle v, \bk | \br | c, \bk \rangle\,,
 \end{equation}
 
-\noindent with no sum over bands as we consider the most simple two-band model for \gls{hbn}, and $\Psi_{\nu} (\bk)$ is the momentum-space wavefunction of the exciton in the state $\nu$, and the braket is the optical matrix element we have encountered before in Section~\ref{subsec:non_interacting_conductivity}, but we still need to explain how we will compute it in practice.
+\noindent with no sum over bands as we consider the most simple two-band model for \gls{hbn}, $\uvec{e}$ is the polarization vector, $\Psi_{\nu} (\bk)$ is the momentum-space wavefunction of the exciton in the state $\nu$, and the braket is the optical matrix element we have encountered before in Section~\ref{subsec:non_interacting_conductivity}, but we still need to explain how we will compute it in practice.
+Let us call it the interacting optical matrix element, or excitonic optical matrix element.
 Herein, we consider light polarized along the $x$-direction and along the $y$-direction separately, so that the polarization vector will write $\uvec{e} = \uvec{x}$ or $\uvec{e} = \uvec{y}$ accordingly.
 After computing the optical matrix element, we shall compute its dot product with $\uvec{e}$.
 We will then have the two distinct conductivities $\sigma_{xx}$ and $\sigma_{yy}$ in the main diagonal of the conductivity tensor.
@@ -964,7 +965,7 @@ The excited state $2s$, even though more involved, has also an analytical expres
     \Psi_{2s} (\bk) = \sqrt{\frac{16 \pi}{(2 - 4d + 3d^2)}} (a_{2s} b_{2s})^{-1/4} \frac{1-2d + (1 + d) \left(\frac{k_x^2}{a_{2s}} + \frac{k_y^2}{b_{2s}}\right)}{\left(1 + \frac{k_x^2}{a_{2s}} + \frac{k_y^2}{b_{2s}}\right)^{5/2}} \,.
 \end{equation}
 
-\subsection{Berry curvature and the optical matrix element: the anisotropic case}
+\subsection{Optical matrix element: the anisotropic case}
 \label{subsec:optical_matrix_element_anisotropic_case}
 
 The optical matrix element can be computed by using the identity
@@ -975,12 +976,12 @@ The optical matrix element can be computed by using the identity
 \end{equation}
 
 \noindent where the Hamiltonian is the noninteracting one, the ket and the bra correspond to Bloch states of an electron in the conduction and valence bands, respectively, and $\epsilon_{v \bk}$ and $\epsilon_{c \bk}$ are the energies of an electron in the corresponding Bloch states.
-By shear coincidence, the subscript $0$ we use in the Hamiltonian $\overline{H}_0$, which stands for the particular case of $\overline{H}_m$ when $m=0$, coincides with the same symbol used in the Section~\ref{sec:optical_effects} to denote the noninteracting Hamiltonian $H_0$.
+By coincidence, the subscript $0$ we use in the Hamiltonian $\overline{H}_0$, which stands for the particular case of $\overline{H}_m$ when $m=0$, coincides with the same symbol used in the Section~\ref{sec:optical_effects} to denote the noninteracting Hamiltonian $H_0$.
 It happens that $\overline{H}_0$ is our noninteracting Hamiltonian at the moment, so there is no problem in repeating the symbol, we just advert for the different meanings it may have.
 In practice, the numerator can be evaluated in terms of the commutator $[\overline{H}_0,\br]$, if in the low-energy Hamiltonian we perceive the momentum components as operators, and take the commutator with $\br$ as an operator as well by using the canonical commutation relations $[x_i,p_j] = \ii \hbar \delta_{ij}$.
 After getting the commutator, we compute the matrix element replacing the bra and the ket with their respective spinors of the low-energy Hamiltonian, denoted by $\bC^{v \bk}$ and $\bC^{c \bk}$.
 However, it may not seem obvious that the optical matrix element can be computed in this way, without using the Bloch wavefunctions.
-We are not aware of any justification for this in the literature, even though it has been used before~\cite{Ventura_2019,Mauricio_2022} and with good final results.
+We are not aware of any justification for this in the literature, even though it has been used before and with good final results~\cite{Ventura_2019,Mauricio_2022,Henriques_Epstein_Peres_2022,Henriques_PRB2022}.
 First, one considers from the commutator the term $H \br$, for instance.
 Then, we can insert a resolution of the identity $\sum_{n,\bk'} |n,\bk'\rangle \langle n,\bk'|$ between $H$ and $\br$, assuming it is complete.
 The matrix elements of $H$ between the Bloch states $\bra{v,\bk}$ and $\ket{n,\bk'}$ are real-space integrals.
@@ -1039,7 +1040,7 @@ Inserting them in~\eqref{eq:commutator_matrix_element} and going back to the opt
 %In the isotropic case, it evaluates to $\ee^{-2\ii\theta_{q}}$.
 %Then the second term in the optical matrix element~\eqref{eq:optical_matrix_element_final} when integrated in the angle $\theta$ when computing the Berry curvature as per~\eqref{eq:Berry_curvature_definition}, after converting the sum in momentum to an integral, it would result in
 
-Finally, we can compute the Berry curvature for each excitonic state.
+Finally, we can compute $\Omega_\nu$ for each excitonic state.
 We split the discussion into the ground state and the excited states.
 
 \subsubsection{Ground state $1s$}
@@ -1051,7 +1052,7 @@ We recall that the variational wavefunction of the $1s$ state in momentum space,
     \Psi_{1s}(\bk) =\frac{2\sqrt{2\pi}}{\left(a b\right)^{1/4}}\frac{1}{\left(1+\frac{k_{x}^{2}}{a}+\frac{k_{y}^{2}}{b}\right)^{3/2}} \,.
 \end{equation}
 
-\noindent To compute the Berry curvature~\eqref{eq:Berry_curvature_definition_new}, we convert the sum over momentum into an integral, for which the following functions will be useful
+\noindent To compute the interacting optical matrix element~\eqref{eq:Berry_curvature_definition_new}, we convert the sum over momentum into an integral, for which the following functions will be useful
 
 \begin{equation}
     \begin{aligned}
@@ -1076,13 +1077,13 @@ We recall that the variational wavefunction of the $1s$ state in momentum space,
     \Psi_{1s}(\bk) =  \frac{2\sqrt{2\pi}}{\left(a b \right)^{1/4}}\frac{1}{\left[1+k^2 \sigma^2(\theta) \right]^{3/2}}\,.
 \end{equation}
 
-\noindent In the Berry curvature, we have two terms; one that comes from the cosine squared in the optical matrix element in Eq.~\eqref{eq:optical_matrix_element_final}, and another that comes from the sine squared in the same equation.
+\noindent In the excitonic optical matrix element, we have two terms; one that comes from the cosine squared in the optical matrix element in Eq.~\eqref{eq:optical_matrix_element_final}, and another that comes from the sine squared in the same equation.
 So we write $\Omega  = \Omega^{\cos}_{1s} + \Omega^{\sin}_{1s}$, and treat both terms separately.
 We consider first light polarized along the $x$ axis.
 The term that comes from the cosine reads
 
 \begin{equation}
-    \Omega^{\cos}_{1s} = \int_{0}^{2\pi} \dd\theta \int_{0}^{\infty} \dd k \frac{ 2\sqrt{2\pi} \ii \hbar \vF k  \left\{\frac{1}{2} + \left[2 \sqrt{1+\left(\frac{2\hbar \vF k \gamma(\theta)}{J_{0}(\beta)E_{g}}\right)^{2}}\right]^{-1}\right\}}{\left(a_{1}b_{1}\right)^{1/4} \left[1+k^{2}\sigma^{2}(\theta)\right]^{3/2} \sqrt{E_{g}^{2}J_{0}^{2}(\beta)+4\hbar^{2}\vF^{2}k^{2}\gamma^{2}(\theta)}}
+    \Omega^{\cos}_{1s} = \int_{0}^{2\pi} \dd\theta \int_{0}^{\infty} \dd k \frac{ 2\sqrt{2\pi} \,\ii \hbar \vF \,k  \left\{\frac{1}{2} + \left[2 \sqrt{1+\left(\frac{2\hbar \vF k \gamma(\theta)}{J_{0}(\beta)E_{g}}\right)^{2}}\right]^{-1}\right\}}{\left(a b\right)^{1/4} \left[1+k^{2}\sigma^{2}(\theta)\right]^{3/2} \sqrt{E_{g}^{2}J_{0}^{2}(\beta)+4\hbar^{2}\vF^{2}k^{2}\gamma^{2}(\theta)}}
 \end{equation}
 
 \noindent where we have already performed the usual change of variables to polar coordinates.
@@ -1092,50 +1093,49 @@ We obtain
 
 \begin{equation}
     \begin{aligned}
-        \Omega^{\cos}_{1s} =& \ii \hbar \vF\frac{-2\sqrt{2\pi}}{(a b )^{-1/4}}\int_{0}^{2\pi} \Biggl\{ \frac{\hbar \vF \gamma(\theta)-E_{g}|J_{0}(\beta)|\sigma(\theta)}{E_{g}^{2}J_{0}^{2}(\beta)\sigma^{3}(\theta) - 4\hbar^{2}\vF^{2}\sigma(\theta)\gamma^{2}(\theta)} -\\
+        \Omega^{\cos}_{1s} =& \ii \hbar \vF\frac{-2\sqrt{2\pi}}{(a b)^{1/4}}\int_{0}^{2\pi} \Biggl\{ \frac{\hbar \vF \gamma(\theta)-E_{g}|J_{0}(\beta)|\sigma(\theta)}{E_{g}^{2}J_{0}^{2}(\beta)\sigma^{3}(\theta) - 4\hbar^{2}\vF^{2}\sigma(\theta)\gamma^{2}(\theta)} -\\
         & - \frac{E_{g}\hbar \vF|J_{0}(\beta)|\gamma(\theta) \arcsec \left(\frac{E_{g}|J_{0}(\beta)|\sigma(\theta)}{2\hbar \vF\gamma(\theta)}\right)}{\left[E_{g}^{2}J_{0}^{2}(\beta)\sigma^{2}(\theta)-4\hbar^{2}\vF^{2}\gamma^{2}(\theta)\right]^{3/2}} \Biggl\} \dd\theta \,,
     \end{aligned}
 \end{equation}
 
 
 \noindent leaving only the angular integral that can only be evaluated numerically.
-The term of the Berry curvature that goes with the sine reads
+The term that goes with the sine reads
 
 \begin{equation}
-    \begin{aligned}
-        \Omega^{\sin}_{1s} &= \int_{0}^{2\pi}\int_{0}^{\infty} \frac{2\sqrt{2\pi}}{\left(a_{1}b_{1}\right)^{1/4}}\frac{k}{\left(1+k^{2}\sigma^{2}(\theta)\right)^{3/2}}\frac{\ii \hbar \vF}{\sqrt{E_{g}^{2}J_{0}^{2}(\beta)+4\hbar^{2}\vF^{2}k^{2}\gamma^{2}(\theta)}}\left[\frac{1}{2}-\frac{1}{2\sqrt{1+\left(\frac{2\hbar \vF q \gamma(\theta)}{J_{0}(\beta)E_{g}}\right)^{2}}}\right] \ee^{-2\ii\theta_{k}(\beta)} \dd q \dd\theta \,,
-    \end{aligned}
+    \Omega^{\sin}_{1s} = \int_{0}^{2\pi} \dd\theta \int_{0}^{\infty} \dd k \frac{ 2\sqrt{2\pi}\, \ii \hbar \vF\, k\, \ee^{-2\ii\theta_{k}(\beta)} \left\{\frac{1}{2} - \left[2 \sqrt{1+\left(\frac{2\hbar \vF k \gamma(\theta)}{J_{0}(\beta)E_{g}}\right)^{2}}\right]^{-1}\right\}}{\left(a b\right)^{1/4} \left[1+k^{2}\sigma^{2}(\theta)\right]^{3/2} \sqrt{E_{g}^{2}J_{0}^{2}(\beta)+4\hbar^{2}\vF^{2}k^{2}\gamma^{2}(\theta)}}\,,
 \end{equation}
 
 \noindent and performing the radial integral we obtain
 
 \begin{equation}
     \begin{aligned}
-        \Omega^{\sin}_{1s} =&\frac{- 2\sqrt{2\pi} \ii \hbar \vF}{(a b )^{-1/4}}\int_{0}^{2\pi}\Bigg[\frac{-\hbar \vF\gamma(\theta)}{E_{g}^{2}J_{0}^{2}(\beta)\sigma^{3}(\theta)-4\hbar^{2}\vF^{2}\sigma(\theta)\gamma^{2}(\theta)} + \\
-        &\frac{E_{g}\hbar \vF|J_{0}(\beta)|\gamma(\theta)\arcsec\left(\frac{E_{g}|J_{0}(\beta)|\sigma(\theta)}{2\hbar \vF\gamma(\theta)}\right)}{\left(E_{g}^{2}J_{0}^{2}(\beta)\sigma^{2}(\theta)-4\hbar^{2}\vF^{2}\gamma^{2}(\theta)\right)^{3/2}}\Bigg]\ee^{-2\ii\theta_{k}(\beta)} \dd\theta \,,
+        \Omega^{\sin}_{1s} =& \ii \hbar \vF \frac{-2\sqrt{2\pi}}{(a b )^{1/4}}\int_{0}^{2\pi}\Bigg\{\frac{-\hbar \vF\gamma(\theta)}{E_{g}^{2}J_{0}^{2}(\beta)\sigma^{3}(\theta)-4\hbar^{2}\vF^{2}\sigma(\theta)\gamma^{2}(\theta)} + \\
+        &+\frac{E_{g}\hbar \vF|J_{0}(\beta)|\gamma(\theta)\arcsec\left(\frac{E_{g}|J_{0}(\beta)|\sigma(\theta)}{2\hbar \vF\gamma(\theta)}\right)}{\left[E_{g}^{2}J_{0}^{2}(\beta)\sigma^{2}(\theta)-4\hbar^{2}\vF^{2}\gamma^{2}(\theta)\right]^{3/2}}\Bigg\}\ee^{-2\ii\theta_{k}(\beta)} \dd\theta \,,
     \end{aligned}
 \end{equation}
 
+
 \noindent to be evaluated numerically as well.
-The Berry curvature is then simply $\boldsymbol{\Omega}_{1s} \vdot \uvec{x} = \Omega^x_{1s} = \Omega^{\cos}_{1s} + \Omega^{\sin}_{1s}$, where we put an $x$ in superscript to stress that the calculation was for light polarized along the $x$-direction.
-For light polarized along the $y$-direction, we can identify from the optical matrix element~\eqref{eq:optical_matrix_element} an extra factor of $J_0(\beta)$, and also a relative sign between the cosine and sine terms, so that the Berry curvature is now $\boldsymbol{\Omega}_{1s} \vdot \uvec{y} = \Omega^y_{1s} = J_0(\beta) (\Omega^{\cos}_{1s} - \Omega^{\sin}_{1s})$.
+The excitonic optical matrix element, when taking the polarization along the $x$-axis, is then simply $\Omega^x_{1s} = \Omega^{\cos}_{1s} + \Omega^{\sin}_{1s}$, where we put an $x$ in superscript to stress that the calculation was for light polarized along the $x$-direction.
+For light polarized along the $y$-direction, we can identify from the optical matrix element~\eqref{eq:optical_matrix_element} an extra factor of $J_0(\beta)$, and also a relative sign between the cosine and sine terms, so that $\Omega^y_{1s} = J_0(\beta) (\Omega^{\cos}_{1s} - \Omega^{\sin}_{1s})$.
 
 \subsubsection{Excited states $2x$, $2y$ and $2s$}
 \label{subsubsec:excited_states_2x_2y}
 
-Regarding the excited states $2x$ and $2y$, we need to argue why they do not contribute to the optical conductivity, since it is not straightforward to see why they do not contribute even in the anisotropic case.
+Regarding the excited states $2x$ and $2y$, we need to argue why they do not contribute to the optical conductivity, since it is not straightforward to see why is that (even in the anisotropic case).
 We consider the wavefunction of the $2x$ state given in equation~\eqref{eq:2x_2y_wavefunctions_momentum}, and note that it has a factor of $\cos \theta$ if we change to polar coordinates.
-The angular integral of the Berry curvature that comes from the cosine in the optical matrix element is of the form
+The angular integral in the interacting optical matrix element that comes from the cosine in the optical matrix element is of the form
 
 \begin{equation}
-    \int_0^{2 \pi} f(\cos^2 \theta) \cos \theta \dd \theta\,,
+    \int_0^{2 \pi} f(\cos^2 \theta) \cos \theta\, \dd \theta\,,
 \end{equation}
 
 \noindent where the factor $\cos \theta$ comes from the wavefunction, and the function $f$ encodes all the other factors.
 We can perform a change of variables $\vartheta = \pi/2 - \theta$ and write
 
 \begin{equation}
-    \int_0^{2 \pi} f(\cos^2 \theta) \cos \theta d \theta = -\int_{\pi/2}^{- 3 \pi/2}  f(\sin^2 \vartheta) \sin \vartheta \dd \vartheta =\int_{-\pi}^{\pi}  f(\sin^2 \vartheta) \sin \vartheta \dd \vartheta = 0\,,
+    \int_0^{2 \pi} f(\cos^2 \theta) \cos \theta \, \dd \theta = -\int_{\pi/2}^{- 3 \pi/2}  f(\sin^2 \vartheta) \sin \vartheta\, \dd \vartheta =\int_{-\pi}^{\pi}  f(\sin^2 \vartheta) \sin \vartheta\, \dd \vartheta = 0\,,
 \end{equation}
 
 \noindent where in the second equality we swapped the limits of the integral and did a shift of $\pi/2$, which is allowed since the integrand is periodic.
@@ -1145,14 +1145,15 @@ It is of the form
 
 \begin{equation}
     \begin{aligned}
-        \int_0^{2 \pi} f(\cos^2 \theta) \cos \theta \ee^{-2\ii\arctan\left(J_{0}(\beta)\arctan\theta\right)} \dd \theta =  &\int_0^{2 \pi} f(\cos^2 \theta) \cos \theta \cos(2\arctan\left(J_{0}(\beta)\arctan\theta\right)) \dd \theta - \\
-        & \ii \int_0^{2 \pi} f(\cos^2 \theta) \cos \theta \sin(\arctan\left(J_{0}(\beta)\arctan\theta\right)) \dd \theta\,.
+         &\int_0^{2 \pi} f(\cos^2 \theta) \cos \theta\, \ee^{-2\ii\arctan\left(J_{0}(\beta)\arctan\theta\right)} \dd \theta = \\
+        =&\int_0^{2 \pi} f(\cos^2 \theta) \cos \theta \cos\left(2\arctan\left(J_{0}(\beta)\arctan\theta\right)\right) \dd \theta - \\
+         &\ii \int_0^{2 \pi} f(\cos^2 \theta) \cos \theta \sin\left(\arctan\left(J_{0}(\beta)\arctan\theta\right)\right) \dd \theta\,.
     \end{aligned}
 \end{equation}
 
-\noindent If in the first term in the \gls{rhs} of this equation we perform the same change of variables, we end up with an integral of an odd function again, so it does not contribute.
+\noindent If in the term on the second line of the equation of this equation we perform the same change of variables, we end up with an integral of an odd function again, so it does not contribute.
 For the second term, we simply make a shift of $-\pi$ in the integration limits, since the integrand function is odd from the start, so that term vanishes as well.
-For the excited state $2y$, all the previous arguments apply as well, so it does not contribute to the conductivity as well.
+For the excited state $2y$, all the previous arguments apply as well, so it does not contribute to the conductivity.
 We are left only with the calculation of the optical conductivity deriving from the state $2s$.
 As in the case of the $1s$ state, the radial integral is analytical, and the angular integral has to be performed numerically.
 The expression of the radial integral, even though analytical, is complicated, so we will not write it down here.
@@ -1164,13 +1165,18 @@ At the end, we have only the contributions from the $1s$ and $2s$ state to the o
     \sigma_{xx} (\omega) &= \frac{e^2}{8 \pi^3 \ii \hbar} \sum_{\nu=1s,2s} E_\nu \frac{|\Omega^x_\nu|^2 }{E_\nu - (\hbar \omega + \ii\Gamma)} + (\omega \to - \omega)^*
 \end{empheq}
 
-\noindent and for $y$ polarization the expression is analogous.
+\noindent where $(\omega \to - \omega)^*$ is used to refer to the nonresonant term in the sum, which we shall discard as its contribution is negligible.
+For $y$ polarization the expression is analogous.
 We have seen now how to compute the optical conductivity for the system under study.
 In the next section we discuss the results obtained.
 
 \section{Results}
 \label{sec:results}
 
+We organize this section in three parts.
+In the first, we discuss the renormalized band structure and the consequence for the excitons.
+With the information from the excitonic energies and states, we can compute the excitonic optical conductivity as we have just discussed in the previous section, which is the subject of the second part.
+We finish with the results for the dispersion of the exciton--polaritons and the material absorption, whose theory was provided in Section~\ref{sec:polaritonics_fundamentals}.
 
 \subsection{Bandgap and excitonic binding energies}
 \label{subsec:band_gap_and_binding_energies}
