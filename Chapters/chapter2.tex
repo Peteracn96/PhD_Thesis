@@ -25,8 +25,7 @@ The central quantity will be the dielectric function, a quantity characteristic 
 We consider different limits, the static limit and the local limit, in separate case studies, namely the \bd~dielectric and the Drude metal, respectively.
 For the curious reader, other examples in different contexts are briefly mentioned.
 The first two sections serve as the basis for what is to come in the third and final section of the chapter: the polariton.
-To introduce the reader to the concept of polariton, we need first a framework for \gls{em} wave propagation in matter.
-We take the opportunity to mention bulk plasmons, even though they are not the main topic of the thesis.
+To introduce the reader to the concept of polariton, we need first a framework for \gls{em} wave propagation in matter. %We take the opportunity to mention bulk plasmons, even though they are not the main topic of the thesis. % Nikos says this should go to the section where it happens
 The concept of polariton is finally introduced, along with the derivation of the dispersion relation for these modes at a surface between two different materials, taking into account the surface optical response.
 Again, we take the opportunity to mention plasmons, but now coupled to light to form the plasmon--polariton.
 We finish the chapter with a discussion on the Fresnel coefficients with the same setup, in the situation where the incident radiation is normal to the planar surface and linearly polarized.
@@ -44,9 +43,9 @@ These coefficients will allow us to estimate the capacity of the surface in abso
 
 %\begin{subequations} //alignment feels weird with the titles at the left
 %    \begin{align}
-%        \text{Gauss' law}& & \div \bD &= \rho \label{subeq:Gauss_law} \\
+%        \text{Gauss' law}& & \nabla \vdot \bD &= \rho \label{subeq:Gauss_law} \\
 %        \text{Faraday's law}& & \rot \bE &= -\pdt[\bB] \label{subeq:Faraday_law}\\
-%        \text{Inexistence of magnetic monopoles}& & \div \bB &= 0 \label{subeq:no_magnetic_monopoles}\\
+%        \text{Inexistence of magnetic monopoles}& & \nabla \vdot \bB &= 0 \label{subeq:no_magnetic_monopoles}\\
 %        \text{Amp\`ere--Maxwell's law}& & \rot \bH &= \bJ + \pdt[\bD] \label{subeq:Ampere_law}
 %    \end{align}
 %    \label{eq:Maxwells_equations}
@@ -56,10 +55,10 @@ The four central equations of classical electrodynamics, which govern the dynami
 
 \begin{subequations}
     \begin{align}
-        \div \bD \left(\br,t\right) &= \rho_\f\left(\br,t\right), &  &\text{Gauss' law}  \label{subeq:Gauss_law} \\
-        \rot \bE \left(\br,t\right) &= -\pdt[\bB\left(\br,t\right)], & &\text{Faraday's law}\ \label{subeq:Faraday_law}\\
-         \div \bB \left(\br,t\right) &= 0\,, & &\text{Inexistence of magnetic monopoles} \label{subeq:no_magnetic_monopoles}\\
-         \rot \bH\left(\br,t\right) &= \bJ_\f\left(\br,t\right) + \pdt[\bD\left(\br,t\right)]\,. & &\text{Amp\`ere--Maxwell's law} \label{subeq:Ampere_law}
+        \nabla \vdot \bD  (\br,t) &= \rho_\f (\br,t), &  &\text{Gauss' law}  \label{subeq:Gauss_law} \\
+        \rot \bE  (\br,t) &= -\pdt[\bB (\br,t)], & &\text{Faraday's law}\ \label{subeq:Faraday_law}\\
+         \nabla \vdot \bB  (\br,t) &= 0\,, & &\text{Inexistence of magnetic monopoles} \label{subeq:no_magnetic_monopoles}\\
+         \rot \bH (\br,t) &= \bJ_\f (\br,t) + \pdt[\bD (\br,t)]\,. & &\text{Amp\`ere--Maxwell's law} \label{subeq:Ampere_law}
     \end{align}
     \label{eq:Maxwells_equations}
 \end{subequations}
@@ -75,7 +74,7 @@ The free charge and current densities are not independent, as they are related t
 
 \begin{equation}
 \label{eq:continuity_equation}
-    \pdt[\rho_\f] + \div \bJ_\f = 0,
+    \pdt[\rho_\f] + \nabla \vdot \bJ_\f = 0,
 \end{equation}
 
 \noindent encoding the conservation of free electric charge, which can be seen by taking the divergence of Amp\`ere--Maxwell's law.
@@ -95,8 +94,8 @@ As said above, the fundamental fields $\bE$ and $\bB$ are connected to the field
     \bB = \mu_0 \qty(\bH + \bM)\,,
 \end{equation}
 
-\noindent where $\bP$ is the bound volume polarization density and $\bM$ the bound volume magnetization density, and the parameters $\epsz$ and $\mu_0$ are the vacuum electric permittivity and the vacuum magnetic permeability, respectively
-Within the scope of this work, we study only materials with no magnetic response at optical frequencies nor with permanent magnetization, so that $\bM = \bzero$ and $\bB \qty(\br,t)  = \mu_0 \bH \qty(\br,t)$ will always hold.
+\noindent where $\bP$ is the bound volume polarization density and $\bM$ the bound volume magnetization density, and the parameters $\epsz$ and $\mu_0$ are the vacuum electric permittivity and the vacuum magnetic permeability, respectively.
+Within the scope of this work, we study only materials with no magnetic response at optical frequencies nor with permanent magnetization, so that $\bM(\br,t) = \bzero$ and $\bB \qty(\br,t)  = \mu_0 \bH \qty(\br,t)$ will always hold.
 
 With all these equations at hand, one can, in principle, solve any problem in electrodynamics in a continuous medium.
 One would just need to know how in fact the material properties determine the polarization density, and also the magnetization density in case the material is magnetic.
@@ -135,7 +134,7 @@ By doing so, we can relate the fields $\bE_i,\bD_i,\bB_i$ and $\bH_i$ on each si
 The quantities $\sigma_s$ and $\bj_s$ account for any charge flow that might exist at the interface.
 If it consists simply of a surface separating two different media, then in principle $\sigma_s = 0$ and $\bj_s = \bzero$.
 However, if on the interface we have a material of arbitrary small thickness, or if the interface is itself the existing material separating two semi-infinite regions, then in general we have to account for the physics of its optical response and cannot ignore $\sigma_s$ nor $\bj_s$.
-If surface charge and current densities are not null, then naturally they satisfy the continuity equation $\div \bj_s + \partial_t \sigma_s = 0$.
+If surface charge and current densities are not null, then naturally they satisfy the continuity equation $\nabla \vdot \bj_s + \partial_t \sigma_s = 0$.
 A striking example is that of graphene, either by itself or at a boundary between a dielectric and a metal~\cite{GoncalvesPeres:2016}.
 In this work, we focus on dielectric \bd~materials, also termed insulators, and on their optical properties.
 These can be quantified by the dielectric function, or as we shall explain in the next section, by the conductivity in an equivalent way.
@@ -160,7 +159,7 @@ In the linear relation between the total electric field and the polarization den
 \end{equation}
 
 \noindent assuming that the material can be anisotropic, such that the susceptibility is in fact a second-rank tensor (and presuming also that there is no permanent polarization $\bP_0$ contributing to $\bP$).
-We admit that there is no magnetic response, so we can overlook the other constitutive relation for the magnetic field\footnote{Otherwise, we would have to account for the magnetic susceptibility $\chi_\mathrm{m}$}.
+As we admit that there is no magnetic response, we can overlook the other constitutive relation for the magnetic field\footnote{Otherwise, we would have to account for the magnetic susceptibility, $\chi_\mathrm{m}$.}.
 If the material is isotropic, then $\rttensor{\chi}_{e} = \chi_{e} \mathds{1}$, with $\mathds{1}$ being the identity matrix.
 Then, for the electric displacement field within linear response approximation and for an anisotropic material we can write
 
@@ -280,46 +279,46 @@ In real space, the Coulomb potential is given by
 To find the screened potential felt by a test charge $e$ in the material, we can make use of Maxwell's equations that we already introduced in Section~\ref{subsec:maxwell_equations}, in particular Gauss' law~\eqref{subeq:Gauss_law} in the form
 
 \begin{equation}
-    \div \bD(\br) = \rho_\ext(\br)\,,
+    \nabla \vdot \bD(\br) = \rho_\ext(\br)\,,
 \end{equation}
 
 \noindent where we dropped the subscript \enquote{$\tot$} for the displacement field, and the external charge density is that of a single point-like elementary charge, that without loss of generality can be placed at the origin.
-Since the charge has no dimensions, we can simply write~$\rho_\ext\left(\br\right)=~e\delta\left(\br\right)$, and for the displacement field we write $\boldsymbol{D}\left(\br\right)=\epsz\boldsymbol{E}\left(\br\right)+\boldsymbol{P}^\BD\left(\br\right)$, where $\boldsymbol{P}^\BD$ is a \bd~polarization vector.
-Assuming that the electric susceptibility is local (i.e., $\chi_{e}(\br,\br') \propto \delta(\br - \br')$) and the \bd~material is isotropic, the polarizability reads $\boldsymbol{P}^\BD\left(\br\right)=\epsz\chi_{e}^\BD\boldsymbol{E_{||}}\left(\br\right)|_{z=0}$,
+Since the charge has no dimensions, we can simply write~$\rho_\ext (\br)=~e\delta (\br)$, and for the displacement field we write $\boldsymbol{D} (\br)=\epsz\boldsymbol{E} (\br)+\boldsymbol{P}^\BD (\br)$, where $\boldsymbol{P}^\BD$ is a \bd~polarization vector.
+Assuming that the electric susceptibility is local (i.e., $\chi_{e}(\br,\br') \propto \delta(\br - \br')$) and the \bd~material is isotropic, the polarizability reads $\boldsymbol{P}^\BD (\br)=\epsz\chi_{e}^\BD\boldsymbol{E_{||}} (\br)|_{z=0}$,
 that is, the polarization is proportional to the in-plane component of the total electric field computed along the plane of the material with Cartesian equation $z=0$, and $\chi_{e}^\BD$ is a \bd~susceptibility.
 Substituting the electric field by the negative gradient of the potential in Gauss' law and the charge density by its Dirac delta like expression, we obtain the following Poisson equation
 
 \begin{equation}
-    \nabla\vdot\left[\nabla\phi\left(\br\right)+\chi_{e}^\BD\nabla_{||}\phi\left(\br_{||},z=0\right)\right]=-\frac{e}{\epsz}\delta\left(\br\right)\,,
+    \nabla\vdot\left[\nabla\phi (\br)+\chi_{e}^\BD\nabla_{||}\phi(\br_{||},z=0)\right]=-\frac{e}{\epsz}\delta (\br)\,,
 \end{equation}
 
 \noindent where the in-plane electric field contributing to the polarizability is given in terms of an in-plane gradient operation, $\nabla_{||}$, acting on the electrostatic potential computed at $z=0$ and at any position vector $\br_{||}$ on the plane.
-Within the approximation of zero thickness, we can work with an effective \bd~electrostatic potential in momentum space $\phi^\BD\left(\bq\right)$, defined by the total electrostatic potential computed at the plane of the material, that is, $\phi^\BD\left(\bq\right)\equiv\phi\left(\bq,z=0\right)$.
+Within the approximation of zero thickness, we can work with an effective \bd~electrostatic potential in momentum space $\phi^\BD(\bq)$, defined by the total electrostatic potential computed at the plane of the material, that is, $\phi^\BD(\bq)\equiv\phi(\bq,z=0)$.
 To find an expression for such a potential, one Fourier transforms the previous equation, keeping the variables for in-plane and off-plane momentum, $q$ and $\kappa$ respectively, separate as:
 
 \begin{equation}
-    \left(q^2+\kappa^2\right)\phi\left(\bq,\kappa\right)+\chi_{e}^\BD q^2\phi^\BD\left(\bq\right)=\frac{e}{\epsz}\,.
+    \left(q^2+\kappa^2\right)\phi(\bq,\kappa)+\chi_{e}^\BD q^2\phi^\BD(\bq)=\frac{e}{\epsz}\,.
 \end{equation}
 
-\noindent Upon solving the equation above for $\phi\left(\bq,\kappa\right)$, doing the inverse Fourier transform in the $\kappa$ variable back to the variable $z$ and setting $z=0$, we find an equation for the quantity $\phi^\BD\left(\bq\right)$, that after being isolated reads
+\noindent Upon solving the equation above for $\phi(\bq,\kappa$, doing the inverse Fourier transform in the $\kappa$ variable back to the variable $z$ and setting $z=0$, we find an equation for the quantity $\phi^\BD(\bq)$, that after being isolated reads
 
 \begin{equation}
 \label{eq:RK_potential_momentum}
-    \phi^\BD\left(\bq\right) = \frac{e}{2\epsz q\left(1+r_0 q\right)},\,\qq{defining}\,r_0 \equiv \epsz\chi_{e}^\BD\,.
+    \phi^\BD(\bq) = \frac{e}{2\epsz q\left(1+r_0 q\right)},\,\qq{defining}\,r_0 \equiv \epsz\chi_{e}^\BD\,.
 \end{equation}
 
 \noindent We call the parameter $r_0$ the screening length parameter, or simply screening parameter, and its value depends only on the material.
-This formula contains the expression for the \bd~Fourier transform of the bare Coulomb potential given by\footnote{We remark that this expression does not have units of energy, which can be traced back to the used definition of Fourier transform in this chapter. That can be fixed by simply dividing by the area of the total system. It poses not a problem, as long as the final calculated quantity of interest has the right dimensions.}\todo{have to define somewhere the Fourier transforms}
+This formula contains the expression for the \bd~Fourier transform of the bare Coulomb potential given by\footnote{We remark that this expression does not have units of energy, which can be traced back to the used definition of Fourier transform in this chapter. That can be fixed by simply dividing by the area of the total system. It poses not a problem, as long as the final calculated quantity of interest has the right dimensions.}
 
 \begin{equation}
     v_{c}(q)=\frac{e}{2\epsz q}\,,
 \end{equation}
 
 \noindent but corrected with a factor of $1+r_0 q$.
-We can then define an effective momentum-resolved dielectric function, $\varepsilon_\RK\left(q\right) \equiv 1+r_0 q$, called Rytova--Keldysh dielectric function, which accounts for screening in \bd~materials.
+We can then define an effective momentum-resolved dielectric function, $\varepsilon_\RK\left(q\right) \equiv v_{c}(q)/\phi^\BD\!(\bq) = 1+r_0 q$, called Rytova--Keldysh dielectric function~\cite{Rytova_1967}, which accounts for screening in \bd~materials.
 Having previously assumed that the material is isotropic, then it depends only on the magnitude of the in-plane momentum $q = |\bq|$.
 It actually coincides with the static macroscopic dielectric function in \bd~materials in the high-wavelength (small $q$) limit.
-It carries the usual interpretation of being the ratio between the external potential $\phi^\ext\left(\br\right)=\phi_0^\ext\left(\bq\right) \ei{\bq \vdot \br}$ and the total (or screened) potential $\phi^\tot\left(\br\right)=\phi_0^\tot\text{\ensuremath{\left(\bq\right)}}\ei{\bq \vdot \br}$, which has a contribution from the external potential and another one from the potential induced by the external perturbation.
+It carries the usual interpretation of being the ratio between the external potential $\phi^\ext (\br)=\phi_0^\ext(\bq) \ei{\bq \vdot \br}$ and the total (or screened) potential $\phi^\tot (\br)=\phi_0^\tot\text{\ensuremath{(\bq)}}\ei{\bq \vdot \br}$, which has a contribution from the external potential and another one from the potential induced by the external perturbation.
 We actually introduced this interpretation in Section~\ref{subsec:constitutive_relations_linear_response} in terms of fields instead of potentials, but the idea is the same.
 The resulting effective Coulomb potential is called Rytova--Keldysh potential~\cite{Rytova_1967}.
 
@@ -373,7 +372,7 @@ In this approximation, the displacement field is simply given by
 
 \noindent form the necessary constitutive relations.
 
-Ignoring non-local effects is valid if the wavelength of the optical excitation is much larger than the characteristic length scales of the material.
+Ignoring nonlocal effects is valid if the wavelength of the optical excitation is much larger than the characteristic length scales of the material.
 One may speak of the typical distance between atoms in a solid, or the Fermi wavelength (the inverse of the Fermi wavevector), which are quite small, usually in the order of the Ångstrom.
 In the context of nanophotonics and polaritonics, the typical length scale is of the order of the nanometer, a bit close to the frontier separating classical physics from quantum physics.
 Nonetheless this approximation has revealed to be quite accurate in many contexts~\cite{GoncalvesPeres:2016,maier_plasmonics_2007,Hohenester_2020}.
@@ -386,7 +385,7 @@ It is called the (AC) Drude model~\cite{Drude_1900}, often introduced in the for
     \sigma(\omega) = \frac{\wp^2 \epsz}{\gamma - \ii \omega}\,,
 \end{equation}
 
-\noindent where $\wp$ is the plasma frequency\footnote{The definition of plasma frequency is $\wp = \sqrt{e^2 n_{e}/\epsz m}$, where $n_{e}$ is the volume density of electrons in the material or plasma, and $m$ is the mass of the free electrons.}, a parameter related to the natural frequency of free electron oscillations in a plasma, and $\gamma$ is a relaxation or scattering rate, with $\tau = 1/\gamma$ giving the timescale of consecutive collisions between the electrons and the ions in the lattice, being of the order of $10^{-14}$\unit{\second} in typical metals.
+\noindent where $\wp$ is the plasma frequency\footnote{The definition of plasma frequency is $\wp = \sqrt{e^2 n_{e}/\epsz m}$, where $n_{e}$ is the volume density of electrons in the material or plasma, and $m$ is the mass of the free electrons.}, a parameter related to the natural frequency of free electron oscillations in a plasma, and $\gamma$ is a relaxation or scattering rate, with $\tau = 1/\gamma$ giving the timescale of consecutive collisions between the electrons and the ions in the lattice, being of the order of $10^{-14}$ \unit{\second} in typical metals.
 Together with the interrelation between the conductivity and the permittivity~\eqref{eq:equivalent_permittivity}, we can write the equivalent Drude dielectric function as
 
 \begin{equation}
@@ -424,11 +423,11 @@ At this moment, we have to be satisfied with the fact that these parameters are 
 We can say, though, that these parameters hide very rich physics to be unveiled in the next chapters, just like in the case of Section~\ref{subsubsec:dielectric_function_static_limit}, where we introduced the adhoc parameter $r_0$.
 We beg then for the reader's patience, as further clarifications will come in the next chapters.
 
-Finding a simple enough analytical expression for the dielectric function that encompasses both non-local and dynamical effects is a daunting task, but it can still be done for a couple of cases.
+Finding a simple enough analytical expression for the dielectric function that encompasses both nonlocal and dynamical effects is a daunting task, but it can still be done for a couple of cases.
 One striking example is the Lindhard function, the dielectric function for the \gls{3d} homogeneous noninteracting electron gas, named after the Danish physicist Jens Lindhard, who derived the function in 1954~\cite{Lindhard_1954}.
 For the reader more inclined to hydrodynamical and kinetic theories of \bd~materials and plasmas, we refer to Refs.~\cite{Chen_Plasma_Physics,Cosme_2025}, where one can find mesoscopic approaches to the dielectric and plasmonic properties of Dirac materials, for which analytical or semi-analytical expressions for the dielectric function can be found.
 Another thorough text on plasmonic properties of Dirac materials that is worth mentioning is the one by P.~A.~D.~Gon\c{c}alves and N.~M.~R.~Peres, Ref.~\cite{GoncalvesPeres:2016}.
-Another honorable mention is the hydrodynamic Drude model~\cite{Bloch_1933,Andre_Goncalves_2020}, a non-local extension of the Drude model from the hydrodynamic equations of motion of the electron gas, seen as a charged fluid moving in the ionic positive background of a metal.
+One more example is the hydrodynamic Drude model~\cite{Bloch_1933,Andre_Goncalves_2020}, a nonlocal extension of the Drude model from the hydrodynamic equations of motion of the electron gas, seen as a charged fluid moving in the ionic positive background of a metal.
 
 Using only concepts introduced in this chapter, in the next section we turn to a key topic within the realm of electrodynamics that has been gaining traction in the scientific community, pertaining to the interaction of light with matter, still through the lens of classical physics.
 We shall present a light--matter hybrid, the quasiparticle called polariton.
@@ -437,7 +436,7 @@ We shall present a light--matter hybrid, the quasiparticle called polariton.
 \label{sec:polaritonics_fundamentals}
 
 In this part of the chapter, we dwell on polaritons: a polariton is a light--matter hybrid, resulting from the coupling of a dipolar matter excitation occurring in the plane that is an interface between two media, with the surrounding \gls{em} field.
-The result is a transversal \gls{em} mode that propagates in-plane but is ultra-confined along the off-plane direction.
+The result is an \gls{em} mode that propagates in-plane but is ultra-confined along the off-plane direction.
 These modes can be predicted by simply trying a specific \textit{ansatz} solution on Maxwell's equations~\eqref{eq:Maxwells_equations} describing the situation above, complemented by the boundary conditions dictated by~\eqref{eq:boundary_conditions_tangential} and~\eqref{eq:boundary_conditions_perpendicular}, and the constitutive relations~\eqref{eq:constitutive_relation_electric_field} and \eqref{eq:constitutive_relation_magnetic_field} to close the problem.
 Before doing so, we will warm up by deriving the wave equation for the \gls{em} field in matter and introduce useful concepts for later on.
 
@@ -470,7 +469,7 @@ Now, if we assume that the oscillation of the \gls{em} field is transversal, the
     \qty[k^2 - \vareps_{\text{eq}}(\bk,\omega) \frac{\omega^2}{c^2}] \bF (\bk,\omega) = \bzero\,,\, \bF \in \{\bE, \bB\}.
 \end{equation}
 
-\noindent The attentive reader might have recognized the previous equation as the wave equation but written in the $(\bk,\omega)$ domain.
+\noindent The reader might have recognized the previous equation as the wave equation but written in the $(\bk,\omega)$ domain.
 It presents a non-trivial solution $\bF \neq \bzero$ if the quantity in brackets is zero, therefore $\bk$ and $\omega$ have to verify
 
 \begin{equation}
@@ -479,8 +478,8 @@ It presents a non-trivial solution $\bF \neq \bzero$ if the quantity in brackets
 
 Relationships of the previous kind, relating the frequency of the wave with the wavevector, are called dispersion relations.
 In this case, the wave pertains to light, so it is an optical dispersion relation.
-We will face another type of dispersion relation in the next chapter.
-We further note that the wavenumber $k$ and wavevector $\bk$ are in general complex, as well the permittivity $\vareps_{\text{eq}}(\bk,\omega)$.
+We will face another type of dispersion relation in the next chapter, pertaining to propagating electrons in a crystal.
+We further note that the wavevector $\bk$ is in general complex, as well the permittivity $\vareps_{\text{eq}}(\bk,\omega)$.
 Writing the wavenumber in terms of its real and imaginary parts as $k = k' + \ii \kappa$, when looking at modes oscillating in space as $\exp (\ii k x)$, then we have $\exp (\ii k x) = \exp (\ii k' x) \exp (- \kappa x)$.
 Therefore, the inverse of the imaginary part of the wavenumber $1/\kappa$ has the interpretation of a penetration length scale of the wave into the medium.
 The parameter $\kappa$ is then called the extinction coefficient, and $1/\kappa$ the skin depth\footnote{We discard off course the unphysical $\kappa<0$ solutions.}.
@@ -563,7 +562,7 @@ Furthermore, we work with the total displacement field $\bD$ defined in Section~
 \end{equation}
 
 
-\noindent by defining $k_0^2 \equiv \omega^2 \vareps(\omega) /c^2$, and neglecting non-local effects in the material (either 1 or 2), so that the permittivity appearing is only frequency dependent.
+\noindent by defining $k_0^2 \equiv \omega^2 \vareps(\omega) /c^2$, and neglecting nonlocal effects in the material (either 1 or 2), so that the permittivity appearing is only frequency dependent.
 This allows to transform the spatial convolution of the permittivity with the electric field into a mere multiplication, such that $\bD(\br,\omega) = \vareps(\omega) \bE(\br,\omega)$ as already explained previously (see Section~\ref{subsubsec:dielectric_function_local_limit}).
 Otherwise, we would have to take spatial derivatives of the response function.
 This is equivalent to taking in~\eqref{subeq:wave_equation_F} the \lra~limit $\bk \to \bzero$ of $\vareps_{\text{eq}}(\bk,\omega)$, and converting the square of the wavenumber $k^2$ back into the Laplacian operator in real space (up to a sign).
@@ -748,15 +747,15 @@ In the top branch in red, the low-frequency behavior of the \gls{spp} is light-l
 \begin{figure}[bh!]
 \centering
 \includegraphics[width=0.9\textwidth]{Chapters/Figures/Chapter_2/SPP_dispersion_relation}
-\mycaption[Dispersion relation of surface plasmon--polaritons at a dielectric--metal interface]{Dispersion relation $\omega(q)$ of \gls{spp}s at a dielectric--metal interface for a (local) Drude metal with $\vareps_\infty = 1$ in Eq.~\eqref{eq:Drude_dielectric_function}, and a dielectric with $\vareps_1 = 1$ (air, for instance).
-Panel \pnl{a} is for a collisionless Drude model with $\gamma=0$. The dashed black line corresponds to light propagating in vacuum, the top branch, in red, corresponds to free light propagating in the(bulk) metal, and the bottom branch, in blue, corresponds to the \gls{spp} dispersion relation, given by solving Eq.~\eqref{eq:TM_polariton_dispersion_relation}.
+\mycaption[Dispersion relation of surface plasmon--polaritons at a dielectric--metal interface]{Dispersion relation $\omega(q)$ of \gls{spp}s at a dielectric--metal interface for a Drude metal with $\vareps_\infty = 1$ in Eq.~\eqref{eq:Drude_dielectric_function}, and a dielectric with $\vareps_1 = 1$.
+Panel \pnl{a} is for a collisionless Drude model with $\gamma=0$. The dashed black line corresponds to light propagating in vacuum, the top branch, in red, corresponds to free light propagating in the (bulk) metal, and the bottom branch, in blue, corresponds to the \gls{spp} dispersion relation, given by solving Eq.~\eqref{eq:TM_polariton_dispersion_relation}.
 The gray dashed horizontal line corresponds to the dispersion relation of the \gls{tm} polarized mode in the limit $c \to \infty$, also called the nonretarded limit.
 Panel \pnl{b} is for a Drude metal with finite damping rate $\gamma = 0.2 \wp$. The blue full line represents the real part of the wavenumber, while the blue dashed one the imaginary part.}
 \label{fig:SPP_dispersion_relation}
 \end{figure}
 
 
-The peculiar properties of this \gls{em} mode can in principle be exploited for \gls{em} field manipulation at very small length scales and promote strong light--matter interactions.
+The interesting properties of this \gls{em} mode can in principle be exploited for \gls{em} field manipulation at very small length scales and promote strong light--matter interactions.
 However, and quite unfortunately, one cannot ignore Ohmic losses, especially in metals, henceforth we would say that the situation depicted in panel \pnl{b} is more realistic.
 In the lossy case, the theoretical value for the highest wavenumber we could possibly achieve is more comparable to that of free light (but still higher).
 Moreover, the fact that the permittivity is complex results in a wavenumber with non-negligible imaginary part~\cite{Wolff_2018}, that actually peaks at approximately the same frequency where the real part peaks.
@@ -775,9 +774,9 @@ For a continuous wave experiment the complex valued wavenumber picture would off
 
 We will see later on in this work another kind of surface polaritons, where the polar matter excitation is one characteristic of insulators and semiconductors, the so-called exciton.
 The coupling of the exciton with the \gls{em} field is logically called exciton--polariton.
-The exciton is a quasiparticle that results from the optical excitation of materials that present an electronic band gap.
-These can be classified as semiconductors if the band gap is smaller than or of the order of the environment thermal energy dictated by the external temperature, or insulators if the band gap is large compared with the thermal energy.
-Before we can understand these concepts (band gap, insulators/semiconductors) and describe this exciton quasiparticle, and the consequent coupling with light, we need to dive deeper into the field of quantum physics, with particular emphasis on solid-state matter in the context of condensed matter physics.
+The exciton is a quasiparticle that results from the optical excitation of materials that present an electronic bandgap.
+These can be classified as semiconductors if the bandgap is smaller than or of the order of the environment thermal energy dictated by the external temperature, or insulators if the bandgap is large compared with the thermal energy.
+Before we can understand these concepts (bandgap, insulators/semiconductors) and describe this exciton quasiparticle, and the consequent coupling with light, we need to dive deeper into the field of quantum physics, with particular emphasis on solid-state matter in the context of condensed matter physics.
 That is what the next chapter is devoted to, introduce the reader to the concepts of quantum mechanics that are necessary to address the excitations of materials at length scales where the tools of classical physics are deemed insufficient.
 The excitations of matter using a quantum description of materials is then the subject of the subsequent chapters.
 
@@ -796,7 +795,6 @@ Capital $A$ stands for field amplitude.
 Using Faraday's law in reciprocal space~\eqref{subeq:Faradays_law_reciprocal}, the incident, reflected and transmitted magnetic fields read $\bH_\inc = - k_i/\omega \mu_0 A_i \ei[-]{k_i z} \bey$, $\bH_\refl = k_i/\omega \mu_0 A_r \ei[-]{k_i z} \bey$ and $\bH_\trans = - k_t/\omega \mu_0 A_t \ee^{-\ii k_t z} \bey$, respectively.
 Boundary conditions at the interface $z=0$ given by~\eqref{eq:boundary_condition_E} and~\eqref{eq:boundary_condition_H}, where the subscript ``2'' denotes the transmitted field, while the subscript ``1'' denotes the total field in region 1, incident plus reflected, demand that
 
-
 \begin{subequations}
     \begin{align}
         A_i + A_r &= A_t\,, \label{subeq:boundary_condition_E_incidence}\\
@@ -814,15 +812,14 @@ Using the identity $k = n \omega / c $ and solving the previous system of equati
     \end{align}
 \end{subequations}
 
-\begin{figure}[H]
+\begin{figure}[ht]
     \centering
     \input{Chapters/Figures/Chapter_2/normal_incidence}
     \mycaption[Normal incidence of a plane wave on an interface between two dielectrics]{A plane wave with wavevector $\bk_\inc$ and frequency $\omega$, travelling through medium 1 with permittivity $\vareps_1$, impinges on the surface of a \bd~material, in blue, deposited on top of a dielectric substrate with permittivity $\vareps_2$.}
     \label{fig:normal_incidence}
 \end{figure}
 
-
-The attentive reader may notice that the Fresnel coefficients are not yet a measure of the amount of radiation that the \bd~material reflects or transmits, they are only relative field amplitudes.
+The Fresnel coefficients are not yet a measure of the amount of radiation that the \bd~material reflects or transmits, they are only relative field amplitudes.
 In order to calculate the amount of radiation reflected and transmitted, and consequently absorbed, we actually still need to calculate the relative field intensities.
 We can define the intensity of the \gls{em} field as the magnitude of the Poynting vector $\bS$, defined by $\bS = \bE \times \bH$~\cite{Jackson:electrodynamics,Hohenester_2020}, averaged in time over one complete oscillation.
 As we are considering only plane waves composed of a single harmonic frequency $\omega = c k /n$, we can write for the time-averaged Poynting vector~\cite{Hohenester_2020}
@@ -852,10 +849,19 @@ We are in place now to compute the amount of radiation that is absorbed by the \
 
 Maxwell's equations valid in continuous domains, together with the boundary conditions for boundaries between domains and the constitutive relations, form a closed system of equations, with which we could tackle any problem in electrodynamics involving \bd~materials; at least in principle, and if not analytically, then numerically.
 It happens that to make realistic predictions and expect agreement with experiments, we would need to know how the dielectric function, or equivalently the conductivity, depends on the frequency and wavevector\footnote{Apart from non-linear phenomena, where higher-order susceptibilities have to be defined, and it no longer makes sense speaking of a single permittivity or conductivity.}.
-We have considered particular cases in the previous Section~\ref{subsec:constitutive_relations_linear_response}, for which certain approximations allow for writing an analytical expression for the dielectric function, as the example of the local Drude metal, its extension to the Drude--Lorentz model for dielectrics and the \bd~dielectric function in the static limit.
-Up until now, we have not discussed how in fact such models can be obtained for different materials.
-If we could do so, then we could know what values to use for the adjustable parameters in each model, and maybe even find the complete dependence of the material properties in the whole $(\bk,\omega)$ domain, even if numerically.
-For us to have hope in doing so, we need the appropriate tools necessary to describe nanometric materials, or at even smaller ones down to the atomic level, where a plethora of different effects and phenomena underlie the emerging macroscopic physics that can be observed in real experiments.
-In the next chapter we introduce the reader to the principles of quantum mechanics that are absolutely necessary to attack the problem of electrodynamics in materials at the quantum level, with focus on crystalline solids.
-This will allow us to have a proper, microscopic description of screening in periodic systems at the single-particle or noninteracting level.
-It is only after having a proper, microscopic, description of electronic properties and screening in solids that we can describe phenomena at the interacting level, namely excitons and related optical properties, the topics of the chapters coming after the next one.
+We have seen two examples in the Section~\ref{subsec:constitutive_relations_linear_response} of models for the dielectric function that have an easy analytical expression.
+However, at this point we have no insight on the validity of these models, or where exactly do they come from, apart from classical explanations.
+More specifically, there is no way for us to obtain the values of the adjustable parameters used in those models besides from experimental measurements.
+In the next chapter, we introduce the reader to the principles of quantum mechanics, which are absolutely necessary to attack the problem of electrodynamics in materials at the quantum level, with focus on crystalline solids.
+Doing so, we will be able to have a better feeling for the dielectric and optical properties of materials.
+In the class of \bd~materials we are interested in, insulators and semiconductors, having a quantum description for their optical properties is essential, as it is the only way in which we can predict the exciton, responsible for the material optical properties.
+After reading the next two chapters, the reader should be able to understand how a microscopic description of crystals allows properly quantifying the permittivity and the conductivity of periodic solids.
+These type of solids are the subject of the next chapter.
+\todo[inline]{What about now, clearer?}
+%We have considered particular cases in the previous Section~\ref{subsec:constitutive_relations_linear_response}, for which certain approximations allow for writing an analytical expression for the dielectric function, as the example of the local Drude metal, its extension to the Drude--Lorentz model for dielectrics and the \bd~dielectric function in the static limit.
+%Up until now, we have not discussed how in fact such models can be obtained for different materials.
+%If we could do so, then we could know what values to use for the adjustable parameters in each model, and maybe even find the complete dependence of the material properties in the whole $(\bk,\omega)$ domain, even if numerically.
+%For us to have hope in doing so, we need the appropriate tools necessary to describe nanometric materials, or at even smaller ones down to the atomic level, where a plethora of different effects and phenomena underlie the emerging macroscopic physics that can be observed in real experiments.
+%In the next chapter we introduce the reader to the principles of quantum mechanics that are absolutely necessary to attack the problem of electrodynamics in materials at the quantum level, with focus on crystalline solids.
+%This will allow us to have a proper, microscopic description of screening in periodic systems at the single-particle or noninteracting level.
+%It is only after having a proper, microscopic, description of electronic properties and screening in solids that we can describe phenomena at the interacting level, namely excitons and related optical properties, the topics of the chapters coming after the next one.
