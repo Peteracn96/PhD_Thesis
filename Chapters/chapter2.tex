@@ -479,7 +479,7 @@ It presents a non-trivial solution $\bF \neq \bzero$ if the quantity in brackets
 Relationships of the previous kind, relating the frequency of the wave with the wavevector, are called dispersion relations.
 In this case, the wave pertains to light, so it is an optical dispersion relation.
 We will face another type of dispersion relation in the next chapter, pertaining to propagating electrons in a crystal.
-We further note that the wavevector $\bk$ is in general complex, as well the permittivity $\vareps_{\text{eq}}(\bk,\omega)$.
+We further note that the wavevector $\bk$, that can also be called the wavenumber, is in general complex, as well the permittivity $\vareps_{\text{eq}}(\bk,\omega)$.
 Writing the wavenumber in terms of its real and imaginary parts as $k = k' + \ii \kappa$, when looking at modes oscillating in space as $\exp (\ii k x)$, then we have $\exp (\ii k x) = \exp (\ii k' x) \exp (- \kappa x)$.
 Therefore, the inverse of the imaginary part of the wavenumber $1/\kappa$ has the interpretation of a penetration length scale of the wave into the medium.
 The parameter $\kappa$ is then called the extinction coefficient, and $1/\kappa$ the skin depth\footnote{We discard off course the unphysical $\kappa<0$ solutions.}.
@@ -713,7 +713,7 @@ We have finally obtained the dispersion relation of \gls{tm} polarized polariton
     \frac{\varepsilon_1}{\kappa_1} + \frac{\varepsilon_2}{\kappa_2} + \ii  \frac{\sigma_{xx}}{\epsz \omega} = 0
 \end{empheq}
 
-We can see that \gls{tm} polarized polaritons are supported in the range of frequencies for which $\Im\{\sigma_{xx}(\omega)\} <0$ (condition that results in positive values for the extinction coefficients).
+We can see that \gls{tm} polarized polaritons are supported in the range of frequencies for which $\Im\{\sigma_{xx}(\omega)\} > 0$ (condition that results in positive values for the real part of the extinction coefficients).
 If the real part of the conductivity is finite (non-zero), that is, if there is loss, then the equation holds on the complex plane, and either the frequency or the wavenumber has to be complex.
 
 An analogous procedure for \gls{te} modes would lead to
@@ -807,8 +807,8 @@ Using the identity $k = n \omega / c $ and solving the previous system of equati
 
 \begin{subequations}
     \begin{align}
-        r &\equiv \frac{A_r}{A_i} = \frac{n_1 - n_2 - \sigma/c \epsz}{n_1 + n_2 + \sigma/c \epsz} \qq{and} \label{subeq:Fresnel_reflection_coefficient} \\
-        t &\equiv \frac{A_t}{A_i} = \frac{2 n_1}{n_1 + n_2 + \sigma/c \epsz}\,. \label{subeq:Fresnel_transmission_coefficient}
+        r &\equiv \frac{A_r}{A_i} = \frac{n_1 - n_2 - \sigma/(c \epsz)}{n_1 + n_2 + \sigma/(c \epsz)} \qq{and} \label{subeq:Fresnel_reflection_coefficient} \\
+        t &\equiv \frac{A_t}{A_i} = \frac{2 n_1}{n_1 + n_2 + \sigma/(c \epsz)}\,. \label{subeq:Fresnel_transmission_coefficient}
     \end{align}
 \end{subequations}
 
@@ -833,17 +833,18 @@ For the incident and reflected radiation fields, respectively, we have $\bS_\inc
 We can finally define the relative amount of radiation that is reflected and transmitted at the interface, respectively, as
 
 \begin{subequations}
+    \label{eq:R_and_T_definitions}
     \begin{align}
         \mathcal{R} &= \frac{\langle \qty|\bS_\refl| \rangle}{\langle \qty|\bS_\inc| \rangle} = \frac{\qty|\bE_\refl|^2}{\qty|\bE_\inc|^2} = \qty|r|^2 \qq{and} \label{subeq:reflected_radiation}\\
-        \mathcal{T} &= \frac{\langle \qty|\bS_\trans| \rangle}{\langle \qty|\bS_\inc| \rangle} = \frac{\Re{n_2}}{\Re{n_1}} \frac{\qty|\bE_\trans|^2}{\qty|\bE_\inc|^2}  = \frac{\Re{n_2}}{\Re{n_1}} \qty|t|^2 \,,
+        \mathcal{T} &= \frac{\langle \qty|\bS_\trans| \rangle}{\langle \qty|\bS_\inc| \rangle} = \frac{\Re{n_2}}{\Re{n_1}} \frac{\qty|\bE_\trans|^2}{\qty|\bE_\inc|^2}  = \frac{\Re{n_2}}{\Re{n_1}} \qty|t|^2 \,, \label{subeq:transmitted_radiation}
     \end{align}
 \end{subequations}
 
 \noindent where the expressions for $r$ and $t$ can be found in equations~\eqref{subeq:Fresnel_reflection_coefficient} and~\eqref{subeq:Fresnel_transmission_coefficient}, respectively.
-We are in place now to compute the amount of radiation that is absorbed by the \bd~material, or simply absorption, through the identity
+We are in place now to compute the amount of radiation that is absorbed by the \bd~material, the optical absorption $\mathcal{A}_{\mathrm{opt}}$, through the identity
 
 \begin{empheq}[innerbox=\colorbox{lightgray}, right={\,.}]{equation}
-    \mathcal{A} = 1 - \mathcal{R} - \mathcal{T} = 1 - |r|^2 - \frac{\Re{n_2}}{\Re{n_1}} |t|^2
+    \mathcal{A}_{\mathrm{opt}} = 1 - \mathcal{R} - \mathcal{T} = 1 - |r|^2 - \frac{\Re{n_2}}{\Re{n_1}} |t|^2
     \label{eq:absorption}
 \end{empheq}
 
