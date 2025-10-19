@@ -801,7 +801,7 @@
 	author={Ninhos, Pedro and Tserkezis, Christos and Mortensen, N. Asger and Peres, Nuno M. R.},
 	year={2024},
 	month={8},
-	pages={20751–20761} }
+	pages={20751--20761} }
 
 @article{Stauber_2017,
 	title = {Nonlocal Quantum Effects in Plasmons of Graphene Superlattices},
@@ -844,7 +844,7 @@
 	author={Park, Cheol-Hwan and Yang, Li and Son, Young-Woo and Cohen, Marvin L. and Louie, Steven G.},
 	year={2008},
 	month={3},
-	pages={213–217} }
+	pages={213--217} }
 
 @article{Louie_2010,
 	title = {Graphene Dirac fermions in one-dimensional inhomogeneous field profiles: Transforming magnetic to electric field},
@@ -932,6 +932,50 @@
     publisher = {American Physical Society},
     doi = {10.1103/PhysRevB.106.045118},
     url = {https://link.aps.org/doi/10.1103/PhysRevB.106.045118}
+}
+
+@article{Prandini_Galante_Marzari_Umari_2019,
+	title={SIMPLE code: Optical properties with optimal basis functions},
+	volume={240},
+	ISSN={0010-4655},
+	DOI={10.1016/j.cpc.2019.02.016},
+	abstractNote={We present SIMPLE, a code developed to calculate optical properties of metallic and insulating extended systems using the optimal basis method originally proposed by E.L. Shirley in 1996. Two different approaches for the evaluation of the complex dielectric function are implemented: (i) the independent-particle approximation considering both interband and intraband contributions for metals and (ii) the Bethe–Salpeter equation for insulators. Since, notably, the optimal basis set is systematically improvable, accurate results can be obtained at a strongly reduced computational cost. Moreover, the simplicity of the method allows for a straightforward use of the code; improvement of the optimal basis and thus the overall precision of the simulations is simply controlled by one (for metals) or two (for insulators) input thresholds. The code is extensively tested, in terms of verification and performance, on bulk silver for metals and on bulk silicon for insulators.
+	Program summary
+	Program Title: SIMPLE Program Files doi: http://dx.doi.org/10.17632/99ps9dz428.1 Licensing provisions: GNU General Public License v2 Programming language: Fortran 95 External routines: Quantum ESPRESSO distribution, BLAS, LAPACK, FFTW, MPI. Nature of problem: First-principles calculations of the optical properties of metals and insulators. Solution method: Shirley’s optimal basis for the complex dielectric function, at the independent-particle level for metals and by solving the Bethe–Salpeter equation for insulators. Restrictions: Norm-conserving pseudopotentials.},
+	journal={Computer Physics Communications},
+	author={Prandini, Gianluca and Galante, Mario and Marzari, Nicola and Umari, Paolo},
+	year={2019},
+	month={7},
+	pages={106--119} }
+
+@article{Dias_Silveira_Qu_2023,
+	title={WanTiBEXOS: A Wannier based Tight Binding code for electronic band structure, excitonic and optoelectronic properties of solids},
+	volume={285},
+	ISSN={0010-4655},
+	DOI={10.1016/j.cpc.2022.108636},
+	abstractNote={The Bethe--Salpeter equation (BSE) approach becomes a methodology commonly used for simulating excitonic and optical properties in computer materials sciences. However, BSE approach based directly on first principles demands a high computational cost, being prohibitive for larger systems. In order to overcome this challenge, we have developed WanTiBEXOS, a parallel computational FORTRAN code, constituted of a maximally localized Wannier functions based tight-binding (MLWF-TB) model in conjunction with BSE framework. The MLWF-TB Hamiltonian used in WanTiBEXOS package can be obtained via any density functional theory package interfaced with Wannier90 code. It's expected, due MLWF-TB formalism, a computational time reduction around one or more orders of magnitude in comparison with BSE ab initio implementations. In order to demonstrate its reliability, flexibility, efficiency and versatility of WanTiBEXOS, we simulate electronic and optical property calculations for the representative materials, including conventional bulk semiconductors, perovskites, nano-monolayer materials and van der Waals heterostructures.
+	Program summary
+	Program Title: WanTiBEXOS CPC Library link to program files: https://doi.org/10.17632/4vh76mnkv5.1 Developer's repository link: https://github.com/ac-dias/wantibexos Licensing provisions: GNU General Public Licence 3.0 Programming language: Fortran90 (Intel compiler) External routines: OpenMP and Intel Math Kernel Library (MKL) Nature of problem: Calculate electronic, optical, and excitonic properties of solids. Solution method: Tight-binding approach under maximally localized Wannier functions (MLWF) parametrization to describe standard electronic properties and the Bethe--Salpeter formalism for excitonic properties.},
+	journal={Computer Physics Communications},
+	author={Dias, Alexandre C. and Silveira, Julian F. R. V. and Qu, Fanyao},
+	year={2023},
+	month={4},
+	pages={108636}
+}
+
+@article{PhysRevB.98.125308,
+  title = {Coulomb interaction in monolayer transition-metal dichalcogenides},
+  author = {Van Tuan, Dinh and Yang, Min and Dery, Hanan},
+  journal = {Phys. Rev. B},
+  volume = {98},
+  issue = {12},
+  pages = {125308},
+  numpages = {13},
+  year = {2018},
+  month = {9},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevB.98.125308},
+  url = {https://link.aps.org/doi/10.1103/PhysRevB.98.125308}
 }
 
 %----------------------
@@ -1715,18 +1759,18 @@ collection={Solid State Physics} }
     eprint = {https://doi.org/10.1021/acs.nanolett.1c04400}}
 
 @article{Danielsen_Lassaline_2025,
-	title={Fourier-Tailored Light–Matter Coupling in van der Waals Heterostructures},
+	title={Fourier-Tailored Light--Matter Coupling in van der Waals Heterostructures},
 	volume={19},
 	ISSN={1936-0851},
 	DOI={10.1021/acsnano.5c02025},
-	abstractNote={Dielectric structures can support low-absorption optical modes, which are attractive for engineering light–matter interactions with excitonic resonances in two-dimensional (2D) materials. However, the coupling strength is often limited by the electromagnetic field being confined inside the dielectric, reducing the spatial overlap with the active excitonic material. Here, we demonstrate a scheme for enhanced light–matter coupling by embedding excitonic tungsten disulfide (WS2) within dielectric hexagonal boron nitride (hBN), forming a van der Waals (vdW) heterostructure that optimizes the field overlap and alignment between excitons and optical waveguide modes. To tailor diffractive coupling between free-space light and the waveguide modes in the vdW heterostructure, we fabricate Fourier surfaces in the top hBN layer by using thermal scanning-probe lithography and etching, producing sinusoidal topographic landscapes with nanometer precision. We observe the formation of exciton-polaritons with a Rabi splitting indicating that the system is at the onset of strong coupling. These results demonstrate the potential of Fourier-tailored vdW heterostructures for exploring advanced optoelectronic and quantum devices.},
+	abstractNote={Dielectric structures can support low-absorption optical modes, which are attractive for engineering light--matter interactions with excitonic resonances in two-dimensional (2D) materials. However, the coupling strength is often limited by the electromagnetic field being confined inside the dielectric, reducing the spatial overlap with the active excitonic material. Here, we demonstrate a scheme for enhanced light--matter coupling by embedding excitonic tungsten disulfide (WS2) within dielectric hexagonal boron nitride (hBN), forming a van der Waals (vdW) heterostructure that optimizes the field overlap and alignment between excitons and optical waveguide modes. To tailor diffractive coupling between free-space light and the waveguide modes in the vdW heterostructure, we fabricate Fourier surfaces in the top hBN layer by using thermal scanning-probe lithography and etching, producing sinusoidal topographic landscapes with nanometer precision. We observe the formation of exciton-polaritons with a Rabi splitting indicating that the system is at the onset of strong coupling. These results demonstrate the potential of Fourier-tailored vdW heterostructures for exploring advanced optoelectronic and quantum devices.},
 	number={22},
 	journal={ACS Nano},
 	publisher={American Chemical Society},
 	author={Danielsen, Dorte Rubæk and Lassaline, Nolan and Linde, Sander Jæger and Nielsen, Magnus Vejby and Zambrana-Puyalto, Xavier and Sarbajna, Avishek and Nguyen, Duc Hieu and Booth, Timothy J. and Leitherer-Stenger, Nicolas and Raza, Søren},
 	year={2025},
 	month={6},
-	pages={20645–20654} }
+	pages={20645--20654} }
 
 %----------------------
 %MATERIALS
