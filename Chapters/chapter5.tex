@@ -1022,7 +1022,7 @@ Then at the end, if we choose the lattice gauge without loss of generality, we w
 
 \begin{equation*}
 \begin{gathered}
-    \sum_{\bR} \exp{\ii \bk \vdot \bR} \sum_{i\alpha,i'\alpha'} (C^{v \bk}_{i\alpha})^* H_{i\alpha,i'\alpha'}(\bR) C^{v \bk}_{i'\alpha'} \sum_{j'\beta',j\beta} (C^{v \bk}_{j'\beta'})^* \bar{\bar{\br}}_{j'\beta',j\beta} C^{c \bk}_{j\beta} \\
+    \sum_{\bR} \ee^{\ii \bk \vdot \bR} \sum_{i\alpha,i'\alpha'} (C^{v \bk}_{i\alpha})^* H_{i\alpha,i'\alpha'}(\bR) C^{v \bk}_{i'\alpha'} \sum_{j'\beta',j\beta} (C^{v \bk}_{j'\beta'})^* \bar{\bar{\br}}_{j'\beta',j\beta} C^{c \bk}_{j\beta} \\
     = (\bC^{v\bk})^\dagger H(\bk) \bC^{v\bk} (\bC^{v\bk})^{\dagger} \bar{\bar{\br}}\, \bC^{c \bk} = \\
     = (\bC^{v\bk})^\dagger H(\bk) \bar{\bar{\br}}\, \bC^{c \bk} \,,
 \end{gathered}
@@ -1033,7 +1033,7 @@ Then at the end, if we choose the lattice gauge without loss of generality, we w
 Upon doing something similar for the other term in the commutator $\br H$ and taking the difference with the term above, we arrive at the intermediate formula
 
 \begin{equation}
-    \langle v,\bk|[H,\br]|c,\bk\rangle = (\bC^{v\bk})^\dagger [H(\bk),\bar{\bar{\br}}] \bC^{c \bk}\,.
+    \langle v,\bk|[H_0,\br]|c,\bk\rangle = (\bC^{v\bk})^\dagger [H(\bk),\bar{\bar{\br}}] \bC^{c \bk}\,.
 \end{equation}
 
 Now, we expand the Bloch Hamiltonian $H(\bk)$ around the point where the exciton is localized, the points $\bK$ or $\bK'$ in the case of \gls{hbn}, so that we can replace $H(\bk) \to \overline{H}_0$, where the low-energy Hamiltonian is now the renormalized one, and  we allow for the momentum variable $\bk$ to become the momentum operator, and $\bar{\bar{\br}}$ the position operator.
@@ -1107,7 +1107,7 @@ We recall that the variational wavefunction of the $1s$ state in momentum space,
 
 \noindent In the excitonic optical matrix element, we have two terms; one that comes from the cosine squared in the optical matrix element in Eq.~\eqref{eq:optical_matrix_element_final}, and another that comes from the sine squared in the same equation.
 So we write $\Omega  = \Omega^{\cos}_{1s} + \Omega^{\sin}_{1s}$, and treat both terms separately.
-We consider first light polarized along the $x$ axis.
+We consider first light polarized along the $x$-axis.
 The term that comes from the cosine reads
 
 \begin{equation}
@@ -1202,35 +1202,36 @@ In the next section we discuss the results obtained.
 \label{sec:results}
 
 We organize this section in three parts.
-In the first, we discuss the renormalized band structure and the consequence for the excitons.
-With the information from the excitonic energies and states, we can compute the excitonic optical conductivity as we have just discussed in the previous section, which is the subject of the second part.
-We finish with the results for the dispersion of the exciton--polaritons and the material absorption, whose theory was provided in Section~\ref{sec:polaritonics_fundamentals}.
+In the first one, we discuss the renormalized band structure and the consequence for the excitons, namely the binding energies.
+With the information from the excitonic energies and states, we can compute the excitonic optical conductivity as we have just discussed in the previous section, which is the subject of the second part of this section.
+In the third part, we finish with the results for the dispersion of the exciton--polaritons and the material absorption based on the theory provided in Section~\ref{sec:polaritonics_fundamentals}.
 
 \subsection{Bandgap and excitonic binding energies}
 \label{subsec:band_gap_and_binding_energies}
 
 As we have seen in Section~\ref{sec:electronic_band_structure_modulated_hBN}, the effective masses renormalize as $m_x = m^* |J_{0}(\beta)|$ and $m_y = m^*/ |J_{0}(\beta)| $, where $m^* = E_g/2\vF^2$ is the isotropic effective mass of electrons in pristine \gls{hbn}.
 This means that as $J_{0}(\beta) \to 0$, the dispersion becomes more and more anisotropic.
-To study the effects of this anisotropy in the electronic and excitonic properties of the system, we compute the bandgap and the binding energies of the excitonic states $1s$, $2x$, $2y$ and $2s$ for varying $\beta$, from the case $\beta=0$ without potential, to $\beta=2.4$ sufficiently close to the first zero of the Bessel function $J_0(\beta)$.
-We stress that the bandgap includes the electron--electron exchange correction $\Delta_{\mathrm{ex}}(\beta)$, that also renormalizes with $\beta$, whose calculation is detailed in Section~\ref{sec:exchange_energy} of the Appendix~\ref{app:hBN_superlattice}.
+To study the effects of this anisotropy in the electronic and excitonic properties of the system, we compute the bandgap and the binding energies of the excitonic states $1s$, $2x$, $2y$ and $2s$ for varying $\beta$, from the case $\beta=0$ without potential to $\beta=2.4$ sufficiently close to the first zero of the Bessel function $J_0(\beta)$.
+We stress that the bandgap includes the electron--electron exchange correction $\Delta_{\mathrm{ex}}(\beta)$, which also renormalizes with $\beta$, and whose calculation is detailed in Section~\ref{sec:exchange_energy} of the Appendix~\ref{app:hBN_superlattice}.
 The results are displayed in Fig.~\ref{fig:Eb_of_beta}.
-The value of the total bandgap, also called the fundamental gap, for $\beta=0$ is the one of pristine monolayer \gls{hbn}, that with our estimation is of $6.2$ \unit{\electronvolt}, closer to the values reported in the literature from \gls{dft} calculations using hybrid functionals~\cite{PhysRevB.106.045118}, or taking into account many-body effects using the $GW$+\gls{bse} approach.
-The work by F.~Ferreira et al. in Ref.~\cite{Ferreira_2019} has, in Table 1 therein, a comprehensive list of values for the bandgap of \gls{hbn} obtained from different works that use the $GW$ and $GW$+\gls{bse} methods, while Table I from Ref.~\cite{PhysRevB.106.045118} displays analogous results from \abinit~calculations as well, at both \gls{dft} and $GW$ levels.
+The value of the total bandgap, also called the fundamental gap, for $\beta=0$ is the one of pristine monolayer \gls{hbn} that, with our estimation, is of $6.2$ \unit{\electronvolt}, which is not very distant from the values reported in the literature from \gls{dft} calculations using hybrid functionals~\cite{PhysRevB.106.045118}, or taking into account many-body effects using the $GW$+\gls{bse} approach.
+The work by F.~Ferreira et al.~in Ref.~\cite{Ferreira_2019} has, in Table 1 therein, a comprehensive list of values for the bandgap of \gls{hbn} obtained from different works that use the $GW$ and $GW$+\gls{bse} methods.
+Another report listing different values for the bandgap of \gls{hbn} in the literature is Ref.~\cite{PhysRevB.106.045118}, where Table I from the main text displays analogous results to those of Ref.~\cite{Ferreira_2019}, also from \abinit~calculations at both \gls{dft} and $GW$ levels.
 
-In Figure~\ref{fig:Eb_of_beta}\pnl{a} we display the total bandgap $\Delta = \Delta_g(\beta) + \Delta_{\mathrm{ex}}(\beta)$ as a function of $\beta$.
-As one increases the potential strength $V_0$ (or the period $L$) the bandgap of \gls{hbn} decreases, with the bandgap closing at the first zero of $J_0$.
-This information is relevant to calculate the sub-gap optical conductivity because the excitonic levels $E_{\nu}$ define the resonant frequencies.
-Knowing the bandgap $\Delta$ and the binding energy $E_{b,\nu}$, we know the exciton energies $E_\nu = \Delta - |E_{b,\nu}|$.
+The total bandgap $\Delta = \Delta_g(\beta) + \Delta_{\mathrm{ex}}(\beta)$ as a function of $\beta$ computed with our approach is in Figure~\ref{fig:Eb_of_beta}\pnl{a}.
+As one increases the potential strength $V_0$ (or the period $L$), the bandgap of \gls{hbn} decreases from its initial value to zero, with the bandgap closing at the first zero of $J_0(\beta)$.
+This information is relevant to calculate the sub-gap optical conductivity, because the excitonic levels $E_{\nu}$ determine the resonant frequencies.
+Knowing the bandgap $\Delta$ and the binding energy $E_{b,\nu}$, we know the exciton energies $E_\nu = \Delta - |E_{b,\nu}|$\footnote{Most commonly in the literature, the binding energy is presented as a negative value, to stress that it is a bound state. We work with the absolute value of the binding energy, making the analysis indifferent to the convention.}.
 The exciton binding energies, obtained in the light of the variational principle, are represented in Figure~\ref{fig:Eb_of_beta}\pnl{b}.
 The $s$ states are in red, and the $p$ states $2x$ and $2y$ are in black.
-The $p$ states being originally degenerate in the isotropic case of $\beta=0$, which is expectable from using the Wannier--Mott description, are not degenerate anymore in the anisotropic case $\beta \neq 0$.
-Even though the binding energies generically decrease with increasing $\beta$, the $2y$ state presents a non-monotic behavior, but is always the first excited state.
-On the contrary, the binding energy of the $2x$ state always decreases, and at some point around $\beta \approx 1.6$, the binding energies of the $2x$ and $2s$ states match.
-After that point, the $2s$ state is now the second excited state, whereas the $2x$ is the highest one, at least among these four states.
+The $p$ states being originally degenerate in the isotropic case $\beta=0$, something expectable from using the Wannier--Mott description, are not degenerate anymore in the anisotropic case $\beta \neq 0$.
+Also, even though the binding energies generically decrease with increasing $\beta$, the $2y$ state presents a non-monotic behavior, but it is always the first excited state.
+On the contrary, the binding energy of the $2x$ state always decreases, and at some point around $\beta \approx 1.6$, the binding energies of the states $2x$ and $2s$ match.
+After that point, the $2s$ state is now the second excited state, whereas the $2x$ is the highest one (among these four states).
 Not surprisingly, the $1s$ state stays always as the ground state.
-One can use variational wavefunctions for even higher energy states, but the optical response is typically dominated by the lowest energy states.
-Moreover, as they go higher in energy, successive states become closer in energy, and therefore higher to distinct.
-And as we get closer to the end of bandgap, the \gls{ipa} optical response, that we do not analyze in this work, starts to dominate.
+We could use variational wavefunctions for even higher energy states, however, the optical response is typically dominated by the lowest energy states.
+Moreover, as they go higher in energy, successive states become closer in energy and harder to distinguish.
+In addition to that, as we get closer to the end of bandgap the optical response is dominated by \gls{ipa} conductivity, which we do not analyze in this chapter.
 
 \begin{figure}[ht]
 \centering
@@ -1239,95 +1240,100 @@ And as we get closer to the end of bandgap, the \gls{ipa} optical response, that
 \label{fig:Eb_of_beta}
 \end{figure}
 
-To obtain these binding energies, we applied the variational method as explained in Section~\ref{sec:anisotropic_exciton_states}, in which we have to find the variational parameters that minimize the binding energy.
+To obtain the binding energies, we applied the variational method as explained in Section~\ref{sec:anisotropic_exciton_states}, in which we have to find the variational parameters that minimize the binding energy.
 So, for each value of $\beta$, we have to find the roots of the equations of the form $\partial E_{\nu} / \partial a_{\nu} = \partial E_{\nu} / \partial b_{\nu} = 0$, where the forms of the derivatives for each one of the states $1s$, $2x$ and $2y$, and $2s$ are given at the end of the Subsections~\ref{subsec:ground_state_1s},~\ref{subsec:excited_states_2x_2y} and~\ref{subsec:excited_state_2s}, respectively.
 This was done using the method \lstinline[language=Mathematica]|FindRoot| of the software Mathematica~\cite{Mathematica}.
 
 \subsection{Sub-gap optical conductivity and absorption}
 \label{subsec:optical_conductivity_and_absorption}
 
-In this section we show the results obtained for the optical conductivity when computed through Eq.~\eqref{eq:optical_conductivity}.
-Figure~\ref{fig:sigma_grid} displays the results for the excitonic optical conductivity for different selected values of $\beta$, for light polarized along the $x$ and $y$ axes.
-Because the conductivity is complex, we plot separately the real and imaginary parts in the top and bottom panels, respectively.
+In this section, we show the results obtained for the optical conductivity computed through Eq.~\eqref{eq:optical_conductivity}.
+Figure~\ref{fig:sigma_grid} displays the results for the excitonic optical conductivity for different realizations of $\beta$, and for light polarized along the $x$ and $y$ axes separately.
+Since the conductivity is complex, we plot separately the real and imaginary parts in the top and bottom panels, respectively.
 The panels on the left are for $\uvec{e} = \uvec{x}$, while the panels on the right are for $\uvec{e} = \uvec{y}$.
 We have justified before why the $2x$ and $2y$ states do not contribute to the optical conductivity in Section~\ref{subsubsec:excited_states_2x_2y}, the reason why in panels~\ref{fig:sigma_grid}\pnl{a} and \ref{fig:sigma_grid}\pnl{b} there are only two peaks for each realization of $\beta$; the higher peak corresponds to the $1s$ state, while the smaller peak corresponds to the $2s$ state.
 
-The results for the isotropic case without potential, $\beta=0$, represented by the black curves in the plots of Fig.~\ref{fig:sigma_grid}, are in agreement with the literature where the same methods for the excitonic states, energies and conductivity  were used, namely in Refs.~\cite{Ventura_2019} and~\cite{Ferreira_2019}.
-In turn, they are in qualitative agreement with the results from the $GW$+\gls{bse} approach, as it is shown in Ref.~\cite{Ferreira_2019}.
-Please note that the results for the case $\beta=0$ appear on both sides of Fig.~\ref{fig:sigma_grid}, where the real and imaginary parts of the conductivity are the same regardless of the polarization.
+The results for the isotropic case without potential, $\beta=0$, represented by the black curves in the plots of Fig.~\ref{fig:sigma_grid}, are in agreement with the literature where the same methods for the excitonic states, energies and conductivity  were used~\cite{Ventura_2019,Ferreira_2019}.
+In turn, they are in good qualitative agreement with the results from the $GW$+\gls{bse} approach as discussed in Ref.~\cite{Ferreira_2019}.
+Note that the results for the case $\beta=0$ appear on both sides of Fig.~\ref{fig:sigma_grid}, where the real and imaginary parts of the conductivity are the same regardless of the polarization.
 They seem to have different heights for $\uvec{e}=\uvec{x}$ and $\uvec{e}=\uvec{y}$, but the scales of the vertical axes are different.
 The scales of the vertical axes have to be different, otherwise we would not be able to see the conductivity in the case of $\uvec{y}$ polarization, since it gets attenuated when $\beta$ increases.
-On the contrary, the opposite happens for the $\uvec{x}$ polarization; as $\beta$ increases the oscillator strength gets higher, and the peaks in the conductivity are enhanced.
-Besides that, the resonant frequencies, given by the excitonic levels as $\hbar \omega = E_{\nu}$, tend to redshift with increasing $\beta$.
+On the contrary, the opposite happens for the $\uvec{x}$ polarization; as $\beta$ increases, the oscillator strength increases as well, and the peaks in the conductivity are enhanced.
+Besides that, the resonant frequencies, defined by the excitonic levels as $\hbar \omega = E_{\nu}$, tend to redshift with increasing $\beta$.
 
-A particularity of the most extreme case of $\beta=2.3$ is the existence of only one zero in the imaginary part of the conductivity, as one can see in Fig.~\ref{fig:sigma_grid}\pnl{c}.
-This will affect the behavior of the polariton dispersion, since we discussed in Section~\ref{subsec:polaritonics_dispersion_relation} under what conditions polaritons are supported, depending on the sign of $\Im \{ \sigma(\omega) \}$.
+A particularity of the most extreme case of $\beta=2.3$, is the existence of only one zero in the imaginary part of the conductivity, as one can see in Fig.~\ref{fig:sigma_grid}\pnl{c}.
+This will affect the behavior of the polariton dispersion, since we discussed in Section~\ref{subsec:polaritonics_dispersion_relation} whether polaritons are supported depending on the sign of $\Im \{ \sigma(\omega) \}$.
 
-Knowing the optical conductivity, besides being able to calculate the dispersion relation for polaritonic modes, we can also compute the optical absorption for normal incidence by using the expression~\eqref{eq:absorption} and the definitions of the fraction of radiation reflected and transmitted in Eqs.~\eqref{subeq:reflected_radiation} and~\eqref{subeq:transmitted_radiation}, that when given in terms of the permittivities of media $1$ and $2$ reads
-%\vspace{-0.3cm}
+Knowing the optical conductivity, besides being able to calculate the dispersion relation for polaritonic modes, we can also compute the optical absorption for normal incidence by using the expression~\eqref{eq:absorption}, and the definitions of reflected and transmitted radiation fractions in Eqs.~\eqref{subeq:reflected_radiation} and~\eqref{subeq:transmitted_radiation}, respectively.
+When $\mathcal{R}$ and $\mathcal{T}$ are given in terms of the permittivities of media $1$ and $2$, Eq.~\eqref{eq:absorption} reads
+
 \begin{equation} \label{eq:optical_absorption_repeated}
         \mathcal{A}_{\mathrm{opt}} = 1 - \qty|\frac{\sqrt{\varepsilon_1} - \sqrt{\varepsilon_2}  - \frac{\sigma(\omega)}{c \epsz}}{\sqrt{\varepsilon_1} + \sqrt{\varepsilon_2} + \frac{\sigma(\omega)}{c \epsz}}|^2 - \frac{\Re\{\sqrt{\varepsilon_2}\}}{\Re\{\sqrt{\varepsilon_1}\}} \qty|\frac{2\sqrt{\varepsilon_1}}{\sqrt{\varepsilon_1} + \sqrt{\varepsilon_2} + \frac{\sigma(\omega)}{c \epsz}}|^2 \,.
 \end{equation}
 
-\noindent The optical absorption computed in this way as a function of the frequency is shown in Figures~\ref{fig:absorption}\pnl{a} and~\ref{fig:absorption}\pnl{b}, for light polarized along the $x$- and $y$-directions, respectively.
+\vspace{0.35cm}
+
+\noindent The optical absorption as a function of the frequency is shown in Figures~\ref{fig:absorption}\pnl{a} and~\ref{fig:absorption}\pnl{b}, for light polarized along the $x$- and $y$-directions, respectively.
 Each panel has the absorption spectrum for the same values of $\beta$ as in Fig.~\ref{fig:sigma_grid}.
-For $\uvec{y}$ polarization, in the panel~\ref{fig:absorption}\pnl{b}, we can see that initially the $1s$ peak increases slightly, but after that the material becomes less responsive, with an attenuated absorption as $\beta$ increases.
+For $\uvec{y}$ polarization, in the panel~\ref{fig:absorption}\pnl{b} we can see that initially the $1s$ peak slightly increases, but after that the material becomes less responsive, with an attenuated absorption as $\beta$ increases.
 The behavior of the absorption for $\uvec{x}$ polarization in Fig.~\ref{fig:absorption}\pnl{b} has more interesting features.
 For instance, from pristine \gls{hbn} where the $1s$ peak is naturally more intense than the $2s$ peak, by modulating externally and fine tuning the potential, it is possible to have the $2s$ higher than the $1s$ peak in the same material.
-This can be seen in the panel \pnl{a}, in the blue and gray curves more specifically.
-Even though something like this is unusual, it has already been observed experimentally~\cite{Ju_2017}, and predicted theoretically as well~\cite{Henriques_PRB2022}.
+This can be seen in panel \pnl{a}, in the blue and gray curves more specifically.
+Even though this behavior is unusual, it has already been observed experimentally~\cite{Ju_2017} and predicted theoretically~\cite{Henriques_PRB2022}.
 However, in the same plot, we can see that the intensity of the $2s$ peak does not increase monotonically with $\beta$.
-
-To better understand the results in Figure~\ref{fig:absorption}, we use again the expression~\eqref{eq:optical_absorption_repeated}, but now computed at the resonant frequencies.
-We stress that we have the optical conductivity for $\beta$ varying continuously from zero up to the first zero of $J_0(\beta)$, we just selected a couple of values for $\beta$ to plot $\sigma(\omega)$.
-Then, it is possible to compute the maximum of the absorption at the $1s$ and $2s$ peaks separately as a function of $\beta$, and the result can be seen in Figure~\ref{fig:absorption_peaks}.
-Therein, we can observe on panel \pnl{a} how each peak behaves with varying $\beta$ for both polarizations.
-For $\uvec{x}$ polarization, the $1s$ absorption peak decreases monotonically, while the $2s$ peak increases until it surpasses the $1s$ peak, but it decreases at the end.
-For $\uvec{y}$ polarization, it is the $1s$ peak that has a nonmonotonic behavior, while the $2s$ peak always decreases, but unlike the previous case, the $1s$ peak stays always higher than the $2s$ peak.
 
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=1.\textwidth]{Chapters/Figures/Chapter_5/sigma_grid}
-\mycaption[Optical conductivity of a periodically modulated \gls{hbn} sheet]{Sub-gap optical conductivity of \gls{hbn} under a  \gls{1d} periodic potential, as depicted in Fig.~\ref{fig:hBN_monolayer}. Panels~\pnl{a} and \pnl{b} show the real and imaginary parts of the conductivity, respectively, for light polarized along the $x$-axis. Panels~\pnl{c} and \pnl{d} show the real and imaginary parts of the conductivity, respectively, for light polarized along the $y$-axis. The in-set in panels~\pnl{a} and \pnl{b} show a zoom-in of the real and imaginary parts of the conductivity, respectively, for the cases $\beta=0$ and $\beta=0.53$. Results for different $\beta$ have been rescaled as noted in each panel, for clarity. We used $\Gamma=10$\,\unit{\milli\electronvolt}.}
+\mycaption[Optical conductivity of a periodically modulated \gls{hbn} sheet]{Panels~\pnl{a} and \pnl{b} show the real and imaginary parts of the conductivity, respectively, for light polarized along the $x$-axis. Panels~\pnl{c} and \pnl{d} show the real and imaginary parts of the conductivity, respectively, for light polarized along the $y$-axis. To display all the conductivities for different values of $\beta$ in the same plots, we applied a scaling factor to the curves when needed. The scaling factor is indicated adjacently to the respective curve. For the broadening parameter in Eq.~\eqref{eq:optical_conductivities}, we used $\Gamma = 10$ \unit{\milli\electronvolt}.}
 \label{fig:sigma_grid}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[hb!]
     \centering
     \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_5/absorption_of_omega}
-    \mycaption[Optical absorption of a periodically modulated \gls{hbn} sheet]{Sub-gap optical absorption of the system at hand. Panels~\pnl{a} and \pnl{b} show the absorption for light polarized along the $x$ and $y$-directions, respectively. Each color corresponds to a different value of $\beta$, where $\beta=0$ corresponds to the case with no potential. We used the same values for $\beta$ of Fig.~\ref{fig:sigma_grid}. For each realization, two peaks are observed. The one occurring at lower energy corresponds to the $1s$ state, while the other corresponds to the $2s$ state.  We used for air, the material on top, $\varepsilon_1=1$, and for the quartz substrate $\varepsilon_2=2.16$, which is an average of the permittivity over a wide frequency window. For simplicity, we do not take into account the full dependence of $\varepsilon_2$ on $\omega$.}
+    \mycaption[Optical absorption of a periodically modulated \gls{hbn} sheet]{Panels~\pnl{a} and \pnl{b} show the absorption for light polarized along the $x$- and $y$-directions, respectively. Each panel shows the absorption as a function of frequency for the same realizations of $\beta$ as in Fig.~\ref{fig:sigma_grid}, using the same color set. We used for the material on top $\varepsilon_1=1$, and for the quartz substrate $\varepsilon_2=2.16$, which is an average of the permittivity over a wide frequency window. For simplicity, we do not take into account the full $\omega$ dependence of $\varepsilon_2$.}
     \label{fig:absorption}
 \end{figure}
 
-That we can have a $1s$ peak higher than a $2s$ peak can be explained by inspection of the equations~\eqref{subeq:reflected_radiation},~\eqref{subeq:transmitted_radiation} and~\eqref{eq:optical_absorption_repeated}.
-Writing the conductivity in terms of its real and imaginary parts, $\sigma = \sigma' + \ii \sigma''$, assuming that the permittivities are real, and working out $\mathcal{R} = \qty|r|^2$ alongside $\mathcal{T} = \sqrt{\varepsilon_2 / \varepsilon_1} \qty|t|^2$ (casting the factor $\epsz c$ into $\sigma$ for simplicity) we get
+\clearpage
+
+To better understand the results in Figure~\ref{fig:absorption}, we use again the expression~\eqref{eq:optical_absorption_repeated}, but now computed at the resonant frequencies.
+We stress that we have the optical conductivity for $\beta$ varying continuously from zero up to the first zero of $J_0(\beta)$, we just selected a couple of values for $\beta$ to plot $\sigma(\omega)$.
+Then, it is possible to compute the maximum of the absorption at the $1s$ and $2s$ peaks separately as a function of $\beta$, and the result can be seen in Figure~\ref{fig:absorption_peaks} below.
+Therein, we can observe on panel \pnl{a} how each peak behaves with varying $\beta$ for both polarizations.
+For $\uvec{x}$ polarization, the $1s$ absorption peak (continuous black line) decreases monotonically, while the $2s$ peak (continuous red line) increases until it surpasses the $1s$ peak, but it decreases at the end.
+For $\uvec{y}$ polarization, it is the $1s$ peak (dashed black line) that has a nonmonotonic behavior, while the $2s$ peak (dashed red line) always decreases, but unlike the case $\uvec{e} = \uvec{x}$, the $1s$ peak stays always higher than the $2s$ peak.
+
+That we can have a $1s$ peak higher than a $2s$ peak can be explained by close inspection of the equations~\eqref{subeq:reflected_radiation},~\eqref{subeq:transmitted_radiation} and~\eqref{eq:optical_absorption_repeated}.
+Writing the conductivity $\sigma = \sigma' + \ii \sigma''$ in terms of its real and imaginary parts, assuming that the permittivities are real, and working out $\mathcal{R} = \qty|r|^2$ alongside $\mathcal{T} = \sqrt{\varepsilon_2 / \varepsilon_1} \qty|t|^2$ (casting the factor $\epsz c$ into $\sigma$ for simplicity) we get
 
 \begin{equation}
 \label{eq:reflection_and_transmission}
     \mathcal{R} = \frac{(\sqrt{\varepsilon_2}- \sqrt{\varepsilon_1} + \sigma')^2 + (\sigma'')^2}{(\sqrt{\varepsilon_2} + \sqrt{\varepsilon_1} + \sigma')^2  + (\sigma'')^2} \,, \qq{and} \mathcal{T} = \frac{4 \sqrt{\varepsilon_1 \varepsilon_2}}{(\sqrt{\varepsilon_2} + \sqrt{\varepsilon_1} + \sigma')^2 + (\sigma'')^2}\,.
 \end{equation}
 
-\noindent If we analyze the previous expressions at the frequency of the $1s$ excitonic resonance where $\sigma'' = 0$ holds and let $\sigma' \to \infty$, which could correspond to the most extreme case of $\beta=2.3$, we can easily see that $\mathcal{R} \to 1$ and $\mathcal{T} \to 0$.
-Hence, the system reflects all the incident light.
+\noindent If we analyze the previous expressions at the frequency of the $1s$ excitonic resonance where $\sigma'' = 0$ holds and let $\sigma' \to \infty$, corresponding to the most extreme case of $\beta=2.3$, we can easily see that $\mathcal{R} \to 1$ and $\mathcal{T} \to 0$.
+Hence, the system reflects all the incident light, and $ \mathcal{A}_{\mathrm{opt}} \to 0$.
 When the oscillator strength grows immensely making $\sigma'$ grow to infinity, the \bd~material behaves like a perfect mirror, similarly to the surface of a very good conducting metal.
-But if we now consider the resonance at the $2s$ excitonic state energy, we see that both $\sigma'$ and $\sigma''$ are finite (the imaginary part has only one zero in the most extreme case $\beta=2.3$, see Fig.~\ref{fig:sigma_grid}\pnl{c}), which means that $\mathcal{R}$ and $\mathcal{T}$ are finite, and consequently, so is the absorption.
-Initially, without potential, the $1s$ resonance is still higher than the $2s$ resonance, both in the conductivity and the absorption, but that does not contradict our reasoning that leads to the perfect mirror.
-To see this, we work out explicitly the expression for $\mathcal{A}$ in Eq.~\eqref{eq:optical_absorption_repeated} to yield
+But if we now consider the resonance at the $2s$ excitonic state energy, we see that both $\sigma'$ and $\sigma''$ are finite (the imaginary part has only one zero in the most extreme case $\beta=2.3$, see Fig.~\ref{fig:sigma_grid}\pnl{c}), which means that $\mathcal{R}$ and $\mathcal{T}$ are finite, and consequently, so is the absorption at the $2s$ resonance.
+Initially, without potential, the $1s$ resonance is still higher than the $2s$ resonance, both in the conductivity and the absorption.
+Nonetheless, this does not contradict our reasoning of the perfect mirror when $\beta=2.3$.
+The reason is that the absorption peak is not monotonic with $\sigma'$.
+To see this, we work out explicitly the expression for $\mathcal{A}_{\mathrm{opt}}$ in Eq.~\eqref{eq:optical_absorption_repeated} and simplify to yield
 
 \begin{equation}
     \mathcal{A}_{\mathrm{opt}} = \frac{4 \sqrt{\varepsilon_1} \sigma'}{ \left(\sqrt{\varepsilon_1} + \sqrt{\varepsilon_2} + \sigma'\right)^2 + (\sigma'')^2} \,.
 \end{equation}
 
-\noindent Looking at the resonant frequencies, we have always $\sigma''=0$ (unless the $2s$ resonance is close enough to the $1s$ resonance so that $\sigma'' \neq 0$) and then the absorption peak is given by
+\noindent Looking always at the same resonant frequency, we have always $\sigma''=0$ (unless the $2s$ resonance is close enough to the $1s$ resonance so that $\sigma'' \neq 0$), and then the absorption peak is given by
 
 \begin{equation}
     \max_{\omega}{\mathcal{A}_{\mathrm{opt}}} = \frac{4 \sqrt{\varepsilon_1} \sigma'}{(\sqrt{\varepsilon_2} + \sqrt{\varepsilon_1} + \sigma')^2}\,,
 \end{equation}
 
-\noindent where the real part of the conductivity is computed at the resonant frequencies corresponding to the excitonic energies $E_{1s}$ and $E_{2s}$.
-Plotting the previous expression as a function of $\sigma'$ in Fig.~\ref{fig:absorption_peaks}\pnl{b}, we observe that it is not monotonous, which explains why we can have in general a $2s$ peak higher than a $1s$ peak.
-
-To finish the analysis of the interaction of light with our system and within the theme of strong-coupling, in the next section we will look at the dispersion relation of the emergent exciton--polaritons our system can support.
+\noindent where the real part of the conductivity is computed at a resonant frequency, corresponding either to the excitonic energy $E_{1s}$ or $E_{2s}$.
+Plotting the previous expression as a function of $\sigma'$ in Fig.~\ref{fig:absorption_peaks}\pnl{b}, we observe that indeed it is not monotonous, which explains why we can have in general a $2s$ peak higher than a $1s$ peak, even if the oscillator strength of the $1s$ resonance is higher than that of the $2s$ resonance.
 
 \begin{figure}[H]
 \centering
@@ -1336,65 +1342,68 @@ To finish the analysis of the interaction of light with our system and within th
 \label{fig:absorption_peaks}
 \end{figure}
 
+To finish the analysis of the interaction of light with our system, and within the theme of strong-coupling, in the next section we will look at the dispersion relation of the emergent exciton--polaritons our system can support.
 
 \subsection{Exciton--polaritons}
 \label{subsec:exciton-polaritons}
 
-In this section we analyze the dispersive behavior of polaritonic modes that our system can support.
+In this section, we analyze the dispersive behavior of the polaritonic modes our system can support.
 Polaritons have been introduced before in Chapter~\ref{ch:classical_electrodynamics}, within a classical description of the theory of light--matter interaction.
-In that chapter, we derived the equations that provide the dispersion relation of polaritons, which depends on the \gls{em} field polarization.
-The dispersion relation of the polariton depends on the polarization of the \gls{em} field, as we have seen previously.
-We observed that the \gls{te} modes, if they exist, present either free-light-like dispersion or weak field confinement, something we already expected from the discussion in Subsection~\ref{subsec:polaritonics_dispersion_relation} and from the literature~\cite{Bludov_primer,GoncalvesPeres:2016}.
+In that chapter, we derived the equations that provide the dispersion relation of polariton for each type of \gls{em} field polarization.
+The dispersion relation of the polariton differs between the two possible polarizations, $s$ or \gls{te}, and $p$ or \gls{tm} (see Fig.~\ref{fig:TE_and_TM_modes}).
+In our calculations for the system at hand, we observed that the \gls{te} modes, if existent, present either free-light-like dispersion or weak field confinement, something we already expected from the discussion in Subsection~\ref{subsec:polaritonics_dispersion_relation}, and also from the literature~\cite{Bludov_primer,GoncalvesPeres:2016}.
 The \gls{tm} modes are decidedly more interesting, as we will see from our results.
 Just for the purpose of refreshing the reader's memory, we present once more their dispersion relation
 
-\begin{empheq}[innerbox=\fbox, right={\,.}]{align}
+\begin{empheq}[innerbox=\fbox, right={\,,}]{align}
     \label{eq:TM_modes_disp_rel}
     \frac{\varepsilon_1}{\kappa_1} + \frac{\varepsilon_2}{\kappa_2} + \ii  \frac{\sigma_{xx} (\omega)}{\epsz \omega} = 0
 \end{empheq}
 
-\noindent where $\kappa_j = \sqrt{q^2 - \varepsilon_j \omega^2/c^2}$, $j=1,2$, $q$ is the wavenumber of the polariton, and $\sigma_{xx}$ is the conductivity we obtained in the previous section (see Fig.~\ref{fig:sigma_grid})..
-The dispersion relation $\omega(q)$ was obtained as the numerical solution of the equation just above , which exist whenever $\Im \{\sigma_{xx}(\omega)\} > 0$.
-We obtained different dispersions for different realizations of $\beta$, which are supported in different frequency ranges that on the excitonic levels $E_{1s}$ and $E_{2s}$.
+\noindent where $\kappa_j = \sqrt{q^2 - \varepsilon_j \omega^2/c^2}$, $j=1,2$, $q$ is the wavenumber of the polariton, and $\sigma_{xx}$ is the conductivity we obtained in the previous section (see Fig.~\ref{fig:sigma_grid}).
+The dispersion relation $\omega(q)$ was obtained as the numerical solutions of the equation just above, which exist whenever $\Im \{\sigma_{xx}(\omega)\} > 0$.
+We obtained different dispersions for different realizations of $\beta$, which are supported in different frequency ranges determined by the excitonic levels $E_{1s}$ and $E_{2s}$.
 We selected $\beta=0$, the case without potential, and two other values of $\beta=0.5$ and $\beta=2.3$, this last corresponding to the case where the oscillator strength is the highest in Figs.~\ref{fig:sigma_grid} and~\ref{fig:absorption}.
 The results are displayed in the three panels of Fig.~\ref{fig:polaritons_disp_rel}, presenting the frequency as a function of the real and imaginary parts of $q$.
-In \pnl{a} we can see how different the dispersion of the polariton is compared to that of free light in vacuum and in quartz, in continuous and dashed black lines, respectively.
-In the case $\beta=0$ of panel \pnl{a} and the case $\beta=0.5$ of \pnl{b} these black lines cannot be distinguished because the wavenumber of the polariton is much larger than that of free light.
+In panel \pnl{a}, we can see how different the dispersion of the polariton is compared to that of free light in vacuum and in quartz, in continuous and dashed black lines, respectively.
+In the cases $\beta=0$ of panel \pnl{a} and $\beta=0.5$ of panel \pnl{b}, these black lines cannot be distinguished because the wavenumber of the polariton is much larger than that of free light.
 The increase in $\Re\{q\}$ is more gradual for lower frequencies, but presents a pronounced kink at higher frequencies alongside $\Im\{q\}$, suggesting these modes can achieve high \gls{em} field confinements.
 
-The dispersion relation of the polariton in the $\beta=2.3$ case of panel \pnl{c} is quantitatively distinct from the previous two, as one can see when the comparing the scale of the $q$-axis with the scales of panels \pnl{a} and \pnl{b}.
+The dispersion relation of the polariton in the $\beta=2.3$ case of panel \pnl{c} is quantitatively distinct from the previous two, as one can see when comparing the scale of the $q$-axis with the scales of panels \pnl{a} and \pnl{b}.
 The third case presents wavenumbers of order of the \unit{\micro \meter}, whereas in the first two cases $q$ is of the order of the \unit{\nano \meter}.
-Nonetheless, it is still higher than that of free light, whose dispersion can now be clearly seen in the straight black lines that were not visible in panels \pnl{a} and \pnl{b}.
-It is also qualitatively distinct from the previous two, due to the fact that in region of frequencies where the mode is supported, there is a frequency corresponding to $E_{2s}$ where the imaginary part of the conductivity is not zero, because it is close to $E_{1s}$ (see Fig.~\ref{fig:sigma_grid}\pnl{c}).
-The result is a back-bending of the dispersion curve at the frequency where $\Re\{\sigma_{xx}\}$ has a bump due to the oscillator strength of the $2s$ excitation.
-This phenomenon has been predicted before by C.~Wolff and co-authors in Ref.~\cite{Wolff:2018}, where the theory therein developed applies in general to any periodic optical systems with loss and dispersion, and to any kind of materials strongly coupled to resonances.
-What we observe here is the particular case of the strong coupling of light with excitons in \bd~materials, and when taking a complex wavevector but real frequency.
+Nonetheless, in panel \pnl{c} it is still higher than that of free light, whose dispersion can now be clearly seen in the straight black lines that were not visible in panels \pnl{a} and \pnl{b}.
+It is also qualitatively distinct from the previous two, due to the fact that in the region of frequencies where the mode is supported, there is a frequency corresponding to $E_{2s}$ where the imaginary part of the conductivity is not zero due to its proximity to $E_{1s}$ (see gray curve in Fig.~\ref{fig:sigma_grid}\pnl{c}).
+The consequence is a back-bending of the dispersion curve at the frequency where $\Re\{\sigma_{xx}\}$ has a bump resulting from the nonzero oscillator strength of the $2s$ excitation.
+This phenomenon has been predicted before by C.~Wolff and co-authors in Ref.~\cite{Wolff:2018}, where the theory therein developed applies in general to any periodic optical system with loss and dispersion, and to any kind of materials strongly coupled to resonances.
+What we observe here is the particular case of the strong coupling of light with excitons in a \bd~material, and when taking a complex wavevector but real frequency.
 Event though the reverse situation of complex frequency and real wavevector is outside of the scope of this work, it has also been considered in Ref.~\cite{Wolff:2018}.
 
-\begin{figure}[h]
+For the reader to get a feeling for the spatial distribution of the \gls{em} field of a surface polariton, in Fig.~\ref{fig:TM_mode_map} we display a map of the electric and magnetic fields of a \gls{tm} polarised mode, represented by the black arrows and the colorful background, respectively.
+We can see that both fields decay fast away from the \gls{hbn} monolayer along the $z$-direction, and how they oscillate along the $x$-direction, the direction in which thepolariton propagates.
+The region $z>0$ corresponds to vacuum, while the region $z<0$ corresponds to the  substrate, where the field confinement is higher than in air (stronger colors and bigger arrows).
+This suggests that it is possible to engineer the field confinement by appropriately choosing the materials for the environment of the \bd~material.
+
+\begin{figure}[ht]
     \centering
     \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_5/polariton_dispersion_relation}
     \mycaption[Photonic dispersion of exciton--polaritons in modulated \gls{hbn}]{Dispersion relation $\omega(q)$ of exciton--polaritons in the system under study. We solve numerically Eq.~\eqref{eq:TM_modes_disp_rel} for different values of $\beta$. The solution is the frequency as a function of the wavenumber, that has a real part (solid blue line) and an imaginary part (dashed red line). For comparison, we show the dispersion relation for free propagating light in vacuum (solid black line) and in \ch{SiO2} (dashed black line). The case $\beta=0$ represents monolayer \gls{hbn} without potential on top.}
     \label{fig:polaritons_disp_rel}
 \end{figure}
 
-For the reader to get a feeling for the spatial distribution of the \gls{em} field of a surface polariton, in Fig.~\ref{fig:TM_mode_map} we display a map of the electric and magnetic fields of a \gls{tm} polarised mode, represented by the black arrows and the colorful background, respectively.
-We can see that both fields decay fast away from the \gls{hbn} monolayer along the $z$-direction, and how they oscillate along the $x$-direction along which the polariton propagates.
-The region $z>0$ corresponds to vacuum, while the region $z<0$ corresponds to the  substrate, where the field confinement is higher than in air (stronger colors and bigger arrows).
-This suggests that it is possible to engineer the field confinement by appropriately choosing the materials for the environment of the \bd~material.
-
-\begin{figure}[ht]
+\begin{figure}[hb]
     \centering
     \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter_5/EM_polariton_field.png}
     \mycaption[Spatial map of the \gls{em} field of a \gls{tm}  polarized polariton]{Spatial configuration of the \gls{em} field of a \gls{tm} polarized polaritonic mode. The color intensity plot in the bakcground represents the intensity of the magnetic field, while the vector plot represents the off-plane components of the electric field, with their respective (relative) intensities represented by the size of the vectors. The top half is the field in air, while the bottom half is in quartz, \ch{SiO2}. We picked the $(\omega,q)$ point in the dispersion of Fig.~\ref{fig:polaritons_disp_rel}\pnl{b} of highest (real) wavenumber. This plot does not take into account the imaginary part of the wavenumber. We used the follwoing parameters: $q=4.45$\,\unit{\nano\meter}$^{-1}$, $\hbar \omega = 5.68$\,\unit{\electronvolt}, $\varepsilon_1 = 1$ and $\varepsilon_2 = 2.16$.}
     \label{fig:TM_mode_map}
 \end{figure}
 
-At the time of the publication of the work that this chapter is based on, Ref.~\cite{Ninhos_Tserkezis_Mortensen_Peres_2024}, the setup proposed initially in Figure~\ref{fig:hBN_monolayer} was a mere suggestion of how one could realise a periodic electrostatic modulation with a step potential, even though in the derivation of the low-energy Hamiltonian in Section~\ref{sec:electronic_band_structure_modulated_hBN} we considered a cosine-like potential to arrive at ana analytical expression for the Hamiltonian.
+\clearpage
+
+At the time of the publication of the work that this chapter is based on, Ref.~\cite{Ninhos_Tserkezis_Mortensen_Peres_2024}, the setup proposed initially in Figure~\ref{fig:hBN_monolayer} was a mere suggestion of how one could realise a periodic electrostatic modulation, albeit with a step potential, even though in the derivation of the low-energy Hamiltonian in Section~\ref{sec:electronic_band_structure_modulated_hBN} we considered a cosine-like potential to arrive at an analytical expression for the Hamiltonian.
 In the advent of current technologies and developments on the isolation of \bd~monolayers, there is actually a recent experiment~\cite{Danielsen_Lassaline_2025} where the authors could realise a similar experiment to the one here proposed also with a \gls{hbn} layer, and with a periodic potential consisting of a finite number of Fourier components.
 In this way, with the likelihood of the evolution of experimental techniques, we presume that in a not so distant future one could realise a single-harmonic periodic modulation on a \gls{hbn} flake to put our theory up to test.
-This could deem our study relevant for possible applications in nanophotonics or optoelectronics in different ranges of the \gls{em} spectrum, since the parameter $\beta$ is quite tunable, due to its dependence onr the amplitude $V_0$ and the period $L$ of the potential.
-\\
-Even though our theory allowed quantifying the excitonic optical response of \gls{hbn}, it still used a classical model to account for the screening.
-In the next chapter, we will implement an efficient microscopic approach to screening, which allows to determine in practice the effective Rytova--Keldysh dielectric function we have been using so far, along with the parameter $r_0$.
-Not only that, we can also go beyond the Rytova--Keldysh model, which is the long-wavelength limit of the macroscopic dielectric function obtained from the microscopic one we saw in Section~\ref{sec:dielectric_function_quantum}; the theory of that section applied to \bd~materials will be put in practice in the final part of this dissertation.
+This could deem our study relevant for possible applications in nanophotonics or optoelectronics in different ranges of the \gls{em} spectrum, since the parameter $\beta$ is quite tunable, due to its dependence on the amplitude $V_0$ and the period $L$ of the potential.
+\\ \par
+Even though our theory based on quantum principles allowed quantifying the excitonic optical response of \gls{hbn}, it still used a classical model to account for the screening.
+In the next chapter, we will implement an efficient microscopic approach to screening, which allows to determine in practice the effective Rytova--Keldysh dielectric function we have been using so far, along with the parameter $r_0$\,.
+Not only that, we can also go beyond the Rytova--Keldysh model, which we will see that is the long-wavelength limit of the macroscopic dielectric function, obtained from a microscopic permittivity function analogous to the one we saw in Section~\ref{sec:dielectric_function_quantum}; the theory of that section applied to \bd~materials will be put in practice in the final part of this dissertation.
