@@ -52,7 +52,7 @@ We start the chapter by introducing the Schr\"{o}dinger equation, the workhorse 
 Next, we particularize the study to crystals, by writing the full many-body Hamiltonian of a crystal, followed by key approximations to reduce the complexity of the problem.
 Afterwards, we define the concepts of (direct) lattice and reciprocal lattice, and discuss single-particle properties of electrons in periodic solids, such as Bloch states and the band structure; these define the dispersive behavior of electronic waves in materials.
 First-principle methods at the mean-field level, such as \dft, are discussed in brief as well.
-We extend the discussion on first-principle methods to the many-particle description of electrons in solids, provided by the machinery of \gls{mbpt}\@.
+We extend the discussion on first-principle methods to the many-particle description of electrons in solids, provided by the machinery of \mbpt.
 With all these concepts understood, the reader should be capable of grasping the microscopic dielectric function, reserved for the last section of this chapter.
 The concept of dielectric function, introduced in the previous chapter on a classical footing, will be therein revisited through the lens of quantum mechanics.
 
@@ -371,7 +371,7 @@ We usually associate this type of crystals with materials with poor conducting p
 These can be classified as insulators or semiconductors, depending on how the size of the bandgap compares with the thermal energy, as we have explained before in Section~\ref{subsec:polaritonics_dispersion_relation}.
 \todo[inline]{I can make the analogy between electronic bandgap and the photonic bandgap, from chapter 1}
 Within this formalism, the Bloch \wf s are linear combinations of the atomic orbitals, instead of a superposition of plane waves.
-This is called the \gls{lcao} method or approximation.
+This is called the linear combination of atomic orbitals method or approximation.
 In math notation, we write for the \wf~of an electron in the Bloch state of band $n$ with momentum $\bk$
 
 \begin{empheq}[innerbox=\fbox, right={\,,}]{align}
@@ -738,7 +738,7 @@ In order to improve the outcome from \dft, there are some schemes that go beyond
 One idea is to use hybrid functionals, consisting in mixing an approximated exchange--correlation functional, say \gls{lda} or \gls{gga}, with the exact Fock exchange.
 For a thorough treatment of these subjects, we refer the reader to Refs.~\cite{Martin_2004,Kohanoff_2006}.
 Later on in this work, we will mention the use of hybrid functionals in the first-principle calculations necessary for the framework developed for the screening in \bd~materials, pertaining to Chapter~\ref{ch:screening}.
-Our implementation for the screening is actually based on key concepts of the next section, where we present briefly the \acrlong{mbpt} formalism, which can also be used to predict electronic properties of materials.
+Our implementation for the screening is actually based on key concepts of the next section, where we present briefly the \mbpt~formalism, which can also be used to predict electronic properties of materials.
 
 
 \section{Many-Particle Description of Solids}
@@ -749,12 +749,12 @@ Even though matter is composed of many particles, the single-particle problem se
 In the single-particle picture, pairwise interactions are either discarded altogether, or treated at the mean-field level.
 Doing this can be a good starting point to study material properties, but it leaves out emergent phenomena coming from interactions.
 Just like in high-energy physics, where particles can be created or destroyed, in condensed matter some effects can only be described by introducing the concept of quasiparticle---a composite state coming from the coupling between different or identical particles in a solid, that can explain ground state or excited state properties we could not understand otherwise.
-For that, we need \glsfirst{mbpt} formalism, which is the non-relativistic cousin of quantum field theory.
+For that, we need \mbpt~formalism, which is the non-relativistic cousin of quantum field theory.
 As quasiparticles can be created or destroyed, the second quantization formalism, also called the canonical quantization formalism, is necessary.
 It is extremely useful in condensed matter, not only for single-particle descriptions of matter (looking at our example of a \gls{tb} model in Section~\ref{subsubsec:tight_binding_method}), but also to incorporate interactions in the model Hamiltonian.
-Within \gls{mbpt}, the single-particle problem without interactions is assumed to be already solved (through the methods discussed in Section~\ref{subsubsec:abinit_methods}, most frequently), and the interactions are treated as a perturbation.
+Within \mbpt, the single-particle problem without interactions is assumed to be already solved (through the methods discussed in Section~\ref{subsubsec:abinit_methods}, most frequently), and the interactions are treated as a perturbation.
 Apart from a couple of simple models, a full \abinit~treatment of the full interacting many-body problem beyond perturbation theory is not possible.
-Nonetheless, the methods of \gls{mbpt} can explain exotic physical phenomena in condensed matter, such as a microscopic description for superconductivity as explained by the \gls{bcs} theory, the Fermi liquid theory, quantum magnetism, among others.
+Nonetheless, the methods of \mbpt~can explain exotic physical phenomena in condensed matter, such as a microscopic description for superconductivity as explained by the \gls{bcs} theory, the Fermi liquid theory, quantum magnetism, among others.
 
 In this section, we discuss the main concepts needed for future parts of this work, but in a briefly manner.
 A detailed discussion of this topic would be too technical and long for the purpose of this thesis, and is beyond the scope of this text.
@@ -763,10 +763,10 @@ A detailed discussion of this topic would be too technical and long for the purp
 \label{subsec:many_body_perturbation_theory}
 
 In physics, the concept of Green function is very important, with applications throughout many fields.
-In the context of condensed matter physics, its role in \gls{mbpt} is ubiquitous.
+In the context of condensed matter physics, its role in \mbpt~is ubiquitous.
 The Green function, or propagator as in particle physics, is a quantity that helps providing a formal solution to the Schr\"{o}dinger equation for the interacting problem.
 
-In the context of \gls{mbpt}, working with units such that $\hbar = 1$, it can be defined as
+In the context of \mbpt, working with units such that $\hbar = 1$, it can be defined as
 
 \begin{equation}
     \left[\ii \partial_t - \hat{H}\right] \mathcal{G} (\br \sigma t;\br' \sigma' t') = \delta(t-t') \delta(\br - \br') \delta_{\sigma \sigma'} \,,
@@ -808,7 +808,7 @@ It is useful to also define the noninteracting Green function $\mathcal{G}^0$, w
     \end{tikzpicture}\,,
 \end{equation}
 
-\noindent if we use a compact notation by omitting the basis, and represent it as a single arrowed line using Feynman diagrams notation as represented in the \gls{rhs} of the equation.
+\noindent if we use a compact notation by omitting the basis, and represent it as a single arrowed line using Feynman diagrams notation as represented in the right-hand side of the equation.
 In the Feynman diagrammatic jargon, it is also called the free fermion propagator.
 If we want to write something similar for the interacting Green function, we need to introduce the concept of self-energy $\Sigma$.
 Before that, we need to say that the introduction of the two-body interaction term in the Hamiltonian makes the interacting Green function $\mathcal{G}$ an infinite sum containing an infinite number of diagrams.
@@ -957,7 +957,7 @@ We need as well the Dyson equation for the full interacting screened Coulomb pot
     W (b,a) = v_c (b,a) + \int  \dd{1} \dd{2} \, v_c (b,1) \chi(1,2) W(2,a)
 \end{empheq}
 
-\noindent where $\chi$ is the density-density response function in the language of linear response theory~\cite{Bruus_Flensberg_2004}, also called polarizability in the context of \gls{mbpt}.
+\noindent where $\chi$ is the density-density response function in the language of linear response theory~\cite{Bruus_Flensberg_2004}, also called polarizability in the context of \mbpt.
 It is easy to write this equation using Feynman diagrams, just as we did for the Green function.
 The Dyson equation for the Coulomb interaction in terms of diagrams reads
 
@@ -1241,7 +1241,7 @@ In this work, we have to compute the inverse of the dielectric function to prope
 Having an accurate description of screening, one can readily compute the excitonic states.
 But first, we have to properly define the dielectric function, or the microscopic dielectric function to be more precise.
 In the next subsection, we derive an expression for the \rpa~dielectric function from the \rpa~polarizability, which is routine in the literature~\cite{Bruus_Flensberg_2004,Martin_Reining_Ceperley_2016,Louie_1986}, since the full interacting quantities are not possible to compute in practice.
-For that, let us take advantage of the \gls{mbpt} formalism introduced previously.
+For that, let us take advantage of the \mbpt~formalism introduced previously.
 
 \subsection{A derivation of the RPA dielectric function}
 \label{subsec:RPA_dielectric_function_derivation}
@@ -1264,7 +1264,7 @@ Let us then rewrite the Dyson equation for the Coulomb interaction~\eqref{eq:Dys
 \end{equation}
 
 \noindent This definition is not immediately useful, as it is still written in terms of the unknown $W$.
-Let us then manipulate the same Dyson equation once more, and cast the term in $W$ from the \gls{rhs} to the \gls{lhs}, and solve for $W$ to find
+Let us then manipulate the same Dyson equation once more, and cast the term in $W$ from the right-hand side to the left-hand side, and solve for $W$ to find
 
 \begin{equation}
     W = \frac{V_c}{1 - V_c \chi^{\irr}} \,.
@@ -1304,7 +1304,7 @@ Let us then manipulate the same Dyson equation once more, and cast the term in $
     \phantom{\,\chi + \chi V_c}
 \end{equation}
 
-\noindent where on the \gls{lhs} we introduced a new diagram, now for the reducible polarizability $\chi$, and the last equality was obtained by multiplying both sides of the first equality by the denominator in the \gls{rhs} and solving for the polarizability $\chi$.
+\noindent where on the left-hand side we introduced a new diagram, now for the reducible polarizability $\chi$, and the last equality was obtained by multiplying both sides of the first equality by the denominator in the right-hand side and solving for the polarizability $\chi$.
 At this stage, no approximation for the polarizability was done, so $\chi^{\irr}$ is the (irreducible) polarizability defined by Eq.~\eqref{eq:polarizability_vertex}, with its diagram introduced in Eq.~\eqref{eq:Dyson_equation_W_Feynman}.
 For completeness, we write the diagrammatic Dyson equation relating the two polarizabilities $\chi$ and $\chi^{\irr}$
 
@@ -1388,7 +1388,7 @@ For completeness, we write the diagrammatic Dyson equation relating the two pola
     \end{tikzpicture}
 \end{equation}
 
-Let us now manipulate the inverse dielectric function in Eq.~\eqref{eq:inverse_dielectric_function} above, by reducing both terms in the \gls{rhs} to the same denominator and simplifying to arrive at
+Let us now manipulate the inverse dielectric function in Eq.~\eqref{eq:inverse_dielectric_function} above, by reducing both terms in the right-hand side to the same denominator and simplifying to arrive at
 
 \begin{equation}
     \varepsilon^{-1} = \frac{1}{1 - V_c \chi^{\irr}} \Rightarrow \varepsilon = 1 - V_c \chi^{\irr} \,.
