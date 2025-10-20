@@ -393,7 +393,7 @@ Since $\vert J_{0}(\beta)\vert < 1$, an electron traveling along the $y$-directi
 This leads to an anisotropic low-energy dispersion.
 Also, the energy gap $E_g = 2M$, that we can identify as the \gls{dft} bandgap at the \gls{lda} level, renormalizes to $E_g \rightarrow 2M \vert J_{0}(\beta) \vert \equiv \Delta_g (\beta)$.
 We will keep the notation $\Delta_g(\beta)$ for the renormalized \gls{dft} gap, that, as we commented before in the paragraph after Eq.~\eqref{eq:hBN_dispersion_relation}, is not the total bandgap.
-The total bandgap includes an exchange correction, $\Delta_{\mathrm{xc}}$, coming from the third term on the \gls{rhs} of Eq.~\eqref{eq:BSE_full}, which we swept under the rug at the time when we derived the \gls{bse} for the first time.
+The total bandgap includes an exchange correction, $\Delta_{\mathrm{xc}}$, coming from the third term on the right-hand side of Eq.~\eqref{eq:BSE_full}, which we swept under the rug at the time when we derived the \gls{bse} for the first time.
 We will see in Section~\ref{sec:results} that this contribution to the bandgap renormalizes as well..
 Choosing an appropriate value for either $V_{0}$ or $L$ (actually, the product $V_{0}L$), it is possible to reduce the gap of \gls{hbn}.
 With this mechanism, we can control both the gap and the excitonic states, which now become that of an anisotropic material (similarly to phosphorene).
@@ -407,15 +407,15 @@ These are given by
 
 \begin{equation}
 \begin{aligned}
-    v_{x} & =\frac{1}{\hbar}\frac{\partial \epsilon_c}{\partial k_{x}}=\frac{\hbar \vF^{2}k_{x}}{\epsilon_c(\bk,\beta)} \qq{and}\\
-    v_{y} & =\frac{1}{\hbar}\frac{\partial \epsilon_c}{\partial k_{y}}=\frac{\hbar \vF^{2}J_{0}^{2}(\beta)k_{y}}{\epsilon_c(\bk,\beta)} \,,
+    v_{x} & =\frac{1}{\hbar}\frac{\partial \epsilon_{\mathrm{c}}}{\partial k_{x}}=\frac{\hbar \vF^{2}k_{x}}{\epsilon_{\mathrm{c}}(\bk,\beta)} \qq{and}\\
+    v_{y} & =\frac{1}{\hbar}\frac{\partial \epsilon_{\mathrm{c}}}{\partial k_{y}}=\frac{\hbar \vF^{2}J_{0}^{2}(\beta)k_{y}}{\epsilon_{\mathrm{c}}(\bk,\beta)} \,,
 \end{aligned}
 \end{equation}
 
 \noindent where
 
 \begin{equation}
-\epsilon_c(\bk,\beta)=\sqrt{\hbar^{2}\vF^{2}\left[k_{x}^{2}+J_{0}^{2}(\beta)k_{y}^{2}\right] + J_{0}^{2}(\beta)M^{2}}
+\epsilon_{\mathrm{c}}(\bk,\beta)=\sqrt{\hbar^{2}\vF^{2}\left[k_{x}^{2}+J_{0}^{2}(\beta)k_{y}^{2}\right] + J_{0}^{2}(\beta)M^{2}}
 \end{equation}
 
 \noindent is the renormalized low-energy dispersion of the conduction band.
@@ -450,7 +450,7 @@ Besides that, we define $k_{x} + \ii J_{0}(\beta) k_{y} = k(\beta)\ee^{\ii\theta
 In this notation, and after some straightforward algebra, the spinor for the conduction band reads
 
 \begin{equation}
-     \bC^{c\bk} = \left(
+     \bC^{\mathrm{c} \bk} = \left(
     \begin{array}{c}
         \ee^{-\ii\theta_{k}(\beta)}\frac{\sin\frac{\xi_{k}}{2}}{\cos\frac{\xi_{k}}{2}} \\ 1
     \end{array}\right),
@@ -460,7 +460,7 @@ In this notation, and after some straightforward algebra, the spinor for the con
 
 \begin{equation}
 \label{eq:conduction_spinor}
-     \bC^{c\bk}=\left(
+     \bC^{\mathrm{c} \bk}=\left(
     \begin{array}{c}
         \ee^{-\ii\theta_{k}(\beta)}\sin\frac{\xi_{k}}{2} \\ 
         \cos\frac{\xi_{k}}{2}
@@ -471,7 +471,7 @@ In this notation, and after some straightforward algebra, the spinor for the con
 
 \begin{equation}
     \label{eq:valence_spinor}
-    \bC^{v\bk}=\left(
+    \bC^{\mathrm{v} \bk}=\left(
     \begin{array}{c}
         \cos\frac{\xi_{k}}{2} \\ 
         -\ee^{\ii\theta_{k}(\beta)}\sin\frac{\xi_{k}}{2}
@@ -929,7 +929,7 @@ If we subject a material to a drive from a monochromatic field with frequency $\
 
 \begin{equation}
     \label{eq:Berry_curvature_definition_new}
-    \Omega_\nu =  \sum_{\bk} \Psi_{\nu} (\bk)\, \uvec{e} \vdot \langle v, \bk | \br | c, \bk \rangle
+    \Omega_\nu =  \sum_{\bk} \Psi_{\nu} (\bk)\, \uvec{e} \vdot \langle \mathrm{v},\bk | \br | \mathrm{c},\bk \rangle
 \end{equation}
 
 \noindent with no sum over bands, since we consider the most simple two-band model for \gls{hbn}, $\uvec{e}$ is the polarization vector, $\Psi_{\nu} (\bk)$ is the momentum-space wavefunction of the exciton in the state $\nu$, and the braket is the optical matrix element we have encountered before in Section~\ref{subsec:non_interacting_conductivity}.
@@ -997,34 +997,34 @@ The optical matrix element can be computed by using the identity
 
 \begin{equation}
     \label{eq:optical_matrix_element}
-    \langle v,\bk|\br|c,\bk\rangle=\frac{\langle v,\bk|[H_0,\br]|c,\bk\rangle}{\epsilon_{v \bk}-\epsilon_{c \bk}},
+    \langle \mathrm{v},\bk|\br|c,\bk\rangle=\frac{\langle \mathrm{v},\bk|[H_0,\br]|c,\bk\rangle}{\epsilon_{\mathrm{v} \bk}-\epsilon_{\mathrm{c} \bk}},
 \end{equation}
 
-\noindent where the Hamiltonian is the noninteracting one, the ket and the bra correspond to Bloch states of an electron in the conduction and valence bands, respectively, and $\epsilon_{v \bk}$ and $\epsilon_{c \bk}$ are the energies of an electron in the corresponding Bloch states.
+\noindent where the Hamiltonian is the noninteracting one, the ket and the bra correspond to Bloch states of an electron in the conduction and valence bands, respectively, and $\epsilon_{\mathrm{v} \bk}$ and $\epsilon_{\mathrm{c} \bk}$ are the energies of an electron in the corresponding Bloch states.
 By coincidence, the subscript $0$ we use in the Hamiltonian $\overline{H}_0$, which stands for the particular case of $\overline{H}_m$ when $m=0$, coincides with the same symbol used in Section~\ref{sec:optical_effects} to denote the noninteracting Hamiltonian $H_0$.
 It happens that $\overline{H}_0$ is our noninteracting Hamiltonian at the moment, so there is no problem in repeating the symbol, we just advert for the different meanings it may have.
 In practice, the numerator can be evaluated in terms of the commutator $[\overline{H}_0,\br]$, if in the low-energy Hamiltonian we perceive the momentum components as operators, and take the commutator with $\br$ as an operator by using the canonical commutation relations $[x_i,p_j] = \ii \hbar \delta_{ij}$.
-After getting the commutator, we compute the matrix element replacing the bra and the ket with their respective spinors of the low-energy Hamiltonian, denoted by $\bC^{v \bk}$ and $\bC^{c \bk}$.
+After getting the commutator, we compute the matrix element replacing the bra and the ket with their respective spinors of the low-energy Hamiltonian, denoted by $\bC^{\mathrm{v} \bk}$ and $\bC^{\mathrm{c} \bk}$.
 However, it may not seem obvious that the optical matrix element can be computed in this way, without refering explicitly to the Bloch wavefunctions.
 We are not aware of any justification for this in the literature, even though it has been used before and with good final results~\cite{Ventura_2019,Mauricio_2022,Henriques_Epstein_Peres_2022,Henriques_PRB2022}.
 Therefore, we give an instructive explanation, even though it may feel ad hoc.
 
 To evaluate the optical matrix element, one considers first  the term $H_0 \br$ in the commutator.
 Then, we can insert a resolution of the identity $\sum_{n,\bk'} |n,\bk'\rangle \langle n,\bk'|$ between $H_0$ and $\br$, assuming it is complete.
-The matrix elements of $H_0$ between the Bloch states $\bra{v,\bk}$ and $\ket{n,\bk'}$ can be written as real-space integrals.
+The matrix elements of $H_0$ between the Bloch states $\bra{\mathrm{v},\bk}$ and $\ket{n,\bk'}$ can be written as real-space integrals.
 If we represent the Bloch wavefunctions in the tight-binding approximation per Eq.~\eqref{eq:Bloch_state_LCAO} as a linear combination of the atomic orbitals, then the matrix element transforms into a linear combination of integrals, which are the matrix elements of the Hamiltonian between the atomic orbitals, eventually located at different positions in the lattice---these are nothing more than the transfer integrals, which define the parameters of the tight-binding model.
-Since in the wavefunction we have a sum over unit cells $\bR$ with the imaginary exponential $\ee^{-\ii \bk \vdot \bR}$, then, at the end, we would just have to calculate $\left(\bC^{v\bk}\right)^{\dagger}\! H(\bk) \bC^{n,\bk'}$, where $H(\bk)$ is the Bloch Hamiltonian and the arrays $\bC^{n,\bk}$ are its eigenvectors, that we derived earlier and are given by Eqs.~\eqref{eq:valence_spinor} and~\eqref{eq:conduction_spinor} for the valence and conduction bands, respectively.
+Since in the wavefunction we have a sum over unit cells $\bR$ with the imaginary exponential $\ee^{-\ii \bk \vdot \bR}$, then, at the end, we would just have to calculate $\left(\bC^{\mathrm{v} \bk}\right)^{\dagger}\! H(\bk) \bC^{n,\bk'}$, where $H(\bk)$ is the Bloch Hamiltonian and the arrays $\bC^{n,\bk}$ are its eigenvectors, that we derived earlier and are given by Eqs.~\eqref{eq:valence_spinor} and~\eqref{eq:conduction_spinor} for the valence and conduction bands, respectively.
 For the position operator, we have integrals of the form $\int \phi_{\beta}(\br - \bR -\bt_j)\, \br\, \phi_{\beta'}(\br - \bR' -\bt_{j'}) \dr$.
 In the tight-binding approximation, if the orbitals are point-like, the integrals amount to matrix elements $\br_{j \beta,j' \beta'} \delta_{\bR \bR'}$ of a position operator with a matrix representation that is diagonal in the $\bR$ variable, that we can denote by $\bar{\bar{\br}}$.
 The kronecker delta $\delta_{\bR \bR'}$ simplifies the calculations.
-Then, we have to use the fact that $\ket{n,\bk'}$ is an eigenstate of $H_0$, so in the sum in the resolution of the identity, only the term $\ket{n,\bk'} = \ket{v,\bk}$ survives, simplifying even more the calculation.
+Then, we have to use the fact that $\ket{n,\bk'}$ is an eigenstate of $H_0$, so in the sum in the resolution of the identity, only the term $\ket{n,\bk'} = \ket{\mathrm{v},\bk}$ survives, simplifying even more the calculation.
 Then at the end, if we choose the lattice gauge without loss of generality, we would have at the end an expression of the form
 
 \begin{equation*}
 \begin{gathered}
-    \sum_{\bR} \ee^{\ii \bk \vdot \bR} \sum_{i\alpha,i'\alpha'} (C^{v \bk}_{i\alpha})^* H_{i\alpha,i'\alpha'}(\bR) C^{v \bk}_{i'\alpha'} \sum_{j'\beta',j\beta} (C^{v \bk}_{j'\beta'})^* \bar{\bar{\br}}_{j'\beta',j\beta} C^{c \bk}_{j\beta} \\
-    = (\bC^{v\bk})^\dagger H(\bk) \bC^{v\bk} (\bC^{v\bk})^{\dagger} \bar{\bar{\br}}\, \bC^{c \bk} = \\
-    = (\bC^{v\bk})^\dagger H(\bk) \bar{\bar{\br}}\, \bC^{c \bk} \,,
+    \sum_{\bR} \ee^{\ii \bk \vdot \bR} \sum_{i\alpha,i'\alpha'} (C^{\mathrm{v} \bk}_{i\alpha})^* H_{i\alpha,i'\alpha'}(\bR) C^{\mathrm{v} \bk}_{i'\alpha'} \sum_{j'\beta',j\beta} (C^{\mathrm{v} \bk}_{j'\beta'})^* \bar{\bar{\br}}_{j'\beta',j\beta} C^{\mathrm{c} \bk}_{j\beta} \\
+    = (\bC^{\mathrm{v} \bk})^\dagger H(\bk) \bC^{\mathrm{v} \bk} (\bC^{\mathrm{v} \bk})^{\dagger} \bar{\bar{\br}}\, \bC^{\mathrm{c} \bk} = \\
+    = (\bC^{\mathrm{v} \bk})^\dagger H(\bk) \bar{\bar{\br}}\, \bC^{\mathrm{c} \bk} \,,
 \end{gathered}
 \end{equation*}
 
@@ -1033,7 +1033,7 @@ Then at the end, if we choose the lattice gauge without loss of generality, we w
 Upon doing something similar for the other term in the commutator $\br H$ and taking the difference with the term above, we arrive at the intermediate formula
 
 \begin{equation}
-    \langle v,\bk|[H_0,\br]|c,\bk\rangle = (\bC^{v\bk})^\dagger [H(\bk),\bar{\bar{\br}}] \bC^{c \bk}\,.
+    \langle \mathrm{v},\bk|[H_0,\br]|\mathrm{c}, \bk\rangle = (\bC^{\mathrm{v} \bk})^\dagger [H(\bk),\bar{\bar{\br}}] \bC^{\mathrm{c} \bk}\,.
 \end{equation}
 
 Now, we expand the Bloch Hamiltonian $H(\bk)$ around the point where the exciton is localized, the points $\bK$ or $\bK'$ in the case of \gls{hbn}, so that we can replace $H(\bk) \to \overline{H}_0$, where the low-energy Hamiltonian is now the renormalized one, and  we allow for the momentum variable $\bk$ to become the momentum operator, and $\bar{\bar{\br}}$ the position operator.
@@ -1048,15 +1048,15 @@ Then, the initial matrix element between the Bloch states of the commutator betw
 
 \begin{equation}
     \label{eq:commutator_matrix_element}
-    \langle v,\bk|[H,\br]|c,\bk\rangle  \approx -\ii \hbar  \vF  (\bC^{v\bk})^\dagger \left[ \sigma_{x}\uvec{x}+J_{0}(\beta)\sigma_{y}\uvec{y} \right] \bC^{c\bk}\,,
+    \langle \mathrm{v},\bk|[H,\br]|\mathrm{c}, \bk\rangle  \approx -\ii \hbar  \vF  (\bC^{\mathrm{v} \bk})^\dagger \left[ \sigma_{x}\uvec{x}+J_{0}(\beta)\sigma_{y}\uvec{y} \right] \bC^{\mathrm{c} \bk}\,,
 \end{equation}
 
-\noindent where the arrays $\bC^{v,\bk}$ and $\bC^{c,\bk}$ are the spinors of the low-energy Hamiltonian that we have defined before in Eqs.~\eqref{eq:valence_spinor} and~\eqref{eq:conduction_spinor} for the valence and conduction bands, respectively.
+\noindent where the arrays $\bC^{\mathrm{v},\bk}$ and $\bC^{\mathrm{c}, \bk}$ are the spinors of the low-energy Hamiltonian that we have defined before in Eqs.~\eqref{eq:valence_spinor} and~\eqref{eq:conduction_spinor} for the valence and conduction bands, respectively.
 Inserting them in~\eqref{eq:commutator_matrix_element} and going back to the optical matrix element~\eqref{eq:optical_matrix_element}, we find
 
 \begin{equation}
     \label{eq:optical_matrix_element_final}
-    \langle v,\bk|\br|c,\bk\rangle \approx \frac{\ii\hbar  \vF}{\epsilon_{v \bk}-\epsilon_{c \bk}}\left\{\cos^{2}\!\left(\frac{\xi_{q}}{2}\right)\left[\uvec{x}-J_{0}(\beta)\uvec{y}\right]-\ee^{-2 \ii \theta_{q}(\beta)}\sin^{2}\!\left(\frac{\xi_{q}}{2}\right)\left[\uvec{x}+J_{0}(\beta)\uvec{y}\right]\right\}\,.
+    \langle \mathrm{v},\bk|\br|\mathrm{c}, \bk\rangle \approx \frac{\ii\hbar  \vF}{\epsilon_{\mathrm{v} \bk}-\epsilon_{\mathrm{c} \bk}}\left\{\cos^{2}\!\left(\frac{\xi_{q}}{2}\right)\left[\uvec{x}-J_{0}(\beta)\uvec{y}\right]-\ee^{-2 \ii \theta_{q}(\beta)}\sin^{2}\!\left(\frac{\xi_{q}}{2}\right)\left[\uvec{x}+J_{0}(\beta)\uvec{y}\right]\right\}\,.
 \end{equation}
 
 %Writing the imaginary exponential with its non-trivial dependence on $\theta$,
@@ -1093,7 +1093,7 @@ We recall that the variational wavefunction of the $1s$ state in momentum space,
 
 \begin{equation}
     \begin{aligned}
-        \epsilon_{c \bk}-\epsilon_{v \bk} &= \sqrt{E_{g}^{2}J_{0}^{2}(\beta)+4\hbar^{2} \vF ^{2}[k_{x}^2 + J^2_{0}(\beta)k_{y}^2]} = \sqrt{E_{g}^{2}J_{0}^{2}(\beta) + 4\hbar^{2} \vF ^{2}k^{2} \gamma^{2}(\theta)}\,, \\
+        \epsilon_{\mathrm{c} \bk}-\epsilon_{\mathrm{v} \bk} &= \sqrt{E_{g}^{2}J_{0}^{2}(\beta)+4\hbar^{2} \vF ^{2}[k_{x}^2 + J^2_{0}(\beta)k_{y}^2]} = \sqrt{E_{g}^{2}J_{0}^{2}(\beta) + 4\hbar^{2} \vF ^{2}k^{2} \gamma^{2}(\theta)}\,, \\
         \cos^2\!\left(\frac{\xi_{q}}{2}\right) &= \frac{1}{2} + \frac{1}{2\sqrt{1+\left(\frac{2 \hbar  \vF k \gamma(\theta)}{J_{0}(\beta)E_{g}}\right)^{2}}}\,, \qq{and} \\
         \sin^{2}\!\left(\frac{\xi_{q}}{2}\right) &= \frac{1}{2} - \frac{1}{2\sqrt{1+\left(\frac{2 \hbar  \vF k \gamma(\theta)}{J_{0}(\beta)E_{g}}\right)^{2}}}
     \end{aligned}
@@ -1370,27 +1370,29 @@ In the cases $\beta=0$ of panel \pnl{a} and $\beta=0.5$ of panel \pnl{b}, these 
 The increase in $\Re\{q\}$ is more gradual for lower frequencies, but presents a pronounced kink at higher frequencies alongside $\Im\{q\}$, suggesting these modes can achieve high \gls{em} field confinements.
 
 The dispersion relation of the polariton in the $\beta=2.3$ case of panel \pnl{c} is quantitatively distinct from the previous two, as one can see when comparing the scale of the $q$-axis with the scales of panels \pnl{a} and \pnl{b}.
-The third case presents wavenumbers of order of the \unit{\micro \meter}, whereas in the first two cases $q$ is of the order of the \unit{\nano \meter}.
-Nonetheless, in panel \pnl{c} it is still higher than that of free light, whose dispersion can now be clearly seen in the straight black lines that were not visible in panels \pnl{a} and \pnl{b}.
-It is also qualitatively distinct from the previous two, due to the fact that in the region of frequencies where the mode is supported, there is a frequency corresponding to $E_{2s}$ where the imaginary part of the conductivity is not zero due to its proximity to $E_{1s}$ (see gray curve in Fig.~\ref{fig:sigma_grid}\pnl{c}).
-The consequence is a back-bending of the dispersion curve at the frequency where $\Re\{\sigma_{xx}\}$ has a bump resulting from the nonzero oscillator strength of the $2s$ excitation.
-This phenomenon has been predicted before by C.~Wolff and co-authors in Ref.~\cite{Wolff:2018}, where the theory therein developed applies in general to any periodic optical system with loss and dispersion, and to any kind of materials strongly coupled to resonances.
-What we observe here is the particular case of the strong coupling of light with excitons in a \bd~material, and when taking a complex wavevector but real frequency.
-Event though the reverse situation of complex frequency and real wavevector is outside of the scope of this work, it has also been considered in Ref.~\cite{Wolff:2018}.
+In panel \pnl{c}, the polariton presents wavenumbers of order of the \unit{\micro \meter}, whereas in the first two cases they are of order of the \unit{\nano \meter}.
+Nonetheless, both real and imaginary parts of $q$ still assume higher values than that of free light, which are represented by the now visible straight black lines.
+The case of panel \pnl{c} is also qualitatively different from the cases of panels \pnl{a} and \pnl{b}, because in the region of frequencies where the mode is supported, there is a frequency corresponding to $E_{2s}$ where the imaginary part of the conductivity is not zero due to its proximity to $E_{1s}$ (see gray curve in Fig.~\ref{fig:sigma_grid}\pnl{c}).
+As a consequence, the dispersion curve back-bends at the frequency where $\Re\{\sigma_{xx}\}$ has a bump resulting from the nonzero oscillator strength of the $2s$ excitation.
+This phenomenon has been predicted before by C.~Wolff and co-authors in Ref.~\cite{Wolff:2018}, where they showed that this can be seen in any periodic optical system with loss and dispersion, and in any kind of materials strongly coupled to resonances.
+What we observe here is the particular case of strong exciton--photon coupling in a \bd~material.
+Even though we considered only the real $\omega$ and complex $q$ case, the reverse situation has also been considered in Ref.~\cite{Wolff:2018} in quite general terms.
 
-For the reader to get a feeling for the spatial distribution of the \gls{em} field of a surface polariton, in Fig.~\ref{fig:TM_mode_map} we display a map of the electric and magnetic fields of a \gls{tm} polarised mode, represented by the black arrows and the colorful background, respectively.
-We can see that both fields decay fast away from the \gls{hbn} monolayer along the $z$-direction, and how they oscillate along the $x$-direction, the direction in which thepolariton propagates.
-The region $z>0$ corresponds to vacuum, while the region $z<0$ corresponds to the  substrate, where the field confinement is higher than in air (stronger colors and bigger arrows).
-This suggests that it is possible to engineer the field confinement by appropriately choosing the materials for the environment of the \bd~material.
+To get a feeling for the spatial distribution of the \gls{em} field of a surface polariton, we display in Fig.~\ref{fig:TM_mode_map} a map of the electric and magnetic fields of a \gls{tm} polarised mode, represented by the black arrows and the colorful background, respectively.
+We can see how the \gls{em} field decays away from the \gls{hbn} monolayer along the $z$-direction, and how these evanescent modes oscillate along the direction of propagation, the $x$-direction.
+The region $z>0$ corresponds to vacuum, while the region $z<0$ corresponds to the substrate, where the field confinement is higher than in air (stronger colors and bigger arrows).
+This illustrates that it is possible to engineer the field confinement using different encapsulating materials.
 
-\begin{figure}[ht]
+\begin{figure}[p]
     \centering
     \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_5/polariton_dispersion_relation}
     \mycaption[Photonic dispersion of exciton--polaritons in modulated \gls{hbn}]{Dispersion relation $\omega(q)$ of exciton--polaritons in the system under study. We solve numerically Eq.~\eqref{eq:TM_modes_disp_rel} for different values of $\beta$. The solution is the frequency as a function of the wavenumber, that has a real part (solid blue line) and an imaginary part (dashed red line). For comparison, we show the dispersion relation for free propagating light in vacuum (solid black line) and in \ch{SiO2} (dashed black line). The case $\beta=0$ represents monolayer \gls{hbn} without potential on top.}
     \label{fig:polaritons_disp_rel}
 \end{figure}
 
-\begin{figure}[hb]
+%\vspace{2cm}
+
+\begin{figure}[p]
     \centering
     \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter_5/EM_polariton_field.png}
     \mycaption[Spatial map of the \gls{em} field of a \gls{tm}  polarized polariton]{Spatial configuration of the \gls{em} field of a \gls{tm} polarized polaritonic mode. The color intensity plot in the bakcground represents the intensity of the magnetic field, while the vector plot represents the off-plane components of the electric field, with their respective (relative) intensities represented by the size of the vectors. The top half is the field in air, while the bottom half is in quartz, \ch{SiO2}. We picked the $(\omega,q)$ point in the dispersion of Fig.~\ref{fig:polaritons_disp_rel}\pnl{b} of highest (real) wavenumber. This plot does not take into account the imaginary part of the wavenumber. We used the follwoing parameters: $q=4.45$\,\unit{\nano\meter}$^{-1}$, $\hbar \omega = 5.68$\,\unit{\electronvolt}, $\varepsilon_1 = 1$ and $\varepsilon_2 = 2.16$.}
