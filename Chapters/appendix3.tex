@@ -10,7 +10,10 @@
 \typeout{NT FILE appendix3.tex}%
 
 
-\chapter{Static Noninteracting Polarizability and Time-Reversal Symmetry}
+\chapter{Support information to Chapter 6}
+\label{app:screening}
+
+\section{Static Noninteracting Polarizability and Time-Reversal Symmetry}
 \label{app:polarizability_TRS_proof}
 
 In this section we derive expression~\eqref{eq:static_polarizability_TRS} in Section~\ref{subsec:non_interacting_polarizability} from its more general form~\eqref{eq:static_polarizability_repeated}, assuming the system is time-reversal symmetric.
@@ -90,3 +93,106 @@ In this way, the second term in the polarizability can be rewritten as
 
 \noindent which concludes our proof.
 This identity has also been verified numerically.
+
+\section{Regularization of the dielectric function}
+\label{app:regularization}
+
+In this section we explain in detail how the divergences of the dielectric matrix in the long-wavelength limit $\bq \to \bzero$ are treated in this work.
+As commonly done in the literature, different matrix elements of the dielectric matrix have different treatment, namely the head $\varepsilon_{\bzero \bzero}$, the wing $\varepsilon_{\bG \bzero}$ and $\varepsilon_{\bzero \bG}$, and body $\varepsilon_{\bG\bG'}$ matrix elements, with $\bG,\bG' \neq \bzero$.
+As is equally common in the literature, we adopt the symmetrized dielectric matrix defined by
+
+\begin{equation}
+\label{eq:symmetrized_dielectric_matrix}
+\varepsilon_{\bG \bG'} (\bq) = \delta_{\bG \bG'} - \sqrt{v_c(\bq + \bG)} \chi^0_{\bG \bG'} (\bq) \sqrt{v_c(\bq + \bG')} \,,
+\end{equation}
+
+\noindent which avoids technical issues in the $\bq$ zero limit, as we explain next. For the head element, it actually does not matter whether we symmetrize the dielectric function or not, since
+
+\begin{equation}
+\begin{aligned}
+    \varepsilon_{\bzero \bzero} (\bq \to \bzero) &= 1 - \sqrt{v_c(\bq \to \bzero)} \chi^0_{\bzero \bzero} (\bq \to \bzero) \sqrt{v_c(\bq \to \bzero)} = 1 - v_c(\bq \to \bzero) \chi^0_{\bzero \bzero} (\bq \to \bzero) = \\
+    &=1 - \frac{e}{2 \varepsilon_0 q} \bq \cdot \mathbf{B} \bq \to 1 \,,
+\end{aligned}
+\end{equation}
+
+\noindent where the last equality holds for very small $\bq$, and $\mathbf{B}$ is the Hessian matrix of the function $\chi^0_{\bzero \bzero} (q_x,q_y)$ at the point $(q_x,q_y) = (0,0)$. The Hessian, here a 2 by 2 matrix, does not depend on the small vector, because the function $\chi^0_{\bzero \bzero} (\bq)$ is analytic in $\bq$ around the origin, as stated by Pick, Cohen and Martin in~\cite{Pick_Cohen_Martin_1970}. In the same paper,  they explain that actually all the functions $\chi^0_{\bG \bG'} (\bq)$ for $\bG$ and $\bG'$ zero or not are analytic at $\bq = \bzero$. In other words, the functions $\chi^0_{\bG \bG'} (\bq)$ can be expanded around the origin in powers of $\bq$. Therefore, we can write for the wing terms
+
+% \begin{align}
+%     \varepsilon_{\bG \bzero} (\bq \to \bzero) &= - \sqrt{v_c(\bG)} \chi^0_{\bG \bzero} (\bq \to \bzero) \sqrt{v_c(\bq \to \bzero)} = - \sqrt{v_c(\bG)} \frac{e}{2 \varepsilon_0 \sqrt{q}} \bq \cdot \mathbf{A}(\bG) \,\, \to 0 \text{ with } \mathcal{O} (\sqrt{q}) \,, \\
+%     \varepsilon_{\bzero \bG} (\bq \to \bzero) &= - \sqrt{v_c(\bq \to \bzero)} \chi^0_{\bG \bzero} (\bq \to \bzero) \sqrt{v_c(\bG)}= - \sqrt{v_c(\bG)} \frac{e}{2 \varepsilon_0 \sqrt{q}} \bq \cdot \mathbf{A}^*(\bG) \to 0 \text{ with } \mathcal{O} (\sqrt{q}) \,,
+% \end{align}
+
+\begin{align}
+    \varepsilon_{\bG \bzero} (\bq \to \bzero) &= - \sqrt{v_c(\bG)} \chi^0_{\bG \bzero} (\bq \to \bzero) \sqrt{v_c(\bq \to \bzero)} = -  \frac{e}{2 \varepsilon_0 \sqrt{|\bG|} \sqrt{q}} \bq \cdot \mathbf{A}(\bG) \,\,\, \propto \sqrt{q} \to 0 \,, \\
+    \varepsilon_{\bzero \bG} (\bq \to \bzero) &= - \sqrt{v_c(\bq \to \bzero)} \chi^0_{\bzero \bG} (\bq \to \bzero) \sqrt{v_c(\bG)}= -  \frac{e}{2 \varepsilon_0 \sqrt{|\bG|} \sqrt{q}} \bq \cdot \mathbf{A}(\bG)^{*} \propto \sqrt{q} \to 0 \,,
+\end{align}
+
+\noindent where $\mathbf{A}(\bG)$ is the Jacobian matrix (vector, actually) of the function $\chi^0_{\bG \bzero} (\bq)$ at $\bq = \bzero$, that does not depend on $\bq$ due to $\chi^0_{\bG \bzero} (\bq)$ being analytic, as mentioned above.
+
+If we were to use the nonsymmetric dielectric matrix, then the wing terms $\varepsilon_{\bG \bzero}$ would also tend to zero as $\bq \to \bzero$, but with $q$ instead, but the terms $\varepsilon_{\bzero \bG}$ would tend to $\varepsilon_{\bzero \bG}(\bq \to \bzero) \to -e \hat{\bq} \cdot \mathbf{A}(\bG)^{*}/2\varepsilon_0$, which is finite and depends on the direction along which one takes the limit $\bq \to \bzero$. We can see the usefulness of using the symmetrized dielectric matrix, making it easier to implement numerically. One just sets $\varepsilon_{\bzero \bG}(\bzero) = \varepsilon_{\bG \bzero}(\bzero) = 0$, leaving an eventual long-wavelength regularization for later when dealing with the screened potential.
+
+Now we try to deduce the behaviour of the inverse dielectric matrix near $\bq$ zero, just as done in Refs.~\cite{Rasmussen_Schmidt_Winther_Thygesen_2016} and~\cite{Pick_Cohen_Martin_1970}, by writing the dielectric matrix as a matrix by blocks, separating the head, the wing and the body terms, that we represent by $\varepsilon_{\bzero \bzero}$, $\varepsilon_{\bG \bzero}$ and $\varepsilon_{\bzero \bG}$, and $B_{\bG \bG'}$, respectively. Skipping the details of the inversion, we directly write
+
+\begin{align}
+    \varepsilon^{-1}_{\bzero \bzero}       &= \left[\varepsilon_{\bzero \bzero} - \sum_{\bG,\bG' \neq \bzero} \varepsilon_{\bzero \bG} B^{-1}_{\bG \bG'} \varepsilon_{\bG'\bzero}\right]^{-1} \,, \\
+    \varepsilon^{-1}_{\bG \bzero}     &= -\varepsilon^{-1}_{\bzero \bzero} \sum_{\bG' \neq \bzero}  B^{-1}_{\bG \bG'}  \varepsilon_{\bG' \bzero}\,, \\
+    \varepsilon^{-1}_{\bzero \bG}     &= -\varepsilon^{-1}_{\bzero \bzero} \sum_{\bG' \neq \bzero}  \varepsilon_{\bzero\bG'} B^{-1}_{\bG' \bG} \,, \\
+    \varepsilon^{-1}_{\bG \bG'} &= B^{-1}_{\bG \bG'} + \varepsilon^{-1}_{\bzero \bzero} \left(\sum_{\bG'' \neq \bzero}  B^{-1}_{\bG \bG''}  \varepsilon_{\bG'' \bzero}\right) \left(\sum_{\bG'' \neq \bzero} \varepsilon_{\bzero\bG''} B^{-1}_{\bG'' \bG'}\right) \,.
+\end{align}
+
+\noindent Please note that in the previous relations, $B^{-1}_{\bG \bG'}$ designates the $(\bG,\bG')$ matrix element of the inverse of the body, and not the inverse of the body element $B_{\bG \bG'}$.
+Given the properties of the wing matrix elements derived above when taking the long-wavelength limit, we can infer that
+
+\begin{align}
+     \varepsilon^{-1}_{\bzero \bzero} (\bq \to \bzero) &\to 1 \,, \\
+     \varepsilon^{-1}_{\bG \bG'} (\bq \to \bzero) &\to B^{-1}_{\bG \bG'}(\bq \to \bzero) \,,
+\end{align}
+
+\noindent as one could expect for the head element of a strictly 2D dielectric matrix, while the body of the inverse dielectric matrix is simply the inverse of the body of the dielectric matrix. However, the analysis of the wing elements needs more care, since we need to know how they behave for small $\bq$. Using the very same properties of the wing elements $\varepsilon_{\bG \bzero}$ and $\varepsilon_{\bzero \bG}$, we can write down
+
+\begin{align}
+    &\varepsilon^{-1}_{\bG \bzero} (\bq \to \bzero) \to  \sum_{\bG' \neq \bzero}  B^{-1}_{\bG \bG'}   \frac{e}{2 \varepsilon_0 \sqrt{\bG'}} \sqrt{q} \hat{\bq} \cdot \mathbf{A}(\bG') \,\,\to 0 \,,\\
+    &\varepsilon^{-1}_{\bzero \bG} (\bq \to \bzero) \to  \sum_{\bG' \neq \bzero}  B^{-1}_{\bG' \bG}  \frac{e}{2 \varepsilon_0 \sqrt{\bG'}} \sqrt{q} \hat{\bq} \cdot \mathbf{A}(\bG')^{*} \to 0 \,,
+\end{align}
+
+\noindent so the wing terms of the inverse dielectric matrix tend to zero when $\bq$ approaches zero, just as expected for a 2D system~\cite{Guandalini_DAmico_Ferretti_Varsano_2023}. We are in a position now to address the troublesome matrix elements of the screened potential at zero momentum.
+
+We know now that $\varepsilon^{-1}_{\bzero \bzero} (\bq \to \bzero) \to 1$ for small momentum, but the bare Coulomb potential diverges with $1/q$, whence the head term of the screened potential $W_{\bzero \bzero} (\bq)$ diverges with $1/q$ in the long-wavelength limit. Nonetheless, the $\bq = \bzero$ term in reciprocal space calculations is known to be of upmost relevance to make calculations converge faster~\cite{Rasmussen_Schmidt_Winther_Thygesen_2016,} and is known to behave like the Rytova-Keldysh potential for small $\bq$, therefore one can come up with an analytical expression to regularize the term $W_{\bzero \bzero} (\bzero)$ as suggested by F. Hüser, T. Olsen and K.S. Thygesen in Ref.~\cite{Huser_Olsen_Thygesen_2013}, where the divergent term is approximated by
+
+\begin{equation}
+    W_{\bzero \bzero} (\bzero) = \frac{1}{\Omega_\Gamma} \int_{\Omega_\Gamma} \mathrm{d} \bq \, v_c(\bq) \big[1 + \bq \cdot \mathbf{\nabla}_{\bq} \varepsilon^{-1}_{\bzero \bzero} (\bq)|_{\bq = \bzero} \big] \,.
+\end{equation}
+
+Knowing that the head element $\varepsilon^{-1}_{\bzero \bzero} (\bq)$ approaches 1 linearly with $q$ near the origin, we can find an analytical expression for the previous integral. For an anisotropic material, we can simply take $\varepsilon^{-1}_{\bzero \bzero} (\bq)|_{\bq = \bzero} = (-r_{0,x},-r_{0,y})$, where the parameters $r_{0,x}$ and $r_{0,y}$ are the screening parameters computed numerically along the $x$ and $y$ directions, respectively. The expression evaluates to
+
+\begin{equation}
+     W_{\bzero \bzero} (\bzero) = \frac{e}{\varepsilon_0 q_0} \left[1 - \frac{1}{4} q_0 (r_{0,x}+r_{0,y})\right] =  \frac{e}{\varepsilon_0 q_0} \left(1 - \frac{q_0 r_0}{2} \right) \,,
+\end{equation}
+
+\noindent with the second equality holding for isotropic materials, and $q_0$ is the radius of a small circle centered at the origin of the BZ, the high symmetry point $\Gamma$. Typically, for $q_0$ we choose a percentage of around 40-50\% of the magnitude of the $\bk$ point in the BZ mesh closest to the origin, which depends on the number of $\bk$ points used, and of course the geometry of the BZ. 
+
+Regarding the wing terms of the screened potential using the symmetrized dielectric function, we get
+
+\begin{align}
+    W_{\bG \bzero} (\bq \to 0) &= \sqrt{v_c(\bG)} \varepsilon^{-1}_{\bG \bzero} (\bq \to \bzero) \sqrt{v_c (\bq \to \bzero)} = -\frac{e}{2\varepsilon_0\sqrt{|\bG|}} \hat{\bq} \cdot \sum_{\bG' \neq \bzero} \frac{1}{ \sqrt{\bG'}} \mathbf{A}(\bG') B^{-1}_{\bG' \bG}\,, \\
+    W_{\bzero \bG} (\bq \to 0) &= \sqrt{v_c (\bq \to \bzero)} \varepsilon^{-1}_{\bzero \bG} (\bq \to \bzero) \sqrt{v_c(\bG)}  = -\frac{e}{2\varepsilon_0\sqrt{|\bG|}} \hat{\bq} \cdot \sum_{\bG' \neq \bzero} \frac{1}{ \sqrt{\bG'}} \mathbf{A}(\bG')^* B^{-1}_{\bG \bG'}\,, 
+\end{align}
+
+\noindent with both results depending on the direction of the vector $\bq$ as it approaches zero in the same way. Even though they do not tend to a null value, they can be averaged around the origin, such that they become null, if one takes the average region center-symmetric (which should be to account for any possible anisotropies). This is due to the fact that the dependence on the direction of the vector $\bq$ is linear in its versor $\hat{\bq} = \bq/|\bq|$. This contrasts with the case in Rasmussen et al.'s work~\cite{Rasmussen_Schmidt_Winther_Thygesen_2016}, where the angular dependence of the wing terms of the screened potential is not trivial, in such a way that it has to be evaluated numerically. Therein, for the head term the dependence on $\hat{\bq}$ is also not trivial, but the simplicity of the expression allows for an approximate analytical evaluation.
+
+To summarize the results of this Appendix, we provide the following table:
+
+\begin{table}[h]
+\centering
+\caption{Summary of the behavior of the sensitive matrix elements of the dielectric matrix, inverse dielectric matrix and screened potential in the long-wavelength limit $q \to 0$. The head term of the screened potential craves a regularization scheme, while its wing terms will not contribute when averaged over a center-symmetric region.}
+\begin{tabular}{ccccc}
+\toprule
+                   & Head $(\bzero,\bzero)$    &      Wing  $(\bG,\bzero)$ or $(\bzero,\bG)$    \\ \hline
+$\varepsilon$      &    1     &   $\sqrt{q}$   \\ \hline
+$\varepsilon^{-1}$ &    1     &   $\sqrt{q} $  \\ \hline
+$W$                &   reg.   &        0       \\ \bottomrule
+\end{tabular}
+\label{tab:epsilon_long_wavelength_summary}
+\end{table}
+
+To finish the appendix, we would like to emphasize that the simplicity of the resulting non-zero contributions to the dielectric matrix, its inverse, and consequently the screened potential stem essentially from the slower divergence of the Coulomb potential in 2D, which goes with $1/q$, while in the \gls{3d} case commonly found in the literature one has $v_c(q \to 0) \sim 1/q^2$, making our numerical methods easier to implement and interpret.
