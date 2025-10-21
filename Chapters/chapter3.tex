@@ -436,7 +436,7 @@ In matrix form, we can write
 \end{equation}
 
 \noindent Herein, we typically work in a basis of orthogonal orbitals, such that any two different orbitals do not overlap.
-This holds in particular for the case where the localized orbitals are not atomic orbitals, but Wannier functions instead, which are orthogonal by construction\footnote{The Wannier functions result from transforming, by linear superpositions, the basis of the Bloch \wf s~\eqref{eq:Bloch_state_LCAO} into a basis of localized functions~\cite{Marzari_2012}.}.
+This holds in particular for the case where the localized orbitals are not atomic orbitals, but Wannier functions instead, which are orthogonal by construction\footnote{The Wannier functions result from transforming, by linear superpositions, the basis of the Bloch \wf s~\eqref{eq:Bloch_state_LCAO} into a basis of localized functions~\cite{Marzari_2012}.\label{fn:Wannier_functions}}.
 This makes $S(\bk) = \mathds{1}$, simplifying the eigenvalue problem~\eqref{eq:Bloch_eigenvalue_problem}.
 Following an analogous procedure for the Hamiltonian, one obtains
 
@@ -1407,7 +1407,7 @@ Henceforth, if we recover the explicit spacetime-dependence, we can write
 
 \begin{empheq}[innerbox=\fbox, right={\,.}]{align}
     \label{eq:dielectric_function_space_time}
-    \varepsilon^{\RPA} (\br,\br';t , t') = \delta(\br - \br') \delta(t-t') - \int \dr'' \int \dd t' v_c(\br - \br'') \chi^0(\br'',\br';t,t')
+    \varepsilon^{\RPA} (\br,\br';t , t') = \delta(\br - \br') \delta(t-t') - \int  v_c(\br - \br'') \chi^0(\br'',\br';t,t') \dr''
 \end{empheq}
 
 After computing the polarizability $\chi^0$, not in the $\br$-space but in the reciprocal $\bk$-space, we can \textit{a posteriori} compute the dielectric function as per~\eqref{eq:dielectric_function_space_time}, but in the $\bk$-space as well.
@@ -1452,10 +1452,10 @@ We recapitulate the \rpa~dielectric function in real space and time domain, whic
 
 \begin{equation}
     \label{eq:dielectric_function_real_time}
-    \varepsilon (\br,\br';t-t') = \delta(\br - \br') \delta(t-t') - \int  \int v_c(\br - \br'') \chi^0 (\br'',\br';t-t') \dr'' \dt' ,
+    \varepsilon (\br,\br';t-t') = \delta(\br - \br') \delta(t-t') - \int  v_c(\br - \br'') \chi^0 (\br'',\br';t-t') \dr'',
 \end{equation}
 
-\noindent where $v_c$ denotes the bare (unscreened) Coulomb potential, and $\chi^0 (\br,\br';t-t')$ is the \rpa~irreducible polarizability, for which we have assumed time translation invariance\footnote{Even though we can perceive the dielectric function as a response to an external potential perturbation of the form $\phi_0 \exp{\ii(\bk \vdot \br - \omega t)}$, which is a time-periodic perturbation, we treat it within the linear regime. This is valid as long as the amplitude $\phi_0$ is small enough. If it is too big, such that perturbative methods do not apply, then we have to account for the whole time dependence, as stated previously in footnote~\ref{fn:time_invariance_ch_2} of Chapter~\ref{ch:classical_electrodynamics}. If it still has periodicity, albeit discrete, we can work under the Floquet formalism of quantum mechanics, already mentioned too~\ref{fn:Floquet_formalism} in this chapter. If the perturbation is not periodic, then we need a full non-equilibrium framework. That can be done, for instance, using the non-equilibrium Green function formalism, also called the Keldysh formalism~\cite{Di_Ventra_2008}.}.
+\noindent where $\chi^0 (\br,\br';t-t')$ is the \rpa~irreducible polarizability introduced in the previous subsection, for which we have assumed time translation invariance\footnote{Even though we can perceive the dielectric function as a response to an external potential perturbation of the form $\phi_0 \exp{\ii(\bk \vdot \br - \omega t)}$, which is a time-periodic perturbation, we treat it within the linear regime. This is valid as long as the amplitude $\phi_0$ is small enough. If it is too big, such that perturbative methods do not apply, then we have to account for the whole time dependence, as stated previously in footnote~\ref{fn:time_invariance_ch_2} of Chapter~\ref{ch:classical_electrodynamics}. If it still has periodicity, albeit discrete, we can work under the Floquet formalism of quantum mechanics, already mentioned too~\ref{fn:Floquet_formalism} in this chapter. If the perturbation is not periodic, then we need a full non-equilibrium framework. That can be done, for instance, using the non-equilibrium Green function formalism, also called the Keldysh formalism~\cite{Di_Ventra_2008}.}.
 The \rpa~irreducible polarizability, in the frequency domain, at finite temperature $T$ and within a self-consistent field approach is given by~\cite{Cohen_Louie_2016}
 
 \begin{equation}
@@ -1538,7 +1538,7 @@ The expression for the matrix elements $\chi^0_{\bG \bG'}(\bq)$ can be obtained 
 
 \begin{equation}
     \label{eq:polarizability_momentum_frequency}
-    \chi^0_{\bG \bG'} (\bq,\omega) = \frac{1}{\vol} \sum_{n,n'} \sum_{\bk,\sigma} (f_{n,\bk} - f_{n',\bk + \bq}) \frac{\mel{n,\bk}{\ee^{-\ii(\bq + \bG) \vdot \br}}{n',\bk + \bq} \mel{n',\bk + \bq}{\ee^{\ii(\bq + \bG') \vdot \br}}{n,\bk}}{\epsilon_{n,\bk} - \epsilon_{n',\bk + \bq} + \hw + \ii \eta}\,,
+    \chi^0_{\bG \bG'} (\bq,\omega) = \frac{1}{\vol} \sum_{n,n'} \sum_{\bk \sigma} (f_{n,\bk} - f_{n',\bk + \bq}) \frac{\mel{n,\bk}{\ee^{-\ii(\bq + \bG) \vdot \br}}{n',\bk + \bq} \mel{n',\bk + \bq}{\ee^{\ii(\bq + \bG') \vdot \br}}{n,\bk}}{\epsilon_{n,\bk} - \epsilon_{n',\bk + \bq} + \hw + \ii \eta}\,,
 \end{equation}
 
 \noindent where $\vol$ is the volume of the crystal, $n$ and $n'$ are band indices, $\bG$ and $\bG'$ are reciprocal lattice vectors, $\sigma$ represents spin and the sum over momentum $\bk$ is over the \bz.
