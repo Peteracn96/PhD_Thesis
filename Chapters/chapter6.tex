@@ -167,7 +167,7 @@ To summarize, to compute a single polarizability matrix element $\chi^0_{\bG \bG
 \begin{itemize}
     \item The Bloch Hamiltonian $H(\bk)$ (regardless of the gauge) and to diagonalize it to obtain the band structure $\{\epsilon_{n \bk}\}$ in the set of points $\bk$ included in the sum and the eigenvectors $\{\bC^{n \bk}\}$ storing the tight-binding coefficients $C^{n \bk}_{i \alpha}$;
     \item The set of energies $\{\epsilon_{n \bk + \bq} \}$ and eigenvectors $\{\bC^{n \bk + \bq}\}$, where $\bq$ is the point in the \bz~we are computing the polarizability at;
-    \item The plane-wave matrix elements of the form $I^{\bG}_{\cc \bk, v \bk + \bq} = \sum_{i \alpha} (C_{i \alpha}^{c \bk})^* C_{i \alpha}^{v \bk + \bq}  \ee^{-\ii (\bq + \bG)  \vdot \bt_i}$, as we know the position of the atoms in the motif $\bt_i$ from the beginning.
+    \item The plane-wave matrix elements of the form $I^{\bG}_{\cc \bk, \vv \bk + \bq} = \sum_{i \alpha} (C_{i \alpha}^{\cc \bk})^* C_{i \alpha}^{\vv \bk + \bq}  \ee^{-\ii (\bq + \bG)  \vdot \bt_i}$, as we know the position of the atoms in the motif $\bt_i$ from the beginning.
 \end{itemize}
 
 In our numerical framework, the Bloch Hamiltonian $H(\bk)$ is determined by the input model for the code.
@@ -255,14 +255,14 @@ Namely for the direct term we have
 
 \begin{empheq}[innerbox=\fbox, right={\,,}]{align}
     \label{eq:direct_term}
-    D_{\vv\cc,\vv'\cc'}(\bk,\bk',\bQ) = \frac{1}{N} \sum_{\bG,\bG'} \qty(I^{\bG}_{\cc \bk+\bQ, \cc' \bk'+\bQ})^* W_{\bG \bG'}(\bk - \bk') I^{\bG'}_{\vv \bk, \vv' \bk'}
+    D_{\vv\cc,\vv'\cc'}(\bk,\bk',\bQ) = \frac{1}{\area} \sum_{\bG,\bG'} \qty(I^{\bG}_{\cc \bk+\bQ, \cc' \bk'+\bQ})^* W_{\bG \bG'}(\bk - \bk') I^{\bG'}_{\vv \bk, \vv' \bk'}
 \end{empheq}
 
 \noindent and for the exchange term
 
 \begin{empheq}[innerbox=\fbox,right={\,.}]{align}
     \label{eq:exchange_term}
-    X_{\vv\cc,\vv'\cc'}(\bk,\bk',\bQ) = \frac{1}{N} \sum_{\bG,\bG'} \qty(I^{\bG}_{\cc \bk+\bQ, v \bk})^* W_{\bG \bG'}(\bQ) I^{\bG'}_{\cc' \bk' + \bQ, \vv' \bk'}
+    X_{\vv\cc,\vv'\cc'}(\bk,\bk',\bQ) = \frac{1}{\area} \sum_{\bG,\bG'} \qty(I^{\bG}_{\cc \bk+\bQ, \vv \bk})^* W_{\bG \bG'}(\bQ) I^{\bG'}_{\cc' \bk' + \bQ, \vv' \bk'}
 \end{empheq}
 
 \noindent The reader shall notice that in both expressions there is a sum over reciprocal lattice vectors.
