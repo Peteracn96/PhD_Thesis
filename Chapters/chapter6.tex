@@ -73,8 +73,9 @@ Therefore, the momentum-resolved Coulomb potential in Eq.~\eqref{eq:dielectric_f
     v_c(\bq) =  \frac{e}{2  \epsz q} \,,
 \end{equation}
 
-\noindent which depends on momentum as $~1/q$, unlike its \gls{3d} counterpart that goes as $~1/q^2$.
-As we will see later on, this will put us in advantage over typical first-principle approaches.
+\noindent which depends on momentum as $~1/q$, unlike its \gls{3d} counterpart that goes with $~1/q^2$.
+As we will explain in a moment, this small detail puts us in advantage over typical first-principle approaches.
+
 Naturally, the polarizability $\chi^0_{\bG \bG'} (\bq,\omega)$ is also the \bd~counterpart of Eq.~\eqref{eq:polarizability_momentum_frequency}, and reads
 
 \begin{equation}
@@ -177,7 +178,7 @@ Quite recently, the code was updated by G.~Janone with an utility that transform
 The corresponding version of the code can be found in \url{https://github.com/GuiJanone/xatu-w90}.
 This utility serves as an intermediary between Wannier90 and the Xatu code.
 
-The Wannier model for the Hamiltonian has to be obtained through the method of maximally localized Wannier functions\cite{Marzari_2012}, in order for the point-like orbital approximation to be as true as possible.
+The Wannier model for the Hamiltonian has to be obtained through the method of maximally localized Wannier functions~\cite{Marzari_2012}, in order for the point-like orbital approximation to be as true as possible.
 Then, the orbitals $\phi_{\alpha}$ can be perceived as Wannier functions (see footnote~\ref{fn:Wannier_functions} in Chapter~\ref{ch:quantum_mechanics_solids}) as well, besides their interpretation as atomic orbitals.
 In general, in a Wannier representation of the Hamiltonian, we have as many ``atomic positions'' $\bt_i$ as orbitals in total, but only one orbital per site within the motif of the unit cell.
 On the contrary, in a tight-binding model, we have as many atomic positions $\bt_i$ as atoms in the motif, and generically more than one orbital per atom.
@@ -193,21 +194,21 @@ The static dielectric function, within \rpa, writes
 
 \begin{empheq}[innerbox=\colorbox{lightgray}, right={\,,}]{align}
     \label{eq:static_symmetrized_dielectric_function}
-    \varepsilon_{\bG \bG'} (\bq) = \delta_{\bG \bG'} - \sqrt{v_c(\bq + \bG)} \chi^0_{\bG \bG'} (\bq) \sqrt{v_c(\bq + \bG')} \,,
+    \varepsilon_{\bG \bG'} (\bq) = \delta_{\bG \bG'} - \sqrt{v_c(\bq + \bG)} \chi^0_{\bG \bG'} (\bq) \sqrt{v_c(\bq + \bG')}
 \end{empheq}
 
 \noindent if we adopt the symmetrized version of~\eqref{eq:dielectric_function_momentum_frequency_repeated}.
-The reason why we implement the symmetrized version of the dielectric function is that it simplifies the treatment of the numerical divergences in the dielectric function, and subsequently in the screened potential, in the long-wavelength limit~\cite{Baldereschi_Tosatti_1978,Rasmussen_Schmidt_Winther_Thygesen_2016,Shishkin_Kresse_2006}.
+The reason why we implement the symmetrized version is that it eases the treatment of numerical divergences in the dielectric function and, subsequently, in the screened potential in the long-wavelength limit~\cite{Baldereschi_Tosatti_1978,Rasmussen_Schmidt_Winther_Thygesen_2016,Shishkin_Kresse_2006}.
 Actually, for the head element $\varepsilon_{\bzero \bzero} (\bq \to \bzero)$, it is indifferent if we use the symmetrized version as per Eq.~\eqref{eq:static_symmetrized_dielectric_function}, or the initial one in Eq.~\eqref{eq:dielectric_function_momentum_frequency_repeated}.
 For this element, we can simply set $\varepsilon_{\bzero \bzero} (\bq \to \bzero) = 1$, because the bare potential goes with $v_c(\bq) \sim 1/q$, while the polarizability goes with $\chi^0_{\bzero \bzero} (\bq \to \bzero) \sim q^2$, as we shall confirm in Subsection~\ref{subsec:non_interacting_polarizability_results}.
 This feature of the head element of the polarizability is universal among insulators, either in two or three dimensions, as long as the material presents a bandgap~\cite{Thygesen_2017}.
-This means that, when computing the matrix element $\varepsilon_{\bzero \bzero} (\bq)$ in the limit $\bq \to \bzero$, we face no numerical instabilities.
+This means that, when computing the matrix element $\varepsilon_{\bzero \bzero} (\bq)$ in the limit $\bq \to \bzero$, we face no numerical instabilities unlike in the \gls{3d} case, where $v_c(\bq) \sim 1/q^2$.
 
 In \abinit~calculations for \bd~materials, it is typical to use a truncated Coulomb potential instead of the full one, in order to mitigate the interaction between repeated images, with increasing off-plane separation~\cite{Ismail-Beigi_2006,Huser_Olsen_Thygesen_2013,Rasmussen_Schmidt_Winther_Thygesen_2016}.
 Only after performing a \bd~Fourier transform of the truncated Coulomb potential, and taking the limit $q \to 0$, one can obtain a $1/q$ behavior for the potential, removing any numerical instabilities when taking that limit.
 However, it still depends on the off-plane separation between layers, $L_{\perp}$.
 But even in that case, the value of the static macroscopic dielectric function, $\varepsilon_M$, at zero momentum is not exactly the unity~\cite{Huser_Olsen_Thygesen_2013}.
-The results have to be converged by increasing $L_{\perp}$, and only in the limit of infinite separation $\varepsilon_M (\bzero) = 1$ for a \bd~material.
+The results have to be converged by increasing $L_{\perp}$, and only in the limit of infinite separation $\varepsilon_M (0) = 1$ for a \bd~material.
 Besides that, the \bd~macroscopic dielectric function is not simply the one given be the definition in Eq.~\eqref{eq:macroscopic_dielectric_function_definition}.
 It is obtained only after performing an off-plane average of the inverse \gls{3d} microscopic dielectric function~\cite{Huser_Olsen_Thygesen_2013,Jornada_PhD,Diana_PhD}, as the definition in Eq.~\eqref{eq:macroscopic_dielectric_function_definition} is not directly applicable.
 
@@ -221,10 +222,11 @@ In order to not break the flow of the text, we relegate the details to Appendix~
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The calculations are also much more efficient due to the reduced dimensionality of our approach.
-To compute the dielectric matrix and invert it, we have no off-plane contribution to the reciprocal lattice vectors, so the number of matrix elements to compute, at each point $\bq \in \BZ$, scales with $N^2$ instead of $N^3$.
+To compute the dielectric matrix and invert it, we have no off-plane contribution to the reciprocal lattice vectors, so the number of matrix elements to compute, at each point $\bq \in \BZ$, scales with $N^2$ instead of $N^3$, if $N$ is the number of cells of the reciprocal lattice along the directions of the two primitive vectors.
+Then, in two dimensions the number of linear combinations is $N^2$, and in three dimensions it is $N^3$.
 
 After having computed the dielectric matrix, we need to invert it.
-This poses a difficulty in the problem: there are infinite reciprocal lattice vectors, therefore, we need to apply a cutoff $G_c$ for the vectors $\bG$ and truncate the dielectric matrix to invert it in practice.
+This poses a difficulty in the problem: there are infinite reciprocal lattice vectors; therefore, we need to apply a cutoff $G_c$ for the vectors $\bG$ and truncate the dielectric matrix to invert it in practice.
 Even if we have decided to follow the alternative approach for the \rpa~inverse dielectric function, given by~\cite{Dielectric_Genome}
 
 \begin{equation}
@@ -232,23 +234,15 @@ Even if we have decided to follow the alternative approach for the \rpa~inverse 
     \varepsilon^{-1}_{\bG \bG'} (\bq) = \delta_{\bG \bG'} + v_c(\bq + \bG) \chi^{\RPA}_{\bG \bG'} (\bq) \,,
 \end{equation}
 
-\noindent where $\chi^{\RPA}_{\bG \bG'} (\bq)$ is the interacting polarizability within \rpa, defined by the Dyson equation~\cite{Bruus_Flensberg_2004}
-
-\begin{equation}
-    \label{eq:dyson_equation_repeated}
-    \chi^{\RPA}  = \chi^0 +  \chi^0 V_c \chi^{\RPA} \,,
-\end{equation}
-
-\noindent when written in a compact form, where $V_c$ is the interaction kernel.
-Within \rpa, one ignores exchange and correlation, which is why the interaction kernel coincides with the bare Coulomb potential~\cite{Cohen_Louie_2016,Bruus_Flensberg_2004}, accounting only for the direct interaction.
-In the previous equation, all quantities, when written in momentum space, are infinite matrices as well, so we would need to apply a cutoff for the vectors $\bG$ either way.
+\noindent where $\chi^{\RPA}_{\bG \bG'} (\bq)$ is the reducible polarizability within \rpa, defined by the Dyson equation \eqref{eq:Dyson_equation_chi_RPA}.
+In that same equation, all quantities when written in momentum space are infinite matrices as well, so we would need to apply a cutoff for the vectors $\bG$ either way.
 This is in great contrast with the jellium model considered by H.~Bruus and K.~Flensberg in Ref~\cite{Bruus_Flensberg_2004}, where there is no underlying crystalline structure, and as a consequence, all quantities like the Coulomb potential, the polarizability and the dielectric function are simply scalars.
 For now, let us assume that we can in principle compute the dielectric matrix and invert it without any problems.
 In that way, the screened Coulomb potential writes
 
 \begin{equation}
     \label{eq:screened_static_Coulomb_potential}
-    W_{\bG \bG'} (\bq) =  \varepsilon^{-1}_{\bG \bG'} (\bq) v_c(\bq + \bG')
+    W_{\bG \bG'} (\bq) =  \varepsilon^{-1}_{\bG \bG'} (\bq) v_c(\bq + \bG') \text{lololo}
 \end{equation}
 
 \noindent in the static approximation, which we have to justify.
