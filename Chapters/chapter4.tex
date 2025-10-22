@@ -298,21 +298,21 @@ The average of the periodic part of the Bloch wavefunctions over a unit cell can
 
 \begin{align}
     \label{eq:envelope_function_approximation}
-    \left\langle u_{\lambda_1, \bk_1}^{*}(\br)u_{\lambda_4, \bk_4}(\br)\right\rangle _{\mathrm{UC}} =& \frac{1}{A_{\mathrm{UC}}} \int_{\mathrm{UC}} u_{\lambda_1, \bk_1}^{*}(\br) u_{\lambda_4, \bk_4}(\br)\, \dr = \notag\\
-    =& \frac{1}{N A_{\mathrm{UC}}} \int_{\mathrm{UC}} \Bigg[\sum_{\bR,i\alpha}\ee^{-\ii\bk_{1}\vdot(\bR + \bt_{i} - \br)} \left(C_{i \alpha}^{\lambda_1 \bk_1}\right)^{*}\phi_{\alpha}(\br-\bR-\bt_{i})\Bigg] \times \notag \\
+    \left\langle u_{\lambda_1, \bk_1}^{*}(\br)u_{\lambda_4, \bk_4}(\br)\right\rangle _{\mathrm{UC}} =& \frac{1}{\area_{\UC}} \int_{\mathrm{UC}} u_{\lambda_1, \bk_1}^{*}(\br) u_{\lambda_4, \bk_4}(\br)\, \dr = \notag\\
+    =& \frac{1}{N \area_{\UC}} \int_{\mathrm{UC}} \Bigg[\sum_{\bR,i\alpha}\ee^{-\ii\bk_{1}\vdot(\bR + \bt_{i} - \br)} \left(C_{i \alpha}^{\lambda_1 \bk_1}\right)^{*}\phi_{\alpha}(\br-\bR-\bt_{i})\Bigg] \times \notag \\
     & \times \Bigg[\sum_{\bR',j\beta} \ee^{\ii\bk_{4}\vdot(\bR'+\bt_{j}-\br)} C_{j \beta}^{\lambda_4 \bk_4}\phi_{\beta}(\br-\bR'-\bt_{j})\Bigg]\dr = \notag \\
-    =&\frac{1}{N A_{\mathrm{UC}}} \sum_{\bR,\bR'}\ee^{-\ii\bk_{1}\vdot(\bR + \bt_{i} - \br)} \ee^{\ii\bk_{4}\vdot(\bR'+\bt_{j}-\br)} \sum_{i\alpha,j\beta}\left(C_{i \alpha}^{\lambda_1 \bk_1}\right)^{*}C_{j \beta}^{\lambda_4 \bk_4} \times \notag \\
+    =&\frac{1}{N \area_{\UC}} \sum_{\bR,\bR'}\ee^{-\ii\bk_{1}\vdot(\bR + \bt_{i} - \br)} \ee^{\ii\bk_{4}\vdot(\bR'+\bt_{j}-\br)} \sum_{i\alpha,j\beta}\left(C_{i \alpha}^{\lambda_1 \bk_1}\right)^{*}C_{j \beta}^{\lambda_4 \bk_4} \times \notag \\
     & \times \int_{\mathrm{UC}} \ee^{\ii(\bk_{1}-\bk_{4})\vdot\br}\underbrace{\phi_{\alpha}(\br-\bR-\bt_{i})\phi_{\beta} (\br-\bR'-\bt_{j})}_{\approx \delta_{ij} \delta_{\alpha \beta} \delta_{\bR \bR'} \delta(\br-\bR-\bt_{i})}\dr \approx \notag\\
-    \approx & \frac{1}{N A_{\mathrm{UC}}} \sum_{\bR} \cancel{\ee^{-\ii(\bk_{1}-\bk_{4})\vdot(\bR+\bt_{i})}} \sum_{i\alpha,j\beta} \left(C_{i \alpha}^{\lambda_1 \bk_1}\right)^{*} C_{j \beta}^{\lambda_4 \bk_4} \cancel{\ee^{\ii(\bk_{1}-\bk_{4})\vdot(\bR+\bt_{i})}} = \notag \\
-    =&\frac{1}{A_{\mathrm{UC}}} \sum_{i\alpha}\left(C_{i \alpha}^{\lambda_1 \bk_1}\right)^{*} C_{i\alpha}^{\bk_{4},\lambda_{4}} = \\
-    =&\frac{1}{A_{\mathrm{UC}}}\left(\bC^{\lambda_1 \bk_1}\right)^{\dagger}\bC^{\lambda_4 \bk_4},\text{ since }\sum_{\bR}1=N\,.
+    \approx & \frac{1}{N \area_{\UC}} \sum_{\bR} \cancel{\ee^{-\ii(\bk_{1}-\bk_{4})\vdot(\bR+\bt_{i})}} \sum_{i\alpha,j\beta} \left(C_{i \alpha}^{\lambda_1 \bk_1}\right)^{*} C_{j \beta}^{\lambda_4 \bk_4} \cancel{\ee^{\ii(\bk_{1}-\bk_{4})\vdot(\bR+\bt_{i})}} = \notag \\
+    =&\frac{1}{\area_{\UC}} \sum_{i\alpha}\left(C_{i \alpha}^{\lambda_1 \bk_1}\right)^{*} C_{i\alpha}^{\bk_{4},\lambda_{4}} = \\
+    =&\frac{1}{\area_{\UC}}\left(\bC^{\lambda_1 \bk_1}\right)^{\dagger}\bC^{\lambda_4 \bk_4},\text{ since }\sum_{\bR}1=N\,.
 \end{align}
 
 \noindent Finally, the plane-wave matrix element reads
 
 \begin{equation}
     \begin{aligned}
-        \mel{\lambda_1, \bk_1}{\ei{\bq \vdot \br}}{\lambda_4, \bk_4} & = \frac{1}{A_{\mathrm{UC}}}\left(\bC^{\lambda_1 \bk_1}\right)^{\dagger} \bC^{\lambda_4 \bk_4} \area \,\delta_{\bq,\bk_{1}-\bk_{4}} = \\
+        \mel{\lambda_1, \bk_1}{\ei{\bq \vdot \br}}{\lambda_4, \bk_4} & = \frac{1}{\area_{\UC}}\left(\bC^{\lambda_1 \bk_1}\right)^{\dagger} \bC^{\lambda_4 \bk_4} \area \,\delta_{\bq,\bk_{1}-\bk_{4}} = \\
                                                                    & = N \left(\bC^{\lambda_1 \bk_1}\right)^{\dagger}\bC^{\lambda_4 \bk_4}\delta_{\bq,\bk_{1}-\bk_{4}},
     \end{aligned}
 \end{equation}
