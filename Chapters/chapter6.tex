@@ -298,12 +298,12 @@ For that, we need a more realistic model based on \abinit~methods.
 After all, it is with \abinit~methods that we can fit the tight-binding band structure to the \abinit~one to get the tight-binding parameters.
 
 Herein, the model Hamiltonian for \gls{hbn} was obtained through \dft~calculations (see Subsection~\ref{subsubsec:abinit_methods}) with the commercial package CRYSTAL~\cite{CRYSTAL_23}, which uses a framework of Gaussian basis functions.
-In our calculations, we used the hybrid functional HSE06~\cite{Heyd_Scuseria_Ernzerhof_2003}, which mixes the exact \gls{hf} exchange functional and the Perdew--Burke--Ernzerhof functional~\cite{Perdew_1996} within the \gls{gga}\footnote{In typical \abinit~calculations within \dft, there is always an ambiguity in the functional one can choose to capture exchange and correlation effects. This is because no one knows the analytical expression for the exact exchange--correlation functional, if it even exists. We know however that it is a functional of the electron density $n(\br)$ by the Hohenberg--Kohn theorems, we just do not have an analytical expression for it. Nonetheless, exchange--correlation contributions to the ground-state energy can be computed numerically. The caveat is that it is very computationally demanding. What one typically does, is mixing the exact numerical functional with an approximated one, say at the \gls{lda} or \gls{gga} level. There is general consensus in the community that using hybrid functionals allows better estimating the electronic bandgap than non-hybrid ones when compared with the experimental values~\cite{PhysRevMaterials.8.043803}.}.
+In our calculations, we used the hybrid functional HSE06~\cite{Heyd_Scuseria_Ernzerhof_2003}, which mixes the exact \gls{hf} exchange functional and the Perdew--Burke--Ernzerhof functional~\cite{Perdew_1996} within the \gls{gga}\footnote{In typical \abinit~calculations within \dft, there is always an ambiguity in the functional one can choose to capture exchange and correlation effects. This is because no one knows the analytical expression for the exact exchange--correlation functional, if it even exists. We know however that it is a functional of the electron density $n(\br)$ by the Hohenberg--Kohn theorems, we just do not have an analytical expression for it. Nonetheless, exchange--correlation contributions to the ground-state energy can be computed numerically. The caveat is that it is very computationally demanding. What one typically does, is mixing the exact numerical functional with an approximated one, say at the \gls{lda} or \gls{gga} level. There is consensus in the community that using hybrid functionals allows better estimating the electronic bandgap than non-hybrid ones when compared with the experimental values~\cite{PhysRevMaterials.8.043803}.}.
 For the sampling of $\bk$ points, we use a uniform $48\times48\times1$ Monkhorst--Pack $\bk$-grid~\cite{Monkhorst_Pack_1976}, with an interlayer distance of 500 \unit{\angstrom} and $a=2.51$ \unit{\angstrom} for the lattice constant.
 The output file $\texttt{hBN\_base\_HSE06.outp}$ can be found in the official repository for the Xatu code~\cite{Xatu}; \url{https://github.com/xatu-code/xatu/tree/master/examples/material_models/DFT}.
 This file contains the Fock matrices of the form $H(\bR)$ in a basis of localized Gaussian functions, sufficient in number to build the Bloch Hamiltonian $H(\bk) = \sum_{\bR} \ee^{\ii \bk \cdot \bR} H(\bR)$ while preserving basic symmetries.
 Diagonalizing the Bloch Hamiltonian along the high-symmetry line $\Gamma-K-M-\Gamma$, we obtain the band structure displayed in Fig.~\ref{fig:hBN_DFT_bands} below.
-For this model, we have obtained a bandgap of $\Delta = 6.08$ \unit{\electronvolt}, not very distant from the one reported in Section~\ref{subsec:band_gap_and_binding_energies}.
+For this model, the bandgap is $\Delta = 6.08$ \unit{\electronvolt}, not very distant from the one reported in Section~\ref{subsec:band_gap_and_binding_energies}.
 With this model Hamiltonian, namely the band structure and the eigenvectors of the Bloch Hamiltonian, we construct a numerical model for the screening properties of \gls{hbn}, needed later on to compute the excitons through the exact diagonalization method for the \bse, as discussed in Section~\ref{subsec:interaction_matrix_elements_and_screening}.
 That is the subject of the sections to come.
 
@@ -320,14 +320,15 @@ That is the subject of the sections to come.
 \subsection{Noninteracting polarizability}
 \label{subsec:non_interacting_polarizability_results}
 
-Before we proceed with the calculation of the dielectric matrix, we need to study the convergence of the matrix elements of the polarizability $\chi^0_{\bG \bG'} (\bq)$ given in Eq.~\eqref{eq:static_polarizability_TRS} with the number of included conduction bands, for different $(\bG,\bG')$ pairs, and for different values of momentum $\bq$.
+Before we proceed with the calculation of the dielectric matrix, we need to study the convergence of the polarizability matrix elements $\chi^0_{\bG \bG'} (\bq)$ given by Eq.~\eqref{eq:static_polarizability_TRS} with the number of included conduction bands, for different $(\bG,\bG')$ pairs, and for different values of momentum $\bq$.
 
 We have verified, for this material and others, that the polarizability converges relatively fast with the number of $\bk$ points in the \bz~mesh that enter in the sum of Eq.~\eqref{eq:static_polarizability_TRS}.
 Typically, between a $15 \times 15$ grid up to a $20 \times 20$ grid we can converge the polarizability within the first four to five significant digits.
 We shall look closely into the convergence with the number of conduction bands included in the sum.
 
 In Fig.~\ref{fig:chi_00_hbndft} below, we study the convergence of the polarizability with the number of empty bands included in the calculation for \gls{hbn}, in particular the head element $\chi^0_{\bzero \bzero} (\bq)$.
-We just advert the reader for the fact that the polarizability presented in the figure and the following ones is multiplied by the unit cell area $\area_{\UC}$, as in our implementations we cast the area of the unit cell to the Coulomb potential and left the factor of $1/N$ in the polarizability for it to converge with the size of the \bz~mesh.
+We just advert the reader for the fact that the polarizability presented in the figures is the one in Eq.~\eqref{eq:static_polarizability_TRS} multiplied by the unit cell area $\area_{\UC}$, as in our implementations we cast the area of the unit cell to the Coulomb potential and left the factor of $1/N$ in the polarizability for it to converge with the size of the \bz~mesh.
+Therefore, they appear in units of \unit{\electronvolt^{-1}} and scaled by a factor of $10^2$.
 This choice does not have any physical implications, it is just how we decided to implement it.
 At the end, the dielectric function will come out dimensionless as it is supposed to be.
 In this example the band structure was obtained within \dft~with the HSE06 functional using CRYSTAL~\cite{CRYSTAL_23} as explained in the previous subsection, and 169 Fock matrices were included in the calculations.
@@ -359,14 +360,14 @@ Panel \pnl{a} displays the quantity $\chi^0_{\bzero \bzero} (\bq)$ as a function
 What we see from that plot is that the head element of the polarizability:
 
 \begin{itemize}
-    \item does not depend on the direction of $\bq$, but only on $q$. This isotropic behavior is expected for \gls{hbn}, considered an isotropic material.
+    \item does not depend on the direction of $\bq$, but only on $q$ (apart from some small numerical fluctuations). This isotropic behavior is expected for \gls{hbn}, considered an isotropic material.
     \item approaches zero with a quadratic $q$-dependence when $q \to 0$, as expected for an insulator~\cite{Thygesen_2017}.
 \end{itemize}
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/Chi00hBNDFTmesh.pdf}
-    \mycaption[Polarizability in the \bz~mesh: head element]{Matrix element $\chi^0_{\bzero \bzero} (\bq)$ for \gls{hbn} in the \bz. Panel \textbf{a} displays the polarizability as a function of the magnitude of the momentum. Each red dot is a $\bq$ point in the mesh, and they are sorted by increasing order of $|\bq|$. Panel \textbf{b} displays a color map of the (absolute) value of the polarizability in the \bz~mesh. The bar legend for the colors is inside the plot.}
+    \mycaption[Polarizability in the \bz~mesh: head element]{Matrix element $\chi^0_{\bzero \bzero} (\bq)$ for \gls{hbn} in the \bz. Panel \textbf{a} displays the polarizability as a function of the magnitude of the momentum. Each red dot is a $\bq$ point in the mesh, and they are sorted by increasing order of $|\bq|$. Panel \textbf{b} displays a color map of the (absolute) value of the polarizability in the \bz~mesh. The bar legend for the colors is inset.}
     \label{fig:chi_00_hbndft_mesh}
 \end{figure}
 
@@ -375,7 +376,7 @@ Out of curiosity, in Fig.~\ref{fig:chi_g10_hbndft_mesh} we plot in the \bz~mesh 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/ChiG1_0hBNDFTmesh}
-    \mycaption[Polarizability in the \bz~mesh: an off-diagonal element]{Matrix element $\chi^0_{\bG_1 \bzero} (\bq)$ of the polarizability in the \bz~for \gls{hbn}. Panel \textbf{a} displays the real part of the polarizability, while panel \textbf{b} displays the imaginary part. The bar legend for the colors are inside the respective plots.}
+    \mycaption[Polarizability in the \bz~mesh: an wing element]{Matrix element $\chi^0_{\bG_1 \bzero} (\bq)$ of the polarizability in the \bz~for \gls{hbn}. Panel \textbf{a} displays the real part of the polarizability, while panel \textbf{b} displays the imaginary part. The bar legend for the colors are inset. The polarizability is multiplied by $10^2$.}
     \label{fig:chi_g10_hbndft_mesh}
 \end{figure}
 
@@ -394,13 +395,13 @@ For the matrix elements to converge, we expect a high enough number of reciproca
 How high we will see.
 We compute the matrix $\varepsilon^{-1}_{\bG \bG'} (\bq)$ for $\bq \neq 0$ with an increasing number of reciprocal lattice vectors included, and inspect four matrix elements: the head element, two elements in the body, a diagonal one and an off-diagonal one, and a wing element.
 In Fig.~\ref{fig:hBN_inv_epsilon_convergence} below we showcase four matrix elements of the inverse dielectric matrix, one in each panel.
-For each point in each curve, we applied a cutoff $G_c$ in integer multiples of $3 \text{\unit{\angstrom}}^{-1}$, but the horizontal axis shows the number of vectors included, and not the cutoff.
-We can notice a convergence tendency with the number of reciprocal lattice vectors, albeit quite slow.
+For each point in each curve, we applied a cutoff $G_c$ in integer multiples of $3 \,\text{\unit{\angstrom}}^{-1}$, although the horizontal axis shows the number of vectors included, and not the cutoff.
+We can notice a convergence tendency with the number of reciprocal lattice vectors included, albeit quite slow.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/inv_epsilon_convergence_hBN_panels}
-    \mycaption[Convergence of the inverse dielectric matrix]{Selection of matrix elements $\varepsilon^{-1}_{\bG \bG'} (\bq)$ of the inverse of the dielectric matrix $\varepsilon^{-1}_{\bG \bG'} (\bq)$ computed at a point $\bq \neq \bzero$ in the \bz, for our model of \gls{hbn} from CRYSTAL.}
+    \includegraphics[width=0.8\textwidth]{Chapters/Figures/Chapter_6/inv_epsilon_convergence_hBN_panels}
+    \mycaption[Convergence of the inverse dielectric matrix]{Selection of matrix elements $\varepsilon^{-1}_{\bG \bG'} (\bq)$ of the inverse of the dielectric matrix $\varepsilon^{-1}_{\bG \bG'} (\bq)$ computed at a point $\bq \neq \bzero$ in the \bz, for our model of \gls{hbn} from CRYSTAL. \todo[inline]{complete the caption of the figure}}
     \label{fig:hBN_inv_epsilon_convergence}
 \end{figure}
 
