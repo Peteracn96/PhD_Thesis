@@ -463,3 +463,8 @@
 
 % Colors
 \definecolor{lightgray}{HTML}{D3D3D3}
+
+% Custom colorbox
+\newtcolorbox[auto counter,number within=section]{mybox}[2][]{%
+breakable, sharp corners, colframe=blue!80!black, colback=blue!10, fonttitle=\bfseries,
+title=Box~\thetcbcounter: #2,#1}
