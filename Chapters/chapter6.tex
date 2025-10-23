@@ -73,7 +73,7 @@ Therefore, the momentum-resolved Coulomb potential in Eq.~\eqref{eq:dielectric_f
     v_c(\bq) =  \frac{e}{2  \epsz q} \,,
 \end{equation}
 
-\noindent which depends on momentum as $~1/q$, unlike its \gls{3d} counterpart that goes with $~1/q^2$.
+\noindent which depends on momentum as $\sim 1/q$, unlike its \gls{3d} counterpart that goes with $\sim 1/q^2$.
 As we will explain in a moment, this small detail puts us in advantage over typical first-principle approaches.
 
 Naturally, the polarizability $\chi^0_{\bG \bG'} (\bq,\omega)$ is also the \bd~counterpart of Eq.~\eqref{eq:polarizability_momentum_frequency}, and reads
@@ -84,7 +84,7 @@ Naturally, the polarizability $\chi^0_{\bG \bG'} (\bq,\omega)$ is also the \bd~c
 \end{equation}
 
 \noindent At the end, the expressions~\eqref{eq:dielectric_function_momentum_frequency_repeated} and~\eqref{eq:2D_polarizability} do not differ by much.
-Their similarities are apparent from their written forms, but they greatly contrast in their implementation.
+The resemblance is clear from their written forms, but the main contrast is in the implementation.
 First, the sum over momentum $\bk$ is a sum over the \bd~\bz~of the material.
 Furthermore, even though it is not explicitly evidentiated in the braket notation, the plane-wave matrix elements in the numerator amount to real-space integrals extending over the plane of the material, and are therefore integrals in \bd~space.
 Such matrix elements have appeared before in Section~\ref{subsec:interaction_matrix_elements_and_screening}, when discussing the interaction matrix elements for the \bse~within an exact diagonalization formalism.
@@ -367,7 +367,7 @@ What we see from that plot is that the head element of the polarizability:
 \begin{figure}[h]
     \centering
     \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/Chi00hBNDFTmesh.pdf}
-    \mycaption[Polarizability in the \bz~mesh: head element]{Matrix element $\chi^0_{\bzero \bzero} (\bq)$ for \gls{hbn} in the \bz. Panel \textbf{a} displays the polarizability as a function of the magnitude of the momentum. Each red dot is a $\bq$ point in the mesh, and they are sorted by increasing order of $|\bq|$. Panel \textbf{b} displays a color map of the (absolute) value of the polarizability in the \bz~mesh. The bar legend for the colors is inset.}
+    \mycaption[Polarizability in the \bz~mesh: head element]{Matrix element $\chi^0_{\bzero \bzero} (\bq)$ for \gls{hbn} in the \bz. Panel \pnl{a} displays the polarizability as a function of the magnitude of the momentum. Each red dot is a $\bq$ point in the mesh, and they are sorted by increasing order of $|\bq|$. Panel \textbf{b} displays a color map of the (absolute) value of the polarizability in the \bz~mesh. The bar legend for the colors is inset.}
     \label{fig:chi_00_hbndft_mesh}
 \end{figure}
 
@@ -376,20 +376,49 @@ Out of curiosity, in Fig.~\ref{fig:chi_g10_hbndft_mesh} we plot in the \bz~mesh 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/ChiG1_0hBNDFTmesh}
-    \mycaption[Polarizability in the \bz~mesh: an wing element]{Matrix element $\chi^0_{\bG_1 \bzero} (\bq)$ of the polarizability in the \bz~for \gls{hbn}. Panel \textbf{a} displays the real part of the polarizability, while panel \textbf{b} displays the imaginary part. The bar legend for the colors are inset. The polarizability is multiplied by $10^2$.}
+    \mycaption[Polarizability in the \bz~mesh: an wing element]{Matrix element $\chi^0_{\bG_1 \bzero} (\bq)$ of the polarizability in the \bz~for \gls{hbn}. Panel \pnl{a} displays the real part of the polarizability, while panel \textbf{b} displays the imaginary part. The bar legend for the colors are inset. The polarizability is multiplied by $10^2$.}
     \label{fig:chi_g10_hbndft_mesh}
 \end{figure}
 
 As we now already worked out the polarizability, we can compute the matrix elements of the static dielectric function following Eq.~\eqref{eq:static_symmetrized_dielectric_function}.
 The analysis of the dielectric matrix and its inverse is reserved for the next subsection.
 
-\subsection{Inverse dielectric matrix: convergence and the macroscopic dielectric function}
+\subsection{Inverse dielectric matrix}
 \label{subsec:inverse_dielectric_matrix_results}
 
 \subsubsection{Local-field effects and convergence}
 \label{subsubsec:inv_dielectric_matrix_convergence}
 
 We study the convergence of the inverse dielectric matrix with the number of included reciprocal lattice vectors.
+It is well known that including reciprocal lattice vectors in screening calculations is necessary due to local-field effects~\cite{Adler_1962,Wiser_1963}.
+
+In the box below, we explain more precisely what we mean by local-field effects.
+
+\begin{mybox}{Local-field effects}{box:local_field_effects}
+
+As the name indicates, local-field effects pertain to the local details of the electric polarization, or equivalently of the electric field, that are often ignored when adopting phenomenological descriptions of dielectric properties of materials, often designated as macroscopic.
+This is usually the case in Classical Electrodynamics, where the macroscopic Maxwell's equations~\eqref{eq:Maxwells_equations} reign.
+Those equations are obtained from their microscopic counterparts, involving the microscopic electric and magnetic fields, after performing a spatial average of the rapidly varying local fields over distances big compared to the inter-atomic lattice spacing, but small compared to the overall size of the crystal~\cite{Jackson:electrodynamics,Landau_Electrodynamics_1984}\footnote{Considering the full equations including dynamics and time evolution, an average over long time scales is performed as well besides the spatial one, which is pointed out by J.~D.~Jackson in~\cite{Jackson:electrodynamics}, but that is irrelevant for the discussion.}.
+More technically, applying a slowly varying external potential perturbation (weak enough so that we stay within the linear regime) of the form
+
+\begin{equation}
+    \phi_{\ext}(\bq,\omega) = \phi_0(\bq,\omega) \ei{(\bq \vdot \br - \omega t)}
+\end{equation}
+
+\noindent to the crystal, where $2\pi/\abs{\bq}$ is much smaller than its size.
+The crystal responds and the total potential is the external one plus the induced one:
+
+\begin{equation}
+    \phi^{\tot} = \phi_{\ext} + \phi_{\ind} = \sum_{\bG} \phi(\bq,\bG,\omega)  \ei{[(\bq + \bG) \vdot \br - \omega t]}\,.
+\end{equation}
+
+It has all the $\bG$ Fourier components with wavevector $\bq + \bG$, where $\bG$ is a vector of the reciprocal lattice.
+The bigger $\abs{\bG}$ is, the faster that component oscillates.
+This potential is the microscopic one.
+To extract the macroscopic or averaged one, we simply set $\bG = \bzero$, as $\exp{\ii \bq \vdot \br}$ varies slowly over the averaging region, while on the contrary the components $\exp{\ii (\bq + \bG) \vdot \br}$ vary rapidly over regions of the size of the unit cell, hence local-field effects are discarded on average (but does not mean that they do not affect the results, as we see in the results we obtain for the dielectric function after this box).
+This discussion is adapted from~\cite{Adler_1962}.
+\end{mybox}
+
 This is a sensitive point---choosing an appropriate cutoff $G_c$ to compute the inverse dielectric matrix $\varepsilon^{-1}_{\bG \bG'} (\bq)$.
 For the matrix elements to converge, we expect a high enough number of reciprocal lattice vectors is needed.
 How high we will see.
@@ -397,18 +426,121 @@ We compute the matrix $\varepsilon^{-1}_{\bG \bG'} (\bq)$ for $\bq \neq 0$ with 
 In Fig.~\ref{fig:hBN_inv_epsilon_convergence} below we showcase four matrix elements of the inverse dielectric matrix, one in each panel.
 For each point in each curve, we applied a cutoff $G_c$ in integer multiples of $3 \,\text{\unit{\angstrom}}^{-1}$, although the horizontal axis shows the number of vectors included, and not the cutoff.
 We can notice a convergence tendency with the number of reciprocal lattice vectors included, albeit quite slow.
+Nonetheless, in the next subsection we study the dispersive behavior of the inverse dielectric matrix elements for a given cutoff $G_c$ assumed to be high enough.
+The discussion will include an analysis on the macroscopic \bd~dielectric function, alongside its long-wavelength limit.
+As promised at the end of the previous chapter, we will estimate $r_0$.
+
+\begin{figure}[h]
+    \begin{minipage}{0.7\textwidth}
+        \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/inv_epsilon_convergence_hBN_panels}
+    \end{minipage}%
+    \begin{minipage}{0.3\textwidth}
+        \mycaption[Convergence of the inverse dielectric matrix]{Selection of matrix elements $\varepsilon^{-1}_{\bG \bG'} (\bq)$ of the inverse of the dielectric matrix $\varepsilon^{-1}_{\bG \bG'} (\bq)$ computed at a point $\bq \neq \bzero$ in the \bz~for \gls{hbn}. We display the head element in panel \pnl{a}, a diagonal body element in panel \pnl{b}, an off-diagonal body element in panel \pnl{c}, and a wing element in panel \pnl{d}. The cutoff $G_c$ increases by 3 \unit{\angstrom^{-1}} for each point, from $G_c = 3$ \unit{\angstrom^{-1}} up to $G_c = 54$ \unit{\angstrom^{-1}}.}
+    \label{fig:hBN_inv_epsilon_convergence}
+    \end{minipage}
+\end{figure}
+
+\subsubsection{Dispersion of the inverse dielectric function}
+\label{subsubsec:macroscopic_dielectric_function}
+
+In this section, we start with looking at few matrix elements of the inverse dielectric matrix as a function of momentum, similarly to what we did for the polarizability in Fig.~\ref{fig:chi_00_hbndft_mesh}\pnl{a}.
+Fig.~\ref{fig:inv_epsilon_vs_q_hBN} below shows how some matrix elements of the inverse dielectric matrix depend on the momentum $q=|\bq|$, with $\bq$ taken along the symmetry line $\Gamma-K$ in the \bz, and for a cutoff of $G_c = 54$ \unit{\angstrom^{-1}}.
+In panel \pnl{a}, we plot the head element $\varepsilon^{-1}_{\bzero \bzero} (\bq)$ in red, and the first diagonal body element $\varepsilon^{-1}_{\bG_1 \bG_1} (\bq)$ in blue, using the same vector $\bG_1$ from Fig.~\ref{fig:chi_g10_hbndft_mesh}.
+In panel \pnl{b}, we plot the wing element $\varepsilon^{-1}_{\bG_1 \bzero} (\bq)$, with the real part and imaginary part plotted separately in red and black, respectively.
+The head element presents a sharp linear $q$-dependence near the origin, in similarity with results previously reported in the literature from \abinit~calculations~\cite{Guandalini_Varsano_2023,Ismail-Beigi_2006,BerkeleyGW,Huser_Olsen_Thygesen_2013}.
+Furthermore, as we stated in the previous subsection, we have $\varepsilon^{-1}_{\bzero \bzero} (\bzero) = 1$.
+We verified numerically that this identity holds for any cutoff $G_c$.
+Even though we have done a convergence study similar to the one in Fig.~\ref{fig:hBN_inv_epsilon_convergence} for $\bq = \bzero$, we decided not to include it in the text for brevity.
+We can say though that the convergence curves with the number of reciprocal lattice vectors included are similar to the ones we reported here (apart from the head element, which is always one).
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{Chapters/Figures/Chapter_6/inv_epsilon_convergence_hBN_panels}
-    \mycaption[Convergence of the inverse dielectric matrix]{Selection of matrix elements $\varepsilon^{-1}_{\bG \bG'} (\bq)$ of the inverse of the dielectric matrix $\varepsilon^{-1}_{\bG \bG'} (\bq)$ computed at a point $\bq \neq \bzero$ in the \bz, for our model of \gls{hbn} from CRYSTAL. \todo[inline]{complete the caption of the figure}}
-    \label{fig:hBN_inv_epsilon_convergence}
+    \includegraphics[width=0.8\textwidth]{Chapters/Figures/Chapter_6/inv_epsilon_vs_q_hBN}
+    \mycaption[Inverse dielectric matrix elements as a function of momentum]{Few inverse dielectric matrix elements $\varepsilon^{-1}_{\bG \bG'}$ of the inverse dielectric matrix in the \bz~for \gls{hbn} as a function of momentum $q$. Panel \pnl{a} displays the head element in red and the first diagonal body element $\varepsilon^{-1}_{\bG_1 \bG_1}$, where the vector $\bG_1$ is the same from Fig.~\ref{fig:chi_g10_hbndft_mesh}. The inset in panel \pnl{a} shows the blue curve when we zoom in. This body element is dispersive, but within a much smaller scale than the head element. Panel \pnl{b} displays the real and imaginary parts of the wing element $\varepsilon^{-1}_{\bG_1 \bzero}$ in red and black, respectively. This element presents also a $q$-dependence at a smaller scale than the head element, since both real and imaginary parts are scaled by a power of ten. The momentum $\bq$ followed the symmetry line $\Gamma -- K$ in the \bz, and the applied cutoff is $G_c = 54$ \unit{\angstrom^{-1}}.}
+    \label{fig:inv_epsilon_vs_q_hBN}
 \end{figure}
 
-\subsubsection{Macroscopic 2D dielectric function}
-\label{subsubsec:macroscopic_dielectric_function}
+As we will see in a moment, the sharp behavior of the head element of the inverse dielectric matrix in the long-wavelength limit leads to a sharp linear dependence of the macroscopic dielectric function for small $q$.
+This behavior is universal for \bd~insulators, and is problematic for converging exciton calculations with the number of $\bk$ points in the \bz~mesh, but we leave that concern for later.
+On the contrary, the body element in panel \pnl{a} does not present a strong $q$-dependence along the whole $\Gamma-K$ line when compared to the head element.
+This has also been seen in the literature, specifically in Fig. 1 of the work by A.~Guandalini and co-workers in Ref.~\cite{Guandalini_Varsano_2023}.
+Nonetheless, when we zoom in to take a closer look at the blue curve as inset in Fig.~\ref{fig:inv_epsilon_vs_q_hBN}\pnl{a}, it is in truth dispersive, but within a scale three orders of magnitude smaller than that of the head element.
+If we also want to see a detailed dispersion in the wing element of panel \pnl{b}, scaling the real and imaginary parts is also necessary.
 
-Important to compare with \abinit~results and to recover Rytova-Keldysh potential.
+\subsection{Macroscopic dielectric function and the screening length $r_0$}
+\label{subsec:macroscopic_dielectric_function_results}
+
+In this section and with the results from the previous subsection, we compute the macroscopic dielectric function for \gls{hbn}, through the usual definition $\varepsilon_M (\bq) = (\varepsilon^{-1}_{\bzero \bzero} (\bq))^{-1}$.
+Our framework allows for directly obtaining the static \bd~effective dielectric function from this definition, which comes as a striking advantage when compared to typical \abinit~methods in three dimensions.
+We display in Fig.~\ref{fig:epsilon2D_vs_q_hBN} the effective \bd~dielectric function for \gls{hbn} as a function of momentum $q=|\bq|$, where $\bq$ follows the same line as in Fig.~\ref{fig:inv_epsilon_vs_q_hBN}.
+All the parameters from that figure carry over to the one below.
+The numerically obtained dielectric function corresponds to the red curve, while the one in black is the dielectric function according to the Rytova--Keldysh model $\varepsilon_{\RK} (q) = 1 + r_0 q$, where the parameter $r_0$ was estimated from the low-$q$ behavior of the red curve.
+With this model for \gls{hbn}, we obtained for the screening parameter $r_0 \approx 5.084$ \unit{\angstrom}.
+This value is actually not close to the one we used in the previous chapter.
+However, in the previous chapter the \gls{hbn} flake was supported by a quartz substrate, which affects the screening properties of the material~\cite{Trolle_Pedersen_Veniard_2017,}.
+The value we used of $r_0 = 10$ \unit{\angstrom} has been used in previous works~\cite{Ferreira_2019,Ventura_2019}, showing good agreement with experiments with monolayer \gls{hbn} deposited on quartz~\cite{Cassabois_2019}.
+In Ref.~\cite{Ventura_2019}, from the arguments of P.~Cudazzo, I.~V.~Tokatly, and A.~Rubio in Ref.~\cite{Cudazzo_2011}, the authors estimated $r_0 = 6.5$ \unit{\angstrom} for \gls{hbn}, knowing the material off-plane and in-plane bulk dielectric constants~\cite{Laturia_2018}.
+Still in the same work, with the help of Refs.\cite{Trolle_Pedersen_Veniard_2017,Latini_2015}, the authors in Ref.~\cite{Ventura_2019} estimated $r_0 = 6.8$ \unit{\angstrom}.
+Both values estimated in Ref.~\cite{Ventura_2019} are not that far from the one we get.
+
+In Fig.~\ref{fig:epsilon2D_vs_q_hBN} one can notice as well a feature of the macroscopic dielectric function in the opposite limit of $q \to 0$.
+When $q \to \infty$, the curve tends assimptotically to one, which is a universal characteristic shared among all \bd~insulators.
+That is indeed what one sees in all the dielectric functions reported in the literature~\cite{Thygesen_2017,Latini_2015,Huser_Olsen_Thygesen_2013,Rasmussen_Schmidt_Winther_Thygesen_2016}, regardless of the material.
+Physically, having $\varepsilon_M (q) \to 1$ when $q \to \infty$ means that, in the short-wavelength limit, the spatial variations of the external potential vary so fast (in space), that the system does not respond to the perturbation.
+Therefore, test charges feel a total potential that coincides with the external potential---the internal charges do not realign in response to the external potential, which is completely unscreened.
+Symbolically, $\phi^{\tot} = \phi^{\ind} + \phi^{\ext} \approx \phi^{\ext}$ for $q \to \infty$.
+This is in sharp contrast with the prediction from the Rytova--Keldysh model, for which the external potential is overscreened, decaying with $\sim 1/q^2$ instead of $\sim 1/q$.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Chapters/Figures/Chapter_6/epsilon2D_vs_q_hBN}
+    \mycaption[Effective 2D dielectric function for \gls{hbn}]{Macroscopic effective \bd~dielectric function of monolayer \gls{hbn}. We compare the full numerical $q$-dependence with the Rytova--Keldysh model, using the value for the screening parameter $r_0$ estimated by us.}
+    \label{fig:epsilon2D_vs_q_hBN}
+\end{figure}
+
+During the cours of this work, we also found out that the parameter $r_0$ can actually be estimated directly from the head element of the dielectric function $\varepsilon_{\bzero \bzero} (\bq)$ by taking in it the $\bq \to \bzero$ limit.
+This is not very surprising if we take into account that P.~Li and I.~Appelbaum, in Ref.~\cite{Li_Appelbaum_2019}, showed that the screening length can be calculated by
+
+\begin{equation}
+    \label{eq:r0_Li_Appelbaum}
+    r_0 = \frac{e^2 \hbar^2}{4 \pi^2 \epsz m_0^2} \sum_{\vv \cc} \int \frac{|\mathbf{P}_{\cc \vv}(\bk)|^2}{(\epsilon_{\cc \bk} - \epsilon_{\vv \bk})^3}\, \dd \bk \,, 
+\end{equation}
+
+\noindent where the integral in momentum is in-plane, $m_0$ is the free electron mass, and $\mathbf{P}_{\cc \vv}(\bk) = \langle \cc, \bk |\mathbf{p}| \vv, \bk \rangle$ is the momentum matrix element.
+This was proved, in the supplemental material of Ref.~\cite{Li_Appelbaum_2019}, by taking the static and infinite-$L_{\perp}$ limits in the dynamical dielectric function of the respective bulk material (after taking the $q \to 0$ limit)\footnote{Nonetheless, it is not clear how aware the authors in Ref.~\cite{Li_Appelbaum_2019} were of the subtleties of writing dynamical response functions in terms of matrix elements of the momentum operator, as we discussed in Box~\ref{box:position_velocity_momentum_operators}}.
+The expression in Eq.~\eqref{eq:r0_Li_Appelbaum} has been used before in the literature for exciton calculations in \bd~systems~\cite{Mauricio_2024}.
+
+To settle the debate and get a better feeling for the validity of our calculations, let us compare our dielectric function directly with the one obtained from first-principles methods, instead of looking only at the small-$q$ limit behavior of the dielectric function.
+We compare our results with those from S.~Latini, T.~Olsen, and K.~S.~Thygesen in Ref.~\cite{Latini_2015}, where the authors plot the effective \bd~dielectric function for \gls{hbn} and \ch{MoS2}, obtained from \abinit~methods.
+Therein, the cutoff applied for the reciprocal lattice vectors is given in terms of energy, and it is $150$ \unit{\electronvolt}.
+The cutoff for including local-field effects is usually given in terms of energy in the literature~\cite{BerkeleyGW,Latini_2015,Guandalini_Varsano_2023}, and the conversion from energy to wavevector is done through $E_c = \hbar^2 G_c^2/2 m_0$, where $m_0$ is the free electron mass.
+When $E_c = 150$ \unit{\electronvolt}, we get $G_c \approx 4.43$ \unit{\angstrom^{-1}}.
+For us, this means that to compare results, we have to apply the same cutoff.
+For our model for \gls{hbn}, this is equivalent to applying a cutoff of $G_c \approx 3.0$ \unit{\angstrom^{-1}}.
+Only above $G_c = 5.0$ \unit{\angstrom^{-1}} more reciprocal lattice vectors are included.
+We stress that we only have in-plane $\bG$ vectors.
+
+We computed the dielectric function first for $G_c \approx 3.0$ \unit{\angstrom^{-1}}, and then for $G_c \approx 5.01$ \unit{\angstrom^{-1}}, and chose again the symmetry line $\Gamma-K$ for the momentum points $\bq$.
+The results are displayed in Fig.~\ref{fig:epsilon2D_abinitio_vs_q_hBN} below.
+It comes as a surprise for us, that the agreement between our results and theirs, represented by the dotdashed red curve and the continuous black curve, respectively, is so good.
+Not only the curves overlap in the small-$q$ limit, but they overlap as well for higher values of momentum $q$ inside the \bz and further apart from the origin $\Gamma$.
+Naturally, the agreement between the curves ceases for a given value of momentum $q$, which is related with the finite thickness of the material $\mathrm{d}_{\perp}$.
+When $q \mathrm{d}_{\perp}  \lesssim 1$, we expect for our strict approach agree with the \abinit~one, while for $q \mathrm{d}_{\perp}  \gtrsim 1$ we expect for the different models for the screening disagree.
+Even though the effective \bd~dielectric function through \abinit~methods can only be obtained after performing an off-plane average on the inverse dielectric matrix, which is a bit cumbersome, first-principles approaches naturally incorporate the finite thickness of the material.
+Apparently, taking the finite thickness into account is not required to have a good estimate of the low-$q$ behavior of the dielectric function, and therefore, to have an estimate of $r_0$.
+Not only that, but Fig.~\ref{fig:epsilon2D_abinitio_vs_q_hBN} puts forward an interesting aspect of the low-$q$ dielectric properties of a \bd~material; thevery low-$q$ dielectric response seems to not depend on the local-field effects.
+We see this by comparing the red dotdashed curve and the black curve with the blue one, which was obtained by applying a slightly higher cutoff of $G_c$.
+On the other hand, one can conclude that local-field effects are crucial for higher $q$.
+If the cutoff is not high enough, then the dielectric response comes out overscreened.
+For us, applying the lowest possible cutoff (above zero) is sufficient to replicate the \abinit~results, at least for $q \mathrm{d}_{\perp}  \lesssim 1$.
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Chapters/Figures/Chapter_6/epsilon2D_abinitio_vs_q_hBN}
+    \mycaption[Effective 2D dielectric function for \gls{hbn}]{Macroscopic effective \bd~dielectric function of monolayer \gls{hbn}. We compare the full numerical $q$-dependence with the Rytova--Keldysh model, using the values for the screening parameter $r_0$ that we have estimated.}
+    \label{fig:epsilon2D_abinitio_vs_q_hBN}
+\end{figure}
 
 \subsection{Excitonic states and conductivity}
 \label{subsec:excitons_results}
