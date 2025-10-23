@@ -896,41 +896,13 @@ Using the famous relation $\varepsilon=1+\ii\frac{\sigma}{\omega\epsz}$, mention
     \end{aligned}
 \end{equation}
 
-\noindent  where we have used the identities $\mathbf{v} = \frac{\ii}{\hbar} \left[H_0,\br\right]$\footnote{If the reader is not very familiar with concepts of quantum mechanics, this identity might require justification. There is in quantum mechanics the Heisenberg picture, where the states are static, but the operators evolve in time. Given an operator $\hat{O}_\mathrm{S}$ in the picture we have been working with so far, the Schr\"{o}dinger picture, the same opertor in the Heisenberg picture reads $\hat{O}_{\mathrm{H}} = \hat{U}^{\dagger} (t) \hat{O}_{\mathrm{S}}(t) \hat{U}(t)$, where $\hat{U}(t)$ is the time-evolution operator. By using the \gls{tdse}, one can show that $\frac{\dd \hat{O}_{\mathrm{H}}}{\dd t} = \ii/\hbar [H_{\mathrm{H}},\hat{O}_{\mathrm{H}}] + \left(\frac{\partial \hat{O}_{\mathrm{S}}}{\partial t}\right)_{\mathrm{H}}$. If the Hamiltonian has no explicit time-dependence, which could be that of a crystal, then one can show that if $\hat{O}_{\mathrm{S}}$ is also time-independent, then (by virtue of the time-evolution operator as in Eq.~\eqref{eq:time_evolution_operator}) $H_{\mathrm{H}} = H_{\mathrm{S}} \equiv H$ and $\frac{\dd \hat{O}_{\mathrm{H}}}{\dd t} = \ii/\hbar [H_{\mathrm{H}},\hat{O}_{\mathrm{H}}]$. This is the quantum version of the identity $\frac{\dd A}{\dd t} = \{A,H\}$ in classical mechanics, where $A$ is an observable with no explicit $t$-dependence, $H$ the Hamiltonian function and $\{\cdot,\cdot\}$ are the Poisson brackets~\cite{goldstein:mechanics,Landau1976Mechanics}.},
- $\mathbf{j}=-e\mathbf{v}$, and also $\bp = m \mathbf{v}$, with $m$ being the electron mass.
-The Hamiltonian at hand $H_0$ is the Hamiltonian in the noninteracting limit (or interacting, but at the mean-field level).
+\noindent  where we have used the identities $\mathbf{v} = \frac{\dd \br}{\dd t} = \frac{\ii}{\hbar} \left[H_0,\br\right]$, $\mathbf{j}=-e\mathbf{v}$, and also $\bp = m \mathbf{v}$, with $m$ being the electron mass.
+The Hamiltonian at hand $H_0$ is the Hamiltonian in the noninteracting limit (or interacting, but at the mean-field level), that when commutated with another operator $\hat{O}$ gives that operator's time derivative as $\frac{\dd \hat{O}}{\dd t} = \ii/\hbar [H_0,\hat{O}]$\footnote{If the reader is not very familiar with concepts of quantum mechanics, this identity might require justification. There is in quantum mechanics the Heisenberg picture, where the states are static, but the operators evolve in time. Given an operator $\hat{O}_\mathrm{S}$ in the picture we have been working with so far, the Schr\"{o}dinger picture, the same opertor in the Heisenberg picture reads $\hat{O}_{\mathrm{H}} = \hat{U}^{\dagger} (t) \hat{O}_{\mathrm{S}}(t) \hat{U}(t)$, where $\hat{U}(t)$ is the time-evolution operator. By using the \gls{tdse}, one can show that $\frac{\dd \hat{O}_{\mathrm{H}}}{\dd t} = \ii/\hbar [H_{\mathrm{H}},\hat{O}_{\mathrm{H}}] + \left(\frac{\partial \hat{O}_{\mathrm{S}}}{\partial t}\right)_{\mathrm{H}}$. If the Hamiltonian has no explicit time-dependence, which could be that of a crystal, then one can show that if $\hat{O}_{\mathrm{S}}$ is also time-independent, then (by virtue of the time-evolution operator as in Eq.~\eqref{eq:time_evolution_operator}) $H_{\mathrm{H}} = H_{\mathrm{S}} \equiv H$ and $\frac{\dd \hat{O}_{\mathrm{H}}}{\dd t} = \ii/\hbar [H_{\mathrm{H}},\hat{O}_{\mathrm{H}}]$. This is the quantum version of the identity $\frac{\dd A}{\dd t} = \{A,H\}$ in classical mechanics, where $A$ is an observable with no explicit $t$-dependence, $H$ the Hamiltonian function and $\{\cdot,\cdot\}$ are the Poisson brackets~\cite{goldstein:mechanics,Landau1976Mechanics}.}.
 We advert here the reader for important technical details commonly overlooked in the literature.
 In the equation above, only the equalities marked with \textcolor{black}{\checkmark} are exact.
 The others marked with exclamation marks are not, because in general, the position $\br$, velocity $\mathbf{v}$ and momentum $\bp$ operators are not interchangeable when doing calculations for extended systems.
-In the context of atomic physics, there is no issue at all, but the same cannot be said about infinite crystalline solids.
-For instance, the relation $\bp = m \mathbf{v}$ is only true if the potential entering the Hamiltonian is local\footnote{And also if \gls{soc} is not  included~\cite{Esteve_PhD}.}, since in such a case $-\ii \hbar \mathbf{v} = [H_0,\br] = [p^2/2m,\br] + [V(\br),\br] = - \frac{\ii \hbar}{m}\bp + 0 = - \frac{\ii \hbar}{m} \bp$, by virtue of the identity $[AB,C] = A[B,C] + [A,C] B$ and the canonical commutation relation $[x_i,p_j] = \ii \hbar \delta_{i j}$~\cite{Griffiths_2023}.
-If the potential is nonlocal, an issue that may arise in \abinit~calculations using the pseudopotentials~\cite{Martin_2004}, then we have undesired terms in the commutator $[V(\br,\br'),\br] \neq 0$, making the passage marked with \textcolor{red}{!2} not exact.
-Moreover, we highlighted the equality from the second line to the third line with \textcolor{red}{!1} because it is not exact as well, if the matrix elements are computed for a finite volume (with periodic boundary conditions).
-If the matrix element is computed in a finite volume, according to B.~Gu and collaborators~\cite{Gu_2013}, there is an extra term $\mathcal{C}$ in the relation between the position and velocity matrix elements, reading
+For the details regarding this issue, the reader can consult the box below, but they can be skipped in a first reading.
 
-\begin{equation}
-    \langle n,\bk|\mathbf{v}|n',\bk'\rangle_{\vol} = \frac{\ii}{\hbar} (\epsilon_{n \bk} - \epsilon_{n' \bk'}) \langle n,\bk|\br|n',\bk'\rangle_{\vol} + \mathcal{C}_{n \bk, n' \bk'}\,,
-\end{equation}
-
-\noindent with the term $\mathcal{C}_{n \bk, n' \bk'}$ coming from an integral over the boundary of the solid.
-Notice that we have used the subscript $\vol$ to represent a bounded integration region.
-Retaining only the first term in the right-hand side is incorrect, because the integral of the position operator over a finite volume depends on the choice of the origin, while the left-hand side clearly does not.
-The second term on the right-hand side compensates for this.
-For the position matrix elements to not depend on the placement of the origin, we could extend the integral to infinity.
-However, the Bloch states $\psi_{n, \bk}(\br)$ do not decay to zero at infinity, henceforth the integral is ill-defined.
-To circumvent this technical difficulty, Blount in Ref.~\cite{Blount_1962} obtained an expression for the position matrix elements, where only the diagonal ones depend on the origin, by choosing a distribution normalization for the Bloch states, instead of normalizing them to a finite volume.
-That is, instead of the finite case with $\langle n,\bk | n',\bk'\rangle_{\vol} = \delta_{n,n'} \delta_{\bk,\bk'}$, one has $\langle n,\bk | n',\bk'\rangle_{\infty} = \delta_{n n'} \delta(\bk-\bk')$, with the $\infty$ in subscript to denote an integral over all space.
-The work by J.~J.~Esteve and J.~J.~Palacios in Ref.~\cite{Esteve_2023} showed that the relation
-
-\begin{equation}
-    \langle n,\bk|\mathbf{v}|n',\bk'\rangle_{\infty} = \frac{\ii}{\hbar} (\epsilon_{n \bk} - \epsilon_{n' \bk'}) \langle n,\bk|\br|n',\bk'\rangle_{\infty}
-\end{equation}
-
-\noindent is true when the integrals are computed for an infinite system with open boundary conditions.
-Only in this way the relation above matches with the one from atomic physics.
-On a closing note, it is also possible to compute the momentum matrix elements in practice using the representation $\bp = -\ii/\hbar \nabla_{\br}$.
-However, that involves taking spatial derivatives of atomic orbitals, if we work with a Bloch state basis within linear combination of atomic orbitals, which is not favorable.
-We decide then to keep going with velocity or position matrix elements, which we will calculate in practice later on.
 The framework consisting of using only position matrix elements is called the \underline{length gauge}.
 It is called so because the interaction Hamiltonian between the material and the impinging electromagnetic field is written in terms of the dipole operator, $-e \br$.
 This is valid in the dipole approximation, that we mentioned above.
@@ -951,6 +923,41 @@ We start by introducing the conductivity tensor $\rttensor{\sigma}$ with compone
 \noindent We just generalized the matrix element of the current operator in the fourth line of Eq.~\eqref{eq:optical_conductivity_manipulation} in absolute value squared, to a product between the matrix elements of two current operator components $\alpha$ and $\beta$.
 The initial conductivity can be obtained by simply extracting the diagonal component of the conductivity tensor defined just now.
 In symbols, $\sigma(\omega) = \uvec{e}_{\bq} \vdot \rttensor{\sigma} \vdot \uvec{e}_{\bq}$.
+
+\begin{mybox}{Position, velocity, and momentum matrix elements}{box:position_velocity_momentum_operators}
+
+In the context of atomic physics, there is no issue at all and the identity $\bp = \ii m/\hbar [H_0,\br]$ is exact.
+The same cannot be said about infinite crystalline solids.
+For instance, the relation $\bp = m \mathbf{v}$ is only true if the potential entering the Hamiltonian is local \footnote{And also if \gls{soc} is not  included~\cite{Esteve_PhD}.}, since in such a case $-\ii \hbar \mathbf{v} = [H_0,\br] = [p^2/2m,\br] + [V(\br),\br] = - \frac{\ii \hbar}{m}\bp + 0 = - \frac{\ii \hbar}{m} \bp$, by virtue of the identity $[AB,C] = A[B,C] + [A,C] B$ and the canonical commutation relation $[x_i,p_j] = \ii \hbar \delta_{i j}$~\cite{Griffiths_2023}.
+If the potential is nonlocal, an issue that may arise in \abinit~calculations using the pseudopotentials~\cite{Martin_2004}, then we have undesired terms in the commutator $[V(\br,\br'),\br] \neq 0$, making the passage marked with \textcolor{red}{!2} not exact.
+Moreover, we highlighted the equality from the second line to the third line with \textcolor{red}{!1} because it is not exact as well, if the matrix elements are computed for a finite volume (with periodic boundary conditions).
+If the matrix element is computed in a finite volume, according to B.~Gu and collaborators~\cite{Gu_2013}, there is an extra term $\mathcal{C}$ in the relation between the position and velocity matrix elements, reading
+\vspace{-0.3cm}
+\begin{equation}
+    \langle n,\bk|\mathbf{v}|n',\bk'\rangle_{\vol} = \frac{\ii}{\hbar} (\epsilon_{n \bk} - \epsilon_{n' \bk'}) \langle n,\bk|\br|n',\bk'\rangle_{\vol} + \mathcal{C}_{n \bk, n' \bk'}\,,
+\end{equation}
+
+\noindent with the term $\mathcal{C}_{n \bk, n' \bk'}$ coming from an integral over the boundary of the solid.
+Notice that we have used the subscript $\vol$ to represent a bounded integration region.
+Retaining only the first term in the right-hand side is incorrect, because the integral of the position operator over a finite volume depends on the choice of the origin, while the left-hand side clearly does not.
+The second term on the right-hand side compensates for this.
+For the position matrix elements to not depend on the placement of the origin, we could extend the integral to infinity.
+However, the Bloch states $\psi_{n, \bk}(\br)$ do not decay to zero at infinity, henceforth the integral is ill-defined.
+To circumvent this technical difficulty, Blount in Ref.~\cite{Blount_1962} obtained an expression for the position matrix elements, where only the diagonal ones depend on the origin, by choosing a distribution normalization for the Bloch states, instead of normalizing them to a finite volume.
+That is, instead of the finite case with $\langle n,\bk | n',\bk'\rangle_{\vol} = \delta_{n,n'} \delta_{\bk,\bk'}$, one has $\langle n,\bk | n',\bk'\rangle_{\infty} = \delta_{n n'} \delta(\bk-\bk')$, with the $\infty$ in subscript to denote an integral over all space.
+The work by J.~J.~Esteve and J.~J.~Palacios in Ref.~\cite{Esteve_2023} showed that the relation
+\vspace{-0.3cm}
+\begin{equation}
+    \langle n,\bk|\mathbf{v}|n',\bk'\rangle_{\infty} = \frac{\ii}{\hbar} (\epsilon_{n \bk} - \epsilon_{n' \bk'}) \langle n,\bk|\br|n',\bk'\rangle_{\infty}
+\end{equation}
+
+\noindent is true when the integrals are computed for an infinite system with open boundary conditions.
+Only in this way the relation above matches with the one from atomic physics.
+On a closing note, it is also possible to compute the momentum matrix elements in practice using the representation $\bp = -\ii/\hbar \nabla_{\br}$.
+However, that involves taking spatial derivatives of atomic orbitals, if we work with a Bloch state basis within linear combination of atomic orbitals, which is not favorable.
+We decide then to keep going with velocity or position matrix elements, which we will calculate in practice later on.
+\end{mybox}
+
 We manipulate now the components of the conductivity tensor.
 By introducing the Sokhotski--Plemelj identity~\cite{Muskhelishvili_1977}
 
