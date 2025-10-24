@@ -74,9 +74,9 @@ Now, for the matrix elements of interest, we introduce the following notation:
 Then, we only need to employ the identity $T (\bC^{n -\bk})^* = \bC^{n \bk}$ to obtain
 
 \begin{align}
-    \langle n,\bk | \ee^{-\ii(\bk' - \bk + \bG) \vdot \br} | n',\bk' \rangle &=  (\bC^{n \bk})^{\dagger} \vdot \big(\bC^{n' \bk'} \odot \underline{\varphi} \big) =  \Big((\bC^{n -\bk})^{\mathrm{T}} T^{\dagger} \Big) \vdot \Big( \big(T (\bC^{n' -\bk'})^* \big) \odot \underline{\varphi} \Big) = \notag \\
-    &= (\bC^{n -\bk})^{\mathrm{T}} (T^{\dagger}  T) \Big((\bC^{n' -\bk'})^* \odot \underline{\varphi}\Big) = (\bC^{n' -\bk'})^{\dagger} \vdot \big(\bC^{n -\bk} \odot \underline{\varphi}\big) = \notag \\
-    &= \langle n',-\bk' | \ee^{-\ii(\bk' - \bk + \bG) \vdot \br} | n,-\bk \rangle \,,
+    \langle n,\bk | \ee^{-\ii(\bk' - \bk + \bG) \vdot \br} | n',\bk' \rangle & =   (\bC^{n \bk})^{\dagger} \vdot \big(\bC^{n' \bk'} \odot \underline{\varphi} \big) =  \Big((\bC^{n -\bk})^{\mathrm{T}} T^{\dagger} \Big) \vdot \Big( \big(T (\bC^{n' -\bk'})^* \big) \odot \underline{\varphi} \Big) = \notag \\
+    & =  (\bC^{n -\bk})^{\mathrm{T}} (T^{\dagger}  T) \Big((\bC^{n' -\bk'})^* \odot \underline{\varphi}\Big) = (\bC^{n' -\bk'})^{\dagger} \vdot \big(\bC^{n -\bk} \odot \underline{\varphi}\big) = \notag \\
+    & =  \langle n',-\bk' | \ee^{-\ii(\bk' - \bk + \bG) \vdot \br} | n,-\bk \rangle \,,
 \end{align}
 
 \noindent with $\mathrm{T}$ denoting transpose.
@@ -109,8 +109,8 @@ We have already seen, in Subsection~\ref{subsec:dielectric_matrix_invers}, that 
 This is because
 
 \begin{align}
-    \varepsilon_{\bzero \bzero} (\bq \to \bzero) &= 1 - \sqrt{v_c(\bq \to \bzero)} \chi^0_{\bzero \bzero} (\bq \to \bzero) \sqrt{v_c(\bq \to \bzero)} = 1 - v_c(\bq \to \bzero) \chi^0_{\bzero \bzero} (\bq \to \bzero) = \notag \\
-    &=1 - \frac{e}{2 \varepsilon_0 q} \bq \vdot \mathbf{B} \bq \to 1 \,,
+    \varepsilon_{\bzero \bzero} (\bq \to \bzero) & =  1 - \sqrt{v_c(\bq \to \bzero)} \chi^0_{\bzero \bzero} (\bq \to \bzero) \sqrt{v_c(\bq \to \bzero)} = 1 - v_c(\bq \to \bzero) \chi^0_{\bzero \bzero} (\bq \to \bzero) = \notag \\
+    & = 1 - \frac{e}{2 \varepsilon_0 q} \bq \vdot \mathbf{B} \bq \to 1 \,,
 \end{align}
 
 \noindent where the last equality holds for very small $\bq$, and $\mathbf{B}$ is the Hessian matrix of the function $\chi^0_{\bzero \bzero} (q_x,q_y)$ at the point $(q_x,q_y) = (0,0)$.
@@ -121,15 +121,15 @@ For our analysis, we only need to expand it up to second order in Taylor series.
 Therefore, we can write for the wing terms
 
 % \begin{align}
-%     \varepsilon_{\bG \bzero} (\bq \to \bzero) &= - \sqrt{v_c(\bG)} \chi^0_{\bG \bzero} (\bq \to \bzero) \sqrt{v_c(\bq \to \bzero)} = - \sqrt{v_c(\bG)} \frac{e}{2 \varepsilon_0 \sqrt{q}} \bq \vdot \mathbf{A}(\bG) \,\, \to 0 \text{ with } \mathcal{O} (\sqrt{q}) \,, \\
-%     \varepsilon_{\bzero \bG} (\bq \to \bzero) &= - \sqrt{v_c(\bq \to \bzero)} \chi^0_{\bG \bzero} (\bq \to \bzero) \sqrt{v_c(\bG)}= - \sqrt{v_c(\bG)} \frac{e}{2 \varepsilon_0 \sqrt{q}} \bq \vdot \mathbf{A}^*(\bG) \to 0 \text{ with } \mathcal{O} (\sqrt{q}) \,,
+%     \varepsilon_{\bG \bzero} (\bq \to \bzero) & =  - \sqrt{v_c(\bG)} \chi^0_{\bG \bzero} (\bq \to \bzero) \sqrt{v_c(\bq \to \bzero)} = - \sqrt{v_c(\bG)} \frac{e}{2 \varepsilon_0 \sqrt{q}} \bq \vdot \mathbf{A}(\bG) \,\, \to 0 \text{ with } \mathcal{O} (\sqrt{q}) \,, \\
+%     \varepsilon_{\bzero \bG} (\bq \to \bzero) & =  - \sqrt{v_c(\bq \to \bzero)} \chi^0_{\bG \bzero} (\bq \to \bzero) \sqrt{v_c(\bG)} =  - \sqrt{v_c(\bG)} \frac{e}{2 \varepsilon_0 \sqrt{q}} \bq \vdot \mathbf{A}^*(\bG) \to 0 \text{ with } \mathcal{O} (\sqrt{q}) \,,
 % \end{align}
 
 \begin{align}
-    \varepsilon_{\bG \bzero} (\bq \to \bzero) &=-\sqrt{v_c(\bG)} \chi^0_{\bG \bzero} (\bq \to \bzero) \sqrt{v_c(\bq \to \bzero)} = \notag \\
-                                              &=-\frac{e}{2 \varepsilon_0 \sqrt{|\bG|} \sqrt{q}} \bq \vdot \mathbf{A}(\bG) \,\,\, \propto \sqrt{q} \to 0 \,, \\
-    \varepsilon_{\bzero \bG} (\bq \to \bzero) &=-\sqrt{v_c(\bq \to \bzero)} \chi^0_{\bzero \bG} (\bq \to \bzero) \sqrt{v_c(\bG)} = \notag \\
-                                              &=-\frac{e}{2 \varepsilon_0 \sqrt{|\bG|} \sqrt{q}} \bq \vdot \mathbf{A}(\bG)^{*} \propto \sqrt{q} \to 0 \,,
+    \varepsilon_{\bG \bzero} (\bq \to \bzero) & = -\sqrt{v_c(\bG)} \chi^0_{\bG \bzero} (\bq \to \bzero) \sqrt{v_c(\bq \to \bzero)} = \notag \\
+                                              & = -\frac{e}{2 \varepsilon_0 \sqrt{|\bG|} \sqrt{q}} \bq \vdot \mathbf{A}(\bG) \,\,\, \propto \sqrt{q} \to 0 \,, \\
+    \varepsilon_{\bzero \bG} (\bq \to \bzero) & = -\sqrt{v_c(\bq \to \bzero)} \chi^0_{\bzero \bG} (\bq \to \bzero) \sqrt{v_c(\bG)} = \notag \\
+                                              & = -\frac{e}{2 \varepsilon_0 \sqrt{|\bG|} \sqrt{q}} \bq \vdot \mathbf{A}(\bG)^{*} \propto \sqrt{q} \to 0 \,,
 \end{align}
 
 \noindent where $\mathbf{A}(\bG)$ is the Jacobian matrix (a vector, actually) of the function $\chi^0_{\bG \bzero} (\bq)$ at $\bq = \bzero$, which does not depend on $\bq$ due to $\chi^0_{\bG \bzero} (\bq)$ being analytic, as mentioned above.
@@ -143,10 +143,10 @@ We separate the head, the wing, and the body terms, which we represent by $\vare
 Skipping the details of the inversion, we write directly
 
 \begin{align}
-    \varepsilon^{-1}_{\bzero \bzero}       &= \left[\varepsilon_{\bzero \bzero} - \sum_{\bG,\bG' \neq \bzero} \varepsilon_{\bzero \bG} B^{-1}_{\bG \bG'} \varepsilon_{\bG'\bzero}\right]^{-1} \,, \\
-    \varepsilon^{-1}_{\bG \bzero}     &= -\varepsilon^{-1}_{\bzero \bzero} \sum_{\bG' \neq \bzero}  B^{-1}_{\bG \bG'}  \varepsilon_{\bG' \bzero}\,, \\
-    \varepsilon^{-1}_{\bzero \bG}     &= -\varepsilon^{-1}_{\bzero \bzero} \sum_{\bG' \neq \bzero}  \varepsilon_{\bzero\bG'} B^{-1}_{\bG' \bG} \,, \\
-    \varepsilon^{-1}_{\bG \bG'} &= B^{-1}_{\bG \bG'} + \varepsilon^{-1}_{\bzero \bzero} \left(\sum_{\bG'' \neq \bzero}  B^{-1}_{\bG \bG''}  \varepsilon_{\bG'' \bzero}\right) \left(\sum_{\bG'' \neq \bzero} \varepsilon_{\bzero\bG''} B^{-1}_{\bG'' \bG'}\right) \,.
+    \varepsilon^{-1}_{\bzero \bzero}       & =  \left[\varepsilon_{\bzero \bzero} - \sum_{\bG,\bG' \neq \bzero} \varepsilon_{\bzero \bG} B^{-1}_{\bG \bG'} \varepsilon_{\bG'\bzero}\right]^{-1} \,, \\
+    \varepsilon^{-1}_{\bG \bzero}     & =  -\varepsilon^{-1}_{\bzero \bzero} \sum_{\bG' \neq \bzero}  B^{-1}_{\bG \bG'}  \varepsilon_{\bG' \bzero}\,, \\
+    \varepsilon^{-1}_{\bzero \bG}     & =  -\varepsilon^{-1}_{\bzero \bzero} \sum_{\bG' \neq \bzero}  \varepsilon_{\bzero\bG'} B^{-1}_{\bG' \bG} \,, \\
+    \varepsilon^{-1}_{\bG \bG'} & =  B^{-1}_{\bG \bG'} + \varepsilon^{-1}_{\bzero \bzero} \left(\sum_{\bG'' \neq \bzero}  B^{-1}_{\bG \bG''}  \varepsilon_{\bG'' \bzero}\right) \left(\sum_{\bG'' \neq \bzero} \varepsilon_{\bzero\bG''} B^{-1}_{\bG'' \bG'}\right) \,.
 \end{align}
 
 \noindent Note that in the previous relations, $B^{-1}_{\bG \bG'}$ designates the $(\bG,\bG')$ matrix element of the inverse of the body, and not the inverse of the body element $B_{\bG \bG'}$.
@@ -196,10 +196,10 @@ The exact value for the percentage may also differ from material to material, bu
 Regarding the wing terms of the screened potential, using the symmetrized dielectric function we get
 
 \begin{align}
-    W_{\bG \bzero} (\bq \to 0) &= \sqrt{v_c(\bG)} \varepsilon^{-1}_{\bG \bzero} (\bq \to \bzero) \sqrt{v_c (\bq \to \bzero)} = \notag \\
-                               &=-\frac{e}{2\varepsilon_0\sqrt{|\bG|}} \hat{\bq} \vdot \sum_{\bG' \neq \bzero} \frac{1}{ \sqrt{\bG'}} \mathbf{A}(\bG') B^{-1}_{\bG' \bG}\,, \\
-    W_{\bzero \bG} (\bq \to 0) &= \sqrt{v_c (\bq \to \bzero)} \varepsilon^{-1}_{\bzero \bG} (\bq \to \bzero) \sqrt{v_c(\bG)}  =  \notag \\
-                               &=-\frac{e}{2\varepsilon_0\sqrt{|\bG|}} \hat{\bq} \vdot \sum_{\bG' \neq \bzero} \frac{1}{ \sqrt{\bG'}} \mathbf{A}(\bG')^* B^{-1}_{\bG \bG'}\,, 
+    W_{\bG \bzero} (\bq \to 0) & =  \sqrt{v_c(\bG)} \varepsilon^{-1}_{\bG \bzero} (\bq \to \bzero) \sqrt{v_c (\bq \to \bzero)} = \notag \\
+                               & = -\frac{e}{2\varepsilon_0\sqrt{|\bG|}} \hat{\bq} \vdot \sum_{\bG' \neq \bzero} \frac{1}{ \sqrt{\bG'}} \mathbf{A}(\bG') B^{-1}_{\bG' \bG}\,, \\
+    W_{\bzero \bG} (\bq \to 0) & =  \sqrt{v_c (\bq \to \bzero)} \varepsilon^{-1}_{\bzero \bG} (\bq \to \bzero) \sqrt{v_c(\bG)}  =  \notag \\
+                               & = -\frac{e}{2\varepsilon_0\sqrt{|\bG|}} \hat{\bq} \vdot \sum_{\bG' \neq \bzero} \frac{1}{ \sqrt{\bG'}} \mathbf{A}(\bG')^* B^{-1}_{\bG \bG'}\,, 
 \end{align}
 
 \noindent with both results depending on the direction of the vector $\bq$ as it approaches zero.
@@ -225,3 +225,359 @@ $W$                &   reg.   &        0       \\ \bottomrule
 \end{tabular}
 \label{tab:epsilon_long_wavelength_summary}
 \end{table}
+
+\section{Quasi-2D}
+
+In this section we derive an expression for the dielectric function,
+in a representation that is a mix between reciprocal space and real
+space, for in-plane and off-plane directions, respectively. We start
+from it's general expression in real space
+
+\begin{equation}
+\varepsilon(\br,\br') = \delta(\br-\br')-\int v_{c}(\br-\br'')\chi^{0}(\br'',\br')\dr''\,,
+\end{equation}
+
+\noindent where we have omitted the frequency dependence, as we focus only on static screening.
+We want to work with the dielectric function in terms of momentum, so we compute
+
+\begin{equation}
+\begin{aligned}
+    \varepsilon(\bq,\bq',z,z') &  = \int \dd \boldsymbol{\rho} \int \dd \boldsymbol{\rho}'\ee^{\ii\bq \cdot\boldsymbol{\rho}}\ee^{-\ii\bq'\cdot\boldsymbol{\rho}'}\varepsilon(\br,\br')\\
+    \varepsilon_{\bG,\bG'}(\bq ,z,z') &  = \delta_{\bG,\bG'} \delta( z-z')-\int \dd z''\frac{ \ee^{-|\bq +\bG||z-z''|}}{2\varepsilon_{0}|\bq +\bG|}\chi^{0}_{\bG,\bG'}( \bq ,z'',z')\,,
+\end{aligned}
+\end{equation}
+
+where to obtain the final result we replaced the Coulomb potential
+with the inverse 2D Fourier transform of its 3D real space representation
+(as the bare Coulomb potential is invariant under continuous translations,
+we only need one momentum variable), given by
+\begin{equation}
+v_{c}(\br-\br') = \frac{1}{\sqrt{\area}}\sum_{\bk} \ee^{\ii\bk\cdot\boldsymbol{\rho}}v_{c}( \bk,z-z') = \frac{1}{\sqrt{A}}\sum_{\bk} \ee^{\ii\bk\cdot\boldsymbol{\rho}}\frac{e}{2\varepsilon_{0}k} \ee^{-k|z-z'|}\,,\,k = |\bk|\,,
+\end{equation}
+
+where $A$ is the area occupied by the 2D material, and the polarizability $\chi^{0}$ by it's mixed representation
+
+\begin{equation}
+\chi^{0}(\br,\br') = \frac{1}{\area}\sum_{\bk,\bk'} \ee^{\ii\bk\cdot\boldsymbol{\rho}} \ee^{-\ii\bk'\cdot\boldsymbol{\rho}'} \chi^{0}(\bk,\bk';z,z')\,,
+\end{equation} 
+
+in concomitance with the fact that $\chi^{0}( \bq ,\bq',z,z')\neq0$
+if and only if $\bq -\bq'\neq \bG$
+for any reciprocal lattice vector $\bG$, thus defining
+$\chi^{0}_{\bG,\bG'}( \bq ,z,z') = \chi^{0}( \bq +\bG,\bq +\bG',z,z')$,
+and used the identity
+\begin{equation}
+\int \dd \boldsymbol{\rho} \mathrm{\ee^{\ii( \bk-\bk') \cdot\boldsymbol{\rho}} = \sqrt{A} delta_{\bk,\bk'}}
+\end{equation}
+
+Now we just have to sort out the object $\chi^{0}_{\bG,\bG'}( \bq ,z,z')$,
+which is actually treated by Thygesen et. al in ``Dielectric Genome
+of van der Waals Heterostructures``.
+
+\subsection{Static irreducible polarizability within RPA}
+
+Let us start from its static non-interacting expression obtained from
+the expression above:
+\[
+\chi^{0}(\br,\br') = \sum_{\vv\bk,c'\bk'}\left[\frac{\psi_{\cc,\bk'}(\br)\psi_{\vv,\bk}^{*}(\br)\psi_{\vv,\bk}(\br')\psi_{\cc,\bk'}^{*}(\br')}{(\epsilon_{\vv\bk}-\epsilon_{\cc\bk'})+ \ii \alpha}-\frac{\psi_{\cc,\bk'}^{*}(\br)\psi_{\vv,\bk}(\br)\psi_{\vv,\bk}^{*}(\br')\psi_{\cc,\bk'}(\br')}{(\epsilon_{\cc\bk'}-\epsilon_{\vv\bk})+ \ii \alpha}\right]\,.
+\]
+
+Replacing each Bloch state wavefunction by their expression in the
+TB approximation, that we recall is
+\[
+\psi_{n\bk}(\br) = \frac{1}{\sqrt{N}}\sum_{\br} \ee^{\ii\bk\cdot\br}\sum_{i\alpha}C_{i\alpha}^{n\bk}\phi_{\alpha}(\br - \bR - \bt_i)\,,
+\]
+
+we get
+\[
+\begin{aligned}\chi^{0}(\br,\br') &  = \sum_{\vv\bk,c'\bk'}\left[\frac{\psi_{\cc,\bk'}(\br)\psi_{\vv,\bk}^{*}(\br)\psi_{\vv,\bk}(\br')\psi_{\cc,\bk'}^{*}(\br')}{(\epsilon_{\vv\bk}-\epsilon_{\cc\bk'})+ \ii \alpha}-\frac{\psi_{\cc,\bk'}^{*}(\br)\psi_{\vv,\bk}(\br)\psi_{\vv,\bk}^{*}(\br')\psi_{\cc,\bk'}(\br')}{(\epsilon_{\cc\bk'}-\epsilon_{\vv\bk})+ \ii \alpha}\right] = \\
+ &  = \frac{1}{N^2}\sum_{\vv\bk,\cc\bk'}\frac{1}{(\epsilon_{\vv\bk}-\epsilon_{\cc\bk'})+ \ii \alpha}\Bigg\{\left[\sum_{\bR_{1}} \ee^{\ii\bk'\cdot\bR_{1}}\sum_{i\alpha}C_{i\alpha}^{\cc\bk'}\phi_{\alpha}(\br - \bR_{1} - \bt_i )\right]\left[\sum_{\bR_{2}} \ee^{-\ii\bk\cdot\bR_{2}}\sum_{i'\alpha'}\left(C_{i'\alpha'}^{\vv\bk}\right)^{*}\phi_{\alpha'}(\br - \bR_{2} - \bt_{i'} )\right]\times\\
+ & \times\left[\sum_{\bR_{3}} \ee^{\ii\bk\cdot\bR_{3}}\sum_{j\beta}C_{j\beta}^{\vv\bk}\phi_{\beta}(\br' - \bR_{3} - \bt_{j} )\right]\left[\sum_{\bR_{4}} \ee^{-\ii\bk'\cdot\bR_{4}}\sum_{j'\beta'}\left(C_{j'\beta'}^{\cc\bk'}\right)^{*}\phi_{\beta'} (\br' - \bR_{4} - \bt_{j'} )\right]\Bigg\}-\\
+ & -\frac{1}{(\epsilon_{\cc\bk'}-\epsilon_{\vv\bk})+ \ii \alpha}\Bigg\{\left[\sum_{\bR_{1}} \ee^{-\ii\bk'\cdot\bR_{1}}\sum_{i\alpha}\left(C_{i\alpha}^{\cc\bk'}\right)^{*}\phi_{\alpha}(\br - \bR_{1} - \bt_i )\right]\left[\sum_{\bR_{2}} \ee^{\ii\bk\cdot\bR_{2}}\sum_{i'\alpha'}C_{i'\alpha'}^{\vv\bk}\phi_{\alpha'}(\br - \bR_{2} - \bt_{i'} )\right]\times\\
+ & \times\left[\sum_{\bR_{3}} \ee^{-\ii\bk\cdot\bR_{3}}\sum_{j\beta}\left(C_{j\beta}^{\vv\bk}\right)^{*}\phi_{\beta}(\br' - \bR_{3} - \bt_{j} )\right]\left[\sum_{\bR_{4}} \ee^{\ii\bk'\cdot\bR_{4}}\sum_{j'\beta'}C_{j'\beta'}^{\cc\bk'}\phi_{\beta'} (\br' - \bR_{4} - \bt_{j'} )\right]\Bigg\}
+\end{aligned}
+\]
+
+Let us try to compute $\chi^{0}( \bq ,\bq',z,z')$,
+by including the index $\bG'$ in $\bq'$ by
+convenience:
+\[
+\chi^{0}_{\bG,\bG'}( \bq ,z,z') = \int \dd \boldsymbol{\rho} \int \dd \boldsymbol{\rho}' \ee^{-\ii \bq \cdot\boldsymbol{\rho}} \ee^{+\ii \bq'\cdot\boldsymbol{\rho}'}\chi^{0}(\br,\br').
+\]
+
+We focus on the first term
+\[
+\begin{aligned} & \frac{1}{N^2}\sum_{\vv\bk,\cc\bk'}\frac{1}{(\epsilon_{\vv\bk}-\epsilon_{\cc\bk'})+ \ii \alpha}\int \dd \boldsymbol{\rho} \int \dd \boldsymbol{\rho}' \ee^{-\ii \bq \cdot\boldsymbol{\rho}} \ee^{+\ii \bq'\cdot\boldsymbol{\rho}'}\Bigg\{\left[\sum_{\bR_{1}} \ee^{\ii\bk'\cdot\bR_{1}}\sum_{i\alpha}C_{i\alpha}^{\cc\bk'}\phi_{\alpha}(\br - \bR_{1} - \bt_i )\right]\left[\sum_{\bR_{2}} \ee^{-\ii\bk\cdot\bR_{2}}\sum_{i'\alpha'}\left(C_{i'\alpha'}^{\vv\bk}\right)^{*}\phi_{\alpha'}(\br - \bR_{2} - \bt_{i'} )\right]\times\\
+ & \times\left[\sum_{\bR_{3}} \ee^{\ii\bk\cdot\bR_{3}}\sum_{j\beta}C_{j\beta}^{\vv\bk}\phi_{\beta}(\br' - \bR_{3} - \bt_{j} )\right]\left[\sum_{\bR_{4}} \ee^{-\ii\bk'\cdot\bR_{4}}\sum_{j'\beta'}\left(C_{j'\beta'}^{\cc\bk'}\right)^{*}\phi_{\beta'} (\br' - \bR_{4} - \bt_{j'} )\right]\Bigg\} = \\
+ & \frac{1}{N^2}\sum_{\vv\bk,\cc\bk'}\frac{1}{(\epsilon_{\vv\bk}-\epsilon_{\cc\bk'})+ \ii \alpha}\sum_{\bR_{1},\bR_{2},\bR_{3},\bR_{4}} \ee^{\ii\bk'\cdot\bR_{1}} \ee^{-\ii\bk'\cdot\bR_{4}} \ee^{-\ii\bk\cdot\bR_{2}} \ee^{\ii\bk\cdot\bR_{3}}\sum_{i\alpha,i'\alpha',j\beta,j'\beta'}C_{i\alpha}^{\cc\bk'}\left(C_{i'\alpha'}^{\vv\bk}\right)^{*}C_{j\beta}^{\vv\bk}\left(C_{j'\beta'}^{\cc\bk'}\right)^{*}\times\\
+ & \int \dd \boldsymbol{\rho} \, \ee^{-\ii \bq \cdot\boldsymbol{\rho}}\phi_{\alpha}(\br - \bR_{1} - \bt_i ) \phi_{\alpha'}(\br - \bR_{2} - \bt_{i'} ) \int \dd \boldsymbol{\rho}' \ee^{+\ii \bq'\cdot\boldsymbol{\rho}'}\phi_{\beta}(\br' - \bR_{3} - \bt_{j} ) \phi_{\beta'} (\br' - \bR_{4} - \bt_{j'} ) = \\
+ & \frac{1}{N^2}\sum_{\vv\bk,\cc\bk'}\frac{1}{(\epsilon_{\vv\bk}-\epsilon_{\cc\bk'})+ \ii \alpha}\sum_{\bR_{1},\bR_{2},\bR_{3},\bR_{4}} \ee^{\ii\bk'\cdot(\bR_{1}-\bR_{4})} \ee^{-\ii\bk\cdot(\bR_{2}-\bR_{3})}\sum_{i\alpha,i'\alpha',j\beta,j'\beta'}C_{i\alpha}^{\cc\bk'}\left(C_{i'\alpha'}^{\vv\bk}\right)^{*}C_{j\beta}^{\vv\bk}\left(C_{j'\beta'}^{\cc\bk'}\right)^{*}\times\\
+ & \int \dd \boldsymbol{\rho} \, \ee^{-\ii \bq \cdot\boldsymbol{\rho}} delta_{\alpha,\alpha'} delta_{i,i'} delta_{1,2} delta(\boldsymbol{\rho} - \bR_{1} - \bt_{i,||}) \int \dd \boldsymbol{\rho}' \ee^{+\ii \bq'\cdot\boldsymbol{\rho}'} delta_{\beta,\beta'} delta_{j,j'} delta_{3,4} delta(\boldsymbol{\rho}' - \bR_{3}-\bt_{j,||})\delta(z-t_{i,z})\delta(z'-t_{j,z}) = \\
+ & \frac{1}{N^2}\sum_{\vv\bk,\cc\bk'}\frac{1}{(\epsilon_{\vv\bk}-\epsilon_{\cc\bk'})+ \ii \alpha}\sum_{\bR_{1},\bR_{3}} \ee^{\ii (\bk'-\bk) \cdot(\bR_{1}-\bR_{3})}\sum_{i\alpha}C_{i\alpha}^{\cc\bk'}\left(C_{i\alpha}^{\vv\bk}\right)^{*}\sum_{j\beta}C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk'}\right)^{*} \ee^{-\ii \bq \cdot( \bR_{1}+\bt_{i})} \ee^{\ii \bq'\cdot(\bR_{3}+\bt_{j} )} delta(z-t_{i,z})\delta(z'-t_{j,z}) = \\
+ & \frac{1}{N^2}\sum_{\vv\bk,\cc\bk'}\frac{1}{(\epsilon_{\vv\bk}-\epsilon_{\cc\bk'})+ \ii \alpha}\sum_{\bR_{1}} \ee^{\ii (\bk'-\bk-\bq ) \cdot\bR_{1}}\sum_{\bR_{3}} \ee^{-\ii (\bk'-\bk-\bq ) \cdot\bR_{3}}\sum_{i\alpha}C_{i\alpha}^{\cc\bk'}\left(C_{i\alpha}^{\vv\bk}\right)^{*}\sum_{j\beta}C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk'}\right)^{*} \ee^{-\ii (\bq +\bG) \cdot\bt_{i}} \ee^{\ii (\bq +\bG') \cdot\bt_{j}} delta(z-t_{i,z})\delta(z'-t_{j,z}) = \\
+ & \frac{1}{N}\sum_{v,c,\bk}\frac{1}{(\epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })+ \ii \alpha}\sum_{i\alpha}C_{i\alpha}^{\cc\bk+\bq }\left(C_{i\alpha}^{\vv\bk}\right)^{*}\sum_{j\beta}C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{-\ii (\bq +\bG) \cdot\bt_{i}} \ee^{\ii (\bq +\bG') \cdot\bt_{j}} delta(z-t_{i,z})\delta(z'-t_{j,z}) = \\
+ & \frac{1}{N}\sum_{v,c,\bk}\frac{1}{(\epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })+ \ii \alpha}\sum_{i\alpha}C_{i\alpha}^{\cc\bk+\bq }\left(C_{i\alpha}^{\vv\bk}\right)^{*} \ee^{-\ii (\bq +\bG) \cdot\bt_{i}} delta(z-t_{i,z})\sum_{j\beta}C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \cdot\bt_{j}} delta(z'-t_{j,z})
+\end{aligned}
+\]
+
+Now the second term
+\[
+\begin{aligned} & \frac{1}{N^2}\sum_{\vv\bk,\cc\bk'}\frac{1}{(\epsilon_{\cc\bk'}-\epsilon_{\vv\bk})+ \ii \alpha}\int \dd \boldsymbol{\rho} \int \dd \boldsymbol{\rho}' \ee^{-\ii \bq \cdot\boldsymbol{\rho}} \ee^{+\ii \bq'\cdot\boldsymbol{\rho}'}\Bigg\{\left[\sum_{\bR_{1}} \ee^{-\ii\bk'\cdot\bR_{1}}\sum_{i\alpha}\left(C_{i\alpha}^{\cc\bk'}\right)^{*}\phi_{\alpha}(\br - \bR_{1} - \bt_i )\right]\left[\sum_{\bR_{2}} \ee^{\ii\bk\cdot\bR_{2}}\sum_{i'\alpha'}C_{i'\alpha'}^{\vv\bk}\phi_{\alpha'}(\br - \bR_{2} - \bt_{i'} )\right]\times\\
+ & \times\left[\sum_{\bR_{3}} \ee^{-\ii\bk\cdot\bR_{3}}\sum_{j\beta}\left(C_{j\beta}^{\vv\bk}\right)^{*}\phi_{\beta}(\br' - \bR_{3} - \bt_{j} )\right]\left[\sum_{\bR_{4}} \ee^{\ii\bk'\cdot\bR_{4}}\sum_{j'\beta'}C_{j'\beta'}^{\cc\bk'}\phi_{\beta'} (\br' - \bR_{4} - \bt_{j'} )\right]\Bigg\} = \\
+ & \frac{1}{N^2}\sum_{\vv\bk,\cc\bk'}\frac{1}{(\epsilon_{\cc\bk'}-\epsilon_{\vv\bk})+ \ii \alpha}\sum_{\bR_{1},\bR_{2},\bR_{3},\bR_{4}} \ee^{-\ii\bk'\cdot\bR_{1}} \ee^{\ii\bk'\cdot\bR_{4}} \ee^{\ii\bk\cdot\bR_{2}} \ee^{-\ii\bk\cdot\bR_{3}}\sum_{i\alpha,i'\alpha',j\beta,j'\beta'}\left(C_{i\alpha}^{\cc\bk'}\right)^{*}C_{i'\alpha'}^{\vv\bk}\left(C_{j\beta}^{\vv\bk}\right)^{*}C_{j'\beta'}^{\cc\bk'}\times\\
+ & \int \dd \boldsymbol{\rho} \, \ee^{-\ii \bq \cdot\boldsymbol{\rho}} \phi_{\alpha}(\br - \bR_{1} - \bt_i ) \phi_{\alpha'}(\br - \bR_{2} - \bt_{i'} ) \int \dd \boldsymbol{\rho}'e^{+i\bq'\cdot\boldsymbol{\rho}'} \phi_{\beta}(\br' - \bR_{3} - \bt_{j} ) \phi_{\beta'} (\br' - \bR_{4} - \bt_{j'} ) = \\
+ & \frac{1}{N^2}\sum_{\vv\bk,\cc\bk'}\frac{1}{(\epsilon_{\cc\bk'}-\epsilon_{\vv\bk})+ \ii \alpha}\sum_{\bR_{1},\bR_{2},\bR_{3},\bR_{4}} \ee^{-\ii\bk'\cdot(\bR_{1}-\bR_{4})} \ee^{\ii\bk\cdot(\bR_{2}-\bR_{3})}\sum_{i\alpha,i'\alpha',j\beta,j'\beta'}\left(C_{i\alpha}^{\cc\bk'}\right)^{*}C_{i'\alpha'}^{\vv\bk}\left(C_{j\beta}^{\vv\bk}\right)^{*}C_{j'\beta'}^{\cc\bk'}\times\\
+ & \int \dd \boldsymbol{\rho} \, \ee^{-\ii \bq \cdot\boldsymbol{\rho}} delta_{\alpha,\alpha'} delta_{i,i'} delta_{1,2} delta(\boldsymbol{\rho} - \bR_{1} - \bt_{i,||}) \int \dd \boldsymbol{\rho}' \ee^{+\ii \bq'\cdot\boldsymbol{\rho}'} delta_{\beta,\beta'} delta_{j,j'} delta_{3,4} delta(\boldsymbol{\rho}' - \bR_{3}-\bt_{j,||})\delta(z-t_{i,z})\delta(z'-t_{j,z}) = \\
+ & \frac{1}{N^2}\sum_{\vv\bk,\cc\bk'}\frac{1}{(\epsilon_{\cc\bk'}-\epsilon_{\vv\bk})+ \ii \alpha}\sum_{\bR_{1},\bR_{3}} \ee^{-\ii (\bk'-\bk) \cdot(\bR_{1}-\bR_{3})}\sum_{i\alpha}\left(C_{i\alpha}^{\cc\bk'}\right)^{*}C_{i\alpha}^{\vv\bk}\sum_{j\beta}\left(C_{j\beta}^{\vv\bk}\right)^{*}C_{j\beta}^{\cc\bk'}{-i\bq \cdot( \bR_{1}+\bt_{i})} \ee^{\ii \bq'\cdot(\bR_{3}+\bt_{j} )} delta(z-t_{i,z}) \delta(z'-t_{j,z}) = \\
+ & \frac{1}{N^2}\sum_{\vv\bk,\cc\bk'}\frac{1}{(\epsilon_{\cc\bk'}-\epsilon_{\vv\bk})+ \ii \alpha}\sum_{\bR_{1}} \ee^{-\ii (\bk'-\bk+\bq ) \cdot\bR_{1}}\sum_{\bR_{3}} \ee^{\ii (\bk'-\bk+\bq ) \cdot\bR_{3}}\sum_{i\alpha}\left(C_{i\alpha}^{\cc\bk'}\right)^{*}C_{i\alpha}^{\vv\bk}\sum_{j\beta}\left(C_{j\beta}^{\vv\bk}\right)^{*}C_{j\beta}^{\cc\bk'} \ee^{-\ii (\bq +\bG) \cdot\bt_{i}} \ee^{\ii (\bq +\bG') \cdot\bt_{j}} delta(z-t_{i,z})\delta(z'-t_{j,z}) = \\
+ & \frac{1}{N}\sum_{v,c,\bk}\frac{1}{(\epsilon_{\cc\bk-\bq }-\epsilon_{\vv\bk})+ \ii \alpha}\sum_{i\alpha}\left(C_{i\alpha}^{\cc\bk-\bq }\right)^{*}C_{i\alpha}^{\vv\bk} \ee^{-\ii (\bq +\bG) \cdot\bt_{i}} delta(z-t_{i,z})\sum_{j\beta}\left(C_{j\beta}^{\vv\bk}\right)^{*}C_{j\beta}^{\cc\bk-\bq } \ee^{\ii (\bq +\bG') \cdot\bt_{j}} delta(z'-t_{j,z})
+\end{aligned}
+\]
+
+In an attempt of joining the two terms, I will exchange $\bk\to\bk'$
+and $\bk'\to\bk$...., the sum of the two contributions,
+that read (the first term has a typo, I forgot to fix the sign of
+the imaginary exponential $exp(i\bq \cdot\boldsymbol{\rho})$
+to $exp(-i\bq \cdot\boldsymbol{\rho})$ at some instances,
+and the same for $\bq'$):
+\[
+\frac{1}{N}\sum_{v,c,\bk}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })+ \ii \alpha}\sum_{i\alpha}C_{i\alpha}^{\cc\bk+\bq }\left(C_{i\alpha}^{\vv\bk}\right)^{*} \ee^{-\ii (\bq +\bG) \cdot\bt_{i}} delta( z-t_{i,z})\sum_{j\beta}C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \cdot\bt_{j}} delta( z'-t_{j,z})
+\]
+
+and 
+\[
+\frac{1}{N}\sum_{v,c,\bk}\frac{1}{( \epsilon_{\cc\bk-\bq }-\epsilon_{\vv\bk})+ \ii \alpha}\sum_{i\alpha}\left(C_{i\alpha}^{\cc\bk-\bq }\right)^{*}C_{i\alpha}^{\vv\bk} \ee^{-\ii (\bq +\bG) \cdot\bt_{i}} delta( z-t_{i,z})\sum_{j\beta}\left(C_{j\beta}^{\vv\bk}\right)^{*}C_{j\beta}^{\cc\bk-\bq } \ee^{\ii (\bq +\bG') \cdot\bt_{j}} delta( z'-t_{j,z})\,.
+\]
+
+Had we exchanged $\bk\leftrightarrow\bk'$ in
+the second term, we would get instead
+\[
+\frac{1}{N}\sum_{v,c,\bk}\frac{1}{( \epsilon_{\cc\bk}-\epsilon_{\vv\bk-\bq })+ \ii \alpha}\sum_{i\alpha}\left(C_{i\alpha}^{\cc\bk}\right)^{*}C_{i\alpha}^{\vv\bk-\bq } \ee^{-\ii (\bq +\bG) \cdot\bt_{i}} delta( z-t_{i,z})\sum_{j\beta}\left(C_{j\beta}^{\vv\bk-\bq }\right)^{*}C_{j\beta}^{\cc\bk} \ee^{\ii (\bq +\bG') \cdot\bt_{j}} delta( z'-t_{j,z})\,
+\]
+
+and doing a shift $\bk\to\bk+\bq $
+\[
+\begin{aligned} & \frac{1}{N}\sum_{v,c,\bk}\frac{1}{( \epsilon_{\cc\bk+\bq }-\epsilon_{\vv\bk})+ \ii \alpha}\sum_{i\alpha}\left(C_{i\alpha}^{\cc\bk+\bq }\right)^{*}C_{i\alpha}^{\vv\bk} \ee^{-\ii (\bq +\bG) \cdot\bt_{i}} delta( z-t_{i,z})\sum_{j\beta}\left(C_{j\beta}^{\vv\bk}\right)^{*}C_{j\beta}^{\cc\bk+\bq } \ee^{\ii (\bq +\bG') \cdot\bt_{j}} delta( z'-t_{j,z}) = \\
+ & \frac{1}{N}\sum_{v,c,\bk}\frac{1}{( \epsilon_{\cc\bk+\bq }-\epsilon_{\vv\bk})+ \ii \alpha}\sum_{i\alpha}\left(C_{i\alpha}^{\vv\bk}\right)^{*}C_{i\alpha}^{\cc\bk+\bq } \ee^{\ii (\bq +\bG') \cdot\bt_{i}} delta( z'-t_{i,z})\sum_{j\beta}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*}C_{j\beta}^{\vv\bk} \ee^{-\ii (\bq +\bG) \cdot\bt_{j}} delta( z-t_{j,z}) = 
+\end{aligned}
+\,,
+\]
+
+where from the first to the second line we changed the order of the
+sums (may not be needed after all)
+
+and joining the two terms with $i\alpha \to 0$
+\begin{align*}
+\chi^{0}_{\bG,\bG'}^{0}( \bq ,z,z') =  & \frac{1}{N}\sum_{v,c,\bk}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })}\Bigg\{\sum_{i\alpha}C_{i\alpha}^{\cc\bk+\bq }\left(C_{i\alpha}^{\vv\bk}\right)^{*} \ee^{-\ii (\bq +\bG) \cdot\bt_{i}} delta( z-t_{i,z})\sum_{j\beta}C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \cdot\bt_{j}} delta( z'-t_{j,z})-\\
+ & +\sum_{i\alpha}\left(C_{i\alpha}^{\cc\bk+\bq }\right)^{*}C_{i\alpha}^{\vv\bk} \ee^{-\ii (\bq +\bG) \cdot\bt_{i}} delta( z-t_{i,z})\sum_{j\beta}\left(C_{j\beta}^{\vv\bk}\right)^{*}C_{j\beta}^{\cc\bk+\bq } \ee^{\ii (\bq +\bG') \cdot\bt_{j}} delta( z'-t_{j,z})\Bigg\}
+\end{align*}
+
+or equivalently
+
+\begin{align*}
+\chi^{0}_{\bG,\bG'}^{0}( \bq ,z,z') =  & \frac{1}{N}\sum_{v,c,\bk}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })}\Bigg\{\sum_{i\alpha}C_{i\alpha}^{\cc\bk+\bq }\left(C_{i\alpha}^{\vv\bk}\right)^{*} \ee^{-\ii (\bq +\bG) \cdot\bt_{i}} delta( z-t_{i,z})\sum_{j\beta}C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \cdot\bt_{j}} delta( z'-t_{j,z})-\\
+ & +\sum_{i\alpha}\left(C_{i\alpha}^{\vv\bk}\right)^{*}C_{i\alpha}^{\cc\bk+\bq } \ee^{\ii (\bq +\bG') \cdot\bt_{i}} delta( z'-t_{i,z})\sum_{j\beta}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*}C_{j\beta}^{\vv\bk} \ee^{-\ii (\bq +\bG) \cdot\bt_{j}} delta( z-t_{j,z})\Bigg\}
+\end{align*}
+
+\iffalse
+\subsection{Dielectric function in the mixed representation}
+
+Recalling the expression for the RPA dielectric function in the mixed
+representation
+\[
+\varepsilon_{\bG,\bG'}(\bq ,z,z') = \delta_{\bG,\bG'} delta( z-z')-\intop\ddz''\frac{ \ee^{-|\bq +\bG||z-z''|}}{2\varepsilon_{0}|\bq +\bG|}\chi^{0}_{\bG,\bG'}^{0}( \bq ,z'',z')\,,
+\]
+and replacing the polarizability in the mixed representation with
+the expression at the end of section 2.1
+\[
+\begin{aligned}\varepsilon_{\bG,\bG'}(\bq ,z,z') =  & \delta_{\bG,\bG'} delta( z-z')-\intop\ddz''\frac{ \ee^{-|\bq +\bG||z-z''|}}{2\varepsilon_{0}|\bq +\bG|}\chi^{0}_{\bG,\bG'}^{0}( \bq ,z'',z') = \\
+ & \delta_{\bG,\bG'} delta( z-z')-\\
+ & \frac{1}{N}\intop\ddz''\frac{ \ee^{-|\bq +\bG||z-z''|}}{2\varepsilon_{0}|\bq +\bG|}\sum_{v,c,\bk}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })}\times\\
+ & \Bigg\{\sum_{i\alpha}C_{i\alpha}^{\cc\bk+\bq }\left(C_{i\alpha}^{\vv\bk}\right)^{*} \ee^{-\ii (\bq +\bG) \cdot\bt_{i}} delta( z''-t_{i,z})\sum_{j\beta}C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \cdot\bt_{j}} delta( z'-t_{j,z})+\\
+ & \sum_{i\alpha}C_{i\alpha}^{\vv\bk}\left(C_{i\alpha}^{\cc\bk+\bq }\right)^{*} \ee^{-\ii (\bq +\bG) \cdot\bt_{i}} delta( z''-t_{i,z})\sum_{j\beta}\left(C_{j\beta}^{\vv\bk}\right)^{*}C_{j\beta}^{\cc\bk+\bq } \ee^{\ii (\bq +\bG') \cdot\bt_{j}} delta( z'-t_{j,z})\Bigg\} = \\
+ & \delta_{\bG,\bG'} delta( z-z')-\frac{1}{N}\frac{1}{2\varepsilon_{0}|\bq +\bG|}\sum_{v,c,\bk}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })}\times\\
+ & \Bigg\{\sum_{i\alpha}C_{i\alpha}^{\cc\bk+\bq }\left(C_{i\alpha}^{\vv\bk}\right)^{*} \ee^{-\ii (\bq +\bG) \cdot\bt_{i}} \ee^-|\bq +\bG||z-t_{i,z}|}\sum_{j\beta}C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \cdot\bt_{j}} delta( z'-t_{j,z})+\\
+ & \sum_{i\alpha}\left(C_{i\alpha}^{\cc\bk+\bq }\right)^{*}C_{i\alpha}^{\vv\bk} \ee^{-\ii (\bq +\bG) \cdot\bt_{i}} \ee^-|\bq +\bG||z-t_{i,z}|}\sum_{j\beta}\left(C_{j\beta}^{\vv\bk}\right)^{*}C_{j\beta}^{\cc\bk+\bq } \ee^{\ii (\bq +\bG') \cdot\bt_{j}} delta( z'-t_{j,z})\Bigg\}
+\end{aligned}
+\]
+
+An effective dielectric function averaged over the layer thickness,
+$d$, yields ($A = N\Omega$ is the total area of the material, and
+$\Omega$ the area of the unit cell, it has to appear somewhere for
+the units to be right, either in the Fourier transform of the Coulomb
+potential, or as a pre-factor of the polarizability)
+\[
+\begin{aligned}\bar{\varepsilon}_{\bG,\bG'}(\bq )\equiv & \begin{aligned}\intop_{-d/2}^{d/2}\intop_{-d/2}^{d/2}\end{aligned}
+\varepsilon_{\bG,\bG'}( \bq ,z,z')\ddz\ddz' = \\
+ & \delta_{\bG,\bG'}d-\frac{1}{2\varepsilon_{0}|\bq +\bG|A}\sum_{v,c,\bk}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })}\times\\
+ & \Bigg\{\sum_{i\alpha}C_{i\alpha}^{\cc\bk+\bq }\left(C_{i\alpha}^{\vv\bk}\right)^{*}\frac{2e^{-\ii(\bq +\bG) \cdot\bt_{i}}\left[1-e^{-|\bq +\bG|d/2}\cosh( |\bq +\bG|t_{i,z})\right]}{|\bq +\bG|}\sum_{j\beta}C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \cdot\bt_{j}}-\\
+ & \sum_{j\beta}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*}C_{j\beta}^{\vv\bk}\frac{2e^{-\ii(\bq +\bG) \cdot\bt_{j}}\left[1-e^{-|\bq +\bG|d/2}\cosh( |\bq +\bG|t_{j,z})\right]}{|\bq +\bG|}\sum_{i\alpha}\left(C_{i\alpha}^{\vv\bk}\right)^{*}C_{i\alpha}^{\cc\bk+\bq } \ee^{\ii (\bq +\bG') \cdot\bt_{i}}\Bigg\}\,,
+\end{aligned}
+\]
+
+where we have used the identities
+\[
+\intop_{-d/2}^{d/2} \ee^-|\bq +\bG||z-t_{i,z}|}\ddz = \frac{2\left[1-e^{-|\bq +\bG|d/2}\cosh( |\bq +\bG|t_{i,z})\right]}{|\bq +\bG|}\text{{ and }}\intop\delta( z'-t_{j,z})\ddz' = 1
+\]
+
+Taking in the previous expression the limit $d,t_{i,z} \to 0$ , one
+obtains
+\[
+\begin{aligned}\bar{\varepsilon}_{\bG,\bG'}(\bq ) & \equiv\delta_{\bG,\bG'}d-\frac{1}{2\varepsilon_{0}|\bq +\bG|A}\sum_{v,c,\bk}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })}\times\\
+ & d\Bigg\{\sum_{i\alpha}C_{i\alpha}^{\cc\bk+\bq }\left(C_{i\alpha}^{\vv\bk}\right)^{*} \ee^{-\ii (\bq +\bG) \cdot\bt_{i}}\sum_{j\beta}C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \cdot\bt_{j}}-\\
+ & \sum_{j\beta}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*}C_{j\beta}^{\vv\bk} \ee^{-\ii (\bq +\bG) \cdot\bt_{j}}\sum_{i\alpha}\left(C_{i\alpha}^{\vv\bk}\right)^{*}C_{i\alpha}^{\cc\bk+\bq } \ee^{\ii (\bq +\bG') \cdot\bt_{i}}\Bigg\}\,.
+\end{aligned}
+\]
+
+In this way, one can identify in the previous expression the strictly
+2D dielectric function we have been looking at and implemented in
+the code, through the identity
+\[
+\varepsilon_{\bG,\bG'}(\bq )\equiv \lim_{d \to 0} \frac{\bar{\varepsilon}_{\bG,\bG'}(\bq )}{d}\,.
+\]
+
+If we take instead the limit $|\bq +\bG|\to\infty$,
+we see that the $d$-dependence becomes irrelevant. So we expect that
+the averaged dielectric function does not differ much from the strictly
+2D one for materials of small thickness,such as monolayer hBN, in
+the high momentum limit (to confirm numerically, also for MoS2).
+
+\section{Inverse dielectric function within RPA}
+
+In this section, we work out an expression for the inverse of the
+dielectric function, necessary for the screened Coulomb potential
+in order to compute the interaction matrix elements in the BSH. According
+to Martin's textbook
+\[
+\varepsilon^{-1} ( \br,\br';\omega) = \delta(\br-\br')+\int v_{c}( \br-\br'')\chi^{0}( \br'',\br;\omega)\dr''\,,
+\]
+
+where $\chi$ is the full interacting polarizability, that relates
+to the irreducible one through the Dyson's equation
+\[
+\chi = \chi^{\irr}+\chi^{\irr}*v_{c}*\chi\,,
+\]
+
+where the symbol $*$ denotes the operation of convolution. Computing
+the full polarizability at all interacting levels is too much of an
+endeavor, so approximations are necessary. First for the irreducible
+polarizability, instead of considering all the irreducible diagrams
+in the expansion, one keeps only the bubble or Hartree diagram. As
+a consequence, within RPA we have
+\[
+\chi^{\RPA} = \chi^{0}+\chi^{0}*v_{c}*\chi^{\RPA}\,,
+\]
+
+where the full interacting polarizability is approximated to an interacting
+one at the single-particle level. Making now explicit the momentum
+and $z$ coordinate dependence on the previous expression we write
+\[
+\chi^{0}_{\bG,\bG'}^{\RPA}( \bq ,z,z') = \chi^{0}_{\bG,\bG'}^{0}( \bq ,z,z')+\sum_{\bG_{1}} \int \int \,\chi^{0}_{\bG,\bG_{1}}^{0}( \bq ,z,z_{1})v_{c}( \bq +\bG_{1},z_{1}-z_{2})\chi^{0}_{\bG_{1},\bG'}^{\RPA}( \bq ,z_{2},z')\ddz_{1}\ddz_{2}
+\]
+
+Let us assume that we can determine $\chi^{0}_{\bG,\bG'}^{\RPA}( \bq ,z,z')$.
+Then, for the inverse dielectric function within RPA we would have
+\[
+\varepsilon_{\bG,\bG'}^{-1}( \bq ,z,z') = \delta_{\bG,\bG'} delta(z-z')+\int v_{c}( \bq +\bG,z-z'')\chi^{0}_{\bG,\bG'}^{\RPA}( \bq ,z'',z')\ddz''\,.
+\]
+
+In principle, assuming we have the inverse of the dielectric function,
+we can compute the interaction matrix elements. We outline their computation
+in the next equation
+\[
+\begin{aligned} & D_{vc,v'c'}( \bk,\bk',\bQ) = \int\dr\int\dr'\,\psi_{c,\bk + \bQ}^{*}(\br)\psi_{v',\bk'}^{*}( \br')W( \br,\br')\psi_{c',\bk'+\bQ}(\br)\psi_{v,\bk}( \br') = \\
+ &  = \int\ddz\int\ddz'\int \dd \boldsymbol{\rho} \int \dd \boldsymbol{\rho}'\psi_{c,\bk + \bQ}^{*}(\br)\psi_{v',\bk'}^{*}( \br')( \sum_{\bq }^{\BZ}\sum_{\bG,\bG'} \ee^{ \ii ( \bq +\bG) \cdot\boldsymbol{\rho}}W_{\bG,\bG'}( \bq ,z,z') \ee^{- \ii ( \bq +\bG') \cdot\boldsymbol{\rho}'})\psi_{c',\bk'+\bQ}(\br)\psi_{v,\bk}( \br') = \\
+ &  = \sum_{\bq }^{\BZ}\sum_{\bG,\bG'}\int\int W_{\bG,\bG'}( \bq ,z,z')\int\psi_{c,\bk + \bQ}^{*}(\br) \ee^{ \ii ( \bq +\bG) \cdot\boldsymbol{\rho}}\psi_{c',\bk'+\bQ}(\br)\dd\boldsymbol{\rho}\int\psi_{v',\bk'}^{*}( \br') \ee^{- \ii ( \bq +\bG') \cdot\boldsymbol{\rho}'}\psi_{v,\bk}( \br')\dd\boldsymbol{\rho}'\ddz\,\ddz' = \\
+ &  = \frac{1}{N^{2}}\sum_{\bq }^{\BZ}\sum_{\bG,\bG'}\int\int W_{\bG,\bG'}( \bq ,z,z')\\
+ & \int( \sum_{\bR_{1}} \ee^{-\ii ( \bk+\bQ) \cdot\bR_{1}}\sum_{i\alpha}\left(C_{i\alpha}^{\cc\bk\boldsymbol{+}\bQ}\right)^{*}\phi_{\alpha}^{*}(\br - \bR_{1} - \bt_i )) \ee^{ \ii ( \bq +\bG) \cdot\boldsymbol{\rho}}( \sum_{\bR_{2}} \ee^{\ii ( \bk'+\bQ) \cdot\bR_{2}}\sum_{i'\alpha'}C_{i'\alpha'}^{c'\bk'+\bQ}\phi_{\alpha'}(\br - \bR_{2} - \bt_{i'} ))\dd\boldsymbol{\rho}\\
+ & \int( \sum_{\bR_{3}} \ee^{-\ii\bk'\cdot\bR_{3}}\sum_{j\beta}\left(C_{j\beta}^{v'\bk'}\right)^{*}\phi_{\beta}^{*}(\br' - \bR_{3} - \bt_{j} )) \ee^{- \ii ( \bq +\bG') \cdot\boldsymbol{\rho}'}( \sum_{\bR_{4}} \ee^{\ii\bk\cdot\bR_{4}}\sum_{j'\beta'}C_{j'\beta'}^{\vv\bk}\phi_{\beta'} (\br' - \bR_{4} - \bt_{j'} ))\dd\boldsymbol{\rho}'\ddz\,\ddz' = \\
+ &  = \frac{1}{N^{2}}\sum_{\bq }^{\BZ}\sum_{\bG,\bG'}\int\int W_{\bG,\bG'}( \bq ,z,z')\\
+ & \int\sum_{\bR_{1},\bR_{2}} \ee^{-\ii ( \bk+\bQ) \cdot\bR_{1}} \ee^{\ii ( \bk'+\bQ) \cdot\bR_{2}}\sum_{i\alpha,i'\alpha'}\left(C_{i\alpha}^{\cc\bk\boldsymbol{+}\bQ}\right)^{*}C_{i'\alpha'}^{c'\bk'+\bQ} \delta( \boldsymbol{\rho}-\bR_{1}-\bt_{i}^{\parallel})\delta( z-t_{i}^{z})\delta_{i\alpha,i'\alpha'} \delta_{\bR_{1},\bR_{2}}\ee^{ \ii ( \bq +\bG) \cdot\boldsymbol{\rho}}\dd\boldsymbol{\rho}\\
+ & \int\sum_{\bR_{3},\bR_{4}} \ee^{-\ii\bk'\cdot\bR_{3}} \ee^{\ii\bk\cdot\bR_{4}}\sum_{j\beta,j'\beta'}\left(C_{j\beta}^{v'\bk'}\right)^{*}C_{j'\beta'}^{\vv\bk} \delta( \boldsymbol{\rho}'-\bR_{3}-\bt_{j}^{\parallel})\delta( z'-t_{j}^{z})\delta_{j\beta,j'\beta''} \delta_{\bR_{3},\bR_{4}}\ee^{- \ii ( \bq +\bG') \cdot\boldsymbol{\rho}'}\dd\boldsymbol{\rho}'\ddz\,\ddz' = \\
+ &  = \frac{1}{N^{2}}\sum_{\bq }^{\BZ}\sum_{\bG,\bG'}\int\int W_{\bG,\bG'}( \bq ,z,z')\\
+ & \sum_{\bR_{1}} \ee^{-\ii ( \bk-\bk') \cdot\bR_{1}}\sum_{i\alpha}\left(C_{i\alpha}^{\cc\bk\boldsymbol{+}\bQ}\right)^{*}C_{i\alpha}^{c'\bk'+\bQ}\ee^{ \ii ( \bq +\bG) \cdot ( \bR_{1}+\bt_{i})} delta( z-t_{i}^{z})\\
+ & \sum_{\bR_{3}} \ee^{-\ii ( \bk'-\bk) \cdot\bR_{3}}\sum_{j\beta}\left(C_{j\beta}^{v'\bk'}\right)^{*}C_{j\beta}^{\vv\bk}\ee^{- \ii ( \bq +\bG') \cdot(\bR_{3}+\bt_{j} )} delta( z'-t_{j}^{z})\ddz\,\ddz' = \\
+ &  = \frac{1}{N^{2}}\sum_{\bq }^{\BZ}\sum_{\bG,\bG'}\int\int W_{\bG,\bG'}( \bq ,z,z')\\
+ & \sum_{\bR_{1}} \ee^{-\ii ( \bk-\bk'-\bq ) \cdot\bR_{1}}\sum_{i\alpha}\left(C_{i\alpha}^{\cc\bk\boldsymbol{+}\bQ}\right)^{*}C_{i\alpha}^{c'\bk'+\bQ}\ee^{ \ii ( \bq +\bG) \cdot \bt_{i}} delta( z-t_{i}^{z})\\
+ & \sum_{\bR_{3}} \ee^{-\ii ( \bk'-\bk+\bq ) \cdot\bR_{3}}\sum_{j\beta}\left(C_{j\beta}^{v'\bk'}\right)^{*}C_{j\beta}^{\vv\bk}\ee^{- \ii ( \bq +\bG') \cdot\bt_{j}} delta( z'-t_{j}^{z})\ddz\,\ddz' = \\
+ &  = \frac{1}{N^{2}}\sum_{\bq }^{\BZ}\sum_{\bG,\bG'}\int\int W_{\bG,\bG'}( \bq ,z,z')N\delta_{\bq ,\bk-\bk'}\sum_{i\alpha}\left(C_{i\alpha}^{\cc\bk\boldsymbol{+}\bQ}\right)^{*}C_{i\alpha}^{c'\bk'+\bQ}\ee^{ \ii ( \bq +\bG) \cdot \bt_{i}} delta( z-t_{i}^{z})\sum_{j\beta}\left(C_{j\beta}^{v'\bk'}\right)^{*}C_{j\beta}^{\vv\bk}\ee^{- \ii ( \bq +\bG') \cdot\bt_{j}} delta( z'-t_{j}^{z})\ddz\,\ddz' = \\
+ &  = \frac{1}{N}\sum_{\bG,\bG'}\int\int W_{\bG,\bG'}( \bk-\bk',z,z')\sum_{i\alpha}\left(C_{i\alpha}^{\cc\bk\boldsymbol{+}\bQ}\right)^{*}C_{i\alpha}^{c'\bk'+\bQ}\ee^{ \ii ( \bk-\bk'+\bG) \cdot \bt_{i}} \delta( z-t_{i}^{z})\sum_{j\beta}\left(C_{j\beta}^{v'\bk'}\right)^{*}C_{j\beta}^{\vv\bk}\ee^{- \ii ( \bk-\bk'+\bG') \cdot\bt_{j}} \delta( z'-t_{j}^{z})\ddz\,\ddz' = \\
+ &  = \frac{1}{N}\sum_{\bG,\bG'}\sum_{i\alpha}\sum_{j\beta}\left(C_{i\alpha}^{\cc\bk\boldsymbol{+}\bQ}\right)^{*}C_{i\alpha}^{c'\bk'+\bQ}\ee^{ \ii ( \bk-\bk'+\bG) \cdot \bt_{i}} \left(C_{j\beta}^{v'\bk'}\right)^{*}C_{j\beta}^{\vv\bk}\ee^{- \ii ( \bk-\bk'+\bG') \cdot\bt_{j}}W_{\bG,\bG'}( \bk-\bk',t_{i}^{z},t_{j}^{z}) = \\
+ &  = \frac{1}{N}\sum_{\bG,\bG'}\sum_{i\alpha}\sum_{j\beta}\left(C_{i\alpha}^{\cc\bk\boldsymbol{+}\bQ}\right)^{*}C_{i\alpha}^{c'\bk'+\bQ}\left(C_{j\beta}^{v'\bk'}\right)^{*}C_{j\beta}^{\vv\bk}\ee^{ \ii ( \bk-\bk') \cdot ( \bt_{i}-\bt_{j})} \ee^{ \ii \bG\cdot \bt_{i}} \ee^{- \ii \bG'\cdot\bt_{j}}W_{\bG,\bG'}( \bk-\bk',t_{i}^{z},t_{j}^{z}) = \\
+ &  = \frac{1}{N}\sum_{\bG,\bG'}\sum_{i\alpha}\left(C_{i\alpha}^{\cc\bk\boldsymbol{+}\bQ}\right)^{*}C_{i\alpha}^{c'\bk'+\bQ}\ee^{ \ii ( \bk-\bk'+\bG) \cdot \bt_{i}} \sum_{j\beta}\left(C_{j\beta}^{v'\bk'}\right)^{*}C_{j\beta}^{\vv\bk}\ee^{- \ii ( \bk-\bk'+\bG') \cdot\bt_{j}}W_{\bG,\bG'}( \bk-\bk',t_{i}^{z},t_{j}^{z})\,,
+\end{aligned}
+\]
+
+where the point-like orbital approximation has been employed, and
+the last two lines are completely equivalent expressions, but the
+last one might be more appropriate for implementation purposes. To
+evaluate said expression numerically, we need to compute $W_{\bG,\bG'}( \bk,t_{i}^{z},t_{j}^{z})$
+for every $\bk\in\BZ$. For that, we already have
+from before the inverse of the dielectric function. At any pair of
+points $( z,z')$, we can use the expression
+\[
+W_{\bG,\bG'}( \bk,z,z') = \int\varepsilon_{\bG,\bG'}^{-1}( \bq ,z,z'')v_{c}( \bq +\bG',z''-z')\ddz''\,,
+\]
+
+where $\varepsilon_{\bG,\bG'}^{-1}( \bq ,z,z')$
+is the inverse of the dielectric matrix in the $( q,z)$
+mixed representation within RPA, which was previously determined.
+Replacing it by its expression above one arrives at
+\[
+\begin{aligned}W_{\bG,\bG'}( \bq ,z,z') =  & \int\left[\delta_{\bG,\bG'} delta(z-z'')+\int v_{c}( \bq +\bG,z-z_{1})\chi^{0}_{\bG,\bG'}^{\RPA}( \bq ,z_{1},z'')\ddz_{1}\right]v_{c}( \bq +\bG',z''-z')\ddz'' = \\
+ & \delta_{\bG,\bG'}v_{c}( \bq +\bG',z-z')+\int\int v_{c}( \bq +\bG,z-z_{1})\chi^{0}_{\bG,\bG'}^{\RPA}( \bq ,z_{1},z'')v_{c}( \bq +\bG',z''-z')\ddz_{1}\ddz''\,.
+\end{aligned}
+\]
+
+As in the point-like orbital approximation we only need to compute
+the screened potential between $z$ points located at the heights
+of the atoms in the motif, we can work out the previous expression
+at those points, to be used for the interaction matrix elements as
+\[
+W_{\bG,\bG'}( \bq ,t_{i}^{z},t_{j}^{z}) = \delta_{\bG,\bG'}v_{c}( \bq +\bG,t_{i}^{z}-t_{j}^{z})+\int\int v_{c}( \bq +\bG,t_{i}^{z}-z_{1})\chi^{0}_{\bG,\bG'}^{\RPA}( \bq ,z_{1},z'')v_{c}( \bq +\bG',z''-t_{j}^{z})\ddz_{1}\ddz''.
+\]
+
+However, in practice one can not solve Dyson's equation for $\chi^{0}_{\bG,\bG'}^{\RPA}( \bq ,z_{1},z'')$
+directly, as we model the $z$--dependence in the polarizability
+$\chi^{0}_{\bG,\bG'}^{0}( \bq ,z,z')$
+with Dirac delta functions. One solution is to working with a basis
+of potential functions $\left\{ \phi_{\alpha}( z)\right\} $,
+that assume the form $\phi_{\alpha}( z)\sim( z-z_{0})^{\alpha}$,
+and compute the respective matrix elements of the polarizability in
+that basis (which is what Thygesen does in its Dielectric Genome paper).
+As a workaround, one can for instance develop an iterative process,
+in which the interaction matrix elements are computed with a self-consistently
+determined RPA polarizability. To do this, let us first recall Dyson's
+equation for the polarizability within RPA
+\[
+\chi^{0}_{\bG,\bG'}^{\RPA}( \bq ,z,z') = \chi^{0}_{\bG,\bG'}^{0}( \bq ,z,z')+\sum_{\bG_{1}}\int\ddz_{1} \int \ddz_{2}\,\chi^{0}_{\bG,\bG_{1}}^{0}( \bq ,z,z_{1})v_{c}( \bq +\bG_{1},z_{1}-z_{2})\chi^{0}_{\bG_{1},\bG'}^{\RPA}( \bq ,z_{2},z')\,,
+\]
+
+for which an iterative process looks like
+\[
+\begin{aligned}\text{Step 0:\,\chi^{0}_{\bG,\bG'}^{\RPA}( \bq ,z,z')} =  & \chi^{0}_{\bG,\bG'}^{0}( \bq ,z,z')\\
+\text{Step 1:}\,\chi^{0}_{\bG,\bG'}^{\RPA}( \bq ,z,z') =  & \chi^{0}_{\bG,\bG'}^{0}( \bq ,z,z')+\sum_{\bG_{1}}\int\ddz_{1} \int \ddz_{2}\,\chi^{0}_{\bG,\bG_{1}}^{0}( \bq ,z,z_{1})v_{c}( \bq +\bG_{1},z_{1}-z_{2})\chi^{0}_{\bG_{1},\bG'}^{0}( \bq ,z_{2},z')\\
+\text{Step 2:}\,\chi^{0}_{\bG,\bG'}^{\RPA}( \bq ,z,z') =  & \chi^{0}_{\bG,\bG'}^{0}( \bq ,z,z')+\sum_{\bG_{1}}\int\ddz_{1} \int \ddz_{2}\,\chi^{0}_{\bG,\bG_{1}}^{0}( \bq ,z,z_{1})v_{c}( \bq +\bG_{1},z_{1}-z_{2})\chi^{0}_{\bG_{1},\bG'}^{0}( \bq ,z_{2},z')+\\
+ & \sum_{\bG_{1}}\sum_{\bG_{2}}\int\ddz_{1}\mathrm{\int}\ddz_{2}\int\ddz_{3}\int\ddz_{4}\,\chi^{0}_{\bG,\bG_{1}}^{0}( \bq ,z,z_{1})v_{c}( \bq +\bG_{1},z_{1}-z_{2})\chi^{0}_{\bG_{1},\bG_{2}}^{0}( \bq ,z_{2,}z_{3})\times\\
+ & v_{c}( \bq +\bG_{2},z_{3}-z_{4})\chi^{0}_{\bG_{2},\bG'}^{0}( \bq ,z_{4},z')\\
+ & \vdots
+\end{aligned}
+\]
+
+Along this line of thought, we can evaluate numerically the screened
+potential in the mixed representation with a self-consistent method
+as:
+\[
+\begin{aligned}\text{Step 0:\,W_{\bG,\bG'}( \bq ,t_{i}^{z},t_{j}^{z})} =  & \delta_{\bG,\bG'}v_{c}( \bq +\bG,t_{i}^{z}-t_{j}^{z})+\int\ddz\int\ddz''v_{c}( \bq +\bG,t_{i}^{z}-z)\chi^{0}_{\bG,\bG'}^{0}( \bq ,z,z'')v_{c}( \bq +\bG',z''-t_{j}^{z})\\
+\text{Step 1:\,W_{\bG,\bG'}( \bq ,t_{i}^{z},t_{j}^{z})} =  & \delta_{\bG,\bG'}v_{c}( \bq +\bG,t_{i}^{z}-t_{j}^{z})+\int\ddz\int\ddz''v_{c}( \bq +\bG,t_{i}^{z}-z)\chi^{0}_{\bG,\bG'}^{0}( \bq ,z,z'')v_{c}( \bq +\bG',z''-t_{j}^{z})+\\
+ & \sum_{\bG_{1}}\int\ddz\int\ddz''\int\ddz_{1}\int\ddz_{2}\,v_{c}( \bq +\bG,t_{i}^{z}-z)\,\chi^{0}_{\bG,\bG_{1}}^{0}( \bq ,z,z_{1})v_{c}( \bq +\bG_{1},z_{1}-z_{2})\chi^{0}_{\bG_{1},\bG'}^{0}( \bq ,z_{2},z'')\times\\
+ & v_{c}( \bq +\bG',z''-t_{j}^{z})\\
+\text{Step 2:\, W_{\bG,\bG'}( \bq ,t_{i}^{z},t_{j}^{z})} =  & \delta_{\bG,\bG'}v_{c}( \bq +\bG,t_{i}^{z}-t_{j}^{z})+\int\int v_{c}( \bq +\bG,t_{i}^{z}-z_{1})\chi^{0}_{\bG,\bG'}^{0}( \bq ,z_{1},z'')v_{c}( \bq +\bG',z''-t_{j}^{z})\ddz_{1}\ddz''+\\
+ & \sum_{\bG_{1}}\int\ddz\int\ddz''\int\ddz_{1}\int\ddz_{2}\,v_{c}( \bq +\bG,t_{i}^{z}-z_{1})\chi^{0}_{\bG,\bG_{1}}^{0}( \bq ,z_{1},s_{1})v_{c}( \bq +\bG_{1},s_{1}-s_{2})\chi^{0}_{\bG_{1},\bG'}^{0}( \bq ,s_{2},z'')\\
+ & \times v_{c}( \bq +\bG',z''-t_{j}^{z})+\\
+ & \sum_{\bG_{1}}\sum_{\bG_{2}}\int\ddz\int\ddz''\int\ddz_{1}\int\ddz_{2}\int\ddz_{3}\int\ddz_{4}\,v_{c}( \bq +\bG,t_{i}^{z}-z)\,\chi^{0}_{\bG,\bG_{1}}^{0}( \bq ,z,z_{1})v_{c}( \bq +\bG_{1},z_{1}-z_{2})\times\\
+ & \chi^{0}_{\bG_{1},\bG_{2}}^{0}( \bq ,z_{2},z_{3})v_{c}( \bq +\bG_{2},z_{3}-z_{4})\chi^{0}_{\bG_{2},\bG'}^{0}( \bq ,z_{4},z'')v_{c}( \bq +\bG',z''-t_{j}^{z})\ddz_{1}\ddz''\\
+ & \vdots
+\end{aligned}
+\]
+\fi
