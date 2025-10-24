@@ -185,7 +185,7 @@ The Fermi sea comes from populating the electronic states of the material starti
 If there is no electronic bandgap, the energy of the highest occupied state, at zero temperature, is called the Fermi energy or Fermi level, with symbol $\EF$.
 That is the case of metals, where $\EF$ lies in the middle of the partially filled highest valence band.
 In semiconductors and insulators, the Fermi energy lies in the midway between the energy of the highest occupied state and the energy of the lowest unoccupied state.
-More generally, it can be defined as the chemical potential $\mu$ (see Section~\ref{subsec:rpa_dielectric_function}) at zero temperature.
+More generally, it can be defined as the chemical potential $\mu$ (see Box~\ref{box:chemical_potential} in Section~\ref{subsec:rpa_dielectric_function}) at zero temperature.
 This is explained in Section 4.1 of the textbook in Ref.~\cite{Simon_Oxford_2013}.
 
 Since we introduced the exciton as a bound electron--hole complex, we will assume that the unbound electron--hole states serve as a good basis in which we can expand the excitonic states.
@@ -838,7 +838,7 @@ First, let us look at the optical response in the noninteracting limit in the ne
 The excitonic response will follow in Section~\ref{subsec:excitonic_conductivity}.
 
 The expressions derived are designed for \gls{3d} materials, as they are based on the dielectric function in Eq.~\eqref{eq:dielectric_function_momentum_frequency}, with the polarizability given by Eq.~\eqref{eq:polarizability_momentum_frequency} which applies to the \gls{3d} case.
-Nonetheless, they can be readily adapted for \bd~materials by analogy (by rigorous methods, one can consult Appendix~\ref{app:2D_optical_conductivity} that the permittivity--conductivity equivalence is different in the \bd~case, but we leave such details for later).
+Nonetheless, they can be readily adapted to \bd~materials by analogy (by rigorous methods, one can consult Appendix~\ref{app:2D_optical_conductivity} that the permittivity--conductivity equivalence is different in the \bd~case).
 Therefore, this section serves as a technical base for what will be discussed in Chapters~\ref{ch:Optical_hBN_superlattice} and~\ref{ch:screening}, when we shall put in practice the tools developed until now.
 
 \subsection{Noninteracting optical conductivity}
@@ -922,7 +922,7 @@ We start by introducing the conductivity tensor $\rttensor{\sigma}$ with compone
 
 \noindent We just generalized the matrix element of the current operator in the fourth line of Eq.~\eqref{eq:optical_conductivity_manipulation} in absolute value squared, to a product between the matrix elements of two current operator components $\alpha$ and $\beta$.
 The initial conductivity can be obtained by simply extracting the diagonal component of the conductivity tensor defined just now.
-In symbols, $\sigma(\omega) = \uvec{e}_{\bq} \vdot \rttensor{\sigma} \vdot \uvec{e}_{\bq}$.
+Using symbols, $\sigma(\omega) = \uvec{e}_{\bq} \vdot \rttensor{\sigma} \vdot \uvec{e}_{\bq}$\,.
 
 \begin{mybox}{Position, velocity, and momentum matrix elements}{box:position_velocity_momentum_operators}
 
@@ -976,7 +976,7 @@ By introducing the Sokhotski--Plemelj identity~\cite{Muskhelishvili_1977}
 That is why the difference $\epsilon_{n \bk}-\epsilon_{n' \bk}$ in the denominator appears with power one, and not two.
 Being in practice impossible to calculate at the full interacting level, normally some sort of approximation is needed.
 The Kubo--Greenwood formula is a particular case of the more general Kubo formula~\cite{Mahan,Coleman_2015}, accounting only for transitions between single-particle states---this is called the \gls{ipa}~\cite{Aversa_Sipe_1995}.
-Particularizing for a semiconductor at zero temperature, such that the Fermi--Dirac distribution becomes a Heaviside step function, and simplifying, we can write the real part of the conductivity tensor, now in terms of velocity operator matrix elements, as
+Particularizing for a semiconductor at zero temperature, such that the Fermi--Dirac distribution becomes a Heaviside step function (see Box~\ref{box:chemical_potential}), and simplifying, we can write the real part of the conductivity tensor, now in terms of velocity operator matrix elements, as
 
 \begin{empheq}[innerbox=\colorbox{lightgray}, right={\,,}]{align}
     \label{eq:non_interacting_Re_optical_conductivity}

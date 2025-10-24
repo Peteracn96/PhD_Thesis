@@ -1449,8 +1449,8 @@ On the other hand, Ref.~\cite{Mahan} is more general, and discusses at times the
 \subsection{The RPA dielectric function in reciprocal space}
 \label{subsec:rpa_dielectric_function}
 
-We recapitulate the \rpa~dielectric function in real space and time domain, which reads~\cite{Bruus_Flensberg_2004,Cohen_Louie_2016}
-
+We recapitulate the \rpa~dielectric function in the $(\br,t)$ domain, which reads~\cite{Bruus_Flensberg_2004,Cohen_Louie_2016}
+\vspace{-0.2cm}
 \begin{equation}
     \label{eq:dielectric_function_real_time}
     \varepsilon (\br,\br';t-t') = \delta(\br - \br') \delta(t-t') - \int  v_c(\br - \br'') \chi^0 (\br'',\br';t-t') \dr'',
@@ -1488,21 +1488,17 @@ The \rpa~irreducible polarizability, in the frequency domain, at finite temperat
     \phantom{\chi(\br,\br';\omega)}
 \end{equation}
 
-\todo{maybe put discussion of the chemical potential inside a box to refer to later, when defining Fermi energy}
-%\noindent where $\eta$ is a small infinitesimal parameter, $f_i = (\exp{\beta (\epsilon_i - \mu)} + 1)^{-1}$ is the Fermi--Dirac distribution~\cite{Blundell_Blundell_2009,Huang} computed at the energy $\epsilon_i$, with $\beta = 1/(k_B T)$ where $k_B$ is the Boltzmann constant and $\mu$ being the chemical potential that we define at the end of the paragraph, and $\phi_i(\br)$ is the $i$-th state with eigenenergy $\epsilon_i$.
-%The states $\phi_i(\br)$ are obtained within a mean-field approach, such as within \hf~theory or the Kohn--Sham framework of \dft\@.
-%The many-body \wf~of the associated independent particle system is then constructed through the Slater determinant of the orbitals $\phi_i(\br)$, for which we do not specify the subjacent basis denoted by the indices $i$ and $j$.
-%The only thing left to define is the chemical potential.
-%We will mention it in the next chapter as well, so we better define it now.
-%Usually introduced in the context of thermodynamics~\cite{Blundell_Blundell_2009} and statistical physics~\cite{Huang}, the chemical potential of a system, usually denoted by $\mu$, can be defined in terms of the thermodynamical potential (or other potentials as well) $F=U-TS$, called the Helmholtz free energy, where $U$ is the internal energy of the system, $T$ its (absolute) temperature and $S$ its entropy.
-%If the system is in thermal equilibrium and in contact with a reservoir (at the temperature $T$) with which it can exchange heat and particles, then the chemical potential can be defined as $\mu = F_{\mathcal{N} + 1} - F_{\mathcal{N}}$, where $\mathcal{N}$ is the number of particles in the system.
-%In words, $\mu$ is a measure of the energy cost to add or remove a particle from the system.
-%Only in the thermodynamic limit where $\mathcal{N} \to \infty$ we can define the chemical potential in an equivalent way by the derivative $\partial F/\partial \mathcal{N}$~\cite{Blundell_Blundell_2009}.
-%Otherwise, if the system is composed of few particles, then we are not allowed to take the derivative with respect to $\mathcal{N}$.
-%
+\noindent where $\eta$ is a small infinitesimal parameter, $\phi_i(\br)$ is the $i$-th state with eigenenergy $\epsilon_i$, $f_i = (\exp{\beta (\epsilon_i - \mu)} + 1)^{-1}$ is the Fermi--Dirac distribution~\cite{Blundell_Blundell_2009,Huang} computed at the energy $\epsilon_i$, with $\beta = 1/(k_B T)$ where $k_B$ is the Boltzmann constant, $T$ the absolute temperature (in Kelvin), and $\mu$ is the chemical potential.
+The states $\phi_i(\br)$ are obtained within a mean-field approach, such as within \hf~theory or the Kohn--Sham framework of \dft\@.
+The many-body \wf~of the associated independent particle system is then constructed through the Slater determinant of the orbitals $\phi_i(\br)$, for which we do not specify the subjacent basis denoted by the indices $i$ and $j$.
+The only thing left to define is the chemical potential.
+We will mention it in the next chapter as well, so we better define it now.
+Nonetheless, the precise technical definitions is not very relevant for the moment.
+Hence, we define it in Box~\ref{box:chemical_potential} below, which can be skipped in a first reading.
+
 We notice that the expression in Eq.~\eqref{eq:dielectric_function_real_time} is a two-time function with (continuous) time translation invariance.
 Whence, we may time-Fourier transform it to the frequency domain and write
-
+\vspace{-0.2cm}
 \begin{equation}
     \label{eq:dielectric_function_real_frequency}
     \varepsilon (\br,\br';\omega) = \delta(\br - \br') - \int   v_c(\br - \br'') \chi^0 (\br'',\br';\omega) \dr''  ,
@@ -1510,7 +1506,7 @@ Whence, we may time-Fourier transform it to the frequency domain and write
 
 \noindent since the Fourier transform of the Dirac delta is the identity function, and the Fourier transform of a convolution translates to a multiplication.
 The microscopic dielectric function enjoys discrete translation symmetry, so that
-
+\vspace{-0.2cm}
 \begin{equation}
     \varepsilon (\br,\br';\omega) = \varepsilon (\br + \bR,\br' + \bR;\omega)
 \end{equation}
@@ -1544,6 +1540,32 @@ The expression for the matrix elements $\chi^0_{\bG \bG'}(\bq)$ can be obtained 
 
 \noindent where $\vol$ is the volume of the crystal, $n$ and $n'$ are band indices, $\bG$ and $\bG'$ are reciprocal lattice vectors, $\sigma$ represents spin and the sum over momentum $\bk$ is over the \bz.
 
+\begin{mybox}{Chemical potential}{box:chemical_potential}
+
+Usually introduced in the context of thermodynamics~\cite{Blundell_Blundell_2009} and statistical physics~\cite{Huang}, the chemical potential of a system, usually denoted by $\mu$, can be defined in terms of the thermodynamical potential (or other potentials as well) $F=U-TS$, called the Helmholtz free energy, where $U$ is the internal energy of the system, $T$ its (absolute) temperature, and $S$ its entropy.
+If the system is in thermal equillibrium and in contact with a reservoir (at the temperature $T$), with which it can exchange heat and particles, then the chemical potential can be defined as $\mu = F_{\mathcal{N} + 1} - F_{\mathcal{N}}$, where $\mathcal{N}$ is the number of particles in the system.
+In words, $\mu$ is a measure of the energy cost to add or remove a particle from the system.
+Only in the thermodynamic limit where $\mathcal{N} \to \infty$, can we define the chemical potential in an equivalent way by the derivative $\partial F/\partial \mathcal{N}$~\cite{Blundell_Blundell_2009}.
+Otherwise, if the system is composed of few particles, then we are not allowed to take the derivative with respect to $\mathcal{N}$, henceforth the first definition applies.
+
+In Fig.~\ref{fig:Fermi_Dirac_distribution} below, we plot the Fermi--Dirac distribution for three different temperatures.
+At zero absolute temperature, the distribution is just a Heaviside step function $\Theta (\mu - \epsilon)$ centered at the chemical potential $\mu$.
+This means that when the temperature is zero, the fermions are not thermally excited, therefore all states with energy $\epsilon > \mu$ are unpopulated, and all states with energy $\epsilon < \mu$ are occupied.
+Due to the Fermi--Dirac statistics and the Pauli exclusion principle~\cite{Griffiths_QM_2018}, each state can only be occupied by one fermion.
+That explains how we have $f(\epsilon) \leq 1$ for any energy, chemical potential or temperature.
+If the fermions have a nonzero temperature, then they are thermally excited, meaning that states with energy $\epsilon > \mu$ start to have a nonzero occupation.
+As the temperature increases, from the continuous blue curve to the dashed blue one in the figure, then more fermions from lower energy levels are excited to even higher energy levels.
+In the limit $T \to \infty$, $f(\epsilon) \to 1/2$, because the thermal energy is so high that all fermions get uniformly distributed among all energy states, and the Fermi--Dirac distribution is a straight line at $f(\epsilon) = 1/2$.
+
+\begin{minipage}{\linewidth}
+    \centering
+    \vspace{0.3cm}
+    \includegraphics[width=0.6\textwidth]{Chapters/Figures/Chapter_3/Fermi_Dirac_distribution}
+    \captionof{figure}{Fermi--Dirac distribution $f(\epsilon)$ as a function of the energy $\epsilon$ for three different temperatures $T$,  absolute zero temperature $k_B T = 0$ in black, $k_B T = 0.5$~\unit{\electronvolt} in continuous blue, and $k_B T = 1.5$ \unit{\electronvolt} in dashed blue.}\label{fig:Fermi_Dirac_distribution}
+\end{minipage}
+
+\end{mybox}
+\clearpage
 Defining the polarizability in reciprocal space as a matrix allows doing the same for the dielectric function, that Fourier transformed to reciprocal space reads
 
 \begin{empheq}[innerbox=\colorbox{lightgray}, right={\,.}]{align}
