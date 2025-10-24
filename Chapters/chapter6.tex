@@ -336,7 +336,7 @@ We see again that the polarizability converges with the number of empty bands in
 
 \begin{figure}[b]
     \centering
-    \includegraphics[width=1.0\linewidth]{Chapters/Figures/Chapter_6/hBN_chi_00_convergence_q1}
+    \includegraphics[width=0.8\linewidth]{Chapters/Figures/Chapter_6/hBN_chi_00_convergence_q1}
     \mycaption[Convergence of the polarizability with the number of conduction bands: head element]{Matrix element $\chi^0_{\bzero \bzero} (\bq)$ of the polarizability for two different values of momentum $\bq$ as a function of included conduction bands for \gls{hbn}. There are in total 63 empty bands for this model.}
     \label{fig:chi_00_hbndft}
 \end{figure}
@@ -348,7 +348,7 @@ Something similar has been seen before in the literature, such as Fig. 4 in Ref.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1.0\linewidth]{Chapters/Figures/Chapter_6/ChiG1_0hBNDFTq1&q2}
+    \includegraphics[width=0.8\linewidth]{Chapters/Figures/Chapter_6/ChiG1_0hBNDFTq1&q2}
     \mycaption[Convergence of the polarizability with the number of conduction bands: an wing element]{Matrix element $\chi^0_{\bG_1 \bzero} (\bq)$ of the polarizability, where $\bG_1$ is a primitive vector of the reciprocal lattice, for two different values of momentum $\bq$ as a function of included conduction bands for \gls{hbn}. The left panels display the real part, while the right panels display the imaginary part. The model for \gls{hbn} is the same as in Fig.~\ref{fig:chi_00_hbndft}. Herein, $\bG_1 = \SIvector{-1.44526, 2.50326}{\angstrominverse}$.}
     \label{fig:chi_g1_0_hbndft}
 \end{figure}
@@ -367,7 +367,7 @@ What we see from that plot is that the head element of the polarizability:
 \begin{figure}[h]
     \centering
     \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/Chi00hBNDFTmesh.pdf}
-    \mycaption[Polarizability in the \bz~mesh: head element]{Matrix element $\chi^0_{\bzero \bzero} (\bq)$ for \gls{hbn} in the \bz. Panel \pnl{a} displays the polarizability as a function of the magnitude of the momentum. Each red dot is a $\bq$ point in the mesh, and they are sorted by increasing order of $|\bq|$. Panel \textbf{b} displays a color map of the (absolute) value of the polarizability in the \bz~mesh. The bar legend for the colors is inset.}
+    \mycaption[Polarizability in the BZ mesh: head element]{Matrix element $\chi^0_{\bzero \bzero} (\bq)$ for \gls{hbn} in the \bz. Panel \pnl{a} displays the polarizability as a function of the magnitude of the momentum. Each red dot is a $\bq$ point in the mesh, and they are sorted by increasing order of $|\bq|$. Panel \textbf{b} displays a color map of the (absolute) value of the polarizability in the \bz~mesh. The bar legend for the colors is inset in \pnl{b}. In both plots, the polarizability is multiplied by $10^2$.}
     \label{fig:chi_00_hbndft_mesh}
 \end{figure}
 
@@ -376,7 +376,7 @@ Out of curiosity, in Fig.~\ref{fig:chi_g10_hbndft_mesh} we plot in the \bz~mesh 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/ChiG1_0hBNDFTmesh}
-    \mycaption[Polarizability in the \bz~mesh: an wing element]{Matrix element $\chi^0_{\bG_1 \bzero} (\bq)$ of the polarizability in the \bz~for \gls{hbn}. Panel \pnl{a} displays the real part of the polarizability, while panel \textbf{b} displays the imaginary part. The bar legend for the colors are inset. The polarizability is multiplied by $10^2$.}
+    \mycaption[Polarizability in the BZ mesh: an wing element]{Matrix element $\chi^0_{\bG_1 \bzero} (\bq)$ of the polarizability in the \bz~for \gls{hbn}. Panel \pnl{a} displays the real part of the polarizability, while panel \textbf{b} displays the imaginary part. The bar legend for the colors are inset. The polarizability is multiplied by $10^2$ in both plots.}
     \label{fig:chi_g10_hbndft_mesh}
 \end{figure}
 
@@ -391,7 +391,6 @@ The analysis of the dielectric matrix and its inverse is reserved for the next s
 
 We study the convergence of the inverse dielectric matrix with the number of included reciprocal lattice vectors.
 It is well known that including reciprocal lattice vectors in screening calculations is necessary due to local-field effects~\cite{Adler_1962,Wiser_1963}.
-
 In the box below, we explain more precisely what we mean by local-field effects.
 
 \begin{mybox}{Local-field effects}{box:local_field_effects}
@@ -541,14 +540,16 @@ Not only that, but Fig.~\ref{fig:epsilon2D_abinitio_vs_q_hBN} highlights an inte
 We see this by comparing the red dotdashed curve and the black curve with the blue one, which was obtained by applying a slightly higher cutoff of $G_c$.
 On the other hand, one can conclude that local-field effects are crucial for higher $q$.
 We have numerically verified, but do not present in this dissertation, that ignoring local-field totally highly overestimates the screening.
-In math notation, we mean that for intermediate $q$, $\varepsilon_{\bzero \bzero} (q) \gg \big(\varepsilon^{-1}_{\bzero \bzero} (q)\big)^{-1}$.
+In math notation, we mean that $\varepsilon_{\bzero \bzero} (q) \gg \big(\varepsilon^{-1}_{\bzero \bzero} (q)\big)^{-1}$ for intermediate $q$.
 If the cutoff is not high enough, then the dielectric response comes out overscreened.
 For us, applying the lowest possible cutoff (above zero) is sufficient to replicate the \abinit~results, at least for $q \mathrm{d}_{\perp}  \lesssim 1$.
 By increasing more the cutoff, our dielectric function gets underestimated when compared to the \abinit~one, as it can be seen in Fig.~\ref{fig:epsilon2D_abinitio_vs_q_hBN}, when comparing our blue dashed curve and the \abinit~one in black.
-At this point, we also cannot say if the disagreement for higher $q$ is also in part due to the approximation of point-like orbital we used to compute the plane-wave matrix elements between Bloch states, which are typically computed exactly in \abinit~codes via fast Fourier transform algorithms~\cite{BerkeleyGW}.
+At this point, we cannot say if the disagreement for higher $q$ is also in part due to the approximation of point-like orbital we used to compute the plane-wave matrix elements between Bloch states, which are typically computed exactly in \abinit~codes via fast Fourier transform algorithms~\cite{BerkeleyGW}.
 At least for low momenta, this approximation does not set us back.
 
-
+Now that we have successfully computed the dielectric function, it is now time to compute the excitons using the numerical model for screening.
+Knowing the excitonic states and energies, just like in the previous chapter in Section~\ref{sec:exciton_optical_response}, we can compute the excitonic optical conductivity.
+The excitons and the excitonic optical response are the subject of the next subsection.
 
 \subsection{Excitonic states and conductivity}
 \label{subsec:excitons_results}
@@ -556,9 +557,8 @@ At least for low momenta, this approximation does not set us back.
 Here goes what happened to the excitons with the new screening.
 The numerical conductivity could also be used to recalculate the exciton-polaritons.
 
-\subsection{Quasi-2D picture}
+\subsection{Dielectric function in the Quasi-2D approach}
 \label{subsec:quasi_2D}
-
 
 We have found that our quasi-2D dielectric function for the cutoff $G_c = 3$ \unit{\angstrom^{-1}} is underestimated with respect to the \abinit~one from Ref.~\cite{Latini_2015} and shown in Fig.~\ref{fig:epsilon2D_abinitio_vs_q_hBN}.
 Luckily, we could get a very good agreement in Fig.~\ref{fig:epsilon_quasi-2D_QEH_vs_q_hBN} below, by using the QEH package for Python for calculating the dielectric properties of \gls{vdw} structure~\cite{Dielectric_Genome}.
