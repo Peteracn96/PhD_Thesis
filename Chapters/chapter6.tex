@@ -230,7 +230,7 @@ Then, in two dimensions the number of linear combinations is $N^2$, and in three
 
 After having computed the dielectric matrix, we need to invert it.
 This poses a difficulty in the problem: there are infinite reciprocal lattice vectors; therefore, we need to apply a cutoff $G_c$ for the vectors $\bG$ and truncate the dielectric matrix to invert it in practice.
-Doing so is very common in the literature~\cite{BerkeleyGW,GPAW_2025,Yambo_2009}.
+Doing so is routine in the literature~\cite{BerkeleyGW,GPAW_2025,Yambo_2009}.
 Even if we have decided to follow the alternative approach for the \rpa~inverse dielectric function, given by~\cite{Dielectric_Genome}
 
 \begin{equation}
@@ -557,8 +557,18 @@ The excitons and the excitonic optical response are the subject of the next subs
 Here goes what happened to the excitons with the new screening.
 The numerical conductivity could also be used to recalculate the exciton-polaritons.
 
-\subsection{Dielectric function in the Quasi-2D approach}
-\label{subsec:quasi_2D}
+\section{Dielectric function in the Quasi-2D approach}
+\label{sec:quasi_2D}
+
+
+\subsection{Quasi-2D dielectric function: theory}
+\label{subsec:quasi_2D_theory}
+
+
+
+\subsection{Quasi-2D dielectric function: results}
+\label{subsec:quasi_2D_results}
+
 
 We have found that our quasi-2D dielectric function for the cutoff $G_c = 3$ \unit{\angstrom^{-1}} is underestimated with respect to the \abinit~one from Ref.~\cite{Latini_2015} and shown in Fig.~\ref{fig:epsilon2D_abinitio_vs_q_hBN}.
 Luckily, we could get a very good agreement in Fig.~\ref{fig:epsilon_quasi-2D_QEH_vs_q_hBN} below, by using the QEH package for Python for calculating the dielectric properties of \gls{vdw} structure~\cite{Dielectric_Genome}.
