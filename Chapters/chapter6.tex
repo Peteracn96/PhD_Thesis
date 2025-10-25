@@ -522,7 +522,7 @@ We stress that we only have in-plane $\bG$ vectors.
 
 We computed the dielectric function first for $G_c \approx 3.0$ \unit{\angstrom^{-1}}, and then for $G_c \approx 5.01$ \unit{\angstrom^{-1}}, choosing again the symmetry line $\Gamma-K$ for the momentum points $\bq$.
 The results are displayed in Fig.~\ref{fig:epsilon2D_abinitio_vs_q_hBN} below.
-It comes as a surprise for us, that the agreement between our results and theirs, represented by the dotdashed red curve and the continuous black curve, respectively, is so good.
+It comes as a surprise for us, that the agreement between our results and theirs, represented by the dot-dashed red curve and the continuous black curve, respectively, is so good.
 Not only the curves overlap in the small-$q$ limit, but they overlap as well for higher values of momentum $q$ inside the \bz~and further apart from the origin $\Gamma$.
 Naturally, the agreement between the curves ceases for a given value of momentum $q$, which is related with the finite thickness of the material $\mathrm{d}_{\perp}$.
 When $q \mathrm{d}_{\perp}  \lesssim 1$, we expect for our strict approach to agree with the \abinit~one, while for $q \mathrm{d}_{\perp}  \gtrsim 1$ we expect for the two approaches to screening disagree.
@@ -537,7 +537,7 @@ When $q \mathrm{d}_{\perp}  \lesssim 1$, we expect for our strict approach to ag
 Even though the effective \bd~dielectric function through \abinit~methods can only be obtained after performing an off-plane average on the inverse dielectric matrix, which can be a bit cumbersome, first-principles approaches have the advantage of naturally incorporating the finite thickness of the material.
 Apparently, taking the finite thickness into account is not required to have a good estimate of the low-$q$ behavior of the dielectric function, and therefore, to have an estimate of $r_0$.
 Not only that, but Fig.~\ref{fig:epsilon2D_abinitio_vs_q_hBN} highlights an interesting aspect of the low-$q$ dielectric properties of a \bd~material; the very low-$q$ dielectric response seems to not depend on the local-field effects.
-We see this by comparing the red dotdashed curve and the black curve with the blue one, which was obtained by applying a slightly higher cutoff of $G_c$.
+We see this by comparing the red dot-dashed curve and the black curve with the blue one, which was obtained by applying a slightly higher cutoff of $G_c$.
 On the other hand, one can conclude that local-field effects are crucial for higher $q$.
 We have numerically verified, but do not present in this dissertation, that ignoring local-field totally highly overestimates the screening.
 In math notation, we mean that $\varepsilon_{\bzero \bzero} (q) \gg \big(\varepsilon^{-1}_{\bzero \bzero} (q)\big)^{-1}$ for intermediate $q$.
@@ -555,7 +555,8 @@ The excitons and the excitonic optical response are the subject of the next subs
 \label{subsec:excitons_results}
 
 Here goes what happened to the excitons with the new screening.
-The numerical conductivity could also be used to recalculate the exciton-polaritons.
+Remember we discard $X$ exchange.
+The numerical conductivity could also be used to recalculate the exciton-polaritons.(not happening)
 
 \section{Dielectric function in the Quasi-2D approach}
 \label{sec:quasi_2D}
@@ -575,8 +576,8 @@ Luckily, we could get a very good agreement in Fig.~\ref{fig:epsilon_quasi-2D_QE
 The package works for any \gls{vdw} structure, but since we are only interested in the monolayer case, we wrote a short Python script to compute the dielectric function of monolayer \gls{hbn}.
 For each monolayer material, the package uses data from already done previous \abinit~calculations with the GPAW code~\cite{GPAW_2025}.
 Therefore, the computational effort in obtaining the dielectric function using the QEH package was minimal.
-The \abinit~curve is displayed with a continuous black line, while our quasi-2D curve is represented with a red dotdashed line.
-Although the two curves do not exactly overlap, the overall agreement is undeniably very good along the whole $\Gamma-K$ line.
+The \abinit~curve is displayed with a continuous black line, while our quasi-2D curve is represented with a red dot-dashed line.
+Although the two curves do not exactly overlap, the overall agreement is excellent along the whole $\Gamma-K$ line.
 
 \begin{figure}[h]
     \centering
@@ -591,3 +592,46 @@ Although the two curves do not exactly overlap, the overall agreement is undenia
 This is a section devoted solely to the code and implementation.
 As a paper did not come out of the implementation at the time of submission, this chapter can probably be deemed secondary.
 Also, if I don't have the time to write it at the end, then I won't include it at all or just make it very brief, or in an appendix.
+
+
+\subsection{The new version of the xatu code}
+\label{subsec:new_xatu}
+
+General remarks
+New screening configuration.
+New chosen potential.
+Choosing regularization percentage.
+Choosing separate cutoffs for exciton and epsilon.
+Dielectric matrix is in exciton TB class.
+
+\subsubsection{Using the code}
+\label{subsubsec:using_xatu}
+
+Here goes the flowchart from overleaf, do not forget to acknowledge Alex.
+
+\subsubsection{Complexity analysis}
+\label{subsubsec:complexity_analysis}
+
+Brief complexity analysis of an entire calculation of the dielectric matrix.
+Include symmetries of the polarizability.
+
+\subsubsection{Benchmark}
+\label{subsubsec:complexity_analysis}
+
+\begin{figure}[b]
+    \label{fig:MoS2_bands}
+    \begin{minipage}{0.65\textwidth}
+        \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/MoS2_Wannier_bands}
+    \end{minipage}%
+    \begin{minipage}{0.35\textwidth}
+        \mycaption[Wannierized band structure of \ch{MoS2}]{Quasiparticle band structure of monolayer \ch{MoS2} computed through,..., Wannier model ask Guilherme for the details.}
+        \label{fig:MoS2_Wannier_bands}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Chapters/Figures/Chapter_6/epsilon2D_abinitio_vs_q_MoS2}
+    \mycaption[\textit{Ab-initio} and \bd~effective dielectric function for \ch{MoS2}]{Macroscopic effective dielectric function of monolayer \ch{MoS2} with the strict \bd~and quasi-2D approaches, and compared to the \abinit~one. Our results agree the best with the \abinit~one if we include only five reciprocal lattice vectors with $|\bG| < G_c = 3 $ \unit{\angstrom^{-1}} out of seven including the origin. Two of them were left out of the calculation. The black curve was obtained by S.~Latini et al.~in Ref.~\cite{Latini_2015} through \abinit~methods, applying a cutoff of $150$ \unit{\electronvolt} for the size of the dielectric matrix. In Ref.~\cite{Latini_2015}, the band structure of \ch{MoS2} was obtained through \dft~calculations within \gls{lda}. The dielectric function was calculated as a post-processing step.}
+    \label{fig:epsilon_quasi-2D_abinitio_vs_q_MoS2}
+\end{figure}
