@@ -629,37 +629,36 @@ We start by recalling the expression for the real part of the elements of the ex
 
 \begin{equation}
     \label{eq:excitonic_Re_optical_conductivity_repeated}
-    \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{\area}\sum_{\nu}\frac{1}{E_{\nu}} V^{\alpha}_{\nu} (V^{\beta}_{\nu})^{*} \delta(\hbar \omega - E_{\nu})\,,
+    \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{\area}\sum_{\nu}\frac{1}{E_{\nu}} V^{\alpha}_{\nu} \left(V^{\beta}_{\nu}\right)^{*} \delta(\hbar \omega - E_{\nu})\,,
 \end{equation}
 
 \noindent with the volume $\vol$ replaced by the area $\area$, as the material is \bd, with the interacting velocity matrix element for the excitonic state $\nu$ given in terms of the velocity matrix elements $v^{\alpha}_{\cc  \vv }(\bk) = \langle \cc,\bk |v^{\alpha}| \vv,\bk \rangle$\footnote{In the light of what was discussed in Box~\ref{box:position_velocity_momentum_operators} and to be more rigorous, we can say that this matrix element is an integral in real space extending over the whole material, considered finite and obeying periodic boundary conditions.} by
 
 \begin{equation}
     \label{eq:excitonic_velocity_matrix_elements_repeated}
-    V^{\alpha}_{\nu} = \langle \GS |v^{\alpha}| X_{\nu}\rangle = \sum_{\vv \cc, \bk} A^{\bQ}_{\vv \cc}(\bk) (\bk) v^{\alpha}_{\vv \cc}(\bk)\,.
+    V^{\alpha}_{\nu} = \langle \GS |v^{\alpha}| X_{\nu}\rangle = \sum_{\vv \cc, \bk} A^{\bQ}_{\vv \cc}(\bk) v^{\alpha}_{\vv \cc}(\bk)\,.
 \end{equation}
 
-\noindent By virtue of the identity $\mathbf{v} = - \ii/\hbar [H_0,\br]$ (see Box~\ref{box:position_velocity_momentum_operators}), it is possible to evaluate the velocity matrix elements in a Bloch basis, and they are given by~\cite{Xatu,Esteve_2023,Esteve_PhD}
-
-\begin{multline}
-    \label{eq:velocity_matrix_elements_Bloch_basis}
-    v^a_{vc} (\bk) = \sum_{i \alpha i' \alpha'} \left(C^{n\bk}_{i\alpha}\right)^* C^{n'\bk}_{i'\alpha'} \nabla_{\bk} H_{i\alpha i'\alpha'}(\bk)  \\
-    +i \sum_{i \alpha i' \alpha'} \left(C^{n\bk}_{i\alpha}\right)^* C^{n'\bk}_{i'\alpha'} \left[ \epsilon_{n\bk} \xi_{i \alpha i' \alpha'}(\bk) - \epsilon_{n'\bk} \xi_{i \alpha i' \alpha'}^*(\bk)\right]
-\end{multline}
-
-\noindent where the quantity $\xi_{i \alpha i' \alpha'}(\bk) = \ii \mel{u_{i\alpha \bk}}{\nabla_\bk}{u_{i\alpha'\bk}}$ is the Berry connection (see footnote~\ref{fn:Berry_connection}), and evaluates to~\cite{Xatu,Esteve_2023,Esteve_PhD}
+\noindent By virtue of the identity $\mathbf{v} = \ii/\hbar [H_0,\br]$ (see Box~\ref{box:position_velocity_momentum_operators}), it is possible to evaluate the velocity matrix elements in a Bloch basis.
+They are given by~\cite{Xatu,Esteve_2023,Esteve_PhD}
 
 \begin{equation}
-    \xi_{i \alpha i' \alpha'}(\bk) = \sum_{\bR} \ei{\bk \cdot \bR} \mel{i \alpha \bzero}{\hat{\br}}{i \alpha' \bR} + \ii \nabla_\bk S_{i \alpha i' \alpha '} (\bk) \,,
+    \label{eq:velocity_matrix_elements_Bloch_basis}
+    \mathbf{v}_{\vv \cc} (\bk) = \sum_{i \alpha i' \alpha'} \left(C^{n\bk}_{i\alpha}\right)^* C^{n'\bk}_{i'\alpha'} \left[\nabla_{\bk} H_{i\alpha i'\alpha'}(\bk) + \ii \epsilon_{n\bk} \xi_{i \alpha i' \alpha'}(\bk) - \epsilon_{n'\bk} \xi_{i \alpha i' \alpha'}^*(\bk)\right]
+\end{equation}
+
+\noindent where the quantity $\xi_{i \alpha i' \alpha'}(\bk) = \ii \mel{u_{i\alpha \bk}}{\nabla_{\bk}}{u_{i\alpha'\bk}}$ is the Berry connection (see footnote~\ref{fn:Berry_connection}), and evaluates to~\cite{Xatu,Esteve_2023,Esteve_PhD}
+
+\begin{equation}
+    \xi_{i \alpha i' \alpha'}(\bk) = \sum_{\bR} \ei{\bk \cdot \bR} \langle i \alpha \bzero | \br | i \alpha' \bR \rangle + \ii \nabla_{\bk} S_{i \alpha i' \alpha '} (\bk) \,,
 \end{equation}
 
 \noindent where we recall that $S_{i \alpha i' \alpha '} (\bk) = \braket{i \alpha \bk}{i' \alpha' \bk}$ is a matrix element of the momentum-defined overlap matrix (see Eq.~\ref{eq:Bloch_overlap_definition}).
 In the tight-binding approximation, or in the limit of maximally localized Wannier functions, only the intra-atomic position operator matrix elements are nonzero, and it is not hard to show that the matrix elements in Eq.~\ref{eq:velocity_matrix_elements_Bloch_basis} evaluate to
 
-\begin{multline}
-     \mel{n\bk}{\hat{v}}{n'\bk} = \sum_{i \alpha i' \alpha'} \left(C^{n\bk}_{i\alpha}\right)^* C^{n'\bk}_{i'\alpha'}\Bigg[ \frac{\partial H_{i \alpha i' \alpha'}(\bk)}{\partial k_a} \\
-     +  \ii H_{i \alpha i' \alpha'}(\bk)(t^a_{i'} - t^a_{i})\Bigg] \,,
-\end{multline}
+\begin{equation}
+     \mel{n\bk}{v^{a}}{n'\bk} = \sum_{i \alpha i' \alpha'} \left(C^{n\bk}_{i\alpha}\right)^* C^{n'\bk}_{i'\alpha'}\Bigg[ \frac{\partial H_{i \alpha i' \alpha'}(\bk)}{\partial k_a} +  \ii H_{i \alpha i' \alpha'}(\bk)(t^a_{i'} - t^a_{i})\Bigg] \,,
+\end{equation}
 
 \noindent which involves $k$-derivatives of the Bloch Hamiltonian matrix elements; typically, one needs a more refined, or dense, \bz~mesh to make the conductivity converge.
 For the Dirac delta part, we use typically use a Lorentzian broadening of the form $\delta (x) \to \frac{1}{\pi} \frac{\Gamma}{x^2 + \Gamma^2}$, where $\Gamma$ is the broadening parameter.
@@ -670,7 +669,7 @@ The equivalence between the dielectric function and the optical conductivity fro
 One can see that the same expression cannot be used, because the potential now goes with $\sim 1/(2\epsz q)$ instead of $\sim 1/(\epsz q^2)$.
 Then, we need the \bd~counterpart of the same relation, which is derived in Appendix~\ref{app:2D_optical_conductivity}.
 As one can see in that appendix, the permittivity--conductivity equivalence relation new reads $\varepsilon = 1 + \ii q \sigma / (2 \epsz \omega)$, instead of the old one $\varepsilon = 1 + \ii \sigma / (\epsz \omega)$.
-The extra $q/2$ factor going with the conductivity compensates for the conversion of the Coulomb potential from $v^{\mathrm{3D}}_c(q) = e/(\epz q^2) $ to $ v^{\BD}_c(q) = e/(2\epz q)$.
+The extra $q/2$ factor going with the conductivity compensates for the conversion of the Coulomb potential from $v^{\mathrm{3D}}_c(q) = e/(\epsz q^2) $ to $ v^{\BD}_c(q) = e/(2\epsz q)$.
 
 The cond... of hBN... is in Fig....
 \begin{figure}[h]
