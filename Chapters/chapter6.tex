@@ -299,7 +299,7 @@ After all, it is with \abinit~methods that we can fit the tight-binding band str
 
 Herein, the model Hamiltonian for \gls{hbn} was obtained through \dft~calculations (see Subsection~\ref{subsubsec:abinit_methods}) with the commercial package CRYSTAL~\cite{CRYSTAL_23}, which uses a framework of Gaussian basis functions.
 In our calculations, we used the hybrid functional HSE06~\cite{Heyd_Scuseria_Ernzerhof_2003}, which mixes the exact \gls{hf} exchange functional and the Perdew--Burke--Ernzerhof functional~\cite{Perdew_1996} within the \gls{gga}\footnote{In typical \abinit~calculations within \dft, there is always an ambiguity in the functional one can choose to capture exchange and correlation effects. This is because no one knows the analytical expression for the exact exchange--correlation functional, if it even exists. We know however that it is a functional of the electron density $n(\br)$ by the Hohenberg--Kohn theorems, we just do not have an analytical expression for it. Nonetheless, exchange--correlation contributions to the ground-state energy can be computed numerically. The caveat is that it is very computationally demanding. What one typically does, is mixing the exact numerical functional with an approximated one, say at the \gls{lda} or \gls{gga} level. There is consensus in the community that using hybrid functionals allows better estimating the electronic bandgap than non-hybrid ones when compared with the experimental values~\cite{PhysRevMaterials.8.043803}.}.
-For the sampling of $\bk$ points, we use a uniform $48\times48\times1$ Monkhorst--Pack $\bk$-grid~\cite{Monkhorst_Pack_1976}, with an interlayer distance of 500 \unit{\angstrom} and $a=2.51$ \unit{\angstrom} for the lattice constant.
+For the sampling of $\bk$ points, we use a uniform $48\times48\times1$ Monkhorst--Pack $\bk$-grid~\cite{Monkhorst_Pack_1976}, with an interlayer distance of 500~\unit{\angstrom} and $a=2.51$~\unit{\angstrom} for the lattice constant.
 The output file $\texttt{hBN\_base\_HSE06.outp}$ can be found in the official repository for the Xatu code~\cite{Xatu}; \url{https://github.com/xatu-code/xatu/tree/master/examples/material_models/DFT}.
 This file contains the Fock matrices of the form $H(\bR)$ in a basis of localized Gaussian functions, sufficient in number to build the Bloch Hamiltonian $H(\bk) = \sum_{\bR} \ee^{\ii \bk \cdot \bR} H(\bR)$ while preserving basic symmetries.
 Diagonalizing the Bloch Hamiltonian along the high-symmetry line $\Gamma-K-M-\Gamma$, we obtain the band structure displayed in Fig.~\ref{fig:hBN_DFT_bands} below.
@@ -367,7 +367,7 @@ What we see from that plot is that the head element of the polarizability:
 \begin{figure}[h]
     \centering
     \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/Chi00hBNDFTmesh.pdf}
-    \mycaption[Polarizability in the BZ mesh: head element]{Matrix element $\chi^0_{\bzero \bzero} (\bq)$ for \gls{hbn} in the \bz. Panel \pnl{a} displays the polarizability as a function of the magnitude of the momentum. Each red dot is a $\bq$ point in the mesh, and they are sorted by increasing order of $|\bq|$. Panel \textbf{b} displays a color map of the (absolute) value of the polarizability in the \bz~mesh. The bar legend for the colors is inset in \pnl{b}. In both plots, the polarizability is multiplied by $10^2$.}
+    \mycaption[Polarizability in the BZ: the head element]{Matrix element $\chi^0_{\bzero \bzero} (\bq)$ for \gls{hbn} in the \bz. Panel \pnl{a} displays the polarizability as a function of the magnitude of the momentum. Each red dot is a $\bq$ point in the mesh, and they are sorted by increasing order of $|\bq|$. Panel \textbf{b} displays a color map of the (absolute) value of the polarizability in the \bz~mesh. The bar legend for the colors is inset in \pnl{b}. In both plots, the polarizability is multiplied by $10^2$.}
     \label{fig:chi_00_hbndft_mesh}
 \end{figure}
 
@@ -376,7 +376,7 @@ Out of curiosity, in Fig.~\ref{fig:chi_g10_hbndft_mesh} we plot in the \bz~mesh 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/ChiG1_0hBNDFTmesh}
-    \mycaption[Polarizability in the BZ mesh: an wing element]{Matrix element $\chi^0_{\bG_1 \bzero} (\bq)$ of the polarizability in the \bz~for \gls{hbn}. Panel \pnl{a} displays the real part of the polarizability, while panel \textbf{b} displays the imaginary part. The bar legend for the colors are inset. The polarizability is multiplied by $10^2$ in both plots.}
+    \mycaption[Polarizability in the BZ: an wing element]{Matrix element $\chi^0_{\bG_1 \bzero} (\bq)$ of the polarizability in the \bz~for \gls{hbn}. Panel \pnl{a} displays the real part of the polarizability, while panel \textbf{b} displays the imaginary part. The bar legend for the colors are inset. The polarizability is multiplied by $10^2$ in both plots.}
     \label{fig:chi_g10_hbndft_mesh}
 \end{figure}
 
@@ -474,12 +474,12 @@ Our framework allows for directly obtaining the static \bd~effective dielectric 
 We display in Fig.~\ref{fig:epsilon2D_vs_q_hBN} the effective \bd~dielectric function for \gls{hbn} as a function of momentum $q=|\bq|$, where $\bq$ follows the same line as in Fig.~\ref{fig:inv_epsilon_vs_q_hBN}.
 All the parameters from that figure carry over to the one below.
 The numerically obtained dielectric function corresponds to the red curve, while the one in black is the dielectric function according to the Rytova--Keldysh model $\varepsilon_{\RK} (q) = 1 + r_0 q$, where the parameter $r_0$ was estimated from the low-$q$ behavior of the red curve.
-With this model for \gls{hbn}, we obtained for the screening parameter $r_0 \approx 5.084$ \unit{\angstrom}.
+With this model for \gls{hbn}, we obtained for the screening parameter $r_0 \approx 5.084$~\unit{\angstrom}.
 This value is actually not close to the one we used in the previous chapter.
 However, in the previous chapter the \gls{hbn} flake was supported by a quartz substrate, which affects the screening properties of the material~\cite{Trolle_Pedersen_Veniard_2017,}.
-The value we used of $r_0 = 10$ \unit{\angstrom} has been used in previous works~\cite{Ferreira_2019,Ventura_2019}, showing good agreement with experiments with monolayer \gls{hbn} deposited on quartz~\cite{Cassabois_2019}.
-In Ref.~\cite{Ventura_2019}, from the arguments of P.~Cudazzo, I.~V.~Tokatly, and A.~Rubio in Ref.~\cite{Cudazzo_2011}, the authors estimated $r_0 = 6.5$ \unit{\angstrom} for \gls{hbn}, knowing the material off-plane and in-plane bulk dielectric constants~\cite{Laturia_2018}.
-Still in the same work, with the help of Refs.\cite{Trolle_Pedersen_Veniard_2017,Latini_2015}, the authors in Ref.~\cite{Ventura_2019} estimated $r_0 = 6.8$ \unit{\angstrom}.
+The value we used of $r_0 = 10$~\unit{\angstrom} has been used in previous works~\cite{Ferreira_2019,Ventura_2019}, showing good agreement with experiments with monolayer \gls{hbn} deposited on quartz~\cite{Cassabois_2019}.
+In Ref.~\cite{Ventura_2019}, from the arguments of P.~Cudazzo, I.~V.~Tokatly, and A.~Rubio in Ref.~\cite{Cudazzo_2011}, the authors estimated $r_0 = 6.5$~\unit{\angstrom} for \gls{hbn}, knowing the material off-plane and in-plane bulk dielectric constants~\cite{Laturia_2018}.
+Still in the same work, with the help of Refs.\cite{Trolle_Pedersen_Veniard_2017,Latini_2015}, the authors in Ref.~\cite{Ventura_2019} estimated $r_0 = 6.8$~\unit{\angstrom}.
 Both values estimated in Ref.~\cite{Ventura_2019} are not that far from the one we get.
 
 In Fig.~\ref{fig:epsilon2D_vs_q_hBN} one can notice as well a feature of the macroscopic dielectric function in the opposite limit of $q \to 0$.
@@ -506,7 +506,7 @@ This is not very surprising if we take into account that P.~Li and I.~Appelbaum,
 \end{equation}
 
 \noindent where the integral in momentum is in-plane, $m_0$ is the free electron mass, and $\mathbf{P}_{\cc \vv}(\bk) = \langle \cc, \bk |\mathbf{p}| \vv, \bk \rangle$ is the momentum matrix element.
-This was proved, in the supplemental material of Ref.~\cite{Li_Appelbaum_2019}, by taking the static and infinite-$L_{\perp}$ limits in the dynamical dielectric function of the respective bulk material (after taking the $q \to 0$ limit)\footnote{Nonetheless, it is not clear how aware the authors in Ref.~\cite{Li_Appelbaum_2019} were of the subtleties of writing dynamical response functions in terms of matrix elements of the momentum operator, as we discussed in Box~\ref{box:position_velocity_momentum_operators}}.
+This was proved, in the supplemental material of Ref.~\cite{Li_Appelbaum_2019}, by taking the static and $L_{\perp} \to \infty$ limits in the dynamical dielectric function of the respective bulk material (after taking the $q \to 0$ limit)\footnote{Nonetheless, it is not clear how aware the authors in Ref.~\cite{Li_Appelbaum_2019} were of the subtleties of writing dynamical response functions in terms of matrix elements of the momentum operator, as we discussed in Box~\ref{box:position_velocity_momentum_operators}}.
 The expression in Eq.~\eqref{eq:r0_Li_Appelbaum} has been used before in the literature for exciton calculations in \bd~systems~\cite{Mauricio_2024}.
 
 To settle the debate and get a better feeling for the validity of our calculations, let us compare our dielectric function directly with the one obtained from first-principles methods, instead of looking only at the small-$q$ limit behavior of the dielectric function.
@@ -516,21 +516,21 @@ The cutoff for including local-field effects is usually given in terms of energy
 When $E_c = 150$ \unit{\electronvolt}, we get $G_c \approx 6.27$ \unit{\angstrom^{-1}}.
 In principle, this means that to compare results, we have to apply the same cutoff.
 However, we will see that truncating the dielectric matrix at a smaller cutoff is sufficient to make comparisons.
-For our model for \gls{hbn}, the smallest cutoff possible in order to include reciprocal lattice vectors beyond the null one, is $G_c \approx 3.0$ \unit{\angstrom^{-1}}.
-Only above $G_c = 5.0$ \unit{\angstrom^{-1}} more reciprocal lattice vectors are included.
+For our model for \gls{hbn}, the smallest cutoff possible for including reciprocal lattice vectors other than the null one, is $G_c \approx 3.0$~\unit{\angstrom^{-1}}.
+Only above $G_c = 5.0$ \unit{\angstrom^{-1}} are more reciprocal lattice vectors included.
 We stress that we only have in-plane $\bG$ vectors.
 
-We computed the dielectric function first for $G_c \approx 3.0$ \unit{\angstrom^{-1}}, and then for $G_c \approx 5.01$ \unit{\angstrom^{-1}}, choosing again the symmetry line $\Gamma-K$ for the momentum points $\bq$.
+We computed the dielectric function first for $G_c \approx 3.0$~\unit{\angstrom^{-1}}, and then for $G_c \approx 5.01$~\unit{\angstrom^{-1}}, choosing again the symmetry line $\Gamma-K$ for the momentum points $\bq$.
 The results are displayed in Fig.~\ref{fig:epsilon2D_abinitio_vs_q_hBN} below.
 It comes as a surprise for us, that the agreement between our results and theirs, represented by the dot-dashed red curve and the continuous black curve, respectively, is so good.
 Not only the curves overlap in the small-$q$ limit, but they overlap as well for higher values of momentum $q$ inside the \bz~and further apart from the origin $\Gamma$.
-Naturally, the agreement between the curves ceases for a given value of momentum $q$, which is related with the finite thickness of the material $\mathrm{d}_{\perp}$.
-When $q \mathrm{d}_{\perp}  \lesssim 1$, we expect for our strict approach to agree with the \abinit~one, while for $q \mathrm{d}_{\perp}  \gtrsim 1$ we expect for the two approaches to screening disagree.
+Naturally, the agreement between the curves ceases for a given value of momentum $q$, which is related with the finite thickness of the material $\dd_{\perp}$.
+When $q \dd_{\perp}  \lesssim 1$, we expect for our strict approach to agree with the \abinit~one, while for $q \dd_{\perp}  \gtrsim 1$ we expect for the two approaches to screening disagree.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{Chapters/Figures/Chapter_6/epsilon2D_abinitio_vs_q_hBN}
-    \mycaption[\textit{Ab-initio} and strict \bd~effective dielectric function for \gls{hbn}]{Macroscopic effective \bd~dielectric function of monolayer \gls{hbn}, computed by our strict \bd~approach in comparison to the \abinit~approach. To get the red and blue curves, we applied the cutoffs $G_c = 3.0$ \unit{\angstrom^{-1}} and $G_c = 5.01$ \unit{\angstrom^{-1}}, respectively. The black curve was obtained by S.~Latini et al.~in Ref.~\cite{Latini_2015} through \abinit~methods, applying a cutoff of $150$ \unit{\electronvolt} for the reciprocal lattice vectors. In Ref.~\cite{Latini_2015}, the band structure of \gls{hbn} was obtained through \dft~calculations within \gls{lda}. The dielectric function was calculated as a post-processing step. Just like in previous cases, we computed the dielectric function along the symmetry line $\Gamma-K$.}
+    \mycaption[\textit{Ab-initio} and strict 2D~effective dielectric function for \gls{hbn}]{Macroscopic effective \bd~dielectric function of monolayer \gls{hbn}, computed by our strict \bd~approach in comparison to the \abinit~approach. To get the red and blue curves, we applied the cutoffs $G_c = 3.0$ \unit{\angstrom^{-1}} and $G_c = 5.01$ \unit{\angstrom^{-1}}, respectively. The black curve was obtained by S.~Latini et al.~in Ref.~\cite{Latini_2015} through \abinit~methods, applying a cutoff of $150$ \unit{\electronvolt} for the reciprocal lattice vectors. In Ref.~\cite{Latini_2015}, the band structure of \gls{hbn} was obtained through \dft~calculations within \gls{lda}. The dielectric function was calculated as a post-processing step. Just like in previous cases, we computed the dielectric function along the symmetry line $\Gamma-K$.}
     \label{fig:epsilon2D_abinitio_vs_q_hBN}
 \end{figure}
 
@@ -542,7 +542,7 @@ On the other hand, one can conclude that local-field effects are crucial for hig
 We have numerically verified, but do not present in this dissertation, that ignoring local-field totally highly overestimates the screening.
 In math notation, we mean that $\varepsilon_{\bzero \bzero} (q) \gg \big(\varepsilon^{-1}_{\bzero \bzero} (q)\big)^{-1}$ for intermediate $q$.
 If the cutoff is not high enough, then the dielectric response comes out overscreened.
-For us, applying the lowest possible cutoff (above zero) is sufficient to replicate the \abinit~results, at least for $q \mathrm{d}_{\perp}  \lesssim 1$.
+For us, applying the lowest possible cutoff (above zero) is sufficient to replicate the \abinit~results, at least for $q \dd_{\perp}  \lesssim 1$.
 By increasing more the cutoff, our dielectric function gets underestimated when compared to the \abinit~one, as it can be seen in Fig.~\ref{fig:epsilon2D_abinitio_vs_q_hBN}, when comparing our blue dashed curve and the \abinit~one in black.
 At this point, we cannot say if the disagreement for higher $q$ is also in part due to the approximation of point-like orbital we used to compute the plane-wave matrix elements between Bloch states, which are typically computed exactly in \abinit~codes via fast Fourier transform algorithms~\cite{BerkeleyGW}.
 At least for low momenta, this approximation does not set us back.
@@ -554,9 +554,132 @@ The excitons and the excitonic optical response are the subject of the next subs
 \subsection{Excitonic states and conductivity}
 \label{subsec:excitons_results}
 
-Here goes what happened to the excitons with the new screening.
-Remember we discard $X$ exchange.
-The numerical conductivity could also be used to recalculate the exciton-polaritons.(not happening)
+To see the effect the numerical screening has on the excitons, we computed the excitons using the xatu code with the two different models for screening possible.
+In both calculations, we used the same set of parameters, apart from the way the interaction matrix elements are computed.
+We used a $60\times60$ $\bk$-grid to sample the \bz, included one valence band, $N_{\vv}=1$, and one conduction band, $N_{\cc}=1$, applied a cutoff for the reciprocal lattice vectors of $G_c = 3.0$ \unit{\angstrom^{-1}}, and for the regularization radius, we used a percentage of $1.3\%$.
+This means for the regularization radius $q_0 = 1.3 k_0$, where $k_0$ is the norm of the \bz~momentum closest to the origin.
+When using the Rytova--Keldysh model for screening, the direct interaction matrix element is computed through Eq.~\eqref{eq:direct_interaction_matrix_element_reciprocal_RK}, where for the screening length we used the value obtained by us of $r_0 = 5.084$~\unit{\angstrom}.
+Using the numerical (inverse) dielectric function, the same interaction matrix element is computed through Eq.~\eqref{eq:interaction_matrix_element_direct_reciprocal}, but with the volume $\vol$ replaced by the area $\area$.
+
+The numerical results for the excitons are displayed in Table~\ref{tab:hBN_DFT_HSE_06_exciton_spectrum} below, showing the excitonic levels of the first eigth excitons.
+The values on the left were obtained using the Rytova--Keldysh dielectric function, while the ones on the right were obtained using the numerical dielectric matrix.
+First, one can notice that for the Rytova--Keldysh calculation, the states are not as close to the expected degeneracies as they are for the numerical screening calculation.
+For the Rytova--Keldysh calculation, this does not come as a surprise, since it is know that the binding energy for \gls{hbn} excitons are of the highest amongs all \bd~insulators.
+This means that they are localized in real space, and therefore delocalized in momentum space.
+Henceforth, one needs a high enough cutoff $G^{X}_c$ for the interaction matrix elements to recover the expected degeneracies and symmetries.
+This fact, that we touched on at the end of Subsection~\ref{subsec:interaction_matrix_elements_and_screening}, has been discussed before in the literature by E.~Ridolfi et al.~in Ref.~\cite{Ridolfi_2015}, and verified again more recently in Ref.~\cite{Xatu}.
+
+In Table~\ref{tab:hBN_DFT_HSE_06_exciton_spectrum}, we can also verify that using the Rytova--Keldysh model the excitonic states are higher in energy when compared to the ones obtained using $\varepsilon_{\bG,\bG'}$, by looking at the second and third columns.
+If we consider only the the head term $W_{\bzero \bzero} (\bq)$ of the numerical screened potential and compare it with the Rytova--Keldysh potential $V_{\RK} (\bq)$, knowing that the Rytova--Keldysh model overestimates the screening, then the attraction between the electron and the hole is weaker than the one coming from $W_{\bzero \bzero} (\bq) = \varepsilon^{-1}_{\bzero \bzero} (\bq) v_c(\bq) = v_c(\bq)/\varepsilon_M (\bq)$, since $\varepsilon_M (\bq) < \varepsilon_{\RK} (\bq)$.
+This means that the excitons obtained with $V_{\RK} (q)$ should be higher in energy than the ones from using $W_{\bG \bG'}(\bq)$.
+In terms of binding energies, displayed in the fourth and fifth colums of the table, the excitons obtained with the Rytova--Keldysh model present lower binding energies when compared to the excitonic binding energies obtained with the numerical dielectric function.
+In Fig.~\ref{fig:Coulomb_RK_W00_potential} we illustrate the $q$-space Coulomb attraction between the electron and the hole by plotting the bare Coulomb potential $v_c(q)$ in black, the Rytova--Keldysh potential $V_{\RK} (q)$ in blue, and the head element of the screened potential $W_{\bzero \bzero} (q)$ in red.
+Since the Rytova--Keldysh dielectric function is obtained from $1/\varepsilon^{-1}_{\bzero \bzero} (\bq)$, in the long-wavelength limit the two screened potentials coincide.
+However, for intermediate $q$, the Rytova--Keldysh potential underestimates the electrostatic Coulomb interaction, decaying to zero faster than $W_{\bzero \bzero} (q)$ and the Coulomb potential, as we have already pointed out in Subsection~\ref{subsec:macroscopic_dielectric_function_results}.
+For high $q$, the head element $W_{\bzero \bzero} (q)$ of the screened potential and the unscreened potential $v_c(q)$ approach each other.
+
+\begin{table}[ht]
+    \centering
+    \mycaption[Exciton spectrum of hBN]{Exciton spectrum of \gls{hbn} using the DFT model from CRYSTAL, using the Rytova--Keldysh potential and the numerical inverse dielectric matrix to compute the interaction matrix elements.
+    The second and fourth columns pertain to the Rytova--Keldysh model, while the third and fifth columns pertain to the numerical screening. 
+    The second and third columns show the exciton energies $E_X$, while the fourth and fifth columns show the corresponding binding energies $E_b$.
+    States labeled with the same number but different letters are states for which degeneracy is expected.
+    We observe that the states that are supposed to be degenerate, are more proximate in energy for the numerical screening calculation, and are in general lower in energy compared to those obtained from the Rytova--Keldysh model.
+    We used $N=60^2$, $N_{\cc}=N_{\vv}=1$, $G_c = 3.0$~\unit{\angstrom^{-1}}, $q_0 = 1.3 k_0$, and $r_0 = 5.084$~\unit{\angstrom} for the Rytova--Keldysh potential. In the numerical model for the screening, we included all the $\bG$ vectors. We have excluded the exchange interaction term in both calculations.}
+    \begin{tabular}{|c|c|c||c|c|}
+    \hline
+    State                         & $E_X$ (RK) (eV)         & $E_X$ ($\varepsilon_{\bG,\bG'}$) (eV)  & $E_b$ (RK) (eV)         & $E_b$ ($\varepsilon_{\bG,\bG'}$) (eV)\\ \hline \hline
+    1a                            & 3.6750717               & 3.6088515                              & 2.40                    & 2.47\\ 
+    1b                            & 3.8376778               & 3.6248442                              & 2.24                    & 2.46\\ \hline
+    2                             & 4.3737721               & 4.1111964                              & 1.71                    & 1.97\\ \hline
+    3a                            & 4.8645531               & 4.8344231                              & 1.21                    & 1.25\\ 
+    3b                            & 4.8965401               & 4.8376743                              & 1.18                    & 1.24\\ \hline
+    4                             & 4.9277759               & 4.9224497                              & 1.15                    & 1.16\\ \hline
+    5a                            & 5.1874356               & 5.1808116                              & 0.89                    & 0.899\\ 
+    5b                            & 5.2068572               & 5.1827810                              & 0.87                    & 0.897\\ \hline
+    \end{tabular}
+    \label{tab:hBN_DFT_HSE_06_exciton_spectrum}
+\end{table}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Chapters/Figures/Chapter_6/potential_Coulomb_Rytova-Keldysh_W00}
+    \mycaption[Coulomb, Rytova--Keldysh and numerical macroscopic potentials in momentum space]{Comparison between the bare Coulomb potential (red continuous line) and the Rytova--Keldysh potential (dashed blue line) as a function of the in-plane distance $r$. The dotdashed black curve represents the small $r$ limit of the Rytova--Keldysh potential in Eq.~\eqref{eq:Rytova--Keldysh_potential_real_space}. The value $r_0 = 10$ \unit{\angstrom}  was used.}
+    \label{fig:Coulomb_RK_W00_potentialx}
+\end{figure}
+
+For this model for \gls{hbn}, with the electronic bandgap being of $\Delta = 6.08$~\unit{\electronvolt}, we obtain for the binding energy of the excitonic ground state $E_b = 2.47$~\unit{\electronvolt}.
+Honestly, it is not very close to other values previously obtained in the literature using full \gls{bse} \abinit~methods.
+For instance, in Ref.~\cite{Latini_2015}, the authors obtained a binding energy of $E_b = 2.05$~\unit{\electronvolt}, while in Ref.~\cite{Zhang_Louie_2022} a value of $E_b = 2.08$~\unit{\electronvolt} was reported.
+However, in none of those works do the autors use a hybrid functional for the \dft~calculations as we do.
+Even though with different Hamiltonian models one can get similar dielectric functions, the exciton properties of the material may depend more on model.
+Even if it is the same material, having a different band structure, specially a different bandgap, may naturally lead to different exciton binding energies.
+
+At last, we compare the optical conductivity of \gls{hbn} computed with both methods.
+Unlike the \gls{bse} calculations, the optical conductivity is obtained always in the same way.
+We use it just as it was implemented in the first version of the xatu code, in Ref.~\cite{Xatu}.
+Therein, the conductivity is computed in terms of velocity matrix elements, instead of using the dipole operator approach from the previous chapter.
+The expressions~\eqref{eq:non_interacting_Re_optical_conductivity} and~\eqref{eq:excitonic_Re_optical_conductivity} are the ones we use now to compute the conductivity at the \gls{ipa} and excitonic level.
+In the last chapter, we focused solely on the excitonic conductivity.
+On the contrary, as both noninteracting and interacting conductivities are implemented in the code, we plot both for the sake of completion.
+The noninteracting one does not depend on how one computes the excitons, logically.
+
+Before we comment on the conductivity obtained with the xatu code, for the sake of having a as self-contained discussion as possible, we brifly explain how the conuctivity is computed, in particular the velocity matrix elements.
+We start by recalling the expression for the real part of the elements of the excitonic conductivity tensor from Chapter~\ref{ch:Excitons}, which reads
+
+\begin{equation}
+    \label{eq:excitonic_Re_optical_conductivity_repeated}
+    \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{\area}\sum_{\nu}\frac{1}{E_{\nu}} V^{\alpha}_{\nu} (V^{\beta}_{\nu})^{*} \delta(\hbar \omega - E_{\nu})\,,
+\end{equation}
+
+\noindent with the volume $\vol$ replaced by the area $\area$, as the material is \bd, with the interacting velocity matrix element for the excitonic state $\nu$ given in terms of the velocity matrix elements $v^{\alpha}_{\cc  \vv }(\bk) = \langle \cc,\bk |v^{\alpha}| \vv,\bk \rangle$\footnote{In the light of what was discussed in Box~\ref{box:position_velocity_momentum_operators} and to be more rigorous, we can say that this matrix element is an integral in real space extending over the whole material, considered finite and obeying periodic boundary conditions.} by
+
+\begin{equation}
+    \label{eq:excitonic_velocity_matrix_elements_repeated}
+    V^{\alpha}_{\nu} = \langle \GS |v^{\alpha}| X_{\nu}\rangle = \sum_{\vv \cc, \bk} A^{\bQ}_{\vv \cc}(\bk) (\bk) v^{\alpha}_{\vv \cc}(\bk)\,.
+\end{equation}
+
+\noindent By virtue of the identity $\mathbf{v} = - \ii/\hbar [H_0,\br]$ (see Box~\ref{box:position_velocity_momentum_operators}), it is possible to evaluate the velocity matrix elements in a Bloch basis, and they are given by~\cite{Xatu,Esteve_2023,Esteve_PhD}
+
+\begin{multline}
+    \label{eq:velocity_matrix_elements_Bloch_basis}
+    v^a_{vc} (\bk) = \sum_{i \alpha i' \alpha'} \left(C^{n\bk}_{i\alpha}\right)^* C^{n'\bk}_{i'\alpha'} \nabla_{\bk} H_{i\alpha i'\alpha'}(\bk)  \\
+    +i \sum_{i \alpha i' \alpha'} \left(C^{n\bk}_{i\alpha}\right)^* C^{n'\bk}_{i'\alpha'} \left[ \epsilon_{n\bk} \xi_{i \alpha i' \alpha'}(\bk) - \epsilon_{n'\bk} \xi_{i \alpha i' \alpha'}^*(\bk)\right]
+\end{multline}
+
+\noindent where the quantity $\xi_{i \alpha i' \alpha'}(\bk) = \ii \mel{u_{i\alpha \bk}}{\nabla_\bk}{u_{i\alpha'\bk}}$ is the Berry connection (see footnote~\ref{fn:Berry_connection}), and evaluates to~\cite{Xatu,Esteve_2023,Esteve_PhD}
+
+\begin{equation}
+    \xi_{i \alpha i' \alpha'}(\bk) = \sum_{\bR} \ei{\bk \cdot \bR} \mel{i \alpha \bzero}{\hat{\br}}{i \alpha' \bR} + \ii \nabla_\bk S_{i \alpha i' \alpha '} (\bk) \,,
+\end{equation}
+
+\noindent where we recall that $S_{i \alpha i' \alpha '} (\bk) = \braket{i \alpha \bk}{i' \alpha' \bk}$ is a matrix element of the momentum-defined overlap matrix (see Eq.~\ref{eq:Bloch_overlap_definition}).
+In the tight-binding approximation, or in the limit of maximally localized Wannier functions, only the intra-atomic position operator matrix elements are nonzero, and it is not hard to show that the matrix elements in Eq.~\ref{eq:velocity_matrix_elements_Bloch_basis} evaluate to
+
+\begin{multline}
+     \mel{n\bk}{\hat{v}}{n'\bk} = \sum_{i \alpha i' \alpha'} \left(C^{n\bk}_{i\alpha}\right)^* C^{n'\bk}_{i'\alpha'}\Bigg[ \frac{\partial H_{i \alpha i' \alpha'}(\bk)}{\partial k_a} \\
+     +  \ii H_{i \alpha i' \alpha'}(\bk)(t^a_{i'} - t^a_{i})\Bigg] \,,
+\end{multline}
+
+\noindent which involves $k$-derivatives of the Bloch Hamiltonian matrix elements; typically, one needs a more refined, or dense, \bz~mesh to make the conductivity converge.
+For the Dirac delta part, we use typically use a Lorentzian broadening of the form $\delta (x) \to \frac{1}{\pi} \frac{\Gamma}{x^2 + \Gamma^2}$, where $\Gamma$ is the broadening parameter.
+
+For the sake of brevity, we did not rederive the expression for the noninteracting optical conductivity in Eq.~\eqref{eq:excitonic_Re_optical_conductivity_repeated} from the dielectric function, which is now \bd, as we did in Subsection~\eqref{subsec:non_interacting_conductivity}.
+It is an instructive exercise to do so, but to do so, we need to have a caveat in mind.
+The equivalence between the dielectric function and the optical conductivity from Chapter~\ref{ch:classical_electrodynamics} does not apply, because we implicitly assumed three dimensions for deriving it.
+One can see that the same expression cannot be used, because the potential now goes with $\sim 1/(2\epsz q)$ instead of $\sim 1/(\epsz q^2)$.
+Then, we need the \bd~counterpart of the same relation, which is derived in Appendix~\ref{app:2D_optical_conductivity}.
+As one can see in that appendix, the permittivity--conductivity equivalence relation new reads $\varepsilon = 1 + \ii q \sigma / (2 \epsz \omega)$, instead of the old one $\varepsilon = 1 + \ii \sigma / (\epsz \omega)$.
+The extra $q/2$ factor going with the conductivity compensates for the conversion of the Coulomb potential from $v^{\mathrm{3D}}_c(q) = e/(\epz q^2) $ to $ v^{\BD}_c(q) = e/(2\epz q)$.
+
+The cond... of hBN... is in Fig....
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Chapters/Figures/Chapter_6/sigma_hBN}
+    \mycaption[Optical conductivity of hBN: comparing numerical and analytical screening]{Optical conductivity of freestanding \gls{hbn} computed with the xatu code, in blue using both the Rytova--Keldysh model for screening, and in red using the numerical model for screening. The dashed black curve is the single-particle optical conductivity, computed using unbound states. We used for both excitonic conductivities a Lorentzian broadening of $\Gamma = 0.08$~\unit{\electronvolt}.}
+    \label{fig:sigma_hBN}
+\end{figure}
+
 
 \section{Dielectric function in the Quasi-2D approach}
 \label{sec:quasi_2D}
@@ -572,17 +695,17 @@ The numerical conductivity could also be used to recalculate the exciton-polarit
 
 
 We have found that our quasi-2D dielectric function for the cutoff $G_c = 3$ \unit{\angstrom^{-1}} is underestimated with respect to the \abinit~one from Ref.~\cite{Latini_2015} and shown in Fig.~\ref{fig:epsilon2D_abinitio_vs_q_hBN}.
-Luckily, we could get a very good agreement in Fig.~\ref{fig:epsilon_quasi-2D_QEH_vs_q_hBN} below, by using the QEH package for Python for calculating the dielectric properties of \gls{vdw} structure~\cite{Dielectric_Genome}.
-The package works for any \gls{vdw} structure, but since we are only interested in the monolayer case, we wrote a short Python script to compute the dielectric function of monolayer \gls{hbn}.
+Luckily, we get a very good agreement, as one can see in Fig.~\ref{fig:epsilon_quasi-2D_QEH_vs_q_hBN} below, by using the QEH package for Python designed for calculating the dielectric properties of \gls{vdw} structures~\cite{Dielectric_Genome}.
+The package works for any \gls{vdw} structure, but since we are only interested in the monolayer case, we wrote a Python script to compute the dielectric function of monolayer \gls{hbn}.
 For each monolayer material, the package uses data from already done previous \abinit~calculations with the GPAW code~\cite{GPAW_2025}.
-Therefore, the computational effort in obtaining the dielectric function using the QEH package was minimal.
+Therefore, the computational effort to get the dielectric function using the QEH package was minimal.
 The \abinit~curve is displayed with a continuous black line, while our quasi-2D curve is represented with a red dot-dashed line.
 Although the two curves do not exactly overlap, the overall agreement is excellent along the whole $\Gamma-K$ line.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{Chapters/Figures/Chapter_6/epsilon_quasi-2D_QEH_vs_q_hBN}
-    \mycaption[\textit{Ab-initio} and strict \bd~effective dielectric function for \gls{hbn}]{Macroscopic effective \bd~dielectric function of monolayer \gls{hbn}, computed by our strict \bd~approach in comparison to the \abinit~approach. To get the red and blue curves, we applied the cutoffs $G_c = 3.0$ \unit{\angstrom^{-1}} and $G_c = 5.01$ \unit{\angstrom^{-1}}, respectively. The black curve was obtained by S.~Latini et al.~in Ref.~\cite{Latini_2015} through \abinit~methods, applying a cutoff of $150$ \unit{\electronvolt} for the reciprocal lattice vectors. In Ref.~\cite{Latini_2015}, the band structure of \gls{hbn} was obtained through \dft~calculations within \gls{lda}. The dielectric function was calculated as a post-processing step.}
+    \mycaption[\textit{Ab-initio} and quasi-2D effective dielectric function for \gls{hbn}]{Macroscopic quasi-2D effective dielectric function of monolayer \gls{hbn}, computed by our quasi-2D approach, in comparison to the \abinit~one. We applied the cutoff $G_c = 3.0$ \unit{\angstrom^{-1}}. The black curve was obtained through the QEH package for Python~\cite{Dielectric_Genome}. For the monolayer thickness, we used the value provided by the same package, $\dd_{\perp}=3.33$~\unit{\angstrom}.}
     \label{fig:epsilon_quasi-2D_QEH_vs_q_hBN}
 \end{figure}
 
@@ -632,6 +755,6 @@ Include symmetries of the polarizability.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{Chapters/Figures/Chapter_6/epsilon2D_abinitio_vs_q_MoS2}
-    \mycaption[\textit{Ab-initio} and \bd~effective dielectric function for \ch{MoS2}]{Macroscopic effective dielectric function of monolayer \ch{MoS2} with the strict \bd~and quasi-2D approaches, and compared to the \abinit~one. Our results agree the best with the \abinit~one if we include only five reciprocal lattice vectors with $|\bG| < G_c = 3 $ \unit{\angstrom^{-1}} out of seven including the origin. Two of them were left out of the calculation. The black curve was obtained by S.~Latini et al.~in Ref.~\cite{Latini_2015} through \abinit~methods, applying a cutoff of $150$ \unit{\electronvolt} for the size of the dielectric matrix. In Ref.~\cite{Latini_2015}, the band structure of \ch{MoS2} was obtained through \dft~calculations within \gls{lda}. The dielectric function was calculated as a post-processing step.}
+    \mycaption[\textit{Ab-initio} and quasi-2D effective dielectric function for \ch{MoS2}]{Macroscopic quasi-2D effective dielectric function of monolayer \ch{MoS2}, with the strict \bd~and quasi-2D approaches, in comparison with the \abinit~one. Our results agree the best with the \abinit~one if we include only five reciprocal lattice vectors with $|\bG| < G_c = 3 $ \unit{\angstrom^{-1}} out of seven including the origin. Two of them were left out of the calculation. The black curve was obtained by S.~Latini et al.~in Ref.~\cite{Latini_2015} through \abinit~methods, applying a cutoff of $150$ \unit{\electronvolt} for the size of the dielectric matrix. In Ref.~\cite{Latini_2015}, the band structure of \ch{MoS2} was obtained through \dft~calculations within \gls{lda}. The dielectric function was calculated as a post-processing step. We used for the monolayer thickness $\dd_{\perp} = 6.15$~\unit{\angstrom}, the same value used in the QEH package~\cite{Dielectric_Genome}. We compared the \abinit~dielectric function in black with the corresponding dielectric function computed through the QEH package, in similarity with we did in Fig.~\ref{fig:epsilon_quasi-2D_QEH_vs_q_hBN}, to observe that the two curves overlap almost exactly. Therefore, we do not present the curve from the QEH package for \ch{MoS2}, as it provides redundant information.}
     \label{fig:epsilon_quasi-2D_abinitio_vs_q_MoS2}
 \end{figure}

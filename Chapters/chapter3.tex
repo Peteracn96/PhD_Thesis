@@ -422,6 +422,7 @@ The Bloch state~\eqref{eq:Bloch_state_LCAO_auxiliar} is an eigenstate of the Ham
 We call the $S$ matrix the overlap matrix, and for the matrix elements we can write
 
 \begin{equation}
+    \label{eq:Bloch_overlap_definition}
     \begin{split}
         S_{j \beta, i \alpha}(\bk) &= \braket{\Phi_{j \beta} (\bk,\br)}{\Phi_{i \alpha} (\bk,\br)} = \frac{1}{N} \int_{\vol} \dr\, \sum_{\bR'\bR} \ei[-]{\bk \vdot (\bR'  - \bR) } \phi_\beta^*(\br - \bR' - \bt_j) \phi_\alpha (\br - \bR - \bt_i) = \\
         &= \sum_{\bR} \ei{\bk \vdot \bR} \braket{\phi_{j \beta} (\br)}{\phi_{i \alpha} (\br - \bR - \bt_i)} = \sum_{\bR} \ei{\bk \vdot \bR} s_{j \beta, i \alpha} (\bR)\,,
