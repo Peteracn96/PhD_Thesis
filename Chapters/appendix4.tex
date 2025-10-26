@@ -34,10 +34,10 @@ Let us consider the Poisson equation
     \omega e n_{\BD}(\bk,\omega)=-\bk  \vdot  \bJ_{\BD}(\bk,\omega)\,.
 \end{equation}
 
-\noindent If we invoke Ohm's law $\bJ_{\BD}(\bk,\omega)=\sigma(\bk,\omega)\bE(\bk,\omega)$ and write the electric field in terms of a potential $\phi$ as $\bE(\bk,\omega)=-\ii\bk\,\phi(\bk,z=0,\omega)$, such that
+\noindent If we invoke Ohm's law $\bJ_{\BD}(\bk,\omega)=\rttensor{\sigma}(\bk,\omega)\bE(\bk,\omega)$ taking into account the tensor nature of the conductivity, and write the electric field in terms of a potential $\phi$ as $\bE(\bk,\omega)=-\ii\bk\,\phi(\bk,z=0,\omega)$, such that
 
 \begin{equation}
-    e n_{\BD}(\bk,\omega)=\frac{\ii}{\omega}\bk\, \sigma(\bk,\omega)\bk\,\phi(\bk,z=0,\omega)\,,
+    e n_{\BD}(\bk,\omega)=\frac{\ii}{\omega}\bk \vdot \rttensor{\sigma}(\bk,\omega) \vdot \bk\,\phi(\bk,z=0,\omega)\,,
 \end{equation}
 
 \noindent Then, we perform a Fourier transform on Eq.~\eqref{eq:Poisson_equation}, while separating the in-plane wavevector from the off-plane one, that we shall denote by $\bk$ and $\kappa_{z}$, respectively.
@@ -45,22 +45,22 @@ Doing so, we arrive at
 
 \begin{equation}
     \begin{gathered}
-        -k^{2}\phi(\bk,\kappa_{z},\omega)-\kappa_{z}^{2}\,\phi(\bk,\kappa_{z},\omega)=\frac{e}{\epsz}+\frac{\ii}{\epsz\omega} \bk\, \sigma(\bk,\omega)\bk\, \phi(\bk,z=0,\omega)\Leftrightarrow\\
-        \Leftrightarrow\phi(\bk,\kappa_{z},\omega)=-\frac{1}{k^{2}+\kappa_{z}^{2}}\left[\frac{e}{\epsz}+\frac{\ii}{\epsz\omega} \bk\, \sigma(\bk,\omega)\bk\, \phi(\bk,z=0,\omega)\right].
+        -k^{2}\phi(\bk,\kappa_{z},\omega)-\kappa_{z}^{2}\,\phi(\bk,\kappa_{z},\omega)=\frac{e}{\epsz}+\frac{\ii}{\epsz\omega} \bk \vdot \rttensor{\sigma}(\bk,\omega) \vdot \bk\, \phi(\bk,z=0,\omega)\Leftrightarrow\\
+        \Leftrightarrow\phi(\bk,\kappa_{z},\omega)=-\frac{1}{k^{2}+\kappa_{z}^{2}}\left[\frac{e}{\epsz}+\frac{\ii}{\epsz\omega} \bk \vdot \rttensor{\sigma}(\bk,\omega) \vdot \bk\, \phi(\bk,z=0,\omega)\right].
     \end{gathered}
 \end{equation}
 
 \noindent In the previous expression, if we do now the inverse Fourier transform only in the off-plane coordinate, we get
 
 \begin{equation}
-    \phi(\bk,z,\omega)=\frac{e}{2\epsz k}\mathrm{e}^{-kz}-\ii\frac{\bk\, \sigma(\bk,\omega)\bk}{\epsz\omega}\phi(\bk,z=0,\omega)\frac{\mathrm{e}^{-kz}}{2k}\,,
+    \phi(\bk,z,\omega)=\frac{e}{2\epsz k}\mathrm{e}^{-kz}-\ii\frac{\bk \vdot \rttensor{\sigma}(\bk,\omega) \vdot \bk}{\epsz\omega}\phi(\bk,z=0,\omega)\frac{\mathrm{e}^{-kz}}{2k}\,,
 \end{equation}
 
 \noindent that at $z=0$ implies
 
 \begin{equation}
     \begin{gathered}
-        \phi(\bk,z=0,\omega)\left(1+\ii\frac{\bk\, \sigma(\bk,\omega)\bk}{2 k \epsz\omega}\right)=\frac{e}{2 \epsz k}\Leftrightarrow\\
+        \phi(\bk,z=0,\omega)\left(1+\ii\frac{\bk \vdot \rttensor{\sigma}(\bk,\omega) \vdot \bk}{2 k \epsz\omega}\right)=\frac{e}{2 \epsz k}\Leftrightarrow\\
         \Leftrightarrow \phi(\bk,z=0,\omega)=\frac{v_{c}(k)}{\varepsilon(\bk,\omega)}\,,
     \end{gathered}
 \end{equation}
@@ -68,7 +68,7 @@ Doing so, we arrive at
 \noindent which allows identifying the dielectric function
 
 \begin{equation}
-    \varepsilon(\bk,\omega)=1+\ii\frac{\bk\, \sigma(\bk,\omega)\bk}{2k\epsz\omega}=1+\ii\frac{k \sigma(\bk,\omega)}{2\epsz\omega}\,.
+    \varepsilon(\bk,\omega)=1+\ii\frac{\bk \vdot \rttensor{\sigma}(\bk,\omega) \vdot \bk}{2k\epsz\omega}=1+\ii\frac{k \sigma(\bk,\omega)}{2\epsz\omega}\,.
 \end{equation}
 
 \noindent The second equality in the previous equation applies only for the isotropic case.
