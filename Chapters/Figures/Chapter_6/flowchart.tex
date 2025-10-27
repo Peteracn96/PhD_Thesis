@@ -1,0 +1,96 @@
+\begin{tikzpicture}
+    % Init node
+    \node (start) [draw, ellipse] {Start};
+
+    %%% Input
+    % Box containing input files
+    \node (bigbox) [draw, rectangle, minimum width=9cm, minimum height=1.8cm, below of=start, anchor=north] {};
+
+    % Input text label for big box
+    \node at (bigbox.north) [below=0.1cm, xshift=-3.8cm] {\textit{Input}};
+
+    % System file node
+    \node (systemfile) [draw, trapezium, trapezium left angle=75, trapezium right angle=105, below of=start, node distance=2.3cm, xshift=-3.1cm] {System file};
+
+    % Exciton file node
+    \node (excitonfile) [draw, trapezium, trapezium left angle=75, trapezium right angle=105, below of=start, node distance=2.3cm, xshift=3.0cm] {Exciton file};
+
+    % Screening file node
+    \node (screeningfile) [draw, trapezium, trapezium left angle=75, trapezium right angle=105, below of=start, node distance=2.3cm, xshift=0.0cm] {Screening file};
+
+    %%% Main algorithm
+    % Diagonalize H0 node
+    \node (computeH0) [draw, rectangle, below of=bigbox, node distance=2.5cm, align=center]
+    {Diagonalize $H_0(\mathbf{k})\ \forall \mathbf{k}\in$ BZ \\ Store $\varepsilon_{n\mathbf{k}}$ and $U(\mathbf{k})$};
+
+    % Method decision node
+    \node (method) [draw, diamond, aspect=2, below of=computeH0, node distance=2.5cm, align=center] {Method to use};
+
+    % Auxiliar node for Real space method
+    \node (auxRS) [left=of method, xshift=-1.5cm] {};
+
+    % Auxiliar node for Reciprocal space method
+    \node (auxRecS) [right=of method, xshift=1.5cm] {};
+
+    % Screening file provided decision node
+    \node (screening) [draw, diamond, aspect=2, below of=auxRecS, node distance=2.0cm, align=center] {Screening file?};
+
+    % Compute and store V_{ij}(k) node
+    \node (computeRS) [draw, rectangle, below of=auxRS, node distance=2.0cm, align=center] {Compute and \\store $V_{ij}(\mathbf{k})$};
+
+    % Compute and store epsilon node
+    \node (computeepsilon) [draw, rectangle, below of=method, node distance=2.0cm, align=center] {Compute and \\store $\varepsilon^{-1}_{\mathbf{G}\mathbf{G}'}(\mathbf{q})$};
+
+    % Compute BSE node
+    \node (computeBSE) [draw, rectangle, below of=computeepsilon, node distance=2.0cm, align=center]
+    {Compute BSE \\ $H_{vc,v'c'}(\mathbf{k},\mathbf{k}',\mathbf{Q})$};
+
+    % Diagonalize BSE node
+    \node (diagonalize) [draw, rectangle, below of=computeBSE, node distance=2.cm, align=center]
+    {Diagonalize BSE \\ Store $E_X^n(\mathbf{Q})$ and $A^n_{vc}(\mathbf{k},\mathbf{Q})$};
+
+    % Converge energies decision node
+    \node (converge_energies) [draw, diamond, aspect=2, below of=diagonalize, node distance=2.5cm, align=center] {$E^n_X(\mathbf{Q})$ converged?};
+
+    %%% Output
+    % Box containing output files
+    \node (bigbox_output) [draw, rectangle, minimum width=10cm, minimum height=2cm, below of=converge_energies, node distance=3cm] {};
+
+    % Output text label for big box
+    \node at (bigbox_output.north) [below=0.1cm, xshift=-4cm] {\textit{Output}};
+
+    % Wavefunctions node
+    \node (wavefunctions) [draw, trapezium, trapezium left angle=75, trapezium right angle=105, below of=bigbox_output, node distance=0.3cm, xshift=-2.3cm, align=center]
+    {Wavefunctions\\ $|\psi^n_X(\mathbf{k})|^2$, $|\psi^n_X(\mathbf{r}_e,\mathbf{r}_h)|^2$};
+
+    % Conductivity node
+    \node (optical_conductivity) [draw, trapezium, trapezium left angle=75, trapezium right angle=105, below of=bigbox_output, node distance=0.3cm, xshift=2.3cm, align=center]
+    {Optical conductivity\\ $\sigma_{\alpha}(\omega)$};
+
+    % Increase Nk node
+    \node (increaseNk) [draw, rectangle, right of=converge_energies, node distance=6.3cm, align=center] {Increase $N_{\mathbf{k}}$ \\ and/or $N_{v/c}$ \\ and/or $G_c$};
+
+    \node (symmetry) [draw, diamond, aspect=2, below of=bigbox_output, node distance=3cm, align=center] {Symmetries \\ preserved?};
+
+    % End node
+    \node (End) [draw, ellipse, below of=symmetry, node distance=2.8cm] {End};
+
+    % Arrows between nodes
+    \draw [->] (start) -- (bigbox);
+    \draw [->] (bigbox) -- (computeH0);
+    \draw [->] (computeH0) -- (method);
+    \draw [->] (method) -- ++(-1.8,0) -| node[anchor=south, xshift=1.4cm] {Real space} (computeRS);
+    \draw [->] (computeRS) -- ++(0,-2.0) -- (computeBSE);
+    \draw [->] (method) -- ++(1.8,0) -| node[anchor=south, xshift=-1.0cm] {Reciprocal space} (screening);
+    \draw [->] (screening) -- node[anchor=south, xshift=-0.4cm, yshift=-0.2cm] {No} ++(0,-2.0) -- (computeBSE);
+    \draw [->] (screening) -- node[anchor=north, xshift=-0.cm, yshift=-0.cm] {Yes} (computeepsilon);
+    \draw [->] (computeepsilon) -- ++(0,-0.5) -- (computeBSE);
+    \draw [->] (computeBSE) -- (diagonalize);
+    \draw [->] (diagonalize) -- (converge_energies);
+    \draw [->] (converge_energies) -- node[anchor=east] {Yes} (bigbox_output);
+    \draw [->] (converge_energies) -- node[anchor=south, xshift=-0.5cm] {No} (increaseNk);
+    \draw [->] (increaseNk) -- ++(0, 13.1) -- (excitonfile);
+    \draw [->] (bigbox_output) -- (symmetry);
+    \draw [->] (symmetry) -- node[anchor=east] {Yes} (End);
+    \draw [->] (symmetry) -- node[anchor=south, xshift=-1cm] {No} ++(6.3,0) -- (increaseNk);
+\end{tikzpicture}

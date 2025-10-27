@@ -28,7 +28,7 @@ For instance, the Rytova-Keldysh dielectric function obtained taking into accoun
 Furthermore, if we take the limit $q \to \infty$, then the screened potential  scales as $\sim 1/q^2$, whose (2D) inverse Fourier transform does scale with $\sim 1/r$.
 Here we make the extension of the code to go beyond the Rytova-Keldysh approximation to compute the interaction matrix elements to build the Bethe-Salpeter Hamiltonian and solve the Bethe-Salpeter equation.}
 
-\textcolor{red}{Explain that a strict 2D approach to screening has been done before with good results in analytical calculations for ungapped materials, e.g. graphene \cite{Hwang_2007,Sohier_Calandra_Mauri_2015}, and for numerical ones applied to excitons in 2D materials~\cite{Xatu,Cudazzo_2011,Ninhos_Tserkezis_Mortensen_Peres_2024,Henriques_Amorim_Ribeiro_Peres_2022,Henriques_Epstein_Peres_2022,Henriques_Peres_2020,Thygesen_2017}.}
+\textcolor{red}{Explain that a strict 2D approach to screening has been done before with good results in analytical calculations for ungapped materials, e.g. graphene~\cite{Hwang_2007,Sohier_Calandra_Mauri_2015}, and for numerical ones applied to excitons in 2D materials~\cite{Xatu,Cudazzo_2011,Ninhos_Tserkezis_Mortensen_Peres_2024,Henriques_Amorim_Ribeiro_Peres_2022,Henriques_Epstein_Peres_2022,Henriques_Peres_2020,Thygesen_2017}.}
 
 One more ab initio work is~\cite{Prandini_Galante_Marzari_Umari_2019}
 
@@ -238,7 +238,7 @@ Even if we have decided to follow the alternative approach for the \rpa~inverse 
     \varepsilon^{-1}_{\bG \bG'} (\bq) = \delta_{\bG \bG'} + v_c(\bq + \bG) \chi^{\RPA}_{\bG \bG'} (\bq) \,,
 \end{equation}
 
-\noindent where $\chi^{\RPA}_{\bG \bG'} (\bq)$ is the reducible polarizability within \rpa, defined by the Dyson equation \eqref{eq:Dyson_equation_chi_RPA}.
+\noindent where $\chi^{\RPA}_{\bG \bG'} (\bq)$ is the reducible polarizability within \rpa, defined by the Dyson equation~\eqref{eq:Dyson_equation_chi_RPA}.
 In that equation, all quantities when written in momentum space are infinite matrices as well, so we would need to apply a cutoff for the vectors $\bG$ either way.
 This is in great contrast with the jellium model considered by H.~Bruus and K.~Flensberg in Ref~\cite{Bruus_Flensberg_2004}, where there is no underlying crystalline structure, and as a consequence, all quantities like the Coulomb potential, the polarizability, and the dielectric function are simply scalars.
 For now, let us assume that we can in principle compute the dielectric matrix and invert it without any problems.
@@ -308,6 +308,7 @@ With this model Hamiltonian, namely the band structure and the eigenvectors of t
 That is the subject of the sections to come.
 
 \begin{figure}[b]
+    \label{fig:irrelevant_label}
     \begin{minipage}{0.65\textwidth}
         \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/hBN_HSE06_bands}
     \end{minipage}%
@@ -344,7 +345,7 @@ We see again that the polarizability converges with the number of empty bands in
 In Fig.~\ref{fig:chi_g1_0_hbndft} we do a similar analysis to proof check that the polarizability converges for other elements other than the head.
 We picked an wing element to check convergence of both real and imaginary parts.
 We can see that both real and imaginary parts of the chosen matrix element converge well with the number of conduction bands.
-Something similar has been seen before in the literature, such as Fig. 4 in Ref.~\cite{BerkeleyGW}.
+Something similar has been seen before in the literature, for example in Fig.~4 of Ref.~\cite{BerkeleyGW}.
 
 \begin{figure}[h]
     \centering
@@ -366,7 +367,7 @@ What we see from that plot is that the head element of the polarizability:
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/Chi00hBNDFTmesh.pdf}
+    \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/Chi00hBNDFTmesh}
     \mycaption[Polarizability in the BZ: the head element]{Matrix element $\chi^0_{\bzero \bzero} (\bq)$ for \gls{hbn} in the \bz. Panel \pnl{a} displays the polarizability as a function of the magnitude of the momentum. Each red dot is a $\bq$ point in the mesh, and they are sorted by increasing order of $|\bq|$. Panel \textbf{b} displays a color map of the (absolute) value of the polarizability in the \bz~mesh. The bar legend for the colors is inset in \pnl{b}. In both plots, the polarizability is multiplied by $10^2$.}
     \label{fig:chi_00_hbndft_mesh}
 \end{figure}
@@ -397,7 +398,7 @@ In the box below, we explain more precisely what we mean by local-field effects.
 
 As the name indicates, local-field effects pertain to the local details of the electric polarization, or equivalently of the electric field, that are often ignored when adopting phenomenological descriptions of dielectric properties of materials, often designated as macroscopic.
 This is usually the case in Classical Electrodynamics, where the macroscopic Maxwell's equations~\eqref{eq:Maxwells_equations} reign.
-Those equations are obtained from their microscopic counterparts, involving the microscopic electric and magnetic fields, after performing a spatial average of the rapidly varying local fields over distances big compared to the inter-atomic lattice spacing, but small compared to the overall size of the crystal~\cite{Jackson:electrodynamics,Landau_Electrodynamics_1984}\footnote{Considering the full equations including dynamics and time evolution, an average over long time scales is performed as well besides the spatial one, which is pointed out by J.~D.~Jackson in~\cite{Jackson:electrodynamics}, but that is irrelevant for the discussion.}.
+Those equations are obtained from their microscopic counterparts, involving the microscopic electric and magnetic fields, after performing a spatial average of the rapidly varying local fields over distances big compared to the inter-atomic lattice spacing, but small compared to the overall size of the crystal~\footnote{Considering the full equations including dynamics and time evolution, an average over long time scales is performed as well besides the spatial one, which is pointed out by J.~D.~Jackson in his textbook in Ref.~\cite{Jackson:electrodynamics}, but that is not relevant for the discussion.}.
 More technically, applying a slowly varying external potential perturbation (weak enough so that we stay within the linear regime) of the form
 
 \begin{equation}
@@ -462,7 +463,7 @@ We can say though that the convergence curves with the number of reciprocal latt
 As we will see in a moment, the sharp behavior of the head element of the inverse dielectric matrix in the long-wavelength limit leads to a sharp linear dependence of the macroscopic dielectric function for small $q$.
 This behavior is universal for \bd~insulators, and is problematic for converging exciton calculations with the number of $\bk$ points in the \bz~mesh, but we leave that concern for later.
 On the contrary, the body element in panel \pnl{a} does not present a strong $q$-dependence along the whole $\Gamma-K$ line when compared to the head element.
-This has also been seen in the literature, specifically in Fig. 1 of the work by A.~Guandalini and co-workers in Ref.~\cite{Guandalini_Varsano_2023}.
+This has also been seen in the literature, specifically in Fig.~1 of the work by A.~Guandalini and co-workers in Ref.~\cite{Guandalini_Varsano_2023}.
 Nonetheless, when we zoom in to take a closer look at the blue curve as inset in Fig.~\ref{fig:inv_epsilon_vs_q_hBN}\pnl{a}, it is in truth dispersive, but within a scale three orders of magnitude smaller than that of the head element.
 If we also want to see a detailed dispersion in the wing element of panel \pnl{b}, scaling the real and imaginary parts is also necessary.
 
@@ -476,14 +477,14 @@ All the parameters from that figure carry over to the one below.
 The numerically obtained dielectric function corresponds to the red curve, while the one in black is the dielectric function according to the Rytova--Keldysh model $\varepsilon_{\RK} (q) = 1 + r_0 q$, where the parameter $r_0$ was estimated from the low-$q$ behavior of the red curve.
 With this model for \gls{hbn}, we obtained for the screening parameter $r_0 \approx 5.084$~\unit{\angstrom}.
 This value is actually not close to the one we used in the previous chapter.
-However, in the previous chapter the \gls{hbn} flake was supported by a quartz substrate, which affects the screening properties of the material~\cite{Trolle_Pedersen_Veniard_2017,}.
+However, in the previous chapter the \gls{hbn} flake was supported by a quartz substrate, which affects the screening properties of the material~\cite{Trolle_Pedersen_Veniard_2017}.
 The value we used of $r_0 = 10$~\unit{\angstrom} has been used in previous works~\cite{Ferreira_2019,Ventura_2019}, showing good agreement with experiments with monolayer \gls{hbn} deposited on quartz~\cite{Cassabois_2019}.
 In Ref.~\cite{Ventura_2019}, from the arguments of P.~Cudazzo, I.~V.~Tokatly, and A.~Rubio in Ref.~\cite{Cudazzo_2011}, the authors estimated $r_0 = 6.5$~\unit{\angstrom} for \gls{hbn}, knowing the material off-plane and in-plane bulk dielectric constants~\cite{Laturia_2018}.
 Still in the same work, with the help of Refs.\cite{Trolle_Pedersen_Veniard_2017,Latini_2015}, the authors in Ref.~\cite{Ventura_2019} estimated $r_0 = 6.8$~\unit{\angstrom}.
 Both values estimated in Ref.~\cite{Ventura_2019} are not that far from the one we get.
 
 In Fig.~\ref{fig:epsilon2D_vs_q_hBN} one can notice as well a feature of the macroscopic dielectric function in the opposite limit of $q \to 0$.
-When $q \to \infty$, the curve tends assimptotically to one, which is a universal characteristic shared among all \bd~insulators.
+When $q \to \infty$, the curve tends asymptotically to one, which is a universal characteristic shared among all \bd~insulators.
 That is indeed what one sees in all the dielectric functions reported in the literature~\cite{Thygesen_2017,Latini_2015,Huser_Olsen_Thygesen_2013,Rasmussen_Schmidt_Winther_Thygesen_2016}, regardless of the material.
 Physically, having $\varepsilon_M (q) \to 1$ when $q \to \infty$ means that, in the short-wavelength limit, the spatial variations of the external potential vary so fast (in space), that the system does not respond to the perturbation.
 Therefore, test charges feel a total potential that coincides with the external potential---the internal charges do not realign in response to the external potential, which is completely unscreened.
@@ -497,7 +498,7 @@ This is in sharp contrast with the prediction from the Rytova--Keldysh model, fo
     \label{fig:epsilon2D_vs_q_hBN}
 \end{figure}
 
-During the cours of this work, we also found out that the parameter $r_0$ can actually be estimated directly from the head element of the dielectric function $\varepsilon_{\bzero \bzero} (\bq)$ by taking in it the $\bq \to \bzero$ limit.
+During the course of this work, we also found out that the parameter $r_0$ can actually be estimated directly from the head element of the dielectric function $\varepsilon_{\bzero \bzero} (\bq)$ by taking in it the $\bq \to \bzero$ limit.
 This is not very surprising if we take into account that P.~Li and I.~Appelbaum, in Ref.~\cite{Li_Appelbaum_2019}, showed that the screening length can be calculated by
 
 \begin{equation}
@@ -554,17 +555,17 @@ The excitons and the excitonic optical response are the subject of the next subs
 \subsection{Excitonic states and conductivity}
 \label{subsec:excitons_results}
 
-To see the effect the numerical screening has on the excitons, we computed the excitons using the xatu code with the two different models for screening possible.
+To see the effect the numerical screening has on the excitons, we computed the excitons using the \xatu~code with the two different models for screening possible.
 In both calculations, we used the same set of parameters, apart from the way the interaction matrix elements are computed.
 We used a $60\times60$ $\bk$-grid to sample the \bz, included one valence band, $N_{\vv}=1$, and one conduction band, $N_{\cc}=1$, applied a cutoff for the reciprocal lattice vectors of $G_c = 3.0$ \unit{\angstrom^{-1}}, and for the regularization radius, we used a percentage of $1.3\%$.
 This means for the regularization radius $q_0 = 1.3 k_0$, where $k_0$ is the norm of the \bz~momentum closest to the origin.
 When using the Rytova--Keldysh model for screening, the direct interaction matrix element is computed through Eq.~\eqref{eq:direct_interaction_matrix_element_reciprocal_RK}, where for the screening length we used the value obtained by us of $r_0 = 5.084$~\unit{\angstrom}.
 Using the numerical (inverse) dielectric function, the same interaction matrix element is computed through Eq.~\eqref{eq:interaction_matrix_element_direct_reciprocal}, but with the volume $\vol$ replaced by the area $\area$.
 
-The numerical results for the excitons are displayed in Table~\ref{tab:hBN_DFT_HSE_06_exciton_spectrum} below, showing the excitonic levels of the first eigth excitons.
+The numerical results for the excitons are displayed in Table~\ref{tab:hBN_DFT_HSE_06_exciton_spectrum} below, showing the excitonic levels of the first eight excitons.
 The values on the left were obtained using the Rytova--Keldysh dielectric function, while the ones on the right were obtained using the numerical dielectric matrix.
 First, one can notice that for the Rytova--Keldysh calculation, the states are not as close to the expected degeneracies as they are for the numerical screening calculation.
-For the Rytova--Keldysh calculation, this does not come as a surprise, since it is know that the binding energy for \gls{hbn} excitons are of the highest amongs all \bd~insulators.
+For the Rytova--Keldysh calculation, this does not come as a surprise, since it is know that the binding energy for \gls{hbn} excitons are of the highest among all \bd~insulators.
 This means that they are localized in real space, and therefore delocalized in momentum space.
 Henceforth, one needs a high enough cutoff $G^{X}_c$ for the interaction matrix elements to recover the expected degeneracies and symmetries.
 This fact, that we touched on at the end of Subsection~\ref{subsec:interaction_matrix_elements_and_screening}, has been discussed before in the literature by E.~Ridolfi et al.~in Ref.~\cite{Ridolfi_2015}, and verified again more recently in Ref.~\cite{Xatu}.
@@ -572,7 +573,7 @@ This fact, that we touched on at the end of Subsection~\ref{subsec:interaction_m
 In Table~\ref{tab:hBN_DFT_HSE_06_exciton_spectrum}, we can also verify that using the Rytova--Keldysh model the excitonic states are higher in energy when compared to the ones obtained using $\varepsilon_{\bG,\bG'}$, by looking at the second and third columns.
 If we consider only the the head term $W_{\bzero \bzero} (\bq)$ of the numerical screened potential and compare it with the Rytova--Keldysh potential $V_{\RK} (\bq)$, knowing that the Rytova--Keldysh model overestimates the screening, then the attraction between the electron and the hole is weaker than the one coming from $W_{\bzero \bzero} (\bq) = \varepsilon^{-1}_{\bzero \bzero} (\bq) v_c(\bq) = v_c(\bq)/\varepsilon_M (\bq)$, since $\varepsilon_M (\bq) < \varepsilon_{\RK} (\bq)$.
 This means that the excitons obtained with $V_{\RK} (q)$ should be higher in energy than the ones from using $W_{\bG \bG'}(\bq)$.
-In terms of binding energies, displayed in the fourth and fifth colums of the table, the excitons obtained with the Rytova--Keldysh model present lower binding energies when compared to the excitonic binding energies obtained with the numerical dielectric function.
+In terms of binding energies, displayed in the fourth and fifth columns of the table, the excitons obtained with the Rytova--Keldysh model present lower binding energies when compared to the excitonic binding energies obtained with the numerical dielectric function.
 In Fig.~\ref{fig:Coulomb_RK_W00_potential} we illustrate the $q$-space Coulomb attraction between the electron and the hole by plotting the bare Coulomb potential $v_c(q)$ in black, the Rytova--Keldysh potential $V_{\RK} (q)$ in blue, and the head element of the screened potential $W_{\bzero \bzero} (q)$ in red.
 Since the Rytova--Keldysh dielectric function is obtained from $1/\varepsilon^{-1}_{\bzero \bzero} (\bq)$, in the long-wavelength limit the two screened potentials coincide.
 However, for intermediate $q$, the Rytova--Keldysh potential underestimates the electrostatic Coulomb interaction, decaying to zero faster than $W_{\bzero \bzero} (q)$ and the Coulomb potential, as we have already pointed out in Subsection~\ref{subsec:macroscopic_dielectric_function_results}.
@@ -605,21 +606,21 @@ For high $q$, the head element $W_{\bzero \bzero} (q)$ of the screened potential
     \centering
     \includegraphics[width=0.5\textwidth]{Chapters/Figures/Chapter_6/potential_Coulomb_Rytova-Keldysh_W00}
     \mycaption[Coulomb, Rytova--Keldysh and numerical macroscopic potentials in momentum space]{Comparison between the bare Coulomb potential (red continuous line) and the Rytova--Keldysh potential (dashed blue line) as a function of the in-plane distance $r$. The dotdashed black curve represents the small $r$ limit of the Rytova--Keldysh potential in Eq.~\eqref{eq:Rytova--Keldysh_potential_real_space}. The value $r_0 = 10$ \unit{\angstrom}  was used.}
-    \label{fig:Coulomb_RK_W00_potentialx}
+    \label{fig:Coulomb_RK_W00_potential}
 \end{figure}
 
 For this model for \gls{hbn}, with the electronic bandgap being of $\Delta = 6.08$~\unit{\electronvolt}, we obtain for the binding energy of the excitonic ground state $E_b = 2.47$~\unit{\electronvolt}.
 Honestly, it is not very close to other values previously obtained in the literature using full \gls{bse} \abinit~methods.
 For instance, in Ref.~\cite{Latini_2015}, the authors obtained a binding energy of $E_b = 2.05$~\unit{\electronvolt}, while in Ref.~\cite{Zhang_Louie_2022} a value of $E_b = 2.08$~\unit{\electronvolt} was reported.
-However, in none of those works do the autors use a hybrid functional for the \dft~calculations as we do.
+However, in none of those works do the authors use a hybrid functional for the \dft~calculations as we do.
 Even though with different Hamiltonian models one can get similar dielectric functions, the exciton properties of the material may depend more on model.
 Even if it is the same material, having a different band structure, specially a different bandgap, may naturally lead to different exciton binding energies.
 
 Before we analyse the optical conductivity, we plot in Fig.~\ref{fig:exciton_wavefunction_hBN_DFT_HSE06} below the first two excitonic states, 1a and 1b, whose energies can be consulted in Table~\ref{tab:hBN_DFT_HSE_06_exciton_spectrum}.
-The colorscale represents the values assumed by the wavefunction in mmentum space, after taking its absolute value squared.
+The colors represent the values assumed by the wavefunction in momentum space, after taking its absolute value squared.
 The top panels reflect the 1a states, and the bottom panels reflect the 1b states.
 The left side panels correspond to the Rytova--Keldysh model for the dielectric function, while the right side panels correspond to the numerical approach for the screening.
-As expected from what we discussed about the vaues in Table~\ref{tab:hBN_DFT_HSE_06_exciton_spectrum}, the states on the right panels are more delocalized in momentum space than the ones represented on the left panels.
+As expected from what we discussed about the values in Table~\ref{tab:hBN_DFT_HSE_06_exciton_spectrum}, the states on the right panels are more delocalized in momentum space than the ones represented on the left panels.
 
 \begin{figure}[h]
     \centering
@@ -630,14 +631,14 @@ As expected from what we discussed about the vaues in Table~\ref{tab:hBN_DFT_HSE
 
 At last, we compare the optical conductivity of \gls{hbn} computed with both methods.
 Unlike the \gls{bse} calculations, the optical conductivity is obtained always in the same way.
-We use it just as it was implemented in the first version of the xatu code, in Ref.~\cite{Xatu}.
+We use it just as it was implemented in the first version of the \xatu~code, in Ref.~\cite{Xatu}.
 Therein, the conductivity is computed in terms of velocity matrix elements, instead of using the dipole operator approach from the previous chapter.
 The expressions~\eqref{eq:non_interacting_Re_optical_conductivity} and~\eqref{eq:excitonic_Re_optical_conductivity} are the ones we use now to compute the conductivity at the \gls{ipa} and excitonic level.
 In the last chapter, we focused solely on the excitonic conductivity.
 On the contrary, as both noninteracting and interacting conductivities are implemented in the code, we plot both for the sake of completion.
 The noninteracting one does not depend on how one computes the excitons, logically.
 
-Before we comment on the conductivity obtained with the xatu code, for the sake of having a as self-contained discussion as possible, we brifly explain how the conuctivity is computed, in particular the velocity matrix elements.
+Before we comment on the conductivity obtained with the \xatu~code, for the sake of having a as self-contained discussion as possible, we briefly explain how the conductivity is computed, in particular the velocity matrix elements.
 We start by recalling the expression for the real part of the elements of the excitonic conductivity tensor from Chapter~\ref{ch:Excitons}, which reads
 
 \begin{equation}
@@ -684,7 +685,7 @@ Then, we need the \bd~counterpart of the same relation, which is derived in Appe
 As one can see in that appendix, the permittivity--conductivity equivalence relation new reads $\varepsilon = 1 + \ii q \sigma / (2 \epsz \omega)$, instead of the old one $\varepsilon = 1 + \ii \sigma / (\epsz \omega)$.
 The extra $q/2$ factor going with the conductivity compensates for the conversion of the Coulomb potential from $v^{\mathrm{3D}}_c(q) = e/(\epsz q^2) $ to $ v^{\BD}_c(q) = e/(2\epsz q)$.
 
-We can observe in Fig.~\ref{fig:sigma_hBN} below the real part of the optical conductivity of \gls{hbn} computed with the xatu code.
+We can observe in Fig.~\ref{fig:sigma_hBN} below the real part of the optical conductivity of \gls{hbn} computed with the \xatu~code.
 In comparison with each other, we have in blue the excitonic conductivity obtained using the Rytova--Keldysh potential, and in red the conductivity obtained using the numerical dielectric function.
 Besides the expected red-shift of the resonant peaks, we can see that the first two peaks are more pronounced for the case of the numerical screened potential.
 However, the difference in the first peak may be due to the energy splitting of the first two states in the case of the Rytova--Keldysh potential, which results in a shoulder on the first peak.
@@ -696,39 +697,35 @@ Above the bandgap, both excitonic responses coincide.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.9\textwidth]{Chapters/Figures/Chapter_6/sigma_hBN}
-    \mycaption[Optical conductivity of hBN: comparing numerical and analytical screening]{Optical conductivity of freestanding \gls{hbn} computed with the xatu code.
+    \mycaption[Optical conductivity of hBN: comparing numerical and analytical screening]{Optical conductivity of freestanding \gls{hbn} computed with the \xatu~code.
     The \gls{ipa} conductivity is represented by the dashed black curve. The excitonic conductivities are represented in blue and in red, corresponding to the Rytova--Keldysh model and the numerical model for screening, respectively. We used for both excitonic conductivities a Lorentzian broadening of $\Gamma = 0.08$~\unit{\electronvolt}.}
     \label{fig:sigma_hBN}
 \end{figure}
 
 From all the numerical results obtained so far in this chapter, we would say that the figure of merit is the agreement between our effective \bd~dielectric function and the \abinit~one, as we saw in Fig.~\ref{fig:epsilon2D_abinitio_vs_q_hBN}.
 However, the agreement is far from perfect for intermediate and higher values of the momentum.
-This is undoubtly a consequence from the zero thickness approximation we introduced in the beginning of Section~\ref{sec:dielectric_function_revisited}.
+This is for sure a consequence of the zero thickness approximation we introduced in the beginning of Section~\ref{sec:dielectric_function_revisited}.
 To be more precise, we assumed that the response of the monolayer was local in the off-plane direction, so that the dielectric function depending on all the Cartesian coordinates is approximately given by $\varepsilon(\br,\br') \approx \delta(z-z') \varepsilon_{\BD}(\br_{\parallel},\br'_{\parallel})$, and the dielectric function $\varepsilon_{\BD}$ is the one we have been working with thus far.
 In order words, we ignored altogether any physics coming from the $z$-dependence of the permittivity.
 So we have to pose two questions: (i) How do we show that our strict \bd~implementation is valid in the zero thickness limit, and that the permittivities with zero and finite thickness can only agree when $q \dd_{\perp} < 1$?; (ii) Can we not do better, and somehow take the $z$-dependence into account?. 
 In the next section, we answer both questions.
 
-\section{Dielectric function in the Quasi-2D approach}
+\section{Dielectric Function in the Quasi-2D approach}
 \label{sec:quasi_2D}
 
 In the numerical approach to the dielectric within a strict \bd~framework, we have been taking advantage of the reduced dimensionality of the implementation to efficiently produce good enough results, at least when compared to \abinit~ones in the regime of low momentum $q < 1/\dd_{\perp}$, where $\dd_{\perp}$ is the thickness of the monolayer.
 However, we would like to see where does this limit come from, not from physical intuition, since that is somewhat clear to us, but from a more technical point of view.
 For that, the $z$-dependence of the dielectric function must be accounted for.
-We do so in the quasi-2D approach, or the mixed representation approach, for the dielectric function we will introduce in the next subsection.
-Once again, the point-like orbital approximation will be key once more.
+We do so in the quasi-2D approach, or the mixed representation approach, for the dielectric function we will introduce right now.
+Once again, the point-like orbital approximation will be key.
 
-\subsection{Quasi-2D dielectric function: theory}
-\label{subsec:quasi_2D_theory}
-
-In this section we derive an expression for the dielectric function, in a representation that is a mix between reciprocal space and real space, for in-plane and off-plane directions, respectively.
-We start from its general expression in real space
+We start from the general expression for the static dielectric function in real space
 
 \begin{equation}
 \varepsilon(\br,\br') = \delta(\br - \br')-\int v_{c}(\br - \br'')\chi^{0}(\br'',\br')\dr'',
 \end{equation}
 
-\noindent where we have omitted the frequency dependence for simplicitly.
+\noindent where we have omitted the frequency dependence for simplicity, and the position vectors are \gls{3d}.
 On one hand, the systems we deal with are infinite in the $x$ and $y$ directions, therefore, we would like to work in momentum space.
 On the other hand, the systems are finite in the $z$ direction.
 Unlike in typical first-principle approaches, where the systems are infinite in all directions, we cannot perform a Fourier transform including the $z$ coordinate.
@@ -741,8 +738,8 @@ The bare Coulomb potential in the mixed $(\bq,z)$-representation reads
 \end{equation}
 
 \noindent where $\bq$ is in-plane.
-Basically, the previous expression consitutes the workhorse of our quasi-2D approach.
-The $1/q$-dependence of the potential, along with its numerical advantages, is kept intact, and a the same time the $z$-dependence is not ignored.
+The previous expression is a key ingredient in our quasi-2D approach.
+The $1/q$-dependence of the potential is kept intact, and at the same time the $z$-dependence is not ignored.
 For the static dielectric function in the mixed representation, we have
 
 \begin{equation}
@@ -750,13 +747,13 @@ For the static dielectric function in the mixed representation, we have
     \varepsilon_{\bG \bG'}(\bq,z,z') = \delta_{\bG \bG'} \delta( z-z')-\int \dd z''\frac{ \ee^{-|\bq +\bG||z-z''|}}{2\epsz|\bq +\bG|}\chi^{0}_{\bG \bG'}(\bq,z'',z')\,,
 \end{equation}
 
-\noindent where we introduced the noninteracting polarizability in the mixed representation defined By
+\noindent where the $z$-integral extends from $-\infty$ to $+\infty$, and at the same we introduced the noninteracting polarizability in the mixed representation defined by
 
 \begin{equation}
     \chi^{0}_{\bG \bG'}(\bq,z,z') = \int_{\area} \dd \br_{||} \int_{\area} \dd \br_{||}' \ee^{-\ii (\bq + \bG) \vdot \br_{||}} \ee^{\ii (\bq' + \bG') \vdot \br_{||}'}\chi^{0}(\br,\br')\,.
 \end{equation}
 
-\noindent Working with a polarizability in the mixed $(\bq,z)$-representation is not a novelty in the literature.
+\noindent Working with a polarizability in the mixed $(\bq,z)$-representation is not a complete novelty.
 As far as we know, this idea dates back to 1995, in a work by X.~Blase et al.~\cite{Blase_Rubio_Louie_Cohen_1995}.
 However, their formulation is not exactly the same as ours, as their mixed-space formulation does not mix in-plane momentum coordinates with and off-plane spatial positions.
 They use simultaneously \gls{3d} momentum and \gls{3d} spatial coordinates.
@@ -771,7 +768,7 @@ Doing so is not very hard, but it is somewhat tedious.
 We briefly explain key steps of the derivation, as the fine details are not relevant.
 In the expression for the \rpa~irreducible polarizability in Eq.~\eqref{eq:polarizability_RPA_def}, in a basis of Bloch states, at zero temperature, and in the static limit, we replace the state functions by the Bloch wavefunctions in the linear as per Eq.~\eqref{eq:Bloch_state_LCAO}.
 Then, when evaluating the real space \bd~integrals, we introduce the point-like orbital approximation.
-The difference now, is that we write $\phi_{\alpha}(\br - \bR - \bt_i ) \phi_{\beta}(\br' - \bR' - \bt_{j} ) \approx \delta_{\alpha,\beta} \delta_{i,j} \delta_{\bR,\bR'} \delta(r - \bR - \bt_{i}) = \delta_{\alpha,\beta} \delta_{i,j} \delta_{\bR,\bR'} \delta(\br_{||} - \bR - \bt_{i,||}) \delta(z - t_{i,z})$.
+The difference now, is that we write $\phi_{\alpha}(\br - \bR - \bt_i ) \phi_{\beta}(\br' - \bR' - \bt_{j} ) \approx \delta_{\alpha \beta} \delta_{i j} \delta_{\bR \bR'} \delta(r - \bR - \bt_{i}) = \delta_{\alpha \beta} \delta_{i j} \delta_{\bR \bR'} \delta(\br_{||} - \bR - \bt_{i,||}) \delta(z - t_{i,z})$, with $\bt_i = \bt_{i,||} + t_{i,z} \uvec{z}$.
 The last equality is valid, since we can split a \gls{3d} delta function as $\delta(\br - \br') = \delta(x-x') \delta(y-y') \delta(z-z') = \delta(\br_{||} - \br'_{||}) \delta(z-z')$, and the vector $\bR$ has no off-plane component, but the atomic positions $\bt_{i}$ may in general be off-plane.
 The integrals in real space are therefore trivial, and the expression for the polarizability in the mixed representation reads
 
@@ -797,33 +794,37 @@ Performing the average explicitly yields
 
 \begin{align}
     \label{eq:quasi_2D_averaged_dielectric_function}
-    \bar{\varepsilon}_{\bG \bG'}(\bq) \equiv & \frac{1}{\dd_{\perp}} \int_{-\frac{\dd_{\perp}}{2}}^{\frac{\dd_{\perp}}{2}} \int_{-\frac{\dd_{\perp}}{2}}^{\frac{\dd_{\perp}}{2}} \varepsilon_{\bG \bG'}(\bq,z,z')\,\dd z\dd z' = \\
-    & \delta_{\bG \bG'} - \frac{1}{2\epsz |\bq +\bG|\area}\sum_{\vv \cc,\bk \sigma}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })} \Bigg\{\\
-    & \sum_{i\alpha} \Big[C_{i\alpha}^{\cc\bk+\bq }\left(C_{i\alpha}^{\vv\bk}\right)^{*}\frac{2\ee^{-\ii(\bq +\bG) \vdot\bt_{i}}\left[1-\ee^{-|\bq +\bG| \frac{\dd_{\perp}}{2}}\cosh( |\bq +\bG|t_{i,z})\right]}{|\bq +\bG| \dd_{\perp}}\Big]\sum_{j\beta}\Big[C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \vdot \bt_{j}}\Big]- \notag\\
-    & \sum_{j\beta} \Big[\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*}C_{j\beta}^{\vv\bk}\frac{2\ee^{-\ii(\bq +\bG) \vdot \bt_{j}}\left[1-\ee^{-|\bq +\bG| \frac{\dd_{\perp}}{2}}\cosh( |\bq +\bG|t_{j,z})\right]}{|\bq +\bG| \dd_{\perp}}\Big]  \sum_{i\alpha}\Big[\left(C_{i\alpha}^{\vv\bk}\right)^{*}C_{i\alpha}^{\cc\bk+\bq } \ee^{\ii (\bq +\bG') \vdot \bt_{i}}\Big]\Bigg\}\,, \notag
+    & \bar{\varepsilon}_{\bG \bG'}(\bq) \equiv \frac{1}{\dd_{\perp}} \int_{-\dd_{\perp}/2}^{\dd_{\perp}/2} \int_{-\dd_{\perp}/2}^{\dd_{\perp}/2} \varepsilon_{\bG \bG'}(\bq,z,z')\,\dd z\dd z' = \\
+    =& \delta_{\bG \bG'} - \frac{1}{2\epsz |\bq +\bG|\area}\sum_{\vv \cc,\bk \sigma}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })} \Bigg\{ \notag  \\
+    & \sum_{i\alpha} \Bigg[C_{i\alpha}^{\cc\bk+\bq }\left(C_{i\alpha}^{\vv\bk}\right)^{*}\frac{2\ee^{-\ii(\bq +\bG) \vdot\bt_{i}}\big(1-\ee^{-|\bq +\bG| \dd_{\perp}/2}\cosh[ |\bq +\bG|t_{i,z}]\big)}{|\bq +\bG| \dd_{\perp}}\Bigg]\sum_{j\beta}\Big[C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \vdot \bt_{j}}\Big] - \notag\\
+    & \sum_{j\beta} \Bigg[\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*}C_{j\beta}^{\vv\bk}\frac{2\ee^{-\ii(\bq +\bG) \vdot \bt_{j}}\big(1-\ee^{-|\bq +\bG| \dd_{\perp}/2}\cosh[ |\bq +\bG|t_{j,z}]\big)}{|\bq +\bG| \dd_{\perp}}\Bigg]  \sum_{i\alpha}\Big[\left(C_{i\alpha}^{\vv\bk}\right)^{*}C_{i\alpha}^{\cc\bk+\bq } \ee^{\ii (\bq +\bG') \vdot \bt_{i}}\Big]\Bigg\}\,, \notag
 \end{align}
 
 \noindent where we have used the identities
 
 \begin{equation}
-\int_{-\frac{\dd_{\perp}}{2}}^{\frac{\dd_{\perp}}{2}} \ee^{-|\bq +\bG||z-t_{i,z}|}\dd z = \frac{2\left[1-\ee^{-|\bq +\bG| \frac{\dd_{\perp}}{2}} \cosh( |\bq +\bG|t_{i,z})\right]}{|\bq +\bG|} \qq{and} \int_{-\frac{\dd_{\perp}}{2}}^{\frac{\dd_{\perp}}{2}} \delta(z' - t_{j,z})\,\dd z' = 1\,.
+    \begin{aligned}
+        &\int_{-\dd_{\perp}/2}^{\dd_{\perp}/2} \ee^{-|\bq +\bG||z-t_{i,z}|}\dd z = \frac{2\big(1-\ee^{-|\bq +\bG| \dd_{\perp}/2}\cosh[ |\bq +\bG|t_{i,z}]\big)}{|\bq +\bG|} \qq{and} \\
+        &\int_{-\dd_{\perp}/2}^{\dd_{\perp}/2} \delta(z' - t_{j,z})\,\dd z' &= 1\,.
+    \end{aligned}
 \end{equation}
 
-Taking in the expression~\eqref{eq:quasi_2D_averaged_dielectric_function} the limit $\dd_{\perp},t_{i,z} \to 0$ and expanding the real exponential to leading order as $\ee^{-|\bq +\bG| \frac{\dd_{\perp}}{2}} \approx 1 - |\bq +\bG| \frac{\dd_{\perp}}{2} $ and considering $\cosh(x) \approx 1$ to leading order, we find
+\noindent Taking in the final expression of Eq.~\eqref{eq:quasi_2D_averaged_dielectric_function} the limit $\dd_{\perp},t_{i,z} \to 0$, expanding the real exponential to leading order as $\ee^{-|\bq +\bG| \dd_{\perp}/2} \approx 1 - |\bq +\bG| \dd_{\perp}/2 $, and considering that $\cosh(x) \approx 1$ for low $x$, we find
 
 \begin{equation}
 \begin{aligned}
-    \bar{\varepsilon}_{\bG \bG'}(\bq) & \approx \delta_{\bG \bG'} - \frac{1}{2\epsz|\bq +\bG|\area}\sum_{\vv \cc,\bk \sigma}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })}\Bigg\{\\
+    \bar{\varepsilon}_{\bG \bG'}(\bq) \approx & \delta_{\bG \bG'} - \frac{1}{2\epsz|\bq +\bG|\area}\sum_{\vv \cc,\bk \sigma}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })}\Bigg\{\\
  & \sum_{i\alpha} \Big[C_{i\alpha}^{\cc\bk+\bq }\left(C_{i\alpha}^{\vv\bk}\right)^{*} \ee^{-\ii (\bq +\bG) \vdot\bt_{i}}\Big] \sum_{j\beta}\Big[C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \vdot \bt_{j}}\Big]-\\
  & \sum_{j\beta}  \Big[\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*}C_{j\beta}^{\vv\bk} \ee^{-\ii (\bq +\bG) \vdot \bt_{j}}\Big] \sum_{i\alpha}\Big[\left(C_{i\alpha}^{\vv\bk}\right)^{*}C_{i\alpha}^{\cc\bk+\bq } \ee^{\ii (\bq +\bG') \vdot\bt_{i}}\Big]\Bigg\}\,.
 \end{aligned}
 \end{equation}
 
-In this way, we can identify in the previous expression the strict \bd~dielectric function we implemented in the code $\varepsilon_{\bG \bG'}(\bq)$ as the zero thickness limit of the averaged quasi-2D dielectric function, and write
+In this way, we can identify in the previous expression the strict \bd~dielectric function we implemented in the code, $\varepsilon_{\bG \bG'}(\bq)$, as the zero thickness limit of the averaged quasi-2D dielectric function.
+In math notation, we can write
 
 \begin{empheq}[innerbox=\fbox, right={\,,}]{align}
     \label{eq:Q2D_dielectric_function_zero_thickness_limit}
-    \varepsilon_{\bG \bG'}(\bq) = \lim_{\dd_{\perp} \to 0} \frac{1}{\dd_{\perp}} \int_{-\frac{\dd_{\perp}}{2}}^{\frac{\dd_{\perp}}{2}} \int_{-\frac{\dd_{\perp}}{2}}^{\frac{\dd_{\perp}}{2}} \varepsilon_{\bG \bG'}(\bq,z,z')\,\dd z\dd z'\,,
+    \varepsilon_{\bG \bG'}(\bq) = \lim_{\dd_{\perp} \to 0} \frac{1}{\dd_{\perp}} \int_{-\dd_{\perp}/2}^{\dd_{\perp}/2} \int_{-\dd_{\perp}/2}^{\dd_{\perp}/2} \varepsilon_{\bG \bG'}(\bq,z,z')\,\dd z\dd z'
 \end{empheq}
 
 \noindent just as we expected.
@@ -832,9 +833,10 @@ Now we understand how in the long-wavelength limit the results coming from our s
 The only thing left to do is to put up to test our theory by computing the effective \bd~dielectric function from the quasi-2D approach, $\bar{\varepsilon}_{\bG \bG'}(\bq)$, and compare once more with the \abinit~results.
 Fortunately, the answer to question (ii) posed at the end of the previous section is positive.
 
-We have found that our quasi-2D dielectric function for the cutoff $G_c = 3$ \unit{\angstrom^{-1}} is underestimated with respect to the \abinit~one from Ref.~\cite{Latini_2015}, and shown in Fig.~\ref{fig:epsilon2D_abinitio_vs_q_hBN}.
+We have found that our quasi-2D dielectric function using the cutoff $G_c = 3$ \unit{\angstrom^{-1}} is underestimated with respect to the \abinit~one from Ref.~\cite{Latini_2015}.
 Luckily, as one can see in Fig.~\ref{fig:epsilon_quasi-2D_QEH_vs_q_hBN} below, we get a very good agreement by using the \gls{qeh} package~\cite{Dielectric_Genome}.
-The package works for any \gls{vdw} structure, but since we are only interested in the monolayer case, we wrote a short Python script to compute the dielectric function of monolayer \gls{hbn}.
+For completeness, we plot in the same figure the dielectric functions from Fig.~\ref{fig:epsilon2D_abinitio_vs_q_hBN}.
+The package \gls{qeh} works for any \gls{vdw} structure, but since we are only interested in the monolayer case, we wrote a short Python script to compute the dielectric function of monolayer \gls{hbn}.
 For each monolayer material, the package uses data from already done previous \abinit~calculations with the GPAW code~\cite{GPAW_2025}.
 Therefore, the computational effort to get the dielectric function using the QEH package was minimal.
 The \abinit~curve from the QEH package is represented by the dashed black line, while our quasi-2D curve is represented with a continuous blue line.
@@ -848,32 +850,70 @@ For completion, we included in the plot below the curve previously displayed in 
     \label{fig:epsilon_quasi-2D_QEH_vs_q_hBN}
 \end{figure}
 
-In the following section, we discuss details about the implementation of the theory presented in Sections~\ref{sec:dielectric_function_revisited} and~\ref{sec:quasi_2D} in the xatu code.
+In the following section, we discuss details about the implementation of the theory presented in Sections~\ref{sec:dielectric_function_revisited} and~\ref{sec:quasi_2D} in the \xatu~code.
 We shall focus on the implementation of the dielectric function, since that is the main contribution from this work to the code.
 Details about the exciton calculation are also in order, the ones relevant for our implementation of the screening.
 
-\section{Efficient computation of the static dielectric function with the Xatu code}
+\section{Efficient Computation of the Static Dielectric Function with the Xatu Code}
 \label{sec:xatu_code}
 
-This is a section devoted solely to the code and implementation.
-As a paper did not come out of the implementation at the time of submission, this chapter can probably be deemed secondary.
-Also, if I don't have the time to write it at the end, then I won't include it at all or just make it very brief, or in an appendix.
+In this section, we explore the novelties in the code \xatu~\cite{Xatu} that allowed the implementation of the \bd~dielectric function we have been investigating.
+We keep the discussion as brief as possible, and will strongly focus on the numerical implementation of the screening.
+Apart from a couple of novelties in the functionality of the code, the class structure and previous algorithms stays the same, whose details can be consulted in the PhD thesis by A.J.~Juría-Álvarez in Ref.~\cite{Alex_PhD}.
 
-
-\subsection{The new version of the xatu code: general remarks}
+\subsection{The new version of the \xatu~code: general remarks}
 \label{subsec:new_xatu}
 
-General remarks
-New screening configuration.
-New chosen potential.
-Choosing regularization percentage.
-Choosing separate cutoffs for exciton and epsilon.
-Dielectric matrix is in exciton TB class.
+Before we start with the more technical discussion, some general remarks are in order.
+The \xatu~code is a library, and at the same time a program, written mostly in \CC~and with the objective of determining the excitonic and optical properties of insulators, with focus on \gls{1d}, \gls{3d}, molecular, and \bd~materials, with a strong focus on the latter.
+The code works essentially as a solver for the \gls{bse} with an exact diagonalization approach, and adapted for the tight-binding approximation.
+The efficiency of the code relies on the point-like orbital approximation, which we have discussed extensively by now, for the calculation of the interaction matrix elements.
+In concomitance with this code, another one applying an identical theory was developed in parallel in Ref.~\cite{Dias_Silveira_Qu_2023}.
+Within the Rytova--Keldysh approximation for the potential, the initial one implemented in the published version of the code, one can get a good estimate for the exciton energies and states, alongside the excitonic optical conductivity, for a fraction of the computational power demanded by \abinit~calculations~\cite{BerkeleyGW,Yambo_2009,Guandalini_Varsano_2023,Diana_PhD,Jornada_PhD}.
+With this work, we enable efficient calculations for the microscopic dielectric function in the static limit, closing a gap in the literature of computational condensed matter physics.
+As far as we know, our numerical implementation of the screening properties of \bd~insulators is the first one working with a \bd~formulation of the dielectric response problem, which is of upmost importance to correctly estimate the exciton properties in \bd~materials.
+Nonetheless, some general aspects of the code were left intact.
 
-\subsubsection{Using the code}
-\label{subsubsec:using_xatu}
+The \xatu~code is versatile when it comes to the Hamiltonian models it has support for, namely tight-binding models or Hamiltonian models resulting from \dft~calculations using a basis of localized state functions using the CRYSTAL package.
+It accepts two types of model files: files with a \texttt{.model} extension, which contain the properties of the tight-binding Hamiltonian and basic geometrical aspects of the material at hand; or in alternative, output files from CRYSTAL, which have the extension \texttt{.outp}.
+Both types of models have been tested, at a first instance for calculating the excitons in the first version of the code in Ref.~\cite{Xatu}, and now for the numerical implementation of the screening.
+Other interesting aspect of \xatu, is that it can work as a program through the script called \texttt{xatu}, or as a library if the end user feels comfortable enough with writing scripts in \CC\@.
+Another aspect we have not changed is the class hierarchy of the code.
+All the properties related with the dielectric function consist of a set of objects that are part the class \texttt{ExcitonTB} composition.
+The code  follows the programming paradigm of \gls{oop}, where one defines his own types of objects, called classes, and operates with them.
+The class \texttt{ExcitonTB} is just one example among all the classes we can find in the code.
+One can inspect the structure of the code in the \href{https://github.com/xatu-code/xatu}{official repository}.
+At the moment of the writing of this dissertation, the dielectric function is not yet a class, even though we envision to create one in the future.
+However, a new class was created, called \texttt{ScreeningConfiguration}, responsible from parsing the input parameters pertaining to the dielectric function.
 
-Here goes the flowchart from overleaf, do not forget to acknowledge Alex.
+The parameters for the dielectric function, if its calculation is enabled when using the \texttt{xatu} script, are parsed from an extra input file which was not comprised in the first version of the code.
+In the next section, we describe the structure of a general screening input file in more detail.
+The extra input file has the \texttt{.txt} format, in similarity with the exciton file~\cite{Xatu}, the latter containing the information relevant for the \gls{bse} calculations.
+
+In the exciton file, we added two more parameters, and changed a previous one.
+The one suffering changes was the parameter \texttt{\# reciprocal}, which we changed to \texttt{\# gcutoff}.
+Each parameter in the file it is contained starts with the cardinal symbol \texttt{\#}.
+Whenever we use it in this text, we are referring to an input parameter.
+The new version of the \texttt{\# reciprocal} parameter, called now \texttt{\# gcutoff}, is a number defined by the user to set the reciprocal vectors cutoff for the exciton, $G^{X}_c$, determining which reciprocal lattice vectors $\bG$ are included in the interaction matrix elements (see Eqs.~\eqref{eq:interaction_matrix_elements_reciprocal_RK},~\eqref{eq:direct_term} and~\eqref{eq:exchange_term}).
+When the \texttt{\# gcutoff} is parsed, it sets the program to the reciprocal space mode, just as in the first version of the code with the parameter \texttt{\# reciprocal}, enabling the calculation of the interaction matrix elements using the (screened) Coulomb potential resolved in momentum.
+If the reciprocal space mode is set, then the user can additionally provide another parameter to determine the size of the regularization radius (see Appendix~\ref{app:regularization}).
+The parameter is called \texttt{\# percentage}, and it should be a number of the order of the unit, $\varsigma$.
+The radius $q_0$ of the regularization region, which is a circle, is then $q_0 = \varsigma k_0$, where $k_0$ is the length of the vector in the \bz~mesh closest to the origin.
+Since we use the Rytova--Keldysh analytical scheme for the regularization~\cite{Rasmussen_Schmidt_Winther_Thygesen_2016}, the parameter $\varsigma$ has to be of the order of the unity, so that the low-$q$ limit of the dielectric function to remains valid.
+
+Before we dive into the technical aspects of the implementation, we would like to dwell on the new functionalities, in particular the new algorithm of the \texttt{xatu} program, and useful new methods for the calculation of the dielectric function.
+For the latter, we implement a key method, called \mintinline{c++}{compute_2D_DielectricMatrix}, which calculates the dielectric function in the entire \bz~mesh, followed by the its inversion, and the writing of the generated data into a \texttt{.dat} file, these last two tasks being performed in separate methods of their own.
+With this file, the user can call the method \mintinline{c++}{ExcitonTB::readInverseDielectricMatrix}, which accepts as an argument the name of the \texttt{.dat} file generated by the \texttt{xatu} program.
+In this way, it is possible to write separate scripts using the \xatu~library to compute the excitons without the need to repeat the screening calculations.
+With the \texttt{xatu.cpp} script, the inversion of the dielectric matrix is performed, the inverse dielectric matrix is kept stored until the initialization of the the Bethe--Salpeter Hamiltonian.
+When initializing the Bethe--Salpeter Hamiltonian, the interaction matrix elements using the numerical screening are computed on the fly.
+To better visualize what we have just discussed, we provide in Fig.~\ref{fig:xatu_flow_diagram} a flowchart for the \texttt{xatu} program, adapted from its first version authored by A.~J.~Uría-Álvarez.
+
+\begin{figure}[h]\label{fig:xatu_flow_diagram}
+    \centering
+    \input{Chapters/Figures/Chapter_6/flowchart}
+    \mycaption[Flow diagram of an exciton calculation with Xatu, including the numerical model for the screening]{Flow diagram showing the typical steps in an exciton calculation with Xatu.}
+\end{figure}
 
 \subsection{Complexity analysis}
 \label{subsec:complexity_analysis}
@@ -893,7 +933,7 @@ Include symmetries of the polarizability.
 % Dispersion interactions were accounted for via D3 Grimme corrections~\cite{grimme2006semiempirical}.
 
 % The low-energy subspace was mapped onto a tight-binding-like Hamiltonian using the \textsc{Wannier90} code~\cite{mostofi2014updated}.
-% Instead of the conventional maximally localized Wannier functions (MLWFs), we employed the \emph{Closest Wannier Functions} (CWFs)~\cite{ozaki2024closest,oiwa_symmetry-adapted_2025}, which preserve the original atomic and symmetry character of the orbitals while avoiding gauge instabilities. An irreducible Brilloun Zone was utilized based on the DFT Monkhorst-Pack grid, to symmetrize the states and reduce computational costs.
+% Instead of the conventional maximally localized Wannier functions (MLWFs), we employed the \emph{Closest Wannier Functions} (CWFs)~\cite{ozaki2024closest,oiwa_symmetry-adapted_2025}, which preserve the original atomic and symmetry character of the orbitals while avoiding gauge instabilities. An irreducible Brillouin Zone was utilized based on the DFT Monkhorst-Pack grid, to symmetrize the states and reduce computational costs.
 % The projection was carried out onto Mo $s,p,d$ and S $s,p$ orbitals, with an energy window defined by a Fermi-Dirac smearing at \textcolor{red}{$T0--T1$} K to select the disentangled subspace.
 % No maximal localization step was performed.
 % The resulting Hamiltonian accurately reproduces the DFT bands around the Fermi level, ensuring a faithful description of the intersite position-matrix elements $r^{(z)}_{\alpha\alpha'\boldsymbol{k}}$ required for the field coupling.
