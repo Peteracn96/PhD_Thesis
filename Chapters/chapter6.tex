@@ -585,7 +585,7 @@ For high $q$, the head element $W_{\bzero \bzero} (q)$ of the screened potential
     The second and third columns show the exciton energies $E_X$, while the fourth and fifth columns show the corresponding binding energies $E_b$.
     States labeled with the same number but different letters are states for which degeneracy is expected.
     We observe that the states that are supposed to be degenerate, are more proximate in energy for the numerical screening calculation, and are in general lower in energy compared to those obtained from the Rytova--Keldysh model.
-    We used $N=60^2$, $N_{\cc}=N_{\vv}=1$, $G_c = 3.0$~\unit{\angstrom^{-1}}, $q_0 = 1.3 k_0$, and $r_0 = 5.084$~\unit{\angstrom} for the Rytova--Keldysh potential. In the numerical model for the screening, we included all the $\bG$ vectors. We have excluded the exchange interaction term in both calculations.}
+    We used $N=60^2$, $N_{\cc}=N_{\vv}=1$, $G_c = 3.0$~\unit{\angstrom^{-1}}, $q_0 = 1.3 k_0$, and $r_0 = 5.084$~\unit{\angstrom} for the Rytova--Keldysh potential. In the numerical model for the screening, we included all the $\bG$ vectors. We have excluded the exchange interaction term in both calculations. Increasing the number of included bands to $N_{\cc}=N_{\vv}=2$ resulted in a change in binding energies less than $0.02$~\unit{\electronvolt} for all states, except for the state 2, for which the binding energy was of $2.1$~\unit{\electronvolt}.}
     \begin{tabular}{|c|c|c||c|c|}
     \hline
     State                         & $E_X$ (RK) (eV)         & $E_X$ ($\varepsilon_{\bG,\bG'}$) (eV)  & $E_b$ (RK) (eV)         & $E_b$ ($\varepsilon_{\bG,\bG'}$) (eV)\\ \hline \hline
@@ -614,6 +614,19 @@ For instance, in Ref.~\cite{Latini_2015}, the authors obtained a binding energy 
 However, in none of those works do the autors use a hybrid functional for the \dft~calculations as we do.
 Even though with different Hamiltonian models one can get similar dielectric functions, the exciton properties of the material may depend more on model.
 Even if it is the same material, having a different band structure, specially a different bandgap, may naturally lead to different exciton binding energies.
+
+Before we analyse the optical conductivity, we plot in Fig.~\ref{fig:exciton_wavefunction_hBN_DFT_HSE06} below the first two excitonic states, 1a and 1b, whose energies can be consulted in Table~\ref{tab:hBN_DFT_HSE_06_exciton_spectrum}.
+The colorscale represents the values assumed by the wavefunction in mmentum space, after taking its absolute value squared.
+The top panels reflect the 1a states, and the bottom panels reflect the 1b states.
+The left side panels correspond to the Rytova--Keldysh model for the dielectric function, while the right side panels correspond to the numerical approach for the screening.
+As expected from what we discussed about the vaues in Table~\ref{tab:hBN_DFT_HSE_06_exciton_spectrum}, the states on the right panels are more delocalized in momentum space than the ones represented on the left panels.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/Psi_1_RK_RPA_hBN}
+    \mycaption[Excitonic ground state wavefunction for hBN in momentum space: Rytova--Keldysh vs.~numerical screening]{Momentum-resolved wavefunctions (in absolute value squared) of the first two excitonic states of \gls{hbn}, using the Rytova--Keldysh potential one the left panels, and using the numerical dielectric function on the right panels. The top panels correspond to the 1a state from Table~\ref{tab:hBN_DFT_HSE_06_exciton_spectrum}, while the bottom panels correspond to the 1b state in the same table. The states obtained using the numerical dielectric function present a lower maximum for the probability density, therefore those states are more delocalized in reciprocal space than the ones on the left. This is consistent with higher binding energies for the states obtained using $\varepsilon_{\bG,\bG'}$, as we have seen in Table~\ref{tab:hBN_DFT_HSE_06_exciton_spectrum}.}
+    \label{fig:exciton_wavefunction_hBN_DFT_HSE06}
+\end{figure}
 
 At last, we compare the optical conductivity of \gls{hbn} computed with both methods.
 Unlike the \gls{bse} calculations, the optical conductivity is obtained always in the same way.
@@ -671,27 +684,116 @@ Then, we need the \bd~counterpart of the same relation, which is derived in Appe
 As one can see in that appendix, the permittivity--conductivity equivalence relation new reads $\varepsilon = 1 + \ii q \sigma / (2 \epsz \omega)$, instead of the old one $\varepsilon = 1 + \ii \sigma / (\epsz \omega)$.
 The extra $q/2$ factor going with the conductivity compensates for the conversion of the Coulomb potential from $v^{\mathrm{3D}}_c(q) = e/(\epsz q^2) $ to $ v^{\BD}_c(q) = e/(2\epsz q)$.
 
-The cond... of hBN... is in Fig....
+We can observe in Fig.~\ref{fig:sigma_hBN} below the real part of the optical conductivity of \gls{hbn} computed with the xatu code.
+In comparison with each other, we have in blue the excitonic conductivity obtained using the Rytova--Keldysh potential, and in red the conductivity obtained using the numerical dielectric function.
+Besides the expected red-shift of the resonant peaks, we can see that the first two peaks are more pronounced for the case of the numerical screened potential.
+However, the difference in the first peak may be due to the energy splitting of the first two states in the case of the Rytova--Keldysh potential, which results in a shoulder on the first peak.
+If the two energies of the states 1a and 1b were closer, then the first peak would probably be similar for both models.
+However, the second peak is clearly more intense in the numerical screening case.
+The third peak seems to be lower, though, but after that the two optical responses, in red and in blue, approach each other they approach the bandgap.
+Above the bandgap, both excitonic responses coincide.
+
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{Chapters/Figures/Chapter_6/sigma_hBN}
-    \mycaption[Optical conductivity of hBN: comparing numerical and analytical screening]{Optical conductivity of freestanding \gls{hbn} computed with the xatu code, in blue using both the Rytova--Keldysh model for screening, and in red using the numerical model for screening. The dashed black curve is the single-particle optical conductivity, computed using unbound states. We used for both excitonic conductivities a Lorentzian broadening of $\Gamma = 0.08$~\unit{\electronvolt}.}
+    \includegraphics[width=0.9\textwidth]{Chapters/Figures/Chapter_6/sigma_hBN}
+    \mycaption[Optical conductivity of hBN: comparing numerical and analytical screening]{Optical conductivity of freestanding \gls{hbn} computed with the xatu code.
+    The \gls{ipa} conductivity is represented by the dashed black curve. The excitonic conductivities are represented in blue and in red, corresponding to the Rytova--Keldysh model and the numerical model for screening, respectively. We used for both excitonic conductivities a Lorentzian broadening of $\Gamma = 0.08$~\unit{\electronvolt}.}
     \label{fig:sigma_hBN}
 \end{figure}
 
+From all the numerical results obtained so far in this chapter, we would say that the figure of merit is the agreement between our effective \bd~dielectric function and the \abinit~one, as we saw in Fig.~\ref{fig:epsilon2D_abinitio_vs_q_hBN}.
+However, the agreement is far from perfect for intermediate and higher values of the momentum.
+This is undoubtly a consequence from the zero thickness approximation we introduced in the beginning of Section~\ref{sec:dielectric_function_revisited}.
+To be more precise, we assumed that the response of the monolayer was local in the off-plane direction, so that the dielectric function depending on all the Cartesian coordinates is approximately given by $\varepsilon(\br,\br') \approx \delta(z-z') \varepsilon_{\BD}(\br_{\parallel},\br'_{\parallel})$, and the dielectric function $\varepsilon_{\BD}$ is the one we have been working with thus far.
+In order words, we ignored altogether any physics coming from the $z$-dependence of the permittivity.
+So we have to pose two questions: (i) How do we show that our strict \bd~implementation is valid in the zero thickness limit, and that the permittivities with zero and finite thickness can only agree when $q \dd_{\perp} < 1$?; (ii) Can we not do better, and somehow take the $z$-dependence into account?. 
+In the next section, we answer both questions.
 
 \section{Dielectric function in the Quasi-2D approach}
 \label{sec:quasi_2D}
 
+In the numerical approach to the dielectric within a strict \bd~framework, we have been taking advantage of the reduced dimensionality of the implementation to efficiently produce good enough results, at least when compared to \abinit~ones in the regime of low momentum $q < 1/\dd_{\perp}$, where $\dd_{\perp}$ is the thickness of the monolayer.
+However, we would like to see where does this limit come from, not from physical intuition, since that is somewhat clear to us, but from a more technical point of view.
+For that, the $z$-dependence of the dielectric function must be accounted for.
+We do so in the quasi-2D approach, or the mixed representation approach, for the dielectric function we will introduce in the next subsection.
+Once again, the point-like orbital approximation will be key once more.
 
 \subsection{Quasi-2D dielectric function: theory}
 \label{subsec:quasi_2D_theory}
+
+In this section we derive an expression for the dielectric function, in a representation that is a mix between reciprocal space and real space, for in-plane and off-plane directions, respectively.
+We start from its general expression in real space
+
+\begin{equation}
+\varepsilon(\br,\br') = \delta(\br - \br')-\int v_{c}(\br - \br'')\chi^{0}(\br'',\br')\dr'',
+\end{equation}
+
+\noindent where we have omitted the frequency dependence for simplicitly.
+On one hand, the systems we deal with are infinite in the $x$ and $y$ directions, therefore, we would like to work in momentum space.
+On the other hand, the systems are finite in the $z$ direction.
+Unlike in typical first-principle approaches, where the systems are infinite in all directions, we cannot perform a Fourier transform including the $z$ coordinate.
+Nonetheless, nothing stops us from performing a \bd~Fourier transform along the in-plane directions, and keeping the $z$-dependence.
+For that, we need the \bd~Fourier transform of the bare Coulomb potential, but having in mind that the position vector is \gls{3d}.
+The bare Coulomb potential in the mixed $(\bq,z)$-representation reads
+
+\begin{equation}
+    v_{c}(\bq,z-z') =  \frac{e}{2 \epsz q} \ee^{- q|z-z'|},
+\end{equation}
+
+\noindent where $\bq$ is in-plane.
+Basically, the previous expression consitutes the workhorse of our quasi-2D approach.
+The $1/q$-dependence of the potential, along with its numerical advantages, is kept intact, and a the same time the $z$-dependence is not ignored.
+For the static dielectric function in the mixed representation, we have
+
+\begin{equation}
+    \label{eq:dielectric_function_mixed_representation}
+    \varepsilon_{\bG \bG'}(\bq,z,z') = \delta_{\bG \bG'} \delta( z-z')-\int \dd z''\frac{ \ee^{-|\bq +\bG||z-z''|}}{2\epsz|\bq +\bG|}\chi^{0}_{\bG \bG'}(\bq,z'',z')\,,
+\end{equation}
+
+\noindent where we introduced the noninteracting polarizability in the mixed representation defined By
+
+\begin{equation}
+    \chi^{0}_{\bG \bG'}(\bq,z,z') = \int_{\area} \dd \br_{||} \int_{\area} \dd \br_{||}' \ee^{-\ii (\bq + \bG) \vdot \br_{||}} \ee^{\ii (\bq' + \bG') \vdot \br_{||}'}\chi^{0}(\br,\br')\,.
+\end{equation}
+
+\noindent Working with a polarizability in the mixed $(\bq,z)$-representation is not a novelty in the literature.
+As far as we know, this idea dates back to 1995, in a work by X.~Blase et al.~\cite{Blase_Rubio_Louie_Cohen_1995}.
+However, their formulation is not exactly the same as ours, as their mixed-space formulation does not mix in-plane momentum coordinates with and off-plane spatial positions.
+They use simultaneously \gls{3d} momentum and \gls{3d} spatial coordinates.
+More recently, the object $\chi(\bq,z,z')$, mixing the in-plane $\bq$-dependence with off-plane $z$-dependence, is treated by K.~Andersen at al.~in Ref.~\cite{Dielectric_Genome}, where the authors develop a model, called the \gls{qeh} model, to compute the dielectric properties of \gls{vdw} structures in an efficient way, without taking into account the detailed quantum influence of the layers on each other, and using a classical model for the interlayer electrostatic coupling.
+The monolayer system is treated within a full quantum picture, like we do.
+However, we keep track of the nonlocal field effects introduced by the (in-plane) inhomogeneity of the crystal.
+Furthermore, we consider only monolayer materials, which keeps the computational effort to the minimum.
+
+To obtain the final expression for the dielectric function in the mixed representation, we need first to work out the quantity $\chi^{0}_{\bG \bG'}(\bq,z,z')$.
+Doing so is not very hard, but it is somewhat tedious.
+We briefly explain key steps of the derivation, as the fine details are not relevant.
+In the expression for the \rpa~irreducible polarizability in Eq.~\eqref{eq:polarizability_RPA_def}, in a basis of Bloch states, at zero temperature, and in the static limit, we replace the state functions by the Bloch wavefunctions in the linear as per Eq.~\eqref{eq:Bloch_state_LCAO}.
+Then, when evaluating the real space \bd~integrals, we introduce the point-like orbital approximation.
+The difference now, is that we write $\phi_{\alpha}(\br - \bR - \bt_i ) \phi_{\beta}(\br' - \bR' - \bt_{j} ) \approx \delta_{\alpha,\beta} \delta_{i,j} \delta_{\bR,\bR'} \delta(r - \bR - \bt_{i}) = \delta_{\alpha,\beta} \delta_{i,j} \delta_{\bR,\bR'} \delta(\br_{||} - \bR - \bt_{i,||}) \delta(z - t_{i,z})$.
+The last equality is valid, since we can split a \gls{3d} delta function as $\delta(\br - \br') = \delta(x-x') \delta(y-y') \delta(z-z') = \delta(\br_{||} - \br'_{||}) \delta(z-z')$, and the vector $\bR$ has no off-plane component, but the atomic positions $\bt_{i}$ may in general be off-plane.
+The integrals in real space are therefore trivial, and the expression for the polarizability in the mixed representation reads
+
+\begin{align}
+\chi^{0}_{\bG \bG'}(\bq,z,z') =  &\frac{1}{\area}\sum_{\vv \cc,\bk \sigma} \frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })} \times \\
+&\Bigg\{\sum_{i\alpha}\Big[C_{i\alpha}^{\cc\bk+\bq }\left(C_{i\alpha}^{\vv\bk}\right)^{*} \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \delta(z - t_{i,z}) \Big] \sum_{j\beta}\Big[C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z}) \Big] + \notag\\
+&\sum_{i\alpha}\Big[\left(C_{i\alpha}^{\cc\bk+\bq }\right)^{*}C_{i\alpha}^{\vv\bk}\, \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \delta(z - t_{i,z}) \Big] \sum_{j\beta} \Big[\left(C_{j\beta}^{\vv\bk}\right)^{*}C_{j\beta}^{\cc\bk+\bq }\, \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z})\Big]\Bigg\}\,. \notag
+\end{align}
+
+We can now present the expression for the dielectric function in the $(\bq,z)$-representation
+For that, the integral in $z''$ in Eq.~\eqref{eq:dielectric_function_mixed_representation} is also trivial to work out, as the $z$-dependence in the polarizability is modeled with Dirac deltas.
+Working out the integral and simplifying, the dielectric function reads
+
+\begin{align}
+    \varepsilon_{\bG \bG'}(\bq,z,z') = & \delta_{\bG \bG'} \delta( z-z')-\frac{1}{2\epsz |\bq +\bG|\area}\sum_{\vv \cc, \bk \sigma}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })}\times\\ 
+    & \Bigg\{\sum_{i\alpha} C_{i\alpha}^{\cc \bk+\bq} \left(C_{i\alpha}^{\vv\bk}\right)^{*} \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \ee^{-|\bq +\bG||z-t_{i,z}|}\sum_{j\beta}C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z})+     \label{eq:quasi_2D_dielectric_function_final} \notag\\
+    & \sum_{i\alpha}\left(C_{i\alpha}^{\cc\bk+\bq }\right)^{*}C_{i\alpha}^{\vv\bk} \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \ee^{-|\bq +\bG||z-t_{i,z}|}\sum_{j\beta}\left(C_{j\beta}^{\vv\bk}\right)^{*}C_{j\beta}^{\cc\bk+\bq } \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z})\Bigg\} \,. \notag
+\end{align}
 
 
 
 \subsection{Quasi-2D dielectric function: results}
 \label{subsec:quasi_2D_results}
-
 
 We have found that our quasi-2D dielectric function for the cutoff $G_c = 3$ \unit{\angstrom^{-1}} is underestimated with respect to the \abinit~one from Ref.~\cite{Latini_2015} and shown in Fig.~\ref{fig:epsilon2D_abinitio_vs_q_hBN}.
 Luckily, we get a very good agreement, as one can see in Fig.~\ref{fig:epsilon_quasi-2D_QEH_vs_q_hBN} below, by using the QEH package for Python designed for calculating the dielectric properties of \gls{vdw} structures~\cite{Dielectric_Genome}.
@@ -716,7 +818,7 @@ As a paper did not come out of the implementation at the time of submission, thi
 Also, if I don't have the time to write it at the end, then I won't include it at all or just make it very brief, or in an appendix.
 
 
-\subsection{The new version of the xatu code}
+\subsection{The new version of the xatu code: general remarks}
 \label{subsec:new_xatu}
 
 General remarks
@@ -731,14 +833,29 @@ Dielectric matrix is in exciton TB class.
 
 Here goes the flowchart from overleaf, do not forget to acknowledge Alex.
 
-\subsubsection{Complexity analysis}
-\label{subsubsec:complexity_analysis}
+\subsection{Complexity analysis}
+\label{subsec:complexity_analysis}
 
 Brief complexity analysis of an entire calculation of the dielectric matrix.
 Include symmetries of the polarizability.
 
-\subsubsection{Benchmark}
-\label{subsubsec:complexity_analysis}
+\subsection{Benchmark and validation}
+\label{subsec:benchmark_and_validation}
+
+%%%%%%%%%% Text by Gui %%%%%%%%%%%%%%%%%%%
+% The electronic structure of \ch{MoS2} was obtained from density functional theory (DFT) calculations performed with the \textsc{Quantum~Espresso} package~\cite{giannozzi2009quantum}.
+% Exchange-correlation effects were treated within the generalized gradient approximation (GGA) using the Perdew-Burke-Ernzerhof (PBE) functional~\cite{perdew1996generalized}.
+% Core-valence interactions were described using the KJPAW pseudopotentials.
+% A plane-wave cutoff of \textcolor{red}{$50$ Ry} for the wavefunctions and \textcolor{red}{$310$ Ry} for the charge density was employed, together with a \textcolor{red}{$21\times 21\times 1$} Monkhorst-Pack grid~\cite{monkhorst1976special}.
+% Atomic positions were relaxed until residual forces were smaller than \textcolor{red}{$10^{-4}$}, and a vacuum spacing of at least $20 $\AA was included to avoid spurious interactions between periodic images.
+% Dispersion interactions were accounted for via D3 Grimme corrections~\cite{grimme2006semiempirical}.
+
+% The low-energy subspace was mapped onto a tight-binding-like Hamiltonian using the \textsc{Wannier90} code~\cite{mostofi2014updated}.
+% Instead of the conventional maximally localized Wannier functions (MLWFs), we employed the \emph{Closest Wannier Functions} (CWFs)~\cite{ozaki2024closest,oiwa_symmetry-adapted_2025}, which preserve the original atomic and symmetry character of the orbitals while avoiding gauge instabilities. An irreducible Brilloun Zone was utilized based on the DFT Monkhorst-Pack grid, to symmetrize the states and reduce computational costs.
+% The projection was carried out onto Mo $s,p,d$ and S $s,p$ orbitals, with an energy window defined by a Fermi-Dirac smearing at \textcolor{red}{$T0--T1$} K to select the disentangled subspace.
+% No maximal localization step was performed.
+% The resulting Hamiltonian accurately reproduces the DFT bands around the Fermi level, ensuring a faithful description of the intersite position-matrix elements $r^{(z)}_{\alpha\alpha'\boldsymbol{k}}$ required for the field coupling.
+%%%%%%%%%% Text by Gui %%%%%%%%%%%%%%%%%%%
 
 \begin{figure}[b]
     \label{fig:MoS2_bands}
