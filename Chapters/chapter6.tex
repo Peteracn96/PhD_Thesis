@@ -761,6 +761,7 @@ As far as we know, this idea dates back to 1995, in a work by X.~Blase et al.~\c
 However, their formulation is not exactly the same as ours, as their mixed-space formulation does not mix in-plane momentum coordinates with and off-plane spatial positions.
 They use simultaneously \gls{3d} momentum and \gls{3d} spatial coordinates.
 More recently, the object $\chi(\bq,z,z')$, mixing the in-plane $\bq$-dependence with off-plane $z$-dependence, is treated by K.~Andersen at al.~in Ref.~\cite{Dielectric_Genome}, where the authors develop a model, called the \gls{qeh} model, to compute the dielectric properties of \gls{vdw} structures in an efficient way, without taking into account the detailed quantum influence of the layers on each other, and using a classical model for the interlayer electrostatic coupling.
+The name of the approach gives the name of the \gls{qeh} for Python developed in that work.
 The monolayer system is treated within a full quantum picture, like we do.
 However, we keep track of the nonlocal field effects introduced by the (in-plane) inhomogeneity of the crystal.
 Furthermore, we consider only monolayer materials, which keeps the computational effort to the minimum.
@@ -775,9 +776,9 @@ The last equality is valid, since we can split a \gls{3d} delta function as $\de
 The integrals in real space are therefore trivial, and the expression for the polarizability in the mixed representation reads
 
 \begin{align}
-\chi^{0}_{\bG \bG'}(\bq,z,z') =  &\frac{1}{\area}\sum_{\vv \cc,\bk \sigma} \frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })} \times \\
-&\Bigg\{\sum_{i\alpha}\Big[C_{i\alpha}^{\cc\bk+\bq }\left(C_{i\alpha}^{\vv\bk}\right)^{*} \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \delta(z - t_{i,z}) \Big] \sum_{j\beta}\Big[C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z}) \Big] + \notag\\
-&\sum_{i\alpha}\Big[\left(C_{i\alpha}^{\cc\bk+\bq }\right)^{*}C_{i\alpha}^{\vv\bk}\, \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \delta(z - t_{i,z}) \Big] \sum_{j\beta} \Big[\left(C_{j\beta}^{\vv\bk}\right)^{*}C_{j\beta}^{\cc\bk+\bq }\, \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z})\Big]\Bigg\}\,. \notag
+    \chi^{0}_{\bG \bG'}(\bq,z,z') =  &\frac{1}{\area}\sum_{\vv \cc,\bk \sigma} \frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })}\Bigg\{ \\
+    &\sum_{i\alpha}\Big[C_{i\alpha}^{\cc\bk+\bq }\left(C_{i\alpha}^{\vv\bk}\right)^{*} \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \delta(z - t_{i,z}) \Big] \sum_{j\beta}\Big[C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z}) \Big] + \notag\\
+    &\sum_{i\alpha}\Big[\left(C_{i\alpha}^{\cc\bk+\bq }\right)^{*}C_{i\alpha}^{\vv\bk}\, \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \delta(z - t_{i,z}) \Big] \sum_{j\beta} \Big[\left(C_{j\beta}^{\vv\bk}\right)^{*}C_{j\beta}^{\cc\bk+\bq }\, \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z})\Big]\Bigg\}\,. \notag
 \end{align}
 
 We can now present the expression for the dielectric function in the $(\bq,z)$-representation
@@ -785,30 +786,71 @@ For that, the integral in $z''$ in Eq.~\eqref{eq:dielectric_function_mixed_repre
 Working out the integral and simplifying, the dielectric function reads
 
 \begin{align}
-    \varepsilon_{\bG \bG'}(\bq,z,z') = & \delta_{\bG \bG'} \delta( z-z')-\frac{1}{2\epsz |\bq +\bG|\area}\sum_{\vv \cc, \bk \sigma}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })}\times\\ 
-    & \Bigg\{\sum_{i\alpha} C_{i\alpha}^{\cc \bk+\bq} \left(C_{i\alpha}^{\vv\bk}\right)^{*} \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \ee^{-|\bq +\bG||z-t_{i,z}|}\sum_{j\beta}C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z})+     \label{eq:quasi_2D_dielectric_function_final} \notag\\
-    & \sum_{i\alpha}\left(C_{i\alpha}^{\cc\bk+\bq }\right)^{*}C_{i\alpha}^{\vv\bk} \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \ee^{-|\bq +\bG||z-t_{i,z}|}\sum_{j\beta}\left(C_{j\beta}^{\vv\bk}\right)^{*}C_{j\beta}^{\cc\bk+\bq } \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z})\Bigg\} \,. \notag
+    \label{eq:quasi_2D_dielectric_function_final}
+    \varepsilon_{\bG \bG'}(\bq,z,z') = & \delta_{\bG \bG'} \delta( z-z')-\frac{1}{2\epsz |\bq +\bG|\area}\sum_{\vv \cc, \bk \sigma}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })}\Bigg\{\\ 
+    & \sum_{i\alpha} \Big[C_{i\alpha}^{\cc \bk+\bq} \left(C_{i\alpha}^{\vv\bk}\right)^{*} \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \ee^{-|\bq +\bG||z-t_{i,z}|}\Big] \sum_{j\beta}\Big[C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z})\Big]+  \notag\\
+    & \sum_{i\alpha} \Big[\left(C_{i\alpha}^{\cc\bk+\bq }\right)^{*}C_{i\alpha}^{\vv\bk} \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \ee^{-|\bq +\bG||z-t_{i,z}|}\Big] \sum_{j\beta}\Big[\left(C_{j\beta}^{\vv\bk}\right)^{*}C_{j\beta}^{\cc\bk+\bq } \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z})\Big]\Bigg\} \,. \notag
 \end{align}
 
+\noindent An effective \bd~dielectric function $\bar{\varepsilon}_{\bG \bG'}(\bq)$ can be defined as the quasi-2D dielectric function $\varepsilon_{\bG \bG'}(\bq,z,z')$ averaged along the thickness of the material $\dd_{\perp}$.
+Performing the average explicitly yields
 
+\begin{align}
+    \label{eq:quasi_2D_averaged_dielectric_function}
+    \bar{\varepsilon}_{\bG \bG'}(\bq) \equiv & \frac{1}{\dd_{\perp}} \int_{-\frac{\dd_{\perp}}{2}}^{\frac{\dd_{\perp}}{2}} \int_{-\frac{\dd_{\perp}}{2}}^{\frac{\dd_{\perp}}{2}} \varepsilon_{\bG \bG'}(\bq,z,z')\,\dd z\dd z' = \\
+    & \delta_{\bG \bG'} - \frac{1}{2\epsz |\bq +\bG|\area}\sum_{\vv \cc,\bk \sigma}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })} \Bigg\{\\
+    & \sum_{i\alpha} \Big[C_{i\alpha}^{\cc\bk+\bq }\left(C_{i\alpha}^{\vv\bk}\right)^{*}\frac{2\ee^{-\ii(\bq +\bG) \vdot\bt_{i}}\left[1-\ee^{-|\bq +\bG| \frac{\dd_{\perp}}{2}}\cosh( |\bq +\bG|t_{i,z})\right]}{|\bq +\bG| \dd_{\perp}}\Big]\sum_{j\beta}\Big[C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \vdot \bt_{j}}\Big]- \notag\\
+    & \sum_{j\beta} \Big[\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*}C_{j\beta}^{\vv\bk}\frac{2\ee^{-\ii(\bq +\bG) \vdot \bt_{j}}\left[1-\ee^{-|\bq +\bG| \frac{\dd_{\perp}}{2}}\cosh( |\bq +\bG|t_{j,z})\right]}{|\bq +\bG| \dd_{\perp}}\Big]  \sum_{i\alpha}\Big[\left(C_{i\alpha}^{\vv\bk}\right)^{*}C_{i\alpha}^{\cc\bk+\bq } \ee^{\ii (\bq +\bG') \vdot \bt_{i}}\Big]\Bigg\}\,, \notag
+\end{align}
 
-\subsection{Quasi-2D dielectric function: results}
-\label{subsec:quasi_2D_results}
+\noindent where we have used the identities
 
-We have found that our quasi-2D dielectric function for the cutoff $G_c = 3$ \unit{\angstrom^{-1}} is underestimated with respect to the \abinit~one from Ref.~\cite{Latini_2015} and shown in Fig.~\ref{fig:epsilon2D_abinitio_vs_q_hBN}.
-Luckily, we get a very good agreement, as one can see in Fig.~\ref{fig:epsilon_quasi-2D_QEH_vs_q_hBN} below, by using the QEH package for Python designed for calculating the dielectric properties of \gls{vdw} structures~\cite{Dielectric_Genome}.
-The package works for any \gls{vdw} structure, but since we are only interested in the monolayer case, we wrote a Python script to compute the dielectric function of monolayer \gls{hbn}.
+\begin{equation}
+\int_{-\frac{\dd_{\perp}}{2}}^{\frac{\dd_{\perp}}{2}} \ee^{-|\bq +\bG||z-t_{i,z}|}\dd z = \frac{2\left[1-\ee^{-|\bq +\bG| \frac{\dd_{\perp}}{2}} \cosh( |\bq +\bG|t_{i,z})\right]}{|\bq +\bG|} \qq{and} \int_{-\frac{\dd_{\perp}}{2}}^{\frac{\dd_{\perp}}{2}} \delta(z' - t_{j,z})\,\dd z' = 1\,.
+\end{equation}
+
+Taking in the expression~\eqref{eq:quasi_2D_averaged_dielectric_function} the limit $\dd_{\perp},t_{i,z} \to 0$ and expanding the real exponential to leading order as $\ee^{-|\bq +\bG| \frac{\dd_{\perp}}{2}} \approx 1 - |\bq +\bG| \frac{\dd_{\perp}}{2} $ and considering $\cosh(x) \approx 1$ to leading order, we find
+
+\begin{equation}
+\begin{aligned}
+    \bar{\varepsilon}_{\bG \bG'}(\bq) & \approx \delta_{\bG \bG'} - \frac{1}{2\epsz|\bq +\bG|\area}\sum_{\vv \cc,\bk \sigma}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })}\Bigg\{\\
+ & \sum_{i\alpha} \Big[C_{i\alpha}^{\cc\bk+\bq }\left(C_{i\alpha}^{\vv\bk}\right)^{*} \ee^{-\ii (\bq +\bG) \vdot\bt_{i}}\Big] \sum_{j\beta}\Big[C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \vdot \bt_{j}}\Big]-\\
+ & \sum_{j\beta}  \Big[\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*}C_{j\beta}^{\vv\bk} \ee^{-\ii (\bq +\bG) \vdot \bt_{j}}\Big] \sum_{i\alpha}\Big[\left(C_{i\alpha}^{\vv\bk}\right)^{*}C_{i\alpha}^{\cc\bk+\bq } \ee^{\ii (\bq +\bG') \vdot\bt_{i}}\Big]\Bigg\}\,.
+\end{aligned}
+\end{equation}
+
+In this way, we can identify in the previous expression the strict \bd~dielectric function we implemented in the code $\varepsilon_{\bG \bG'}(\bq)$ as the zero thickness limit of the averaged quasi-2D dielectric function, and write
+
+\begin{empheq}[innerbox=\fbox, right={\,,}]{align}
+    \label{eq:Q2D_dielectric_function_zero_thickness_limit}
+    \varepsilon_{\bG \bG'}(\bq) = \lim_{\dd_{\perp} \to 0} \frac{1}{\dd_{\perp}} \int_{-\frac{\dd_{\perp}}{2}}^{\frac{\dd_{\perp}}{2}} \int_{-\frac{\dd_{\perp}}{2}}^{\frac{\dd_{\perp}}{2}} \varepsilon_{\bG \bG'}(\bq,z,z')\,\dd z\dd z'\,,
+\end{empheq}
+
+\noindent just as we expected.
+The first question (i) posed at the end of the previous section is answered.
+Now we understand how in the long-wavelength limit the results coming from our strict \bd~implementation agreed with the \abinit~ones.
+The only thing left to do is to put up to test our theory by computing the effective \bd~dielectric function from the quasi-2D approach, $\bar{\varepsilon}_{\bG \bG'}(\bq)$, and compare once more with the \abinit~results.
+Fortunately, the answer to question (ii) posed at the end of the previous section is positive.
+
+We have found that our quasi-2D dielectric function for the cutoff $G_c = 3$ \unit{\angstrom^{-1}} is underestimated with respect to the \abinit~one from Ref.~\cite{Latini_2015}, and shown in Fig.~\ref{fig:epsilon2D_abinitio_vs_q_hBN}.
+Luckily, as one can see in Fig.~\ref{fig:epsilon_quasi-2D_QEH_vs_q_hBN} below, we get a very good agreement by using the \gls{qeh} package~\cite{Dielectric_Genome}.
+The package works for any \gls{vdw} structure, but since we are only interested in the monolayer case, we wrote a short Python script to compute the dielectric function of monolayer \gls{hbn}.
 For each monolayer material, the package uses data from already done previous \abinit~calculations with the GPAW code~\cite{GPAW_2025}.
 Therefore, the computational effort to get the dielectric function using the QEH package was minimal.
-The \abinit~curve is displayed with a continuous black line, while our quasi-2D curve is represented with a red dot-dashed line.
+The \abinit~curve from the QEH package is represented by the dashed black line, while our quasi-2D curve is represented with a continuous blue line.
 Although the two curves do not exactly overlap, the overall agreement is excellent along the whole $\Gamma-K$ line.
+For completion, we included in the plot below the curve previously displayed in Fig.~\ref{fig:epsilon2D_abinitio_vs_q_hBN}.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{Chapters/Figures/Chapter_6/epsilon_quasi-2D_QEH_vs_q_hBN}
-    \mycaption[\textit{Ab-initio} and quasi-2D effective dielectric function for \gls{hbn}]{Macroscopic quasi-2D effective dielectric function of monolayer \gls{hbn}, computed by our quasi-2D approach, in comparison to the \abinit~one. We applied the cutoff $G_c = 3.0$ \unit{\angstrom^{-1}}. The black curve was obtained through the QEH package for Python~\cite{Dielectric_Genome}. For the monolayer thickness, we used the value provided by the same package, $\dd_{\perp}=3.33$~\unit{\angstrom}.}
+    \mycaption[\textit{Ab-initio} and quasi-2D effective dielectric function for \gls{hbn}]{\bd~effective dielectric function of monolayer \gls{hbn}, computed by our strict \bd~quasi-2D approaches, in dashed red and continuous blue lines, respectively, in comparison to the \abinit~ones from Ref.~\cite{Latini_2015} and Ref.~\cite{Dielectric_Genome}, in continuous and dashed black lines, respectively. We applied the cutoff $G_c = 3.0$ \unit{\angstrom^{-1}} to both \bd~and quasi-2D calculations. The black curve was obtained through the \gls{qeh} package for Python~\cite{Dielectric_Genome}. For the monolayer thickness in the quasi-2D approach, we used the value provided by the \gls{qeh} package, $\dd_{\perp}=3.33$~\unit{\angstrom}.}
     \label{fig:epsilon_quasi-2D_QEH_vs_q_hBN}
 \end{figure}
+
+In the following section, we discuss details about the implementation of the theory presented in Sections~\ref{sec:dielectric_function_revisited} and~\ref{sec:quasi_2D} in the xatu code.
+We shall focus on the implementation of the dielectric function, since that is the main contribution from this work to the code.
+Details about the exciton calculation are also in order, the ones relevant for our implementation of the screening.
 
 \section{Efficient computation of the static dielectric function with the Xatu code}
 \label{sec:xatu_code}
