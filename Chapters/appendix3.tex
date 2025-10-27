@@ -405,7 +405,7 @@ the expression at the end of section 2.1
  & \sum_{i\alpha}\left(C_{i\alpha}^{\cc\bk+\bq }\right)^{*}C_{i\alpha}^{\vv\bk} \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \ee^{-|\bq +\bG||z-t_{i,z}|}\sum_{j\beta}\left(C_{j\beta}^{\vv\bk}\right)^{*}C_{j\beta}^{\cc\bk+\bq } \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z})\Bigg\}
 \end{aligned}
 \]
-\iffalse
+
 An effective dielectric function averaged over the layer thickness,
 $d$, yields ($\area = N\Omega$ is the total area of the material, and
 $\Omega$ the area of the unit cell, it has to appear somewhere for
@@ -454,10 +454,10 @@ dielectric function, necessary for the screened Coulomb potential
 in order to compute the interaction matrix elements in the BSH. According
 to Martin's textbook
 \[
-\varepsilon^{-1} ( \br,\br';\omega) = \delta(\br-\br')+\int v_{c}( \br-\br'')\chi^{0}( \br'',\br;\omega)\dr''\,,
+\varepsilon^{-1} ( \br,\br';\omega) = \delta(\br-\br')+\int v_{c}( \br-\br'')\chi( \br'',\br;\omega)\dr''\,,
 \]
 
-where $\chi$ is the full interacting polarizability, that relates
+where $\chi$ is the interacting reducible polarizability, that relates
 to the irreducible one through the Dyson's equation
 \[
 \chi = \chi^{\irr}+\chi^{\irr}*v_{c}*\chi\,,
@@ -477,18 +477,19 @@ where the full interacting polarizability is approximated to an interacting
 one at the single-particle level. Making now explicit the momentum
 and $z$ coordinate dependence on the previous expression we write
 \[
-\chi^{0}_{\bG \bG'}^{\RPA}(\bq,z,z') = \chi^{0}_{\bG \bG'}(\bq,z,z')+\sum_{\bG_{1}} \int \int \,\chi^{0}_{\bG,\bG_{1}}^{0}(\bq,z,z_{1})v_{c}( \bq +\bG_{1},z_{1}-z_{2})\chi^{0}_{\bG_{1} \bG'}^{\RPA}(\bq,z_{2},z')\dd z_{1}\dd z_{2}
+\chi^{\RPA}_{\bG \bG'}(\bq,z,z') = \chi^{0}_{\bG \bG'}(\bq,z,z')+\sum_{\bG_{1}} \int \int \,\chi^{0}_{\bG,\bG_{1}}(\bq,z,z_{1}) v_{c}( \bq +\bG_{1},z_{1}-z_{2}) \chi^{\RPA}_{\bG_{1} \bG'}(\bq,z_{2},z')\dd z_{1}\dd z_{2}
 \]
 
-Let us assume that we can determine $\chi^{0}_{\bG \bG'}^{\RPA}(\bq,z,z')$.
+Let us assume that we can determine $\chi^{\RPA}_{\bG \bG'}(\bq,z,z')$.
 Then, for the inverse dielectric function within RPA we would have
 \[
-\varepsilon_{\bG \bG'}^{-1}(\bq,z,z') = \delta_{\bG \bG'} \delta(z-z')+\int v_{c}( \bq +\bG,z-z'')\chi^{0}_{\bG \bG'}^{\RPA}(\bq,z'',z')\dd z''\,.
+\varepsilon_{\bG \bG'}^{-1}(\bq,z,z') = \delta_{\bG \bG'} \delta(z-z')+\int v_{c}( \bq +\bG,z-z'')\chi^{\RPA}_{\bG \bG'}(\bq,z'',z')\dd z''\,.
 \]
 
 In principle, assuming we have the inverse of the dielectric function,
 we can compute the interaction matrix elements. We outline their computation
 in the next equation
+
 \[
 \begin{aligned} & D_{vc,v'c'}( \bk,\bk',\bQ) = \int\dr\int\dr'\,\psi_{c,\bk + \bQ}^{*}(\br)\psi_{v',\bk'}^{*}( \br')W( \br,\br')\psi_{c',\bk'+\bQ}(\br)\psi_{v,\bk}( \br') = \\
  &  = \int\dd z\int\dd z'\int \dd \boldsymbol{\rho} \int \dd \boldsymbol{\rho}'\psi_{c,\bk + \bQ}^{*}(\br)\psi_{v',\bk'}^{*}( \br')( \sum_{\bq }^{\BZ}\sum_{\bG \bG'} \ee^{ \ii ( \bq +\bG) \vdot\boldsymbol{\rho}}W_{\bG \bG'}(\bq,z,z') \ee^{- \ii ( \bq +\bG') \vdot\boldsymbol{\rho}'})\psi_{c',\bk'+\bQ}(\br)\psi_{v,\bk}( \br') = \\
@@ -520,6 +521,8 @@ evaluate said expression numerically, we need to compute $W_{\bG \bG'}( \bk,t_{i
 for every $\bk\in\BZ$. For that, we already have
 from before the inverse of the dielectric function. At any pair of
 points $( z,z')$, we can use the expression
+
+
 \[
 W_{\bG \bG'}( \bk,z,z') = \int\varepsilon_{\bG \bG'}^{-1}(\bq,z,z'')v_{c}( \bq +\bG',z''-z')\dd z''\,,
 \]
@@ -529,8 +532,8 @@ is the inverse of the dielectric matrix in the $( q,z)$
 mixed representation within RPA, which was previously determined.
 Replacing it by its expression above one arrives at
 \[
-\begin{aligned}W_{\bG \bG'}(\bq,z,z') =  & \int\left[\delta_{\bG \bG'} \delta(z-z'')+\int v_{c}( \bq +\bG,z-z_{1})\chi^{0}_{\bG \bG'}^{\RPA}(\bq,z_{1},z'')\dd z_{1}\right]v_{c}( \bq +\bG',z''-z')\dd z'' = \\
- & \delta_{\bG \bG'}v_{c}( \bq +\bG',z-z')+\int\int v_{c}( \bq +\bG,z-z_{1})\chi^{0}_{\bG \bG'}^{\RPA}(\bq,z_{1},z'')v_{c}( \bq +\bG',z''-z')\dd z_{1}\dd z''\,.
+\begin{aligned}W_{\bG \bG'}(\bq,z,z') =  & \int\left[\delta_{\bG \bG'} \delta(z-z'')+\int v_{c}( \bq +\bG,z-z_{1})^{\RPA}_{\bG \bG'}(\bq,z_{1},z'')\dd z_{1}\right]v_{c}( \bq +\bG',z''-z')\dd z'' = \\
+ & \delta_{\bG \bG'}v_{c}( \bq +\bG',z-z')+\int\int v_{c}( \bq +\bG,z-z_{1})\chi^{\RPA}_{\bG \bG'}(\bq,z_{1},z'')v_{c}( \bq +\bG',z''-z')\dd z_{1}\dd z''\,.
 \end{aligned}
 \]
 
@@ -539,13 +542,13 @@ the screened potential between $z$ points located at the heights
 of the atoms in the motif, we can work out the previous expression
 at those points, to be used for the interaction matrix elements as
 \[
-W_{\bG \bG'}(\bq,t_{i}^{z},t_{j}^{z}) = \delta_{\bG \bG'}v_{c}( \bq +\bG,t_{i}^{z}-t_{j}^{z})+\int\int v_{c}( \bq +\bG,t_{i}^{z}-z_{1})\chi^{0}_{\bG \bG'}^{\RPA}(\bq,z_{1},z'')v_{c}( \bq +\bG',z''-t_{j}^{z})\dd z_{1}\dd z''.
+W_{\bG \bG'}(\bq,t_{i}^{z},t_{j}^{z}) = \delta_{\bG \bG'}v_{c}( \bq +\bG,t_{i}^{z}-t_{j}^{z})+\int\int v_{c}( \bq +\bG,t_{i}^{z}-z_{1})\chi^{\RPA}_{\bG \bG'}(\bq,z_{1},z'')v_{c}( \bq +\bG',z''-t_{j}^{z})\dd z_{1}\dd z''.
 \]
 
-However, in practice one can not solve Dyson's equation for $\chi^{0}_{\bG \bG'}^{\RPA}(\bq,z_{1},z'')$
-directly, as we model the $z$--dependence in the polarizability
+However, in practice one can not solve Dyson's equation for $\chi^{\RPA}{\bG \bG'}(\bq,z_{1},z'')$
+directly, as we model the $z$-dependence in the polarizability
 $\chi^{0}_{\bG \bG'}(\bq,z,z')$
-with Dirac \delta functions. One solution is to working with a basis
+with Dirac delta functions. One solution is to working with a basis
 of potential functions $\left\{ \phi_{\alpha}( z)\right\} $,
 that assume the form $\phi_{\alpha}( z)\sim( z-z_{0})^{\alpha}$,
 and compute the respective matrix elements of the polarizability in
@@ -555,15 +558,16 @@ in which the interaction matrix elements are computed with a self-consistently
 determined RPA polarizability. To do this, let us first recall Dyson's
 equation for the polarizability within RPA
 \[
-\chi^{0}_{\bG \bG'}^{\RPA}(\bq,z,z') = \chi^{0}_{\bG \bG'}(\bq,z,z')+\sum_{\bG_{1}}\int\dd z_{1} \int \dd z_{2}\,\chi^{0}_{\bG,\bG_{1}}^{0}(\bq,z,z_{1})v_{c}( \bq +\bG_{1},z_{1}-z_{2})\chi^{0}_{\bG_{1} \bG'}^{\RPA}(\bq,z_{2},z')\,,
+\chi^{\RPA}_{\bG \bG'}(\bq,z,z') = \chi^{0}_{\bG \bG'}(\bq,z,z')+\sum_{\bG_{1}}\int\dd z_{1} \int \dd z_{2}\,\chi^{0}_{\bG,\bG_{1}}(\bq,z,z_{1})v_{c}( \bq +\bG_{1},z_{1}-z_{2})\chi^{\RPA}_{\bG_{1} \bG'}(\bq,z_{2},z')\,,
 \]
 
 for which an iterative process looks like
 \[
-\begin{aligned}\text{Step 0:\,\chi^{0}_{\bG \bG'}^{\RPA}(\bq,z,z')} =  & \chi^{0}_{\bG \bG'}(\bq,z,z')\\
-\text{Step 1:}\,\chi^{0}_{\bG \bG'}^{\RPA}(\bq,z,z') =  & \chi^{0}_{\bG \bG'}(\bq,z,z')+\sum_{\bG_{1}}\int\dd z_{1} \int \dd z_{2}\,\chi^{0}_{\bG,\bG_{1}}^{0}(\bq,z,z_{1})v_{c}( \bq +\bG_{1},z_{1}-z_{2})\chi^{0}_{\bG_{1} \bG'}(\bq,z_{2},z')\\
-\text{Step 2:}\,\chi^{0}_{\bG \bG'}^{\RPA}(\bq,z,z') =  & \chi^{0}_{\bG \bG'}(\bq,z,z')+\sum_{\bG_{1}}\int\dd z_{1} \int \dd z_{2}\,\chi^{0}_{\bG,\bG_{1}}^{0}(\bq,z,z_{1})v_{c}( \bq +\bG_{1},z_{1}-z_{2})\chi^{0}_{\bG_{1} \bG'}(\bq,z_{2},z')+\\
- & \sum_{\bG_{1}}\sum_{\bG_{2}}\int\dd z_{1} \int \dd z_{2}\int\dd z_{3}\int\dd z_{4}\,\chi^{0}_{\bG,\bG_{1}}^{0}(\bq,z,z_{1})v_{c}( \bq +\bG_{1},z_{1}-z_{2})\chi^{0}_{\bG_{1} \bG_{2}}^{0}(\bq,z_{2,}z_{3})\times\\
+\begin{aligned}
+\text{Step 0:}\,\chi^{\RPA}_{\bG \bG'}(\bq,z,z') =  & \chi^{0}_{\bG \bG'}(\bq,z,z')\\
+\text{Step 1:}\,\chi^{\RPA}_{\bG \bG'}(\bq,z,z') =  & \chi^{0}_{\bG \bG'}(\bq,z,z')+\sum_{\bG_{1}}\int\dd z_{1} \int \dd z_{2}\,\chi^{0}_{\bG,\bG_{1}}(\bq,z,z_{1})v_{c}( \bq +\bG_{1},z_{1}-z_{2})\chi^{0}_{\bG_{1} \bG'}(\bq,z_{2},z')\\
+\text{Step 2:}\,\chi^{\RPA}_{\bG \bG'}(\bq,z,z') =  & \chi^{0}_{\bG \bG'}(\bq,z,z')+\sum_{\bG_{1}}\int\dd z_{1} \int \dd z_{2}\,\chi^{0}_{\bG,\bG_{1}}(\bq,z,z_{1})v_{c}( \bq +\bG_{1},z_{1}-z_{2})\chi^{0}_{\bG_{1} \bG'}(\bq,z_{2},z')+\\
+ & \sum_{\bG_{1}}\sum_{\bG_{2}}\int\dd z_{1} \int \dd z_{2}\int\dd z_{3}\int\dd z_{4}\,\chi^{0}_{\bG,\bG_{1}}(\bq,z,z_{1})v_{c}( \bq +\bG_{1},z_{1}-z_{2})\chi^{0}_{\bG_{1} \bG_{2}}(\bq,z_{2,}z_{3})\times\\
  & v_{c}( \bq +\bG_{2},z_{3}-z_{4})\chi^{0}_{\bG_{2},\bG'}(\bq,z_{4},z')\\
  & \vdots
 \end{aligned}
@@ -573,16 +577,16 @@ Along this line of thought, we can evaluate numerically the screened
 potential in the mixed representation with a self-consistent method
 as:
 \[
-\begin{aligned}\text{Step 0:\,W_{\bG \bG'}(\bq,t_{i}^{z},t_{j}^{z})} =  & \delta_{\bG \bG'}v_{c}( \bq +\bG,t_{i}^{z}-t_{j}^{z})+\int\dd z\int\dd z''v_{c}( \bq +\bG,t_{i}^{z}-z)\chi^{0}_{\bG \bG'}(\bq,z,z'')v_{c}( \bq +\bG',z''-t_{j}^{z})\\
-\text{Step 1:\,W_{\bG \bG'}(\bq,t_{i}^{z},t_{j}^{z})} =  & \delta_{\bG \bG'}v_{c}( \bq +\bG,t_{i}^{z}-t_{j}^{z})+\int\dd z\int\dd z''v_{c}( \bq +\bG,t_{i}^{z}-z)\chi^{0}_{\bG \bG'}(\bq,z,z'')v_{c}( \bq +\bG',z''-t_{j}^{z})+\\
- & \sum_{\bG_{1}}\int\dd z\int\dd z''\int\dd z_{1}\int\dd z_{2}\,v_{c}( \bq +\bG,t_{i}^{z}-z)\,\chi^{0}_{\bG,\bG_{1}}^{0}(\bq,z,z_{1})v_{c}( \bq +\bG_{1},z_{1}-z_{2})\chi^{0}_{\bG_{1} \bG'}(\bq,z_{2},z'')\times\\
+\begin{aligned}
+\text{Step 0:}\,W_{\bG \bG'}(\bq,t_{i}^{z},t_{j}^{z}) =  & \delta_{\bG \bG'}v_{c}( \bq +\bG,t_{i}^{z}-t_{j}^{z})+\int\dd z\int\dd z''v_{c}( \bq +\bG,t_{i}^{z}-z)\chi^{0}_{\bG \bG'}(\bq,z,z'')v_{c}( \bq +\bG',z''-t_{j}^{z})\\
+\text{Step 1:}\,W_{\bG \bG'}(\bq,t_{i}^{z},t_{j}^{z}) =  & \delta_{\bG \bG'}v_{c}( \bq +\bG,t_{i}^{z}-t_{j}^{z})+\int\dd z\int\dd z''v_{c}( \bq +\bG,t_{i}^{z}-z)\chi^{0}_{\bG \bG'}(\bq,z,z'')v_{c}( \bq +\bG',z''-t_{j}^{z})+\\
+ & \sum_{\bG_{1}}\int\dd z\int\dd z''\int\dd z_{1}\int\dd z_{2}\,v_{c}( \bq +\bG,t_{i}^{z}-z)\,\chi^{0}_{\bG,\bG_{1}}(\bq,z,z_{1})v_{c}( \bq +\bG_{1},z_{1}-z_{2})\chi^{0}_{\bG_{1} \bG'}(\bq,z_{2},z'')\times\\
  & v_{c}( \bq +\bG',z''-t_{j}^{z})\\
-\text{Step 2:\, W_{\bG \bG'}(\bq,t_{i}^{z},t_{j}^{z})} =  & \delta_{\bG \bG'}v_{c}( \bq +\bG,t_{i}^{z}-t_{j}^{z})+\int\int v_{c}( \bq +\bG,t_{i}^{z}-z_{1})\chi^{0}_{\bG \bG'}(\bq,z_{1},z'')v_{c}( \bq +\bG',z''-t_{j}^{z})\dd z_{1}\dd z''+\\
- & \sum_{\bG_{1}}\int\dd z\int\dd z''\int\dd z_{1}\int\dd z_{2}\,v_{c}( \bq +\bG,t_{i}^{z}-z_{1})\chi^{0}_{\bG,\bG_{1}}^{0}(\bq,z_{1},s_{1})v_{c}( \bq +\bG_{1},s_{1}-s_{2})\chi^{0}_{\bG_{1} \bG'}(\bq,s_{2},z'')\\
+\text{Step 2:}\, W_{\bG \bG'}(\bq,t_{i}^{z},t_{j}^{z}) =  & \delta_{\bG \bG'}v_{c}( \bq +\bG,t_{i}^{z}-t_{j}^{z})+\int\int v_{c}( \bq +\bG,t_{i}^{z}-z_{1})\chi^{0}_{\bG \bG'}(\bq,z_{1},z'')v_{c}( \bq +\bG',z''-t_{j}^{z})\dd z_{1}\dd z''+\\
+ & \sum_{\bG_{1}}\int\dd z\int\dd z''\int\dd z_{1}\int\dd z_{2}\,v_{c}( \bq +\bG,t_{i}^{z}-z_{1})\chi^{0}_{\bG,\bG_{1}}(\bq,z_{1},s_{1})v_{c}( \bq +\bG_{1},s_{1}-s_{2})\chi^{0}_{\bG_{1} \bG'}(\bq,s_{2},z'')\\
  & \times v_{c}( \bq +\bG',z''-t_{j}^{z})+\\
- & \sum_{\bG_{1}}\sum_{\bG_{2}}\int\dd z\int\dd z''\int\dd z_{1}\int\dd z_{2}\int\dd z_{3}\int\dd z_{4}\,v_{c}( \bq +\bG,t_{i}^{z}-z)\,\chi^{0}_{\bG,\bG_{1}}^{0}(\bq,z,z_{1})v_{c}( \bq +\bG_{1},z_{1}-z_{2})\times\\
- & \chi^{0}_{\bG_{1} \bG_{2}}^{0}(\bq,z_{2},z_{3})v_{c}( \bq +\bG_{2},z_{3}-z_{4})\chi^{0}_{\bG_{2},\bG'}(\bq,z_{4},z'')v_{c}( \bq +\bG',z''-t_{j}^{z})\dd z_{1}\dd z''\\
+ & \sum_{\bG_{1}}\sum_{\bG_{2}}\int\dd z\int\dd z''\int\dd z_{1}\int\dd z_{2}\int\dd z_{3}\int\dd z_{4}\,v_{c}( \bq +\bG,t_{i}^{z}-z)\,\chi^{0}_{\bG,\bG_{1}}(\bq,z,z_{1})v_{c}( \bq +\bG_{1},z_{1}-z_{2})\times\\
+ & \chi^{0}_{\bG_{1} \bG_{2}}(\bq,z_{2},z_{3})v_{c}( \bq +\bG_{2},z_{3}-z_{4})\chi^{0}_{\bG_{2},\bG'}(\bq,z_{4},z'')v_{c}( \bq +\bG',z''-t_{j}^{z})\dd z_{1}\dd z''\\
  & \vdots
 \end{aligned}
 \]
-\fi
