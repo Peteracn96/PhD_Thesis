@@ -813,7 +813,7 @@ Performing the average explicitly yields
 
 \begin{equation}
 \begin{aligned}
-    \bar{\varepsilon}_{\bG \bG'}(\bq) \approx & \delta_{\bG \bG'} - \frac{1}{2\epsz|\bq +\bG|\area}\sum_{\vv \cc,\bk \sigma}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })}\Bigg\{\\
+    \bar{\varepsilon}_{\bG \bG'}(\bq) \approx & \,\delta_{\bG \bG'} - \frac{1}{2\epsz|\bq +\bG|\area}\sum_{\vv \cc,\bk \sigma}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })}\Bigg\{\\
  & \sum_{i\alpha} \Big[C_{i\alpha}^{\cc\bk+\bq }\left(C_{i\alpha}^{\vv\bk}\right)^{*} \ee^{-\ii (\bq +\bG) \vdot\bt_{i}}\Big] \sum_{j\beta}\Big[C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \vdot \bt_{j}}\Big]-\\
  & \sum_{j\beta}  \Big[\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*}C_{j\beta}^{\vv\bk} \ee^{-\ii (\bq +\bG) \vdot \bt_{j}}\Big] \sum_{i\alpha}\Big[\left(C_{i\alpha}^{\vv\bk}\right)^{*}C_{i\alpha}^{\cc\bk+\bq } \ee^{\ii (\bq +\bG') \vdot\bt_{i}}\Big]\Bigg\}\,.
 \end{aligned}
@@ -824,7 +824,7 @@ In math notation, we can write
 
 \begin{empheq}[innerbox=\fbox, right={\,,}]{align}
     \label{eq:Q2D_dielectric_function_zero_thickness_limit}
-    \varepsilon_{\bG \bG'}(\bq) = \lim_{\dd_{\perp} \to 0} \frac{1}{\dd_{\perp}} \int_{-\dd_{\perp}/2}^{\dd_{\perp}/2} \int_{-\dd_{\perp}/2}^{\dd_{\perp}/2} \varepsilon_{\bG \bG'}(\bq,z,z')\,\dd z\dd z'
+    \varepsilon_{\bG \bG'}(\bq) = \lim_{\dd_{\perp}\! \to 0} \frac{1}{\dd_{\perp}} \int_{-\dd_{\perp}/2}^{\dd_{\perp}/2} \int_{-\dd_{\perp}/2}^{\dd_{\perp}/2} \varepsilon_{\bG \bG'}(\bq,z,z')\,\dd z\dd z'
 \end{empheq}
 
 \noindent just as we expected.
@@ -891,35 +891,124 @@ In the next section, we describe the structure of a general screening input file
 The extra input file has the \texttt{.txt} format, in similarity with the exciton file~\cite{Xatu}, the latter containing the information relevant for the \gls{bse} calculations.
 
 In the exciton file, we added two more parameters, and changed a previous one.
-The one suffering changes was the parameter \texttt{\# reciprocal}, which we changed to \texttt{\# gcutoff}.
+The one suffering changes was the parameter \texttt{\#~reciprocal}, which we changed to \texttt{\#~gcutoff}.
 Each parameter in the file it is contained starts with the cardinal symbol \texttt{\#}.
 Whenever we use it in this text, we are referring to an input parameter.
-The new version of the \texttt{\# reciprocal} parameter, called now \texttt{\# gcutoff}, is a number defined by the user to set the reciprocal vectors cutoff for the exciton, $G^{X}_c$, determining which reciprocal lattice vectors $\bG$ are included in the interaction matrix elements (see Eqs.~\eqref{eq:interaction_matrix_elements_reciprocal_RK},~\eqref{eq:direct_term} and~\eqref{eq:exchange_term}).
-When the \texttt{\# gcutoff} is parsed, it sets the program to the reciprocal space mode, just as in the first version of the code with the parameter \texttt{\# reciprocal}, enabling the calculation of the interaction matrix elements using the (screened) Coulomb potential resolved in momentum.
+The new version of the \texttt{\#~reciprocal} parameter, called now \texttt{\#~gcutoff}, is a number defined by the user to set the reciprocal vectors cutoff for the exciton, $G^{X}_c$, determining which reciprocal lattice vectors $\bG$ are included in the interaction matrix elements (see Eqs.~\eqref{eq:interaction_matrix_elements_reciprocal_RK},~\eqref{eq:direct_term} and~\eqref{eq:exchange_term}).
+When the \texttt{\#~gcutoff} is parsed, it sets the program to the reciprocal space mode, just as in the first version of the code with the parameter \texttt{\#~reciprocal}, enabling the calculation of the interaction matrix elements using the (screened) Coulomb potential resolved in momentum.
 If the reciprocal space mode is set, then the user can additionally provide another parameter to determine the size of the regularization radius (see Appendix~\ref{app:regularization}).
-The parameter is called \texttt{\# percentage}, and it should be a number of the order of the unit, $\varsigma$.
+The parameter is called \texttt{\#~percentage}, and it should be a number of the order of the unit, $\varsigma$.
 The radius $q_0$ of the regularization region, which is a circle, is then $q_0 = \varsigma k_0$, where $k_0$ is the length of the vector in the \bz~mesh closest to the origin.
 Since we use the Rytova--Keldysh analytical scheme for the regularization~\cite{Rasmussen_Schmidt_Winther_Thygesen_2016}, the parameter $\varsigma$ has to be of the order of the unity, so that the low-$q$ limit of the dielectric function to remains valid.
 
 Before we dive into the technical aspects of the implementation, we would like to dwell on the new functionalities, in particular the new algorithm of the \texttt{xatu} program, and useful new methods for the calculation of the dielectric function.
-For the latter, we implement a key method, called \mintinline{c++}{compute_2D_DielectricMatrix}, which calculates the dielectric function in the entire \bz~mesh, followed by the its inversion, and the writing of the generated data into a \texttt{.dat} file, these last two tasks being performed in separate methods of their own.
-With this file, the user can call the method \mintinline{c++}{ExcitonTB::readInverseDielectricMatrix}, which accepts as an argument the name of the \texttt{.dat} file generated by the \texttt{xatu} program.
+For the latter, we implement a key method, called \texttt{ExcitonTB::compute\_2D\_DielectricMatrix}\footnote{Having \texttt{ExcitonTB::} before the name of the method helps the reader remembering that the method belongs to the \texttt{ExcitonTB} class. It is also correct \CC~syntax, but that is not of relevance for the reader.}, which calculates the dielectric function in the entire \bz~mesh, followed by the its inversion, and the writing of the generated data into a \texttt{.dat} file, these last two tasks being performed in separate methods of their own.
+With this file, the user can call the method \texttt{ExcitonTB::readInverseDielectricMatrix}, which accepts as an argument the name of the \texttt{.dat} file generated by the \texttt{xatu} program.
 In this way, it is possible to write separate scripts using the \xatu~library to compute the excitons without the need to repeat the screening calculations.
 With the \texttt{xatu.cpp} script, the inversion of the dielectric matrix is performed, the inverse dielectric matrix is kept stored until the initialization of the the Bethe--Salpeter Hamiltonian.
 When initializing the Bethe--Salpeter Hamiltonian, the interaction matrix elements using the numerical screening are computed on the fly.
-To better visualize what we have just discussed, we provide in Fig.~\ref{fig:xatu_flow_diagram} a flowchart for the \texttt{xatu} program, adapted from its first version by A.~J.~Ur\'{\i}a-\'Alvarez, which corresponds to Figure 3.2 of his PhD thesis in Ref.~\cite{PhD_Alex}.
+To better visualize what we have just discussed, we provide in Fig.~\ref{fig:xatu_flow_diagram} a flowchart for the \texttt{xatu} program, adapted from its first version by A.~J.~Ur\'{\i}a-\'Alvarez, which corresponds to Figure 3.2 of his PhD thesis in Ref.~\cite{Alex_PhD}.
 
-\begin{figure}[h]\label{fig:xatu_flow_diagram}
-    \centering
+\begin{figure}[ht]
     \input{Chapters/Figures/Chapter_6/flowchart}
     \mycaption[Flow diagram of an exciton calculation with Xatu, including the numerical model for the screening]{Flow diagram showing the typical steps in an exciton calculation with Xatu.}
+    \label{fig:xatu_flow_diagram}
 \end{figure}
+
+If the reader is interested in using the code for themselves, we provide in Box~\ref{box:xatu_screening_usage} an explanation on how to use the new screening functionalities.
+If the reader is more interested in the technical discussion of the implementation, the box below can be skipped to the Subsection~\ref{subsec:complexity_analysis}.
+
+\begin{mybox}{Using the screening functionalities of \xatu}{box:xatu_screening_usage}
+In this box we give instructions on how to use the new functionalities in \xatu~pertaining to the screening, when one uses \xatu as a script, that is, runs the binary resulting from compiling the file \texttt{xatu.cpp}.
+To use them, when running the binary on the command line, one must provide the flag \texttt{-z} together with the name of the screening file, whose structure we discuss in the next.
+In general, we must do
+
+\begin{lstlisting}[language=bash, basicstyle=\ttfamily]
+$ ./xatu [OPTIONS] systemfile excitonfile -z screeningfile
+\end{lstlisting}
+
+At this point, if a screening file is provided, then an exciton file must be provided as well.
+If the interaction matrix elements of the \bse~ are computed in the reciprocal space, the value of that option establishes a cutoff $G_c$ for the magnitude of the vectors of the reciprocal lattice.
+This means that if the option is provided, then all reciprocal lattice vectors $\bG$ with magnitude $\abs{\bG} < G_c$ are included in the computation of the \textbf{dielectric matrix}.
+See Eq.~\eqref{eq:static_symmetrized_dielectric_function}.
+If not provided, it is set to a default value.
+\\
+The cutoff $G_c$ is distinct from the old pre-existing parameter \texttt{\#~reciprocal}, which now is called \texttt{\# gcutoff}, that determines the number of reciprocal lattice vectors included in the calculation of the \textbf{interaction matrix elements}.
+If we use the notation $G_X$ for that cutoff, then, analogously to the calculation of the dielectric matrix, in the determination of the interaction matrix elements, all reciprocal lattice vectors $\bG$ with magnitude $\abs{\bG} < G_X$ are included.
+See Eqs.~\eqref{eq:interaction_matrix_element_direct_reciprocal} and~\eqref{eq:interaction_matrix_element_exchange_reciprocal}.
+In principle, fewer reciprocal lattice vectors are needed to make the interaction matrix elements converge than the amount needed to make the inverse of the dielectric matrix converge, which justifies our choice.
+On the other hand, in practice, we always have $G_X \leq G_c$.
+\\
+Still pertaining to the exciton file, the functionality of choosing the desired potential to compute the interaction matrix elements has been extended to the calculations using the reciprocal space approach.
+Up until the moment of the publication of the article~\cite{Xatu}, this option was only implemented for the real space approach.
+Now the user can also choose for the interaction the bare Coulomb potential, in addition to the new option of using the numerical model for the screening.
+To do so, the option \texttt{rpa} has to be provided for the parameter \texttt{\# potential}, that enables the computation of the interaction matrix elements using the numerical electrostatic screening.
+The potentials for the direct and exchange terms can be chosen separately, just as before.
+\\
+Furthermore, we have added another parameter to the exciton configuration file, called \texttt{\# percentage}, which is a percentage defining the size of the regularization region.
+For instance, if the value $\varsigma$ is provided, then the radius of the regularization region is $q_0 = \varsigma k_0$, where $k_0$ is the norm of the wavevector(s) closest to the origin.
+Typically, $\varsigma \sim 0.5-1.5$.
+This parameter is optional, and if not provided, the default value $\varsigma=0.5$ is used.
+If the user does not want a regularization, and simply set it to zero, then the value \texttt{0} must be provided.
+\\
+The structure of the screening file is identical to that of an exciton file.
+As possible input parameters we have:
+
+\begin{itemize}
+    \item \texttt{\# ncell\_aux:} Number of unit cells, in each direction, of the auxiliary \gls{bz} mesh to compute the polarizability matrix element(s)
+    \item \texttt{\# valence.bands:} Number of valence bands included in the calculations
+    \item \texttt{\# conduction.bands:} Number of conduction bands included in the calculations
+    \item \texttt{\# spin:} It assumes the values \texttt{true} or \texttt{false}, indicating if the spin degree of freedom has been considered in the system model or not. If not, usually the case for systems with no \gls{soc}, then all bands have a spin degeneracy $g_s = 2$, so the sum over spins in the polarizability translates into a mere prefactor of two, $g_s=2$. If the spin degree of freedom has been accounted for, then $g_s=1$.
+    For example, if the system is \ch{MoS2}, and the \gls{soc} has not been included in the model, even though this material has \gls{soc} in reality, then we have to parse the value \texttt{false}, so that $g_s=2$. If a similar model for the same material is used, but now including \gls{soc}, then the number of bands doubles. Therefore, the sum over spins is accounted for in the sum over the bands. Therefore, we have to provide the value \texttt{true}, so that $g_s=1$.
+    \item \texttt{\# function:} Used to specify which functionality of the screening the user intends.
+    \item \texttt{\# gcutoff:} Defines the cutoff $G_c$ for the reciprocal lattice vectors to be included in the calculation of the dielectric matrix, as explained above.
+    \item \texttt{\# [isotropic]:} Indicates if the system is isotropic or not.
+    If yes, then the value \texttt{true} must be provided, otherwise \texttt{false}.
+    This is relevant if the material is not isotropic, as in that case the regularization needed for the exciton calculation has to account for the anisotropy of the (head element of the) dielectric function.
+    The default value is \texttt{true}.
+    \item \texttt{\# function:} Used to specify which functionality of the screening the user intends.
+    It can be \texttt{dielectric}, \texttt{polarizability}, \texttt{inverse.dielectric} or \texttt{exciton}.
+    Each of these options does the following, respectively:
+        \begin{enumerate}
+            \item \texttt{dielectric}.
+            Computes the dielectric function at a specified momentum and for a chosen matrix element $(\bG,\bG')$, or at specified positions $(\bR + \bt_i,\bR'+\bt_j)$, if the reciprocal/real space approach is set (how these can be specified is explained in the next items).
+            The values of the polarizability as a function of included valence and conduction bands are computed and printed to the \texttt{polarizability\_convergence.dat}.
+            Each line of the file has the form \\ \texttt{[\# valence bands] [\# conduction bands] [$\Re{\chi}$] [$\Im{\chi}$]}
+            \item \texttt{polarizability}.
+            Computes the polarizability matrix element $\chi_{\bG \bG'}$ at the specified pair $(\bG,\bG')$ in the \bz~mesh.
+            The values are printed to the \texttt{polarizability\_mesh.dat} file, and each line of the file has the structure \\ \texttt{[$k_x$] [$k_y$] [$k_z$] [$\Re{\chi}$] [$\Im{\chi}$]}.
+            At the moment the code works only for 2D materials, whence $k_z = 0$ at all times.
+            This option works currently only for the reciprocal space setting.
+            \item \texttt{inverse.dielectric}.
+            Computes the inverse of the dielectric matrix $\varepsilon^{-1}(\bq)$ at the specified momentum in the \bz~mesh.
+            The cutoff for the reciprocal lattice vectors is specified by the parameter \texttt{\# gcutoff} given in the screening block.
+            The matrix elements are printed to the file \texttt{epsilon.dat}.
+            The order of the $\bG$ vectors is the same as the one by they appear printed in the terminal/output file when this option is used.
+            Each row in the file has the real and imaginary parts of each matrix element printed in two separate columns.
+            This option works currently only for the reciprocal space setting.
+            \item \texttt{exciton}.
+            Computes the inverse of the dielectric matrix in the \bz~mesh, and proceeds with the calculation of the exciton.
+            A file containing all the points in the \bz~mesh is generated.
+            The file has a name of the form \texttt{kgrid\_<ncells>.dat}, where \texttt{ncells} is the number of cells in each direction, specified in the exciton file.
+            The object $\varepsilon^{-1}$ is printed to the file \texttt{<label>\_invepsilon.dat}, where \texttt{<label>} is the value of the label parameter specified in the exciton file~\cite{Xatu}.
+            All the individual matrices $\varepsilon^{-1}(\bq)$ are printed by the same order of momentum points as that of the file containing the $\bk$ points of the \bz~mesh.
+        \end{enumerate}
+
+    \item \texttt{\# vectors:} Indicates which pair of reciprocal lattice vectors $(\bG,\bG')$ the polarizability is computed at.
+    Two indices have to be provided in the form \texttt{<index1> <index2>}.
+    If this input is omitted, then the calculations are done by default for the head element.
+    This entry is valid for both functions \texttt{dielectric} and \texttt{polarizability}.
+    \item \texttt{\# momentum:} Specifies which momentum the polarizability, or inverse of the dielectric matrix, is to be computed for.
+    A vector in the form \texttt{qx qy qz} has to be given.
+    By default, the computation is done at $\bq=(0.2,0,0)$, if this block is not provided.
+\end{itemize}
+\end{mybox}
 
 \subsection{Complexity analysis}
 \label{subsec:complexity_analysis}
 
-Brief complexity analysis of an entire calculation of the dielectric matrix.
-Include symmetries of the polarizability.
+In this part of the chapter, we provide a brief complexity analysis of the calculation of the dielectric function.
+Our goal is to estimate the memory complexity and the time complexity, that we will denote by $lololo$
 
 \subsection{Benchmark and validation}
 \label{subsec:benchmark_and_validation}
@@ -945,7 +1034,7 @@ Include symmetries of the polarizability.
         \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/MoS2_Wannier_bands}
     \end{minipage}%
     \begin{minipage}{0.35\textwidth}
-        \mycaption[Wannierized band structure of \ch{MoS2}]{Quasiparticle band structure of monolayer \ch{MoS2} computed through,..., Wannier model ask Guilherme for the details.}
+        \mycaption[Band structure of \ch{MoS2} using a Wannier model]{Quasiparticle band structure of monolayer \ch{MoS2} computed through,..., Wannier model ask Guilherme for the details. $\Delta=2.57407$~\unit{\electronvolt}.}
         \label{fig:MoS2_Wannier_bands}
     \end{minipage}
 \end{figure}

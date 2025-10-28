@@ -1,4 +1,5 @@
-\begin{tikzpicture}
+\hspace*{2.6cm}
+\begin{tikzpicture}[scale=0.85,transform shape]
     % Init node
     \node (start) [draw, ellipse] {Start};
 
@@ -65,7 +66,7 @@
 
     % Conductivity node
     \node (optical_conductivity) [draw, trapezium, trapezium left angle=75, trapezium right angle=105, below of=bigbox_output, node distance=0.3cm, xshift=2.3cm, align=center]
-    {Optical conductivity\\ $\sigma_{\alpha}(\omega)$};
+    {Optical conductivity\\ $\sigma_{a b}(\omega)$};
 
     % Increase Nk node
     \node (increaseNk) [draw, rectangle, right of=converge_energies, node distance=6.3cm, align=center] {Increase $N_{\mathbf{k}}$ \\ and/or $N_{v/c}$ \\ and/or $G_c$};
