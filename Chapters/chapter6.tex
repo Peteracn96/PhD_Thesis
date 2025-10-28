@@ -11,7 +11,7 @@
 
 \chapter{Electrostatic Screening in Two-dimensional materials}
 \label{ch:screening}
-
+\glsresetall
 In the intro of the chapter I can introduce the materials studied, revisiting \gls{hbn}, and introduce \textbf{MoS2}.
 Talk about band structure and a bit of the \abinit~methods used (CRYSTAL and Wannierization).
 
@@ -173,7 +173,7 @@ To summarize, to compute a single polarizability matrix element $\chi^0_{\bG \bG
 
 In our numerical framework, the Bloch Hamiltonian $H(\bk)$ is determined by the input model for the code.
 The code accepts two types of input.
-One way is by providing an output file from CRYSTAL~\cite{CRYSTAL_23}, which contains the Fock matrices $H(\bR)$ determining the Bloch Hamiltonian through Eq.~\eqref{eq:Bloch_Hamiltonian_definition}, as we saw in Chapter~\ref{ch:quantum_mechanics_solids}.
+One way is by providing an output file from \textsc{CRYSTAL}~\cite{CRYSTAL_23}, which contains the Fock matrices $H(\bR)$ determining the Bloch Hamiltonian through Eq.~\eqref{eq:Bloch_Hamiltonian_definition}, as we saw in Chapter~\ref{ch:quantum_mechanics_solids}.
 Alternatively, the code accepts also \texttt{.model} files containing a tight-binding model for the material at hand.
 Quite recently, the code was updated by G.~Janone with a utility that transforms an output file from Wannier90~\cite{Wannier90} into a \texttt{.model} file.
 The corresponding version of the code can be found in~\url{https://github.com/GuiJanone/xatu-w90}.
@@ -297,7 +297,7 @@ In this chapter, we work out a numerical model for \gls{hbn}.
 For that, we need a more realistic model based on \abinit~methods.
 After all, it is with \abinit~methods that we can fit the tight-binding band structure to the \abinit~one to get the tight-binding parameters.
 
-Herein, the model Hamiltonian for \gls{hbn} was obtained through \dft~calculations (see Subsection~\ref{subsubsec:abinit_methods}) with the commercial package CRYSTAL~\cite{CRYSTAL_23}, which uses a framework of Gaussian basis functions.
+Herein, the model Hamiltonian for \gls{hbn} was obtained through \dft~calculations (see Subsection~\ref{subsubsec:abinit_methods}) with the commercial package \textsc{CRYSTAL}~\cite{CRYSTAL_23}, which uses a framework of Gaussian basis functions.
 In our calculations, we used the hybrid functional HSE06~\cite{Heyd_Scuseria_Ernzerhof_2003}, which mixes the exact \gls{hf} exchange functional and the Perdew--Burke--Ernzerhof functional~\cite{Perdew_1996} within the \gls{gga}\footnote{In typical \abinit~calculations within \dft, there is always an ambiguity in the functional one can choose to capture exchange and correlation effects. This is because no one knows the analytical expression for the exact exchange--correlation functional, if it even exists. We know however that it is a functional of the electron density $n(\br)$ by the Hohenberg--Kohn theorems, we just do not have an analytical expression for it. Nonetheless, exchange--correlation contributions to the ground-state energy can be computed numerically. The caveat is that it is very computationally demanding. What one typically does, is mixing the exact numerical functional with an approximated one, say at the \gls{lda} or \gls{gga} level. There is consensus in the community that using hybrid functionals allows better estimating the electronic bandgap than non-hybrid ones when compared with the experimental values~\cite{PhysRevMaterials.8.043803}.}.
 For the sampling of $\bk$ points, we use a uniform $48\times48\times1$ Monkhorst--Pack $\bk$-grid~\cite{Monkhorst_Pack_1976}, with an interlayer distance of 500~\unit{\angstrom} and $a=2.51$~\unit{\angstrom} for the lattice constant.
 The output file $\texttt{hBN\_base\_HSE06.outp}$ can be found in the official repository for the\xatu~code~\cite{Xatu}; \url{https://github.com/xatu-code/xatu/tree/master/examples/material_models/DFT}.
@@ -313,7 +313,7 @@ That is the subject of the sections to come.
         \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/hBN_HSE06_bands}
     \end{minipage}%
     \begin{minipage}{0.35\textwidth}
-        \mycaption[Band structure of \gls{hbn} through first-principle methods]{Quasiparticle band structure of monolayer \gls{hbn} computed through \dft using the CRYSTAL package. The details of the \dft~calculations are provided in the paragraph above this figure. The bands were computed using \xatu, providing to \texttt{xatu} the flag \texttt{--bands} and an input file with the wished $\bk$ points~\cite{Xatu}. 169 $H(\bR)$ matrices were included.}
+        \mycaption[Band structure of \gls{hbn} through first-principle methods]{Quasiparticle band structure of monolayer \gls{hbn} computed within \dft~using the \textsc{CRYSTAL} package. The details of the \dft~calculations are provided in the paragraph above this figure. The bands were computed using \xatu, providing to \texttt{xatu} the flag \texttt{--bands} and an input file with the wished $\bk$ points~\cite{Xatu}. 169 $H(\bR)$ matrices were included.}
         \label{fig:hBN_DFT_bands}
     \end{minipage}
 \end{figure}
@@ -332,7 +332,7 @@ We just advert the reader for the fact that the polarizability presented in the 
 Therefore, they appear in units of \unit{\electronvolt^{-1}} and scaled by a factor of $10^2$.
 This choice does not have any physical implications, it is just how we decided to implement it.
 At the end, the dielectric function will come out dimensionless as it is supposed to be.
-In this example the band structure was obtained within \dft~with the HSE06 functional using CRYSTAL~\cite{CRYSTAL_23} as explained in the previous subsection, and 169 Fock matrices were included in the calculations.
+In this example the band structure was obtained within \dft~with the HSE06 functional using \textsc{CRYSTAL}~\cite{CRYSTAL_23} as explained in the previous subsection, and 169 Fock matrices were included in the calculations.
 We see again that the polarizability converges with the number of empty bands included.
 
 \begin{figure}[b]
@@ -557,8 +557,9 @@ The excitons and the excitonic optical response are the subject of the next subs
 
 To see the effect the numerical screening has on the excitons, we computed the excitons using the \xatu~code with the two different models for screening possible.
 In both calculations, we used the same set of parameters, apart from the way the interaction matrix elements are computed.
-We used a $60\times60$ $\bk$-grid to sample the \bz, included one valence band, $N_{\vv}=1$, and one conduction band, $N_{\cc}=1$, applied a cutoff for the reciprocal lattice vectors of $G_c = 3.0$ \unit{\angstrom^{-1}}, and for the regularization radius, we used a percentage of $1.3\%$.
+We used a $60\times60$ $\bk$-grid to sample the \bz, included one valence band, $N_{\vv}=1$, and one conduction band, $N_{\cc}=1$, applied a cutoff for the reciprocal lattice vectors of $G_c = 3.0$ \unit{\angstrom^{-1}}, and for the regularization radius we used a percentage of $1.3\%$.
 This means for the regularization radius $q_0 = 1.3 k_0$, where $k_0$ is the norm of the \bz~momentum closest to the origin.
+In both calculations, we set $\bQ=\bzero$.
 When using the Rytova--Keldysh model for screening, the direct interaction matrix element is computed through Eq.~\eqref{eq:direct_interaction_matrix_element_reciprocal_RK}, where for the screening length we used the value obtained by us of $r_0 = 5.084$~\unit{\angstrom}.
 Using the numerical (inverse) dielectric function, the same interaction matrix element is computed through Eq.~\eqref{eq:interaction_matrix_element_direct_reciprocal}, but with the volume $\vol$ replaced by the area $\area$.
 
@@ -581,23 +582,23 @@ For high $q$, the head element $W_{\bzero \bzero} (q)$ of the screened potential
 
 \begin{table}[ht]
     \centering
-    \mycaption[Exciton spectrum of hBN]{Exciton spectrum of \gls{hbn} using the DFT model from CRYSTAL, using the Rytova--Keldysh potential and the numerical inverse dielectric matrix to compute the interaction matrix elements.
+    \mycaption[Exciton spectrum of hBN]{Exciton spectrum of \gls{hbn} using the DFT model from \textsc{CRYSTAL}, using the Rytova--Keldysh potential and the numerical inverse dielectric matrix to compute the interaction matrix elements.
     The second and fourth columns pertain to the Rytova--Keldysh model, while the third and fifth columns pertain to the numerical screening. 
-    The second and third columns show the exciton energies $E_X$, while the fourth and fifth columns show the corresponding binding energies $E_b$.
+    The second and third columns show the exciton energies $E_X$, while the fourth and fifth columns show the corresponding binding energies $E_b$ (in absolute value).
     States labeled with the same number but different letters are states for which degeneracy is expected.
     We observe that the states that are supposed to be degenerate, are more proximate in energy for the numerical screening calculation, and are in general lower in energy compared to those obtained from the Rytova--Keldysh model.
-    We used $N=60^2$, $N_{\cc}=N_{\vv}=1$, $G_c = 3.0$~\unit{\angstrom^{-1}}, $q_0 = 1.3 k_0$, and $r_0 = 5.084$~\unit{\angstrom} for the Rytova--Keldysh potential. In the numerical model for the screening, we included all the $\bG$ vectors. We have excluded the exchange interaction term in both calculations. Increasing the number of included bands to $N_{\cc}=N_{\vv}=2$ resulted in a change in binding energies less than $0.02$~\unit{\electronvolt} for all states, except for the state 2, for which the binding energy was of $2.1$~\unit{\electronvolt}.}
+    We used $N_k=60^2$, $N_{\cc}=N_{\vv}=1$, $G_c = 3.0$~\unit{\angstrom^{-1}}, $q_0 = 1.3 k_0$, and $r_0 = 5.084$~\unit{\angstrom} for the Rytova--Keldysh potential. In the numerical model for the screening, we included all the $\bG$ vectors. We excluded the exchange interaction term in both calculations ,and set $\bQ=\bzero$. Increasing the number of included bands to $N_{\cc}=N_{\vv}=2$ resulted in a change in binding energies less than $0.02$~\unit{\electronvolt} for all states, except for the state 2, for which the binding energy was of $2.1$~\unit{\electronvolt}.}
     \begin{tabular}{|c|c|c||c|c|}
     \hline
-    State                         & $E_X$ (RK) (eV)         & $E_X$ ($\varepsilon_{\bG,\bG'}$) (eV)  & $E_b$ (RK) (eV)         & $E_b$ ($\varepsilon_{\bG,\bG'}$) (eV)\\ \hline \hline
-    1a                            & 3.6750717               & 3.6088515                              & 2.40                    & 2.47\\ 
-    1b                            & 3.8376778               & 3.6248442                              & 2.24                    & 2.46\\ \hline
-    2                             & 4.3737721               & 4.1111964                              & 1.71                    & 1.97\\ \hline
-    3a                            & 4.8645531               & 4.8344231                              & 1.21                    & 1.25\\ 
-    3b                            & 4.8965401               & 4.8376743                              & 1.18                    & 1.24\\ \hline
-    4                             & 4.9277759               & 4.9224497                              & 1.15                    & 1.16\\ \hline
-    5a                            & 5.1874356               & 5.1808116                              & 0.89                    & 0.899\\ 
-    5b                            & 5.2068572               & 5.1827810                              & 0.87                    & 0.897\\ \hline
+    State                         & $E_X$ (RK) (eV)         & $E_X$ ($\varepsilon_{\bG,\bG'}$) (eV)  & $E_b$ (RK) (eV)         & $E_b$ ($\varepsilon_{\bG,\bG'}$) (eV) \\ \hline \hline
+    1a                            & 3.6750717               & 3.6088515                              & 2.40                    & 2.47 \\ 
+    1b                            & 3.8376778               & 3.6248442                              & 2.24                    & 2.46 \\ \hline
+    2                             & 4.3737721               & 4.1111964                              & 1.71                    & 1.97 \\ \hline
+    3a                            & 4.8645531               & 4.8344231                              & 1.21                    & 1.25 \\ 
+    3b                            & 4.8965401               & 4.8376743                              & 1.18                    & 1.24 \\ \hline
+    4                             & 4.9277759               & 4.9224497                              & 1.15                    & 1.16 \\ \hline
+    5a                            & 5.1874356               & 5.1808116                              & 0.89                    & 0.899 \\ 
+    5b                            & 5.2068572               & 5.1827810                              & 0.87                    & 0.897 \\ \hline
     \end{tabular}
     \label{tab:hBN_DFT_HSE_06_exciton_spectrum}
 \end{table}
@@ -867,12 +868,12 @@ In the following section, we discuss details about the implementation of the the
 We shall focus on the implementation of the dielectric function, since that is the main contribution from this work to the code.
 Details about the exciton calculation are also in order, the ones relevant for our implementation of the screening.
 
-\section{Efficient Computation of the Static Dielectric Function with the\xatu~Code}
+\section{Efficient Computation of the Static Dielectric Function with the Xatu Code}
 \label{sec:xatu_code}
 
 In this section, we explore the novelties in the code \xatu~\cite{Xatu} that allowed the implementation of the \bd~dielectric function we have been investigating.
 We keep the discussion as brief as possible, and will strongly focus on the numerical implementation of the screening.
-Apart from a couple of novelties in the functionality of the code, the class structure and previous algorithms stays the same, whose details can be consulted in the PhD thesis by A.J.~Juría-Álvarez in Ref.~\cite{Alex_PhD}.
+Apart from a couple of novelties in the functionality of the code, the class structure and previous algorithms stays the same, whose details can be consulted in the PhD thesis by A.~J.~Ur\'{\i}a-\'Alvarez in Ref.~\cite{Alex_PhD}.
 
 \subsection{The new version of the \xatu~code: general remarks}
 \label{subsec:new_xatu}
@@ -889,8 +890,8 @@ Nonetheless, some general aspects of the code were left intact.
 One in particular, is how the code handles linear algebra calculations.
 All matrices and related properties are manipulated through a \CC~library called \texttt{Armadillo}~\cite{Armadillo_2016,Armadillo_2019}, alongside the typical ones for linear algebra, \texttt{BLAS} and \texttt{LAPACK}.
 
-The \xatu~code is versatile when it comes to the Hamiltonian models it has support for, namely tight-binding models or Hamiltonian models resulting from \dft~calculations using a basis of localized state functions using the CRYSTAL package.
-It accepts two types of model files: files with a \texttt{.model} extension, which contain the properties of the tight-binding Hamiltonian and basic geometrical aspects of the material at hand; or in alternative, output files from CRYSTAL, which have the extension \texttt{.outp}.
+The \xatu~code is versatile when it comes to the Hamiltonian models it has support for, namely tight-binding models or Hamiltonian models resulting from \dft~calculations using a basis of localized state functions using the \textsc{CRYSTAL} package.
+It accepts two types of model files: files with a \texttt{.model} extension, which contain the properties of the tight-binding Hamiltonian and basic geometrical aspects of the material at hand; or in alternative, output files from \textsc{CRYSTAL}, which have the extension \texttt{.outp}.
 Both types of models have been tested, at a first instance for calculating the excitons in the first version of the code in Ref.~\cite{Xatu}, and now for the numerical implementation of the screening.
 Other interesting aspect of \xatu, is that it can work as a program through the script called \texttt{xatu}, or as a library if the end user feels comfortable enough with writing scripts in \CC\@.
 In the latter case, the library can be used as an \gls{api}, without the need for any kind of input files.
@@ -905,7 +906,7 @@ However, a new class was created, called \texttt{ScreeningConfiguration}, respon
 
 The parameters for the dielectric function, if its calculation is enabled when using the \texttt{xatu} script, are parsed from an extra input file which was not comprised in the first version of the code.
 In the next section, we describe the structure of a general screening input file in more detail.
-The extra input file has the \texttt{.txt} format, in similarity with the exciton file~\cite{Xatu}, the latter containing the information relevant for the \gls{bse} calculations.
+The extra input file has the \texttt{.txt} extension, in similarity with the exciton file~\cite{Xatu}, the latter containing the information relevant for the \gls{bse} calculations.
 
 In the exciton file, we added two more parameters, and changed a previous one.
 The one suffering changes was the parameter \texttt{\#~reciprocal}, which we changed to \texttt{\#~gcutoff}.
@@ -919,15 +920,20 @@ The radius $q_0$ of the regularization region, which is a circle, is then $q_0 =
 Since we use the Rytova--Keldysh analytical scheme for the regularization~\cite{Rasmussen_Schmidt_Winther_Thygesen_2016}, the parameter $\varsigma$ has to be of the order of the unity, so that the low-$q$ limit of the dielectric function to remains valid.
 
 Before we dive into the technical aspects of the implementation, we would like to dwell on the new functionalities, in particular the new algorithm of the \texttt{xatu} program, and useful new methods for the calculation of the dielectric function.
-For the latter, we implement a key method, called \texttt{ExcitonTB::compute\_2D\_DielectricMatrix}\footnote{Having \texttt{ExcitonTB::} before the name of the method helps the reader remembering that the method belongs to the \texttt{ExcitonTB} class. It is also correct \CC~syntax, but that is not of relevance for the reader.}, which calculates the dielectric function in the entire \bz~mesh, followed by the its inversion, and the writing of the generated data into a \texttt{.dat} file, these last two tasks being performed in separate methods of their own.
+For the latter, we implement the method \texttt{ExcitonTB::compute\_2D\_DielectricMatrix}\footnote{Having \texttt{ExcitonTB::} before the name of the method helps the reader remembering that the method belongs to the \texttt{ExcitonTB} class. It is also correct \CC~syntax, but that is not of relevance for the reader.}, which calculates the dielectric function in the entire \bz~mesh followed by its inversion, writing at the end the generated data into a \texttt{.dat} file.
+These last two tasks being performed in separate methods of their own.
 With this file, the user can call the method \texttt{ExcitonTB::readInverseDielectricMatrix}, which accepts as an argument the name of the \texttt{.dat} file generated by the \texttt{xatu} program.
 In this way, it is possible to write separate scripts using the \xatu~library to compute the excitons without the need to repeat the screening calculations.
+However, if the reader is only interested in obtaining the macroscopic dielectric function in a specific set of $\bq$ points, we implemented two similar functions, \texttt{compute\_2D\_DielectricMatrix(std::string filename)} and \texttt{compute\_quasi2D\_DielectricMatrix(std::string filename)}.
+Both functions receive as an argument the name of the provided file containing all the $\bq$ points the user is interested in.
+The file should contain only one momentum point per line, and each line should have the three momentum components in the following way: \texttt{qx qy qz}.
+If the user is interested in the dielectric function over the entire \bz~mesh, we recommend using the \texttt{xatu.cpp} script instead, as it is optimized for calculating $\varepsilon_{\bG \bG'}(\bq)$ in the \bz\@.
 With the \texttt{xatu.cpp} script, the inversion of the dielectric matrix is performed, the inverse dielectric matrix is kept stored until the initialization of the the Bethe--Salpeter Hamiltonian.
 When initializing the Bethe--Salpeter Hamiltonian, the interaction matrix elements using the numerical screening are computed on the fly.
 To better visualize what we have just discussed, we provide, at the end of the subsection~\ref{subsec:complexity_analysis}, in Fig.~\ref{fig:xatu_flow_diagram} a flowchart for the \texttt{xatu} program, adapted from its first version by A.~J.~Ur\'{\i}a-\'Alvarez, which corresponds to Figure 3.2 of his PhD thesis in Ref.~\cite{Alex_PhD}.
 
 If the reader is interested in using the code for themselves, we provide in Box~\ref{box:xatu_screening_usage}, also at the end of the subsection~\ref{subsec:complexity_analysis}, an explanation on how to use the new screening functionalities.
-If the reader is more interested in the technical discussion of the implementation, the flowchart and the box at the end of the enxt subsection can be read at a later instance.
+If the reader is more interested in the technical discussion of the implementation, the flowchart and the box at the end of the next subsection can be read at a later instance.
 
 \subsection{Complexity analysis}
 \label{subsec:complexity_analysis}
@@ -941,7 +947,7 @@ Regardless of the way the program computes the dielectric matrix, it is stored a
 Another aspect of the implementation we do not discuss is the complexity in accessing the elements stored in the memory to compute the dielectric matrix nor the exciton.
 We consider that accessing the memory is not a critical point to compute the matrix elements (of both the dielectric matrix and the interaction ones for the exciton) in a relative short amount of time.
 We believe that the aspect affecting the processing time the most is the sum to compute a single polarizability matrix element.
-Moreover, we suspect that the calculation of the plane-wave matrix elements does not cause a susbtantial slowdown.
+Moreover, we suspect that the calculation of the plane-wave matrix elements does not cause a substantial slowdown.
 At the end, we want to estimate the time complexity of a full calculation of the dielectric matrix in the entire \bz~mesh, which comes before the calculation of the excitons using the \texttt{xatu} program.
 For that, we analyse first the complexity of computing a single polarizability matrix element $\chi^0_{\bG \bG'}(\bq)$\,.
 
@@ -960,7 +966,7 @@ Nonetheless, for simplicity, we assume that all the bands are included in the ca
 We have $N_{B} = N_{\vv} + N_{\cc}$.
 Unlike in \abinit~approaches~\cite{BerkeleyGW,GPAW_2025,Yambo_2009}, the calculation of the plane-wave matrix elements does affect considerably the time complexity, nor the memory complexity.
 This because for those matrix elements, we only need the eigenvectors $\bC^{n \bk}$ of the Bloch Hamiltonian and the atomic positions $\bt_i$, which are already known at the time of the calculation of the dielectric matrix.
-Those matrix elements are computed on the fly at each iteration of the nested \texttt{for} loops, and are not calculated and stored \textit{a priori}, unlike other packages in the literature~\cite{BerkeleyGW}.
+Those matrix elements are computed on the fly at each iteration of the nested \texttt{for} loops, and are not calculated and stored \textit{a priori}, unlike other packages in the literature, such as the \textsc{BerkeleyGW} package~\cite{BerkeleyGW}.
 In this way, the time complexity of computing a single polarizability matrix element is $\mathcal{O}_{\mathrm{t}} (N_{\vv} N_{\cc} N_{k})$.
 Then, the calculation of the whole polarizability matrix at a single point $\bq$ in the \bz~has time complexity $\mathcal{O}_{\mathrm{t}} (N_{G}^2 N_{\vv} N_{\cc} N_{k})$, where $N_{G}$ is the number of reciprocal lattice vectors included.
 
@@ -1010,8 +1016,10 @@ We verified that the calculation of the entire matrix for each $\bq$ was, by far
 
 There are a couple more remarks we need to make regarding the implementation.
 As the calculation of the dielectric matrix constitutes the bottleneck of the code, it is optimized by parallelizing the calculation of each matrix element.
-For that, we used the \texttt{OpenMP} package.
+For that, we used the \textsc{OpenMP} package.
 At the moment, all parallelism is based on shared-memory, while distributed parallelism is to be implemented in the future.
+A thorough study on the processing time would be necessary in order to better quantify the time complexity of the new methods implemented in the \xatu~library.
+Our discussion on the complexity using the $\mathcal{O}$ notation gives a qualitative idea of what one would expect in a deeper quantitative study, which cannot be completely replaced by our study.
 Finally, now with respect to the calculation of the excitons, there is a detail on the calculation of the interaction matrix elements that should not be overlooked.
 To compute the interaction matrix elements $D$ and $X$, we need to sum over reciprocal lattice vectors as
 
@@ -1094,7 +1102,7 @@ $ ./xatu [OPTIONS] systemfile excitonfile -z screeningfile
         \item \texttt{\# valence.bands:} Number of valence bands included in the calculations
         \item \texttt{\# conduction.bands:} Number of conduction bands included in the calculations
         \item \texttt{\# spin:} It assumes the values \texttt{true} or \texttt{false}, indicating if the spin degree of freedom has been considered in the system model or not. If not, usually the case for systems with no \gls{soc}, then all bands have a spin degeneracy $g_s = 2$, so the sum over spins in the polarizability translates into a mere prefactor of two, $g_s=2$. If the spin degree of freedom has been accounted for, then $g_s=1$.
-        For example, if the system is \ch{MoS2}, and the \gls{soc} has not been included in the model, even though this material has \gls{soc} in reality, then we have to parse the value \texttt{false}, so that $g_s=2$. If a similar model for the same material is used, but now including \gls{soc}, then the number of bands doubles. Therefore, the sum over spins is accounted for in the sum over the bands. Therefore, we have to provide the value \texttt{true}, so that $g_s=1$.
+        For example, if the system is \ch{MoS2}, and the \gls{soc} has not been included in the model even though this material has \gls{soc} in reality, then we have to parse the string \texttt{false}, so that $g_s=2$. If a similar model for the same material is used, but now including \gls{soc}, then the number of bands doubles. Therefore, the sum over spins is accounted for in the sum over the bands. Hence, we have to provide the string \texttt{true}, so that $g_s=1$.
         \item \texttt{\# function:} Used to specify which functionality of the screening the user intends.
         \item \texttt{\# gcutoff:} Defines the cutoff $G_c$ for the reciprocal lattice vectors to be included in the calculation of the dielectric matrix, as explained above.
         \item \texttt{\# [isotropic]:} Indicates if the system is isotropic or not.
@@ -1141,23 +1149,79 @@ $ ./xatu [OPTIONS] systemfile excitonfile -z screeningfile
 
 \clearpage
 
-\subsection{Benchmark and validation}
+\subsection{Validation and benchmarks}
 \label{subsec:benchmark_and_validation}
 
-%%%%%%%%%% Text by Gui %%%%%%%%%%%%%%%%%%%
-% The electronic structure of \ch{MoS2} was obtained from density functional theory (DFT) calculations performed with the \textsc{Quantum~Espresso} package~\cite{giannozzi2009quantum}.
-% Exchange-correlation effects were treated within the generalized gradient approximation (GGA) using the Perdew-Burke-Ernzerhof (PBE) functional~\cite{perdew1996generalized}.
-% Core-valence interactions were described using the KJPAW pseudopotentials.
-% A plane-wave cutoff of \textcolor{red}{$50$ Ry} for the wavefunctions and \textcolor{red}{$310$ Ry} for the charge density was employed, together with a \textcolor{red}{$21\times 21\times 1$} Monkhorst-Pack grid~\cite{monkhorst1976special}.
-% Atomic positions were relaxed until residual forces were smaller than \textcolor{red}{$10^{-4}$}, and a vacuum spacing of at least $20 $\AA was included to avoid spurious interactions between periodic images.
-% Dispersion interactions were accounted for via D3 Grimme corrections~\cite{grimme2006semiempirical}.
+At this stage, we have extensively discussed the theory behind our implementation for the screening properties of \bd~materials, we have tested our theory against \abinit~calculations using monolayer \gls{hbn} as a prime example of a \bd~insulator, and have provided insights on the implementation itself.
+In order to validate our theory and implementation, it would make sense to try it on a different material.
+We do so in this subsection as the closing of this chapter.
+The material of choice is monolayer molybdenum disulfide, \ch{MoS2}, which is another prototypical \bd~material to study excitons.
+We mentioned it for the first time in this dissertation in Subsection~\ref{subsubsec:tight_binding_method} as a material where \gls{soc} has a nonvanishing contribution on its material properties, unlike in \gls{hbn}.
+It was also introduced in Section~\ref{sec:introduction} as an excitonic material presenting a direct electronic bandgap, belonging to family of \bd~materials called \glspl{tmd}.
 
-% The low-energy subspace was mapped onto a tight-binding-like Hamiltonian using the \textsc{Wannier90} code~\cite{mostofi2014updated}.
-% Instead of the conventional maximally localized Wannier functions (MLWFs), we employed the \emph{Closest Wannier Functions} (CWFs)~\cite{ozaki2024closest,oiwa_symmetry-adapted_2025}, which preserve the original atomic and symmetry character of the orbitals while avoiding gauge instabilities. An irreducible Brillouin Zone was utilized based on the DFT Monkhorst-Pack grid, to symmetrize the states and reduce computational costs.
-% The projection was carried out onto Mo $s,p,d$ and S $s,p$ orbitals, with an energy window defined by a Fermi-Dirac smearing at \textcolor{red}{$T0--T1$} K to select the disentangled subspace.
-% No maximal localization step was performed.
-% The resulting Hamiltonian accurately reproduces the DFT bands around the Fermi level, ensuring a faithful description of the intersite position-matrix elements $r^{(z)}_{\alpha\alpha'\boldsymbol{k}}$ required for the field coupling.
-%%%%%%%%%% Text by Gui %%%%%%%%%%%%%%%%%%%
+Materials like \ch{MoS2} have given traction to a recent field of research within condensed matter physics and materials science, called valleytronics~\cite{PhysRevLett.108.196802,Mak_Xiao_Shan_2018}, comprised of the study of the optoelectronic properties of \bd~materials with honeycomb structure, with the bandgap located at the $K$ and $K'$ points of the \bz~(see Fig.~\ref{fig:hBN_lattice}).
+Their interesting optical and electronic properties come from the coupling between the spin and valley degrees of freedom allowed by the \gls{soc}; the coupling between the spin and the orbital electronic motion together with inversion symmetry breaking lifts the degeneracy of the bands at the $K$ and $K'$ points, which permits tuning the optical properties by spin and valley control~\cite{PhysRevLett.108.196802}.
+This deems these materials promising for applications in electronics, spintronics, and new ways of storing and processing information~\cite{Mak_Xiao_Shan_2018}.
+An interesting optical effect they display is circular dichroism, consisting in a different absorption spectrum for circularly polarized light with opposite handedness~\cite{Cao_Wang_Han_2012,Morozov_Yezekyan_Wolff_Bozhevolnyi_Mortensen_2024}.
+As a gapped material, we have an interest in its optical properties coming from excitonic effects.
+Even though it has a bandgap much smaller than that of \gls{hbn}, being thus considered a semiconductor and not an insulator, it still exhibits strong absorption resonances for sub-gap frequencies.
+
+Before we study excitons in \ch{MoS2}, we need to look at its crystallographic structure and the electronic single-particle properties, specifically the band structure.
+After that we analyse its dielectric properties.
+Only then, will we look at excitonic and optical effects in this material.
+
+Just like other \glspl{tmd}, \gls{hbn} and graphene, monolayer \ch{MoS2} presents a honeycomb lattice with \ch{Mo} atoms alternating with \ch{S} atoms.
+The main difference from \gls{hbn} and graphene is that \ch{MoS2} is not atomically thin, presenting three atomic planes.
+The sublattice of the \ch{Mo} atoms lives in a plane, while the sublattice of \ch{S} atoms has two planes, one above and the other below the \ch{Mo} plane.
+The atomic arrangement we have just described can be found in Fig.~\ref{fig:MoS2_lattice}.
+In the same figure, we have the monolayer seen from three different views: a top view in panel \pnl{a}, a side view in panel \pnl{b}, and a view in perspective in panel \pnl{c}.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[c]{.5\textwidth}
+        \centering
+        \includegraphics[width=1.0\linewidth]{Chapters/Figures/Chapter_6/TMD_top_view}
+        \caption{Top view.}
+    \end{subfigure}%
+    \begin{tabular}{c}
+        \begin{subfigure}{0.4\textwidth}
+            \centering
+            \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/TMD_side_view}
+            \caption{Side view.}
+        \end{subfigure}\\\\
+        \begin{subfigure}[b]{0.4\textwidth}
+            \centering
+            \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/TMD_perspective}
+            \caption{Perspective view.}
+        \end{subfigure}
+    \end{tabular}
+    \mycaption[Crystalline structure of monolayer \ch{MoS2}]{Atomic structure of a \ch{MoS2} monolayer. Three different points of view are displayed, a top view, a side view, and a perspective view, in panels \pnl{a}, \pnl{b}, and \pnl{c}, respectively. The atomic radii of the \ch{Mo} and \ch{S} atoms are in real proportion, but the length of the bonds are not in the correct proportion with respect to the atomic radii to facilitate the visualization.}
+    \label{fig:MoS2_lattice}
+\end{figure}
+
+To model the single-particle Hamiltonian, we use a Wannierized Hamiltonian, obtained from \dft~calculations followed by a Wannier interpolation.
+The \dft~calculations were performed with the \textsc{Quantum~Espresso} package~\cite{giannozzi2009quantum} at the \gls{gga} level, with exchange and correlation effects modeled by the Perdew--Burke--Ernzerhof functional functional~\cite{Perdew_1996}.
+For the physics of the atomic cores, the KJPAW pseudopotentials were used.
+
+The plane-wave cutoff applied was of $50$~Ry for the wavefunctions, and $310$ Ry for the electronic density.
+The Monkhorst--Pack grid~\cite{Monkhorst_Pack_1976} was $21\times 21\times 1$.
+An atomic relaxation was performed to determine the lattice constant with a threshold of $10^{-4}$ for the residual forces.
+The interlayer separation used was $L_{\perp} = 20$~\unit{\angstrom}.
+Dispersion interactions were included using D3 Grimme corrections~\cite{grimme2006semiempirical}.
+Afterward, the \textsc{Wannier90} package~\cite{Wannier90} was used to obtain the tight-binding Hamiltonian.
+Usually, one applies the method of maximally localized Wannier functions~\cite{Marzari_2012}.
+Instead, the method of closest Wannier functions~\cite{ozaki2024closest,oiwa_symmetry-adapted_2025} was employed.
+Then, a projection onto $s$, $p$, and $d$ orbitals of \ch{Mo}, and onto $s$ and $p$ orbitals of \ch{S} was performed.
+The window of energies for the Fermi--Dirac smearing was set to $T0-T1$~\unit{\kelvin} to disentangle the bands.
+No maximal localization step was done.
+
+The band structure of the Wannier model for \ch{MoS2} is shown in Fig.~\ref{fig:MoS2_Wannier_bands}.
+These were obtained using a \texttt{.model} file as input to \xatu.
+The \texttt{.model} was generated by a utility developed by G.~Janone and N.~N.~Batista, which converts an output file from \textsc{Wannier90} with the format \texttt{\_tb.dat} into an input file for \xatu~with the format \texttt{.model}.
+This is the web link for the official repository of the \xatu~code including the utility: \url{https://github.com/GuiJanone/xatu-w90}.
+The structure of a \texttt{.model} file is explained in Ref.~\cite{Xatu}.
+It contains the tight-binding (or Wannier) model defining the single-particle Hamiltonian.
+For this model, we get a bandgap of $\Delta=2.57$~\unit{\electronvolt}, which is the value we use to obtain the binding energies.
 
 \begin{figure}[b]
     \label{fig:MoS2_bands}
@@ -1165,10 +1229,38 @@ $ ./xatu [OPTIONS] systemfile excitonfile -z screeningfile
         \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/MoS2_Wannier_bands}
     \end{minipage}%
     \begin{minipage}{0.35\textwidth}
-        \mycaption[Band structure of \ch{MoS2} using a Wannier model]{Quasiparticle band structure of monolayer \ch{MoS2} computed through,..., Wannier model ask Guilherme for the details. $\Delta=2.57407$~\unit{\electronvolt}.}
+        \mycaption[Band structure of \ch{MoS2} using a Wannier model]{Quasiparticle band structure of monolayer \ch{MoS2} computed through \dft~calculations with the \textsc{Quantum~Espresso}, followed by a Wannierization to change the Hamiltonian to a basis of localized Wannier functions using the \textsc{Wannier90} code. The bands were generated with \xatu, in similarity to what we did for \gls{hbn} in Fig.~\ref{fig:hBN_DFT_bands}.}
         \label{fig:MoS2_Wannier_bands}
     \end{minipage}
 \end{figure}
+
+We proceed with the study of the dielectric properties of \ch{MoS2}, namely the polarizability and the microscopic dielectric function.
+To keep the discussion short, we will actually skip the details of the polarizability.
+The features in the polarizability we saw for this model for \ch{MoS2} are similar to those seen for \gls{hbn} in Subsection~\ref{subsec:non_interacting_polarizability_results}.
+The sanity check we always have to do before continuing to the dielectric function, is the head element of the polarizability.
+If a system is isotropic, which is the case for both \gls{hbn} and \ch{MoS2}, then we should expect to obtain an isotropic $\bq$-dependence of the element $\chi^0_{\bzero \bzero}(\bq)$.
+We tested with other Wannier models for \ch{MoS2} to observe that the head element of the polarizability may not present a set of data points that appear aligned along a single curve as we observed for \gls{hbn} in Fig.~\ref{fig:chi_00_hbndft_mesh}\pnl{a}.
+Those models were obtained without forcing the symmetry preservations when running \textsc{Wannier90}.
+Therefore, we suspect that the symmetries of the model Hamiltonian play a role in the dielectric properties of the material, most likely symmetries related to the space group of the crystalline material.
+However, it is not clear for us how do these symmetries exactly influence the polarizability and its symmetries.
+There is just one small caveat in this model, or Wannier models in general.
+Typically, Wannier Hamiltonians describe correctly the system in a range of energies close to the Fermi level, which means that it is hard to obtain a Wannier model containing a substantial number of bands.
+This model has thirteen valence bands, and four conduction bands.
+These are not sufficient to see a convergence of the polarizability with the number of empty bands as we saw in Figs.~\ref{fig:chi_00_hbndft} and~\ref{fig:chi_g1_0_hbndft}.
+Nonetheless, we will see that this does not come as a drawback in the results we will show in a moment.
+Using a model with so few bands comes as an advantage in numerical terms, so we will keep with it.
+
+Before we discuss the results obtained for the dielectric function, we shall say that we did a study on the convergence of the inverse dielectric function with the cutoff $G_c$, just like for \gls{hbn}.
+We identified similar futures to what we saw in Fig.~\ref{fig:hBN_inv_epsilon_convergence}.
+Specifically, we observed that the convergence with the number of reciprocal lattice vectors included was just as slow.
+But once more, keeping a low $G_c$ cutoff was enough to reproduce the \abinit~results.
+The comparison of our effective \bd~dielectric function with the \abinit~one is shown in Fig.~\ref{fig:epsilon_quasi-2D_abinitio_vs_q_MoS2}.
+The quasi-2D dielectric function is also represented in the same plot.
+In Fig.~\ref{fig:epsilon_quasi-2D_abinitio_vs_q_MoS2}, we can see that the strict \bd~static dielectric function in dashed blue line underestimates the screening for low $q$ in comparison with the \abinit~curve in the continuous black line, but overestimates the screening for intermediate and higher $q$.
+Nonetheless, the the strict \bd~curve, the \abinit~curve and that of the quasi-2D approach in dashed red agree for very low $q$; this confirms our hypothesis from Section~\ref{sec:quasi_2D} that the layer thickness does not influence the dielectric properties in the very small $q$ limit.
+On the contrary, the agreement between the quasi-2D permittivity and the \abinit~one is very good.
+Even though we still underestimate the screening for small $q$, for intermediate and higher momenta the agreement between the dashed blue and continuous black lines are excelent.
+The agreement is not as good as in the case of \gls{hbn} (see Fig.~\ref{fig:epsilon_quasi-2D_QEH_vs_q_hBN}) when looking at the whole $q$-range, perhaps because monolayer \gls{hbn} is atomically thin, unlike \ch{MoS2}, meaning that the \bd~and quasi-2D pictures work better for \gls{hbn} than \ch{MoS2}.
 
 \begin{figure}[h]
     \centering
@@ -1176,3 +1268,27 @@ $ ./xatu [OPTIONS] systemfile excitonfile -z screeningfile
     \mycaption[\textit{Ab-initio} and quasi-2D effective dielectric function for \ch{MoS2}]{Macroscopic quasi-2D effective dielectric function of monolayer \ch{MoS2}, with the strict \bd~and quasi-2D approaches, in comparison with the \abinit~one. Our results agree the best with the \abinit~one if we include only five reciprocal lattice vectors with $|\bG| < G_c = 3 $ \unit{\angstrom^{-1}} out of seven including the origin. Two of them were left out of the calculation. The black curve was obtained by S.~Latini et al.~in Ref.~\cite{Latini_2015} through \abinit~methods, applying a cutoff of $150$ \unit{\electronvolt} for the size of the dielectric matrix. In Ref.~\cite{Latini_2015}, the band structure of \ch{MoS2} was obtained through \dft~calculations within \gls{lda}. The dielectric function was calculated as a post-processing step. We used for the monolayer thickness $\dd_{\perp} = 6.15$~\unit{\angstrom}, the same value used in the QEH package~\cite{Dielectric_Genome}. We compared the \abinit~dielectric function in black with the corresponding dielectric function computed through the QEH package, in similarity with we did in Fig.~\ref{fig:epsilon_quasi-2D_QEH_vs_q_hBN}, to observe that the two curves overlap almost exactly. Therefore, we do not present the curve from the QEH package for \ch{MoS2}, as it provides redundant information.}
     \label{fig:epsilon_quasi-2D_abinitio_vs_q_MoS2}
 \end{figure}
+
+
+\begin{table}[ht]
+    \centering
+    \mycaption[Exciton spectrum of \ch{MoS2}]{Exciton spectrum of \ch{MoS2} with the Wannier model, using the Rytova--Keldysh potential and the numerical inverse dielectric matrix to compute the interaction matrix elements.
+    The second and fourth columns pertain to the Rytova--Keldysh model, while the third and fifth columns pertain to the numerical screening. 
+    The second and third columns show the exciton energies $E_X$, while the fourth and fifth columns show the corresponding binding energies $E_b$.
+    States labeled with the same number but different letters are states for which degeneracy is expected.
+    We used $N_k=60^2$, $N_{\cc}=N_{\vv}=1$, $G_c = 3.0$~\unit{\angstrom^{-1}}, $q_0 = 0.6 k_0$, and $r_0 = 31.74$~\unit{\angstrom} for the \textcolor{red}{Rytova--Keldysh potential}. In the numerical model for the screening, we included all the $\bG$ vectors with $|\bG| < G_c$. We excluded the exchange interaction term in both calculations, and set $\bQ=\bzero$. \textcolor{red}{Increasing the number of included bands to $N_{\cc}=N_{\vv}=2$ resulted in a change in binding energies less than $0.02$~\unit{\electronvolt} for all states, except for the state 2, for which the binding energy was of $2.1$~\unit{\electronvolt}.}}
+    \begin{tabular}{|c|c|c||c|c|}
+    \hline
+    State                         & $E_X$ (RK) (eV)         & $E_X$ ($\varepsilon_{\bG,\bG'}$) (eV)  & $E_b$ (RK) (eV)         & $E_b$ ($\varepsilon_{\bG,\bG'}$) (eV) \\ \hline \hline
+    1a                            & 1.7776752               & 1.7534264                              & 0.7963948                    & 0.8206436 \\ 
+    1b                            & 1.7811657               & 1.7578748                              & 0.7929043                    & 0.8161952 \\ \hline
+    2                             & 2.0284947               & 2.0110333                              & 0.5455753                    & 0.5630367 \\ \hline
+    3a                            & 2.0322698               & 2.0269894                              & 0.5418002                    & 0.5470806 \\ 
+    3b                            & 2.0722014               & 2.0661509                              & 0.5018686                    & 0.5079191 \\ \hline
+    4                             & 2.0723158               & 2.0662906                              & 0.5017542                    & 0.5077794 \\ \hline
+    5a                            & 2.1284467               & 2.1187732                              & 0.4456233                    & 0.4552968 \\ 
+    5b                            & 2.1292654               & 2.1193419                              & 0.4448046                    & 0.4547281 \\ \hline
+    \end{tabular}
+    \label{tab:MoS2_Wannier_exciton_spectrum}
+\end{table}
+
