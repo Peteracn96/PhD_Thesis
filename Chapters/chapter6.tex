@@ -153,7 +153,7 @@ Let us then carry out the integral once more.
 We have
 
 \begin{align}
-    \label{eq:lane_wave_matrix_element}
+    \label{eq:plane_wave_matrix_element}
     I^{\bG}_{n \bk, n' \bk'} =& \int \dr\, \psi^*_{n,\bk} (\br)\, \ee^{-\ii(\bk' - \bk + \bG) \vdot \br} \psi_{n' \bk'} (\br) = \notag \\
     =& \frac{1}{N} \int \dr \sum_{\bR \bR'} \ee^{- \ii \bk \vdot \bR} \ei{\bk' \vdot \bR'} \sum_{i \alpha j \beta} (C_{i \alpha}^{n \bk})^* C_{j \beta}^{n' \bk'} \underbrace{\phi^*_{\alpha} (\br - \bR - \bt_i) \phi_{\beta} (\br - \bR' - \bt_j)}_{\approx \delta_{ij} \delta_{\alpha \beta} \delta_{\bR \bR'} \delta(\br - \bR - \bt_i)} \ee^{-\ii(\bk' - \bk + \bG) \vdot \br} = \notag \\
     =& \frac{1}{N} \sum_{\bR} \cancel{\ee^{-\ii (\bk - \bk') \vdot \bR}} \sum_{i \alpha} (C_{i \alpha}^{n \bk})^* C_{i \alpha}^{n' \bk} \cancel{\ee^{-\ii (\bk' - \bk) \vdot \bR}} \ee^{- \ii \bG \vdot \bR} \ee^{- \ii (\bk' - \bk)  \vdot \bt_i} \ee^{-\ii \bG  \vdot \bt_i} =  \notag \\
@@ -762,6 +762,19 @@ The name of the approach gives the name of the \gls{qeh} for Python developed in
 The monolayer system is treated within a full quantum picture, like we do.
 However, we keep track of the nonlocal field effects introduced by the (in-plane) inhomogeneity of the crystal.
 Furthermore, we consider only monolayer materials, which keeps the computational effort to the minimum.
+A dielectric function in the mixed $(\bq,z)$-representation, or more precisely, its inverse, has made an appearance in the work by S.~Latini et al.~in Ref.~\cite{Latini_2015} (the same reference for the data we display in Fig.~\ref{fig:epsilon2D_abinitio_vs_q_hBN}), but within the context of \abinit~calculations.
+In the \abinit~case, the $z$-dependence in the head element can be recovered by performing an inverse Fourier transform along the $z$-direction on the microscopic inverse dielectric function As
+
+\begin{equation}
+    \label{eq:inverse_dielectric_function_mixed_representation}
+    \varepsilon^{-1}_{\bzero \bzero}(\bq,z,z') = \frac{1}{L} \sum_{G_z, G_z'} \ee^{\ii G_z z} \ee^{-\ii G_z' z'} \varepsilon^{-1}_{G_z \uvec{z} G_z' \uvec{z}}(\bq)\,,
+\end{equation}
+
+\noindent where $L_{\perp}$ is the distance between consecutive images in the off-plane direction, the sum is over reciprocal lattice vectors with no in-plane component, and the momentum vector $\bq$ is in-plane.
+Then, an effective \bd~macroscopic dielectric function can be extracted.
+Other similar approaches for defining an effective \bd~potential exist in the literature~\cite{Diana_PhD,Jornada_PhD}.
+Our approach is different.
+We start from the dielectric function in the mixed representation, and then invert it.
 
 To obtain the final expression for the dielectric function in the mixed representation, we need first to work out the quantity $\chi^{0}_{\bG \bG'}(\bq,z,z')$.
 Doing so is not very hard, but it is somewhat tedious.
@@ -784,7 +797,7 @@ Working out the integral and simplifying, the dielectric function reads
 
 \begin{align}
     \label{eq:quasi_2D_dielectric_function_final}
-    \varepsilon_{\bG \bG'}(\bq,z,z') = & \delta_{\bG \bG'} \delta( z-z')-\frac{1}{2\epsz |\bq +\bG|\area}\sum_{\vv \cc, \bk \sigma}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })}\Bigg\{\\ 
+    \varepsilon_{\bG \bG'}(\bq,z,z') = & \,\delta_{\bG \bG'} \delta( z-z')-\frac{1}{2\epsz |\bq +\bG|\area}\sum_{\vv \cc, \bk \sigma}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })}\Bigg\{\\ 
     & \sum_{i\alpha} \Big[C_{i\alpha}^{\cc \bk+\bq} \left(C_{i\alpha}^{\vv\bk}\right)^{*} \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \ee^{-|\bq +\bG||z-t_{i,z}|}\Big] \sum_{j\beta}\Big[C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z})\Big]+  \notag\\
     & \sum_{i\alpha} \Big[\left(C_{i\alpha}^{\cc\bk+\bq }\right)^{*}C_{i\alpha}^{\vv\bk} \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \ee^{-|\bq +\bG||z-t_{i,z}|}\Big] \sum_{j\beta}\Big[\left(C_{j\beta}^{\vv\bk}\right)^{*}C_{j\beta}^{\cc\bk+\bq } \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z})\Big]\Bigg\} \,. \notag
 \end{align}
@@ -795,7 +808,7 @@ Performing the average explicitly yields
 \begin{align}
     \label{eq:quasi_2D_averaged_dielectric_function}
     & \bar{\varepsilon}_{\bG \bG'}(\bq) \equiv \frac{1}{\dd_{\perp}} \int_{-\dd_{\perp}/2}^{\dd_{\perp}/2} \int_{-\dd_{\perp}/2}^{\dd_{\perp}/2} \varepsilon_{\bG \bG'}(\bq,z,z')\,\dd z\dd z' = \\
-    =& \delta_{\bG \bG'} - \frac{1}{2\epsz |\bq +\bG|\area}\sum_{\vv \cc,\bk \sigma}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })} \Bigg\{ \notag  \\
+    =& \,\delta_{\bG \bG'} - \frac{1}{2\epsz |\bq +\bG|\area}\sum_{\vv \cc,\bk \sigma}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })} \Bigg\{ \notag  \\
     & \sum_{i\alpha} \Bigg[C_{i\alpha}^{\cc\bk+\bq }\left(C_{i\alpha}^{\vv\bk}\right)^{*}\frac{2\ee^{-\ii(\bq +\bG) \vdot\bt_{i}}\big(1-\ee^{-|\bq +\bG| \dd_{\perp}/2}\cosh[ |\bq +\bG|t_{i,z}]\big)}{|\bq +\bG| \dd_{\perp}}\Bigg]\sum_{j\beta}\Big[C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \vdot \bt_{j}}\Big] - \notag\\
     & \sum_{j\beta} \Bigg[\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*}C_{j\beta}^{\vv\bk}\frac{2\ee^{-\ii(\bq +\bG) \vdot \bt_{j}}\big(1-\ee^{-|\bq +\bG| \dd_{\perp}/2}\cosh[ |\bq +\bG|t_{j,z}]\big)}{|\bq +\bG| \dd_{\perp}}\Bigg]  \sum_{i\alpha}\Big[\left(C_{i\alpha}^{\vv\bk}\right)^{*}C_{i\alpha}^{\cc\bk+\bq } \ee^{\ii (\bq +\bG') \vdot \bt_{i}}\Big]\Bigg\}\,, \notag
 \end{align}
@@ -805,7 +818,7 @@ Performing the average explicitly yields
 \begin{equation}
     \begin{aligned}
         &\int_{-\dd_{\perp}/2}^{\dd_{\perp}/2} \ee^{-|\bq +\bG||z-t_{i,z}|}\dd z = \frac{2\big(1-\ee^{-|\bq +\bG| \dd_{\perp}/2}\cosh[ |\bq +\bG|t_{i,z}]\big)}{|\bq +\bG|} \qq{and} \\
-        &\int_{-\dd_{\perp}/2}^{\dd_{\perp}/2} \delta(z' - t_{j,z})\,\dd z' &= 1\,.
+        &\int_{-\dd_{\perp}/2}^{\dd_{\perp}/2} \delta(z' - t_{j,z})\,\dd z' = 1\,.
     \end{aligned}
 \end{equation}
 
@@ -1008,7 +1021,29 @@ As possible input parameters we have:
 \label{subsec:complexity_analysis}
 
 In this part of the chapter, we provide a brief complexity analysis of the calculation of the dielectric function.
-Our goal is to estimate the memory complexity and the time complexity, that we will denote by $lololo$
+Our goal is to estimate the memory complexity and the time complexity, that we will denote by $\mathcal{O}_{\mathrm{m}}$ and $\mathcal{O}_{\mathrm{t}}$, respectively.
+For brevity, we do not discuss the space complexity, since the time complexity is the one we are more interested in.
+Since one can improve the processing time by engineering the storage of information, it makes sense to address the memory complexity as well.
+At the end, we want to estimate the time complexity of a full calculation of the dielectric matrix in the entire \bz~mesh, which comes before the calculation of the excitons using the \texttt{xatu} program.
+For a start, we analyse the complexity of computing a single polarizability matrix element $\chi^0_{\bG \bG'}(\bq)$\,.
+
+The polarizability matrix elements as per Eq.~\eqref{eq:static_polarizability_TRS}, are computed through a sum over valence bands, conduction bands, and momentum (apart from an eventual sum over the spin).
+In the code, they are implemented as three nested \texttt{for} loops.
+If we would like to keep the memory requirements to the minimum, then we could implement the \texttt{for} loops such that the one for momentum is the innermost one.
+Then, for each contribution to the sum, we would need to diagonalize the Bloch Hamiltonian $H(\bk)$ twice, at the the points $\bk$ and $\bk+\bq$.
+In this way, we get the sets of energies $\{\epsilon_{n \bk}\}$ and $\{\epsilon_{n \bk+\bq}\}$, alongside their respective eigenvectors $\{\bC^{n\bk}\}$ and $\{\bC^{n\bk+\bq}\}$.
+To remind the reader, the eigenvectors are used to compute the plane-wave matrix elements as per Eq.~\ref{eq:plane_wave_matrix_element}.
+However, this process to compute the sum for the polarizability would be extremely slow.
+There is no point in having to diagonalize the Bloch Hamiltonian for each iteration in the sum.
+What we do instead, is diagonalize the Bloch Hamiltonian before computing the polarizability matrix element, and store the energies and eigenvectors in the stack.
+If we denote the number of total bands by $N_{B}$, and the number of $\bk$ points in the \bz~mesh by $N_{k}$, then the memory complexity of computing a single polarizability matrix element is $\mathcal{O}_{\mathrm{m}}( 2 N_{B} N_{k} + 2 N_{B}^2 N_{k})$, where we get a contribution from the $2 N_{B} N_{k}$ eigenvalues to store, $\{\epsilon_{n \bk}\}$ and $\{\epsilon_{n \bk+\bq}\}$, and from the $2 N_{B}^2 N_{k}$ eigenvectors $\{\bC^{n\bk}\}$ and $\{\bC^{n\bk+\bq}\}$.
+The code allows for using a number of valence bands, $N_{\vv}$, and conduction bands, $N_{\cc}$, provided by the user, which can be smaller than the total ones if the user wants to speed up the calculations.
+Nonetheless, for simplicity, we assume that all the bands are included in the calculation.
+We have $N_{B} = N_{\vv} + N_{\cc}$.
+In this way, the time complexity of computing a single polarizability matrix element is $\mathcal{O}_{\mathrm{t}} ( N_{\vv} N_{\cc} N_{k} )$.
+For a whole polarizability matrix at a single point $\bq$ in the \bz, denoting the number of reciprocal lattice vectors included by $N_G$, as time complexity $\mathcal{O}_{\mathrm{t}} (N_{G}^2 N_{\vv} N_{\cc} N_{k})$.
+
+In the calculation of the dielectric matrix in the entire \bz~mesh, we have to compute all the $N_{G}^2$ matrix elements $\chi^0_{\bG \bG'}(\bq)$, for all the $\bq$ points in the \bz~mesh, which contains $N_{k}$ points.
 
 \subsection{Benchmark and validation}
 \label{subsec:benchmark_and_validation}
