@@ -1146,6 +1146,32 @@
 	pages={165428}
 }
 
+@article{Armadillo_2016,
+    doi = {10.21105/joss.00026},
+    url = {https://doi.org/10.21105/joss.00026},
+    year = {2016},
+    publisher = {The Open Journal},
+    volume = {1},
+    number = {2},
+    pages = {26},
+    author = {Sanderson, Conrad and Curtin, Ryan},
+    title = {Armadillo: a template-based C++ library for linear algebra},
+    journal = {Journal of Open Source Software} }
+
+@article{Armadillo_2019,
+    AUTHOR = {Sanderson, Conrad and Curtin, Ryan},
+    TITLE = {Practical Sparse Matrices in C++ with Hybrid Storage and Template-Based Expression Optimisation},
+    JOURNAL = {Mathematical and Computational Applications},
+    VOLUME = {24},
+    YEAR = {2019},
+    NUMBER = {3},
+    ARTICLE-NUMBER = {70},
+    URL = {https://www.mdpi.com/2297-8747/24/3/70},
+    ISSN = {2297-8747},
+    ABSTRACT = {Despite the importance of sparse matrices in numerous fields of science, software implementations remain difficult to use for non-expert users, generally requiring the understanding of the underlying details of the chosen sparse matrix storage format. In addition, to achieve good performance, several formats may need to be used in one program, requiring explicit selection and conversion between the formats. This can be both tedious and error-prone, especially for non-expert users. Motivated by these issues, we present a user-friendly and open-source sparse matrix class for the C++ language, with a high-level application programming interface deliberately similar to the widely-used MATLAB language. This facilitates prototyping directly in C++ and aids the conversion of research code into production environments. The class internally uses two main approaches to achieve efficient execution: (i) a hybrid storage framework, which automatically and seamlessly switches between three underlying storage formats (compressed sparse column, red-black tree, coordinate list) depending on which format is best suited and/or available for specific operations, and (ii) a template-based meta-programming framework to automatically detect and optimise the execution of common expression patterns. Empirical evaluations on large sparse matrices with various densities of non-zero elements demonstrate the advantages of the hybrid storage framework and the expression optimisation mechanism.},
+    DOI = {10.3390/mca24030070}
+}
+
 @article{Rasmussen_Schmidt_Winther_Thygesen_2016,
 	title={Efficient many-body calculations for two-dimensional materials using exact limits for the screened potential: Band gaps of MoS$_{2}$, h-BN, and phosphorene},
 	volume={94},
