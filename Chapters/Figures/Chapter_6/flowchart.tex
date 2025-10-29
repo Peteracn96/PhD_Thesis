@@ -22,7 +22,7 @@
     %%% Main algorithm
     % Diagonalize H0 node
     \node (computeH0) [draw, rectangle, below of=bigbox, node distance=2.5cm, align=center]
-    {Diagonalize $H_0(\mathbf{k})\ \forall \mathbf{k}\in$ BZ \\ Store $\varepsilon_{n\mathbf{k}}$ and $U(\mathbf{k})$};
+    {Diagonalize $H_0(\mathbf{k})\ \forall \mathbf{k}\in$ BZ \\ Store $\{\varepsilon_{n\mathbf{k}}\}$ and $\{\bC^{n \bk}\}$};
 
     % Method decision node
     \node (method) [draw, diamond, aspect=2, below of=computeH0, node distance=2.5cm, align=center] {Method to use};
@@ -69,7 +69,7 @@
     {Optical conductivity\\ $\sigma_{a b}(\omega)$};
 
     % Increase Nk node
-    \node (increaseNk) [draw, rectangle, right of=converge_energies, node distance=6.3cm, align=center] {Increase $N_{\mathbf{k}}$ \\ and/or $N_{v/c}$ \\ and/or $G_c$};
+    \node (increaseNk) [draw, rectangle, right of=converge_energies, node distance=6.3cm, align=center] {Increase $N_{\mathbf{k}}$ \\ and/or $N_{v/c}$ \\ and/or $G_c$/$G^{X}_c$};
 
     \node (symmetry) [draw, diamond, aspect=2, below of=bigbox_output, node distance=3cm, align=center] {Symmetries \\ preserved?};
 
