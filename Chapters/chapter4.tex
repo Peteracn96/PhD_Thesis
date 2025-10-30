@@ -145,7 +145,7 @@ The excitonic states and respective binding energies can be estimated by solving
 
 \noindent where $\mu_{eh}$ is the electron--hole reduced effective mass as before, and $V(\br)$ is the attractive potential.
 One can notice similarities with the \gls{tise} for the hydrogen atom, but with an effective reduced mass (between two particles that have a comparable mass), and an attractive potential that includes now screening effects from the material itself.
-We have seen before, in the Section~\ref{subsubsec:dielectric_function_static_limit}, that for \bd~materials the dielectric function in the static limit has a nontrivial momentum-dependence.
+We have seen before, in the section~\ref{subsubsec:dielectric_function_static_limit}, that for \bd~materials the dielectric function in the static limit has a nontrivial momentum-dependence.
 It is linear in $q$ as $\varepsilon(q) = 1 + r_0 q$, and we called this permittivity with the model parameter $r_0$ the Rytova--Keldysh dielectric function, giving origin to the Rytova--Keldysh potential~\cite{keldysh2024coulomb}.
 
 The Wannier equation does not capture the full structure of the excitonic states (like nondegenerate $p$ states~\cite{Olsen_Latini_Rasmussen_Thygesen_2016,PhysRevB.104.205201,PhysRevLett.115.166803} or the symmetries of the crystal), hence we need to resort to more accurate descriptions of the excitonic problem for complicate materials.
@@ -154,16 +154,16 @@ Nonetheless, the Wannier--Mott formalism offers good results when compared to ex
 One can go beyond Wannier--Mott by using a reciprocal space description of the excitons through the so-called \gls{bse}---an integral equation where finer details of the band structure, the Coulomb interaction and the system Hamiltonian are included~\cite{Louie_2000,Mauricio_2022}.
 
 In this work, we develop two versions of the \gls{bse}\@, one that we will apply to effective low-energy models, and another one using exact diagonalization methods.
-The \abinit~version of the \gls{bse}\footnote{For a reader fond of high-energy physics, we leave here a historical note. The \gls{bse} was first introduced in the literature by Y.~Nambu in 1950~\cite{Nambu_1950}, and is named after the physicists Hans Bethe and Edwin Salpeter who derived it in 1951~\cite{Bethe_Salpeter_1951}, with posterior contributions by Gell-Mann and Low~\cite{Gell-Mann_Low_1951}. Its original formulation is in the context of quantum field theories, where composite two-fermion states can arise as well. One example is the electron--positron pair, positronium. Either in its covariant form or nonrelativistic form, the starting point to derive the \gls{bse} is defining a four-point, or two-particle, interacting Green function~\cite{Gell-Mann_Low_1951,Martin_Reining_Ceperley_2016}. Notwithstanding their differences, both formalisms can be conciliated into a relativistic many-body theory~\cite{Lindgren_2011}. Just like in Section~\ref{sec:many_particle_description} for the many-particle description of solids, where we introduced the diagram notation, one can also write the \gls{bse} in a diagrammatic form (which of course has its own particle physics version).} is not addressed here.
+The \abinit~version of the \gls{bse}\footnote{For a reader fond of high-energy physics, we leave here a historical note. The \gls{bse} was first introduced in the literature by Y.~Nambu in 1950~\cite{Nambu_1950}, and is named after the physicists Hans Bethe and Edwin Salpeter who derived it in 1951~\cite{Bethe_Salpeter_1951}, with posterior contributions by Gell-Mann and Low~\cite{Gell-Mann_Low_1951}. Its original formulation is in the context of quantum field theories, where composite two-fermion states can arise as well. One example is the electron--positron pair, positronium. Either in its covariant form or nonrelativistic form, the starting point to derive the \gls{bse} is defining a four-point, or two-particle, interacting Green function~\cite{Gell-Mann_Low_1951,Martin_Reining_Ceperley_2016}. Notwithstanding their differences, both formalisms can be conciliated into a relativistic many-body theory~\cite{Lindgren_2011}. Just like in section~\ref{sec:many_particle_description} for the many-particle description of solids, where we introduced the diagram notation, one can also write the \gls{bse} in a diagrammatic form (which of course has its own particle physics version).} is not addressed here.
 Besides being technically more involved, it is extremely demanding computationally, so it is necessary to come up with more efficient approaches.
 Nonetheless, it can be frequently encountered in the literature, in particular in works using \abinit~methods for the optical response of materials~\cite{BerkeleyGW,Yambo_2009}.
 If the reader is curious about it, we refer to the original work by M.~Rohlfing and S.~G.~Louie~\cite{Louie_2000}, or the PhD thesis by A.~J.~Ur\'ia-\'Alvarez~\cite{Alex_PhD} for a more recent text with a derivation adapted from~\cite{Louie_2000}.
 Combined with the $GW$ method for calculating quasiparticle band structures, the state-of-the-art for exciton and optical response calculations is called the $GW$+\gls{bse} method, constituting the theoretical basis of several computational packages~\cite{Yambo_2009,BerkeleyGW,Perfetto_Stefanucci_2018,Vorwerk_Aurich_Cocchi_Draxl_2019,GPAW_2025}, which has made its way to chemistry as well~\cite{Blase_2020,Amblard_Blase_Duchemin_2023,Amblard_Blase_Duchemin_2024,TURBOMOLE_2013,TURBOMOLE_2023}.
-On par with $GW$+\gls{bse}, there is another formalism for predicting the optoelectronic properties of materials, the \gls{tddft} formalism~\cite{Runge_Gross_1984,Rubio_2002}, the extension of the \gls{dft} formalism we mentioned in Section~\ref{subsubsec:abinit_methods}.
+On par with $GW$+\gls{bse}, there is another formalism for predicting the optoelectronic properties of materials, the \gls{tddft} formalism~\cite{Runge_Gross_1984,Rubio_2002}, the extension of the \gls{dft} formalism we mentioned in section~\ref{subsubsec:abinit_methods}.
 The \gls{tddft} method for linear response has also faced a recent extension to the relativistic case, which is called the quantum-electrodynamical density functional theory formalism~\cite{Ruggenthaler_2025}.
 
 In the following section, we derive the Bethe--Salpeter equation applied to effective models, followed by a derivation of the Wannier equation.
-Then in Section~\ref{sec:bethe_salpeter_equation_exact} we dwell once again on the \gls{bse}, this time using exact diagonalization methods as they are implemented in the code we contributed to in this thesis.
+Then in section~\ref{sec:bethe_salpeter_equation_exact} we dwell once again on the \gls{bse}, this time using exact diagonalization methods as they are implemented in the code we contributed to in this thesis.
 To finalize the chapter, we derive expressions to study the linear optical response of materials, with and without excitonic effects.
 
 
@@ -184,8 +184,8 @@ The Fermi sea comes from populating the electronic states of the material starti
 If there is no electronic bandgap, the energy of the highest occupied state, at zero temperature, is called the Fermi energy or Fermi level, with symbol $\EF$.
 That is the case of metals, where $\EF$ lies in the middle of the partially filled highest valence band.
 In semiconductors and insulators, the Fermi energy lies in the midway between the energy of the highest occupied state and the energy of the lowest unoccupied state.
-More generally, it can be defined as the chemical potential $\mu$ (see Box~\ref{box:chemical_potential} in Section~\ref{subsec:rpa_dielectric_function}) at zero temperature.
-This is explained in Section 4.1 of the textbook in Ref.~\cite{Simon_Oxford_2013}.
+More generally, it can be defined as the chemical potential $\mu$ (see Box~\ref{box:chemical_potential} in section~\ref{subsec:rpa_dielectric_function}) at zero temperature.
+This is explained in section 4.1 of the textbook in Ref.~\cite{Simon_Oxford_2013}.
 
 Since we introduced the exciton as a bound electron--hole complex, we will assume that the unbound electron--hole states serve as a good basis in which we can expand the excitonic states.
 To simplify the reasoning, we assume that only the top valence band and the lowest conduction band contribute to the exciton.
@@ -531,10 +531,10 @@ The starting point is to write the total electronic Hamiltonian\footnote{Commonl
 \end{equation}
 
 \noindent where the indices include the relevant degrees of freedom (orbital site and orbital type), the first term corresponds to the interaction between the valence electrons and the ions (with frozen degrees of freedom), and the second term corresponds to the electrostatic Coulomb interaction between the electrons.
-The single-particle physics is encoded in $\Ho$, to which all the techniques and results discussed in Section~\ref{sec:single_particle_properties} apply (and the ones within the \rpa~from Section~\ref{sec:dielectric_function_quantum} as well).
-In the Section~\ref{sec:single_particle_properties}, where we discussed single-particle properties of electrons in crystals,  particle--particle interactions were not completely discarded, in the sense that the electronic eigenstates---the Bloch states---that describe the ground state of the material, were previously obtained through self-consistent calculations (\gls{hf} or \gls{dft}), where interactions and correlations are treated at the mean-field level.
+The single-particle physics is encoded in $\Ho$, to which all the techniques and results discussed in section~\ref{sec:single_particle_properties} apply (and the ones within the \rpa~from section~\ref{sec:dielectric_function_quantum} as well).
+In the section~\ref{sec:single_particle_properties}, where we discussed single-particle properties of electrons in crystals,  particle--particle interactions were not completely discarded, in the sense that the electronic eigenstates---the Bloch states---that describe the ground state of the material, were previously obtained through self-consistent calculations (\gls{hf} or \gls{dft}), where interactions and correlations are treated at the mean-field level.
 The many-particle physics (e.g. excitons) is encoded in $\V$, without which excitons cannot be described, in concordance with the previous section.
-Instead of departing from the many-body Hamiltonian with the interacting part in terms of field operators, we depart from a Hamiltonian in real space already written in an atomistic basis, i.e., we adopt the \gls{tb} description from the Section~\ref{subsubsec:tight_binding_method} of the previous chapter.
+Instead of departing from the many-body Hamiltonian with the interacting part in terms of field operators, we depart from a Hamiltonian in real space already written in an atomistic basis, i.e., we adopt the \gls{tb} description from the section~\ref{subsubsec:tight_binding_method} of the previous chapter.
 
 The sums in Eq.~\eqref{eq:Hamiltonian_start} run over indices including orbitals and position degrees of freedom (and spin, eventually).
 The parameters $t_{i j}$ are the tight-binding parameters, while $V_{ijkl}$ are the interaction matrix elements\footnote{Note that by matrix elements, we mean the symbols $V_{ijkl}$, which are matrix elements of the first quantized interaction term $V$ between single-particle states belonging to the one-particle Hilbert space, and not matrix elements of the second quantized operator $\V$ between states living in the Fock space.}
@@ -573,9 +573,9 @@ If the exciton has a center of mass momentum $\bQ$, and assuming that a basis of
 
 \noindent In this way, the exciton state is written as a linear combination of electron--hole pair states summing over valence bands, conduction bands, and momentum.
 We can consider the quantum number $\bQ$ a good one since the interaction conserves momentum, as all electron--hole pairs share the same center of mass momentum $\bQ$.
-Up until now, we have just reintroduced the problem as in the beginning of Section~\ref{sec:bethe_salpeter_equation_effective_models}, albeit with a different notation.
+Up until now, we have just reintroduced the problem as in the beginning of section~\ref{sec:bethe_salpeter_equation_effective_models}, albeit with a different notation.
 The main difference resides in the approach for determining the coefficients $A^{\bQ}_{\vv \cc }(\bk)$ (previously labeled by $\phi_{\nu}(\bk)$, that we identified as the exciton wavefunction).
-Herein, we follow a variational approach (see the beginning of Section~\ref{subsec:born_oppenheimer_approximation}).
+Herein, we follow a variational approach (see the beginning of section~\ref{subsec:born_oppenheimer_approximation}).
 Hence, the expansion coefficients $A^{\bQ}_{\vv \cc }(\bk)$ are determined by minimization of the expectation value $\mel{X}{\Ha}{X}$  (omitting the $\bQ$ subscript momentarily) with respect to $\ket{X}$
 
 \begin{equation}
@@ -742,7 +742,7 @@ Upon substitution of the Bloch states by their expression in Eq.~\eqref{eq:Bloch
 \noindent where the position vectors in the argument of the orbitals may have a shift in position of the form $\br \to \br - \bR - \bt_i$ that we did not write explicitly.
 In \abinit~calculations, these integrals are typically evaluated by Fourier transforming the screened Coulomb potential, so that the integrals in $\br$ and $\br'$ factor out, and each integral ends up being a Fourier transform of the product between two orbitals.
 Those Fourier transforms are computed numerically via fast Fourier transforms algorithms, as there are libraries providing them~\cite{FFTW05}.
-However, in this work we can reduce the degree of complexity by making the point-like orbital approximation, that we have already introduced in Eq.~\eqref{eq:envelope_function_approximation} from Section~\ref{sec:bethe_salpeter_equation_effective_models}.
+However, in this work we can reduce the degree of complexity by making the point-like orbital approximation, that we have already introduced in Eq.~\eqref{eq:envelope_function_approximation} from section~\ref{sec:bethe_salpeter_equation_effective_models}.
 It consists in overlooking the spatial structure of the orbitals and assuming orthogonality whenever a product between orbitals appears.
 We can make the substitution
 
@@ -790,7 +790,7 @@ According to Eq.~\eqref{eq:two_point_discrete_inverse_Fourier} in Appendix~\ref{
 
 \noindent In this definition, if the system is \gls{3d}, then the integration is over the volume $\vol$, while if the system is \gls{2d}, then the integration is over the area $\area$.
 In this way, we are ignoring the $z$ coordinate if the material is \gls{2d}.
-We did so when computing the plane-wave matrix elements of the form $\langle \lambda \bk | \exp{\ii \bq \vdot \br} | \lambda' \bk'$ in Section~\ref{sec:bethe_salpeter_equation_effective_models}.
+We did so when computing the plane-wave matrix elements of the form $\langle \lambda \bk | \exp{\ii \bq \vdot \br} | \lambda' \bk'$ in section~\ref{sec:bethe_salpeter_equation_effective_models}.
 This detail will be a concern again only when we reach to Chapter~\ref{ch:screening}.
 
 The final expression in equation~\eqref{eq:interaction_matrix_element_direct_reciprocal} is the one usually encountered in the literature pertaining to first-principle methods~\cite{BerkeleyGW,Yambo_2009}.
@@ -817,11 +817,11 @@ If we use for the screened Coulomb potential the Rytova--Keldysh model, which ap
     \end{align}
 \end{subequations}
 
-\noindent where $V_{\text{RK}}(\bq) = \frac{e}{2\epsz q\left(1+r_0 q\right)}$ is the momentum-resolved Rytova--Keldysh potential, encountered in this work for the first time in the Section~\ref{subsubsec:dielectric_function_static_limit}.
+\noindent where $V_{\text{RK}}(\bq) = \frac{e}{2\epsz q\left(1+r_0 q\right)}$ is the momentum-resolved Rytova--Keldysh potential, encountered in this work for the first time in the section~\ref{subsubsec:dielectric_function_static_limit}.
 We also had to replace $\vol \to \area$.
 A striking difference between the expressions~\eqref{eq:interaction_matrix_element_exchange_reciprocal} and~\eqref{eq:interaction_matrix_element_direct_reciprocal} and the expressions~\eqref{eq:direct_interaction_matrix_element_reciprocal_RK} and~\eqref{eq:exchange_interaction_matrix_element_reciprocal_RK}, is that in the first two there is a double sum over reciprocal lattice vectors $\bG$ and $\bG'$, while in the last two there is only a single sum over reciprocal lattice vectors, without any possibility to account for nonlocal field effects since they use a model potential.
 The double sum introduces nonlocal field effects in the interaction matrix elements, while in the single sum, the inclusion of the reciprocal lattice vectors has the purpose of preserving the symmetry in the interaction between electrons~\cite{Ridolfi_2015}. % with momenta $\bk$ and $\bk'$~\cite{Ridolfi_2015}---the \bd~Fourier transform of the Rytova--Keldysh potential from the reciprocal space to the real space must involve a sum over all momenta in the reciprocal lattice to recover the correct $\br$ dependence, and the sum over all momenta can be decomposed into a sum over momenta in the \bz~with a sum over all reciprocal lattice vectors, so that the entire reciprocal lattice is covered.
-We will touch on this detail again later on in this work, in Subsection~\ref{subsec:excitons_results} about excitons in \gls{hbn}.
+We will touch on this detail again later on in this work, in subsection~\ref{subsec:excitons_results} about excitons in \gls{hbn}.
 
 Thus far, we have learned how to describe the emergence of excitons; many-body states arising from electronic interactions and correlations in a gapped material.
 We have also learned that the electronic, single-particle, bandgap does not coincide with the optical gap in these type of systems---the formation of excitons allows for photon absorption at energies that, according to the single-particle picture, would not be allowed, and it is the excitonic ground state defining the optical gap.
@@ -834,7 +834,7 @@ In this section, we provide the theory for the optical conductivity at the nonin
 From the Wannier formalism or, in alternative, from the \gls{bse} formalism, we should be able to compute the excitonic optical conductivity from knowing the excitonic energies and eigenstates.
 As we will see later on in this work, probing a gapped material with light is a way of measuring the imprint of many-body effects in its absorption spectrum.
 First, let us look at the optical response in the noninteracting limit in the next section.
-The excitonic response will follow in Section~\ref{subsec:excitonic_conductivity}.
+The excitonic response will follow in section~\ref{subsec:excitonic_conductivity}.
 
 The expressions derived are designed for \gls{3d} materials, as they are based on the dielectric function in Eq.~\eqref{eq:dielectric_function_momentum_frequency}, with the polarizability given by Eq.~\eqref{eq:polarizability_momentum_frequency} which applies to the \gls{3d} case.
 Nonetheless, they can be readily adapted to \bd~materials by analogy (by rigorous methods, one can consult Appendix~\ref{app:2D_optical_conductivity} that the permittivity--conductivity equivalence is different in the \bd~case).
@@ -882,7 +882,7 @@ Taking the local limit $\bq\to\bzero$ in the $\bG=\bG'=\bzero$ matrix element, w
 The expansion of the exponential only up to first order is called the dipole approximation\footnote{The optical transition is induced by the dipole operator $-e\phantom{.}\br$, hence the name of the approximation.}.
 It is valid as long as the wavelength is larger than typical length scales of the system, for instance, the unit cell, if the context is solid state physics.
 This approximation simplifies calculations a lot in other contexts, such as optics~\cite{Hohenester_2020,Novotny_Hecht_2012,Agarwal_2012} or atomic physics~\cite{Sakurai,Zettili_2009,Foot_2004} (which, for a matter of fact, are not completely unrelated).
-Using the famous relation $\varepsilon=1+\ii\frac{\sigma}{\omega\epsz}$, mentioned before for the first time in Eq.~\eqref{eq:equivalent_permittivity} from Section~\ref{sec:dielectric_function_classical}, we find
+Using the famous relation $\varepsilon=1+\ii\frac{\sigma}{\omega\epsz}$, mentioned before for the first time in Eq.~\eqref{eq:equivalent_permittivity} from section~\ref{sec:dielectric_function_classical}, we find
 
 \begin{equation}
     \label{eq:optical_conductivity_manipulation}
@@ -991,7 +991,7 @@ They will be addressed in two different ways in chapters~\ref{ch:Optical_hBN_sup
 \label{subsec:excitonic_conductivity}
 
 In this section we are concerned with the contribution of the excitons to the optical conductivity.
-Only going beyond the \gls{ipa} can we compare the theoretical predictions with the optical measurements for frequencies lying inside the bandgap, as we discussed in the Section~\ref{sec:introduction} of this chapter.
+Only going beyond the \gls{ipa} can we compare the theoretical predictions with the optical measurements for frequencies lying inside the bandgap, as we discussed in the section~\ref{sec:introduction} of this chapter.
 
 If the material is subject to a drive from a spatially uniform time-dependent electric field composed of a single harmonic $\omega$, the linear optical conductivity, according to the work of T.~Pedersen in~\cite{Pedersen_2015}, is given by
 

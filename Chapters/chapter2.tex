@@ -276,7 +276,7 @@ In real space, the Coulomb potential is given by
 
 
 \noindent with $e$ being the elementary charge (electron charge in absolute value)\footnote{In this text we avoid using Gaussian units, adopting the SI system instead. The Coulomb potential is to be understood in electron-Volt (eV), the reason why we have $e$ in the numerator instead of $e^2$. We call it potential even though it has units of energy. Throughout this text potential and energy are interchangeable terms when speaking of the Coulomb interaction.}.
-To find the screened potential felt by a test charge $e$ in the material, we can make use of Maxwell's equations that we already introduced in Section~\ref{subsec:maxwell_equations}, in particular Gauss' law~\eqref{subeq:Gauss_law} in the form
+To find the screened potential felt by a test charge $e$ in the material, we can make use of Maxwell's equations that we already introduced in section~\ref{subsec:maxwell_equations}, in particular Gauss' law~\eqref{subeq:Gauss_law} in the form
 
 \begin{equation}
     \nabla \vdot \bD(\br) = \rho_\ext(\br)\,,
@@ -319,7 +319,7 @@ We can then define an effective momentum-resolved dielectric function, $\varepsi
 Having previously assumed that the material is isotropic, then it depends only on the magnitude of the in-plane momentum $q = |\bq|$.
 It actually coincides with the static macroscopic dielectric function in \bd~materials in the high-wavelength (small $q$) limit.
 It carries the usual interpretation of being the ratio between the external potential $\phi^\ext (\br)=\phi_0^\ext(\bq) \ei{\bq \vdot \br}$ and the total (or screened) potential $\phi^\tot (\br)=\phi_0^\tot\text{\ensuremath{(\bq)}}\ei{\bq \vdot \br}$, which has a contribution from the external potential and another one from the potential induced by the external perturbation.
-We actually introduced this interpretation in Section~\ref{subsec:constitutive_relations_linear_response} in terms of fields instead of potentials, but the idea is the same.
+We actually introduced this interpretation in section~\ref{subsec:constitutive_relations_linear_response} in terms of fields instead of potentials, but the idea is the same.
 The resulting effective Coulomb potential is called Rytova--Keldysh potential~\cite{Rytova_1967}.
 
 To find the real space resolved Rytova--Keldysh potential, we do the \bd~inverse Fourier transform of~\eqref{eq:RK_potential_momentum} to get
@@ -420,7 +420,7 @@ Instead of having a quadratic dependence on the frequency, we will find a linear
 
 \noindent where $\sigma_0$ is a characteristic conductivity, and once more $f_j$ and $\Gamma_j$ are oscillation strengths and damping rates, respectively.
 At this moment, we have to be satisfied with the fact that these parameters are only adjustable parameters that can be obtained from fitting to experimental data.
-We can say, though, that these parameters hide very rich physics to be unveiled in the next chapters, just like in the case of Section~\ref{subsubsec:dielectric_function_static_limit}, where we introduced the adhoc parameter $r_0$.
+We can say, though, that these parameters hide very rich physics to be unveiled in the next chapters, just like in the case of section~\ref{subsubsec:dielectric_function_static_limit}, where we introduced the adhoc parameter $r_0$.
 We beg then for the reader's patience, as further clarifications will come in the next chapters.
 
 Finding a simple enough analytical expression for the dielectric function that encompasses both nonlocal and dynamical effects is a daunting task, but it can still be done for a couple of cases.
@@ -552,7 +552,7 @@ So we write
 
 \noindent where the lowercase $\mathbf{f}$ is $\mathbf{e}$ in the case of the electric field or $\mathbf{h}$ in the case of the magnetic field, if we factor out the $z$ dependence from the $(x,t)$ dependence for both fields; the system is $y$ invariant.
 To obtain an equation governing the $z$ dependence, we take the curl of Faraday's law~\eqref{subeq:Faraday_law} and use Amp\`ere--Maxwell's law~\eqref{subeq:Ampere_law}, with both laws in frequency domain.
-Furthermore, we work with the total displacement field $\bD$ defined in Section~\ref{subsec:constitutive_relations_linear_response} and with no contribution coming from external currents such that $\bJ = \bzero$. We can then write for the electric field the so-called Helmholtz equation
+Furthermore, we work with the total displacement field $\bD$ defined in section~\ref{subsec:constitutive_relations_linear_response} and with no contribution coming from external currents such that $\bJ = \bzero$. We can then write for the electric field the so-called Helmholtz equation
 
 \begin{equation}
 \begin{split}
@@ -563,7 +563,7 @@ Furthermore, we work with the total displacement field $\bD$ defined in Section~
 
 
 \noindent by defining $k_0^2 \equiv \omega^2 \vareps(\omega) /c^2$, and neglecting nonlocal effects in the material (either 1 or 2), so that the permittivity appearing is only frequency dependent.
-This allows to transform the spatial convolution of the permittivity with the electric field into a mere multiplication, such that $\bD(\br,\omega) = \vareps(\omega) \bE(\br,\omega)$ as already explained previously (see Section~\ref{subsubsec:dielectric_function_local_limit}).
+This allows to transform the spatial convolution of the permittivity with the electric field into a mere multiplication, such that $\bD(\br,\omega) = \vareps(\omega) \bE(\br,\omega)$ as already explained previously (see section~\ref{subsubsec:dielectric_function_local_limit}).
 Otherwise, we would have to take spatial derivatives of the response function.
 This is equivalent to taking in~\eqref{subeq:wave_equation_F} the \lra~limit $\bk \to \bzero$ of $\vareps_{\text{eq}}(\bk,\omega)$, and converting the square of the wavenumber $k^2$ back into the Laplacian operator in real space (up to a sign).
 Replacing the electric field $\bE$ by expression~\eqref{eq:oscillatory_electric_field}, we obtain the ordinary differential equation
@@ -761,7 +761,7 @@ In the lossy case, the theoretical value for the highest wavenumber we could pos
 Moreover, the fact that the permittivity is complex results in a wavenumber with non-negligible imaginary part~\cite{Wolff_2018}, that actually peaks at approximately the same frequency where the real part peaks.
 It tells us that, in practice, a high-field confinement means also high losses.
 Even though we now have \gls{em} modes in the frequency region that was previously forbidden, these modes are evanescent and do not propagate over long distances.
-Recall that the decay length of an evanescent wave is given by the inverse of the imaginary part of the wavenumber, as discussed in Section~\ref{subsec:waves_in_matter}.
+Recall that the decay length of an evanescent wave is given by the inverse of the imaginary part of the wavenumber, as discussed in section~\ref{subsec:waves_in_matter}.
 
 
 It is pertinent here to make the following technical remark.
@@ -828,7 +828,7 @@ As we are considering only plane waves composed of a single harmonic frequency $
     \langle \bS \rangle = \frac{1}{2} \Re\{\bE \times \bH^*\} = \frac{\qty|\bE\,|^2}{2 \omega \mu_0} \Re{\bk}\,,
 \end{equation}
 
-\noindent where, to get the second equality, we made use once more of Faraday's law, and also the vector identity for the double cross product already mentioned in Section~\ref{subsec:waves_in_matter}.
+\noindent where, to get the second equality, we made use once more of Faraday's law, and also the vector identity for the double cross product already mentioned in section~\ref{subsec:waves_in_matter}.
 For the incident and reflected radiation fields, respectively, we have $\bS_\inc = -\frac{1}{2} c \epsz \qty|\bE_\inc|^2  \Re{n_1} \bez$ and $\bS_\refl =\frac{1}{2} c \epsz \qty|\bE_\refl|^2 \Re{n_1}\bez$, while for the transmitted field we have $\bS_\trans = - \frac{1}{2} c \epsz \qty|\bE_\trans|^2 \Re{n_2} \bez$.
 We can finally define the relative amount of radiation that is reflected and transmitted at the interface, respectively, as
 
@@ -850,7 +850,7 @@ We are in place now to compute the amount of radiation that is absorbed by the \
 
 Maxwell's equations valid in continuous domains, together with the boundary conditions for boundaries between domains and the constitutive relations, form a closed system of equations, with which we could tackle any problem in electrodynamics involving \bd~materials; at least in principle, and if not analytically, then numerically.
 It happens that to make realistic predictions and expect agreement with experiments, we would need to know how the dielectric function, or equivalently the conductivity, depends on the frequency and wavevector\footnote{Apart from non-linear phenomena, where higher-order susceptibilities have to be defined, and it no longer makes sense speaking of a single permittivity or conductivity.}.
-We have seen two examples in the Section~\ref{subsec:constitutive_relations_linear_response} of models for the dielectric function that have an easy analytical expression.
+We have seen two examples in the section~\ref{subsec:constitutive_relations_linear_response} of models for the dielectric function that have an easy analytical expression.
 However, at this point we have no insight on the validity of these models, or where exactly do they come from, apart from classical explanations.
 More specifically, there is no way for us to obtain the values of the adjustable parameters used in those models besides from experimental measurements.
 In the next chapter, we introduce the reader to the principles of quantum mechanics, which are absolutely necessary to attack the problem of electrodynamics in materials at the quantum level, with focus on crystalline solids.
@@ -859,7 +859,7 @@ In the class of \bd~materials we are interested in, insulators and semiconductor
 After reading the next two chapters, the reader should be able to understand how a microscopic description of crystals allows properly quantifying the permittivity and the conductivity of periodic solids.
 These type of solids are the subject of the next chapter.
 \todo[inline]{What about now, clearer?}
-%We have considered particular cases in the previous Section~\ref{subsec:constitutive_relations_linear_response}, for which certain approximations allow for writing an analytical expression for the dielectric function, as the example of the local Drude metal, its extension to the Drude--Lorentz model for dielectrics and the \bd~dielectric function in the static limit.
+%We have considered particular cases in the previous section~\ref{subsec:constitutive_relations_linear_response}, for which certain approximations allow for writing an analytical expression for the dielectric function, as the example of the local Drude metal, its extension to the Drude--Lorentz model for dielectrics and the \bd~dielectric function in the static limit.
 %Up until now, we have not discussed how in fact such models can be obtained for different materials.
 %If we could do so, then we could know what values to use for the adjustable parameters in each model, and maybe even find the complete dependence of the material properties in the whole $(\bk,\omega)$ domain, even if numerically.
 %For us to have hope in doing so, we need the appropriate tools necessary to describe nanometric materials, or at even smaller ones down to the atomic level, where a plethora of different effects and phenomena underlie the emerging macroscopic physics that can be observed in real experiments.

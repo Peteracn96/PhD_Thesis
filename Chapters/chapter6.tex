@@ -22,10 +22,10 @@ It is a weaker Coulomb potential, that we usually call the screened Coulomb pote
 However, each charge should be treated equally.
 This means that the problem of determining the dielectric properties of a crystalline solid is a self-consistent problem.
 The electronic properties affect how the charges interact, and their interaction in turn affects its electronic properties.
-The theory of solid state physics which treats the many-body interacting problem is called \mbpt, which we discussed briefly in Section~\ref{subsec:many_body_perturbation_theory}.
+The theory of solid state physics which treats the many-body interacting problem is called \mbpt, which we discussed briefly in section~\ref{subsec:many_body_perturbation_theory}.
 In that section, we introduced the dielectric function as a central object that allows to quantify the screened Coulomb potential.
 However, the dielectric function encompassing all transitions between all the possible states, single-particle or many-particle, cannot be computed in practice.
-Therefore, we introduced the \gls{rpa} for the dielectric function in Section~\ref{sec:dielectric_function_quantum}.
+Therefore, we introduced the \gls{rpa} for the dielectric function in section~\ref{sec:dielectric_function_quantum}.
 Within this approximation, one can write a closed expression for the dielectric function considering only transitions between single-particle states.
 This constitutes a first step in obtaining an estimate for the weaker screened potential, which affects how the electronic properties renormalize (i.e., it affects the emergent quasiparticle band structure).
 It constitutes as well a first step in obtaining the electronic and optical properties of gapped materials when we look at energies inside the bandgap.
@@ -77,8 +77,8 @@ We finalise the chapter with closing remarks and final conclusions.
 
 %Here we recall the expression of the microscopic dielectric function in 2D, and take it for insulators and semiconductors and the static limit.
 
-In this section we look again into the \rpa~dielectric function that we have previously introduced in Section~\ref{subsec:rpa_dielectric_function}.
-The dielectric function in real-space and time domain, within \rpa, which we discussed in Section~\ref{sec:dielectric_function_quantum} reads
+In this section we look again into the \rpa~dielectric function that we have previously introduced in section~\ref{subsec:rpa_dielectric_function}.
+The dielectric function in real-space and time domain, within \rpa, which we discussed in section~\ref{sec:dielectric_function_quantum} reads
 
 \begin{equation}
 \label{eq:dielectric_function_real_time_recalled}
@@ -94,7 +94,7 @@ When Fourier transformed from the $(\br,t)$ domain to the $(\omega,\bq)$ domain,
 \end{equation}
 
 \noindent where $\bG$ and $\bG'$ are reciprocal lattice vectors, $\bq$ is a vector in the first \bz, and $\omega$ is the frequency.
-This is nothing more than a recapitulation of what we have discussed in Section~\ref{sec:dielectric_function_quantum}.
+This is nothing more than a recapitulation of what we have discussed in section~\ref{sec:dielectric_function_quantum}.
 The novelty in this chapter is that the Fourier transform is not in three dimensions, but in two dimensions.
 We overlook the $z$ dimension, as if $\br=(x,y)$.
 Since in this work we deal with \bd~materials, we argue that performing a \bd~Fourier transform on the dielectric function is the right thing to do, because the material is infinite in the $xy$ plane, but finite along the $z$-direction.
@@ -102,7 +102,7 @@ Technically speaking, we are saying that the response to an off-plane varying ex
 
 Within the strict \bd~framework for the dielectric response we develop here, we can ignore the $z$ coordinate altogether in the dielectric function.
 This is evidently an approximation that needs to be justified.
-We postpone doing so to Section~\ref{sec:quasi_2D}, and see how far we can go with a pure \bd~picture.
+We postpone doing so to section~\ref{sec:quasi_2D}, and see how far we can go with a pure \bd~picture.
 In what follows, we drop the $\BD$ superscript in $\varepsilon$ for ease of notation.
 But still, the reader should keep in mind that it is a \bd~quantity.
 
@@ -127,7 +127,7 @@ Naturally, the polarizability $\chi^0_{\bG \bG'} (\bq,\omega)$ is also the \bd~c
 The resemblance is clear from their written forms, but the main contrast is in the implementation.
 First, the sum over momentum $\bk$ is a sum over the \bd~\bz~of the material.
 Furthermore, even though it is not explicitly evidentiated in the braket notation, the plane-wave matrix elements in the numerator amount to real-space integrals extending over the plane of the material, and are therefore integrals in \bd~space.
-Such matrix elements have appeared before in Section~\ref{subsec:interaction_matrix_elements_and_screening}, when discussing the interaction matrix elements for the \bse~within an exact diagonalization formalism.
+Such matrix elements have appeared before in section~\ref{subsec:interaction_matrix_elements_and_screening}, when discussing the interaction matrix elements for the \bse~within an exact diagonalization formalism.
 To make this chapter as self-contained as possible, we repeat the definition in Eq.~\eqref{eq:plane_wave_matrix_element_definition} from that section, but now making it explicit that the integral is in two dimensions.
 Henceforth, we can write
 
@@ -166,7 +166,7 @@ However, the expression in~\eqref{eq:static_polarizability_TRS} is not commonly 
 We stress that the prefactor of $2$ and the sum over spins $\sigma$ are key to get correct screening properties.
 We prove in Appendix~\ref{app:polarizability_TRS_proof} that expression~\eqref{eq:static_polarizability_repeated} reduces to~\eqref{eq:static_polarizability_TRS} when \gls{trs} is present.
 All systems considered in this thesis enjoy \gls{trs}, which can be broken, for instance, when a static magnetic field is applied.
-As we have stated before in Section~\ref{subsec:maxwell_equations}, we do not study magnetized media.
+As we have stated before in section~\ref{subsec:maxwell_equations}, we do not study magnetized media.
 
 We have gathered all the necessary knowledge to compute these matrix elements, and thus the matrix elements of the noninteracting polarizability $\chi^0_{\bG \bG'}(\bq)$.
 As we said before, the material is in practice \bd~without any repeated off-plane images, unlike in first-principle approaches.
@@ -187,8 +187,8 @@ This means that:
     \psi_{n, \bk} (\br) = \frac{1}{\sqrt{N}} \sum_{\bR} \ei{\bk \vdot \bR} \sum_{i \alpha} C_{i \alpha}^{n \bk} \phi_{\alpha} (\br - \bR - \bt_i)\,.
 \end{equation}
 
-\noindent The plane-wave matrix elements between Bloch states have actually been calculated before in Section~\ref{sec:bethe_salpeter_equation_effective_models}, at the time when we derived the \bse~applied to effective models.
-At this stage, we compute them approximately using once again the point-like orbital approximation, but beyond the envelope function approximation as we did in Section~\ref{sec:bethe_salpeter_equation_effective_models}.
+\noindent The plane-wave matrix elements between Bloch states have actually been calculated before in section~\ref{sec:bethe_salpeter_equation_effective_models}, at the time when we derived the \bse~applied to effective models.
+At this stage, we compute them approximately using once again the point-like orbital approximation, but beyond the envelope function approximation as we did in section~\ref{sec:bethe_salpeter_equation_effective_models}.
 Let us then carry out the integral one more time.
 We have
 
@@ -247,7 +247,7 @@ The static dielectric function, within \rpa, reads
 \noindent if we adopt the symmetrized version of~\eqref{eq:dielectric_function_momentum_frequency_repeated}.
 The reason why we implement the symmetrized version is that it eases the treatment of numerical divergences in the dielectric function and, subsequently, in the screened potential in the long-wavelength limit~\cite{Baldereschi_Tosatti_1978,Rasmussen_Schmidt_Winther_Thygesen_2016,Shishkin_Kresse_2006}.
 Actually, for the head element $\varepsilon_{\bzero \bzero} (\bq \to \bzero)$, it is indifferent if we use the symmetrized version as per Eq.~\eqref{eq:static_symmetrized_dielectric_function}, or the initial one in Eq.~\eqref{eq:dielectric_function_momentum_frequency_repeated}.
-For this element, we can simply set $\varepsilon_{\bzero \bzero} (\bq \to \bzero) = 1$, because the bare potential goes with $v_c(\bq) \sim 1/q$, while the polarizability goes with $\chi^0_{\bzero \bzero} (\bq \to \bzero) \sim q^2$, as we shall confirm in Subsection~\ref{subsec:non_interacting_polarizability_results} (see Fig.~\ref{fig:chi_00_hbndft_mesh}).
+For this element, we can simply set $\varepsilon_{\bzero \bzero} (\bq \to \bzero) = 1$, because the bare potential goes with $v_c(\bq) \sim 1/q$, while the polarizability goes with $\chi^0_{\bzero \bzero} (\bq \to \bzero) \sim q^2$, as we shall confirm in subsection~\ref{subsec:non_interacting_polarizability_results} (see Fig.~\ref{fig:chi_00_hbndft_mesh}).
 This feature of the head element of the polarizability is universal among insulators, either in two or three dimensions, as long as the material presents a bandgap~\cite{Thygesen_2017}.
 This means that, when computing the matrix element $\varepsilon_{\bzero \bzero} (\bq)$ in the limit $\bq \to \bzero$, we face no numerical instabilities unlike in the \gls{3d} case, where $v_c(\bq) \sim 1/q^2$.
 
@@ -298,7 +298,7 @@ Looking at the dynamical expression of the polarizability, we can see that the f
 If the band gap is large enough when compared to the frequency, then we can approximate the screened Coulomb potential by its static limit and avoid an integration in frequency in the interaction matrix elements.
 
 To finish the discussion, we revisit the interaction matrix elements in the \gls{bse} for the excitons with the numerical approach.
-Their expressions derived in Section~\ref{subsec:interaction_matrix_elements_and_screening} remain the same, apart from the prefactor that contains the area $\area$ instead of the volume $\vol$, since we follow a strict \bd\ approach.
+Their expressions derived in section~\ref{subsec:interaction_matrix_elements_and_screening} remain the same, apart from the prefactor that contains the area $\area$ instead of the volume $\vol$, since we follow a strict \bd\ approach.
 For the direct term we have
 
 \begin{empheq}[innerbox=\fbox, right={\,,}]{align}
@@ -333,21 +333,21 @@ The material of choice is \gls{hbn} once more; but now, we work with a more real
 \label{subsec:hBN_revisited}
 
 In this section we describe our model Hamiltonian for \gls{hbn}, a \bd~material quite important in this thesis.
-We introduced for the first time a minimal tight-binding model for \gls{hbn} in Section~\ref{subsubsec:tight_binding_method}, with only two parameters; one parameter for the difference in onsite energies between boron and nitrogen atoms, and the hopping parameter between first neighbors.
+We introduced for the first time a minimal tight-binding model for \gls{hbn} in section~\ref{subsubsec:tight_binding_method}, with only two parameters; one parameter for the difference in onsite energies between boron and nitrogen atoms, and the hopping parameter between first neighbors.
 Then, on chapter~\ref{ch:Optical_hBN_superlattice}, we used a model based on the initial one considered in chapter~\ref{ch:quantum_mechanics_solids} to study excitons and the excitonic optical response in a \gls{hbn} nanostructure.
 We also used the Rytova--Keldysh model to account for the screening.
 In this chapter, we work out a numerical model for \gls{hbn}.
 For that, we need a more realistic model based on \abinit~methods.
 After all, it is with \abinit~methods that we can fit the tight-binding band structure to the \abinit~one to get the tight-binding parameters.
 
-Herein, the model Hamiltonian for \gls{hbn} was obtained through \dft~calculations (see Subsection~\ref{subsubsec:abinit_methods}) with the commercial package \textsc{CRYSTAL}~\cite{CRYSTAL_23}, which uses a framework of Gaussian basis functions.
+Herein, the model Hamiltonian for \gls{hbn} was obtained through \dft~calculations (see subsection~\ref{subsubsec:abinit_methods}) with the commercial package \textsc{CRYSTAL}~\cite{CRYSTAL_23}, which uses a framework of Gaussian basis functions.
 In our calculations, we used the hybrid functional HSE06~\cite{Heyd_Scuseria_Ernzerhof_2003}, which mixes the exact \gls{hf} exchange functional and the Perdew--Burke--Ernzerhof functional~\cite{Perdew_1996} within the \gls{gga}\footnote{In typical \abinit~calculations within \dft, there is always an ambiguity in the functional one can choose to capture exchange and correlation effects. This is because no one knows the analytical expression for the exact exchange--correlation functional, if it even exists. We know however that it is a functional of the electron density $n(\br)$ by the Hohenberg--Kohn theorems, we just do not have an analytical expression for it. Nonetheless, exchange--correlation contributions to the ground-state energy can be computed numerically. The caveat is that it is very computationally demanding. What one typically does, is mixing the exact numerical functional with an approximated one, say at the \gls{lda} or \gls{gga} level. There is consensus in the community that using hybrid functionals allows better estimating the electronic bandgap than non-hybrid ones when compared with the experimental values~\cite{PhysRevMaterials.8.043803}.}.
 For the sampling of $\bk$ points, we use a uniform $48\times48\times1$ Monkhorst--Pack $\bk$-grid~\cite{Monkhorst_Pack_1976}, with an interlayer distance of 500~\unit{\angstrom} and $a=2.51$~\unit{\angstrom} for the lattice constant.
 The output file $\texttt{hBN\_base\_HSE06.outp}$ can be found in the official repository for the \xatu~code: \url{https://github.com/xatu-code/xatu/tree/master/examples/material_models/DFT}.
 This file contains the Fock matrices of the form $H(\bR)$ in a basis of localized Gaussian functions, sufficient in number to build the Bloch Hamiltonian $H(\bk) = \sum_{\bR} \ee^{\ii \bk \cdot \bR} H(\bR)$ while preserving basic symmetries.
 Diagonalizing the Bloch Hamiltonian with the \xatu~code along the high-symmetry line $\Gamma-K-M-\Gamma$, we obtain the band structure displayed in Fig.~\ref{fig:hBN_DFT_bands} below.
-For this model, the bandgap is $\Delta = 6.08$~\unit{\electronvolt}, not very distant from the one reported in Section~\ref{subsec:band_gap_and_binding_energies}.
-With this model Hamiltonian, namely the band structure and the eigenvectors of the Bloch Hamiltonian, we construct a numerical model for the screening properties of \gls{hbn}, needed later on to compute the excitons through the exact diagonalization method for the \bse, as discussed in Section~\ref{subsec:interaction_matrix_elements_and_screening}.
+For this model, the bandgap is $\Delta = 6.08$~\unit{\electronvolt}, not very distant from the one reported in section~\ref{subsec:band_gap_and_binding_energies}.
+With this model Hamiltonian, namely the band structure and the eigenvectors of the Bloch Hamiltonian, we construct a numerical model for the screening properties of \gls{hbn}, needed later on to compute the excitons through the exact diagonalization method for the \bse, as discussed in section~\ref{subsec:interaction_matrix_elements_and_screening}.
 That is the subject of the sections to come.
 
 \begin{figure}[t]
@@ -599,7 +599,7 @@ At this point, we cannot say if the disagreement for higher $q$ is also in part 
 At least for low momenta, this approximation does not set us back.
 
 Now that we have successfully computed the dielectric function, it is now time to compute the excitons using the numerical model for screening.
-Knowing the excitonic states and energies, just like in the previous chapter in Section~\ref{sec:exciton_optical_response}, we can compute the excitonic optical conductivity.
+Knowing the excitonic states and energies, just like in the previous chapter in section~\ref{sec:exciton_optical_response}, we can compute the excitonic optical conductivity.
 The excitons and the excitonic optical response are the subject of the next subsection.
 
 \subsection{Excitonic states and conductivity}
@@ -639,7 +639,7 @@ First, one can notice that for the Rytova--Keldysh calculation, the states are n
 For the Rytova--Keldysh calculation, this does not come as a surprise, since it is know that the binding energy for \gls{hbn} excitons are of the highest among all \bd~insulators.
 This means that they are localized in real space, therefore they are delocalized in momentum space.
 Henceforth, one needs a high enough cutoff $G^{X}_c$ for the interaction matrix elements to recover the expected degeneracies and symmetries.
-This fact, that we touched on at the end of Subsection~\ref{subsec:interaction_matrix_elements_and_screening}, has been discussed before in the literature by E.~Ridolfi et al.~in Ref.~\cite{Ridolfi_2015}, and verified again more recently in Ref.~\cite{Xatu}.
+This fact, that we touched on at the end of subsection~\ref{subsec:interaction_matrix_elements_and_screening}, has been discussed before in the literature by E.~Ridolfi et al.~in Ref.~\cite{Ridolfi_2015}, and verified again more recently in Ref.~\cite{Xatu}.
 
 \begin{table}[ht]
     \centering
@@ -671,7 +671,7 @@ This means that the excitons obtained with $V_{\RK} (q)$ should be higher in ene
 In terms of binding energies, displayed in the fourth and fifth columns of the table, the excitons obtained with the Rytova--Keldysh model present lower binding energies when compared to the excitonic binding energies obtained with the numerical dielectric function.
 In Fig.~\ref{fig:Coulomb_RK_W00_potential}, we illustrate the $q$-space Coulomb attraction between the electron and the hole by plotting the bare Coulomb potential $v_c(q)$ in black, the Rytova--Keldysh potential $V_{\RK} (q)$ in blue, and the head element of the screened potential $W_{\bzero \bzero} (q)$ in red.
 Since the Rytova--Keldysh dielectric function is obtained from $1/\varepsilon^{-1}_{\bzero \bzero} (\bq)$, in the long-wavelength limit the two screened potentials coincide.
-However, for intermediate $q$, the Rytova--Keldysh potential underestimates the electrostatic Coulomb interaction, decaying to zero faster than $W_{\bzero \bzero} (q)$ and than the Coulomb potential, as we have already pointed out in Subsection~\ref{subsec:macroscopic_dielectric_function_results}.
+However, for intermediate $q$, the Rytova--Keldysh potential underestimates the electrostatic Coulomb interaction, decaying to zero faster than $W_{\bzero \bzero} (q)$ and than the Coulomb potential, as we have already pointed out in subsection~\ref{subsec:macroscopic_dielectric_function_results}.
 For high $q$, the head element $W_{\bzero \bzero} (q)$ of the screened potential approaches the unscreened potential $v_c(q)$.
 
 
@@ -774,7 +774,7 @@ In the tight-binding approximation, or in the limit of maximally localized Wanni
 \noindent which involves $k$-derivatives of the Bloch Hamiltonian matrix elements; typically, one needs a more refined, or dense, \bz~mesh to make the conductivity converge.
 For the Dirac delta part, we use typically use a Lorentzian broadening of the form $\delta (x) \to \frac{1}{\pi} \frac{\Gamma}{x^2 + \Gamma^2}$, where $\Gamma$ is the broadening parameter.
 
-For the sake of brevity, we did not rederive the expression for the noninteracting optical conductivity in Eq.~\eqref{eq:excitonic_Re_optical_conductivity_repeated} from the dielectric function, which is now \bd, as we did in Subsection~\eqref{subsec:non_interacting_conductivity}.
+For the sake of brevity, we did not rederive the expression for the noninteracting optical conductivity in Eq.~\eqref{eq:excitonic_Re_optical_conductivity_repeated} from the dielectric function, which is now \bd, as we did in subsection~\eqref{subsec:non_interacting_conductivity}.
 It is an instructive exercise to do so, but to do so, we need to have a caveat in mind.
 The equivalence between the dielectric function and the optical conductivity from Chapter~\ref{ch:classical_electrodynamics} does not apply, because we implicitly assumed three dimensions for deriving it.
 One can see that the same expression cannot be used, because the potential now goes with $\sim 1/(2\epsz q)$ instead of $\sim 1/(\epsz q^2)$.
@@ -801,7 +801,7 @@ Above the bandgap, both excitonic responses coincide.
 
 From all the numerical results obtained so far in this chapter, we would say that the figure of merit is the agreement between our effective \bd~dielectric function and the \abinit~one, as we saw in Fig.~\ref{fig:epsilon2D_abinitio_vs_q_hBN}.
 However, the agreement is far from perfect for intermediate and higher values of the momentum.
-This is for sure a consequence of the zero thickness approximation we introduced in the beginning of Section~\ref{sec:dielectric_function_revisited}.
+This is for sure a consequence of the zero thickness approximation we introduced in the beginning of section~\ref{sec:dielectric_function_revisited}.
 To be more precise, we assumed that the response of the monolayer was local in the off-plane direction, so that the dielectric function depending on all the Cartesian coordinates is approximately given by $\varepsilon(\br,\br') \approx \delta(z-z') \varepsilon_{\BD}(\br_{\parallel},\br'_{\parallel})$, and the dielectric function $\varepsilon_{\BD}$ is the one we have been working with thus far.
 In order words, we ignored altogether any physics coming from the $z$-dependence of the permittivity.
 So we have to pose two questions: (i) How do we show that our strict \bd~implementation is valid in the zero thickness limit, and that the permittivities with zero and finite thickness can only agree when $q \dd_{\perp} < 1$\,?; (ii) Can we not do better, and somehow take the $z$-dependence into account?
@@ -963,7 +963,7 @@ For completion, we included in the plot below the curves previously displayed in
     \label{fig:epsilon_quasi-2D_QEH_vs_q_hBN}
 \end{figure}
 
-In the following section, we discuss details about the implementation in the \xatu~code of the theory presented in Sections~\ref{sec:dielectric_function_revisited} and~\ref{sec:quasi_2D}.
+In the following section, we discuss details about the implementation in the \xatu~code of the theory presented in sections~\ref{sec:dielectric_function_revisited} and~\ref{sec:quasi_2D}.
 We shall focus on the implementation of the dielectric function, since that is the main contribution from this work.
 Details about the exciton calculation are also in order, the ones relevant for our implementation of the screening.
 
@@ -1041,7 +1041,7 @@ The file should contain only one momentum point per line, and each line should h
 If the user is interested in the dielectric function over the entire \bz~mesh, we recommend using the \texttt{xatu.cpp} script instead, as it is optimized for calculating $\varepsilon_{\bG \bG'}(\bq)$ in the \bz\@.
 With the \texttt{xatu.cpp} script, the inverse dielectric matrix is calculated and stored to be used later when initializing Bethe--Salpeter Hamiltonian.
 While doing so, the interaction matrix elements are computed on the fly, regardless of the chosen potential.
-To better visualize what we have just discussed, a flowchart for the \texttt{xatu} program is provided in Fig.~\ref{fig:xatu_flow_diagram} at the end of Subsection~\ref{subsec:complexity_analysis}.
+To better visualize what we have just discussed, a flowchart for the \texttt{xatu} program is provided in Fig.~\ref{fig:xatu_flow_diagram} at the end of subsection~\ref{subsec:complexity_analysis}.
 The flowchart is adapted from its first version elaborated by A.~J.~Ur\'{\i}a-\'Alvarez, which can be consulted in Figure 3.2 of his PhD thesis in Ref.~\cite{Alex_PhD}.
 
 If the reader is interested in using the code for themselves, we provide in Box~\ref{box:xatu_screening_usage}, also at the end of the subsection~\ref{subsec:complexity_analysis} and after the flowchart, an explanation on how to use the new screening functionalities.
@@ -1092,7 +1092,7 @@ This method of implementing the calculation of the polarizability matrix element
 It would be the same as in the computation of a single matrix element, but without the factors of two.
 For the time complexity, we find $\mathcal{O}_{\mathrm{t}} (N_{G}^2 N_{\vv} N_{\cc} N_{k}^2)$.
 However, this method has a drawback in the time complexity.
-As we stated before, in the beginning of Subsection~\ref{subsec:non_interacting_polarizability_results}, the polarizability converges quite fast with the size of the \bz~mesh.
+As we stated before, in the beginning of subsection~\ref{subsec:non_interacting_polarizability_results}, the polarizability converges quite fast with the size of the \bz~mesh.
 This is in sharp contrast with the exciton.
 Henceforth, we made a different choice while developing the code, because we noticed that the calculation of a single element slows down drastically with the number of $\bk$ points in the \bz\@.
 We have implemented an auxiliary \bz, that we can denote by \bz', which can be coarser than the original one.
@@ -1267,8 +1267,8 @@ We provided also insights on the implementation itself.
 To validate our theory and implementation even more, it would make sense to try it on a different material.
 We do so in this subsection as the closing of this chapter.
 The material of choice is monolayer molybdenum disulfide, \ch{MoS2}, which is another prototypical \bd~material to study excitons.
-We mentioned it for the first time in this dissertation in Subsection~\ref{subsubsec:tight_binding_method} as a material where \gls{soc} has a nonvanishing contribution on its material properties (unlike in \gls{hbn}).
-It was also introduced in Section~\ref{sec:introduction} as an excitonic material presenting a direct electronic bandgap, belonging to big family of \bd~materials called \glspl{tmd}.
+We mentioned it for the first time in this dissertation in subsection~\ref{subsubsec:tight_binding_method} as a material where \gls{soc} has a nonvanishing contribution on its material properties (unlike in \gls{hbn}).
+It was also introduced in section~\ref{sec:introduction} as an excitonic material presenting a direct electronic bandgap, belonging to big family of \bd~materials called \glspl{tmd}.
 
 Materials like \ch{MoS2} have given traction to a recent field of research within condensed matter physics and materials science, called valleytronics~\cite{PhysRevLett.108.196802,Mak_Xiao_Shan_2018}.
 It consists in the study of the optoelectronic properties of \bd~materials with honeycomb structure, with the bandgap located at the $K$ and $K'$ points of the \bz~(see Fig.~\ref{fig:hBN_lattice}).
@@ -1352,7 +1352,7 @@ In particular, including the \gls{soc} term in the Hamiltonian leads to a lift i
 
 We proceed with the study of the dielectric properties of \ch{MoS2}, namely the polarizability and the microscopic dielectric function.
 To keep the discussion short, we will actually skip the details of the polarizability.
-The features in the polarizability we saw for this model for \ch{MoS2} are similar to those seen for \gls{hbn} in Subsection~\ref{subsec:non_interacting_polarizability_results}.
+The features in the polarizability we saw for this model for \ch{MoS2} are similar to those seen for \gls{hbn} in subsection~\ref{subsec:non_interacting_polarizability_results}.
 The sanity check we always have to do before continuing to the dielectric function, is to evaluate the isotropy of head element.
 If a system is isotropic, which is the case of both \gls{hbn} and \ch{MoS2}, then we should expect to obtain an isotropic $\bq$-dependence of the element $\chi^0_{\bzero \bzero}(\bq)$.
 We tested with other Wannier models for \ch{MoS2}, and observed that the head element of the polarizability may not present a set of data points that appear aligned along a single curve, as we observed before for \gls{hbn} in Fig.~\ref{fig:chi_00_hbndft_mesh}\pnl{a}.
@@ -1374,7 +1374,7 @@ But once more, keeping a low $G_c$ cutoff was enough to reproduce the \abinit~re
 The comparison of our effective \bd~dielectric function with the \abinit~one is shown in Fig.~\ref{fig:epsilon_quasi-2D_abinitio_vs_q_MoS2}.
 The quasi-2D dielectric function is also represented in the same plot.
 In Fig.~\ref{fig:epsilon_quasi-2D_abinitio_vs_q_MoS2}, we can see that the strict \bd~static dielectric function, in the dashed red line, underestimates the screening for low $q$ in comparison with the \abinit~curve, in the continuous black line, but overestimates the screening for intermediate and higher $q$.
-Nonetheless, the strict \bd~curve, the \abinit~curve, and the quasi-2D one, in the dashed blue line, agree for very low $q$; this confirms our hypothesis from Section~\ref{sec:quasi_2D}, that the layer thickness does not influence the dielectric properties in the very small $q$ limit.
+Nonetheless, the strict \bd~curve, the \abinit~curve, and the quasi-2D one, in the dashed blue line, agree for very low $q$; this confirms our hypothesis from section~\ref{sec:quasi_2D}, that the layer thickness does not influence the dielectric properties in the very small $q$ limit.
 On the contrary, the agreement between the quasi-2D permittivity and the \abinit~one is very good.
 Even though we still underestimate the screening for small $q$, for intermediate and higher momenta the agreement between the dashed blue and continuous black lines are excelent.
 The agreement is not as good as in the case of \gls{hbn} (see Fig.~\ref{fig:epsilon_quasi-2D_QEH_vs_q_hBN}) when looking at the whole $q$-range, perhaps because monolayer \gls{hbn} is atomically thin, unlike \ch{MoS2}, meaning that the \bd~and quasi-2D pictures work better for \gls{hbn} than for \ch{MoS2}.
@@ -1387,7 +1387,7 @@ The agreement is not as good as in the case of \gls{hbn} (see Fig.~\ref{fig:epsi
 \end{figure}
 
 Before testing the excitonic optical response of \ch{MoS2}, we need to compute the excitonic energies and eigenstates using the \xatu~code.
-Just like we did for \gls{hbn} in Subsection~\ref{subsec:excitons_results}, we do the calculation using the Rytova--Keldysh potential and the numerical inverse dielectric matrix, and then compare.
+Just like we did for \gls{hbn} in subsection~\ref{subsec:excitons_results}, we do the calculation using the Rytova--Keldysh potential and the numerical inverse dielectric matrix, and then compare.
 The only difference from one method to the other, was the type of potential used to compute the interaction matrix elements.
 We used a $60\times60$ $\bk$-grid to sample the \bz, included one valence band, $N_{\vv}=1$, and one conduction band, $N_{\cc}=1$, applied a cutoff for the reciprocal lattice vectors of $G_c = 3.0$~\unit{\angstrom^{-1}} (in which we included all the seven vectors), and for the regularization radius we used a percentage of $0.6\%$.
 The same regularization scheme as explained in Appendix~\ref{app:regularization} is applied to the calculations using the Rytova--Keldysh potential.
