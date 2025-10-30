@@ -72,7 +72,7 @@ In the last and fourth section, we provide more details on the implementation of
 For a change, we test the code for another case material, \ch{MoS2}\,.
 We finalise the chapter with closing remarks and final conclusions.
 
-\section{Dielectric Function Revisited: Theory}
+\section{Dielectric Function in Two Dimensions: Theory}
 \label{sec:dielectric_function_revisited}
 
 %Here we recall the expression of the microscopic dielectric function in 2D, and take it for insulators and semiconductors and the static limit.
@@ -316,7 +316,7 @@ If we have enough $(\bG,\bG')$ matrix elements in the dielectric function, in pr
 In practice, we have two cutoffs, one for the dielectric function $G_c$, and another one for the excitons $G^{X}_{c}$.
 To preserve basic symmetries and degeneracies, we hope that $G^{X}_{c}$ can be made small enough\footnote{In practice, we always have $G^{X}_{c} < G_c$, since we have to compute the dielectric matrix before computing the exciton.}.
 
-\section{Dielectric Function Revisited: Numerical Results}
+\section{Dielectric Function in Two Dimensions: Numerical Results}
 \label{sec:dielectric_function_results}
 
 We analyze in this section the numerical results obtained from the \bd~implementation of the dielectric function.
@@ -421,7 +421,7 @@ Out of curiosity, in Fig.~\ref{fig:chi_g10_hbndft_mesh} we plot in the \bz~mesh 
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.8\textwidth]{Chapters/Figures/Chapter_6/ChiG1_0hBNDFTmesh}
+    \includegraphics[width=0.85\textwidth]{Chapters/Figures/Chapter_6/ChiG1_0hBNDFTmesh}
     \mycaption[Polarizability in the BZ: an wing element]{Matrix element $\chi^0_{\bG_1 \bzero} (\bq)$ of the polarizability in the \bz~for \gls{hbn}. Panel \pnl{a} displays the real part of the polarizability, while panel \textbf{b} displays the imaginary part. The bar legend for the colors are inset. The polarizability is multiplied by $10^2$ in both plots.}
     \label{fig:chi_g10_hbndft_mesh}
 \end{figure}
@@ -626,7 +626,7 @@ This fact, that we touched on at the end of Subsection~\ref{subsec:interaction_m
     The second and third columns show the exciton energies $E_X$, while the fourth and fifth columns show the corresponding binding energies $E_b$ (in absolute value).
     States labeled with the same number but different letters are states for which degeneracy is expected.
     We observe that the states that are supposed to be degenerate, are more proximate in energy for the numerical screening calculation, and are in general lower in energy compared to those obtained from the Rytova--Keldysh model.
-    We used $N_k=60^2$, $N_{\cc}=N_{\vv}=1$, $G_c = 3.0$~\unit{\angstrom^{-1}}, $q_0 = 1.3 k_0$, and $r_0 = 5.084$~\unit{\angstrom} for the Rytova--Keldysh potential. In the numerical model for the screening, we included all the $\bG$ vectors. We excluded the exchange interaction term in both calculations ,and set $\bQ=\bzero$. Increasing the number of included bands to $N_{\cc}=N_{\vv}=2$ resulted in a change in binding energies less than $0.02$~\unit{\electronvolt} for all states, except for the state 2, for which the binding energy was of $2.1$~\unit{\electronvolt}. This was tested only for the numerical screening calculation.}
+    We used $N=60^2$, $N_{\cc}=N_{\vv}=1$, $G_c = 3.0$~\unit{\angstrom^{-1}}, $q_0 = 1.3 k_0$, and $r_0 = 5.084$~\unit{\angstrom} for the Rytova--Keldysh potential. In the numerical model for the screening, we included all the $\bG$ vectors. We excluded the exchange interaction term in both calculations ,and set $\bQ=\bzero$. Increasing the number of bands included to $N_{\cc}=N_{\vv}=2$ resulted in a change in binding energies less than $0.02$~\unit{\electronvolt} for all states, except for the state 2, for which the binding energy was of $2.1$~\unit{\electronvolt}. This was tested only for the numerical screening calculation.}
     \begin{tabular}{|c|c|c||c|c|}
         \hline
         State                         & $E_X$ (RK) (eV)         & $E_X$ ($\varepsilon_{\bG,\bG'}$) (eV)  & $E_b$ (RK) (eV)         & $E_b$ ($\varepsilon_{\bG,\bG'}$) (eV) \\ \hline \hline
@@ -661,7 +661,7 @@ For high $q$, the head element $W_{\bzero \bzero} (q)$ of the screened potential
 %    The second and third columns show the exciton energies $E_X$, while the fourth and fifth columns show the corresponding binding energies $E_b$ (in absolute value).
 %    States labeled with the same number but different letters are states for which degeneracy is expected.
 %    We observe that the states that are supposed to be degenerate, are more proximate in energy for the numerical screening calculation, and are in general lower in energy compared to those obtained from the Rytova--Keldysh model.
-%    We used $N_k=60^2$, $N_{\cc}=N_{\vv}=1$, $G_c = 3.0$~\unit{\angstrom^{-1}}, $q_0 = 1.3 k_0$, and $r_0 = 5.084$~\unit{\angstrom} for the Rytova--Keldysh potential. In the numerical model for the screening, we included all the $\bG$ vectors. We excluded the exchange interaction term in both calculations ,and set $\bQ=\bzero$. Increasing the number of included bands to $N_{\cc}=N_{\vv}=2$ resulted in a change in binding energies less than $0.02$~\unit{\electronvolt} for all states, except for the state 2, for which the binding energy was of $2.1$~\unit{\electronvolt}.}
+%    We used $N=60^2$, $N_{\cc}=N_{\vv}=1$, $G_c = 3.0$~\unit{\angstrom^{-1}}, $q_0 = 1.3 k_0$, and $r_0 = 5.084$~\unit{\angstrom} for the Rytova--Keldysh potential. In the numerical model for the screening, we included all the $\bG$ vectors. We excluded the exchange interaction term in both calculations ,and set $\bQ=\bzero$. Increasing the number of bands included to $N_{\cc}=N_{\vv}=2$ resulted in a change in binding energies less than $0.02$~\unit{\electronvolt} for all states, except for the state 2, for which the binding energy was of $2.1$~\unit{\electronvolt}.}
 %    \begin{tabular}{|c|c|c||c|c|}
 %        \hline
 %        State                         & $E_X$ (RK) (eV)         & $E_X$ ($\varepsilon_{\bG,\bG'}$) (eV)  & $E_b$ (RK) (eV)         & $E_b$ ($\varepsilon_{\bG,\bG'}$) (eV) \\ \hline \hline
@@ -1289,9 +1289,9 @@ In the same figure, we have the monolayer seen from three different views: a top
 \end{figure}
 
 To model the single-particle Hamiltonian, we use a Wannierized Hamiltonian obtained from \dft~calculations, followed by a Wannier interpolation.
+The calculations were done by G.~Janone, and their details follow.
 The \dft~calculations were performed with the \textsc{Quantum~Espresso} package~\cite{giannozzi2009quantum} at the \gls{gga} level, with exchange and correlation effects modeled by the Perdew--Burke--Ernzerhof functional~\cite{Perdew_1996}.
 For the physics of the atomic cores, the KJPAW pseudopotentials were used.
-
 The plane-wave cutoff applied was of $50$~Ry for the wavefunctions, and $310$ Ry for the electronic density.
 The Monkhorst--Pack grid~\cite{Monkhorst_Pack_1976} was $21\times 21\times 1$.
 An atomic relaxation was performed to determine the lattice constant with a threshold of $10^{-4}$ for the residual forces.
@@ -1375,7 +1375,7 @@ It does not exactly match the value determined from the \bd~dielectric function 
 We do not expect a big difference between using one value or the other though, since they are relatively close.
 Moreover, both values are within the \abinit~interval for $r_0$ in \ch{MoS2} of $30-40$~\unit{\angstrom} reported in the literature~\cite{Berkelbach_Hybertsen_Reichman_2013}.
 
-The results for the excitons are displayed in Table~\ref{tab:MoS2_Wannier_exciton_spectrum}, where one can see the excitonic levels and binding energies obtained with the two methods.
+The results for the excitons are displayed in Table~\ref{tab:MoS2_Wannier_exciton_spectrum}, where one can see the excitonic levels and binding energies obtained with the two methods (in the caption, $N$ is the size of the \bz~mesh used to compute the excitons, and not the size of the auxiliary one \bz' to compute the polarizability matrix elements).
 We can see that using one potential or the other does not affect much the degeneracy of the states.
 Unlike in \gls{hbn} (see Table~\ref{tab:hBN_DFT_HSE_06_exciton_spectrum}), all the states have the expected degeneracy when using the Rytova--Keldysh potential.
 It is so because, as one can see in Table~\ref{tab:MoS2_Wannier_exciton_spectrum}, the binding energies of \ch{MoS2} are smaller than those of \gls{hbn} in Table~\ref{tab:hBN_DFT_HSE_06_exciton_spectrum}.
@@ -1395,7 +1395,7 @@ Therefore, we believe that our results are quite reasonable.
     The second and fourth columns pertain to the Rytova--Keldysh model, while the third and fifth columns pertain to the numerical screening. 
     The second and third columns show the exciton energies $E_X$, while the fourth and fifth columns show the corresponding binding energies $E_b$ (in absolute value).
     States labeled with the same number but different letters are states for which degeneracy is expected.
-    We used $N_k=60^2$, $N_{\cc}=N_{\vv}=1$, $G_c = 3.0$~\unit{\angstrom^{-1}}, $q_0 = 0.6 k_0$, and $r_0 = 31.74$~\unit{\angstrom} for the Rytova--Keldysh potential. In the numerical model for the screening, we included all the $\bG$ vectors with $|\bG| < G_c$. We excluded the exchange interaction term in both calculations, and set $\bQ=\bzero$. \textcolor{red}{I STILL HAVE TO TEST THIS, WONT TAKE LONG, Increasing the number of included bands to $N_{\cc}=N_{\vv}=2$ resulted in a change in binding energies less than $0.02$~\unit{\electronvolt} for all states, except for the state 2, for which the binding energy was of $2.1$~\unit{\electronvolt}. This was tested only for the numerical screening calculation.}}
+    We used $N=60^2$, $N_{\cc}=N_{\vv}=1$, $G_c = 3.0$~\unit{\angstrom^{-1}}, $q_0 = 0.6 k_0$, and $r_0 = 31.74$~\unit{\angstrom} for the Rytova--Keldysh potential. In the numerical model for the screening, we included all the $\bG$ vectors with $|\bG| < G_c$. We excluded the exchange interaction term in both calculations, and set $\bQ=\bzero$. When increasing the number of bands included to $N_{\cc}=N_{\vv}=2$, the highest difference in binding energies is around $0.011$~\unit{\electronvolt}, and occurs for the state 2. All the other energies change by less than $0.01$~\unit{\electronvolt}. This was tested only for the numerical screening calculation.}
     \begin{tabular}{|c|c|c||c|c|}
     \hline
     State                         & $E_X$ (RK) (eV)         & $E_X$ ($\varepsilon_{\bG,\bG'}$) (eV)  & $E_b$ (RK) (eV)          & $E_b$ ($\varepsilon_{\bG,\bG'}$) (eV) \\ \hline \hline
@@ -1417,7 +1417,7 @@ Therefore, we believe that our results are quite reasonable.
 %    The second and fourth columns pertain to the Rytova--Keldysh model, while the third and fifth columns pertain to the numerical screening.
 %    The second and third columns show the exciton energies $E_X$, while the fourth and fifth columns show the corresponding binding energies $E_b$ (in absolute value).
 %    States labeled with the same number but different letters are states for which degeneracy is expected.
-%    We used $N_k=60^2$, $N_{\cc}=N_{\vv}=1$, $G_c = 3.0$~\unit{\angstrom^{-1}}, $q_0 = 0.6 k_0$, and $r_0 = 31.74$~\unit{\angstrom} for the \textcolor{red}{Rytova--Keldysh potential}. In the numerical model for the screening, we included all the $\bG$ vectors with $|\bG| < G_c$. We excluded the exchange interaction term in both calculations, and set $\bQ=\bzero$. \textcolor{red}{Increasing the number of included bands to $N_{\cc}=N_{\vv}=2$ resulted in a change in binding energies less than $0.02$~\unit{\electronvolt} for all states, except for the state 2, for which the binding energy was of $2.1$~\unit{\electronvolt}. This was tested only for the numerical screening calculation.}}
+%    We used $N=60^2$, $N_{\cc}=N_{\vv}=1$, $G_c = 3.0$~\unit{\angstrom^{-1}}, $q_0 = 0.6 k_0$, and $r_0 = 31.74$~\unit{\angstrom} for the \textcolor{red}{Rytova--Keldysh potential}. In the numerical model for the screening, we included all the $\bG$ vectors with $|\bG| < G_c$. We excluded the exchange interaction term in both calculations, and set $\bQ=\bzero$. \textcolor{red}{Increasing the number of bands included to $N_{\cc}=N_{\vv}=2$ resulted in a change in binding energies less than $0.02$~\unit{\electronvolt} for all states, except for the state 2, for which the binding energy was of $2.1$~\unit{\electronvolt}. This was tested only for the numerical screening calculation.}}
 %    \begin{tabular}{|c|c|c||c|c|}
 %        \hline
 %        State                         & $E_X$ (RK) (eV)         & $E_X$ ($\varepsilon_{\bG,\bG'}$) (eV)  & $E_b$ (RK) (eV)         & $E_b$ ($\varepsilon_{\bG,\bG'}$) (eV) \\ \hline \hline
@@ -1444,7 +1444,7 @@ The ones on the right side are more delocalized than the ones on the left side, 
 \begin{figure}[h]
     \centering
     \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/Psi_1_and_2_RK_RPA_MoS2}
-    \mycaption[Excitonic ground state wavefunction for \ch{MoS2}: Rytova--Keldysh vs.~numerical screening]{Momentum-resolved wavefunctions (in absolute value squared) of the ground and first excited excitonic states of \ch{MoS2}, using the Rytova--Keldysh potential on the left panels, and using the numerical dielectric function on the right panels. The top panels correspond to the 1a state from Table~\ref{tab:MoS2_Wannier_exciton_spectrum}, while the bottom panels correspond to the 2a state in the same table. The states obtained using the numerical dielectric function present a lower maximum for the probability density, therefore those states are more delocalized in reciprocal space than the ones on the left. This is consistent with higher binding energies for the states obtained using $\varepsilon_{\bG\bG'}$, as we have seen in Table~\ref{tab:MoS2_Wannier_exciton_spectrum}. Something identical has been seen for \gls{hbn} in Fig.~\ref{fig:exciton_wavefunction_hBN_DFT_HSE06}.}
+    \mycaption[Wavefunctions of the ground and first excited excitonic states for \ch{MoS2}: Rytova--Keldysh vs.~numerical screening]{Momentum-resolved wavefunctions (in absolute value squared) of the ground and first excited excitonic states of \ch{MoS2}, using the Rytova--Keldysh potential on the left panels, and using the numerical dielectric function on the right panels. The top panels correspond to the 1a state from Table~\ref{tab:MoS2_Wannier_exciton_spectrum}, while the bottom panels correspond to the 2a state in the same table. The states obtained using the numerical dielectric function present a lower maximum for the probability density, therefore those states are more delocalized in reciprocal space than the ones on the left. This is consistent with higher binding energies for the states obtained using $\varepsilon_{\bG\bG'}$, as we have seen in Table~\ref{tab:MoS2_Wannier_exciton_spectrum}. Something identical has been seen for \gls{hbn} in Fig.~\ref{fig:exciton_wavefunction_hBN_DFT_HSE06}.}
     \label{fig:exciton_wavefunction_MoS2_Wannier}
 \end{figure}
 
@@ -1496,7 +1496,7 @@ In summary, we have seen with our numerical approach to the dielectric propertie
 It is surprising how notable our results are when compared those from \abinit~approaches for extended systems, which are pretty much established in the literature~\cite{BerkeleyGW,GPAW_2025,Yambo_2009,Siesta_2020,Abinit_2016,Prandini_Galante_Marzari_Umari_2019}, and typically very heavy computationally.
 Our implementation requires much less computational power.
 However, for a better agreement for the excitonic states between our approach and \abinit~ones, a more in-depth study should be in order.
-In particular, the convergence of the energies with both cutoffs $G_c$ and $G^{X}_c$, and also with the size of \bz, $N_k$.
+In particular, the convergence of the energies with both cutoffs $G_c$ and $G^{X}_c$, and also with the size of \bz, $N$.
 The latter is crucial, due to the sharp dependence of the dielectric function for low $q$, which hinders the convergence against $N_{k}$.
 The bigger $r_0$ is, the bigger is the problem.
 
