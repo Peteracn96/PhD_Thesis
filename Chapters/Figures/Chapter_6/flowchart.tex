@@ -90,7 +90,7 @@
     \draw [->] (diagonalize) -- (converge_energies);
     \draw [->] (converge_energies) -- node[anchor=east] {Yes} (bigbox_output);
     \draw [->] (converge_energies) -- node[anchor=south, xshift=-0.5cm] {No} (increaseNk);
-    \draw [->] (increaseNk) -- ++(0, 13.1) -- (excitonfile);
+    \draw [->] (increaseNk) -- ++(0, 13.1) -- ++(-1.8cm,0.0);
     \draw [->] (bigbox_output) -- (symmetry);
     \draw [->] (symmetry) -- node[anchor=east] {Yes} (End);
     \draw [->] (symmetry) -- node[anchor=south, xshift=-1cm] {No} ++(6.3,0) -- (increaseNk);
