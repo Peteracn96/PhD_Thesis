@@ -112,7 +112,7 @@ If the exciton is tightly bound, then it is called a Frenkel exciton~\cite{Frenk
 In this case, the excitation is localized at a single atom.
 Wannier excitons can form in inorganic semiconductors.
 Among all \gls{3d} materials, we can mention cuprous oxide, \ch{Cu2O}, gallium arsenide, \ch{GaAs}, or krypton, \ch{Kr}.
-For \ch{GaAs}, the binding energy of the ground state exciton is $4.2$ \unit{\milli\electronvolt}~\cite{GaAs_exciton_1976}, whereas in solid krypton the ground-state excitonic binding energy is around $1.75$ \unit{\electronvolt}~\cite{Laporte_1985}.
+For \ch{GaAs}, the binding energy of the ground state exciton is $4.2$~\unit{\milli\electronvolt}~\cite{GaAs_exciton_1976}, whereas in solid krypton the ground-state excitonic binding energy is around $1.75$~\unit{\electronvolt}~\cite{Laporte_1985}.
 On the contrary, Frenkel excitons are more common in ionic crystals~\cite{Knox_Inchauspe_1959}, such as \ch{CuCl} or \ch{NaCl}, or in organic molecular crystals~\cite{Nematiaram_Padula_Troisi_2021,Silinsh_1980}.
 A recent theoretical work~\cite{Victor_Nuno_2025} predicted that when two materials, one hosting a Frenkel exciton and another hosting a Wannier exciton, are in close contact, the Frenkel exciton can hybridize with the Wannier exciton to form a Wannier--Mott--Frenkel exciton.
 
@@ -160,7 +160,7 @@ Nonetheless, it can be frequently encountered in the literature, in particular i
 If the reader is curious about it, we refer to the original work by M.~Rohlfing and S.~G.~Louie~\cite{Louie_2000}, or the PhD thesis by A.~J.~Ur\'ia-\'Alvarez~\cite{Alex_PhD} for a more recent text with a derivation adapted from~\cite{Louie_2000}.
 Combined with the $GW$ method for calculating quasiparticle band structures, the state-of-the-art for exciton and optical response calculations is called the $GW$+\gls{bse} method, constituting the theoretical basis of several computational packages~\cite{Yambo_2009,BerkeleyGW,Perfetto_Stefanucci_2018,Vorwerk_Aurich_Cocchi_Draxl_2019,GPAW_2025}, which has made its way to chemistry as well~\cite{Blase_2020,Amblard_Blase_Duchemin_2023,Amblard_Blase_Duchemin_2024,TURBOMOLE_2013,TURBOMOLE_2023}.
 On par with $GW$+\gls{bse}, there is another formalism for predicting the optoelectronic properties of materials, the \gls{tddft} formalism~\cite{Runge_Gross_1984,Rubio_2002}, the extension of the \gls{dft} formalism we mentioned in Section~\ref{subsubsec:abinit_methods}.
-The \gls{tddft} method for linear response has also faced a recent extension to the relativistic case, which is called the quantum-electrodynamical density functional theory (QEDFT) formalism~\cite{Ruggenthaler_2025}.
+The \gls{tddft} method for linear response has also faced a recent extension to the relativistic case, which is called the quantum-electrodynamical density functional theory formalism~\cite{Ruggenthaler_2025}.
 
 In the following section, we derive the Bethe--Salpeter equation applied to effective models, followed by a derivation of the Wannier equation.
 Then in Section~\ref{sec:bethe_salpeter_equation_exact} we dwell once again on the \gls{bse}, this time using exact diagonalization methods as they are implemented in the code we contributed to in this thesis.
@@ -387,7 +387,7 @@ One can consult Ref.~\cite{Bruus_Flensberg_2004} for more details.
 This approximation has to be done for each of the four contributions in $\left[\V, b_\nu^{\dagger}\right]$.
 Doing so results in a total of sixteen terms.
 In each of these sixteen terms, we have to evaluate an expectation value of the form $\langle \cdagger c \rangle$.
-These expectation values are simply equilibrium thermal averages, and evaluated at zero temperature for simplicity\footnote{In the eventuality of the gapped material having a gap comparable with the thermal energy $k_B T$, then considering $T = 0 $ \unit{\kelvin} simplifies the analysis a lot, keeping the conduction bands unpopulated in the ground state.}.
+These expectation values are simply equilibrium thermal averages, and evaluated at zero temperature for simplicity\footnote{In the eventuality of the gapped material having a gap comparable with the thermal energy $k_B T$, then considering $T = 0 $~\unit{\kelvin} simplifies the analysis a lot, keeping the conduction bands unpopulated in the ground state.}.
 Therefore, we can apply the rule
 
 \begin{equation}
