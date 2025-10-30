@@ -13,8 +13,8 @@
 \label{ch:Optical_hBN_superlattice}
 \glsresetall
 In previous chapters, we studied the phenomenological and theoretical aspects of exciton formation and their contribution to the optical response.
-We have seen also at the end of Chapter~\ref{ch:classical_electrodynamics} how light can couple to material polar excitations to form the polariton.
-In this chapter, we analyze the exciton--polariton resultant from the hybridization of the exciton with the \gls{em} field.
+We have seen also at the end of Chapter~\ref{ch:classical_electrodynamics} how light can couple to material polar excitations to form polaritons.
+In this chapter, we analyze the exciton--polariton resultant from the hybridization of excitons with the \gls{em} field.
 
 We revisit \gls{hbn}, whose tight-binding model has been presented in Section~\ref{subsubsec:tight_binding_method}, a prototypical \bd~material to study excitons.
 We wish to engineer the optical properties of \gls{hbn} by applying a \gls{1d} electrostatic potential, resulting in an emergent \gls{1d} superlattice.
@@ -29,10 +29,8 @@ The approach adopted in this chapter allows for considering any amplitude or per
 Eventual problems posed by an incommensurate potential are not critical, as we work with the low-energy limit of the tight-binding Hamiltonian for \gls{hbn}.
 The variational method offers also the advantage of obtaining an analytical expression for the optical conductivity, apart from a final angular integral that can only be performed analytically in the anisotropic case.
 With the optical conductivity, we can finally compute the dispersion relation of the exciton--polariton.
-The results that we provide in this chapter have already been reported in the literature in Ref.~\cite{Ninhos_Tserkezis_Mortensen_Peres_2024}.
-Herein, we adapt the discussion to the structure of this document, giving at certain times insights that were not given in the original publication.
-Essentially, there have been updates in the literature in the meantime, and other references have been found that we did not cite initially in the paper.
-Moreover, a dissertation provides more freedom of writing, which permits giving detailed derivations and discussions.
+The results that we provide in this chapter have been reported in Ref.~\cite{Ninhos_Tserkezis_Mortensen_Peres_2024}.
+Herein, we adapt the discussion to the structure of this thesis, giving at certain times insights that were not given in the original publication.
 
 We divide this chapter into five sections.
 The first four consist of the theory that we apply in order to get our results, to which we reserve the last section.
@@ -50,7 +48,7 @@ Some techniques introduced in the previous chapters will be put in practice.
 
 The material we study in this chapter, \acrlong{hbn} (\gls{hbn}), is a \gls{2d} material, one among the big family of all the \bd~materials that have been proposed or discovered since the isolation of a single layer of graphene in 2004~\cite{Novoselov_Geim_2004}.
 Many materials exhibiting physical phenomena once classified as exotic by the scientific community, like superconductors~\cite{Dong_2021}, strange metals~\cite{Li_2024}, topological insulators~\cite{Zhang_Liu_Qi_Dai_Fang_Zhang_2009}, and ferroelectric materials~\cite{Wang_Meng_2023} are now quite familiar to physicists working in \bd~materials.
-Using natural \bd~materials, which already have alluring properties per se, both experimental and theoretical physicists envision stacking monolayers of the same or different materials, just like pieces of Lego, as a way of producing new materials.
+Using natural \bd~materials, which already have alluring properties per se, both experimental and theoretical physicists envision stacking monolayers of the same or different materials, just like pieces of Lego~\cite{Dielectric_Genome}, as a way of producing new materials.
 If these new structures, called \gls{vdw} materials, consist of monolayers of distinct compounds, then they are called \gls{vdw} heterostructures.
 Otherwise, if they consist of monolayers of the same kind, they are called \gls{vdw} homostructures.
 The several stacked monolayers present strong chemical bonds along their in-plane extension, and bond with neighboring layers through \gls{vdw} forces, which are much weaker than covalent or ionic bonds.
@@ -64,15 +62,15 @@ Its low density of defects is actually one reason why this material is also prom
 In its bulk form, \gls{hbn} is also promising for applications in nanophotonics, as we have already discussed in Section~\ref{subsubsec:tight_binding_method}, due to its intriguing optical properties in the mid-\gls{ir}, in which \gls{hbn} can sustain phonon--polaritons~\cite{Rizzo_Zhang_2023}.
 
 The observation of superconductivity in twisted bilayer graphene~\cite{Cao_2018} gave birth to a new field in condensed matter physics, called twistronics~\cite{Hennighausen_Kar_2021,Aggarwal_Narula_Ghosh_2023}, where bilayer systems with a relative twist angle display emergent phenomena that its isolated counterparts do not.
-The exotic phenomena that we mentioned above that physicists have been so hard trying to seek, are now at reach by tuning the twist angle between stacked monolayers~\cite{Cao_2020,Zhang_2022,Du_Xiao_2024}.
+The exotic phenomena mentioned above that physicists have been so hard trying to seek, are now within reach by tuning the twist angle between stacked monolayers~\cite{Cao_2020,Zhang_2022,Du_Xiao_2024}.
 By tuning the twist angle, one can produce different patterns on the atomic arrangement, called moir\'e patterns or superlattices, and in that way invent completely new materials with different electronic, optical, and magnetic properties, among others.
 Nowadays, the field of twistronics is a hot playground for theoretical physicists, where they predict exotic effects stemming from strong correlations in moir\'e materials~\cite{Lopes_dos_2007,Xian_Rubio_2019,Song_Bernevig_2022}.
-The effect of the moir\'e superlattice has on the electronic properties of a material can also be emulated by applying an external potential on a \bd~material of interest~\cite{Fu_Pixley_2020,Lee_Pixley_2022}.
+The effect the moir\'e superlattice has on the electronic properties of a material can also be emulated by applying an external potential on a \bd~material of interest~\cite{Fu_Pixley_2020,Lee_Pixley_2022}.
 
 In this work, we emulate a \gls{1d} superlattice by externally modulating a \gls{hbn} monolayer with an electrostatic potential induced by a patterned grating, as shown in Fig.~\ref{fig:hBN_monolayer}.
-In the same figure, the grating is composed of long metallic rods with an alternated bias, that lie under a quartz substrate with permittivity $\varepsilon_2$ that acts as a substrate for the \gls{hbn} monolayer.
+In this figure, the grating is composed of long metallic rods with an alternated bias, that lie under a quartz substrate with permittivity $\varepsilon_2$ that acts as a substrate for the \gls{hbn} monolayer.
 The period of the potential $L$ is also marked in the figure.
-This display serves as a suggestion of a possible experimental setup to realize a \gls{1d} superlattice.
+This display serves as a suggestion for a possible experimental setup to realize a \gls{1d} superlattice.
 
 Admittedly interesting in the \gls{uv} range of the radiation spectrum due to its strong excitonic optical response~\cite{Ferreira_Chaves_Peres_Ribeiro_2019}, we can deem \gls{hbn} promising for polaritonics in the deep \gls{uv} down to the mid \gls{ir} by tuning the electrostatic modulation.
 Quite relevant to this work is the experiment in Ref.~\cite{Danielsen_Lassaline_2025} reported after our publication~\cite{Ninhos_Tserkezis_Mortensen_Peres_2024}, where they observed exciton--polaritons in a Fourier-tailored \gls{hbn} flake in a \gls{vdw} heterostructure with a nonzero Rabi splitting, which indicates that the strong-coupling regime was reached~\cite{Danielsen_Lassaline_2025}.
@@ -85,7 +83,7 @@ We quantify that response when computing the optical conductivity detailed in Se
 \begin{figure}[t]
     \centering
     \includegraphics[width=1.\textwidth]{Chapters/Figures/Chapter_5/hBN_superlattice}
-    \mycaption[A single \gls{hbn} monolayer electrostatically modulated]{A \gls{hbn} monolayer over a substrate, subjected to an external periodic potential with period $L$ along the $x$-direction, under a time-periodic drive of a linearly polarized optical field.}
+    \mycaption[A single \gls{hbn} monolayer electrostatically modulated]{A \gls{hbn} monolayer over a substrate with permittivity $\varepsilon_2$, subjected to an external periodic potential with period $L$ along the $x$-direction, under a time-periodic drive of a linearly polarized optical field. The environment has permittivity $\varepsilon_1$.}
     \label{fig:hBN_monolayer}
 \end{figure}
 
@@ -94,9 +92,9 @@ We quantify that response when computing the optical conductivity detailed in Se
 
 The idea of subjecting a \bd~material to an external \gls{1d} periodic potential in order to change its electronic properties is not exactly new.
 For instance, the authors in Refs.~\cite{Nature_Louie_2008,PRL_Louie_2008} investigated a graphene monolayer subjected to a \gls{1d} potential to find that the dispersion, initially isotropic, renormalizes along one of the directions while leaving the other intact; new Dirac quasiparticles with an anisotropic low-energy dispersion emerge.
-In Ref.~\cite{Louie_2010}, an identical idea for a graphene \gls{1d} superlattice was put in practice, that time with a periodically modulated magnetic field, to see that the carrier velocity renormalizes isotropically, contrary to what they expected.
+In Ref.~\cite{Louie_2010}, an identical idea for a graphene \gls{1d} superlattice was put in practice, this time with a periodically modulated magnetic field, to see that the carrier velocity renormalizes isotropically, contrary to what was expected.
 In another theoretical work with graphene~\cite{Stauber_2017}, it was seen that the effect of introducing an external potential affects the plasmonic effects.
-In particular the plasmonic modes along the direction of the potential variation, while the ones perpendicular to it are left unchanged.
+In particular, it affects the plasmonic modes along the direction of the potential variation, while the ones perpendicular to it are left unchanged.
 We shall see that the introduction of a nonvanishing mass term in the Hamiltonian, when going from graphene to \gls{hbn}, leads to an anisotropic effective mass tensor, where both components in the diagonal renormalize; the enhancement of the anisotropy in the electron dispersion is more pronounced than it is in the massless case.
 Only after determining how exactly this anisotropy affects the dispersion of \gls{hbn}, will we see how the excitonic properties are affected.
 First and foremost, we need to determine the renormalized Hamiltonian, in the light of what was done for the gapless case of graphene in Ref.~\cite{PRL_Louie_2008}.
@@ -104,7 +102,7 @@ First and foremost, we need to determine the renormalized Hamiltonian, in the li
 We start from the low-energy Hamiltonian for \gls{hbn} around the point $K'$ of the \bz~given by Eq.~\eqref{eq:low_energy_hamiltonian_hBN_K_prime}, and convert the momentum coordinates into spatial derivatives as
 
 \begin{equation}
-    \mathcal{H}_{K'}  = \hbar \vF \bk\vdot\boldsymbol{\sigma}+M\sigma_{z}=-\ii \hbar \vF \left(\frac{\partial}{\partial x}\sigma_{x}+\frac{\partial}{\partial y}\sigma_{y}\right)+M\sigma_{z}\,.
+    \mathcal{H}_{K'}  = \hbar \vF \bk\vdot\boldsymbol{\sigma}+M\sigma_{z}=-\ii \hbar \vF \! \left(\frac{\partial}{\partial x}\sigma_{x}+\frac{\partial}{\partial y}\sigma_{y}\right)+M\sigma_{z}\,.
 \end{equation}
 
 \noindent Now, we include a periodic potential $V(x)=V(x+L)$, with the period $L$ being much larger than the atomic lattice spacing, in the Hamiltonian
@@ -146,8 +144,9 @@ The potential term can be removed by introducing the unitary transformation
     \mathbb{U}_{\alpha}^{\dagger}\mathcal{H}_{K'} \mathbb{U}_{\alpha}=\hbar \vF  \left[\mathbb{U}_{\alpha}^{\dagger}\sigma_{x}\frac{\partial}{\partial x}\mathbb{U}_{\alpha}+\mathbb{U}_{\alpha}^{\dagger}\sigma_{y}\mathbb{U}_{\alpha}\frac{\partial}{\partial y}\right] + M \mathbb{U}_{\alpha}^{\dagger}\sigma_{z}\mathbb{U}_{\alpha}\,.
 \end{equation}
 
-\noindent We point out that since we are dealing operators, the partial derivatives act as well on the function the whole operator is acting on.
-In symbols, this means that, for example for the $x$ derivative, $\partial_x \mathbb{U}_{\alpha}$ should be read as $\partial_x (\mathbb{U}_{\alpha} f(\br))$, where $f(\br)$ is a generic function belonging to the Hilbert space the operator acts on.
+\noindent We point out that, since we are with dealing operators, the partial derivative with respect to $x$ does not act only on the matrix $\mathbb{U}_{\alpha}$.
+When applying the operator above on a test function $f(\br)$, the derivative acts on the product $\mathbb{U}_{\alpha} f(\br)$
+This means that $\partial_x \mathbb{U}_{\alpha}$ should be read as $\partial_x (\mathbb{U}_{\alpha} f(\br))$, and the product rule for differentiation applies.
 Before we work out the terms with the spatial derivatives, let us first simplify the term in $\sigma_{z}$, since it is the simplest.
 It evaluates to
 
@@ -163,7 +162,7 @@ It evaluates to
 \end{equation}
 
 \noindent To work out the term involving the $y$-derivative, we evaluate the matrix element of that term between two arbitrary functions resolved in real space, $f(\br)$ and $g(\br)$, where $\br=(x,y)$.
-Later on, we particularize those wavefunctions to wavefunctions electronic states.
+Later on, we particularize those wavefunctions to wavefunctions of electronic states.
 With $\sigma_y = \left(\begin{array}{cc}
                 0 & -\ii \\
                 \ii & 0
@@ -185,7 +184,7 @@ With $\sigma_y = \left(\begin{array}{cc}
 \end{align}
 
 \noindent where some clarifications are needed.
-First, the integrals are over the region $[0,L] \times [0,L_y]$ in the $xy$ plane with $L_y$ the length of the material in the $y$ direction, and $\times$ denotes Cartesian product.
+First, the integrals are over the region $[0,L] \times [0,L_y]$ in the $xy$ plane, with $L_y$ being the length of the material in the $y$ direction, and $\times$ denotes Cartesian product.
 In the previous equation, the subscript $y$ in $H_{y}[f,g]$ stands for the term with $\sigma_{y}$ (and with $\frac{\partial}{\partial_y}$) in equation~\eqref{eq:transformed_H0}.
 We also split the initial integral into two equal terms with a prefactor of $1/2$, and performed an integration by parts in $y$ on one of them.
 
@@ -219,10 +218,10 @@ The previous term cancels with the last term in equation~\eqref{eq:transformed_H
 \noindent where we have to redefine the term $H_x[f,g]$ as
 
 \begin{equation}
-    H_{x}\left[f,g\right]=\frac{\hbar \vF}{2} \int \left[ f^{\ast}(\br) \mathbb{U}_{\alpha}^{\dagger} \sigma_{x} \mathbb{U}_{\alpha} \frac{\partial g(\br)}{\partial x} - \frac{\partial f^{\ast}(\br)}{\partial x} \mathbb{U}_{\alpha}^{\dagger} \sigma_{x} \mathbb{U}_{\alpha} g(\br) \right] \dr ,
+    H_{x}\left[f,g\right]=\frac{\hbar \vF}{2} \int \left[ f^{\ast}(\br) \mathbb{U}_{\alpha}^{\dagger} \sigma_{x} \mathbb{U}_{\alpha} \frac{\partial g(\br)}{\partial x} - \frac{\partial f^{\ast}(\br)}{\partial x} \mathbb{U}_{\alpha}^{\dagger} \sigma_{x} \mathbb{U}_{\alpha} g(\br) \right] \dr .
 \end{equation}
 
-\noindent the term $H_y$ has already been defined above, and
+\noindent The term $H_y$ has already been defined above, and
 
 \begin{equation}
     H_{z}\left[f,g\right]= M \int f^{\ast}(\br)  \mathbb{U}_{\alpha}^{\dagger} \sigma_{z} \mathbb{U}_{\alpha} g(\br) \dr .
@@ -372,7 +371,7 @@ We build the new Hamiltonian using these base states as
           \end{array}\right),
 \end{equation}
 
-\noindent which after computing all the elements yields
+\noindent which, after computing all the elements, yields
 
 \begin{equation}
     \label{eq:new_Dirac_Hamiltonian}
@@ -382,23 +381,25 @@ We build the new Hamiltonian using these base states as
                \frac{1}{2}G_{0}m\hbar \vF -|J_{m}(\beta)|M & \hbar \vF [k_{x}- \ii J_{m}(\beta)k_{y}] \\
                \hbar \vF [k_{x}+ \ii J_{m}(\beta)k_{y}] & \frac{1}{2}G_{0}m\hbar \vF +|J_{m}(\beta)|M
               \end{array}\right) \\
-        & = \mathds{1}\frac{m}{2}G_{0} \hbar \vF + \hbar \vF \big[\sigma_{x} k_{x} + \sigma_{y} J_{m}(\beta) k_{y}\big] - \sigma_{z} M J_{m}(\beta)\,,
+        & = \mathds{1}\frac{m}{2}G_{0} \hbar \vF + \hbar \vF \big[\sigma_{x} k_{x} + \sigma_{y} J_{m}(\beta) k_{y}\big] - \sigma_{z} M J_{m}(\beta)\,.
     \end{aligned}
 \end{equation}
 
-\noindent which is a massive-Dirac-like Hamiltonian with renormalized parameters, and where we recovered the $m$ label as subscript in the Hamiltonian.
-We see that there is a new term with the identity matrix that did not exist initially.
+\noindent This Hamiltonian is massive-Dirac-like with renormalized parameters, where we recovered the $m$ label as subscript in the Hamiltonian.
+We see that there is a new term which shifts the Hamiltonian in energy.
 If we focus on the Hamiltonian matching with the original, which corresponds to the case $m=0$, the $y$-component of the Fermi velocity changes as $\vF \rightarrow J_{0}(\beta)\vF $.
 Since $\vert J_{0}(\beta)\vert < 1$, an electron traveling along the $y$-direction is slowed down compared to its speed if traveling along the $x$-direction.
 This leads to an anisotropic low-energy dispersion.
-Also, the energy gap $E_g = 2M$, that we can identify as the \gls{dft} bandgap at the \gls{lda} level, renormalizes to $E_g \rightarrow 2M \vert J_{0}(\beta) \vert \equiv \Delta_g (\beta)$.
-We will keep the notation $\Delta_g(\beta)$ for the renormalized \gls{dft} gap, that, as we commented before in the paragraph after Eq.~\eqref{eq:hBN_dispersion_relation}, is not the total bandgap.
-The total bandgap includes an exchange correction, $\Delta_{\mathrm{xc}}$, coming from the third term on the right-hand side of Eq.~\eqref{eq:BSE_full}, which we swept under the rug at the time when we derived the \gls{bse} for the first time.
-We will see in Section~\ref{sec:results} that this contribution to the bandgap renormalizes as well..
+Also, the energy gap $E_g = 2M$ renormalizes to $E_g \rightarrow 2M \vert J_{0}(\beta) \vert \equiv \Delta_g (\beta)$, if we denote the renormalized parameter $E_g$ as a function of $\beta$ by $\Delta_g(\beta)$. %lololo Also, the energy gap $E_g = 2M$, that we can identify as the \gls{dft} bandgap at the \gls{lda} level, renormalizes to $E_g \rightarrow 2M \vert J_{0}(\beta) \vert \equiv \Delta_g (\beta)$.
+We recall that the energy gap $E_g$ was identified previously, in the paragraph before Fig.~\ref{fig:monolayer_hBN_bands}, as the bandgap obtained by \gls{dft} calculations within the \gls{gga}.
+More precisely, it is extracted from fitting the bands of the minimal tight-binding model from Subsection~\ref{subsubsec:tight_binding_method} to the \gls{dft} band structure.
+As already discussed in that paragraph, the value $E_g = 3.92$~\unit{\electronvolt} for this bandgap, that we took from Ref.~\cite{ribeiro_stability_2011}, is smaller than the true bandgap of \gls{hbn}, which is approximately $6.0$~\unit{\electronvolt}~\cite{Yoichi_Takashi_2007,Cassabois_2019}.
+The \gls{dft} bandgap within \gls{gga} can be corrected by summing an exchange correction, $\Delta_{\mathrm{xc}}$, coming from the third term on the right-hand side of Eq.~\eqref{eq:BSE_full} that we discarded at the time.
+We will see in Section~\ref{sec:results} that this contribution to the bandgap renormalizes as well.
 Choosing an appropriate value for either $V_{0}$ or $L$ (actually, the product $V_{0}L$), it is possible to reduce the gap of \gls{hbn}.
-With this mechanism, we can control both the gap and the excitonic states, which now become that of an anisotropic material (similarly to phosphorene).
+With this mechanism, we can control both the gap and the excitonic states, which now become those of an anisotropic material (similarly to phosphorene).
 
-At first glance, it is hard to realize how the previous Hamiltonian falls to the original one in the case where there is no potential.
+At first glance, it is hard to realize how the previous Hamiltonian falls on the original one in the case where there is no potential.
 It is actually possible to conciliate the renormalized Hamiltonian with the original one, which is done in Appendix~\ref{app:hBN_superlattice}.
 In the same appendix, we also recover the original Hamiltonian when the period $L$ tends to infinity.
 
@@ -407,15 +408,15 @@ These are given by
 
 \begin{equation}
 \begin{aligned}
-    v_{x} & =\frac{1}{\hbar}\frac{\partial \epsilon_{\mathrm{c}}}{\partial k_{x}}=\frac{\hbar \vF^{2}k_{x}}{\epsilon_{\mathrm{c}}(\bk,\beta)} \qq{and}\\
-    v_{y} & =\frac{1}{\hbar}\frac{\partial \epsilon_{\mathrm{c}}}{\partial k_{y}}=\frac{\hbar \vF^{2}J_{0}^{2}(\beta)k_{y}}{\epsilon_{\mathrm{c}}(\bk,\beta)} \,,
+    v_{x} & =\frac{1}{\hbar}\frac{\partial \epsilon_{\cc}}{\partial k_{x}}=\frac{\hbar \vF^{2}k_{x}}{\epsilon_{\cc}(\bk,\beta)} \qq{and}\\
+    v_{y} & =\frac{1}{\hbar}\frac{\partial \epsilon_{\cc}}{\partial k_{y}}=\frac{\hbar \vF^{2}J_{0}^{2}(\beta)k_{y}}{\epsilon_{\cc}(\bk,\beta)} \,,
 \end{aligned}
 \end{equation}
 
 \noindent where
 
 \begin{equation}
-\epsilon_{\mathrm{c}}(\bk,\beta)=\sqrt{\hbar^{2}\vF^{2}\left[k_{x}^{2}+J_{0}^{2}(\beta)k_{y}^{2}\right] + J_{0}^{2}(\beta)M^{2}}
+\epsilon_{\cc}(\bk,\beta)=\sqrt{\hbar^{2}\vF^{2}\left[k_{x}^{2}+J_{0}^{2}(\beta)k_{y}^{2}\right] + J_{0}^{2}(\beta)M^{2}}
 \end{equation}
 
 \noindent is the renormalized low-energy dispersion of the conduction band.
@@ -450,7 +451,7 @@ Besides that, we define $k_{x} + \ii J_{0}(\beta) k_{y} = k(\beta)\ee^{\ii\theta
 In this notation, and after some straightforward algebra, the spinor for the conduction band reads
 
 \begin{equation}
-     \bC^{\mathrm{c} \bk} = \left(
+     \bC^{\cc \bk} = \left(
     \begin{array}{c}
         \ee^{-\ii\theta_{k}(\beta)}\frac{\sin\frac{\xi_{k}}{2}}{\cos\frac{\xi_{k}}{2}} \\ 1
     \end{array}\right),
@@ -460,7 +461,7 @@ In this notation, and after some straightforward algebra, the spinor for the con
 
 \begin{equation}
 \label{eq:conduction_spinor}
-     \bC^{\mathrm{c} \bk}=\left(
+     \bC^{\cc \bk}=\left(
     \begin{array}{c}
         \ee^{-\ii\theta_{k}(\beta)}\sin\frac{\xi_{k}}{2} \\ 
         \cos\frac{\xi_{k}}{2}
@@ -471,7 +472,7 @@ In this notation, and after some straightforward algebra, the spinor for the con
 
 \begin{equation}
     \label{eq:valence_spinor}
-    \bC^{\mathrm{v} \bk}=\left(
+    \bC^{\vv \bk}=\left(
     \begin{array}{c}
         \cos\frac{\xi_{k}}{2} \\ 
         -\ee^{\ii\theta_{k}(\beta)}\sin\frac{\xi_{k}}{2}
@@ -512,7 +513,7 @@ We do the calculations for the Rytova--Keldysh potential
 \noindent which we have already encountered in Section~\ref{subsubsec:dielectric_function_static_limit}, where we have a small modification in the argument of the special functions compared to Eq.~\eqref{eq:Rytova--Keldysh_potential_real_space}.
 We introduced the parameter $\kappa = (\varepsilon_1 + \varepsilon_2)/2$, which is the average between the permittivity $\varepsilon_1$ of the material on top and the permittivity $\varepsilon_2$ of the material supporting the \gls{hbn} layer.
 These two permittivities are the static ones and account for electrostatic screening in the materials surrounding the \gls{hbn} monolayer~\cite{Ventura_2019}.
-The parameter $r_0$ is only material dependent, and for monolayer \gls{hbn} we use $r_0 = 10$ \unit{\angstrom}~\cite{Galvani_2016,Ferreira_2019,Ventura_2019}.
+The parameter $r_0$ is only material dependent, and for monolayer \gls{hbn} we use $r_0 = 10$~\unit{\angstrom}~\cite{Galvani_2016,Ferreira_2019,Ventura_2019}.
 Joining the kinetic and potential contributions, we have for the Wannier Hamiltonian
 
 \begin{equation}
@@ -636,8 +637,8 @@ Then, the integral reads
 \end{equation}
 
 \noindent after making all substitutions.
-Now, we have left the term of the matrix element derived from the potential to calculate.
-For that term, we change from Cartesian coordinates to polar coordinates, and define the function $\alpha(\theta)=2 \sqrt{a_{1s}+(b_{1s}-a_{1s})\sin^{2}\theta}$, to obtain
+Now, are left with the calculation of the term in the matrix element derived from the potential to calculate.
+For this term, we change from Cartesian to polar coordinates, and define the function $\alpha(\theta)=2 \sqrt{a_{1s}+(b_{1s}-a_{1s})\sin^{2}\theta}$, to obtain
 
 \begin{equation}
     \label{eq:potential_matrix_element}
@@ -653,11 +654,11 @@ We calculate analytically the auxiliary integral
     \label{eq:auxiliar_radial_integral}
     \begin{aligned}
         I_{0}(\alpha,\kappa_0) & =\int_{0}^{\infty}\mathds{K}(\kappa_0 r)\, \ee^{-\alpha r} \dd r = \\
-        & =\frac{2}{\pi\sqrt{\alpha^{2}+\kappa_0^{2}}}\left[\log\!\left(\frac{\kappa_0+\sqrt{\alpha^{2}+\kappa_0^{2}}}{\alpha}\right)+\log\!\left(\frac{\alpha+\sqrt{\alpha^{2}+\kappa_0^{2}}}{\kappa_0}\right)\right]\,,
+        & =\frac{2}{\pi\sqrt{\alpha^{2}+\kappa_0^{2}}}\left[\log\!\left(\frac{\kappa_0+\sqrt{\alpha^{2}+\kappa_0^{2}}}{\alpha}\right)+\log\!\left(\frac{\alpha+\sqrt{\alpha^{2}+\kappa_0^{2}}}{\kappa_0}\right)\right] ,
     \end{aligned}
 \end{equation}
 
-\noindent that depends on $\theta$ through the function $\alpha(\theta)$, and where we introduced as well $\kappa_0 = \kappa/r_{0}$\,.
+\noindent which depends on $\theta$ through the function $\alpha(\theta)$, and where we introduced as well $\kappa_0 = \kappa/r_{0}$\,.
 The radial integral of interest in Eq.~\eqref{eq:potential_matrix_element}, that we will denote by $I$, relates to the previous one through
 
 \begin{equation}
@@ -672,7 +673,7 @@ The radial integral of interest in Eq.~\eqref{eq:potential_matrix_element}, that
 
 Requiring an absolute minimum for this energy consists in solving $\partial E_{1s}/\partial a_{1s}=\partial E_{1s}/\partial b_{1s}=0$ for $a_{1s}$ and $b_{1s}$.
 As an example, for black phosphorus encapsulated in \gls{hbn}~\cite{Gomes_Trallero-Giner_Vasilevskiy_2021}, we have the parameters $\mu_{x}=0.99m_{e}$ and $\mu_{y}=0.12m_{e}$ where $m_e$ is the electron mass, $\kappa=4.5$ and $r_{0}=2.5$~\unit{\nano\meter}.
-For this set of parameters, the binding energy evaluates to $E_{1s}=-257$ \unit{\milli\electronvolt}, and the variational parameters evaluate to $a_{1s}=2.45\text{ \unit{\nano\meter}}^{-2}$ and
+For this set of parameters, the binding energy evaluates to $E_{1s}=-257$~\unit{\milli\electronvolt}, and the variational parameters evaluate to $a_{1s}=2.45\text{ \unit{\nano\meter}}^{-2}$ and
 $b_{1s}=0.533\text{ \unit{\nano\meter}}^{-2}$.
 Computing the derivatives is straightforward, so we present here only the final expressions
 
@@ -716,7 +717,7 @@ After all substitutions, we obtain
 \begin{equation}
     \begin{aligned}
         \langle\Psi_{2x}|V_{\RK}|\Psi_{2x}\rangle &= \frac{8 a_{2x} \sqrt{a_{2x} b_{2x}}}{3 \pi} \frac{e}{4 \pi \epsz r_{0}} \frac{\pi}{2}\int_{0}^{2\pi} \cos^2 \theta \frac{\partial^2}{\partial \alpha^2} I (\alpha, \kappa_0)\, \dd\theta = \\
-                                            &= \frac{8 a_{2x} \sqrt{a_{2x} b_{2x}}}{3 \pi} \frac{-e}{4 \pi \epsz r_{0}} \frac{\pi}{2}\int_{0}^{2\pi} \cos^2 \theta \frac{\partial^3}{\partial \alpha^3} I_0 (\alpha, \kappa_0)\, \dd\theta \,
+                                            &= \frac{8 a_{2x} \sqrt{a_{2x} b_{2x}}}{3 \pi} \frac{-e}{4 \pi \epsz r_{0}} \frac{\pi}{2}\int_{0}^{2\pi} \cos^2 \theta \frac{\partial^3}{\partial \alpha^3} I_0 (\alpha, \kappa_0)\, \dd\theta \,,
     \end{aligned}
 \end{equation}
 
@@ -760,7 +761,7 @@ For the binding energy, we have
 \subsection{Excited State $2s$}
 \label{subsec:excited_state_2s}
 
-We reserve this entire section to the calculations for the state $2s$, as for this state there are more intermediate steps.
+We devote this entire section to the calculations for the $2s$ state, as for this state there are more intermediate steps.
 First, the normalisation condition leads to
 
 \begin{equation}
@@ -846,7 +847,7 @@ The kinetic term is obtained similarly to the previous cases, and equals
     G(a, b) = \frac{1}{ (2 - 4d + 3 d^2)}  \int_0^{2 \pi} \int_0^\infty \mathds{K}\big(\kappa_0 \alpha(\theta) \rho \big) (1- d \rho)^2 \rho\, \ee^{-2 \rho} \dd \rho \dd \theta \,,
 \end{equation}
 
-\noindent where for the integral we performed a change of variables as in~\eqref{eq:change_of_variables_elliptic}, so that we can write the potential term in the alternative way
+\noindent where, for the integral, we performed a change of variables as in~\eqref{eq:change_of_variables_elliptic}, so that we can write the potential term in the alternative way
 
 \begin{equation}
     \langle\Psi_{2s}|V_{\RK}|\Psi_{2s}\rangle = 2  \frac{e}{4 \pi \epsz  r_0} G(a, b) \,.
@@ -877,7 +878,7 @@ For that, we need the derivatives of the function $d (a,b)$, and they read
 
 \begin{equation}
     \begin{aligned}
-        \partial_{a} F &= \frac{2 + d^2}{2 - 4d + 3d^2} \frac{1}{\mu_x} + \left(\frac{a}{\mu_{x}}+\frac{b}{\mu_{y}}\right) \frac{8 -8d - 4d^2}{2 - 4d + 3d^2} \partial_{a} d, \\
+        \partial_{a} F &= \frac{2 + d^2}{2 - 4d + 3d^2} \frac{1}{\mu_x} + \left(\frac{a}{\mu_{x}}+\frac{b}{\mu_{y}}\right) \frac{8 -8d - 4d^2}{2 - 4d + 3d^2} \partial_{a} d\,, \\
         \partial_{b} F &=  \frac{2 + d^2}{2 - 4d + 3d^2} \frac{1}{\mu_y} + \left(\frac{a}{\mu_{x}}+\frac{b}{\mu_{y}}\right) \frac{8 -8d - 4d^2}{2 - 4d + 3d^2} \partial_{b} d\,.
     \end{aligned}
 \end{equation}
@@ -899,7 +900,7 @@ In this way, the derivatives of $G$ read
         \partial_{a} G =& - \frac{1}{2 - 4d + 3d^2} \int_0^{2 \pi} \frac{\kappa}{2 r_0 a^2} \frac{\cos^2 \theta}{\sqrt{a^{-1} \cos^2 \theta + b^{-1} \sin^2 \theta}} I_2(\theta)\,  \dd \theta + \\
                         & \frac{\partial_{a} d}{2 - 4d + 3d^2} \left[ (4 - 6d)G -2 \int_0^{2 \pi}I_1(\theta) \, \dd \theta \right] \qq{and} \\
         \partial_{b} G =& - \frac{1}{2 - 4d + 3d^2} \int_0^{2 \pi} \frac{\kappa}{2 r_0 b^2} \frac{\sin^2 \theta}{\sqrt{a^{-1} \cos^2 \theta + b^{-1} \sin^2 \theta}} I_2(\theta)\,  \dd \theta + \\
-                        & \frac{\partial_{b} d}{2 - 4d + 3d^2} \left[ (4 - 6d)G -2 \int_0^{2 \pi}I_1(\theta) \, \dd \theta \right] \,.
+                        & \frac{\partial_{b} d}{2 - 4d + 3d^2} \left[ (4 - 6d)G -2 \int_0^{2 \pi}I_1(\theta) \, \dd \theta \right] .
     \end{aligned}
 \end{equation}
 
@@ -912,7 +913,7 @@ Finally, the derivatives of the energy of the $2s$ state can be compactly writte
     \end{align}
 \end{subequations}
 
-We stress that to compute the excited state $2s$, the ground state $1s$ has to be computed first, since the orthogonalization parameter $d$ depends on the variational parameters of the ground state.
+We stress that, to compute the excited state $2s$, the ground state $1s$ has to be computed first, since the orthogonalization parameter $d$ depends on the variational parameters of the ground state.
 In the next section, we see how we can compute the excitonic optical conductivity using the exciton energies and wavefunctions.
 
 \section{Excitonic Optical Response}
@@ -921,7 +922,7 @@ In the next section, we see how we can compute the excitonic optical conductivit
 If we subject a material to a drive from a monochromatic field with frequency $\omega$, the expression for the excitonic optical conductivity in the linear regime, and in the dipole approximation, is given by the following sum over the excitonic states $\nu$~\cite{Pedersen_2015}
 
 \begin{equation}
-    \sigma (\omega) = \frac{e^2}{8 \pi^3 \ii \hbar} \sum_\nu \left[ E_\nu \frac{|\Omega_\nu|^2 }{E_\nu - (\hbar \omega+\ii\Gamma)} + E_\nu \frac{|\Omega_\nu|^2 }{E_\nu + (\hbar \omega+\ii\Gamma)} \right]
+    \sigma (\omega) = \frac{e^2}{8 \pi^3 \ii \hbar} \sum_\nu \left[ E_\nu \frac{|\Omega_\nu|^2 }{E_\nu - (\hbar \omega+\ii\Gamma)} + E_\nu \frac{|\Omega_\nu|^2 }{E_\nu + (\hbar \omega+\ii\Gamma)} \right] ,
     \label{eq:optical_conductivity}
 \end{equation}
 
@@ -929,7 +930,7 @@ If we subject a material to a drive from a monochromatic field with frequency $\
 
 \begin{equation}
     \label{eq:Berry_curvature_definition_new}
-    \Omega_\nu =  \sum_{\bk} \Psi_{\nu} (\bk)\, \uvec{e} \vdot \langle \mathrm{v},\bk | \br | \mathrm{c},\bk \rangle
+    \Omega_\nu =  \sum_{\bk} \Psi_{\nu} (\bk)\, \uvec{e} \vdot \langle \vv ,\bk | \br | \cc,\bk \rangle
 \end{equation}
 
 \noindent with no sum over bands, since we consider the most simple two-band model for \gls{hbn}, $\uvec{e}$ is the polarization vector, $\Psi_{\nu} (\bk)$ is the momentum-space wavefunction of the exciton in the state $\nu$, and the braket is the optical matrix element we have encountered before in Section~\ref{subsec:non_interacting_conductivity}.
@@ -946,7 +947,7 @@ But before that, we need to list the exciton wavefunctions in momentum space to 
 
 Now, we derive the wavefunction of the excitonic ground state in momentum space, and the excited states will follow.
 For that, we just need to Fourier transform $\Psi_{1s}(\br)$.
-In the isotropic case, the integral is calculated by fixing the orientation of the wavenumber $\bk$, and then write $\bk\vdot\br= k r \cos\theta$, where $\theta$ is the angle between $\bk$ and $\br$, alongside with a change of variables from cartesian to polar coordinates.
+In the isotropic case, the integral is calculated by fixing the orientation of the wavenumber $\bk$, and then write $\bk\vdot\br= k r \cos\theta$, where $\theta$ is the angle between $\bk$ and $\br$, alongside with a change of variables from Cartesian to polar coordinates.
 Now we need to do different, because we are evaluating the anisotropic case.
 We perform instead the change of variables
 
@@ -958,7 +959,7 @@ We perform instead the change of variables
     \end{cases}
 \end{equation}
 
-\noindent which is in fact a change from cartesian to elliptic coordinates.
+\noindent which is in fact a change from Cartesian to elliptic coordinates.
 \noindent Then, the Fourier transform evaluates to
 
 \begin{equation}
@@ -997,34 +998,34 @@ The optical matrix element can be computed by using the identity
 
 \begin{equation}
     \label{eq:optical_matrix_element}
-    \langle \mathrm{v},\bk|\br|c,\bk\rangle=\frac{\langle \mathrm{v},\bk|[H_0,\br]|c,\bk\rangle}{\epsilon_{\mathrm{v} \bk}-\epsilon_{\mathrm{c} \bk}},
+    \langle \vv ,\bk|\br|c,\bk\rangle=\frac{\langle \vv ,\bk|[H_0,\br]|c,\bk\rangle}{\epsilon_{\vv \bk}-\epsilon_{\cc \bk}},
 \end{equation}
 
-\noindent where the Hamiltonian is the noninteracting one, the ket and the bra correspond to Bloch states of an electron in the conduction and valence bands, respectively, and $\epsilon_{\mathrm{v} \bk}$ and $\epsilon_{\mathrm{c} \bk}$ are the energies of an electron in the corresponding Bloch states.
+\noindent where the Hamiltonian is the noninteracting one, the ket and the bra correspond to Bloch states of an electron in the conduction and valence bands, respectively, and $\epsilon_{\vv \bk}$ and $\epsilon_{\cc \bk}$ are the energies of an electron in the corresponding Bloch states.
 By coincidence, the subscript $0$ we use in the Hamiltonian $\overline{H}_0$, which stands for the particular case of $\overline{H}_m$ when $m=0$, coincides with the same symbol used in Section~\ref{sec:optical_effects} to denote the noninteracting Hamiltonian $H_0$.
 It happens that $\overline{H}_0$ is our noninteracting Hamiltonian at the moment, so there is no problem in repeating the symbol, we just advert for the different meanings it may have.
 In practice, the numerator can be evaluated in terms of the commutator $[\overline{H}_0,\br]$, if in the low-energy Hamiltonian we perceive the momentum components as operators, and take the commutator with $\br$ as an operator by using the canonical commutation relations $[x_i,p_j] = \ii \hbar \delta_{ij}$.
-After getting the commutator, we compute the matrix element replacing the bra and the ket with their respective spinors of the low-energy Hamiltonian, denoted by $\bC^{\mathrm{v} \bk}$ and $\bC^{\mathrm{c} \bk}$.
+After getting the commutator, we compute the matrix element replacing the bra and the ket with their respective spinors of the low-energy Hamiltonian, denoted by $\bC^{\vv \bk}$ and $\bC^{\cc \bk}$.
 However, it may not seem obvious that the optical matrix element can be computed in this way, without refering explicitly to the Bloch wavefunctions.
 We are not aware of any justification for this in the literature, even though it has been used before and with good final results~\cite{Ventura_2019,Mauricio_2022,Henriques_Epstein_Peres_2022,Henriques_PRB2022}.
 Therefore, we give an instructive explanation, even though it may feel ad hoc.
 
 To evaluate the optical matrix element, one considers first  the term $H_0 \br$ in the commutator.
 Then, we can insert a resolution of the identity $\sum_{n,\bk'} |n,\bk'\rangle \langle n,\bk'|$ between $H_0$ and $\br$, assuming it is complete.
-The matrix elements of $H_0$ between the Bloch states $\bra{\mathrm{v},\bk}$ and $\ket{n,\bk'}$ can be written as real-space integrals.
+The matrix elements of $H_0$ between the Bloch states $\bra{\vv ,\bk}$ and $\ket{n,\bk'}$ can be written as real-space integrals.
 If we represent the Bloch wavefunctions in the tight-binding approximation per Eq.~\eqref{eq:Bloch_state_LCAO} as a linear combination of the atomic orbitals, then the matrix element transforms into a linear combination of integrals, which are the matrix elements of the Hamiltonian between the atomic orbitals, eventually located at different positions in the lattice---these are nothing more than the transfer integrals, which define the parameters of the tight-binding model.
-Since in the wavefunction we have a sum over unit cells $\bR$ with the imaginary exponential $\ee^{-\ii \bk \vdot \bR}$, then, at the end, we would just have to calculate $\left(\bC^{\mathrm{v} \bk}\right)^{\dagger}\! H(\bk) \bC^{n,\bk'}$, where $H(\bk)$ is the Bloch Hamiltonian and the arrays $\bC^{n,\bk}$ are its eigenvectors, that we derived earlier and are given by Eqs.~\eqref{eq:valence_spinor} and~\eqref{eq:conduction_spinor} for the valence and conduction bands, respectively.
+Since in the wavefunction we have a sum over unit cells $\bR$ with the imaginary exponential $\ee^{-\ii \bk \vdot \bR}$, then, at the end, we would just have to calculate $\left(\bC^{\vv \bk}\right)^{\dagger}\! H(\bk) \bC^{n,\bk'}$, where $H(\bk)$ is the Bloch Hamiltonian and the arrays $\bC^{n,\bk}$ are its eigenvectors, that we derived earlier and are given by Eqs.~\eqref{eq:valence_spinor} and~\eqref{eq:conduction_spinor} for the valence and conduction bands, respectively.
 For the position operator, we have integrals of the form $\int \phi_{\beta}(\br - \bR -\bt_j)\, \br\, \phi_{\beta'}(\br - \bR' -\bt_{j'}) \dr$.
 In the tight-binding approximation, if the orbitals are point-like, the integrals amount to matrix elements $\br_{j \beta,j' \beta'} \delta_{\bR \bR'}$ of a position operator with a matrix representation that is diagonal in the $\bR$ variable, that we can denote by $\bar{\bar{\br}}$.
-The kronecker delta $\delta_{\bR \bR'}$ simplifies the calculations.
-Then, we have to use the fact that $\ket{n,\bk'}$ is an eigenstate of $H_0$, so in the sum in the resolution of the identity, only the term $\ket{n,\bk'} = \ket{\mathrm{v},\bk}$ survives, simplifying even more the calculation.
+The Kronecker delta $\delta_{\bR \bR'}$ simplifies the calculations.
+Then, we have to use the fact that $\ket{n,\bk'}$ is an eigenstate of $H_0$, so in the sum in the resolution of the identity, only the term $\ket{n,\bk'} = \ket{\vv ,\bk}$ survives, simplifying even more the calculation.
 Then at the end, if we choose the lattice gauge without loss of generality, we would have at the end an expression of the form
 
 \begin{equation*}
 \begin{gathered}
-    \sum_{\bR} \ee^{\ii \bk \vdot \bR} \sum_{i\alpha,i'\alpha'} (C^{\mathrm{v} \bk}_{i\alpha})^* H_{i\alpha,i'\alpha'}(\bR) C^{\mathrm{v} \bk}_{i'\alpha'} \sum_{j'\beta',j\beta} (C^{\mathrm{v} \bk}_{j'\beta'})^* \bar{\bar{\br}}_{j'\beta',j\beta} C^{\mathrm{c} \bk}_{j\beta} \\
-    = (\bC^{\mathrm{v} \bk})^\dagger H(\bk) \bC^{\mathrm{v} \bk} (\bC^{\mathrm{v} \bk})^{\dagger} \bar{\bar{\br}}\, \bC^{\mathrm{c} \bk} = \\
-    = (\bC^{\mathrm{v} \bk})^\dagger H(\bk) \bar{\bar{\br}}\, \bC^{\mathrm{c} \bk} \,,
+    \sum_{\bR} \ee^{\ii \bk \vdot \bR} \sum_{i\alpha,i'\alpha'} (C^{\vv \bk}_{i\alpha})^* H_{i\alpha,i'\alpha'}(\bR) C^{\vv \bk}_{i'\alpha'} \sum_{j'\beta',j\beta} (C^{\vv \bk}_{j'\beta'})^* \bar{\bar{\br}}_{j'\beta',j\beta} C^{\cc \bk}_{j\beta} = \\
+    = (\bC^{\vv \bk})^\dagger H(\bk) \bC^{\vv \bk} (\bC^{\vv \bk})^{\dagger} \bar{\bar{\br}}\, \bC^{\cc \bk} = \\
+    = (\bC^{\vv \bk})^\dagger H(\bk) \bar{\bar{\br}}\, \bC^{\cc \bk} \,,
 \end{gathered}
 \end{equation*}
 
@@ -1033,10 +1034,10 @@ Then at the end, if we choose the lattice gauge without loss of generality, we w
 Upon doing something similar for the other term in the commutator $\br H$ and taking the difference with the term above, we arrive at the intermediate formula
 
 \begin{equation}
-    \langle \mathrm{v},\bk|[H_0,\br]|\mathrm{c}, \bk\rangle = (\bC^{\mathrm{v} \bk})^\dagger [H(\bk),\bar{\bar{\br}}] \bC^{\mathrm{c} \bk}\,.
+    \langle \vv ,\bk|[H_0,\br]|\cc, \bk\rangle = (\bC^{\vv \bk})^\dagger [H(\bk),\bar{\bar{\br}}] \bC^{\cc \bk}\,.
 \end{equation}
 
-Now, we expand the Bloch Hamiltonian $H(\bk)$ around the point where the exciton is localized, the points $\bK$ or $\bK'$ in the case of \gls{hbn}, so that we can replace $H(\bk) \to \overline{H}_0$, where the low-energy Hamiltonian is now the renormalized one, and  we allow for the momentum variable $\bk$ to become the momentum operator, and $\bar{\bar{\br}}$ the position operator.
+Now, we expand the Bloch Hamiltonian $H(\bk)$ around the point where the exciton is localized, namely the points $\bK$ or $\bK'$ in the case of \gls{hbn}, so that we can replace $H(\bk) \to \overline{H}_0$, where the low-energy Hamiltonian is now the renormalized one, and  we allow for the momentum variable $\bk$ to become the momentum operator, and $\bar{\bar{\br}}$ the position operator.
 Then, we can replace the commutator $[H_0,\br]$ with the commutator
 
 \begin{equation}
@@ -1048,15 +1049,15 @@ Then, the initial matrix element between the Bloch states of the commutator betw
 
 \begin{equation}
     \label{eq:commutator_matrix_element}
-    \langle \mathrm{v},\bk|[H,\br]|\mathrm{c}, \bk\rangle  \approx -\ii \hbar  \vF  (\bC^{\mathrm{v} \bk})^\dagger \left[ \sigma_{x}\uvec{x}+J_{0}(\beta)\sigma_{y}\uvec{y} \right] \bC^{\mathrm{c} \bk}\,,
+    \langle \vv ,\bk|[H,\br]|\cc, \bk\rangle  \approx -\ii \hbar  \vF  (\bC^{\vv \bk})^\dagger \left[ \sigma_{x}\uvec{x}+J_{0}(\beta)\sigma_{y}\uvec{y} \right] \bC^{\cc \bk}\,,
 \end{equation}
 
-\noindent where the arrays $\bC^{\mathrm{v},\bk}$ and $\bC^{\mathrm{c}, \bk}$ are the spinors of the low-energy Hamiltonian that we have defined before in Eqs.~\eqref{eq:valence_spinor} and~\eqref{eq:conduction_spinor} for the valence and conduction bands, respectively.
+\noindent where the arrays $\bC^{\vv ,\bk}$ and $\bC^{\cc, \bk}$ are the spinors of the low-energy Hamiltonian that we have defined before in Eqs.~\eqref{eq:valence_spinor} and~\eqref{eq:conduction_spinor} for the valence and conduction bands, respectively.
 Inserting them in~\eqref{eq:commutator_matrix_element} and going back to the optical matrix element~\eqref{eq:optical_matrix_element}, we find
 
 \begin{equation}
     \label{eq:optical_matrix_element_final}
-    \langle \mathrm{v},\bk|\br|\mathrm{c}, \bk\rangle \approx \frac{\ii\hbar  \vF}{\epsilon_{\mathrm{v} \bk}-\epsilon_{\mathrm{c} \bk}}\left\{\cos^{2}\!\left(\frac{\xi_{q}}{2}\right)\left[\uvec{x}-J_{0}(\beta)\uvec{y}\right]-\ee^{-2 \ii \theta_{q}(\beta)}\sin^{2}\!\left(\frac{\xi_{q}}{2}\right)\left[\uvec{x}+J_{0}(\beta)\uvec{y}\right]\right\}\,.
+    \langle \vv ,\bk|\br|\cc, \bk\rangle \approx \frac{\ii\hbar  \vF}{\epsilon_{\vv \bk}-\epsilon_{\cc \bk}}\left\{\cos^{2}\!\left(\frac{\xi_{q}}{2}\right)\left[\uvec{x}-J_{0}(\beta)\uvec{y}\right]-\ee^{-2 \ii \theta_{q}(\beta)}\sin^{2}\!\left(\frac{\xi_{q}}{2}\right)\left[\uvec{x}+J_{0}(\beta)\uvec{y}\right]\right\}\,.
 \end{equation}
 
 %Writing the imaginary exponential with its non-trivial dependence on $\theta$,
@@ -1074,7 +1075,7 @@ We split the discussion into the ground state and the excited states.
 \subsubsection{Ground state $1s$}
 \label{subsubsec:ground_state_1s}
 
-We recall that the variational wavefunction of the $1s$ state in momentum space, easing the notation and drop the subscripts accompanying the variational parameters, is given by
+We recall that the variational wavefunction of the $1s$ state in momentum space, easing the notation and dropping the subscripts accompanying the variational parameters, is given by
 
 \begin{equation}
     \Psi_{1s}(\bk) =\frac{2\sqrt{2\pi}}{\left(a b\right)^{1/4}}\frac{1}{\left(1+\frac{k_{x}^{2}}{a}+\frac{k_{y}^{2}}{b}\right)^{3/2}} \,.
@@ -1093,7 +1094,7 @@ We recall that the variational wavefunction of the $1s$ state in momentum space,
 
 \begin{equation}
     \begin{aligned}
-        \epsilon_{\mathrm{c} \bk}-\epsilon_{\mathrm{v} \bk} &= \sqrt{E_{g}^{2}J_{0}^{2}(\beta)+4\hbar^{2} \vF ^{2}[k_{x}^2 + J^2_{0}(\beta)k_{y}^2]} = \sqrt{E_{g}^{2}J_{0}^{2}(\beta) + 4\hbar^{2} \vF ^{2}k^{2} \gamma^{2}(\theta)}\,, \\
+        \epsilon_{\cc \bk}-\epsilon_{\vv \bk} &= \sqrt{E_{g}^{2}J_{0}^{2}(\beta)+4\hbar^{2} \vF ^{2}[k_{x}^2 + J^2_{0}(\beta)k_{y}^2]} = \sqrt{E_{g}^{2}J_{0}^{2}(\beta) + 4\hbar^{2} \vF ^{2}k^{2} \gamma^{2}(\theta)}\,, \\
         \cos^2\!\left(\frac{\xi_{q}}{2}\right) &= \frac{1}{2} + \frac{1}{2\sqrt{1+\left(\frac{2 \hbar  \vF k \gamma(\theta)}{J_{0}(\beta)E_{g}}\right)^{2}}}\,, \qq{and} \\
         \sin^{2}\!\left(\frac{\xi_{q}}{2}\right) &= \frac{1}{2} - \frac{1}{2\sqrt{1+\left(\frac{2 \hbar  \vF k \gamma(\theta)}{J_{0}(\beta)E_{g}}\right)^{2}}}
     \end{aligned}
@@ -1107,7 +1108,7 @@ We recall that the variational wavefunction of the $1s$ state in momentum space,
 
 \noindent In the excitonic optical matrix element, we have two terms; one that comes from the cosine squared in the optical matrix element in Eq.~\eqref{eq:optical_matrix_element_final}, and another that comes from the sine squared in the same equation.
 So we write $\Omega  = \Omega^{\cos}_{1s} + \Omega^{\sin}_{1s}$, and treat both terms separately.
-We consider first light polarized along the $x$-axis.
+We first consider light polarized along the $x$-axis.
 The term that comes from the cosine reads
 
 \begin{equation}
@@ -1122,12 +1123,12 @@ We obtain
 \begin{equation}
     \begin{aligned}
         \Omega^{\cos}_{1s} =& \ii \hbar \vF\frac{-2\sqrt{2\pi}}{(a b)^{1/4}}\int_{0}^{2\pi} \Biggl\{ \frac{\hbar \vF \gamma(\theta)-E_{g}|J_{0}(\beta)|\sigma(\theta)}{E_{g}^{2}J_{0}^{2}(\beta)\sigma^{3}(\theta) - 4\hbar^{2}\vF^{2}\sigma(\theta)\gamma^{2}(\theta)} -\\
-        & - \frac{E_{g}\hbar \vF|J_{0}(\beta)|\gamma(\theta) \arcsec \left(\frac{E_{g}|J_{0}(\beta)|\sigma(\theta)}{2\hbar \vF\gamma(\theta)}\right)}{\left[E_{g}^{2}J_{0}^{2}(\beta)\sigma^{2}(\theta)-4\hbar^{2}\vF^{2}\gamma^{2}(\theta)\right]^{3/2}} \Biggl\} \dd\theta \,,
+        & - \frac{E_{g}\hbar \vF|J_{0}(\beta)|\gamma(\theta) \arcsec \! \left(\frac{E_{g}|J_{0}(\beta)|\sigma(\theta)}{2\hbar \vF\gamma(\theta)}\right)}{\left[E_{g}^{2}J_{0}^{2}(\beta)\sigma^{2}(\theta)-4\hbar^{2}\vF^{2}\gamma^{2}(\theta)\right]^{3/2}} \Biggl\} \dd\theta \,,
     \end{aligned}
 \end{equation}
 
 
-\noindent leaving only the angular integral that can only be evaluated numerically.
+\noindent leaving just the angular integral that can only be evaluated numerically.
 The term that goes with the sine reads
 
 \begin{equation}
@@ -1139,7 +1140,7 @@ The term that goes with the sine reads
 \begin{equation}
     \begin{aligned}
         \Omega^{\sin}_{1s} =& \ii \hbar \vF \frac{-2\sqrt{2\pi}}{(a b )^{1/4}}\int_{0}^{2\pi}\Bigg\{\frac{-\hbar \vF\gamma(\theta)}{E_{g}^{2}J_{0}^{2}(\beta)\sigma^{3}(\theta)-4\hbar^{2}\vF^{2}\sigma(\theta)\gamma^{2}(\theta)} + \\
-        &+\frac{E_{g}\hbar \vF|J_{0}(\beta)|\gamma(\theta)\arcsec\left(\frac{E_{g}|J_{0}(\beta)|\sigma(\theta)}{2\hbar \vF\gamma(\theta)}\right)}{\left[E_{g}^{2}J_{0}^{2}(\beta)\sigma^{2}(\theta)-4\hbar^{2}\vF^{2}\gamma^{2}(\theta)\right]^{3/2}}\Bigg\}\ee^{-2\ii\theta_{k}(\beta)} \dd\theta \,,
+        &+\frac{E_{g}\hbar \vF|J_{0}(\beta)|\gamma(\theta)\arcsec\!\left(\frac{E_{g}|J_{0}(\beta)|\sigma(\theta)}{2\hbar \vF\gamma(\theta)}\right)}{\left[E_{g}^{2}J_{0}^{2}(\beta)\sigma^{2}(\theta)-4\hbar^{2}\vF^{2}\gamma^{2}(\theta)\right]^{3/2}}\Bigg\}\ee^{-2\ii\theta_{k}(\beta)} \dd\theta \,,
     \end{aligned}
 \end{equation}
 
@@ -1179,7 +1180,7 @@ It reads
     \end{aligned}
 \end{equation}
 
-\noindent If in the term on the second line of the equation of this equation we perform the same change of variables, we end up with an integral of an odd function again, so it does not contribute.
+\noindent If in the term on the second line of this equation we perform the same change of variables, we end up with an integral of an odd function again, so it does not contribute.
 For the second term, we simply make a shift of $-\pi$ in the integration limits, since the integrand function is odd from the start, so that term vanishes as well.
 For the excited state $2y$, all the previous arguments apply as well, so it does not contribute to the conductivity just like the state $2x$.
 We are left only with the calculation of the optical conductivity deriving from the state $2s$.
@@ -1196,7 +1197,7 @@ At the end, we have only the contributions from the $1s$ and $2s$ state to the o
 \noindent where $(\omega \to - \omega)^*$ is used to refer to the nonresonant term in the sum, which we discard since its contribution is negligible.
 For $y$ polarization the expression is analogous.
 We have seen now how to compute the optical conductivity for the system under study.
-In the next section we discuss the results obtained.
+In the next section we discuss the results.
 
 \section{Results}
 \label{sec:results}
@@ -1210,38 +1211,38 @@ In the third part, we finish with the results for the dispersion of the exciton-
 \label{subsec:band_gap_and_binding_energies}
 
 As we have seen in Section~\ref{sec:electronic_band_structure_modulated_hBN}, the effective masses renormalize as $m_x = m^* |J_{0}(\beta)|$ and $m_y = m^*/ |J_{0}(\beta)| $, where $m^* = E_g/2\vF^2$ is the isotropic effective mass of electrons in pristine \gls{hbn}.
-This means that as $J_{0}(\beta) \to 0$, the dispersion becomes more and more anisotropic.
+This means that, as $J_{0}(\beta) \to 0$, the dispersion becomes more and more anisotropic.
 To study the effects of this anisotropy in the electronic and excitonic properties of the system, we compute the bandgap and the binding energies of the excitonic states $1s$, $2x$, $2y$ and $2s$ for varying $\beta$, from the case $\beta=0$ without potential to $\beta=2.4$ sufficiently close to the first zero of the Bessel function $J_0(\beta)$.
 We stress that the bandgap includes the electron--electron exchange correction $\Delta_{\mathrm{ex}}(\beta)$, which also renormalizes with $\beta$, and whose calculation is detailed in Section~\ref{sec:exchange_energy} of the Appendix~\ref{app:hBN_superlattice}.
 The results are displayed in Fig.~\ref{fig:Eb_of_beta}.
-The value of the total bandgap, also called the fundamental gap, for $\beta=0$ is the one of pristine monolayer \gls{hbn} that, with our estimation, is of $6.2$ \unit{\electronvolt}, which is not very distant from the values reported in the literature from \gls{dft} calculations using hybrid functionals~\cite{PhysRevB.106.045118}, or taking into account many-body effects using the $GW$+\gls{bse} approach.
+The value of the total bandgap, also called the fundamental gap, for $\beta=0$ is the one of pristine monolayer \gls{hbn} that, with our estimation, is of $6.2$~\unit{\electronvolt}, which is not very distant from the values reported in the literature from \gls{dft} calculations using hybrid functionals~\cite{PhysRevB.106.045118}, or taking into account many-body effects using the $GW$+\gls{bse} approach.
 The work by F.~Ferreira et al.~in Ref.~\cite{Ferreira_2019} has, in Table 1 therein, a comprehensive list of values for the bandgap of \gls{hbn} obtained from different works that use the $GW$ and $GW$+\gls{bse} methods.
-Another report listing different values for the bandgap of \gls{hbn} in the literature is Ref.~\cite{PhysRevB.106.045118}, where Table I from the main text displays analogous results to those of Ref.~\cite{Ferreira_2019}, also from \abinit~calculations at both \gls{dft} and $GW$ levels.
+Another report listing different values for the bandgap of \gls{hbn} in the literature is Ref.~\cite{PhysRevB.106.045118}, where Table I in the main text displays results analogous to those of Ref.~\cite{Ferreira_2019}, also from \abinit~calculations at both \gls{dft} and $GW$ levels.
 
 The total bandgap $\Delta = \Delta_g(\beta) + \Delta_{\mathrm{ex}}(\beta)$ as a function of $\beta$ computed with our approach is in Figure~\ref{fig:Eb_of_beta}\pnl{a}.
 As one increases the potential strength $V_0$ (or the period $L$), the bandgap of \gls{hbn} decreases from its initial value to zero, with the bandgap closing at the first zero of $J_0(\beta)$.
 This information is relevant to calculate the sub-gap optical conductivity, because the excitonic levels $E_{\nu}$ determine the resonant frequencies.
 Knowing the bandgap $\Delta$ and the binding energy $E_{b,\nu}$, we know the exciton energies $E_\nu = \Delta - |E_{b,\nu}|$\footnote{Most commonly in the literature, the binding energy is presented as a negative value, to stress that it is a bound state. We work with the absolute value of the binding energy, making the analysis indifferent to the convention.}.
-The exciton binding energies, obtained in the light of the variational principle, are represented in Figure~\ref{fig:Eb_of_beta}\pnl{b}.
+The exciton binding energies obtained in the light of the variational principle are represented in Figure~\ref{fig:Eb_of_beta}\pnl{b}.
 The $s$ states are in red, and the $p$ states $2x$ and $2y$ are in black.
-The $p$ states being originally degenerate in the isotropic case $\beta=0$, something expectable from using the Wannier--Mott description, are not degenerate anymore in the anisotropic case $\beta \neq 0$.
+While the $p$ states are degenerate in the isotropic case $\beta=0$, as expected from the Wannier--Mott description, they are not degenerate in the anisotropic case $\beta \neq 0$.
 Also, even though the binding energies generically decrease with increasing $\beta$, the $2y$ state presents a non-monotic behavior, but it is always the first excited state.
 On the contrary, the binding energy of the $2x$ state always decreases, and at some point around $\beta \approx 1.6$, the binding energies of the states $2x$ and $2s$ match.
-After that point, the $2s$ state is now the second excited state, whereas the $2x$ is the highest one (among these four states).
-Not surprisingly, the $1s$ state stays always as the ground state.
-We could use variational wavefunctions for even higher energy states, however, the optical response is typically dominated by the lowest energy states.
-Moreover, as they go higher in energy, successive states become closer in energy and harder to distinguish.
-In addition to that, as we get closer to the end of bandgap the optical response is dominated by \gls{ipa} conductivity, which we do not analyze in this chapter.
+After that point, the $2s$ state becomes the second excited state, whereas the $2x$ is the highest one (among these four states).
+Not surprisingly, the $1s$ state always remains as the ground state.
+We could use variational wavefunctions for even higher energy states\todo{Waiting response from Christoslololo}; however, the optical response is typically dominated by the lowest energy states.
+Moreover, as they go higher in energy, successive states become closer and harder to distinguish.
+In addition to that, as we get closer to the end of the bandgap, the optical response is dominated by the \gls{ipa} conductivity, which we do not analyze in this chapter.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=1.\textwidth]{Chapters/Figures/Chapter_5/Band_gap_and_binding_energies}
-\mycaption[Electronic bandgap and excitonic binding energies of a periodically modulated \gls{hbn} sheet]{\pnl{a} Bandgap and \pnl{b} binding energies of the excitonic states as a function of $\beta$. In \pnl{b} the binding energies of $s$ peaks are represented in red, with a continuous line for the $1s$ state and with a dashed line for the $2s$ state, while the $p$ states $2x$ and $2y$ are represented with dashed black line and with a continuous black line, respectively. The scale in the top horizontal axis in both plots represent the degree of anisotropy in the dispersion, that we define as $\Delta \mu / m^* = (m_y-m_x)/m^*$. For \gls{hbn}, the parameters are~\cite{Ferreira_2019}: $E_g=3.92$\,\unit{\electronvolt}, $\hbar v_F = 5.06$\,\unit{\electronvolt}$\vdot$\unit{\angstrom}, and $r_0=10$\,\unit{\angstrom}.}
+\mycaption[Electronic bandgap and excitonic binding energies of a periodically modulated \gls{hbn} sheet]{\pnl{a} Bandgap and \pnl{b} binding energies of the excitonic states as a function of $\beta = V_{0} L /(\hbar \vF \pi)$. In \pnl{b} the binding energies of $s$ peaks are represented in red, with a continuous line for the $1s$ state and with a dashed line for the $2s$ state, while the $p$ states $2x$ and $2y$ are represented with dashed black line and with a continuous black line, respectively. The scale in the top horizontal axis in both plots represent the degree of anisotropy in the dispersion, that we define as $\Delta \mu / m^* = (m_y-m_x)/m^*$. For \gls{hbn}, the parameters are~\cite{Ferreira_2019}: $E_g=3.92$\,\unit{\electronvolt}, $\hbar v_F = 5.06$\,\unit{\electronvolt}$\vdot$\unit{\angstrom}, and $r_0=10$\,\unit{\angstrom}.}
 \label{fig:Eb_of_beta}
 \end{figure}
 
 To obtain the binding energies, we applied the variational method as explained in Section~\ref{sec:anisotropic_exciton_states}, in which we have to find the variational parameters that minimize the binding energy.
-So, for each value of $\beta$, we have to find the roots of the equations of the form $\partial E_{\nu} / \partial a_{\nu} = \partial E_{\nu} / \partial b_{\nu} = 0$, where the forms of the derivatives for each one of the states $1s$, $2x$ and $2y$, and $2s$ are given at the end of the Subsections~\ref{subsec:ground_state_1s},~\ref{subsec:excited_states_2x_2y} and~\ref{subsec:excited_state_2s}, respectively.
+So, for each value of $\beta$, we have to find the roots of equations of the form $\partial E_{\nu} / \partial a_{\nu} = \partial E_{\nu} / \partial b_{\nu} = 0$, where the forms of the derivatives for each one of the states $1s$, $2x$ and $2y$, and $2s$ are given at the end of the Subsections~\ref{subsec:ground_state_1s},~\ref{subsec:excited_states_2x_2y} and~\ref{subsec:excited_state_2s}, respectively.
 This was done using the method \lstinline[language=Mathematica]|FindRoot| of the software Mathematica~\cite{Mathematica}.
 
 \subsection{Sub-gap optical conductivity and absorption}
@@ -1251,7 +1252,7 @@ In this section, we show the results obtained for the optical conductivity compu
 Figure~\ref{fig:sigma_grid} displays the results for the excitonic optical conductivity for different realizations of $\beta$, and for light polarized along the $x$ and $y$ axes separately.
 Since the conductivity is complex, we plot separately the real and imaginary parts in the top and bottom panels, respectively.
 The panels on the left are for $\uvec{e} = \uvec{x}$, while the panels on the right are for $\uvec{e} = \uvec{y}$.
-We have justified before why the $2x$ and $2y$ states do not contribute to the optical conductivity in Section~\ref{subsubsec:excited_states_2x_2y}, the reason why in panels~\ref{fig:sigma_grid}\pnl{a} and \ref{fig:sigma_grid}\pnl{b} there are only two peaks for each realization of $\beta$; the higher peak corresponds to the $1s$ state, while the smaller peak corresponds to the $2s$ state.
+We have justified before why the $2x$ and $2y$ states do not contribute to the optical conductivity in Section~\ref{subsubsec:excited_states_2x_2y}; this is why in panels~\ref{fig:sigma_grid}\pnl{a} and \ref{fig:sigma_grid}\pnl{b} there are only two peaks for each realization of $\beta$; the higher peak corresponds to the $1s$ state, while the smaller peak corresponds to the $2s$ state.
 
 The results for the isotropic case without potential, $\beta=0$, represented by the black curves in the plots of Fig.~\ref{fig:sigma_grid}, are in agreement with the literature where the same methods for the excitonic states, energies and conductivity  were used~\cite{Ventura_2019,Ferreira_2019}.
 In turn, they are in good qualitative agreement with the results from the $GW$+\gls{bse} approach as discussed in Ref.~\cite{Ferreira_2019}.
@@ -1262,7 +1263,7 @@ On the contrary, the opposite happens for the $\uvec{x}$ polarization; as $\beta
 Besides that, the resonant frequencies, defined by the excitonic levels as $\hbar \omega = E_{\nu}$, tend to redshift with increasing $\beta$.
 
 A particularity of the most extreme case of $\beta=2.3$, is the existence of only one zero in the imaginary part of the conductivity, as one can see in Fig.~\ref{fig:sigma_grid}\pnl{c}.
-This will affect the behavior of the polariton dispersion, since we discussed in Section~\ref{subsec:polaritonics_dispersion_relation} whether polaritons are supported depending on the sign of $\Im \{ \sigma(\omega) \}$.
+This will affect the behavior of the polariton dispersion since, as we discussed in Section~\ref{subsec:polaritonics_dispersion_relation}, whether polaritons are supported depends on the sign of $\Im \{ \sigma(\omega) \}$.
 
 Knowing the optical conductivity, besides being able to calculate the dispersion relation for polaritonic modes, we can also compute the optical absorption for normal incidence by using the expression~\eqref{eq:absorption}, and the definitions of reflected and transmitted radiation fractions in Eqs.~\eqref{subeq:reflected_radiation} and~\eqref{subeq:transmitted_radiation}, respectively.
 When $\mathcal{R}$ and $\mathcal{T}$ are given in terms of the permittivities of media $1$ and $2$, Eq.~\eqref{eq:absorption} reads
@@ -1277,7 +1278,7 @@ When $\mathcal{R}$ and $\mathcal{T}$ are given in terms of the permittivities of
 Each panel has the absorption spectrum for the same values of $\beta$ as in Fig.~\ref{fig:sigma_grid}.
 For $\uvec{y}$ polarization, in the panel~\ref{fig:absorption}\pnl{b} we can see that initially the $1s$ peak slightly increases, but after that the material becomes less responsive, with an attenuated absorption as $\beta$ increases.
 The behavior of the absorption for $\uvec{x}$ polarization in Fig.~\ref{fig:absorption}\pnl{b} has more interesting features.
-For instance, from pristine \gls{hbn} where the $1s$ peak is naturally more intense than the $2s$ peak, by modulating externally and fine tuning the potential, it is possible to have the $2s$ higher than the $1s$ peak in the same material.
+For instance, from pristine \gls{hbn}, where the $1s$ peak is naturally more intense than the $2s$ peak, by modulating externally and fine tuning the potential, it is possible to have the $2s$ higher than the $1s$ peak in the same material.
 This can be seen in panel \pnl{a}, in the blue and gray curves more specifically.
 Even though this behavior is unusual, it has already been observed experimentally~\cite{Ju_2017} and predicted theoretically~\cite{Henriques_PRB2022}.
 However, in the same plot, we can see that the intensity of the $2s$ peak does not increase monotonically with $\beta$.
@@ -1285,14 +1286,14 @@ However, in the same plot, we can see that the intensity of the $2s$ peak does n
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=1.\textwidth]{Chapters/Figures/Chapter_5/sigma_grid}
-\mycaption[Optical conductivity of a periodically modulated \gls{hbn} sheet]{Panels~\pnl{a} and \pnl{b} show the real and imaginary parts of the conductivity, respectively, for light polarized along the $x$-axis. Panels~\pnl{c} and \pnl{d} show the real and imaginary parts of the conductivity, respectively, for light polarized along the $y$-axis. To display all the conductivities for different values of $\beta$ in the same plots, we applied a scaling factor to the curves when needed. The scaling factor is indicated adjacently to the respective curve. For the broadening parameter in Eq.~\eqref{eq:optical_conductivities}, we used $\Gamma = 10$ \unit{\milli\electronvolt}, and $\sigma_0 = 4 e^2/\hbar$.}
+\mycaption[Optical conductivity of a periodically modulated \gls{hbn} sheet]{Panels~\pnl{a} and \pnl{b} show the real and imaginary parts of the conductivity, respectively, for light polarized along the $x$-axis. Panels~\pnl{c} and \pnl{d} show the real and imaginary parts of the conductivity, respectively, for light polarized along the $y$-axis. In each panel, we plot the conductivity in different colors for different realizations of the parameter $\beta$; black for $\beta=0$, red for $\beta=0.5$, blue for $\beta=1.8$, and gray for $\beta=2.3$. In all the panels, the conductivities corresponding to each one of these values for $\beta$ appear in the same order, from right to left. To display all the conductivities for different values of $\beta$ in the same plots, we applied a scaling factor to the curves when needed. The scaling factor is indicated adjacently to the respective curve. For the broadening parameter in Eq.~\eqref{eq:optical_conductivities}, we used $\Gamma = 10$~\unit{\milli\electronvolt}, and $\sigma_0 = 4 e^2/\hbar$.}
 \label{fig:sigma_grid}
 \end{figure}
 
 \begin{figure}[hb!]
     \centering
     \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_5/absorption_of_omega}
-    \mycaption[Optical absorption of a periodically modulated \gls{hbn} sheet]{Panels~\pnl{a} and \pnl{b} show the absorption for light polarized along the $x$- and $y$-directions, respectively. Each panel shows the absorption as a function of frequency for the same realizations of $\beta$ as in Fig.~\ref{fig:sigma_grid}, using the same color set. We used for the material on top $\varepsilon_1=1$, and for the quartz substrate $\varepsilon_2=2.16$, which is an average of the permittivity over a wide frequency window. For simplicity, we do not take into account the full $\omega$ dependence of $\varepsilon_2$.}
+    \mycaption[Optical absorption of a periodically modulated \gls{hbn} sheet]{Panels~\pnl{a} and \pnl{b} show the absorption for light polarized along the $x$- and $y$-directions, respectively. Each panel shows the absorption as a function of frequency for the same realizations of $\beta$ as in Fig.~\ref{fig:sigma_grid}, using the same color set. For the material on top we used  $\varepsilon_1=1$, and for the quartz substrate $\varepsilon_2=2.16$, which is an average of the permittivity over a wide frequency window. For simplicity, we do not take into account the full $\omega$ dependence of $\varepsilon_2$.}
     \label{fig:absorption}
 \end{figure}
 
@@ -1305,7 +1306,7 @@ Therein, we can observe on panel \pnl{a} how each peak behaves with varying $\be
 For $\uvec{x}$ polarization, the $1s$ absorption peak (continuous black line) decreases monotonically, while the $2s$ peak (continuous red line) increases until it surpasses the $1s$ peak, but it decreases at the end.
 For $\uvec{y}$ polarization, it is the $1s$ peak (dashed black line) that has a nonmonotonic behavior, while the $2s$ peak (dashed red line) always decreases, but unlike the case $\uvec{e} = \uvec{x}$, the $1s$ peak stays always higher than the $2s$ peak.
 
-That we can have a $1s$ peak higher than a $2s$ peak can be explained by close inspection of the equations~\eqref{subeq:reflected_radiation},~\eqref{subeq:transmitted_radiation} and~\eqref{eq:optical_absorption_repeated}.
+The fact that we can have a $1s$ peak higher than a $2s$ peak can be explained by close inspection of equations~\eqref{subeq:reflected_radiation},~\eqref{subeq:transmitted_radiation} and~\eqref{eq:optical_absorption_repeated}.
 Writing the conductivity $\sigma = \sigma' + \ii \sigma''$ in terms of its real and imaginary parts, assuming that the permittivities are real, and working out $\mathcal{R} = \qty|r|^2$ alongside $\mathcal{T} = \sqrt{\varepsilon_2 / \varepsilon_1} \qty|t|^2$ (casting the factor $\epsz c$ into $\sigma$ for simplicity) we get
 
 \begin{equation}
@@ -1313,9 +1314,9 @@ Writing the conductivity $\sigma = \sigma' + \ii \sigma''$ in terms of its real 
     \mathcal{R} = \frac{(\sqrt{\varepsilon_2}- \sqrt{\varepsilon_1} + \sigma')^2 + (\sigma'')^2}{(\sqrt{\varepsilon_2} + \sqrt{\varepsilon_1} + \sigma')^2  + (\sigma'')^2} \,, \qq{and} \mathcal{T} = \frac{4 \sqrt{\varepsilon_1 \varepsilon_2}}{(\sqrt{\varepsilon_2} + \sqrt{\varepsilon_1} + \sigma')^2 + (\sigma'')^2}\,.
 \end{equation}
 
-\noindent If we analyze the previous expressions at the frequency of the $1s$ excitonic resonance where $\sigma'' = 0$ holds and let $\sigma' \to \infty$, corresponding to the most extreme case of $\beta=2.3$, we can easily see that $\mathcal{R} \to 1$ and $\mathcal{T} \to 0$.
+\noindent If we analyze the previous expressions at the frequency of the $1s$ excitonic resonance, where $\sigma'' = 0$ holds and let $\sigma' \to \infty$, corresponding to the most extreme case of $\beta=2.3$, we can easily see that $\mathcal{R} \to 1$ and $\mathcal{T} \to 0$.
 Hence, the system reflects all the incident light, and $ \mathcal{A}_{\mathrm{opt}} \to 0$.
-When the oscillator strength grows immensely making $\sigma'$ grow to infinity, the \bd~material behaves like a perfect mirror, similarly to the surface of a very good conducting metal.
+When the oscillator strength grows immensely, making $\sigma'$ grow to infinity, the \bd~material behaves like a perfect mirror, similarly to the surface of a very good conducting metal.
 But if we now consider the resonance at the $2s$ excitonic state energy, we see that both $\sigma'$ and $\sigma''$ are finite (the imaginary part has only one zero in the most extreme case $\beta=2.3$, see Fig.~\ref{fig:sigma_grid}\pnl{c}), which means that $\mathcal{R}$ and $\mathcal{T}$ are finite, and consequently, so is the absorption at the $2s$ resonance.
 Initially, without potential, the $1s$ resonance is still higher than the $2s$ resonance, both in the conductivity and the absorption.
 Nonetheless, this does not contradict our reasoning of the perfect mirror when $\beta=2.3$.
@@ -1378,7 +1379,7 @@ This phenomenon has been predicted before by C.~Wolff and co-authors in Ref.~\ci
 What we observe here is the particular case of strong exciton--photon coupling in a \bd~material.
 Even though we considered only the real $\omega$ and complex $q$ case, the reverse situation has also been considered in Ref.~\cite{Wolff:2018} in quite general terms.
 
-To get a feeling for the spatial distribution of the \gls{em} field of a surface polariton, we display in Fig.~\ref{fig:TM_mode_map} a map of the electric and magnetic fields of a \gls{tm} polarised mode, represented by the black arrows and the colorful background, respectively.
+To get a feeling for the spatial distribution of the \gls{em} field of a surface polariton, we display in Fig.~\ref{fig:TM_mode_map} a map of the electric and magnetic fields of a \gls{tm}-polarized mode, represented by the black arrows and the colorful background, respectively.
 We can see how the \gls{em} field decays away from the \gls{hbn} monolayer along the $z$-direction, and how these evanescent modes oscillate along the direction of propagation, the $x$-direction.
 The region $z>0$ corresponds to vacuum, while the region $z<0$ corresponds to the substrate, where the field confinement is higher than in air (stronger colors and bigger arrows).
 This illustrates that it is possible to engineer the field confinement using different encapsulating materials.
@@ -1395,14 +1396,14 @@ This illustrates that it is possible to engineer the field confinement using dif
 \begin{figure}[p]
     \centering
     \includegraphics[width=0.7\textwidth]{Chapters/Figures/Chapter_5/EM_polariton_field.png}
-    \mycaption[Spatial map of the \gls{em} field of a \gls{tm}  polarized polariton]{Spatial configuration of the \gls{em} field of a \gls{tm} polarized polaritonic mode. The color intensity plot in the bakcground represents the intensity of the magnetic field, while the vector plot represents the off-plane components of the electric field, with their respective (relative) intensities represented by the size of the vectors. The top half is the field in air, while the bottom half is in quartz, \ch{SiO2}. We picked the $(\omega,q)$ point in the dispersion of Fig.~\ref{fig:polaritons_disp_rel}\pnl{b} of highest (real) wavenumber. This plot does not take into account the imaginary part of the wavenumber. We used the follwoing parameters: $q=4.45$\,\unit{\nano\meter}$^{-1}$, $\hbar \omega = 5.68$\,\unit{\electronvolt}, $\varepsilon_1 = 1$ and $\varepsilon_2 = 2.16$.}
+    \mycaption[Spatial map of the \gls{em} field of a \gls{tm}  polarized polariton]{Spatial configuration of the \gls{em} field of a \gls{tm}-polarized polaritonic mode. The color intensity plot in the bakcground represents the intensity of the magnetic field, while the vector plot represents the off-plane components of the electric field, with their respective (relative) intensities represented by the size of the vectors. The top half is the field in air, while the bottom half is in quartz, \ch{SiO2}. We picked the $(\omega,q)$ point in the dispersion of Fig.~\ref{fig:polaritons_disp_rel}\pnl{b} of highest (real) wavenumber. This plot does not take into account the imaginary part of the wavenumber. We used the following parameters: $q=4.45$\,\unit{\nano\meter}$^{-1}$, $\hbar \omega = 5.68$\,\unit{\electronvolt}, $\varepsilon_1 = 1$ and $\varepsilon_2 = 2.16$.}
     \label{fig:TM_mode_map}
 \end{figure}
 
 \clearpage
 
-At the time of the publication of the work that this chapter is based on, Ref.~\cite{Ninhos_Tserkezis_Mortensen_Peres_2024}, the setup proposed initially in Figure~\ref{fig:hBN_monolayer} was a mere suggestion of how one could realise a periodic electrostatic modulation, albeit with a step potential, even though in the derivation of the low-energy Hamiltonian in Section~\ref{sec:electronic_band_structure_modulated_hBN} we considered a cosine-like potential to arrive at an analytical expression for the Hamiltonian.
-In the advent of current technologies and developments on the isolation of \bd~monolayers, there is actually a recent experiment~\cite{Danielsen_Lassaline_2025} where the authors could realise a similar experiment to the one here proposed also with a \gls{hbn} layer, and with a periodic potential consisting of a finite number of Fourier components.
+At the time of the publication of the work that this chapter is based on, Ref.~\cite{Ninhos_Tserkezis_Mortensen_Peres_2024}, the setup proposed initially in Figure~\ref{fig:hBN_monolayer} was a mere suggestion for how one could realise a periodic electrostatic modulation, albeit with a step potential, even though in the derivation of the low-energy Hamiltonian in Section~\ref{sec:electronic_band_structure_modulated_hBN} we considered a cosine-like potential to arrive at an analytical expression for the Hamiltonian.
+In the advent of current technologies and developments on the isolation of \bd~monolayers, there is actually a recent experiment~\cite{Danielsen_Lassaline_2025} where the authors realised a similar experiment to the one proposed here also with a \gls{hbn} layer, and with a periodic potential consisting of a finite number of Fourier components.
 In this way, with the likelihood of the evolution of experimental techniques, we presume that in a not so distant future one could realise a single-harmonic periodic modulation on a \gls{hbn} flake to put our theory up to test.
 This could deem our study relevant for possible applications in nanophotonics or optoelectronics in different ranges of the \gls{em} spectrum, since the parameter $\beta$ is quite tunable, due to its dependence on the amplitude $V_0$ and the period $L$ of the potential.
 \\ \par
