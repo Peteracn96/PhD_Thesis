@@ -100,7 +100,7 @@ Within the scope of this work, we study only materials with no magnetic response
 With all these equations at hand, one can, in principle, solve any problem in electrodynamics in a continuous medium.
 One would just need to know how in fact the material properties determine the polarization density, and also the magnetization density in case the material is magnetic.
 However, before we dwell on material properties, we will see in the next section how the global form of Maxwell's equations can give insight into solving problems in electrodynamics where the system under study involves more than one material and their interfaces.
-From a technical point of view, Maxwell's equations in their local form are not useful in these cases where one has material discontinuities, as taking spatial derivatives is not possible (or introduces unwished infinities).
+From a technical point of view, Maxwell's equations in their local form are not useful in these cases where one has material discontinuities, as taking spatial derivatives is not possible (or introduces infinities).
 In that situation, one then needs to set proper boundary conditions to find the \gls{em} field at all points in space and at all time instants.
 
 \subsection{Boundary conditions at an interface}
@@ -373,7 +373,7 @@ In this approximation, the displacement field is simply given by
 \noindent form the necessary constitutive relations.
 
 Ignoring nonlocal effects is valid if the wavelength of the optical excitation is much larger than the characteristic length scales of the material.
-One may speak of the typical distance between atoms in a solid, or the Fermi wavelength (the inverse of the Fermi wavevector), which are quite small, usually in the order of the Ångstrom.
+One may speak of the typical distance between atoms in a solid, or the Fermi wavelength (the inverse of the Fermi wavevector), which are quite small, usually in the order of the angstrom.
 In the context of nanophotonics and polaritonics, the typical length scale is of the order of the nanometer, a bit close to the frontier separating classical physics from quantum physics.
 Nonetheless this approximation has revealed to be quite accurate in many contexts~\cite{GoncalvesPeres:2016,maier_plasmonics_2007,Hohenester_2020}.
 
@@ -552,7 +552,8 @@ So we write
 
 \noindent where the lowercase $\mathbf{f}$ is $\mathbf{e}$ in the case of the electric field or $\mathbf{h}$ in the case of the magnetic field, if we factor out the $z$ dependence from the $(x,t)$ dependence for both fields; the system is $y$ invariant.
 To obtain an equation governing the $z$ dependence, we take the curl of Faraday's law~\eqref{subeq:Faraday_law} and use Amp\`ere--Maxwell's law~\eqref{subeq:Ampere_law}, with both laws in frequency domain.
-Furthermore, we work with the total displacement field $\bD$ defined in Section~\ref{subsec:constitutive_relations_linear_response} and with no contribution coming from external currents such that $\bJ = \bzero$. We can then write for the electric field the so-called Helmholtz equation
+Furthermore, we work with the total displacement field $\bD$ defined in Section~\ref{subsec:constitutive_relations_linear_response} and with no contribution coming from external currents such that $\bJ = \bzero$.
+We can then write for the electric field the so-called Helmholtz equation
 
 \begin{equation}
 \begin{split}

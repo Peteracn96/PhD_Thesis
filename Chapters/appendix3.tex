@@ -136,9 +136,9 @@ Therefore, we can write for the wing terms
 
 If we were to use the nonsymmetric dielectric matrix, then the wing terms $\varepsilon_{\bG \bzero}$ would also tend to zero as $\bq \to \bzero$, but with $q$ instead, but the terms $\varepsilon_{\bzero \bG}$ would tend to $\varepsilon_{\bzero \bG}(\bq \to \bzero) \to -e \hat{\bq} \vdot \mathbf{A}(\bG)^{*}/2\varepsilon_0$, which is finite and depends on the direction along which one takes the limit $\bq \to \bzero$.
 One can see the usefulness of using the symmetrized dielectric matrix, making it easier to implement numerically.
-OWe just set $\varepsilon_{\bzero \bG}(\bzero) = \varepsilon_{\bG \bzero}(\bzero) = 0$, leaving an eventual long-wavelength regularization for later when dealing with the screened potential.
+OWe just set $\varepsilon_{\bzero \bG}(\bzero) = \varepsilon_{\bG \bzero}(\bzero) = 0$, leaving eventual long-wavelength regularizations for later when dealing with the screened potential.
 
-Now, we investigate the behaviour of the inverse dielectric matrix for near-zero $\bq$, in the light of Refs.~\cite{Rasmussen_Schmidt_Winther_Thygesen_2016} and~\cite{Pick_Cohen_Martin_1970}, by writing the dielectric matrix as a matrix by blocks.
+Now, we investigate the behavior of the inverse dielectric matrix for near-zero $\bq$, in the light of Refs.~\cite{Rasmussen_Schmidt_Winther_Thygesen_2016} and~\cite{Pick_Cohen_Martin_1970}, by writing the dielectric matrix as a matrix by blocks.
 We separate the head, the wing, and the body terms, which we represent by $\varepsilon_{\bzero \bzero}$, $\varepsilon_{\bG \bzero}$ and $\varepsilon_{\bzero \bG}$, and $B_{\bG \bG'}$, respectively.
 Skipping the details of the inversion, we write directly
 
@@ -172,7 +172,7 @@ We are in position to address the troublesome matrix elements of the screened po
 We know now that $\varepsilon^{-1}_{\bzero \bzero} (\bq \to \bzero) \to 1$, but the bare Coulomb potential diverges with $1/q$, hence, the head term of the screened potential $W_{\bzero \bzero} (\bq)$ diverges with $1/q$ in the long-wavelength limit.
 Nonetheless, the $\bq = \bzero$ term in reciprocal space calculations is known to be of upmost relevance to make calculations converge faster~\cite{Rasmussen_Schmidt_Winther_Thygesen_2016}.
 Fortunately, we know that $\varepsilon^{-1}_{\bzero \bzero} (\bq) \to 1$ has a linear behavior for small $\bq$.
-Therefore, we can use an analytical expression to regularize the term $W_{\bzero \bzero} (\bzero)$, as suggested by F.~Hüser, T.~Olsen and K.S.~Thygesen in Ref.~\cite{Huser_Olsen_Thygesen_2013}.
+Therefore, we can use an analytical expression to regularize the term $W_{\bzero \bzero} (\bzero)$, as suggested by F.~H\"user, T.~Olsen and~K.S.~Thygesen in Ref.~\cite{Huser_Olsen_Thygesen_2013}.
 Their suggestion is approximating the divergent term by
 
 \begin{equation}
@@ -210,11 +210,11 @@ Therein, for the head term the dependence on $\hat{\bq}$ is also not trivial, bu
 Our expression for the regularization of $W_{\bzero \bzero}(\bzero)$ is analytical, as shown in Eq.~\eqref{eq:W00_regularization}.
 
 To summarize the results of this appendix, we provide Table~\ref{tab:epsilon_long_wavelength_summary}.
-To finish the appendix, we emphasize that the simplicity of the numerical treatment of the divergences stem essentially from the slower divergence of the Coulomb potential in two dimensions, which goes with $1/q$, unlike the \gls{3d} case commonly found in the literature where $v_c(q \to 0) \sim 1/q^2$, making our numerical methods easier to implement and interpret.
+To finish the appendix, we emphasize that the simplicity of the numerical treatment of the divergences stems essentially from the slower divergence of the Coulomb potential in two dimensions, which goes with $1/q$, unlike the \gls{3d} case commonly found in the literature where $v_c(q \to 0) \sim 1/q^2$, making our numerical methods easier to implement and interpret.
 
 \begin{table}[h]
 \centering
-\caption{Summary of the behavior of the sensitive matrix elements of the dielectric matrix, inverse dielectric matrix and screened potential in the long-wavelength limit $q \to 0$.
+\caption{Summary of how the sensitive elements of the dielectric matrix, inverse dielectric matrix, and screened potential behave in the long-wavelength limit $q \to 0$.
 The head term of the screened potential craves a regularization scheme, while its wing terms will not contribute when averaged over a center-symmetric region.}
 \begin{tabular}{ccccc}
 \toprule

@@ -261,7 +261,7 @@ It can only be obtained after performing an off-plane average of the inverse \gl
 
 With our framework, the macroscopic dielectric function we get from inverting the microscopic one as per Eq.~\eqref{eq:static_symmetrized_dielectric_function} is automatically an effective \bd~macroscopic dielectric function.
 Also, we have $\varepsilon_{\bzero \bzero} (\bzero) = \varepsilon^{-1}_{\bzero \bzero} (\bzero) = 1$ by construction.
-Regarding the numerical treatment of the wing terms $\varepsilon_{\bzero \bG'} (\bq)$ and $\varepsilon_{\bG \bzero} (\bq)$, it is required to look at the asymptotic behaviour of the matrix elements of the dielectric matrix and its inverse when $\bq \to \bzero$.
+Regarding the numerical treatment of the wing terms $\varepsilon_{\bzero \bG'} (\bq)$ and $\varepsilon_{\bG \bzero} (\bq)$, it is required to look at the asymptotic behavior of the matrix elements of the dielectric matrix and its inverse when $\bq \to \bzero$.
 Only in that way can we know how to avoid divergences or undefined values for the screened potential.
 This is critical for the computation of the excitons, due to how the screened Coulomb potential appears in the calculation of the interaction matrix elements (see Eqs.~\eqref{eq:interaction_matrix_element_direct_reciprocal} and~\eqref{eq:interaction_matrix_element_exchange_reciprocal}).
 Issues like this are routine in the literature~\cite{BerkeleyGW,Louie_2000,Rasmussen_Schmidt_Winther_Thygesen_2016,Guandalini_Varsano_2023}.
@@ -294,7 +294,7 @@ In that way, the screened Coulomb potential in the static limit reads
 
 \noindent which is symmetrized as well by virtue of using the symmetrized dielectric function~\eqref{eq:static_symmetrized_dielectric_function}.
 Looking at the dynamical expression of the polarizability, we can see that the frequency dependence comes in the denominator as $\hbar \omega - (\epsilon_{n' \bk+\bq} - \epsilon_{n \bk})$.
-If the band gap is large enough when compared to the frequency, then we can approximate the screened Coulomb potential by its static limit and avoid an integration in frequency in the interaction matrix elements.
+If the bandgap is large enough when compared to the frequency, then we can approximate the screened Coulomb potential by its static limit and avoid an integration in frequency in the interaction matrix elements.
 
 To finish the discussion, we revisit the interaction matrix elements in the \gls{bse} for the excitons with the numerical approach.
 Their expressions derived in Section~\ref{subsec:interaction_matrix_elements_and_screening} remain the same, apart from the prefactor that contains the area $\area$ instead of the volume $\vol$, since we follow a strict \bd\ approach.
