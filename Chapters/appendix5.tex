@@ -13,31 +13,27 @@
 \chapter{Quasi-2D approach for the screening and excitons: the multilayer case}
 \label{app:Q2D_multilayer}
 \glsresetall
-\section{Quasi-2D polarizability and dielectric function}
 
-In this section we recall the polarizability and the dielectric function in the mixed representation from the main text.
+In this appendix, we extend the formalism of the dielectric function in the mixed $(\bq,z)$-representation form Chapter~\ref{ch:screening} in the main text to the multilayer case.
+As we need the expressions for the quasi-2D polarizability and the quasi-2D dielectric function, we recall their expressions that read
 
 \begin{align}
     \chi^{0}_{\bG \bG'}(\bq,z,z') =  &\frac{1}{\area}\sum_{\vv \cc,\bk \sigma} \frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })}\Bigg\{ \label{eq:mixed_polarizability_appendix}\\
     &\sum_{i\alpha}\Big[C_{i\alpha}^{\cc\bk+\bq }\left(C_{i\alpha}^{\vv\bk}\right)^{*} \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \delta(z - t_{i,z}) \Big] \sum_{j\beta}\Big[C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z}) \Big] + \notag\\
-    &\sum_{i\alpha}\Big[\left(C_{i\alpha}^{\cc\bk+\bq }\right)^{*}C_{i\alpha}^{\vv\bk}\, \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \delta(z - t_{i,z}) \Big] \sum_{j\beta} \Big[\left(C_{j\beta}^{\vv\bk}\right)^{*}C_{j\beta}^{\cc\bk+\bq }\, \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z})\Big]\Bigg\}\,. \notag
+    &\sum_{i\alpha}\Big[\left(C_{i\alpha}^{\cc\bk+\bq }\right)^{*}C_{i\alpha}^{\vv\bk}\, \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \delta(z - t_{i,z}) \Big] \sum_{j\beta} \Big[\left(C_{j\beta}^{\vv\bk}\right)^{*}C_{j\beta}^{\cc\bk+\bq }\, \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z})\Big]\Bigg\}\,, \notag
 \end{align}
 
-and 
+\noindent and 
 
 \begin{align}
     \label{eq:quasi_2D_dielectric_function_final}
     \varepsilon_{\bG \bG'}(\bq,z,z') = & \,\delta_{\bG \bG'} \delta( z-z')-\frac{1}{2\epsz |\bq +\bG|\area}\sum_{\vv \cc, \bk \sigma}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })}\Bigg\{\\ 
     & \sum_{i\alpha} \Big[C_{i\alpha}^{\cc \bk+\bq} \left(C_{i\alpha}^{\vv\bk}\right)^{*} \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \ee^{-|\bq +\bG||z-t_{i,z}|}\Big] \sum_{j\beta}\Big[C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z})\Big]+  \notag\\
-    & \sum_{i\alpha} \Big[\left(C_{i\alpha}^{\cc\bk+\bq }\right)^{*}C_{i\alpha}^{\vv\bk} \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \ee^{-|\bq +\bG||z-t_{i,z}|}\Big] \sum_{j\beta}\Big[\left(C_{j\beta}^{\vv\bk}\right)^{*}C_{j\beta}^{\cc\bk+\bq } \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z})\Big]\Bigg\} \,. \notag
+    & \sum_{i\alpha} \Big[\left(C_{i\alpha}^{\cc\bk+\bq }\right)^{*}C_{i\alpha}^{\vv\bk} \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \ee^{-|\bq +\bG||z-t_{i,z}|}\Big] \sum_{j\beta}\Big[\left(C_{j\beta}^{\vv\bk}\right)^{*}C_{j\beta}^{\cc\bk+\bq } \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z})\Big]\Bigg\} \,, \notag
 \end{align}
 
-
-\section{RPA inverse dielectric function}
-
-In this section, we work out an expression for the inverse of the
-dielectric function, necessary for the screened Coulomb potential
-in order to compute the interaction matrix elements in the Bethe--Salpeter Hamiltonian.
+\noindent respectively.
+Now, work out an expression for the inverse of the dielectric function, necessary for the screened Coulomb potential to compute the interaction matrix elements in the Bethe--Salpeter Hamiltonian.
 According to Eq.~\eqref{eq:inverse_dielectric_function} in the main text,
 
 \begin{equation}
@@ -47,21 +43,19 @@ According to Eq.~\eqref{eq:inverse_dielectric_function} in the main text,
 \noindent where $\chi$ is the interacting reducible polarizability, that relates to the irreducible one through the Dyson equation in Eq.~\eqref{eq:Dyson_equation_chi_Feynman} from the main text, which reads
 
 \begin{equation}
-\chi = \chi^{\irr}+\chi^{\irr}*v_{c}*\chi\,,
+\chi = \chi^{\irr}+\chi^{\irr} \star v_{c} \star \chi\,,
 \end{equation}
 
-\noindent if we use math symbols instead of diagrams, and where the symbol $*$ denotes the convolution operation.
-Computing the full polarizability at all interacting levels is an impossible
-endeavor; approximations are necessary.
-First, for the irreducible polarizability, instead of considering all the irreducible diagrams
-in the expansion, one keeps only the bubble or Hartree diagram---this is the \rpa\@.
+\noindent if we use math symbols instead of diagrams, and where the symbol $\star$ is an abbreviation for the convolution operation.
+Computing the full polarizability at all interacting levels is an impossible endeavor; approximations are necessary.
+First, for the irreducible polarizability, we can work in the \rpa~(see Sections~\ref{subsec:many_body_perturbation_theory} and~\ref{subsec:RPA_dielectric_function_derivation}).
 In this way, we have
 
 \begin{equation}
-\chi^{\RPA} = \chi^{0}+\chi^{0}*v_{c}*\chi^{\RPA}\,,
+\chi^{\RPA} = \chi^{0}+\chi^{0} \star v_{c} \star \chi^{\RPA}\,,
 \end{equation}
 
-\noindent where the full interacting polarizability is approximated to an interacting
+\noindent where the interacting reducible polarizability is approximated to a noninteracting
 one at the single-particle level (see Eq.~\eqref{eq:Dyson_equation_chi_RPA}).
 Making now explicit the $(\bq,z)$-dependence in the previous expression, we write
 
@@ -82,8 +76,8 @@ Then, for the inverse dielectric function within \rpa, we would have
 
 In principle, assuming we have the inverse of the dielectric function,
 we can compute the interaction matrix elements.
-We skip the derivation, as the fine details of the calculations are not relevant.
-As usual, we replace the Bloch state wavefunctions $\psi_{n, \bk}(\br)$ by their expression in Eq.~\eqref{eq:Bloch_state_LCAO}, apply the point-like orbital approximation while keeping track of the $z$-dependence (see Eq.~\eqref{eq:mixed_polarizability_appendix}), and simplify the integrals and the sums to obtain
+We skip the derivation, as the fine details of the calculation are not relevant.
+In the definition for the direct interaction term in Eq.~\eqref{eq:direct_term_real_space_formula}, we proceed as usual, and replace the Bloch state wavefunctions $\psi_{n, \bk}(\br)$ by their expression in Eq.~\eqref{eq:Bloch_state_LCAO}, apply the point-like orbital approximation while keeping track of the $z$-dependence (see Eq.~\eqref{eq:mixed_polarizability_appendix}), and simplify the integrals and the sums to obtain
 
 \begin{equation}
 \begin{aligned} & D_{vc,v'c'}( \bk,\bk',\bQ) = \int\dr\int\dr'\,\psi_{c,\bk + \bQ}^{*}(\br)\psi_{v',\bk'}^{*}(\br')W(\br,\br')\psi_{c',\bk'+\bQ}(\br)\psi_{v,\bk}(\br') = \\
@@ -101,21 +95,19 @@ W_{\bG \bG'}( \bk,z,z') = \int\varepsilon_{\bG \bG'}^{-1}(\bq,z,z'')v_{c}( \bq +
 \end{equation}
 
 \noindent where $\varepsilon_{\bG \bG'}^{-1}(\bq,z,z')$
-is the inverse of the dielectric matrix in the $(\bq,z)$
-mixed representation within \rpa, which was previously determined.
-Replacing it with the expression~\eqref{eq:inv_epsilon_RPA} above, one arrives at
+is the inverse dielectric matrix in the mixed $(\bq,z)$-representation within \rpa, which was previously determined.
+Replacing it by the expression~\eqref{eq:inv_epsilon_RPA} above, one arrives at
 
 \begin{equation}
 \begin{aligned}
-    W_{\bG \bG'}(\bq,z,z') =  & \,\delta_{\bG \bG'}v_{c}( \bq +\bG',z-z') + \\
+    W_{\bG \bG'}(\bq,z,z') =  & \,\delta_{\bG \bG'}\,v_{c}( \bq +\bG',z-z') \,+ \\
  & \int v_{c}( \bq +\bG,z-z_{1})\chi^{\RPA}_{\bG \bG'}(\bq,z_{1},z'')v_{c}( \bq +\bG',z''-z')\, \dd z_{1}\dd z''\,.
 \end{aligned}
 \end{equation}
 
 \noindent Since in the point-like orbital approximation we only need to compute
-the screened potential between $z$ points located at the heights
-of the atoms in the motif, we can work out the previous expression
-to be used for the interaction matrix elements as
+the screened potential between $z$ points located at the heights $t_{i,z}$, we can adapt the previous expression
+to use it in the interaction matrix elements as
 
 \begin{equation}
     \begin{aligned}
@@ -124,24 +116,24 @@ to be used for the interaction matrix elements as
     \end{aligned}
 \end{equation}
 
-\noindent However, in practice, one cannot solve Dyson's equation for $\chi^{\RPA}_{\bG \bG'}(\bq,z_{1},z'')$
+\noindent However, in practice, one cannot solve the Dyson equation for $\chi^{\RPA}_{\bG \bG'}(\bq,z_{1},z'')$
 directly, as we model the $z$-dependence in the polarizability
 $\chi^{0}_{\bG \bG'}(\bq,z,z')$
 with Dirac delta functions.
-One solution is to work with a basis
+One possible solution is working with a basis
 of potential functions $\left\{ \phi_{\alpha}( z)\right\}$,
 which assume the form $\phi_{\alpha}( z)\sim( z-z_{0})^{\alpha}$,
 and compute the respective matrix elements of the polarizability in
-that basis (which is what is done in Ref.~\cite{Dielectric_Genome}).
+that basis (which was done in Ref.~\cite{Dielectric_Genome}).
 As a workaround, one can develop an iterative process,
 in which the interaction matrix elements are computed with a self-consistently
 determined \rpa~polarizability.
-To do this, let us first recall Dyson's
+To do this, let us first recall the Dyson
 equation for the polarizability within \rpa
 
 \begin{equation}
     \begin{aligned}
-        \chi^{\RPA}_{\bG \bG'}(\bq,z,z') =& \,\chi^{0}_{\bG \bG'}(\bq,z,z')+ \\
+        \chi^{\RPA}_{\bG \bG'}(\bq,z,z') =& \,\chi^{0}_{\bG \bG'}(\bq,z,z')\,+ \\
         & \sum_{\bG_{1}} \int\dd z_{1} \dd z_{2}\,\chi^{0}_{\bG \bG_{1}}(\bq,z,z_{1})v_{c}( \bq +\bG_{1},z_{1}-z_{2})\chi^{\RPA}_{\bG_{1} \bG'}(\bq,z_{2},z')\,,
     \end{aligned}
 \end{equation}
@@ -160,7 +152,7 @@ equation for the polarizability within \rpa
 \end{align}
 
 
-\noindent Along this line of thought, we can evaluate numerically the screened potential in the mixed representation with a self-consistent method as:
+\noindent Along this line of thought, we can evaluate numerically the screened potential in the mixed representation within a self-consistent picture as
 
 \begin{align}
 \text{Step 0\big)}\,W_{\bG \bG'}(\bq,t_{i}^{z},t_{j}^{z}) =  & \,\delta_{\bG \bG'}v_{c}( \bq +\bG,t_{i}^{z}-t_{j}^{z})\,+  \notag \\
@@ -180,4 +172,4 @@ equation for the polarizability within \rpa
 
 \noindent Hopefully, the elements of the screened potential converge.
 This method consists of a quasi-2D treatment that allows for computing with rigor excitons in multilayered systems.
-An interesting application is the calculation of excitons in moir\'e materials.
+An interesting and direct application is the calculation of excitons in moir\'e materials.

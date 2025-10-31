@@ -155,7 +155,7 @@ We will simply assume that the arrangement of the ions in the solid is known, fo
 To further narrow down the types of systems under consideration, we will only treat solids where the arrangement of the ions forms a periodic structure, the crystal.
 Other types of solids can be found in nature, such as amorphous solids, like glasses, or solid materials with rotational symmetry but no translation symmetry, the quasicrystals~\cite{Chaikin_Lubensky_1995}.
 Herein, the ions occupy positions in the crystalline structure, also called the lattice, such that the potential felt by the electrons $\hat{V}_{e-\mathrm{ion}}(\br)$ from the ions is a periodic function with the periodicity of the lattice.
-We shall define more precisely what a lattice is in section~\ref{sec:single_particle_properties}.
+We shall define more precisely what a lattice is in Section~\ref{sec:single_particle_properties}.
 In this work, we will assume that the ionic degrees of freedom are frozen, where the ions are stationary, forming a background of positive charge.
 This is the adiabatic or Born--Oppenheimer approximation~\cite{Kittel_2004,Simon_Oxford_2013,Martin_2004}.
 Within this approximation, the electronic and ionic degrees of freedom decouple, and the problem of the electronic structure and excitations can be treated separately from finding the ground state of the lattice and its excitations, also called phonons.
@@ -362,7 +362,7 @@ This model is particularly good for standard metals, like aluminum~\cite{Levinso
 
 In the opposite limit, where the crystal is not compact and the atoms are further apart, electrons have more difficulty in moving from atomic site to atomic site, and then we say that they are tightly-bound to the atoms.
 We usually associate this type of crystals with materials with poor conducting properties, those presenting a bandgap---the range of forbidden energies for which propagating electronic states are not allowed\footnote{This is in analogy with the concept of the photonic bandgap in the context of photonics. We have seen a photonic dispersion with a bandgap in Fig.~\ref{fig:SPP_dispersion_relation}}.
-These can be classified as insulators or semiconductors, depending on how the size of the bandgap compares with the thermal energy, as we have explained before in section~\ref{subsec:polaritonics_dispersion_relation}.
+These can be classified as insulators or semiconductors, depending on how the size of the bandgap compares with the thermal energy, as we have explained before in Section~\ref{subsec:polaritonics_dispersion_relation}.
 
 Within this formalism, the Bloch \wf s are linear combinations of the atomic orbitals, instead of a superposition of plane waves.
 This is called the linear combination of atomic orbitals method or approximation.
@@ -375,7 +375,7 @@ In math notation, we write for the \wf~of an electron in the Bloch state of band
 
 \noindent where the sum in $\bR$ is over the vectors of the lattice (not over all the atomic sites), or over all $N$ unit cells, $i$ is an index that labels the atomic species at the position $\bt_i$ in the motif, and $\alpha$ is an index that labels the type of the atomic orbital ($1s,2s,2p,3s,\dots$).
 Usually, we sum only over the atomic orbitals in the outer shells of the atom that are populated by the valence electrons.
-This is justifiable, as the valence electrons are the only ones that participate in the physics we are studying, as explained in the beginning of section~\ref{subsec:many_body_crystal_hamiltonian}.
+This is justifiable, as the valence electrons are the only ones that participate in the physics we are studying, as explained in the beginning of Section~\ref{subsec:many_body_crystal_hamiltonian}.
 
 We introduce now the concept of Bloch Hamiltonian, a very useful one in the \gls{tb} method, and in this work overall.
 We start by rewriting the Bloch state in Eq.~\eqref{eq:Bloch_state_LCAO}
@@ -475,7 +475,7 @@ We emphasize that these are experimental observations.
 
 Theoretically, monolayer \gls{hbn} can be described by a minimal \gls{tb} model with staggered on-site energies and a single hopping amplitude between nearest-neighbours.
 This material is composed of boron and nitrogen atoms, alternated in a lattice arranged in hexagons, like in Fig.~\ref{fig:hBN_lattice}\pnl{a} below.
-In the language of section~\ref{sec:single_particle_properties}, it is a triangular lattice with a basis, having the unit cell two atoms(shaded gray area in Fig.~\ref{fig:hBN_lattice}\pnl{a}).
+In the language of Section~\ref{sec:single_particle_properties}, it is a triangular lattice with a basis, having the unit cell two atoms(shaded gray area in Fig.~\ref{fig:hBN_lattice}\pnl{a}).
 A typical choice for its \bz~is the one depicted in Fig.~\ref{fig:hBN_lattice}\pnl{b}, with a hexagonal shape.
 
 \begin{figure}[hb]
@@ -749,8 +749,8 @@ Doing this can be a good starting point to study material properties, but it lea
 Just like in high-energy physics, where particles can be created or destroyed, in condensed matter some effects can only be described by introducing the concept of quasiparticle---a composite state coming from the coupling between different or identical particles in a solid, that can explain ground state or excited state properties we could not understand otherwise.
 For that, we need \mbpt~formalism, which is the non-relativistic cousin of quantum field theory.
 As quasiparticles can be created or destroyed, the second quantization formalism, also called the canonical quantization formalism, is necessary.
-It is extremely useful in condensed matter, not only for single-particle descriptions of matter (looking at our example of a \gls{tb} model in section~\ref{subsubsec:tight_binding_method}), but also to incorporate interactions in the model Hamiltonian.
-Within \mbpt, the single-particle problem without interactions is assumed to be already solved (through the methods discussed in section~\ref{subsubsec:abinit_methods}, most frequently), and the interactions are treated as a perturbation.
+It is extremely useful in condensed matter, not only for single-particle descriptions of matter (looking at our example of a \gls{tb} model in Section~\ref{subsubsec:tight_binding_method}), but also to incorporate interactions in the model Hamiltonian.
+Within \mbpt, the single-particle problem without interactions is assumed to be already solved (through the methods discussed in Section~\ref{subsubsec:abinit_methods}, most frequently), and the interactions are treated as a perturbation.
 Apart from a couple of simple models, a full \abinit~treatment of the full interacting many-body problem beyond perturbation theory is not possible.
 Nonetheless, the methods of \mbpt~can explain exotic physical phenomena in condensed matter, such as a microscopic description for superconductivity as explained by the \gls{bcs} theory, the Fermi liquid theory, quantum magnetism, among others.
 
@@ -929,7 +929,7 @@ This relation can also be written in diagrammatic notation as
     \end{tikzpicture}
 \end{equation}
 
-\noindent if we represent the self-energy\footnote{The self-energy is relevant to introduce the necessary corrections to the particle (or quasiparticle) band structure obtained with \dft, mainly to correct the bandgap, as explained in section~\ref{subsubsec:abinit_methods}. To see that, take a look at Eq.~\ref{eq:interacting_Green_function}; the self-energy enters in the denominator summing with the noninteracting Hamiltonian, thus it can be seen as a renormalization of the Hamiltonian $\hat{H}_0$. We should say in fact it is the real part of $\Sigma$ that corrects the band structure. The imaginary part has to do with the electron--electron scattering rates~\cite{Bruus_Flensberg_2004} and the quasiparticle life-times.} by a gray filled circle.
+\noindent if we represent the self-energy\footnote{The self-energy is relevant to introduce the necessary corrections to the particle (or quasiparticle) band structure obtained with \dft, mainly to correct the bandgap, as explained in Section~\ref{subsubsec:abinit_methods}. To see that, take a look at Eq.~\ref{eq:interacting_Green_function}; the self-energy enters in the denominator summing with the noninteracting Hamiltonian, thus it can be seen as a renormalization of the Hamiltonian $\hat{H}_0$. We should say in fact it is the real part of $\Sigma$ that corrects the band structure. The imaginary part has to do with the electron--electron scattering rates~\cite{Bruus_Flensberg_2004} and the quasiparticle life-times.} by a gray filled circle.
 The self-energy derives from the two-body interaction between the electrons, therefore, it is naturally related to the effective interaction between the electrons, $W$.
 The relation reads
 
