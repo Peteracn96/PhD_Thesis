@@ -257,13 +257,13 @@ If a unit cell has a larger area than the primitive one, it can be called a conv
         \subcaption{Conventional unit cell of copper.}
         \label{subfig:copper_unit_cell}
     \end{minipage}
-    \mycaption[Triangular lattice and the unit cell of copper]{Subfigure \pnl{a} is a schematic of the triangular lattice. The vectors $\ba_1$ and $\ba_2$ are primitive lattice vectors, and $\bR = - \ba_1 + 2 \ba_2$ is a (nonprimitive) lattice vector. The shaded gray area represents a possible primitive unit cell, and the lattice extends to infinity along the plane of the page. Subfigure \pnl{b} displays the conventional unit cell of copper, which is the region contained inside the cube delimited by the black lines.}
+    \mycaption[Triangular lattice and the unit cell of copper]{Subfigure \pnl{a} is a schematic of the triangular lattice. The vectors $\ba_1$ and $\ba_2$ are primitive lattice vectors, and $\bR = - \ba_1 + 2 \ba_2$ is a (nonprimitive) lattice vector. The shaded gray area represents a possible primitive unit cell, and the lattice extends to infinity along the plane of the page. Subfigure \pnl{b} displays the conventional unit cell of copper, which is the region contained inside the cube delimited by the black lines. This subfigure was made using the \texttt{Asymptote} programming language, with the help of the \texttt{asy-atoms} package~\cite{asyatoms}.}
     \label{fig:triangular_lattice_and_copper_unit_cell}
 \end{figure}
 
 We have defined a lattice as a set of points that are all equivalent.
 An example that can be found in nature is copper, the chemical element with symbol \ch{Cu}, which is a metal with lots of applications in industry, has the conventional unit cell represented in Fig.~\ref{fig:triangular_lattice_and_copper_unit_cell}\pnl{(b)}.
-Its crystalline structure is called the face-centered cubic lattice, one of the possible 14 Bravais lattices in \gls{3d}~\cite{Kittel_2004}.
+Its crystalline structure is called the face-centered cubic lattice, one of the possible fourteen Bravais lattices in \gls{3d}~\cite{Kittel_2004}.
 Nonetheless, we can find in nature many crystalline materials composed of more than one chemical element, therefore we cannot say that all points are equivalent in those materials.
 We can even have a crystal composed of a single chemical element that cannot be classified as a lattice in the way we defined it.
 A striking example is graphene~\cite{Novoselov_Geim_2004}; it is not a lattice according to our definition.
@@ -299,7 +299,7 @@ Therefore, we can speak of crystal momentum as the relevant quantum number in cr
 We do not wish for the language used in this thesis to be too pedantic, in detriment of clarity.
 By (one more) abuse of language, let us speak of momentum when we are in fact dealing with crystal momentum.
 
-In this way, if we are working with a periodic function $f(\br)$ with the periodicity of the direct lattice, then it can be expanded in Fourier series as $f(\br) = \sum_{\bG} f_{\bG} \ee^{\ii \bG \vdot \bR}$, with the coefficients given by $f_{\bG} =1/\area_{\UC} \int_{\mathrm{UC}} \dr \exp{\ii \bG \vdot \br} f(\br)$, an integral over the unit cell, hence the symbol $\mathrm{UC}$ for the domain of integration, which has area $\area_{\UC}$.
+In this way, if we are working with a periodic function $f(\br)$ with the periodicity of the direct lattice, then it can be expanded in Fourier series as $f(\br) = \sum_{\bG} f_{\bG} \ee^{\ii \bG \vdot \bR}$, with the coefficients given by $f_{\bG} =1/\area_{\UC} \int_{\mathrm{UC}} \exp{\ii \bG \vdot \br} f(\br)  \dr$, an integral over the unit cell, hence the symbol $\mathrm{UC}$ for the domain of integration, which has area $\area_{\UC}$.
 These concepts will be key for understanding the Bloch theorem and its importance, to be explained in the next subsection.
 
 \subsection{Bloch Theorem}
@@ -453,7 +453,7 @@ The first case is called the \enquote{periodic} form or the \enquote{lattice-gau
 It means that $H(\bk) = H(\bk + \bG)$ for any reciprocal lattice vector $\bG$, but it is not unique, as it depends on the choice of the unit cell.
 The alternative case is called the \enquote{canonical} form, or the \enquote{atomic-gauge} form, and it is unique, but in general $H(\bk) \neq H(\bk + \bG)$ for a reciprocal lattice vector $\bG$.
 If there is only one atom per unit cell, which is the case of Bravais lattices, the two forms coincide, but if the unit cell contains at least two non-equivalent sites, one can still go from one gauge to the other through a unitary transformation.
-A unitary transformation $U$, is a transformation that verifies $U^{-1} = U^{\dagger}$, where $\dagger$ stands for transpose and complex conjugate.
+A unitary transformation $U$, is a transformation that verifies $U^{-1} = U^{\dagger}$, where the dagger symbol $\dagger$ stands for transpose and complex conjugate.
 One can also say that $U^{\dagger}$ is the Hermitian conjugate of $U$.
 Nonetheless, in all cases in this work the results do not change with the chosen gauge; problems may arise, though, when dealing with geometric phases or topological invariants~\cite{Cayssol_2021}.
 We present now a simple \gls{tb} model for a key \bd~material in this work, monolayer \gls{hbn}\@.
