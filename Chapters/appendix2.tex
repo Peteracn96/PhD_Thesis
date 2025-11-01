@@ -121,7 +121,7 @@ The second form factor is
 
 \begin{equation}
     \begin{split}
-        F_{vvvv}(\bp ,0,\bp) - F_{vcvc}(\bp,0,\bp) &= \cos^2\frac{\xi_p}{2} - \sin^2\frac{\xi_p}{2} = \cos \xi_p = \cos \left(  \arctan \frac{2 \hbar v_F p(\beta)}{J_0(\beta) E_g} \right) = \\
+        F_{vvvv}(\bp ,0,\bp) - F_{vcvc}(\bp,0,\bp) &= \cos^2\frac{\xi_p}{2} - \sin^2\frac{\xi_p}{2} = \cos \xi_p = \cos \! \left(  \arctan \frac{2 \hbar v_F p(\beta)}{J_0(\beta) E_g} \right) = \\
         &= \frac{1}{\sqrt{1 + \frac{p^2 \gamma^2(\theta)}{k_0^2}}} \,,
     \end{split}
 \end{equation}
@@ -144,7 +144,7 @@ Using the auxiliary function $\gamma(\theta) = \sqrt{\cos^2 \theta + J_0^2(\beta
     V_{\bp} = \frac{e}{2 \epsz p (\kappa + r_0 p)} \,.
 \end{equation}
 
-\noindent being $\kappa$ the arithmetic average between the dielectric constants of the substrate and the cladding material.
+\noindent with $\kappa$ being the arithmetic average between the dielectric constants of the substrate and the cladding material.
 
 
 \noindent To perform the final integral, we make the change of variable $p \gamma(\theta) / k_0 = \tan u$.
@@ -153,13 +153,13 @@ When $p=0$ we have $u=0$, and when $p = \infty$ we have $u=\pi/2$.
 Furthermore, we introduce a new dimensionless parameter $\gamma \equiv r_0 k_0$, so that the integral becomes now
 
 \begin{equation}
-    k_0 \int_0^{2\pi} \frac{1}{\gamma(\theta) \sqrt{1 + \alpha^2(\theta)}} \ln \left( \frac{1 + \alpha(\theta) + \sqrt{1 + \alpha^2(\theta)}}{1 + \alpha(\theta) - \sqrt{1 + \alpha^2(\theta)}} \right) \dd \theta
+    k_0 \int_0^{2\pi} \frac{1}{\gamma(\theta) \sqrt{1 + \alpha^2(\theta)}} \ln\! \left( \frac{1 + \alpha(\theta) + \sqrt{1 + \alpha^2(\theta)}}{1 + \alpha(\theta) - \sqrt{1 + \alpha^2(\theta)}} \right) \dd \theta
 \end{equation}
 
 \noindent Finally, we arrive at the expression for the exchange energy
 
 \begin{equation}
-    \Delta_{\mathrm{ex}} = \frac{e k_0}{8 \pi^2 \epsz \kappa} \int_0^{2\pi} \frac{1}{\gamma(\theta) \sqrt{1 + \alpha^2(\theta)}} \ln \left( \frac{1 + \alpha(\theta) + \sqrt{1 + \alpha^2(\theta)}}{1 + \alpha(\theta) - \sqrt{1 + \alpha^2(\theta)}} \right) \dd \theta \,\,
+    \Delta_{\mathrm{ex}} = \frac{e k_0}{8 \pi^2 \epsz \kappa} \int_0^{2\pi} \frac{1}{\gamma(\theta) \sqrt{1 + \alpha^2(\theta)}} \ln \! \left( \frac{1 + \alpha(\theta) + \sqrt{1 + \alpha^2(\theta)}}{1 + \alpha(\theta) - \sqrt{1 + \alpha^2(\theta)}} \right) \dd \theta \,\,
 \end{equation}
 
 \noindent which can be evaluated numerically without any computational effort.
