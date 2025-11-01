@@ -10,21 +10,117 @@
 \typeout{NT FILE chapter1.tex}%
 
 \chapter{Introduction}
-\label{cha:introduction}
+\label{ch:introduction}
 
-Plan for the intro:
-\begin{itemize}
-    \item Start general: condensed matter, solid state physics, materials and properties
-    \item Electronic and Optical properties interplay in materials
-    \item Exotic physical phenomena, interactions: Bose-Einstein Condensate, Super conductivity, mott insulators, strange metals, topological phases of matter, etc.
-    \item Special case for \bd~materials, exotic phenomena, interplay between electronic, magnetic, optical, thermal, mechanical (super lubridicity?)
-    \item Particular emphasis on electronic and optical one; light--matter interactions, imprint of many-body physics in experimental observations, measuring absorption spectra, photoluminescense, excitons;
-    \item Strong-coupling light--matter, exciton plus light forms exciton--polariton
-    \item Polaritonics and field of photonics, general remarks
-    \item hBN as exotic material in its bulk form (anisotropy, hyperbolicity), phonon excitations in the mid-IR, can be tailored for UV applications as single-layer, UV spectra of materials not very well understood or established in the literature;
-    \item material response differs from frequency range to frequency range, above bandgap single-particle, subgap reveals many-body effects;
-    \item many-body problem is hard, approximations to get results and infer conclusions easily, also allows understanding what happens;
-    \item Outline of the thesis;
-    \item Vocabulary: prospects
-\end{itemize}
+From the time of its most primal form until today, humankind has always been fascinated by the surrounding world.
+Since millions of years ago that the human being uses nature itself in their favor, taking advantage of the plethora of different types of material properties for variate use cases.
+One does not have to be a scientist to realize that by combining materials with certain characteristics, it is possible to induce phenomena that were not present in the individual components.
+A great example in the history of humanity is the discovery of magnets~\cite{Discovery_magnets_1932}, which dates back to ancient Greece.
+One isolated magnet, although seemingly uninteresting, can: attract or repel other magnets; turn other materials that are originally nonmagnetic into magnets when they are in proximity, like iron; point north or south if left moving freely.
+Has the reader ever wondered, what is the actual definition of north and south?
+These opposite directions, which guided explorers in their journeys across the seas, are defined by the Earth's magnetic field.
+Quite fascinatingly, the planet we inhabit is a gigantic magnet itself moving around in outer space.
+At some point, a tool taking advantage of these facts was invented; the compass.
+To better illustrate the importance of having different materials at our disposal, we can also give the example of a metal, copper.
+Naturally occurring in nature, it is commonly used nowadays in communications and electronics due to its excellent conducting properties.
+Just like other metals, such as silver or gold, it has a shiny appearance almost like a mirror.
+This is due to its light-reflecting properties for wavelengths within the visible range of the electromagnetic spectrum.
+
+The scientific field that studies these effects that nature exhibits, from the subatomic scale to the longest cosmic distances one can think of, is called physics.
+Having countless disciplines within itself, the field that studies the physics of materials is called condensed matter physics.
+It studies all kinds of material properties, to name a few, electronic, optical, magnetic, thermal, mechanical, among others.
+What we find surprising is that within only one subfield of physics, it offers explanations for phenomena related to each one of these properties.
+Surprisingly, it can describe the interplay between them, as one can see when diving deep into the field of condensed matter.
+Not only can it explain the behavior of materials we can see to the naked eye in our daily lives, but it can also explain exotic phenomena that we have no intuition for from our day-to-day experiences.
+In certain extreme conditions, matter can exhibit peculiar behaviors, where the elementary constituents talk to each other and cooperate to form new phases of matter with collective nature, other than gases, liquids, and solids.
+For instance, when cooled down to cryogenic temperatures, the isotope helium-4 can realize a state called the Bose--Einstein condensate~\cite{PhysRev.54.947}, where atoms populate the lowest-energy state, forming a collective condensate that brings the fluid viscosity and the entropy to zero.
+In these conditions, we can say that helium-4 behaves like a superfluid~\cite{Annett_2004,PhysRev.54.947}.
+Another exotic example is the superconducting state~\cite{Onnes_1991}, realized by certain metals and some alloys at very low temperatures, where the electrons in the material cooperate with each other via interactions mediated by excitations of the crystalline lattice, the phonons.
+The electrons experience an effective attractive interaction (which is almost unthinkable), and pair among themselves to form the so-called Cooper pairs.
+This results in the charge carriers having an electron charge of twice the elementary one, and the resistivity of the material drops to zero~\cite{Onnes_1991,Annett_2004}\footnote{Just on a passing note, a superconductor is not the same as an ideal metal. In a superconductor, the magnetic field is expelled from its inside; this is called the Meissner effect~\cite{Meissner_Ochsenfeld_1933}.}.
+
+The reader might have realized, by all the different things that condensed matter physics encompasses that one has to decide what to focus on.
+In the advent of the growing attention paid to \bd~materials since the isolation of a single graphene layer in 2004~\cite{Novoselov_Geim_2004}, \bd~materials have become a hot topic of research with a big traction in scientific research.
+Physical systems in two dimensions have become a playground for both theorists and experimentalists, since those materials can display a very intricate interplay between material properties that one would expect to be unrelated.
+Again, we have to further narrow down our focus.
+In this thesis, we deal with the electronic and optical properties of \bd~materials and how they interrelate.
+The work is narrowed down even more to semiconductors and insulators, which have poor conducting properties, contrarily to metals.
+More specifically, we will study how the electronic properties of these materials can be tailored for displaying emergent optical effects, and also how their electronic properties affect the material response to external \gls{em} perturbations.
+An interesting feature of semiconductors and insulators is that they have an energy gap separating the occupied electronic states from the unoccupied ones.
+This is why they are bad in conducting electricity; the presence of an energy gap, called the bandgap, in the electronic structure confers inertia to the charge carriers, which are not allowed to move freely in the material without an energy cost.
+However, this does not mean that they do not respond to external \gls{em} perturbations for energies where electronic states are not allowed.
+This comes as quite surprising, as one would expect to not see anything happening to the system, unless we excite it with energies above the bandgap.
+Let us explain this better.
+In the \gls{stm} experiment of Ref.~\cite{da_Jornada_Zhang_2014} with the \bd~semiconductor molybdenum diselenide (\ch{MoSe2}), the (DC differential) conductance spectrum was measured.
+Inside the bandgap, where no conducting states are allowed, the conductance measured over a voltage range corresponding to the bandgap was zero.
+In the very same experiment, the optical characterization of the same material through photoluminescence measurements showed a sharp peak inside the bandgap.
+What this effect shows is that for insulating materials there is no analogue to the free-charge carrier picture in metals to explain the experimental results.
+The independent-particle framework for metals does not explain these effects.
+Henceforth, we can conclude that electronic correlations and interactions are very relevant in these materials.
+The optical measurements observed in Ref.~\cite{da_Jornada_Zhang_2014} are an imprint of many-particle effects with no single-particle counterpart.
+The sharp peak can be explained taking into account the interaction between the electron excited to the bands above the bandgap, and the absence of negative charge it left in the Fermi sea; the hole.
+Having opposite electrical charges, they speak to each other through an attractive Coulomb interaction.
+As a result of their attraction, they form a bound state---the exciton---conferring to the material a nontrivial optical structure inside the bandgap, as evidenced from the pronounced optical resonances they show at sub-gap frequencies.
+Out of curiosity, we can also mention that the exciton, being a composite particle composed of two fermions, can be perceived as a single bosonic particle.
+Naturally, physicists wondered if excitons could undergo Bose--Einstein condensation.
+Theoretically predicted in 1962~\cite{PhysRev.126.1691}, the excitonic Bose--Einstein condensate was unambiguously observed experimentally quite recently in 2022~\cite{Morita_Yoshioka_Kuwata-Gonokami_2022}.
+
+In the early stages of the quantum theory of solids in the last century, an approximate picture to describe excitonic effects was proposed in 1937 by Gregory~H.~Wannier~\cite{Wannier_1937}, and further developed in 1938 by Nevill~F.~Mott~\cite{Mott_Littleton_1938,Mott_1938_II,Mott_1938_III}.
+Due to the fast progress in the literature of quantum mechanics and condensed matter physics in the past decades, more accurate descriptions of the exciton have appeared, especially for the \bd~case~\cite{Colloquium_Excitons_2018,Mauricio_2022}.
+For a matter of fact, among all the composite particles that are studied in condensed matter, the exciton is one of the first to be confirmed experimentally, not in a \bd~material, but in the bulk semiconductor gallium arsenide (\ch{GaAs})~\cite{PhysRevLett.49.1281,PhysRevLett.57.2446}.
+The interest in excitonic effects in \bd~materials is quite recent.
+Due to the abrupt technological advances in this century, it did not take long for experimentalists to isolate \bd~semiconductors after the isolation of graphene monolayers in 2004~\cite{Novoselov_Geim_2004}.
+As far as we know, the very first single-layer \bd~semiconductor to be isolated was molybdenum disulfide (\ch{MoS2}) in 2010~\cite{Novoselov_Jiang_Schedin_Booth_Khotkevich_Morozov_Geim_2005}, in a collaboration involving the initial discoverers of graphene in Ref.~\cite{Novoselov_Geim_2004}.
+In the same year, it was experimentally confirmed to be a direct bandgap semiconductor in Ref.~\cite{PhysRevLett.105.136805}.
+Shortly after, in the same material strong photoluminescence effects were experimentally observed~\cite{Photoluminescence_MoS2}.
+The appeal of realizing excitons in \bd~materials comes from the possibility of monitoring excitonic effects at room temperature~\cite{Flatten_He_Coles_Trichet_Powell_Taylor_Warner_Smith_2016,Fang_Yao_Wang_2023}.
+Actually, the experimental work for \ch{MoSe2} in Ref.~\cite{da_Jornada_Zhang_2014} cited above was performed at room temperature.
+Excitons in \bd~materials are long-lived and can be sustained at room temperatures.
+Typically, they present binding energies---the energy required to dissociate the electron--hole pair---in a range from a fraction of one electron-Volt to a couple of electron-Volts, generically more than binding energies of \gls{3d} excitons.
+That is because the screening in \bd~materials is less effective than in the \gls{3d} case.
+But this also makes it harder to accurately capture the excitonic effects in the \bd~case, in which the excitonic energy levels are far from following the hydrogenic Rydberg series~\cite{Chernikov_2014,Thygesen_2017,Olsen_Latini_Rasmussen_Thygesen_2016}.
+In three dimensions, the excitonic states and energies in general agree very well with the hydrogenic Rydberg series, because it is sufficient to take a constant for the relative permittivity of the medium for the screened Coulomb potential.
+In two dimensions, and as we will see later on in this work, the screening is highly nonlocal~\cite{Thygesen_2017,Cudazzo_2011}, and properly accounting for this nonlocality is imperative.
+Nonetheless, there are plenty of techniques by now to address the excitonic problem in \bd~materials~\cite{Mauricio_2022}.
+In the first instance, one can use an approximate linear model for the dielectric function (not a constant) in momentum space; the Rytova--Keldysh model~\cite{Mauricio_2022,Cudazzo_2011}, possible to be extended through other auxiliary models for the permittivity~\cite{Trolle_Pedersen_Veniard_2017}.
+Although the model is quite simple, it has proved sufficient in some cases~\cite{Mauricio_2022,Ventura_2019,Gomes_Trallero-Giner_Vasilevskiy_2021}, and as we will see later on, it is also quite useful to understand excitons in fairly simple materials, such as monolayer~\gls{hbn}~\cite{Ferreira_2019,Ventura_2019}.
+However, in more complicated systems, such as monolayer \ch{MoS2}, one cannot work with simple analytical expressions to model the material, as oftentimes analytical expressions for the material do not exist (unless several approximations are introduced).
+To better capture the fine details of a material and its dielectric properties, one has to resort to numerical techniques.
+Usually done using numerical packages implementing first-principles methods~\cite{BerkeleyGW,GPAW_2025,Yambo_2009,Siesta_2020,Abinit_2016,Prandini_Galante_Marzari_Umari_2019}, which are very exquisite, but simultaneously very computationally heavy.
+Therefore, implementing more efficient numerical methods is a need.
+We will see later on this work, how one can avoid incurring in high computational efforts by addressing the excitonic problem and the screening within a \bd~computational framework.
+Another interesting aspect of excitons in two dimensions is that they can couple to surface \gls{em} modes and form the light--matter hybrid called exciton--polariton~\cite{Flatten_He_Coles_Trichet_Powell_Taylor_Warner_Smith_2016,Fang_Yao_Wang_2023}.
+This very dispersive radiation mode presents high field confinement, deeming it applicable to optical nanosensing.
+
+In this context, this thesis introduces the reader to the concepts necessary to understand excitons in two dimensions, before we present the investigation performed during the PhD studies.
+This dissertation splits into two parts, across the next five chapters.
+In Chapters~\ref{ch:classical_electrodynamics},~\ref{ch:quantum_mechanics_solids}, and~\ref{ch:Excitons}, we go through the theoretical aspects and concepts that are necessary to grasp the research herein reported.
+Essentially, they consist of a thorough literature review, along which we tease the reader for the research outcomes in Chapters~\ref{ch:Optical_hBN_superlattice} and~\ref{ch:screening}.
+In these two chapters, we adapt the theory and the results obtained from our studies to this dissertation.
+A brief outline of each chapter follows.
+In Chapter~\ref{ch:classical_electrodynamics}, we introduce the classical electrodynamics formalism.
+Therein, key concepts pertaining to electromagnetic phenomena are introduced from a classical point of view.
+A classical picture is more than enough to introduce concepts that will be touched upon again in the thesis.
+Aspects of electromagnetic phenomena in two dimensions are discussed as well, mainly the concept of polariton.
+In Chapter~\ref{ch:quantum_mechanics_solids}, we introduce the basics of the quantum mechanical formalism for crystalline solids.
+All requirements for the physics that follows in subsequent chapters are covered.
+For the research performed, some of them are necessary only for Chapter~\ref{ch:screening}.
+Specifically, the quantum picture for the dielectric function is highlighted.
+In Chapter~\ref{ch:Excitons}, we extend the concepts from the previous one, which are essentially related to single-particle properties of solids, to many-body properties of solids.
+The emphasis is on semiconductors and insulators, the systems that present strong excitonic effects.
+We show how to determine the excitonic states and energies in different ways, in increasing degrees of complexity and difficulty; from the Wannier equation formalism, to the \gls{bse} formalism.
+The concepts introduced this far are applied in Chapter~\ref{ch:Optical_hBN_superlattice}.
+We study in this chapter a nanostructured \gls{hbn} monolayer, where its electronic and optical properties are tuned by applying an external electrostatic potential along one direction.
+We address the renormalized band dispersion, the excitonic states, the excitonic optical conductivity, the optical absorption, and the emergent exciton--polaritons, by this order.
+Finally, in Chapter~\ref{ch:screening}, we present a novel formulation and numerical implementation of the dielectric function in a strict \bd~framework.
+The implementation is done on top of the \texttt{Xatu} code, whose first version can be consulted in Ref.~\cite{Xatu}.
+The results obtained are benchmarked and compared with those in the literature.
+For instance, we are able to recover the Rytova--Keldysh limit of the dielectric function from the numerical microscopic one.
+This last one provides a way of computing the effective strict \bd~dielectric function beyond the low momentum limit.
+The formalism is extended to a quasi-2D one, which is no longer strictly \bd, but accounts for the monolayer thickness.
+This formalism is applied to the monolayer case, and the new results are compared with those in the literature once again.
+Besides the theoretical aspects of the problem and showing its results, details about the computational implementation in the code we developed are provided and analyzed.
+As a case study to test our code, we compute the screening, the excitons, and the optical conductivity for monolayer \ch{MoS2}.
+The dissertation finishes with Chapter~\ref{ch:Outlook}, in which we go through the main developments and conclusions of this work and discuss ideas for future work.
+
 %\prependtographicspath{{Chapters/Figures/Covers/}}
