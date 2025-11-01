@@ -405,7 +405,6 @@
   statement=.,
   dedicatory=Chapters,
   acknowledgements=Chapters,
-  biography=Chapters,
   quote=Chapters,
   abstract=Chapters,
   glossaries=Chapters,
@@ -1173,7 +1172,6 @@
   copyright;       % (*) The copyright page
   dedicatory;      % (*) Print the dedicatory
   acknowledgements;% (*) Print the acknowledgments
-  biography;       % (*) Print the biography
   quote;           % (*) Print the quote
   abstracts;       % Print abstracts in multiple languages.
   alllistof;       % Print all the listof defined in “6_list_of.tex”
@@ -1185,7 +1183,6 @@
   copyright;       % (*) The copyright page
   dedicatory;      % (*) Print the dedicatory
   acknowledgements;% (*) Print the acknowledgments
-  biography;       % (*) Print the biography
   quote;           % (*) Print the quote
   abstracts;       % Print abstracts in multiple languages.
   alllistof;       % Print all the listof defined in “6_list_of.tex”
@@ -2427,8 +2424,6 @@
 \newcommand{\ntprintquote}{\@nt@printifmaindoc@i{quote}}
 
 \newcommand{\ntprintacknowledgements}{\@nt@printifmaindoc@i{acknowledgements}}
-\newcommand{\thebiographystring}{Author Biography}
-\newcommand{\ntprintbiography}{\printbiographytitle\@nt@printifmaindoc@i{biography}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% Abstract, Acronyms and Glossary
@@ -2719,9 +2714,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Biography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand*{\printbiographytitle}{%
-    \chapter*{Author Biography}%
-}
+%\newcommand*{\printbiographytitle}{%
+%    \chapter*{Author Biography}%
+%}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Abstract
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
