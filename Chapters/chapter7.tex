@@ -29,7 +29,7 @@ The necessary tools were provided in the two chapters that followed.
 \noindent
 \textbf{\hyperref[ch:quantum_mechanics_solids]{Chapter 3\,}  \textcolor{black}{|} Quantum Mechanics of Electrons in Crystalline Solids}
 
-Chapter~\ref{ch:quantum_mechanics_solids} dwelled on the basic principles of the quantum mechanics machinery, and applied to solids, allowing for describing physical properties at length scales of the order the nanometer, or even smaller.
+Chapter~\ref{ch:quantum_mechanics_solids} dwelled on the basic principles of the quantum mechanics machinery, and applied to solids, allowing for describing physical properties at length scales of the order of the nanometer, or even smaller.
 Central concepts in the quantum theory of solids were mentioned, such as the Bloch theorem and Bloch states, first-principles and second-principles approaches for band structure calculations, and many-body perturbation theory.
 This last one offered a different point of view on the dielectric function.
 Within the formalism of quantum many-particle physics, one could describe response functions at the microscopic level, shedding light on the concepts introduced in Chapter~\ref{ch:classical_electrodynamics}.
@@ -71,19 +71,19 @@ We concluded that by nanostructuring \gls{hbn}, we can tailor the nanophotonic p
 
 In this chapter, we started by revisiting the dielectric function from Chapter~\ref{ch:quantum_mechanics_solids}, but in two dimensions.
 We explained in detail how to compute it in practice.
-This had to be done numerically, though, since the problem of calculating the dielectric function cannot be done analytically, apart from some simple cases.
+This had to be done numerically, since the problem of calculating the dielectric function cannot be done analytically, apart from some simple cases.
 In this thesis, we work with semiconducting and insulating materials, where local-field effects have to be taken into account.
 That makes this problem challenging.
 The dielectric function is now an infinite matrix, which has to be truncated and inverted to compute the screened Coulomb potential.
-Although these issues are not trivial, we found that the reduced dimensionality of the implementation allowed for obtaining results comparable with those from the literature in \abinit~methods, much more established in the literature, and for a fraction of the computational effort.
+Although these issues are not trivial, we found that the reduced dimensionality of the implementation allowed for obtaining results comparable with those from the literature in \abinit~methods, much more established in the literature, but for a fraction of the computational effort.
 Noticeably, the agreement between the static macroscopic dielectric function from our \bd~approach agreed very well with the \abinit~one in the long-wavelength limit.
 By extending the \bd~model to a quasi-2D one, where the thickness of the layer is accounted for in the dielectric function by adopting a mixed momentum-space representation, the results agree even better with \abinit~ones.
 The nonlocal behavior of the \bd~effective dielectric function agrees with the Rytova--Keldysh one in the low momentum limit, and is accurately captured beyond that limit.
 These results were applied to the calculation of the excitons with the code, which was extended to incorporate the numerical screening in the Bethe--Salpeter Hamiltonian.
 The excitons did not completely agree with the literature, which reports ambiguous results coming from models and/or methods.
-Nonetheless, the results were still reasonable, and not very distant from the experimental ones, if they exist.
+Nonetheless, the results were still reasonable, and not very distant from any available experimental ones.
 
-\vspace{0.5cm}
+\vspace{0.7cm}
 \makebox[\linewidth]{\rule{0.8\textwidth}{1pt}}
 \vspace{0.5cm}
 
@@ -95,13 +95,13 @@ This could have been studied in the context of Chapter~\ref{ch:Optical_hBN_super
 The radiative decay time can be calculated using Fermi's golden rule~\cite{Griffiths_2023,Sakurai,Zettili_2009}, which involves a matrix element of the dipole operator as seen in Chapter~\ref{ch:Optical_hBN_superlattice}, where the dipole approximation was assumed.
 However, in the literature there is an interest in the strong-coupling regime of light--matter interactions in cavities~\cite{cavity_2023,cavity_2024}.
 In a cavity, the exciton radiative decay time depends on the exciton center-of-mass momentum~\cite{PhysRevB.111.075411}, and we need to go beyond the dipole approximation.
-This has been done previously in Ref.~\cite{PhysRevB.86.085304}, albeit for finite size systems.
+This has been done previously in Ref.~\cite{PhysRevB.86.085304}, albeit for finite-size systems.
 As far as we know, this has never been done for extended systems.
-In that case, one has to use the velocity gauge, and the matrix element reads $\langle X |\exp{\ii \bQ \vdot \br} \mathbf{v}| 1_{\mathrm{photon}} \rangle$.
+In that case, one has to use the velocity gauge, and the matrix element reads $\langle X |\exp{\ii \bQ \vdot \br} \mathbf{v}|1_{\mathrm{photon}} \rangle$.
 With our code we could compute it, by inserting a resolution of the identity in a Bloch basis between $\exp{\ii \bQ \vdot \br}$ and $\mathbf{v}$, because we have the matrix elements of each factor.
 In turn, this idea also allows for computing the noninteracting and excitonic transverse optical conductivities for finite momentum, something we have never seen as well.
 
-Naturally, with a quasi-2d approach for the dielectric function, we could extend the calculation of the screening and the excitons to the multilayer case.
+Naturally, with a quasi-2D approach for the dielectric function, we could extend the calculation of the screening and the excitons to the multilayer case.
 How to do that is explained in Appendix~\ref{app:Q2D_multilayer}.
 One can also implement the screening in real space with the noninteracting polarizability in real space as per Eq.~\eqref{eq:polarizability_RPA_def}, and compute the screened Coulomb potential directly in real space.
 This idea is discussed in detail in the PhD thesis of A.~J.~Ur\'ia-\'Alvarez in Ref.~\cite{Alex_PhD}, Section 2.2.3 therein.
