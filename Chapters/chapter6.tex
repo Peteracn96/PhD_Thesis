@@ -120,7 +120,7 @@ Naturally, the polarizability $\chi^0_{\bG \bG'} (\bq,\omega)$ is also the \bd~c
 
 \begin{equation}
 \label{eq:2D_polarizability}
-    \chi^0_{\bG \bG'} (\bq,\omega) = \frac{1}{\area} \sum_{n,n'} \sum_{\bk \sigma} (f_{n,\bk} - f_{n',\bk + \bq}) \frac{\mel{n,\bk}{\ee^{-\ii(\bq + \bG) \vdot \br}}{n',\bk + \bq} \mel{n',\bk + \bq}{\ee^{\ii(\bq + \bG') \vdot \br}}{n,\bk}}{\epsilon_{n \bk} - \epsilon_{n' \bk + \bq} + \hw + \ii \hbar \alpha}\,.
+    \chi^0_{\bG \bG'} (\bq,\omega) = \frac{1}{\area} \sum_{n,n'} \sum_{\bk \sigma} (f_{n,\bk} - f_{n',\bk + \bq}) \frac{\mel{n,\bk}{\ee^{-\ii(\bq + \bG) \vdot \br}}{n',\bk + \bq} \! \! \mel{n',\bk + \bq}{\ee^{\ii(\bq + \bG') \vdot \br}}{n,\bk}}{\epsilon_{n \bk} - \epsilon_{n' \bk + \bq} + \hw + \ii \hbar \alpha}\,.
 \end{equation}
 
 \noindent At the end, the expressions~\eqref{eq:polarizability_momentum_frequency} and~\eqref{eq:2D_polarizability} do not differ by much.
@@ -133,7 +133,7 @@ Henceforth, we can write
 
 \begin{equation}
 \label{eq:2D_plane_wave_matrix_element}
-    I^{\bG}_{n \bk, n' \bk'} \equiv \bra{n,\bk} \ee^{-\ii (\bk - \bk' + \bG) \vdot \br} \ket{n',\bk'} = \int_{\area} \dr\, \psi^*_{n,\bk} (\br) \ee^{-\ii(\bk  - \bk' + \bG) \vdot \br} \psi_{n', \bk'} (\br)\,.
+    I^{\bG}_{n \bk, n' \bk'} \equiv \bra{n,\bk} \ee^{-\ii (\bk - \bk' + \bG) \vdot \br} \ket{n',\bk'} = \int_{\area} \dr\, \psi^*_{n,\bk} (\br) \, \ee^{-\ii(\bk  - \bk' + \bG) \vdot \br} \psi_{n', \bk'} (\br)\,.
 \end{equation}
 
 \noindent Note that even though the notation is similar to that of Ref.~\cite{Xatu}, the definition for $I^{\bG}_{n \bk, n' \bk'}$ is not exactly the same.
@@ -147,8 +147,8 @@ Since we are interested in electrostatic screening for \bd~insulators and semico
 \begin{equation}
     \label{eq:static_polarizability_repeated}
     \begin{aligned}
-        \chi^0_{\bG\bG'}(\bq,\omega \to 0) = & \, \frac{1}{\area} \sum_{\vv \cc,\bk \sigma}\! \Bigg[\frac{\langle \cc,\bk| \ee^{-\ii(\bq+\bG)\cdot\br}|\vv,\bk+\bq\rangle \langle \vv,\bk+\bq| \ee^{\ii(\bq+\bG')\cdot\br}|\cc,\bk\rangle}{\epsilon_{\vv \bk+\bq}-\epsilon_{\cc \bk}} \Bigg] + \\
-        & \, \frac{1}{\area} \sum_{\vv \cc,\bk \sigma} \! \Bigg[\frac{\langle \vv,\bk| \ee^{-\ii(\bq+\bG)\cdot\br}|\cc,\bk+\bq\rangle\langle \cc,\bk+\bq| \ee^{\ii(\bq+\bG')\cdot\br}|\vv,\bk\rangle}{\epsilon_{\vv \bk} - \epsilon_{\cc \bk+\bq}}\Bigg] \,,
+        \chi^0_{\bG\bG'}(\bq,\omega \to 0) = & \, \frac{1}{\area} \sum_{\vv \cc,\bk \sigma}\! \Bigg[\frac{\langle \cc,\bk| \ee^{-\ii(\bq+\bG)\vdot\br}|\vv,\bk+\bq\rangle \langle \vv,\bk+\bq| \ee^{\ii(\bq+\bG')\vdot\br}|\cc,\bk\rangle}{\epsilon_{\vv \bk+\bq}-\epsilon_{\cc \bk}} \Bigg] + \\
+        & \, \frac{1}{\area} \sum_{\vv \cc,\bk \sigma} \! \Bigg[\frac{\langle \vv,\bk| \ee^{-\ii(\bq+\bG)\vdot\br}|\cc,\bk+\bq\rangle\langle \cc,\bk+\bq| \ee^{\ii(\bq+\bG')\vdot\br}|\vv,\bk\rangle}{\epsilon_{\vv \bk} - \epsilon_{\cc \bk+\bq}}\Bigg] \,,
     \end{aligned}
 \end{equation}
 
@@ -160,7 +160,7 @@ In the previous expression, if the system is time-reversal symmetric, then the t
     \chi^0_{\bG \bG'} (\bq) = \frac{2}{\area} \sum_{\vv \cc}  \sum_{\bk \sigma} \frac{I^{\bG}_{\cc \bk, \vv \bk + \bq}  \qty(I^{\bG'}_{\cc \bk, \vv \bk + \bq})^*}{\epsilon_{\vv \bk + \bq} - \epsilon_{\cc \bk} }\,.
 \end{equation}
 
-\noindent We would like to take this opportunity to make a brief remark.
+\noindent We would like to take this oppofrtunity to make a brief remark.
 We have confirmed analytically that the expression~\eqref{eq:static_polarizability_repeated} derives from its more general version in~\eqref{eq:2D_polarizability}, which is an expression commonly found in textbooks~\cite{Cohen_Louie_2016}.
 However, the expression in~\eqref{eq:static_polarizability_TRS} is not commonly found in textbooks, but it has made its appearance in the literature~\cite{BerkeleyGW,Yambo_2009}.
 We stress that the prefactor of $2$ and the sum over spins $\sigma$ are key to get correct screening properties.
@@ -174,9 +174,9 @@ Therefore, our implementation is strictly \bd, and we ignore, for the moment, an
 This means that:
 
 \begin{itemize}
-    \item The sum over momentum in~\eqref{eq:static_polarizability_repeated} is a sum over momentum $\bk = (k_x,k_y)$ in the \bz, which is \bd.
+    \item The sum over momentum in~\eqref{eq:static_polarizability_repeated} is a sum over momentum $\bk = (k_x,k_y)$ in the \bz, which is \bd\@.
     \item The $\bG$ and $\bG'$ vectors are \bd~vectors of the reciprocal lattice, which is \bd.
-    \item The matrix element $I^{\bG}_{n \bk, n' \bk'}$, which is an integral in real space when written in terms of Bloch state wavefunctions, is an integral in the $xy$ plane.
+    \item The matrix element $I^{\bG}_{n \bk, n' \bk'}$\,, which is an integral in real space when written in terms of Bloch state wavefunctions, is an integral in the $xy$ plane.
           The symbol $\dr$ inside the integrals therefore means $\dd x \dd y$, if we do not say otherwise.
 \end{itemize}
 
@@ -206,6 +206,7 @@ There is a caveat when it comes to using eigenvectors determined numerically, li
 The eigenvectors coming from diagonalizing numerically any matrix carry a random phase.
 This is accounted for in the code.
 As explained in the paper of the first version of the code in~\cite{Xatu}, the phase of the eigenvectors $\bC^{n \bk}$ are fixed such that $\sum_{i \alpha} C_{i \alpha}^{n \bk} \in \mathbb{R}$~\cite{Louie_2000}.
+Furthermore, for \gls{dft} band structures the code performs a L\"owdin orthogonalization of the basis after obtaining the eigenvectors $\bC^{n \bk}$.
 
 To summarize, to compute a single polarizability matrix element $\chi^0_{\bG \bG'} (\bq)$ we need:
 
@@ -622,13 +623,13 @@ This deems the expression for the regularization analytical (see Eq.~\eqref{eq:W
 Therefore, we implement the singular term $W_{\bzero \bzero} (\bzero)$ as
 
 \begin{equation}
-    W_{\bzero \bzero} (\bzero) = \frac{1}{\area_{\Gamma}} \int_{\area_{\Gamma}} \mathrm{d} \bq \, v_c(\bq) \big[1 + \bq \vdot \mathbf{\nabla}_{\bq} \varepsilon^{-1}_{\bzero \bzero} (\bq)|_{\bq = \bzero} \big] \,,
+    W_{\bzero \bzero} (\bzero) = \frac{1}{\area_{\Gamma}} \int_{\area_{\Gamma}} \mathrm{d} \bq \, v_c(\bq) \big[1 + \bq \vdot \mathbf{\grad}_{\bq} \varepsilon^{-1}_{\bzero \bzero} (\bq)|_{\bq = \bzero} \big] \,,
 \end{equation}
 
 \noindent where $\area_{\Gamma}$ is a small, circular region around the origin $\Gamma$.
 The gradient of the head element of the inverse dielectric matrix is computed with the code before the initialization of the Bethe--Salpeter Hamiltonian.
 Although we can compute it just as described, we use the fact that, for low $q=|\bq|$, $\big(\varepsilon^{-1}_{\bzero \bzero} (\bq) \big)^{-1} \approx \varepsilon_{\bzero \bzero} (\bq)$, as verified in Fig.~\ref{fig:epsilon2D_abinitio_vs_q_hBN}.
-If the system is isotropic, $\bq \vdot \mathbf{\nabla}_{\bq} \varepsilon^{-1}_{\bzero \bzero} (\bq)|_{\bq = \bzero} \approx r_0 q$, where $r_0$ is estimated as $r_0 \approx (\varepsilon_{\bzero \bzero} (\bq) - 1)/|\bq|$, for a very small $\bq$.
+If the system is isotropic, $\bq \vdot \mathbf{\grad}_{\bq} \varepsilon^{-1}_{\bzero \bzero} (\bq)|_{\bq = \bzero} \approx r_0 q$, where $r_0$ is estimated as $r_0 \approx (\varepsilon_{\bzero \bzero} (\bq) - 1)/|\bq|$, for a very small $\bq$.
 On the other hand, if the system is anisotropic, then the derivative is computed along two perpendicular directions for $\bq$, but conserving the norm $|\bq|$.
 
 In both calculations, and just like we did for \gls{hbn}, we set $\bQ=\bzero$ and exclude the exchange term in the interaction matrix elements.
@@ -654,7 +655,7 @@ This fact, that we touched on at the end of subsection~\ref{subsec:interaction_m
     We used $N=60^2$, $N_{\cc}=N_{\vv}=1$, $G_c = 3.0$~\unit{\angstrom^{-1}}, $q_0 = 1.3 k_0$, and $r_0 = 5.084$~\unit{\angstrom} for the Rytova--Keldysh potential. In the numerical model for the screening, we included all the $\bG$ vectors. We excluded the exchange interaction term in both calculations like in Ref.~\cite{Latini_2015}, and set $\bQ=\bzero$. Increasing the number of bands included to $N_{\cc}=N_{\vv}=2$ resulted in a change in binding energies less than $0.02$~\unit{\electronvolt} for all states, except for the state 2, for which the binding energy was of $2.1$~\unit{\electronvolt}. This was tested only for the numerical screening calculation.}
     \begin{tabular}{|c|c|c||c|c|}
         \hline
-        State                         & $E_X$ (RK) (eV)         & $E_X$ ($\varepsilon_{\bG,\bG'}$) (eV)  & $E_b$ (RK) (eV)         & $E_b$ ($\varepsilon_{\bG,\bG'}$) (eV) \\ \hline \hline
+        State                         & $E_X$ (RK) (eV)         & $E_X$ ($\varepsilon_{\bG \bG'}$) (eV)  & $E_b$ (RK) (eV)         & $E_b$ ($\varepsilon_{\bG \bG'}$) (eV) \\ \hline \hline
         1a                            & 3.68                    & 3.61                                   & 2.40                    & 2.47 \\
         1b                            & 3.84                    & 3.62                                   & 2.24                    & 2.46 \\ \hline
         2                             & 4.37                    & 4.11                                   & 1.71                    & 1.97 \\ \hline
@@ -667,7 +668,7 @@ This fact, that we touched on at the end of subsection~\ref{subsec:interaction_m
     \label{tab:hBN_DFT_HSE_06_exciton_spectrum}
 \end{table}
 
-In Table~\ref{tab:hBN_DFT_HSE_06_exciton_spectrum}, we can also verify that using the Rytova--Keldysh model the excitonic states are higher in energy when compared to the ones obtained using $\varepsilon_{\bG,\bG'}$, by looking at the second and third columns.
+In Table~\ref{tab:hBN_DFT_HSE_06_exciton_spectrum}, we can also verify that using the Rytova--Keldysh model the excitonic states are higher in energy when compared to the ones obtained using $\varepsilon_{\bG \bG'}$, by looking at the second and third columns.
 If we consider only the
 head term $W_{\bzero \bzero} (\bq)$ of the numerical screened potential and compare it with the Rytova--Keldysh potential $V_{\RK} (\bq)$, knowing that the Rytova--Keldysh model overestimates the screening, then the attraction between the electron and the hole is weaker than the one coming from $W_{\bzero \bzero} (\bq) = \varepsilon^{-1}_{\bzero \bzero} (\bq) v_c(\bq) = v_c(\bq)/\varepsilon_M (\bq)$, since $\varepsilon_M (\bq) < \varepsilon_{\RK} (\bq)$.
 This means that the excitons obtained with $V_{\RK} (q)$ should be higher in energy than the ones from using $W_{\bG \bG'}(\bq)$.
@@ -686,7 +687,7 @@ For high $q$, the head element $W_{\bzero \bzero} (q)$ of the screened potential
 %    We used $N=60^2$, $N_{\cc}=N_{\vv}=1$, $G_c = 3.0$~\unit{\angstrom^{-1}}, $q_0 = 1.3 k_0$, and $r_0 = 5.084$~\unit{\angstrom} for the Rytova--Keldysh potential. In the numerical model for the screening, we included all the $\bG$ vectors. We excluded the exchange interaction term in both calculations ,and set $\bQ=\bzero$. Increasing the number of bands included to $N_{\cc}=N_{\vv}=2$ resulted in a change in binding energies less than $0.02$~\unit{\electronvolt} for all states, except for the state 2, for which the binding energy was of $2.1$~\unit{\electronvolt}.}
 %    \begin{tabular}{|c|c|c||c|c|}
 %        \hline
-%        State                         & $E_X$ (RK) (eV)         & $E_X$ ($\varepsilon_{\bG,\bG'}$) (eV)  & $E_b$ (RK) (eV)         & $E_b$ ($\varepsilon_{\bG,\bG'}$) (eV) \\ \hline \hline
+%        State                         & $E_X$ (RK) (eV)         & $E_X$ ($\varepsilon_{\bG \bG'}$) (eV)  & $E_b$ (RK) (eV)         & $E_b$ ($\varepsilon_{\bG \bG'}$) (eV) \\ \hline \hline
 %        1a                            & 3.6750717               & 3.6088515                              & 2.40                    & 2.47 \\
 %        1b                            & 3.8376778               & 3.6248442                              & 2.24                    & 2.46 \\ \hline
 %        2                             & 4.3737721               & 4.1111964                              & 1.71                    & 1.97 \\ \hline
@@ -735,7 +736,7 @@ The noninteracting one does not depend on how one computes the excitons, logical
 \begin{figure}[t]
     \centering
     \includegraphics[width=1.0\textwidth]{Chapters/Figures/Chapter_6/Psi_1_RK_RPA_hBN}
-    \mycaption[Excitonic ground state wavefunction for hBN: Rytova--Keldysh vs.~numerical screening]{Momentum-resolved wavefunctions (in absolute value squared) of the first two excitonic states of \gls{hbn}, using the Rytova--Keldysh potential on the left panels, and using the numerical dielectric function on the right panels. The top panels correspond to the 1a state from Table~\ref{tab:hBN_DFT_HSE_06_exciton_spectrum}, while the bottom panels correspond to the 1b state in the same table. The states obtained using the numerical dielectric function present a lower maximum for the probability density, therefore those states are more delocalized in reciprocal space than the ones on the left. This is consistent with higher binding energies for the states obtained using $\varepsilon_{\bG,\bG'}$, as we have seen in Table~\ref{tab:hBN_DFT_HSE_06_exciton_spectrum}.}
+    \mycaption[Excitonic ground state wavefunction for hBN: Rytova--Keldysh vs.~numerical screening]{Momentum-resolved wavefunctions (in absolute value squared) of the first two excitonic states of \gls{hbn}, using the Rytova--Keldysh potential on the left panels, and using the numerical dielectric function on the right panels. The top panels correspond to the 1a state from Table~\ref{tab:hBN_DFT_HSE_06_exciton_spectrum}, while the bottom panels correspond to the 1b state in the same table. The states obtained using the numerical dielectric function present a lower maximum for the probability density, therefore those states are more delocalized in reciprocal space than the ones on the left. This is consistent with higher binding energies for the states obtained using $\varepsilon_{\bG \bG'}$, as we have seen in Table~\ref{tab:hBN_DFT_HSE_06_exciton_spectrum}.}
     \label{fig:exciton_wavefunction_hBN_DFT_HSE06}
 \end{figure}
 
@@ -759,13 +760,13 @@ They are given by~\cite{Xatu,Esteve_2023,Esteve_PhD}
 
 \begin{equation}
     \label{eq:velocity_matrix_elements_Bloch_basis}
-    \mathbf{v}_{\vv \cc} (\bk) = \sum_{i \alpha i' \alpha'} \left(C^{n\bk}_{i\alpha}\right)^* C^{n'\bk}_{i'\alpha'} \left[\nabla_{\bk} H_{i\alpha i'\alpha'}(\bk) + \ii \epsilon_{n\bk} \xi_{i \alpha i' \alpha'}(\bk) - \epsilon_{n'\bk} \xi_{i \alpha i' \alpha'}^*(\bk)\right] \,,
+    \mathbf{v}_{\vv \cc} (\bk) = \sum_{i \alpha i' \alpha'} \left(C^{n\bk}_{i\alpha}\right)^* C^{n'\bk}_{i'\alpha'} \left[\grad_{\bk} H_{i\alpha i'\alpha'}(\bk) + \ii \epsilon_{n\bk} \xi_{i \alpha i' \alpha'}(\bk) - \epsilon_{n'\bk} \xi_{i \alpha i' \alpha'}^*(\bk)\right] \,,
 \end{equation}
 
-\noindent where the quantity $\xi_{i \alpha i' \alpha'}(\bk) = \ii \mel{u_{i\alpha \bk}}{\nabla_{\bk}}{u_{i\alpha'\bk}}$ is the Berry connection (see footnote~\ref{fn:Berry_connection}), and evaluates to~\cite{Xatu,Esteve_2023,Esteve_PhD}
+\noindent where the quantity $\xi_{i \alpha i' \alpha'}(\bk) = \ii \mel{u_{i\alpha \bk}}{\grad_{\bk}}{u_{i\alpha'\bk}}$ is the Berry connection (see footnote~\ref{fn:Berry_connection}), and evaluates to~\cite{Xatu,Esteve_2023,Esteve_PhD}
 
 \begin{equation}
-    \xi_{i \alpha i' \alpha'}(\bk) = \sum_{\bR} \ei{\bk \cdot \bR} \langle i \alpha \bzero | \br | i \alpha' \bR \rangle + \ii \nabla_{\bk} S_{i \alpha i' \alpha '} (\bk) \,,
+    \xi_{i \alpha i' \alpha'}(\bk) = \sum_{\bR} \ei{\bk \cdot \bR} \langle i \alpha \bzero | \br | i \alpha' \bR \rangle + \ii \grad_{\bk} S_{i \alpha i' \alpha '} (\bk) \,,
 \end{equation}
 
 \noindent where we recall that $S_{i \alpha i' \alpha '} (\bk) = \braket{i \alpha \bk}{i' \alpha' \bk}$ is a matrix element of the momentum-defined overlap matrix (see Eq.~\ref{eq:Bloch_overlap_definition}).
@@ -924,7 +925,7 @@ Performing the average explicitly yields
 \end{equation}
 
 \noindent Taking in the final expression of Eq.~\eqref{eq:quasi_2D_averaged_dielectric_function} the limit $\dd_{\perp},t_{i,z} \to 0$, expanding the real exponential to leading order as $\ee^{-|\bq +\bG| \dd_{\perp}/2} \approx 1 - |\bq +\bG| \dd_{\perp}/2 $, and considering that $\cosh(x) \approx 1$ for low $x$, we find
-
+\vspace{-0.3cm}
 \begin{equation}
 \begin{aligned}
     \bar{\varepsilon}_{\bG \bG'}(\bq) \approx & \,\delta_{\bG \bG'} - \frac{e}{2\epsz|\bq +\bG|\area}\sum_{\vv \cc,\bk \sigma}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })}\Bigg\{\\
@@ -1252,7 +1253,7 @@ If $\bg$ is not null, then
     \end{aligned}
 \end{equation}
 
-\noindent In this way, we only need to have the inverse dielectric matrix inside the first \bz\@\footnote{Note that $\varepsilon^{-1}_{\bG \bG'} (\bq + \bg) = \varepsilon^{-1}(\bq + \bG + \bg,\bq + \bG' + \bg) = \varepsilon^{-1}_{\bG+\bg \bG'+\bg} (\bq)$}.
+\noindent In this way, we only need to have the inverse dielectric matrix inside the first \bz\@\footnote{Note that $\varepsilon^{-1}_{\bG \bG'} (\bq + \bg) = \varepsilon^{-1}(\bq + \bG + \bg,\bq + \bG' + \bg) = \varepsilon^{-1}_{\bG+\bg \bG'+\bg} (\bq)$\,.}.
 However, a naive implementation of the previous expression as is would incur the program in a memory error at runtime.
 This is so, because we apply a cutoff for the dielectric function, which is defined prior to runtime.
 In the sum over reciprocal lattice vectors, we would eventually try to access elements of the dielectric matrix that do not exist in memory (but that exist physically).
@@ -1431,7 +1432,7 @@ Therefore, we believe that our results are quite reasonable.
     We used $N=60^2$, $N_{\cc}=N_{\vv}=1$, $G_c = 3.0$~\unit{\angstrom^{-1}}, $q_0 = 0.6 k_0$, and $r_0 = 31.74$~\unit{\angstrom} for the Rytova--Keldysh potential. In the numerical model for the screening, we included all the $\bG$ vectors with $|\bG| < G_c$. We excluded the exchange interaction term in both calculations, just like in Ref.~\cite{Latini_2015}, and set $\bQ=\bzero$. When increasing the number of bands included to $N_{\cc}=N_{\vv}=2$, the highest difference in binding energies is around $0.011$~\unit{\electronvolt}, and occurs for the state 2. All the other energies change by less than $0.01$~\unit{\electronvolt}. This was tested only for the numerical screening calculation.}
     \begin{tabular}{|c|c|c||c|c|}
     \hline
-    State                         & $E_X$ (RK) (eV)         & $E_X$ ($\varepsilon_{\bG,\bG'}$) (eV)  & $E_b$ (RK) (eV)          & $E_b$ ($\varepsilon_{\bG,\bG'}$) (eV) \\ \hline \hline
+    State                         & $E_X$ (RK) (eV)         & $E_X$ ($\varepsilon_{\bG \bG'}$) (eV)  & $E_b$ (RK) (eV)          & $E_b$ ($\varepsilon_{\bG \bG'}$) (eV) \\ \hline \hline
     1a                            & 1.78                    & 1.75                                   & 0.796                    & 0.82 \\
     1b                            & 1.78                    & 1.76                                   & 0.793                    & 0.82 \\ \hline
     2a                            & 2.03                    & 2.01                                   & 0.546                    & 0.56 \\ \hline
@@ -1453,7 +1454,7 @@ Therefore, we believe that our results are quite reasonable.
 %    We used $N=60^2$, $N_{\cc}=N_{\vv}=1$, $G_c = 3.0$~\unit{\angstrom^{-1}}, $q_0 = 0.6 k_0$, and $r_0 = 31.74$~\unit{\angstrom} for the \textcolor{red}{Rytova--Keldysh potential}. In the numerical model for the screening, we included all the $\bG$ vectors with $|\bG| < G_c$. We excluded the exchange interaction term in both calculations, and set $\bQ=\bzero$. \textcolor{red}{Increasing the number of bands included to $N_{\cc}=N_{\vv}=2$ resulted in a change in binding energies less than $0.02$~\unit{\electronvolt} for all states, except for the state 2, for which the binding energy was of $2.1$~\unit{\electronvolt}. This was tested only for the numerical screening calculation.}}
 %    \begin{tabular}{|c|c|c||c|c|}
 %        \hline
-%        State                         & $E_X$ (RK) (eV)         & $E_X$ ($\varepsilon_{\bG,\bG'}$) (eV)  & $E_b$ (RK) (eV)         & $E_b$ ($\varepsilon_{\bG,\bG'}$) (eV) \\ \hline \hline
+%        State                         & $E_X$ (RK) (eV)         & $E_X$ ($\varepsilon_{\bG \bG'}$) (eV)  & $E_b$ (RK) (eV)         & $E_b$ ($\varepsilon_{\bG \bG'}$) (eV) \\ \hline \hline
 %        1a                            & 1.7776752               & 1.7534264                              & 0.7963948                    & 0.8206436 \\
 %        1b                            & 1.7811657               & 1.7578748                              & 0.7929043                    & 0.8161952 \\ \hline
 %        2a                            & 2.0284947               & 2.0110333                              & 0.5455753                    & 0.5630367 \\ \hline

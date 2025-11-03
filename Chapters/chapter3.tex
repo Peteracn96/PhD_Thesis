@@ -234,7 +234,7 @@ Mathematically, we write
 
 \begin{equation}
     \label{eq:lattice_vector_definition}
-    \bR = n_1 \ba_1 + n_2 \ba_2, \qq{with} n_1,n_2 \in \mathbb{Z}\,.
+    \bR = n_1 \ba_1 + n_2 \ba_2 \,, \qq{with} n_1,n_2 \in \mathbb{Z}\,.
 \end{equation}
 
 The shaded gray area in the same figure represents a portion of the lattice, such that upon all possible translations by a lattice vector, we can generate the entire crystal.
@@ -277,21 +277,21 @@ The latter material is very relevant in this work, as we shall see later.
 As lattices enjoy translation symmetry, we can guess that momentum is a good quantum number to describe electronic states in these materials.
 Therefore, it is useful to have a description of the lattice in terms of wavevectors and set a framework to write periodic functions in Fourier series.
 In other words, we need an equivalent to the lattice in reciprocal space.
-Let us define the reciprocal lattice as the set of all vectors $\bG$ such that $\ei{\bG \vdot \bR} = 1$, for any lattice vector $\bR$~\cite{Simon_Oxford_2013,Kittel_2004,Ashcroft_Mermin,Bruus_Flensberg_2004}.
+Let us define the reciprocal lattice as the set of all vectors $\bG$ such that $\ei{\bG \vdot \bR} = 1$\,, for any lattice vector $\bR$~\cite{Simon_Oxford_2013,Kittel_2004,Ashcroft_Mermin,Bruus_Flensberg_2004}.
 In two dimensions, any reciprocal lattice vector can be written as
 
 \begin{equation}
     \label{eq:reciprocal_lattice_vector_definition}
-    \bG = m_1 \bb_1 + m_2 \bb_2, \qq{with} m_1,m_2 \in \mathbb{Z}\,,
+    \bG = m_1 \bb_1 + m_2 \bb_2 \,, \qq{with} m_1,m_2 \in \mathbb{Z}\,,
 \end{equation}
 
 \noindent where $\bb_1$ and $\bb_2$ are primitive vectors of the reciprocal lattice.
-They can be obtained by solving the set of equations of the form $\ba_i \vdot \bb_j = 2 \pi \delta_{ij}$, with $i,j=1,2$.
+They can be obtained by solving the set of equations of the form $\ba_i \vdot \bb_j = 2 \pi \delta_{ij}$\,, with $i,j=1,2$\,.
 In this way, given the expression for any lattice vector~\eqref{eq:lattice_vector_definition} and any reciprocal lattice vector~\eqref{eq:reciprocal_lattice_vector_definition}, the condition $\ei{\bG \vdot \bR} = 1$ is always fulfilled.
 The real space lattice is composed in general by a Bravais lattice and a basis, but it is always the direct underlying Bravais lattice defining the reciprocal lattice.
 
 We define now the first \gls{bz}, or simply \gls{bz}, as the set of points $\bk$ such that $|\bk| < |\bk - \bG|$ for all $\bG \neq \bzero$~\cite{Simon_Oxford_2013,Ashcroft_Mermin}.
-Explained in another way, let us fix a primitive unit cell of the reciprocal lattice, and set the origin inside that cell, say at $\bk = \bG = \bzero$.
+Explained in another way, let us fix a primitive unit cell of the reciprocal lattice, and set the origin inside that cell, say at $\bk = \bG = \bzero$\,.
 Then, if any point $\bk$ in that cell is closer to the origin than to any other point in the reciprocal lattice equivalent to the origin, then that cell is the \gls{bz}~\cite{Grosso_2014}.
 Any momentum in the reciprocal space can then be defined by another momentum in the \gls{bz} plus a reciprocal lattice vector.
 We can say that the momentum conservation in a crystal conserves the momentum modulo a vector of the reciprocal lattice.
@@ -299,7 +299,7 @@ Therefore, we can speak of crystal momentum as the relevant quantum number in cr
 We do not wish for the language used in this thesis to be too pedantic, in detriment of clarity.
 By (one more) abuse of language, let us speak of momentum when we are in fact dealing with crystal momentum.
 
-In this way, if we are working with a periodic function $f(\br)$ with the periodicity of the direct lattice, then it can be expanded in Fourier series as $f(\br) = \sum_{\bG} f_{\bG} \ee^{\ii \bG \vdot \bR}$, with the coefficients given by $f_{\bG} =1/\area_{\UC} \int_{\mathrm{UC}} \exp{\ii \bG \vdot \br} f(\br)  \dr$, an integral over the unit cell, hence the symbol $\mathrm{UC}$ for the domain of integration, which has area $\area_{\UC}$.
+In this way, if we are working with a periodic function $f(\br)$ with the periodicity of the direct lattice, then it can be expanded in Fourier series as $f(\br) = \sum_{\bG} f_{\bG} \ee^{\ii \bG \vdot \bR}$, with the coefficients given by $f_{\bG} =1/\vol_{\UC} \int_{\mathrm{UC}} \exp{\ii \bG \vdot \br} f(\br)  \dr$\,, an integral over the unit cell, hence the symbol $\mathrm{UC}$ for the domain of integration, which has volume $\vol_{\UC}$.
 These concepts will be key for understanding the Bloch theorem and its importance, to be explained in the next subsection.
 
 \subsection{Bloch Theorem}
@@ -357,7 +357,7 @@ But first, we need to better understand the concepts related to the bands of a c
 There is a number of different descriptions for material band structures.
 Two simple ones are the nearly free electron model and the \gls{tb} model.
 In the first, one assumes the electron moves freely from atom to atom, so that it can be found in a plane wave state with parabolic dispersion, and the crystalline structure is seen as a small perturbation.
-The electronic dispersion in the case of the nearly free electron model is simply given by $\varepsilon_{\bG} (\bk) = \hbar^2 \abs{\bk - \bG}^2 / 2m$, with the reciprocal lattice vectors $\bG$ labeling the bands.
+The electronic dispersion in the case of the nearly free electron model is simply given by $\varepsilon_{\bG} (\bk) = \hbar^2 \abs{\bk - \bG}^2 / 2m$\,, with the reciprocal lattice vectors $\bG$ labeling the bands.
 This model is particularly good for standard metals, like aluminum~\cite{Levinson_aluminum}, that have a compact or close-packed crystal structure.
 
 In the opposite limit, where the crystal is not compact and the atoms are further apart, electrons have more difficulty in moving from atomic site to atomic site, and then we say that they are tightly-bound to the atoms.
@@ -392,7 +392,7 @@ The Bloch state~\eqref{eq:Bloch_state_LCAO_auxiliar} is an eigenstate of the Ham
     H \psi_{n, \bk} (\br) = \epsilon\, \psi_{n, \bk} (\br) \Leftrightarrow \sum_{i \alpha} C_{i \alpha}^{n \bk} H\Phi_{i \alpha} (\bk,\br) = \epsilon \sum_{i \alpha} C_{i \alpha}^{n \bk} \Phi_{i \alpha} (\bk,\br) \,.
 \end{equation}
 
-\noindent Now, we multiply by $\Phi^*_{j \beta} (\bk,\br)$ and integrate in space
+\noindent Now, we multiply by $\Phi^*_{j \beta} (\bk,\br)$ and integrate in space over the volume of the material $\vol$ as
 
 \begin{equation}
     \sum_{i \alpha} C_{i \alpha}^{n \bk} \underbrace{\int_{\vol} \dr\, \Phi^*_{j \beta} (\bk,\br) H \Phi_{i \alpha} (\bk,\br)}_{H_{j \beta, i \alpha} (\bk)} = \epsilon \sum_{i \alpha} C_{i \alpha}^{n \bk} \underbrace{ \int_{\vol} \dr\, \Phi^*_{j \beta} (\bk,\br) \Phi_{i \alpha} (\bk,\br)}_{S_{j \beta, i \alpha}(\bk)}
@@ -440,9 +440,9 @@ Following an analogous procedure for the Hamiltonian, one obtains
     H(\bk) = \sum_{\bR} \ei{\bk \vdot \bR} H(\bR) \,,
 \end{equation}
 
-\noindent where $\bk$ denotes crystal momentum as usual, the sum is over all vectors of the Bravais lattice $\bR$, and $H(\bR)$ is the real space Hamiltonian at the site $\bR$, commonly called a Fock matrix, and has matrix elements $H_{j \beta, i \alpha} (\bR) = \langle \phi_{\beta} (\br - \bt_j) | H | \phi_{\alpha} (\br - \bR - \bt_i) \rangle$.
+\noindent where $\bk$ denotes crystal momentum as usual, the sum is over all vectors of the Bravais lattice $\bR$, and $H(\bR)$ is the real space Hamiltonian at the site $\bR$, commonly called a Fock matrix, and has matrix elements $H_{j \beta, i \alpha} (\bR) = \langle \phi_{\beta} (\br - \bt_j) | H | \phi_{\alpha} (\br - \bR - \bt_i) \rangle$\,.
 These matrix elements are called transfer integrals.
-If $\bR \neq \bzero$, then they are a measure for how likely it is for an electron to hop from one orbital to another one in a different unit cell, and are called hopping parameters in the jargon of the \gls{tb} approach.
+If $\bR \neq \bzero$\,, then they are a measure for how likely it is for an electron to hop from one orbital to another one in a different unit cell, and are called hopping parameters in the jargon of the \gls{tb} approach.
 The matrix $H(\bk)$ presented just now is the so-called Bloch Hamiltonian.
 Its eigenvalues form the band structure $\{\epsilon_{n \bk}\}$, and its eigenvectors are the arrays (or vectors) $\bC^{n \bk}$, whose elements are usually called tight-binding coefficients.
 
@@ -529,7 +529,7 @@ It can be rewritten in a more comprehensive form
 \noindent Performing the change of basis
 
 \begin{equation}
-    a_i^{\dagger} = \frac{1}{\sqrt{N}} \sum_{\bk} \ei{\bk \vdot \br_i} a_{\bk}^{\dagger}\,, \qq{analogously for} b_j^{\dagger},
+    a_i^{\dagger} = \frac{1}{\sqrt{N}} \sum_{\bk} \ei{\bk \vdot \br_i} a_{\bk}^{\dagger}\,, \qq{analogously for} b_j^{\dagger}\,,
     \label{eq:second_quantization_change_of_basis}
 \end{equation}
 
@@ -1228,7 +1228,7 @@ In this way, the Dyson equation for the screened Coulomb interaction $W$ has to 
             % bare potential
             \draw[line width=0.4mm] (1)  decorate [decoration={snake}] {(1) -- (b)} (b);
         \end{scope}
-    \end{tikzpicture}
+    \end{tikzpicture}\,,
 \end{equation}
 
 \noindent where we assume that the screened potential lines represent a screened potential within \rpa, and introduced the bubble diagram for the \rpa~polarizability $\chi^{\RPA}$.
@@ -1404,7 +1404,7 @@ We have then found an expression for the microscopic dielectric function that, a
 
 \noindent Finally, to find the final expression for the microscopic dielectric function we will work with later on, we use the \rpa~irreducible polarizability, which reads $\chi^{\irr} \approx \chi^{\irr,\RPA} = \chi^0$, where $\chi^0$ is the noninteracting polarizability, that we shall discuss with detail in the next subsection.
 Within \rpa, the irreducible polarizability written in the Hedin's equation~\eqref{eq:polarizability_vertex} reduces to $\chi^{\irr,\RPA} (1,2) = \chi^0 (1,2) = - \ii \int \dd{3} \mathcal{G}_0(1,3) \mathcal{G}_0(3,2)$, whose diagram we have found before in Eq.~\eqref{eq:Dyson_equation_W_Feynman_RPA}.
-Henceforth, if we recover the explicit spacetime-dependence, we can write
+Henceforth, if we recover the explicit $(\br,t)$-dependence, we can write
 
 \begin{empheq}[innerbox=\fbox, right={\,.}]{align}
     \label{eq:dielectric_function_space_time}
@@ -1512,10 +1512,10 @@ The microscopic dielectric function has \textit{discrete} translation symmetry, 
     \varepsilon (\br,\br';\omega) = \varepsilon (\br + \bR,\br' + \bR;\omega)
 \end{equation}
 
-\noindent is true for any lattice vector $\bR$, in a perfect crystal where discrete translation symmetry is preserved due to the absence of defects or boundaries.
+\noindent is true for any lattice vector $\bR$\,, in a perfect crystal where discrete translation symmetry is preserved due to the absence of defects or boundaries.
 The same can be said about the polarizability $\chi^0$.
 This contrasts with the case of the previous chapter, where translation invariance was \textit{continuous}\footnote{We italicize the words continuous and discrete to stress that the distinction is important to make}.
-We are still allowed to Fourier transform in space, but we need to keep track of two momenta, say $\bk$ and $\bk'$, instead of a single one, so that the polarizability is a two-point function in momentum when Fourier transformed from real to reciprocal space, $\mathcal{F}\{\chi^0(\br,\br')\} (\bk,\bk') \equiv \chi^0(\bk,\bk')$, if for moments we ommit the $\omega$-dependence.
+We are still allowed to Fourier transform in space, but we need to keep track of two momenta, say $\bk$ and $\bk'$, instead of a single one, so that the polarizability is a two-point function in momentum when Fourier transformed from real to reciprocal space, $\mathcal{F}\{\chi^0(\br,\br')\} (\bk,\bk') \equiv \chi^0(\bk,\bk')$, if for moments we omit the $\omega$-dependence.
 Luckily, as the polarizability still has discrete translation symmetry, one can show that $\chi^0(\bk,\bk')$ is non-zero only if $\bk' = \bk + \mathbf{g}$, where $\mathbf{g}$ is a reciprocal lattice vector.
 Furthermore, we can write any momentum $\bk$ in terms of a vector $\bq$ in the first \gls{bz} plus a vector of the reciprocal lattice $\bG$, $\bk = \bq + \bG$.
 The same can be said for the other momentum $\bk' = \bq + \bG'$, with $\bG' = \bG + \mathbf{g}$ just being another vector of the reciprocal lattice.
@@ -1533,10 +1533,10 @@ The expression for the matrix elements $\chi^0_{\bG \bG'}(\bq)$ can be obtained 
 
 % \noindent Its translation invariance can be proof checked by the identity $\psi_{n, \bk}(\br + \bR) = \ee^{\ii \bk \vdot \bR} \psi_{n, \bk}(\br)$, coming from the second statement~\ref{Bloch_theorem_II} of Bloch theorem.
 % The expression for the matrix elements $\chi^0_{\bG \bG'}(\bq)$ can be obtained by direct Fourier transform of the previous expression to obtain
-
+\vspace{-0.3cm}
 \begin{equation}
     \label{eq:polarizability_momentum_frequency}
-    \chi^0_{\bG \bG'} (\bq,\omega) = \frac{1}{\vol} \sum_{n,n'} \sum_{\bk \sigma} (f_{n,\bk} - f_{n',\bk + \bq}) \frac{\mel{n,\bk}{\ee^{-\ii(\bq + \bG) \vdot \br}}{n',\bk + \bq} \mel{n',\bk + \bq}{\ee^{\ii(\bq + \bG') \vdot \br}}{n,\bk}}{\epsilon_{n,\bk} - \epsilon_{n',\bk + \bq} + \hw + \ii \eta}\,,
+    \chi^0_{\bG \bG'} (\bq,\omega) = \frac{1}{\vol} \sum_{n,n'} \sum_{\bk \sigma} (f_{n,\bk} - f_{n',\bk + \bq}) \frac{\mel{n,\bk}{\ee^{-\ii(\bq + \bG) \vdot \br}}{n',\bk + \bq} \! \! \mel{n',\bk + \bq}{\ee^{\ii(\bq + \bG') \vdot \br}}{n,\bk}}{\epsilon_{n \bk} - \epsilon_{n'\bk + \bq} + \hw + \ii \eta}\,,
 \end{equation}
 
 \noindent where $\vol$ is the volume of the crystal, $n$ and $n'$ are band indices, $\bG$ and $\bG'$ are reciprocal lattice vectors, $\sigma$ represents spin and the sum over momentum $\bk$ is over the \bz.
@@ -1546,7 +1546,7 @@ The expression for the matrix elements $\chi^0_{\bG \bG'}(\bq)$ can be obtained 
 Usually introduced in the context of thermodynamics~\cite{Blundell_Blundell_2009} and statistical physics~\cite{Huang}, the chemical potential of a system, usually denoted by $\mu$, can be defined in terms of the thermodynamical potential (or other potentials as well) $F=U-TS$, called the Helmholtz free energy, where $U$ is the internal energy of the system, $T$ its (absolute) temperature, and $S$ its entropy.
 If the system is in thermal equilibrium and in contact with a reservoir (at the temperature $T$), with which it can exchange heat and particles, then the chemical potential can be defined as $\mu = F_{\mathcal{N} + 1} - F_{\mathcal{N}}$, where $\mathcal{N}$ is the number of particles in the system.
 In words, $\mu$ is a measure of the energy cost to add or remove a particle from the system.
-Only in the thermodynamic limit where $\mathcal{N} \to \infty$, can we define the chemical potential in an equivalent way by the derivative $\partial F/\partial \mathcal{N}$~\cite{Blundell_Blundell_2009}.
+Only in the thermodynamic limit where $\mathcal{N} \to \infty$\,, can we define the chemical potential in an equivalent way by the derivative $\partial F/\partial \mathcal{N}$~\cite{Blundell_Blundell_2009}.
 Otherwise, if the system is composed of few particles, then we are not allowed to take the derivative with respect to $\mathcal{N}$, henceforth the first definition applies.
 
 In Fig.~\ref{fig:Fermi_Dirac_distribution} below, we plot the Fermi--Dirac distribution for three different temperatures.
@@ -1556,7 +1556,7 @@ Due to the Fermi--Dirac statistics and the Pauli exclusion principle~\cite{Griff
 That explains how we have $f(\epsilon) \leq 1$ for any energy, chemical potential or temperature.
 If the fermions have a nonzero temperature, then they are thermally excited, meaning that states with energy $\epsilon > \mu$ start to have a nonzero occupation.
 As the temperature increases, from the continuous blue curve to the dashed blue one in the figure, then more fermions from lower energy levels are excited to even higher energy levels.
-In the limit $T \to \infty$, $f(\epsilon) \to 1/2$, because the thermal energy is so high that all fermions get uniformly distributed among all energy states, and the Fermi--Dirac distribution is a straight line at $f(\epsilon) = 1/2$.
+In the limit $T \to \infty$\,, $f(\epsilon) \to 1/2$\,, because the thermal energy is so high that all fermions get uniformly distributed among all energy states, and the Fermi--Dirac distribution is a straight line at $f(\epsilon) = 1/2$\,.
 
 \begin{minipage}{\linewidth}
     \centering

@@ -1085,7 +1085,7 @@
             \pdfbookmark{\listtablename}{lottarget}%
             \hypertarget{lottarget}{\listoftables*}}}}
     {listofpublications*}{\options{/@nt/list/listof/.newpush={%
-            \pdfbookmark{List of Publications}{lotparget}%
+            %\pdfbookmark{List of Publications}{lotparget}%
             \hypertarget{lotparget}{\listofpublications*}}}}%
     {listoflistings}{\options{/@nt/list/listof/.newpush={%
             \pdfbookmark{\listoflistingscaption}{loltarget}%
@@ -2563,7 +2563,7 @@
 \newcommand{\listofpublications}{
     \phantomsection
     \addcontentsline{toc}{chapter}{List of Publications}
-    \chapter*{List of Publications}%
+    %\chapter*{List of Publications}%
     \input{Chapters/publications}
 }
 

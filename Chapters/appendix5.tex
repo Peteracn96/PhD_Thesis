@@ -18,7 +18,7 @@ In this appendix, we extend the formalism of the dielectric function in the mixe
 As we need the expressions for the quasi-2D polarizability and the quasi-2D dielectric function, we recall their expressions that read
 
 \begin{align}
-    \chi^{0}_{\bG \bG'}(\bq,z,z') =  &\frac{1}{\area}\sum_{\vv \cc,\bk \sigma} \frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })}\Bigg\{ \label{eq:mixed_polarizability_appendix}\\
+    &\chi^{0}_{\bG \bG'}(\bq,z,z') =  \frac{1}{\area}\sum_{\vv \cc,\bk \sigma} \frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })}\Bigg\{ \label{eq:mixed_polarizability_appendix}\\
     &\sum_{i\alpha}\Big[C_{i\alpha}^{\cc\bk+\bq }\left(C_{i\alpha}^{\vv\bk}\right)^{*} \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \delta(z - t_{i,z}) \Big] \sum_{j\beta}\Big[C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z}) \Big] + \notag\\
     &\sum_{i\alpha}\Big[\left(C_{i\alpha}^{\cc\bk+\bq }\right)^{*}C_{i\alpha}^{\vv\bk}\, \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \delta(z - t_{i,z}) \Big] \sum_{j\beta} \Big[\left(C_{j\beta}^{\vv\bk}\right)^{*}C_{j\beta}^{\cc\bk+\bq }\, \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z})\Big]\Bigg\}\,, \notag
 \end{align}
@@ -27,7 +27,7 @@ As we need the expressions for the quasi-2D polarizability and the quasi-2D diel
 
 \begin{align}
     \label{eq:quasi_2D_dielectric_function_final}
-    \varepsilon_{\bG \bG'}(\bq,z,z') = & \,\delta_{\bG \bG'} \delta( z-z')-\frac{e}{2\epsz |\bq +\bG|\area}\sum_{\vv \cc, \bk \sigma}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })}\Bigg\{\\
+    & \varepsilon_{\bG \bG'}(\bq,z,z') = \,\delta_{\bG \bG'} \delta( z-z')-\frac{e}{2\epsz |\bq +\bG|\area}\sum_{\vv \cc, \bk \sigma}\frac{1}{( \epsilon_{\vv\bk}-\epsilon_{\cc\bk+\bq })}\Bigg\{\\
     & \sum_{i\alpha} \Big[C_{i\alpha}^{\cc \bk+\bq} \left(C_{i\alpha}^{\vv\bk}\right)^{*} \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \ee^{-|\bq +\bG||z-t_{i,z}|}\Big] \sum_{j\beta}\Big[C_{j\beta}^{\vv\bk}\left(C_{j\beta}^{\cc\bk+\bq }\right)^{*} \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z})\Big]+  \notag\\
     & \sum_{i\alpha} \Big[\left(C_{i\alpha}^{\cc\bk+\bq }\right)^{*}C_{i\alpha}^{\vv\bk} \ee^{-\ii (\bq +\bG) \vdot\bt_{i}} \ee^{-|\bq +\bG||z-t_{i,z}|}\Big] \sum_{j\beta}\Big[\left(C_{j\beta}^{\vv\bk}\right)^{*}C_{j\beta}^{\cc\bk+\bq } \ee^{\ii (\bq +\bG') \vdot \bt_{j}} \delta(z' - t_{j,z})\Big]\Bigg\} \,, \notag
 \end{align}
