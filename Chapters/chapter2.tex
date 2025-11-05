@@ -69,7 +69,7 @@ These two fields are the fundamental physical quantities in electromagnetism wit
 %We will interchangeably use the term magnetic field for both $\bB$ and $\bH$, as in this work the relation between these two vectors is established by a simple proportionality factor.
 The fields $\bD$ and $\bH$ are introduced to make implicit in Maxwell's equations the properties of the matter the \gls{em} field penetrates in.
 Nonetheless, they are strictly related to the electric and magnetic fields, as we will see.
-The last two quantities to define are the free charge (volume) density $\rho_\f$ and the free current (surface) density $\bJ_\f$, that together with the bound charge density and the bound current density form the total charge and current densities inside the material, respectively.
+The last two quantities to define are the free charge (volume) density $\rho_\f$ and the free current (surface) density $\bJ_\f$\,, that together with the bound charge density and the bound current density form the total charge and current densities inside the material, respectively.
 The free charge and current densities are not independent, as they are related through the continuity equation
 
 \begin{equation}
@@ -168,7 +168,7 @@ Then, for the electric displacement field within linear response approximation a
     \bD = \epsz \bE + \bP = \epsz \qty(\mathds{1} + \rttensor{\chi}_{e}) \bE \equiv \epsz \rttensor{\vareps} \bE\,,
 \end{equation}
 
-\noindent where we defined the relative permittivity tensor $\rttensor{\vareps} = \mathds{1} + \rttensor{\chi}_{e}$.
+\noindent where we defined the relative permittivity tensor $\rttensor{\vareps} = \mathds{1} + \rttensor{\chi}_{e}$\,.
 The proportionality constant $\rttensor{\vareps}$ is a characteristic quantity of the material, and it is in general a tensorial response function.
 This means that the field at the point $\br$ and at the time $t$  depends on all the other points $\br'$ in space and all the other previous instants of time $t'<t$.
 %This means that the field at the point $\br$ depends on all the other points $\br'$ in space, and at the time $t$ depends on all the other times $t'$.
@@ -202,7 +202,7 @@ One can show that if this is true, then we can Fourier transform the permittivit
 
 \noindent which simplifies immensely the relation between the displacement field and the electric field.
 
-The dielectric function, a central quantity in this text, in reciprocal space $\vareps\qty(\bk,\omega)$ is in general complex valued and a very complicated function of $\bk$ and $\omega$, and determining the full dependence on both momentum and frequency is a herculean task.
+The dielectric function, a central quantity in this text, in reciprocal space $\vareps\qty(\bk,\omega)$ is in general complex valued and a very complicated function of $\bk$ and $\omega$\,, and determining the full dependence on both momentum and frequency is a herculean task.
 With the tools provided by classical electrodynamics, one can only hope to work with ad-hoc models for the dielectric function, usually using material parameters obtained experimentally.
 We provide a few case examples of models commonly found in the literature in the next sections.
 
@@ -237,7 +237,7 @@ Let us then rewrite Maxwell's equations~\eqref{eq:Maxwells_equations} in recipro
 \end{align*}
 
 
-\noindent where through the last equality we defined the equivalent permittivity\footnote{The function $\vareps (\bk,\omega)$ on the right-hand side~has quite often in the literature a subscript writing $\vareps_\infty(\bk,\omega)$, standing for the contribution coming from the ionic background together with bound polarization charges. In this work we consider typically $\vareps_\infty(\bk,\omega) = 1$.}
+\noindent where through the last equality we defined the equivalent permittivity\footnote{The function $\vareps (\bk,\omega)$ on the right-hand side~has quite often in the literature a subscript writing $\vareps_\infty(\bk,\omega)$\,, standing for the contribution coming from the ionic background together with bound polarization charges. In this work we consider typically $\vareps_\infty(\bk,\omega) = 1$\,.}
 
 \begin{equation}
 \label{eq:equivalent_permittivity}
@@ -245,7 +245,7 @@ Let us then rewrite Maxwell's equations~\eqref{eq:Maxwells_equations} in recipro
 \end{equation}
 
 
-\noindent This suggests redefining the total electric displacement field as $\bD \to \bD_\tot  = \bD +~\ii \omega^{-1} \bJ_\ind$.
+\noindent This suggests redefining the total electric displacement field as $\bD \to \bD_\tot  = \bD +~\ii \omega^{-1} \bJ_\ind$\,.
 In this way, equation~\eqref{subeq:Gauss_law_reciprocal} can be rewritten in terms of only the external charge density, $ \ii \bk \vdot \bD_\tot(\bk,\omega) = \rho_\ext(\bk,\omega)$\,.
 
 With only the external charge and current densities appearing explicitly in Maxwell's equations and a total displacement field incorporating the induced current, we can define a total electric field as $\bE_\tot = \bD_\tot/\epsz$ and interpret the dielectric function as the ratio between the external field and the total one: $\vareps(\bk,\omega) = |\bE_\ext(\bk,\omega)|/|\bE_\tot(\bk,\omega)|$.
@@ -255,7 +255,7 @@ In bulk materials, it is typically sufficient to speak of the relative permittiv
 Unfortunately (or the opposite), it is in general a very complicated function of space and time, although working in reciprocal space seems to ease things.
 This is a striking feature of \bd~materials, where the dependence on $\bk$ and $\omega$ cannot be ignored, even encoding rich physics such as spatial dispersion~\cite{Kinsler_2021} (nontrivial $\bk$-dependence), temporal dispersion~\cite{Koutserimpas_2024} (nontrivial $\omega$-dependence), screening in crystalline solids~\cite{Nozieres_Pines_1958} (the main subject of Chapter~\ref{ch:screening}) and their nontrivial absorption spectra~\cite{Cardona_1987,Palik_1991,Logothetidis_Petalas_1996,Wang_Berkelbach_2021}, plasmons in metals and \bd~materials such as graphene~\cite{GoncalvesPeres:2016,Novoselov_Geim_2004}, the effect called Landau damping in the context of kinetic theory in plasma physics~\cite{Chen_Plasma_Physics}, among others.
 
-To familiarize a reader that has not extensive experience on the dielectric function, we provide in the next subsections two key examples of models for the dielectric function, one in the static limit $\omega \to 0$, and the other one in the local limit $\bk \to \bzero$\,.
+To familiarize a reader that has not extensive experience on the dielectric function, we provide in the next subsections two key examples of models for the dielectric function, one in the static limit $\omega \to 0$\,, and the other one in the local limit $\bk \to \bzero$\,.
 Isolating these two limits and considering the dependence on $\bk$ and $\omega$ separately is enough to realize how intricate this object can be.
 
 \subsubsection{Static limit in a 2D material}
@@ -263,7 +263,7 @@ Isolating these two limits and considering the dependence on $\bk$ and $\omega$ 
 
 In this section we take a \bd~material as an example, as this thesis is concerned only with such materials, and we keep our focus for now on the static and long-wavelength limits of the dielectric function.
 The main goal is to derive a minimal model that somehow captures the effect of electrostatic screening felt by test point-like charges inside the material.
-We want then to find a function $\vareps(\bk)$ for which the total electrostatic potential between two test charges is $\phi(\bk) = v_c(\bk)/\vareps(\bk)$, where $v_c(\bk)$ is the Coulomb potential in reciprocal space that the two charges would feel remaining static in vacuum.
+We want then to find a function $\vareps(\bk)$ for which the total electrostatic potential between two test charges is $\phi(\bk) = v_c(\bk)/\vareps(\bk)$\,, where $v_c(\bk)$ is the Coulomb potential in reciprocal space that the two charges would feel remaining static in vacuum.
 We say that $\phi$ is the screened Coulomb potential and $v_c$ is the bare Coulomb potential.
 We will present a derivation adapted from a work by P.~Cudazzo et al.~\cite{Cudazzo_2011}.
 
@@ -283,24 +283,24 @@ To find the screened potential felt by a test charge $e$ in the material, we can
 \end{equation}
 
 \noindent where we dropped the subscript \enquote{$\tot$} for the displacement field, and the external charge density is that of a single point-like elementary charge, that without loss of generality can be placed at the origin.
-Since the charge has no dimensions, we can simply write~$\rho_\ext (\br)=~e\delta (\br)$, and for the displacement field we write $\boldsymbol{D} (\br)=\epsz\boldsymbol{E} (\br)+\boldsymbol{P}^\BD (\br)$, where $\boldsymbol{P}^\BD$ is a \bd~polarization vector.
-Assuming that the electric susceptibility is local (i.e., $\chi_{e}(\br,\br') \propto \delta(\br - \br')$) and the \bd~material is isotropic, the polarizability reads $\boldsymbol{P}^\BD (\br)=\epsz\chi_{e}^\BD\boldsymbol{E_{||}} (\br)|_{z=0}$,
-that is, the polarization is proportional to the in-plane component of the total electric field computed along the plane of the material with Cartesian equation $z=0$, and $\chi_{e}^\BD$ is a \bd~susceptibility.
+Since the charge has no dimensions, we can simply write~$\rho_\ext (\br)=~e\delta (\br)$\,, and for the displacement field we write $\boldsymbol{D} (\br)=\epsz\boldsymbol{E} (\br)+\boldsymbol{P}^\BD (\br)$\,, where $\boldsymbol{P}^\BD$ is a \bd~polarization vector.
+Assuming that the electric susceptibility is local (i.e., $\chi_{e}(\br,\br') \propto \delta(\br - \br')$) and the \bd~material is isotropic, the polarizability reads $\boldsymbol{P}^\BD (\br)=\epsz\chi_{e}^\BD\boldsymbol{E_{||}} (\br)|_{z=0}$\,,
+that is, the polarization is proportional to the in-plane component of the total electric field computed along the plane of the material with Cartesian equation $z=0$\,, and $\chi_{e}^\BD$ is a \bd~susceptibility.
 Substituting the electric field by the negative gradient of the potential in Gauss' law and the charge density by its Dirac delta like expression, we obtain the following Poisson equation
 
 \begin{equation}
     \grad\vdot\left[\grad\phi (\br)+\chi_{e}^\BD\grad_{||}\phi(\br_{||},z=0)\right]=-\frac{e}{\epsz}\delta (\br)\,,
 \end{equation}
 
-\noindent where the in-plane electric field contributing to the polarizability is given in terms of an in-plane gradient operation, $\grad_{||}$, acting on the electrostatic potential computed at $z=0$ and at any position vector $\br_{||}$ on the plane.
-Within the approximation of zero thickness, we can work with an effective \bd~electrostatic potential in momentum space $\phi^\BD(\bq)$, defined by the total electrostatic potential computed at the plane of the material, that is, $\phi^\BD(\bq)\equiv\phi(\bq,z=0)$.
+\noindent where the in-plane electric field contributing to the polarizability is given in terms of an in-plane gradient operation, $\grad_{||}$\,, acting on the electrostatic potential computed at $z=0$ and at any position vector $\br_{||}$ on the plane.
+Within the approximation of zero thickness, we can work with an effective \bd~electrostatic potential in momentum space $\phi^\BD(\bq)$\,, defined by the total electrostatic potential computed at the plane of the material, that is, $\phi^\BD(\bq)\equiv\phi(\bq,z=0)$\,.
 To find an expression for such a potential, one Fourier transforms the previous equation, keeping the variables for in-plane and off-plane momentum, $q$ and $\kappa$ respectively, separate as:
 
 \begin{equation}
     \left(q^2+\kappa^2\right)\phi(\bq,\kappa)+\chi_{e}^\BD q^2\phi^\BD(\bq)=\frac{e}{\epsz}\,.
 \end{equation}
 
-\noindent Upon solving the equation above for $\phi(\bq,\kappa)$, doing the inverse Fourier transform in the $\kappa$ variable back to the variable $z$ and setting $z=0$, we find an equation for the quantity $\phi^\BD(\bq)$, that after being isolated reads
+\noindent Upon solving the equation above for $\phi(\bq,\kappa)$\,, doing the inverse Fourier transform in the $\kappa$ variable back to the variable $z$ and setting $z=0$\,, we find an equation for the quantity $\phi^\BD(\bq)$\,, that after being isolated reads
 
 \begin{equation}
 \label{eq:RK_potential_momentum}
@@ -314,9 +314,9 @@ This formula contains the expression for the \bd~Fourier transform of the bare C
     v_{c}(q)=\frac{e}{2\epsz q}\,,
 \end{equation}
 
-\noindent but corrected with a factor of $1+r_0 q$.
-We can then define an effective momentum-resolved dielectric function, $\varepsilon_\RK\left(q\right) \equiv v_{c}(q)/\phi^\BD\!(\bq) = 1+r_0 q$, called Rytova--Keldysh dielectric function~\cite{Rytova_1967}, which accounts for screening in \bd~materials.
-Having previously assumed that the material is isotropic, then it depends only on the magnitude of the in-plane momentum $q = |\bq|$.
+\noindent but corrected with a factor of $1+r_0 q$\,.
+We can then define an effective momentum-resolved dielectric function, $\varepsilon_\RK\left(q\right) \equiv v_{c}(q)/\phi^\BD\!(\bq) = 1+r_0 q$\,, called Rytova--Keldysh dielectric function~\cite{Rytova_1967}, which accounts for screening in \bd~materials.
+Having previously assumed that the material is isotropic, then it depends only on the magnitude of the in-plane momentum $q = |\bq|$\,.
 It actually coincides with the static macroscopic dielectric function in \bd~materials in the high-wavelength (small $q$) limit.
 It carries the usual interpretation of being the ratio between the external potential $\phi^\ext (\br)=\phi_0^\ext(\bq) \ei{\bq \vdot \br}$ and the total (or screened) potential $\phi^\tot (\br)=\phi_0^\tot\text{\ensuremath{(\bq)}}\ei{\bq \vdot \br}$, which has a contribution from the external potential and another one from the potential induced by the external perturbation.
 We actually introduced this interpretation in Section~\ref{subsec:constitutive_relations_linear_response} in terms of fields instead of potentials, but the idea is the same.
