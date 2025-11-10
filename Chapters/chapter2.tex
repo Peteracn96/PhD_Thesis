@@ -326,7 +326,7 @@ To find the real space resolved Rytova--Keldysh potential, we do the \bd~inverse
 
 \begin{equation}
 \label{eq:Rytova--Keldysh_potential_real_space}
-    V_\RK (r)=\frac{e}{4\pi\epsz}\frac{\pi}{2r_0}\left[\Hz\!\left(\frac{r}{r_0}\right)-Y_0\!\left(\frac{r}{r_0}\right)\right],
+    V_\RK (r)=\frac{e}{4\pi\epsz}\frac{\pi}{2r_0}\!\left[\Hz\!\left(\frac{r}{r_0}\right)-Y_0\!\left(\frac{r}{r_0}\right)\right],
 \end{equation}
 
 \noindent where $r$ is a purely in-plane distance, $\Hz$ is the Struve special function of order zero~\cite{abramowitz_stegun}, and $Y_0$ is the Bessel special function of the second kind of order zero.
@@ -385,7 +385,7 @@ It is called the (AC) Drude model~\cite{Drude_1900}, often introduced in the for
     \sigma(\omega) = \frac{\wp^2 \epsz}{\gamma - \ii \omega}\,,
 \end{equation}
 
-\noindent where $\wp$ is the plasma frequency\footnote{The definition of plasma frequency is $\wp = \sqrt{e^2 n_{e}/\epsz m}$, where $n_{e}$ is the volume density of electrons in the material or plasma, and $m$ is the mass of the free electrons.}, a parameter related to the natural frequency of free electron oscillations in a plasma, and $\gamma$ is a relaxation or scattering rate, with $\tau = 1/\gamma$ giving the timescale of consecutive collisions between the electrons and the ions in the lattice, being of the order of $10^{-14}$~\unit{\second} in typical metals.
+\noindent where $\wp$ is the plasma frequency\footnote{The definition of plasma frequency is $\wp = \sqrt{e^2 n_{e}/\epsz m}$\,, where $n_{e}$ is the volume density of electrons in the material or plasma, and $m$ is the mass of the free electrons.}, a parameter related to the natural frequency of free electron oscillations in a plasma, and $\gamma$ is a relaxation or scattering rate, with $\tau = 1/\gamma$ giving the timescale of consecutive collisions between the electrons and the ions in the lattice, being of the order of $10^{-14}$~\unit{\second} in typical metals.
 Together with the interrelation between the conductivity and the permittivity~\eqref{eq:equivalent_permittivity}, we can write the equivalent Drude dielectric function as
 
 \begin{equation}
@@ -444,7 +444,7 @@ Before doing so, we will warm up by deriving the wave equation for the \gls{em} 
 \subsection{Electromagnetic wave propagation in matter}
 \label{subsec:waves_in_matter}
 
-It is well known that light propagates in vacuum at a very specific speed $c=1/\sqrt{\epsz \mu_0}$, like a wave, where the electric field and the magnetic field oscillate in phase at a given frequency, $\omega$, and with a given wavevector $\bk$ giving the direction of propagation.
+It is well known that light propagates in vacuum at a very specific speed $c=1/\sqrt{\epsz \mu_0}$\,, like a wave, where the electric field and the magnetic field oscillate in phase at a given frequency, $\omega$, and with a given wavevector $\bk$ giving the direction of propagation.
 The electric field $\bE$, the magnetic field $\bB$ and the wavevector $\bk$ form a direct trihedron, that is, they verify orthogonality conditions akin to the three Cartesian axes.
 These transverse oscillations can be predicted by Maxwell's equations~\eqref{eq:Maxwells_equations} upon taking the cross product between $\bk$ and Faraday's law~\eqref{subeq:Faradays_law_reciprocal} from the left, and doing the same to Amp\`ere--Maxwell's law~\eqref{subeq:Amperes_law_reciprocal} to write
 
