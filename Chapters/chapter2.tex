@@ -194,7 +194,7 @@ This property is extremely useful, as per the convolution theorem, we can perfor
 \end{equation}
 
 \noindent If we now further assume that the material is homogeneous, which is a reasonable approximation at the macroscopic scale, then the system enjoys \textit{continuous} spatial translational invariance, and the permittivity becomes a function solely of the difference $\br-\br'$.
-One can show that if this is true, then we can Fourier transform the permittivity from real to reciprocal space keeping only one wavevector (or momentum, in the language of solid state physics) variable $\bk$, and through direct application of the convolution theorem once more, we can write
+One can show that if this is true, then we can Fourier transform the permittivity from real to reciprocal space keeping only one wavevector (or momentum, in the language of solid state physics) variable $\bk$\,, and through direct application of the convolution theorem once more, we can write
 
 \begin{equation}
     \bD\qty(\bk,\omega) = \epsz \vareps\qty(\bk, \omega) \bE\qty(\bk,\omega)\,,
@@ -202,7 +202,7 @@ One can show that if this is true, then we can Fourier transform the permittivit
 
 \noindent which simplifies immensely the relation between the displacement field and the electric field.
 
-The dielectric function, a central quantity in this text, in reciprocal space $\vareps\qty(\bk,\omega)$ is in general complex valued and a very complicated function of $\bk$ and $\omega$\,, and determining the full dependence on both momentum and frequency is a herculean task.
+The dielectric function, a central quantity in this text, in reciprocal space $\vareps\qty(\bk,\omega)$ is in general complex valued and a very complicated function of $\bk$ and $\omega$, and determining the full dependence on both momentum and frequency is a herculean task.
 With the tools provided by classical electrodynamics, one can only hope to work with ad-hoc models for the dielectric function, usually using material parameters obtained experimentally.
 We provide a few case examples of models commonly found in the literature in the next sections.
 
@@ -227,7 +227,7 @@ Let us then rewrite Maxwell's equations~\eqref{eq:Maxwells_equations} in recipro
     \end{align}
 \end{subequations}
 
-\noindent and focus on Amp\`ere--Maxwell's law alongside Ohm's law written in its Fourier transformed version as $\bJ_\ind(\bk,\omega) = \sigma(\bk,\omega) \bE(\bk,\omega)$, we can rewrite the last equation as
+\noindent and focus on Amp\`ere--Maxwell's law alongside Ohm's law written in its Fourier transformed version as $\bJ_\ind(\bk,\omega) = \sigma(\bk,\omega) \bE(\bk,\omega)$\,, we can rewrite the last equation as
 
 \begin{align*}
     \label{subeq:Amperes_law_reciprocal_equivalent}
@@ -248,7 +248,7 @@ Let us then rewrite Maxwell's equations~\eqref{eq:Maxwells_equations} in recipro
 \noindent This suggests redefining the total electric displacement field as $\bD \to \bD_\tot  = \bD +~\ii \omega^{-1} \bJ_\ind$\,.
 In this way, equation~\eqref{subeq:Gauss_law_reciprocal} can be rewritten in terms of only the external charge density, $ \ii \bk \vdot \bD_\tot(\bk,\omega) = \rho_\ext(\bk,\omega)$\,.
 
-With only the external charge and current densities appearing explicitly in Maxwell's equations and a total displacement field incorporating the induced current, we can define a total electric field as $\bE_\tot = \bD_\tot/\epsz$ and interpret the dielectric function as the ratio between the external field and the total one: $\vareps(\bk,\omega) = |\bE_\ext(\bk,\omega)|/|\bE_\tot(\bk,\omega)|$.
+With only the external charge and current densities appearing explicitly in Maxwell's equations and a total displacement field incorporating the induced current, we can define a total electric field as $\bE_\tot = \bD_\tot/\epsz$ and interpret the dielectric function as the ratio between the external field and the total one: $\vareps(\bk,\omega) = |\bE_\ext(\bk,\omega)|/|\bE_\tot(\bk,\omega)|$\,.
 This interpretation is the cornerstone of the theory around the dielectric function.
 It is actually introduced like this in introductory electromagnetism courses, appearing usually as a single constant relative permittivity denoted by $\vareps_r$ in the denominator in Coulomb's law for the electrostatic force.
 In bulk materials, it is typically sufficient to speak of the relative permittivity as a constant of the material.
@@ -456,17 +456,17 @@ These transverse oscillations can be predicted by Maxwell's equations~\eqref{eq:
     \end{align}
 \end{subequations}
 
-\noindent By combining these two equations and using the vector identity of the double cross product $\mathbf{a} \times [\mathbf{b} \times \mathbf{c}] = (\mathbf{a} \vdot \mathbf{c}) \mathbf{b} - (\mathbf{a} \vdot \mathbf{b}) \mathbf{c}$, we arrive at
+\noindent By combining these two equations and using the vector identity of the double cross product $\mathbf{a} \times [\mathbf{b} \times \mathbf{c}] = (\mathbf{a} \vdot \mathbf{c}) \mathbf{b} - (\mathbf{a} \vdot \mathbf{b}) \mathbf{c}$\,, we arrive at
 
 \begin{equation}
     k^2 \bF(\bk,\omega) - \bk \big(\bk \vdot \bF(\bk,\omega)\big) = -\omega^2 \epsz \mu_0 \vareps_{\text{eq}}(\bk,\omega) \bF(\bk,\omega) \label{subeq:wave_equation_F}\,,\\
 \end{equation}
 
-\noindent for both fields $\bF = \bE, \bB$, and we used the definition for the equivalent permittivity~\eqref{eq:equivalent_permittivity}, while assuming that there are no external currents influencing the dynamics of the material ($\bJ_\ext = \bzero$).
+\noindent for both fields $\bF = \bE, \bB$\,, and we used the definition for the equivalent permittivity~\eqref{eq:equivalent_permittivity}, while assuming that there are no external currents influencing the dynamics of the material ($\bJ_\ext = \bzero$).
 Now, if we assume that the oscillation of the \gls{em} field is transversal, then $\bk \vdot \bE = \bk \vdot \bB = 0$, and the equations above simplify to
 
 \begin{equation}
-    \qty[k^2 - \vareps_{\text{eq}}(\bk,\omega) \frac{\omega^2}{c^2}] \bF (\bk,\omega) = \bzero\,,\, \bF \in \{\bE, \bB\}\,.
+    \qty[k^2 - \vareps_{\text{eq}}(\bk,\omega) \frac{\omega^2}{c^2}] \bF (\bk,\omega) = \bzero\,,\,\, \bF \in \{\bE, \bB\}\,.
 \end{equation}
 
 \noindent The reader might have recognized the previous equation as the wave equation but written in the $(\bk,\omega)$ domain.
@@ -480,14 +480,14 @@ Relationships of the previous kind, relating the frequency of the wave with the 
 In this case, the wave pertains to light, so it is an optical dispersion relation.
 We will face another type of dispersion relation in the next chapter, pertaining to propagating electrons in a crystal.
 We further note that the wavevector $\bk$, that can also be called the wavenumber, is in general complex, as well the permittivity $\vareps_{\text{eq}}(\bk,\omega)$\,.
-Writing the wavenumber in terms of its real and imaginary parts as $k = k' + \ii \kappa$, when looking at modes oscillating in space as $\exp (\ii k x)$, then we have $\exp (\ii k x) = \exp (\ii k' x) \exp (- \kappa x)$.
+Writing the wavenumber in terms of its real and imaginary parts as $k = k' + \ii \kappa$\,, when looking at modes oscillating in space as $\exp (\ii k x)$, then we have $\exp (\ii k x) = \exp (\ii k' x) \exp (- \kappa x)$.
 Therefore, the inverse of the imaginary part of the wavenumber $1/\kappa$ has the interpretation of a penetration length scale of the wave into the medium.
 The parameter $\kappa$ is then called the extinction coefficient, and $1/\kappa$ the skin depth\footnote{We discard off course the unphysical $\kappa<0$ solutions.}.
 
-By identifying the phase velocity of the wave as $v = \omega/k$, then we have a definition for the quantity $c/v = \sqrt{\vareps_{\text{eq}} (\bk,\omega)} \equiv n$, the refractive index of the medium.
+By identifying the phase velocity of the wave as $v = \omega/k$\,, then we have a definition for the quantity $c/v = \sqrt{\vareps_{\text{eq}} (\bk,\omega)} \equiv n$\,, the refractive index of the medium.
 It is in this context that we speak of dispersion, both spatial or temporal, coming from the dependence of the refractive index in $\bk$ or $\omega$, respectively.
 In dispersive media, if the wave is a superposition of harmonics, then it actually makes no sense of speaking in the velocity of the wave, as there are two distinct velocities.
-There is the phase velocity $v_p = \omega/k$ and the group velocity $v_g = \partial \omega/\partial k$\footnote{We could have been more rigorous, since these quantities are real, but the refractive index and the wavenumber are complex in general.}.
+There is the phase velocity $v_p = \omega/k$ and the group velocity $v_g = \partial \omega/\partial k$.\footnote{We could have been more rigorous, since these quantities are real, but the refractive index and the wavenumber are complex in general.}
 The phase velocity is the speed with which the phase of the wave-front propagates.
 The group velocity is the speed with which the wave envelope travels, and can be smaller or greater than the phase velocity, in a normal or anomalous dispersive medium, respectively.
 To summarize, we can say that in a material the dispersion of propagating \gls{em} waves can be in general different from that of free light in vacuum, $\omega = k c$.
@@ -495,7 +495,7 @@ To summarize, we can say that in a material the dispersion of propagating \gls{e
 Looking back at equation~\eqref{subeq:wave_equation_F}, and looking now for longitudinal oscillations with $\bk || \bE$ for which $\bk \vdot \bE \neq 0$, then we find instead
 
 \begin{equation}
-    \vareps_{\text{eq}}(\bk,\omega) \frac{\omega^2}{c^2} \bF(\bk,\omega) = \bzero\,, \bF \in \{\bE, \bB\}\,.
+    \vareps_{\text{eq}}(\bk,\omega) \frac{\omega^2}{c^2} \bF(\bk,\omega) = \bzero\,,\, \bF \in \{\bE, \bB\}\,.
 \end{equation}
 
 \noindent This last equation admits a non-trivial solution $\bF \neq 0$ only for\footnote{We remind the reader that we have been considering materials with no magnetic susceptibility, such that the relative permeability is identically one in the entire $(\bk,\omega)$ domain.}
@@ -506,14 +506,14 @@ Looking back at equation~\eqref{subeq:wave_equation_F}, and looking now for long
 \end{equation}
 
 \noindent We will immediately interpret the previous condition.
-Omitting the subscript \enquote{eq}, let us rewrite the constitutive relation for the electric displacement field $\bD = \epsz \bE + \bP = \epsz \vareps \bE = \bzero$, the last equality by virtue of~\eqref{eq:plasmon_condition}.
-This means for the electric field $\bE = -\bP/\epsz$, that is, the electric field in the material stems only from the polarization field---the only way for $\bE$ to admit oscillating modes when $\bD$ is zero, is by having $\vareps$ equal to zero too.
+Omitting the subscript \enquote{eq}, let us rewrite the constitutive relation for the electric displacement field $\bD = \epsz \bE + \bP = \epsz \vareps \bE = \bzero$\,, the last equality by virtue of~\eqref{eq:plasmon_condition}.
+This means for the electric field $\bE = -\bP/\epsz$\,, that is, the electric field in the material stems only from the polarization field---the only way for $\bE$ to admit oscillating modes when $\bD$ is zero, is by having $\vareps$ equal to zero too.
 These modes are freestanding and derive from the collective oscillation of free electrons in the material, typically a metal.
 They are called plasmonic modes, or plasmons, and were first introduced by David Pines and David Bohm in 1952~\cite{Pines_Bohm_1952} and underpin the entire field of plasmonics~\cite{Cosme_2025,GoncalvesPeres:2016,Andre_Goncalves_2020,maier_plasmonics_2007,Ellie_2024}.
 
 The relation~\eqref{eq:plasmon_condition} can be seen as the dispersion relation of the plasmon, that in general is implicitly defined and can only be solved numerically to get $\omega = \omega(\bk)$ explicitly.
 However, if the expression of the permittivity is simple enough, then we can find an analytical expression for the dispersion relation of transverse and longitudinal modes.
-In the example of a bulk, local and Drude metal without the background contribution, with $\vareps_\infty = 1$, the permittivity is given by $\vareps(\omega) = 1 -\wp^2/\omega^2$, so that light and plasmon modes have by dispersion relations $\omega^2 = \wp^2 + k^2 c^2$ and $\omega = \wp$, respectively.
+In the example of a bulk, local and Drude metal without the background contribution, with $\vareps_\infty = 1$\,, the permittivity is given by $\vareps(\omega) = 1 -\wp^2/\omega^2$, so that light and plasmon modes have by dispersion relations $\omega^2 = \wp^2 + k^2 c^2$ and $\omega = \wp$\,, respectively.
 
 The plasmon, being a dipolar excitation of the material, can couple to the transverse \gls{em} mode, for instance, along the interface separating a dielectric and a metal, to generate a polariton.
 Then we would be talking of the so-called \gls{spp}\@.
@@ -523,8 +523,8 @@ Then, the dispersion relation of the \gls{spp} can be obtained \textit{a posteri
 \subsection{Dispersion relation of polaritonic modes}
 \label{subsec:polaritonics_dispersion_relation}
 
-In this section we derive the dispersion relation of surface polaritons, in the case where we have a responsive \bd~material, separating two different media with permittivities $\vareps_1$ and $\vareps_2$, possibly frequency dependent.
-The situation is depicted in Figure~\ref{fig:cladded_monolayer}, where the substrate, in gray, is material 2, with permittivity $\vareps_2$, while the material on top is material 1, with permittivity $\vareps_1$.
+In this section we derive the dispersion relation of surface polaritons, in the case where we have a responsive \bd~material, separating two different media with permittivities $\vareps_1$ and $\vareps_2$\,, possibly frequency dependent.
+The situation is depicted in Figure~\ref{fig:cladded_monolayer}, where the substrate, in gray, is material 2, with permittivity $\vareps_2$\,, while the material on top is material 1, with permittivity $\vareps_1$.
 At the interface there is a \bd~material represented in light blue, with its own optical response that we quantify, by convenience, through its conductivity $\sigma(\omega)$, $\omega$ being the frequency of the polariton.
 The polariton propagates in the $x$ direction with wavevector $\bq = q \uvec{x}$ that is confined on the $xy$ plane, decaying exponentially in the $z$ direction away from it.
 
@@ -558,7 +558,7 @@ We can then write for the electric field the so-called Helmholtz equation
 \begin{equation}
 \begin{split}
 \lap \bE(\br,\omega) +  \frac{\omega^2 \vareps(\omega)}{c^2} \bE (\br,\omega) &= \bzero \Leftrightarrow \\
-\Leftrightarrow \qty(\lap +  k_0^2) \bE (\br,\omega) &= \bzero,
+\Leftrightarrow \qty(\lap +  k_0^2) \bE (\br,\omega) &= \bzero\,,
 \end{split}
 \end{equation}
 
@@ -646,13 +646,13 @@ For \gls{tm} modes, the equations in~\eqref{eq:Maxwells_equations_components} re
 \noindent From this set of equations, upon elimination of the electric field components, we obtain the equation
 
 \begin{equation}
-    \frac{\partial^2 H_y}{\partial z^2} + \left(\frac{\omega^2 \vareps}{c^2} - q^2\right) H_y = 0.
+    \frac{\partial^2 H_y}{\partial z^2} + \left(\frac{\omega^2 \vareps}{c^2} - q^2\right) H_y = 0\,.
 \end{equation}
 
 \noindent According to equation~\eqref{eq:oscillatory_electric_field}, assuming that (the spatial dependence of) the magnetic field is of the form
 
 \begin{equation}
-    H_y (x,z) = A \ei{q x} \ex{- \kappa |z|},
+    H_y (x,z) = A \ei{q x} \ex{- \kappa |z|}\,,
 \end{equation}
 
 \noindent we obtain for the extinction coefficient
@@ -666,9 +666,9 @@ From inspection of~\eqref{eq:TM_modes_E_and_H_field_equations}, the spatially de
 
 \begin{subequations}
     \begin{align}
-        H_{jy}(x,z)&=A_j \ei{q x} \ex{ (-1)^{j} \kappa_j z}, \\[1ex]
-        E_{jx}(x,z)&=- \ii (-1)^j A_j \frac{\kappa_j}{\varepsilon_j \varepsilon_0 \omega} \ei{q x} \ex{(-1)^{j} \kappa_j z}, \qq{and}\\[1ex]
-        E_{jz}(x,z)&=-A_j \frac{q}{\varepsilon_j \varepsilon_0 \omega} \ei{q x} \ex{(-1)^{j} \kappa_j z}.
+        H_{jy}(x,z)&=A_j \ei{q x} \ex{ (-1)^{j} \kappa_j z}\,, \\[1ex]
+        E_{jx}(x,z)&=- \ii (-1)^j A_j \frac{\kappa_j}{\varepsilon_j \varepsilon_0 \omega} \ei{q x} \ex{(-1)^{j} \kappa_j z}\,, \qq{and}\\[1ex]
+        E_{jz}(x,z)&=-A_j \frac{q}{\varepsilon_j \varepsilon_0 \omega} \ei{q x} \ex{(-1)^{j} \kappa_j z}\,.
     \end{align}
     \label{eq:TM_modes_fields_solution_again}
 \end{subequations}
@@ -725,7 +725,7 @@ An analogous procedure for \gls{te} modes would lead to
 \end{equation}
 
 \noindent the dispersion relation for \gls{te} modes.
-We can see that the system supports \gls{te} modes when $\Im \{\sigma_{yy}(\omega) \} < 0$,
+We can see that the system supports \gls{te} modes when $\Im \{\sigma_{yy}(\omega) \} < 0$\,,
 and if the real part of the conductivity is finite, then the dispersion relation holds on the complex plane, just like for \gls{tm} modes.
 Analytically, both dispersion relations~\eqref{eq:TM_polariton_dispersion_relation} and~\eqref{eq:TE_polariton_dispersion_relation} can only be written implicitly, so we have to solve them numerically to obtain the dispersion relations in its explicit form $\omega(q)$.
 
@@ -737,10 +737,10 @@ In that case, we finally arrive at the dispersion relation for \gls{spp}s
 \end{equation}
 
 \noindent With material 1 being a dielectric, and material 2 being a metal, \gls{spp}s can be supported for frequency windows where $\vareps_1$ and $\vareps_2$ have opposite signs~\cite{GoncalvesPeres:2016,maier_plasmonics_2007}.
-This can be achieved in common lossless Drude metals, pertaining to the $\gamma=0$ case in equation~\eqref{eq:Drude_dielectric_function} enabling $\vareps_2(\omega) < 0$, while for most insulators $\vareps_1$ can be taken as a positive constant for all frequencies.
+This can be achieved in common lossless Drude metals, pertaining to the $\gamma=0$ case in equation~\eqref{eq:Drude_dielectric_function} enabling $\vareps_2(\omega) < 0$\,, while for most insulators $\vareps_1$ can be taken as a positive constant for all frequencies.
 
 Figure~\ref{fig:SPP_dispersion_relation} shows the dispersive behavior of \gls{spp}s at a dielectric--metal interface, where the dielectric is air, and the metal is a local Drude metal whose permittivity is given by Eq.~\eqref{eq:Drude_dielectric_function}.
-In panel \pnl{a}, for the lossless case, one can notice the very distinct behavior of the \gls{spp} dispersion relation in the bottom branch in blue, and of the wave propagating inside the metal in the top branch from the linear dispersion curve $\omega(q) = qc/\sqrt{\vareps_1}$0,, which corresponds to light propagating in air.
+In panel \pnl{a}, for the lossless case, one can notice the very distinct behavior of the \gls{spp} dispersion relation in the bottom branch in blue, and of the wave propagating inside the metal in the top branch from the linear dispersion curve $\omega(q) = qc/\sqrt{\vareps_1}$\,, which corresponds to light propagating in air.
 We can notice a region of forbidden frequencies opening a gap between the two branches.
 In the top branch in red, the low-frequency behavior of the \gls{spp} is light-like, which contrasts with the high-frequency behavior where the polariton can achieve very high wavenumbers, meaning we can realize really high \gls{em} field confinement in this arrangement.
 
@@ -748,10 +748,10 @@ In the top branch in red, the low-frequency behavior of the \gls{spp} is light-l
 \begin{figure}[bh!]
 \centering
 \includegraphics[width=0.9\textwidth]{Chapters/Figures/Chapter_2/SPP_dispersion_relation}
-\mycaption[Dispersion relation of surface plasmon--polaritons at a dielectric--metal interface]{Dispersion relation $\omega(q)$ of \gls{spp}s at a dielectric--metal interface for a Drude metal with $\vareps_\infty = 1$ in Eq.~\eqref{eq:Drude_dielectric_function}, and a dielectric with $\vareps_1 = 1$.
+\mycaption[Dispersion relation of surface plasmon--polaritons at a dielectric--metal interface]{Dispersion relation $\omega(q)$ of \gls{spp}s at a dielectric--metal interface for a Drude metal with $\vareps_\infty = 1$ in Eq.~\eqref{eq:Drude_dielectric_function}, and a dielectric with $\vareps_1 = 1$\,.
 Panel \pnl{a} is for a collisionless Drude model with $\gamma=0$\,. The dashed black line corresponds to light propagating in vacuum, the top branch, in red, corresponds to free light propagating in the (bulk) metal, and the bottom branch, in blue, corresponds to the \gls{spp} dispersion relation, given by solving Eq.~\eqref{eq:TM_polariton_dispersion_relation}.
-The gray dashed horizontal line corresponds to the dispersion relation of the \gls{tm} polarized mode in the limit $c \to \infty$, also called the nonretarded limit.
-Panel \pnl{b} is for a Drude metal with finite damping rate $\gamma = 0.2 \wp$. The blue full line represents the real part of the wavenumber, while the blue dashed one the imaginary part.}
+The gray dashed horizontal line corresponds to the dispersion relation of the \gls{tm} polarized mode in the limit $c \to \infty$\,, also called the nonretarded limit.
+Panel \pnl{b} is for a Drude metal with finite damping rate $\gamma = 0.2 \wp$\,. The blue full line represents the real part of the wavenumber, while the blue dashed one the imaginary part.}
 \label{fig:SPP_dispersion_relation}
 \end{figure}
 
@@ -766,7 +766,7 @@ Recall that the decay length of an evanescent wave is given by the inverse of th
 
 
 It is pertinent here to make the following technical remark.
-In the analysis made above, for dispersion relations that may differ from that of free light and in the case the permittivity is complex, we could have assumed instead that the frequency $\omega$ is complex, while the wavenumber $q$ is kept real\footnote{The reader might wonder if we could even consider complex frequency and wavenumber at the same time. One may do so, but that increases the dimension of the space we work with without necessity, making it harder to understand the physics and visualize the results. It is thus sufficient to consider in turns a real valued frequency or a real valued wavenumber ``cuts'' of that higher dimensional and more abstract space.\label{fn:complex_frequency}}.
+In the analysis made above, for dispersion relations that may differ from that of free light and in the case the permittivity is complex, we could have assumed instead that the frequency $\omega$ is complex, while the wavenumber $q$ is kept real.\footnote{The reader might wonder if we could even consider complex frequency and wavenumber at the same time. One may do so, but that increases the dimension of the space we work with without necessity, making it harder to understand the physics and visualize the results. It is thus sufficient to consider in turns a real valued frequency or a real valued wavenumber ``cuts'' of that higher dimensional and more abstract space.\label{fn:complex_frequency}}
 In theory both approaches are valid, but if we are to compare theory with experiments, then we have to be aware of what choice would be significant.
 For instance, if we assume that the frequency is complex, then it means the polariton would be a propagating wave, but decaying in time.
 We should not expect to observe this effect in a continuous wave experiment, for instance.
@@ -791,19 +791,19 @@ It will culminate with Fresnel's coefficients, but in the more general case wher
 The purpose of this section is to derive an expression for the amount of \gls{em} radiation that is absorbed by a \bd~material when impinged by a linearly polarized plane wave field.
 The configuration is that of Figure~\ref{fig:normal_incidence}, with an incoming plane wave propagating from above in medium 1 with normal incidence on the interface, with the \bd~material reflecting and transmitting part of the incident radiation.
 Using Maxwell's equations and the boundary conditions at the interface once more, we will derive the Fresnel coefficients in the particular case of normal incidence, but in the more general form where the surface separating the two media has its own optical response $\sigma$ (we will omit for now the frequency dependence of the conductivity).
-Omitting the time dependence, we write for the incident electric field $\bE_\inc = A_i \ei[-]{k_i z} \bex$, for the reflected electric field $\bE_\refl = A_r \ei{k_r z}  \bex$, and for the transmitted electric field $\bE_\trans = A_t \ee^{-\ii k_t z}  \bex$.
+Omitting the time dependence, we write for the incident electric field $\bE_\inc = A_i \ei[-]{k_i z} \bex$\,, for the reflected electric field $\bE_\refl = A_r \ei{k_r z}  \bex$\,, and for the transmitted electric field $\bE_\trans = A_t \ee^{-\ii k_t z}  \bex$\,.
 Capital $A$ stands for field amplitude.
-Using Faraday's law in reciprocal space~\eqref{subeq:Faradays_law_reciprocal}, the incident, reflected and transmitted magnetic fields read $\bH_\inc = - k_i/\omega \mu_0 A_i \ei[-]{k_i z} \bey$, $\bH_\refl = k_i/\omega \mu_0 A_r \ei[-]{k_i z} \bey$ and $\bH_\trans = - k_t/\omega \mu_0 A_t \ee^{-\ii k_t z} \bey$, respectively.
+Using Faraday's law in reciprocal space~\eqref{subeq:Faradays_law_reciprocal}, the incident, reflected and transmitted magnetic fields read $\bH_\inc = - k_i/\omega \mu_0 A_i \ei[-]{k_i z} \bey$\,, $\bH_\refl = k_i/\omega \mu_0 A_r \ee^{\ii k_i z} \bey$\,, and $\bH_\trans = - k_t/\omega \mu_0 A_t \ee^{-\ii k_t z} \bey$\,, respectively, with $k_i=k_r$.
 Boundary conditions at the interface $z=0$ given by~\eqref{eq:boundary_condition_E} and~\eqref{eq:boundary_condition_H}, where the subscript ``2'' denotes the transmitted field, while the subscript ``1'' denotes the total field in region 1, incident plus reflected, demand that
 
 \begin{subequations}
     \begin{align}
         A_i + A_r &= A_t\,, \label{subeq:boundary_condition_E_incidence}\\
-        -\frac{k_i}{\omega \mu_0} A_i + \frac{k_r}{\omega \mu_0} A_r + \frac{k_t}{\omega \mu_0} A_t &= - \sigma A_t \label{subeq:boundary_condition_H_incidence}\,.
+        -\frac{k_i}{\omega \mu_0} A_i + \frac{k_i}{\omega \mu_0} A_r + \frac{k_t}{\omega \mu_0} A_t &= - \sigma A_t \label{subeq:boundary_condition_H_incidence}\,.
     \end{align}
 \end{subequations}
 
-\noindent Note that in the right-hand side of the second equation we could equally write $A_i + A_r$ instead of $A_t$, due to the continuity of the tangential component of the electric field.
+\noindent Note that in the right-hand side of the second equation we could equally write $A_i + A_r$ instead of $A_t$\,, due to the continuity of the tangential component of the electric field.
 Using the identity $k = n \omega / c $ and solving the previous system of equations, we can define the Fresnel coefficients for reflection, $r$, and transmission, $t$, as
 
 \begin{subequations}
@@ -816,33 +816,33 @@ Using the identity $k = n \omega / c $ and solving the previous system of equati
 \begin{figure}[ht]
     \centering
     \input{Chapters/Figures/Chapter_2/normal_incidence}
-    \mycaption[Normal incidence of a plane wave on an interface between two dielectrics]{A plane wave with wavevector $\bk_\inc$ and frequency $\omega$, travelling through medium 1 with permittivity $\vareps_1$, impinges on the surface of a \bd~material, in blue, deposited on top of a dielectric substrate with permittivity $\vareps_2$.}
+    \mycaption[Normal incidence of a plane wave on an interface between two dielectrics]{A plane wave with wavevector $\bk_\inc$ and frequency $\omega$, travelling through medium 1 with permittivity $\vareps_1$, impinges on the surface of a \bd~material, in blue, deposited on top of a dielectric substrate with permittivity $\vareps_2$\,.}
     \label{fig:normal_incidence}
 \end{figure}
 
 The Fresnel coefficients are not yet a measure of the amount of radiation that the \bd~material reflects or transmits, they are only relative field amplitudes.
 In order to calculate the amount of radiation reflected and transmitted, and consequently absorbed, we actually still need to calculate the relative field intensities.
-We can define the intensity of the \gls{em} field as the magnitude of the Poynting vector $\bS$, defined by $\bS = \bE \times \bH$~\cite{Jackson:electrodynamics,Hohenester_2020}, averaged in time over one complete oscillation.
-As we are considering only plane waves composed of a single harmonic frequency $\omega = c k /n$, we can write for the time-averaged Poynting vector~\cite{Hohenester_2020}
+We can define the intensity of the \gls{em} field as the magnitude of the Poynting vector $\bS$\,, defined by $\bS = \bE \times \bH$~\cite{Jackson:electrodynamics,Hohenester_2020}, averaged in time over one complete oscillation.
+As we are considering only plane waves composed of a single harmonic frequency $\omega = c k /n$\,, we can write for the time-averaged Poynting vector~\cite{Hohenester_2020}
 
 \begin{equation}
     \langle \bS \rangle = \frac{1}{2} \Re\{\bE \times \bH^*\} = \frac{\qty|\bE\,|^2}{2 \omega \mu_0} \Re{\bk}\,,
 \end{equation}
 
 \noindent where, to get the second equality, we made use once more of Faraday's law, and also the vector identity for the double cross product already mentioned in Section~\ref{subsec:waves_in_matter}.
-For the incident and reflected radiation fields, respectively, we have $\bS_\inc = -\frac{1}{2} c \epsz \qty|\bE_\inc|^2  \Re{n_1} \bez$ and $\bS_\refl =\frac{1}{2} c \epsz \qty|\bE_\refl|^2 \Re{n_1}\bez$, while for the transmitted field we have $\bS_\trans = - \frac{1}{2} c \epsz \qty|\bE_\trans|^2 \Re{n_2} \bez$.
+For the incident and reflected radiation fields, respectively, we have $\bS_\inc = -\frac{1}{2} c \epsz \qty|\bE_\inc|^2  \Re{n_1} \bez$ and $\bS_\refl =\frac{1}{2} c \epsz \qty|\bE_\refl|^2 \Re{n_1}\bez$\,, while for the transmitted field we have $\bS_\trans = - \frac{1}{2} c \epsz \qty|\bE_\trans|^2 \Re{n_2} \bez$\,.
 We can finally define the relative amount of radiation that is reflected and transmitted at the interface, respectively, as
 
 \begin{subequations}
     \label{eq:R_and_T_definitions}
     \begin{align}
         \mathcal{R} &= \frac{\langle \qty|\bS_\refl| \rangle}{\langle \qty|\bS_\inc| \rangle} = \frac{\qty|\bE_\refl|^2}{\qty|\bE_\inc|^2} = \qty|r|^2 \qq{and} \label{subeq:reflected_radiation}\\
-        \mathcal{T} &= \frac{\langle \qty|\bS_\trans| \rangle}{\langle \qty|\bS_\inc| \rangle} = \frac{\Re{n_2}}{\Re{n_1}} \frac{\qty|\bE_\trans|^2}{\qty|\bE_\inc|^2}  = \frac{\Re{n_2}}{\Re{n_1}} \qty|t|^2 \,, \label{subeq:transmitted_radiation}
+        \mathcal{T} &= \frac{\langle \qty|\bS_\trans| \rangle}{\langle \qty|\bS_\inc| \rangle} = \frac{\Re{n_2}}{\Re{n_1}} \frac{\qty|\bE_\trans|^2}{\qty|\bE_\inc|^2}  = \frac{\Re{n_2}}{\Re{n_1}} \qty|t|^2, \label{subeq:transmitted_radiation}
     \end{align}
 \end{subequations}
 
 \noindent where the expressions for $r$ and $t$ can be found in equations~\eqref{subeq:Fresnel_reflection_coefficient} and~\eqref{subeq:Fresnel_transmission_coefficient}, respectively.
-We are in place now to compute the amount of radiation that is absorbed by the \bd~material, the optical absorption $\mathcal{A}_{\mathrm{opt}}$, through the identity
+We are in place now to compute the amount of radiation that is absorbed by the \bd~material, the optical absorption $\mathcal{A}_{\mathrm{opt}}$\,, through the identity
 
 \begin{empheq}[innerbox=\colorbox{lightgray}, right={\,.}]{equation}
     \mathcal{A}_{\mathrm{opt}} = 1 - \mathcal{R} - \mathcal{T} = 1 - |r|^2 - \frac{\Re{n_2}}{\Re{n_1}} |t|^2
@@ -850,7 +850,7 @@ We are in place now to compute the amount of radiation that is absorbed by the \
 \end{empheq}
 
 Maxwell's equations valid in continuous domains, together with the boundary conditions for boundaries between domains and the constitutive relations, form a closed system of equations, with which we could tackle any problem in electrodynamics involving \bd~materials; at least in principle, and if not analytically, then numerically.
-It happens that to make realistic predictions and expect agreement with experiments, we would need to know how the dielectric function, or equivalently the conductivity, depends on the frequency and wavevector\footnote{Apart from non-linear phenomena, where higher-order susceptibilities have to be defined, and it no longer makes sense speaking of a single permittivity or conductivity.}.
+It happens that to make realistic predictions and expect agreement with experiments, we would need to know how the dielectric function, or equivalently the conductivity, depends on the frequency and wavevector.\footnote{Apart from non-linear phenomena, where higher-order susceptibilities have to be defined, and it no longer makes sense speaking of a single permittivity or conductivity.}
 We have seen two examples in the Section~\ref{subsec:constitutive_relations_linear_response} of models for the dielectric function that have an easy analytical expression.
 However, at this point we have no insight on the validity of these models, or where exactly do they come from, apart from classical explanations.
 More specifically, there is no way for us to obtain the values of the adjustable parameters used in those models besides from experimental measurements.
