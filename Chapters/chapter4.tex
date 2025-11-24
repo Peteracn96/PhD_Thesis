@@ -52,7 +52,7 @@ Due to Coulomb attraction, extra states inside the bandgap can form, as represen
 The material can be excited from its ground state to one of several excitonic states represented in the figure by a series of discrete energy levels, if the energy of the photon coincides with one of those energies.
 %%%%%%%%%%%%%%%%%%%%%%
 The minimum amount of energy required for that to happen is what defines the \textit{optical} bandgap, coinciding with the energy of the \textit{excitonic} ground state.
-We can define the binding energy $E_{b, \nu}$ of a given exciton in a state $\nu$, depicted in the schematic on the right in Fig~\ref{fig:electron_hole_pair_formation}, as the difference between the energy of the electronic bandgap $E_g$, a single-particle quantity, and the energy of the exciton $E_{\nu}$.
+We can define the binding energy $E_{b, \nu}$ of a given exciton in a state $\nu$, depicted in the schematic on the right in Fig~\ref{fig:electron_hole_pair_formation}, as the difference between the energy of the electronic bandgap $E_g$, a single-particle quantity, and the energy of the exciton $E_{\nu}$\,.
 Just like the ionization energy in the hydrogen atom, it can be interpreted as the energy that we have to provide to separate the electron from the hole, resulting in their separation into an unpaired electron--hole pair, followed by the decay of the electron and its recombination with the hole.
 
 These facts do not imply that all the techniques introduced until now in the last two chapters are not useful; actually the opposite.
@@ -269,7 +269,7 @@ If using braket notation, then
     \label{eq:interaction_hamiltonian_momentum_space_substitution_option_2}
     \begin{aligned}
         \V = & \frac{1}{2 \area N^{2}}  \sum_{\bq} \sum_{\{\bk_{i},\lambda_i\}} V(\bq) c^{\dagger}_{\lambda_1 \bk_1} c^{\dagger}_{\lambda_2 \bk_2} c_{\lambda_3 \bk_3} c_{\lambda_4 \bk_4} \times \\
-                  &  \times \langle \lambda_1, \bk_1 |\ei{\bq \vdot \br} | \lambda_4, \bk_4 \rangle  \langle \lambda_2, \bk_2 | \ei[-]{\bq \vdot \br'} | \lambda_3, \bk_3 \rangle %\mel{\lambda_1, \bk_1}{\ei{\bq \vdot \br}}{\lambda_4, \bk_4} \mel{\lambda_2, \bk_2}{\ei[-]{\bq \vdot \br'}}{\lambda_3, \bk_3}
+                  &  \times \langle \lambda_1, \bk_1 |\ei{\bq \vdot \br} | \lambda_4, \bk_4 \rangle  \langle \lambda_2, \bk_2 | \ei[-]{\bq \vdot \br'} | \lambda_3, \bk_3 \rangle \,. %\mel{\lambda_1, \bk_1}{\ei{\bq \vdot \br}}{\lambda_4, \bk_4} \mel{\lambda_2, \bk_2}{\ei[-]{\bq \vdot \br'}}{\lambda_3, \bk_3}
     \end{aligned}
 \end{equation}
 
@@ -277,7 +277,7 @@ If using braket notation, then
 The Bloch wavefunctions, in the atomic gauge that we used to write the TB Bloch Hamiltonian for \gls{hbn}, have the form
 
 \begin{equation}
-    \psi_{\lambda, \bk}(\br)=\frac{1}{\sqrt{N}}\sum_{\bR,i\alpha}\ee^{\ii\bk\vdot(\bR+\bt_{i})}C_{i\alpha}^{\lambda \bk}\phi_{\alpha}(\br-\bR-\bt_{i}).
+    \psi_{\lambda, \bk}(\br)=\frac{1}{\sqrt{N}}\sum_{\bR,i\alpha}\ee^{\ii\bk\vdot(\bR+\bt_{i})}C_{i\alpha}^{\lambda \bk}\phi_{\alpha}(\br-\bR-\bt_{i})\,.
 \end{equation}
 
 \noindent Now we can go back and compute the matrix elements
@@ -312,7 +312,7 @@ The average of the periodic part of the Bloch wavefunctions over a unit cell can
 \begin{equation}
     \begin{aligned}
         \mel{\lambda_1, \bk_1}{\ei{\bq \vdot \br}}{\lambda_4, \bk_4} & = \frac{1}{\area_{\UC}}\left(\bC^{\lambda_1 \bk_1}\right)^{\dagger} \bC^{\lambda_4 \bk_4} \area \,\delta_{\bq,\bk_{1}-\bk_{4}} = \\
-                                                                   & = N \left(\bC^{\lambda_1 \bk_1}\right)^{\dagger}\bC^{\lambda_4 \bk_4}\delta_{\bq,\bk_{1}-\bk_{4}},
+                                                                   & = N \left(\bC^{\lambda_1 \bk_1}\right)^{\dagger}\bC^{\lambda_4 \bk_4}\delta_{\bq,\bk_{1}-\bk_{4}}\,,
     \end{aligned}
 \end{equation}
 
@@ -393,10 +393,10 @@ Therefore, we can apply the rule
 \begin{equation}
     \langle c^{\dagger}_{\lambda_1 \bk} c_{\lambda_2 \bk'}  \rangle =
     \begin{cases}
-        0 \quad \text{if} \quad \lambda_1 = \lambda_2 = \cc , \\
-        \delta_{\bk,\bk'} \quad \text{if} \quad \lambda_1 = \lambda_2 = \vv, \\
-        0 \quad \text{if} \quad \lambda_1 = \cc  \quad \text{and} \quad \lambda_2 = \vv, \\
-        0 \quad \text{if} \quad \lambda_1 = \vv \quad \text{and} \quad \lambda_2 = \cc .
+        0 \quad \text{if} \quad \lambda_1 = \lambda_2 = \cc \,, \\
+        \delta_{\bk,\bk'} \quad \text{if} \quad \lambda_1 = \lambda_2 = \vv\,, \\
+        0 \quad \text{if} \quad \lambda_1 = \cc  \quad \text{and} \quad \lambda_2 = \vv\,, \\
+        0 \quad \text{if} \quad \lambda_1 = \vv \quad \text{and} \quad \lambda_2 = \cc \,.
     \end{cases}
 \end{equation}
 
@@ -442,7 +442,7 @@ First, we make the parabolic dispersion approximation, that is
 It follows that
 
 \begin{equation}
-    \epsilon_{\cc  \bk} - \epsilon_{\vv \bk} \simeq E_g + \frac{\hbar^2 k^2}{2 \mu_{eh}},
+    \epsilon_{\cc  \bk} - \epsilon_{\vv \bk} \simeq E_g + \frac{\hbar^2 k^2}{2 \mu_{eh}}\,,
 \end{equation}
 
 \noindent where $E_g =  \epsilon_{\cc  \bzero}-\epsilon_{\vv \bzero}$ is the bandgap, and $\mu_{eh}$ is the electron--hole reduced mass.
@@ -450,7 +450,7 @@ In the second term on the right-hand side of~\eqref{eq:Bethe_Salpeter_equation},
 In this way, the equation~\eqref{eq:Bethe_Salpeter_equation} leads to
 
 \begin{equation}
-    E_{b,\nu} \phi_{\nu} (\bk) = \frac{\hbar^2 k^2}{2 \mu_{eh}} \phi_{\nu} (\bk) - \frac{1}{\area} \sum_{\bp} \phi_{\nu} (\bp) V(\bk - \bp),
+    E_{b,\nu} \phi_{\nu} (\bk) = \frac{\hbar^2 k^2}{2 \mu_{eh}} \phi_{\nu} (\bk) - \frac{1}{\area} \sum_{\bp} \phi_{\nu} (\bp) V(\bk - \bp)\,,
 \end{equation}
 
 \noindent where $ E_{b,\nu} = E_{\nu} - E_g$ is the binding energy of the excitonic state $\nu$.
@@ -494,7 +494,7 @@ To see that, let us perform the inverse Fourier transform of just that term and 
     \label{eq:Wannier_equation_derived}
 \end{empheq}
 
-As we can see, the (simplified) excitonic problem is a differential equation in real space, since in quantum mechanics $\bp = - \ii \hbar \grad_{\br}$, and an integral equation in momentum space.
+As we can see, the (simplified) excitonic problem is a differential equation in real space, since in quantum mechanics $\bp = - \ii \hbar \grad_{\br}$\,, and an integral equation in momentum space.
 The real-space approach is more useful for analytic treatments (or semi-analytical if we use the Rytova--Keldysh potential).
 Unfortunately, it overlooks some features due to the approximations.
 As a consequence of approximating $F$ to 1, excitonic states with symmetric angular momentum numbers are degenerate.
@@ -523,7 +523,7 @@ Even though more numerically inefficient than solving the Wannier equation or th
 In spite of this, we can expect from it detailed insights into the excitonic problem that the ones introduced until now do not provide.
 It is very useful when one is interested in bigger systems, or when the symmetries of the excitonic states are relevant.
 
-The starting point is to write the total electronic Hamiltonian\footnote{Commonly, when one looks at tight-binding Hamiltonians in the literature, there is an extra term doneted by $\mathrm{H.c.}$ meaning Hermitian conjugate to ensure that the Hamiltonian is Hermitian. Here, we simply assume that the tight-binding parameters $t_{ij}$ per se render the Hamiltonian Hermitian. Something similar can be said about the interaction term, so the reader does not have to worry about Hermiticity of the Hamiltonians we consider.}
+The starting point is to write the total electronic Hamiltonian\footnote{Commonly, when one looks at \gls{tb} Hamiltonians in the literature, there is an extra term doneted by $\mathrm{H.c.}$ meaning Hermitian conjugate to ensure that the Hamiltonian is Hermitian. Here, we simply assume that the \gls{tb} parameters $t_{ij}$ per se render the Hamiltonian Hermitian. Something similar can be said about the interaction term, so the reader does not have to worry about Hermiticity of the Hamiltonians we consider.}
 
 \begin{equation}
     \label{eq:Hamiltonian_start}
@@ -537,7 +537,7 @@ The many-particle physics (e.g. excitons) is encoded in $\V$, without which exci
 Instead of departing from the many-body Hamiltonian with the interacting part in terms of field operators, we depart from a Hamiltonian in real space already written in an atomistic basis, i.e., we adopt the \gls{tb} description from the Section~\ref{subsubsec:tight_binding_method} of the previous chapter.
 
 The sums in Eq.~\eqref{eq:Hamiltonian_start} run over indices including orbitals and position degrees of freedom (and spin, eventually).
-The parameters $t_{i j}$ are the tight-binding parameters, while $V_{ijkl}$ are the interaction matrix elements\footnote{Note that by matrix elements, we mean the symbols $V_{ijkl}$, which are matrix elements of the first quantized interaction term $V$ between single-particle states belonging to the one-particle Hilbert space, and not matrix elements of the second quantized operator $\V$ between states living in the Fock space.}
+The parameters $t_{i j}$ are the \gls{tb} parameters, while $V_{ijkl}$ are the interaction matrix elements\footnote{Note that by matrix elements, we mean the symbols $V_{ijkl}$, which are matrix elements of the first quantized interaction term $V$ between single-particle states belonging to the one-particle Hilbert space, and not matrix elements of the second quantized operator $\V$ between states living in the Fock space.}
 
 \begin{equation}
     V_{ijkl} = \mel{i,j}{V}{k,l} = \int \dr \int \dr' \phi^*_i(\br) \phi^*_j(\br') V(\br,\br') \phi_k(\br) \phi_l(\br')\,.
@@ -556,7 +556,7 @@ For undoped \bd~semiconductors or insulators, whose ground state consists of all
 \end{equation}
 
 \noindent where $\ket{0}$ denotes the \enquote{vacuum} state (the crystal in the absence of valence electrons) and $\EF$ is the Fermi energy.
-Exciting an electron from the valence band $\vv $ with momentum $\bk$ to the conduction band $\cc $ with momentum $\bk+\bQ$, we are before an electron--hole pair, whose state can be formally written as
+Exciting an electron from the valence band $\vv $ with momentum $\bk$ to the conduction band $\cc $ with momentum $\bk+\bQ$\,, we are before an electron--hole pair, whose state can be formally written as
 
 \begin{equation}
     \ket{\vv,\cc ,\bk,\bQ} \equiv \cdagger_{\cc  \bk+\bQ} c_{\vv \bk} \ket{\GS} .
@@ -572,7 +572,7 @@ If the exciton has a center of mass momentum $\bQ$, and assuming that a basis of
 \end{equation}
 
 \noindent In this way, the exciton state is written as a linear combination of electron--hole pair states summing over valence bands, conduction bands, and momentum.
-We can consider the quantum number $\bQ$ a good one since the interaction conserves momentum, as all electron--hole pairs share the same center of mass momentum $\bQ$.
+We can consider the quantum number $\bQ$ a good one since the interaction conserves momentum, as all electron--hole pairs share the same center of mass momentum $\bQ$\,.
 Up until now, we have just reintroduced the problem as in the beginning of Section~\ref{sec:bethe_salpeter_equation_effective_models}, albeit with a different notation.
 The main difference resides in the approach for determining the coefficients $A^{\bQ}_{\vv \cc }(\bk)$ (previously labeled by $\phi_{\nu}(\bk)$, that we identified as the exciton wavefunction).
 Herein, we follow a variational approach (see the beginning of Section~\ref{subsec:born_oppenheimer_approximation}).
@@ -628,7 +628,7 @@ The interaction matrix elements are tricky to compute, as the interaction operat
 Nonetheless, in this section we refrain from performing any kind of mean-field approximation, and compute the matrix elements exactly.
 Doing so is not hard, it is just tedious.
 We do not perform all the steps, and instead explain briefly how to proceed.
-For convenience, we make a brief change and abuse of notation, and relabel $(\vv ',\bk') \to \vv '$, $(\cc ',\bk' + \bQ) \to \cc '$, $(\vv,\bk) \to \vv $ and $(\cc ,\bk + \bQ) \to \cc $, and keep the notation for $\V$ used above.
+For convenience, we make a brief change and abuse of notation, and relabel $(\vv ',\bk') \to \vv '$, $(\cc ',\bk' + \bQ) \to \cc'$, $(\vv,\bk) \to \vv $ and $(\cc ,\bk + \bQ) \to \cc $\,, and keep the notation for $\V$ used above.
 Then, we have
 
 \begin{align*}
@@ -683,7 +683,7 @@ But that is not what we do.
 The Hamiltonian that we depart from in Eq.~\eqref{eq:Hamiltonian_start}, is such that the single-particle part has \gls{tb} parameters $t_{i j}$ that come from diagonalizing the Hamiltonian~\eqref{eq:HF_Hamiltonian} including interactions, but at the mean-field level via \gls{hf}~theory or \gls{dft}~\cite{Ozfidan_2014}.
 In that way, we can then see the self-energy corrections as already incorporated in the quasiparticle energies $\epsilon_{n \bk}$.
 On the other hand, if we were to solve the \gls{bse} as per~\eqref{eq:BSE_Hamiltonian_matrix_elements}, the Hamiltonian to diagonalize in order to obtain the single-particle properties would have to be the one in~\eqref{eq:single_particle_Hamiltonian}, the noninteracting limit of the many-body crystal Hamiltonian in the Born--Oppenheimer approximation.
-Then, we would have a distinct set of \gls{tb} parameters $t'_{i j}$, and another initial band structure $\epsilon'_{n \bk}$.
+Then, we would have a distinct set of \gls{tb} parameters $t'_{i j}$\,, and another initial band structure $\epsilon'_{n \bk}$.
 The caveat is that the cancellation might not be exact.
 In math notation, it means that $\epsilon_{n \bk} = \epsilon'_{n \bk} + \Sigma_{n n}(\bk + \bQ, \bk + \bQ)$ might be false.
 But if we assume that it is true, then the \gls{bse} in Eq.~\eqref{eq:BSE_Hamiltonian_matrix_elements} reduces to
@@ -722,7 +722,7 @@ Before working out the expression for the interaction matrix elements $D$ and $X
 \label{eq:Bloch_states_again}
 \end{equation}
 
-\noindent where the tight-binding coefficients are determined by diagonalizing the Bloch Hamiltonian (as explained in Sec.~\ref{subsubsec:tight_binding_method}), and the atomic orbitals denoted by $\phi_\alpha$ are orthogonal, as we work under the \gls{tb} formalism\footnote{In general, they are not orthogonal. If the model Hamiltonian has been obtained by a Wannier interpolation and is written in a basis of Wannier functions, then they are orthogonal by construction. However, if the Hamiltonian comes from calculations on a basis of localized functions other than Wannier functions, they may not be orthogonal. This is not a problem at the end, because one can always follow an orthogonalization procedure. The code we work with does that. We shall remind the reader again, once it comes the time of discussing the code developed in Chapter~\ref{ch:screening}.}.
+\noindent where the \gls{tb} coefficients are determined by diagonalizing the Bloch Hamiltonian (as explained in Sec.~\ref{subsubsec:tight_binding_method}), and the atomic orbitals denoted by $\phi_\alpha$ are orthogonal, as we work under the \gls{tb} formalism\footnote{In general, they are not orthogonal. If the model Hamiltonian has been obtained by a Wannier interpolation and is written in a basis of Wannier functions, then they are orthogonal by construction. However, if the Hamiltonian comes from calculations on a basis of localized functions other than Wannier functions, they may not be orthogonal. This is not a problem at the end, because one can always follow an orthogonalization procedure. The code we work with does that. We shall remind the reader again, once it comes the time of discussing the code developed in Chapter~\ref{ch:screening}.}.
 We focus first on the direct interaction term as per~\eqref{subeq:direct_term}, that in terms of Bloch states is
 
 \begin{equation}
@@ -790,11 +790,11 @@ According to Eq.~\eqref{eq:two_point_discrete_inverse_Fourier} in Appendix~\ref{
 
 \noindent In this definition, if the system is \gls{3d}, then the integration is over the volume $\vol$, while if the system is \gls{2d}, then the integration is over the area $\area$.
 In this way, we are ignoring the $z$ coordinate if the material is \gls{2d}.
-We did so when computing the plane-wave matrix elements of the form $\langle \lambda \bk | \exp{\ii \bq \vdot \br} | \lambda' \bk'$ in Section~\ref{sec:bethe_salpeter_equation_effective_models}.
+We did so when computing the plane-wave matrix elements of the form $\langle \lambda \bk | \exp{\ii \bq \vdot \br} | \lambda' \bk' \rangle$ in Section~\ref{sec:bethe_salpeter_equation_effective_models}.
 This detail will be a concern again only when we reach to Chapter~\ref{ch:screening}.
 
 The final expression in equation~\eqref{eq:interaction_matrix_element_direct_reciprocal} is the one usually encountered in the literature pertaining to first-principle methods~\cite{BerkeleyGW,Yambo_2009}.
-Those methods allow also computing the dielectric matrix and its inverse \textit{a priori}, so that one can calculate the matrix elements of the screened Coulomb potential through $W_{\bG\bG'}(\bq) = \vareps^{-1}_{\bG\bG'}(\bq) v_c(\bq + \bG')$, the static limit of Eq.~\eqref{eq:screened_dynamic_Coulomb_potential} (if dynamic screening in not implemented in the package or library).
+Those methods allow also computing the dielectric matrix and its inverse \textit{a priori}, so that one can calculate the matrix elements of the screened Coulomb potential through $W_{\bG\bG'}(\bq) = \vareps^{-1}_{\bG\bG'}(\bq) v_c(\bq + \bG')$, the static limit of Eq.~\eqref{eq:screened_dynamic_Coulomb_potential} (if dynamic screening is not implemented in the package or library).
 
 Regarding the exchange term, even though one typically discards it, for completion we present its expression
 
@@ -818,7 +818,7 @@ If we use for the screened Coulomb potential the Rytova--Keldysh model, which ap
 \end{subequations}
 
 \noindent where $V_{\text{RK}}(\bq) = \frac{e}{2\epsz q\left(1+r_0 q\right)}$ is the momentum-resolved Rytova--Keldysh potential, encountered in this work for the first time in the Section~\ref{subsubsec:dielectric_function_static_limit}.
-We also had to replace $\vol \to \area$.
+We also had to replace $\vol \to \area$\,.
 A striking difference between the expressions~\eqref{eq:interaction_matrix_element_exchange_reciprocal} and~\eqref{eq:interaction_matrix_element_direct_reciprocal} and the expressions~\eqref{eq:direct_interaction_matrix_element_reciprocal_RK} and~\eqref{eq:exchange_interaction_matrix_element_reciprocal_RK}, is that in the first two there is a double sum over reciprocal lattice vectors $\bG$ and $\bG'$, while in the last two there is only a single sum over reciprocal lattice vectors, without any possibility to account for nonlocal-field effects since they use a model potential.
 The double sum introduces nonlocal-field effects in the interaction matrix elements, while in the single sum, the inclusion of the reciprocal lattice vectors has the purpose of preserving the symmetry in the interaction between electrons~\cite{Ridolfi_2015}. % with momenta $\bk$ and $\bk'$~\cite{Ridolfi_2015}---the \bd~Fourier transform of the Rytova--Keldysh potential from the reciprocal space to the real space must involve a sum over all momenta in the reciprocal lattice to recover the correct $\br$ dependence, and the sum over all momenta can be decomposed into a sum over momenta in the \bz~with a sum over all reciprocal lattice vectors, so that the entire reciprocal lattice is covered.
 We will touch on this detail again later on in this work, in subsection~\ref{subsec:excitons_results} about excitons in \gls{hbn}.
@@ -896,7 +896,7 @@ Using the famous relation $\varepsilon=1+\ii\frac{\sigma}{\omega\epsz}$, mention
 \end{equation}
 
 \noindent  where we have used the identities $\mathbf{v} = \frac{\dd \br}{\dd t} = \frac{\ii}{\hbar} \left[H_0,\br\right]$, $\mathbf{j}=-e\mathbf{v}$, and also $\bp = m \mathbf{v}$, with $m$ being the electron mass.
-The Hamiltonian at hand $H_0$ is the Hamiltonian in the noninteracting limit (or interacting, but at the mean-field level), that when commutated with another operator $\hat{O}$ gives that operator's time derivative as $\frac{\dd \hat{O}}{\dd t} = \ii/\hbar [H_0,\hat{O}]$\footnote{If the reader is not very familiar with concepts of quantum mechanics, this identity might require justification. There is in quantum mechanics the Heisenberg picture, where the states are static, but the operators evolve in time. Given an operator $\hat{O}_\mathrm{S}$ in the picture we have been working with so far, the Schr\"{o}dinger picture, the same opertor in the Heisenberg picture reads $\hat{O}_{\mathrm{H}} = \hat{U}^{\dagger} (t) \hat{O}_{\mathrm{S}}(t) \hat{U}(t)$, where $\hat{U}(t)$ is the time-evolution operator. By using the \gls{tdse}, one can show that $\frac{\dd \hat{O}_{\mathrm{H}}}{\dd t} = \ii/\hbar [H_{\mathrm{H}},\hat{O}_{\mathrm{H}}] + \left(\frac{\partial \hat{O}_{\mathrm{S}}}{\partial t}\right)_{\mathrm{H}}$. If the Hamiltonian has no explicit time-dependence, which could be that of a crystal, then one can show that if $\hat{O}_{\mathrm{S}}$ is also time-independent, then (by virtue of the time-evolution operator as in Eq.~\eqref{eq:time_evolution_operator}) $H_{\mathrm{H}} = H_{\mathrm{S}} \equiv H$ and $\frac{\dd \hat{O}_{\mathrm{H}}}{\dd t} = \ii/\hbar [H_{\mathrm{H}},\hat{O}_{\mathrm{H}}]$. This is the quantum version of the identity $\frac{\dd A}{\dd t} = \{A,H\}$ in classical mechanics, where $A$ is an observable with no explicit $t$-dependence, $H$ the Hamiltonian function and $\{\cdot,\vdot\}$ are the Poisson brackets~\cite{goldstein:mechanics,Landau1976Mechanics}.}.
+The Hamiltonian at hand $H_0$ is the Hamiltonian in the noninteracting limit (or interacting, but at the mean-field level), that when commutated with another operator $\hat{O}$ gives that operator's time derivative as $\frac{\dd \hat{O}}{\dd t} = \ii/\hbar [H_0,\hat{O}]$\footnote{If the reader is not very familiar with concepts of quantum mechanics, this identity might require justification. There is in quantum mechanics the Heisenberg picture, where the states are static, but the operators evolve in time. Given an operator $\hat{O}_\mathrm{S}$ in the picture we have been working with so far, the Schr\"{o}dinger picture, the same opertor in the Heisenberg picture reads $\hat{O}_{\mathrm{H}} = \hat{U}^{\dagger} (t) \hat{O}_{\mathrm{S}}(t) \hat{U}(t)$, where $\hat{U}(t)$ is the time-evolution operator. By using the \gls{tdse}, one can show that $\frac{\dd \hat{O}_{\mathrm{H}}}{\dd t} = \ii/\hbar [H_{\mathrm{H}},\hat{O}_{\mathrm{H}}] + \left(\frac{\partial \hat{O}_{\mathrm{S}}}{\partial t}\right)_{\mathrm{H}}$\,. If the Hamiltonian has no explicit time-dependence, which could be that of a crystal, then one can show that if $\hat{O}_{\mathrm{S}}$ is also time-independent, then (by virtue of the time-evolution operator as in Eq.~\eqref{eq:time_evolution_operator}) $H_{\mathrm{H}} = H_{\mathrm{S}} \equiv H$ and $\frac{\dd \hat{O}_{\mathrm{H}}}{\dd t} = \ii/\hbar [H_{\mathrm{H}},\hat{O}_{\mathrm{H}}]$\,. This is the quantum version of the identity $\frac{\dd A}{\dd t} = \{A,H\}$ in classical mechanics, where $A$ is an observable with no explicit $t$-dependence, $H$ the Hamiltonian function and $\{\vdot,\vdot\}$ are the Poisson brackets~\cite{goldstein:mechanics,Landau1976Mechanics}.}.
 We advert here the reader for important technical details commonly overlooked in the literature.
 In the equation above, only the equalities marked with \textcolor{black}{\checkmark} are exact.
 The others marked with exclamation marks are not, because in general, the position $\br$, velocity $\mathbf{v}$ and momentum $\bp$ operators are not interchangeable when doing calculations for extended systems.
@@ -943,7 +943,7 @@ The second term on the right-hand side compensates for this.
 For the position matrix elements to not depend on the placement of the origin, we could extend the integral to infinity.
 However, the Bloch states $\psi_{n, \bk}(\br)$ do not decay to zero at infinity, henceforth the integral is ill-defined.
 To circumvent this technical difficulty, Blount in Ref.~\cite{Blount_1962} obtained an expression for the position matrix elements, where only the diagonal ones depend on the origin, by choosing a distribution normalization for the Bloch states, instead of normalizing them to a finite volume.
-That is, instead of the finite case with $\langle n,\bk | n',\bk'\rangle_{\vol} = \delta_{n,n'} \delta_{\bk,\bk'}$, one has $\langle n,\bk | n',\bk'\rangle_{\infty} = \delta_{n n'} \delta(\bk-\bk')$, with the $\infty$ in subscript to denote an integral over all space.
+That is, instead of the finite case with $\langle n,\bk | n',\bk'\rangle_{\vol} = \delta_{n,n'} \delta_{\bk,\bk'}$\,, one has $\langle n,\bk | n',\bk'\rangle_{\infty} = \delta_{n n'} \delta(\bk-\bk')$, with the $\infty$ in subscript to denote an integral over all space.
 The work by J.~J.~Esteve-Paredes and J.~J.~Palacios in Ref.~\cite{Esteve_2023} showed that the relation
 \vspace{-0.3cm}
 \begin{equation}
@@ -952,7 +952,7 @@ The work by J.~J.~Esteve-Paredes and J.~J.~Palacios in Ref.~\cite{Esteve_2023} s
 
 \noindent is true when the integrals are computed for an infinite system with open boundary conditions.
 Only in this way the relation above matches with the one from atomic physics.
-On a closing note, it is also possible to compute the momentum matrix elements in practice using the representation $\bp = -\ii/\hbar \grad_{\br}$.
+On a closing note, it is also possible to compute the momentum matrix elements in practice using the representation $\bp = -\ii/\hbar \grad_{\br}$\,.
 However, that involves taking spatial derivatives of atomic orbitals, if we work with a Bloch state basis within linear combination of atomic orbitals, which is not favorable.
 We decide then to keep going with velocity or position matrix elements, which we will calculate in practice later on.
 \end{mybox}
@@ -962,7 +962,7 @@ By introducing the Sokhotski--Plemelj identity~\cite{Muskhelishvili_1977}
 
 \begin{equation}
     \label{eq:sokhotski_plemelj}
-    \frac{1}{(x-a) \pm \ii \eta}=\mathrm{P.V.}\!\left(\frac{1}{x-a}\right) \mp \ii\pi\delta(x-a),\quad \eta=0^+,
+    \frac{1}{(x-a) \pm \ii \eta}=\mathrm{P.V.}\!\left(\frac{1}{x-a}\right) \mp \ii\pi\delta(x-a)\,,\quad \eta=0^+,
 \end{equation}
 
 \noindent where $\mathrm{P.V.}$ denotes Cauchy principal value, in the first fraction inside the sum in Eq.~\eqref{eq:conductivity_tensor_components}, we obtain the so-called Kubo--Greenwood formula for the real part of the conductivity
@@ -971,7 +971,7 @@ By introducing the Sokhotski--Plemelj identity~\cite{Muskhelishvili_1977}
     \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi \hbar}{\vol}\sum_{nn',\bk}\frac{f(\epsilon_{n' \bk})-f(\epsilon_{n \bk})}{\epsilon_{n \bk}-\epsilon_{n' \bk}}  j^{\alpha}_{n n'}(\bk)  j^{\beta}_{n' n}(\bk) \delta[\hbar \omega - (\epsilon_{n' \bk}-\epsilon_{n \bk})] \,,
 \end{equation}
 
-\noindent if written in terms of the current operator matrix elements $j^{\alpha}_{n n'}(\bk) \equiv \langle n,\bk|j_{\alpha}|n',\bk\rangle$, where we also did the trick of replacing $\hbar \omega \to \epsilon_{n \bk}-\epsilon_{n' \bk}$ in the first factor inside the sum in Eq.~\eqref{eq:conductivity_tensor_components} to cancel the frequency in the numerator, which is allowed due to the presence of the Dirac delta function.
+\noindent if written in terms of the current operator matrix elements $j^{\alpha}_{n n'}(\bk) \equiv \langle n,\bk|j_{\alpha}|n',\bk\rangle$\,, where we also did the trick of replacing $\hbar \omega \to \epsilon_{n \bk}-\epsilon_{n' \bk}$ in the first factor inside the sum in Eq.~\eqref{eq:conductivity_tensor_components} to cancel the frequency in the numerator, which is allowed due to the presence of the Dirac delta function.
 That is why the difference $\epsilon_{n \bk}-\epsilon_{n' \bk}$ in the denominator appears with power one, and not two.
 Being in practice impossible to calculate at the full interacting level, normally some sort of approximation is needed.
 The Kubo--Greenwood formula is a particular case of the more general Kubo formula~\cite{Mahan,Coleman_2015}, accounting only for transitions between single-particle states---this is called the \gls{ipa}~\cite{Aversa_Sipe_1995}.
@@ -982,7 +982,7 @@ Particularizing for a semiconductor at zero temperature, such that the Fermi--Di
     \Re{\sigma_{\alpha\beta}(\omega)}=\frac{\pi e^{2}\hbar}{\vol}\sum_{\vv \cc ,\bk} \frac{v^{\alpha}_{\cc  \vv }(\bk)  v^{\beta}_{\vv \cc }(\bk)}{\epsilon_{\cc  \bk}-\epsilon_{\vv \bk}}   \delta[\hbar \omega - (\epsilon_{\cc  \bk}-\epsilon_{\vv \bk})]
 \end{empheq}
 
-\noindent where we used for the velocity matrix elements the notation $v^{\alpha}_{\cc  \vv }(\bk) \equiv \langle \cc ,\bk|v_{\alpha}|\vv,\bk\rangle$.
+\noindent where we used for the velocity matrix elements the notation $v^{\alpha}_{\cc  \vv }(\bk) \equiv \langle \cc ,\bk|v_{\alpha}|\vv,\bk\rangle$\,.
 At this point we will not explain how to compute the position or velocity matrix elements in practice.
 They will be addressed in two different ways in chapters~\ref{ch:Optical_hBN_superlattice} and~\ref{ch:screening}, so we postpone the explanation to those two chapters.
 
@@ -1004,11 +1004,11 @@ If the material is subject to a drive from a spatially uniform time-dependent el
 
 \begin{equation}
     \label{eq:Berry_curvature_definition}
-    \Omega_{\nu} = \sum_{\cc \vv,\bk} \psi^{\nu}_{\cc  \vv } (\bk) \langle \vv, \bk | \br \vdot \uvec{e} | \cc , \bk \rangle,
+    \Omega_{\nu} = \sum_{\cc \vv,\bk} \psi^{\nu}_{\cc  \vv } (\bk) \langle \vv, \bk | \br \vdot \uvec{e} | \cc , \bk \rangle\,,
 \end{equation}
 
 \noindent where $\br$ is the position operator (or dipole operator, up to a factor of $-e$), $\uvec{e}$ is the polarization unit vector, and $\psi^{\nu}_{\cc  \vv } (\bk)$ is the excitonic wavefunction for the pair of bands $(\cc ,\vv )$.
-This quantity is connected to the dipole matrix element $\langle \vv, \bk | \br | \cc , \bk \rangle$, which can be identified with the Berry connection $\vec{\Omega}^{n m}(\bk) = \langle u_{n \bk} | \ii \grad_{\bk} u_{m \bk} \rangle_{\mathrm{UC}}$\footnote{In general, the Berry connection $\vec{\Omega}$ of a given quantum system when it goes around a closed loop in a parameter space, where we can denote the set of parameters by $\boldsymbol{\lambda}$  is given by $\vec{\Omega}(\boldsymbol{\lambda}) = \langle u_{\boldsymbol{\lambda}} | \ii \grad_{\boldsymbol{\lambda}} u_{\boldsymbol{\lambda}} \rangle$, and the Berry phase is given by $\phi = \oint \vec{\Omega}(\boldsymbol{\lambda}) \vdot \dd \boldsymbol{\lambda}$. In \gls{3d} through Stokes theorem and defining the Berry curvature $\boldsymbol{\Omega} = \boldsymbol{\grad}_{\boldsymbol{\lambda}} \cp \vec{\Omega}$, one can write for the Berry phase, also called geometrical phase, an equivalent expression in terms of a surface integral. The concepts of Berry connection, Berry curvature and Berry phase have applications in different disciplines in physics. One particular case are Chern insulators, where a nonvanishing surface integral of the Berry curvature over a closed manifold---the Chern number---related with the quantum anomalous Hall effect, the appearance of a nonvanishing Hall current in a nonmagnetized medium~\cite{RevModPhys.82.1539}. In a \bd~periodic material, a crystal, we can take for the parameters $\boldsymbol{\lambda} = \bk = (k_x,k_y)$, and one can then define a more general Berry connection $\vec{\Omega}^{n m}(\bk) =  \langle u_{n \bk} | \ii \grad_{\bk} u_{m \bk} \rangle_{\mathrm{UC}}$, where $| u_{n \bk} \rangle$ is the periodic part of the Bloch state, and the braket is taken over the unit cell. These concepts are relevant in photonic crystals~\cite{PhysRevLett.115.253901,Zhao_2020} and magnetic materials.\label{fn:Berry_connection}}.
+This quantity is connected to the dipole matrix element $\langle \vv, \bk | \br | \cc , \bk \rangle$\,, which can be identified with the Berry connection $\vec{\Omega}^{n m}(\bk) = \langle u_{n \bk} | \ii \grad_{\bk} u_{m \bk} \rangle_{\mathrm{UC}}$\footnote{In general, the Berry connection $\vec{\Omega}$ of a given quantum system when it goes around a closed loop in a parameter space, where we can denote the set of parameters by $\boldsymbol{\lambda}$  is given by $\vec{\Omega}(\boldsymbol{\lambda}) = \langle u_{\boldsymbol{\lambda}} | \ii \grad_{\boldsymbol{\lambda}} u_{\boldsymbol{\lambda}} \rangle$, and the Berry phase is given by $\phi = \oint \vec{\Omega}(\boldsymbol{\lambda}) \vdot \dd \boldsymbol{\lambda}$. In \gls{3d} through Stokes theorem and defining the Berry curvature $\boldsymbol{\Omega} = \boldsymbol{\grad}_{\boldsymbol{\lambda}} \cp \vec{\Omega}$, one can write for the Berry phase, also called geometrical phase, an equivalent expression in terms of a surface integral. The concepts of Berry connection, Berry curvature and Berry phase have applications in different disciplines in physics. One particular case are Chern insulators, where a nonvanishing surface integral of the Berry curvature over a closed manifold---the Chern number---related with the quantum anomalous Hall effect, the appearance of a nonvanishing Hall current in a nonmagnetized medium~\cite{RevModPhys.82.1539}. In a \bd~periodic material, a crystal, we can take for the parameters $\boldsymbol{\lambda} = \bk = (k_x,k_y)$, and one can then define a more general Berry connection $\vec{\Omega}^{n m}(\bk) =  \langle u_{n \bk} | \ii \grad_{\bk} u_{m \bk} \rangle_{\mathrm{UC}}$, where $| u_{n \bk} \rangle$ is the periodic part of the Bloch state, and the braket is taken over the unit cell. These concepts are relevant in photonic crystals~\cite{PhysRevLett.115.253901,Zhao_2020} and magnetic materials.\label{fn:Berry_connection}}.
 If, once more, we wish to define the optical conductivity as a tensor, then we can deduce an expression similar to~\eqref{eq:non_interacting_Re_optical_conductivity}, we just have to replace the transition energy $\epsilon_{\cc  \bk}-\epsilon_{\vv \bk}$ by the exciton energy $E_{\nu}$, and the velocity matrix elements by their interacting version given by a weighted sum over momentum of the noninteracting matrix elements, with the weight coinciding with the excitons wavefunction, similarly to what is written in~\eqref{eq:Berry_curvature_definition}.
 We can therefore write
 
