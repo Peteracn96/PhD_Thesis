@@ -472,3 +472,13 @@
 \newtcolorbox[auto counter,number within=section]{mybox}[2]{%
 sharp corners, colframe=blue!80!black,breakable, colback=blue!10, fonttitle=\bfseries,label=#2,
 title=Box~\thetcbcounter: {#1}}
+
+% Fancy ruler
+\newcommand{\sectionlinetwo}[2]{%
+    \nointerlineskip \vspace{.5\baselineskip}\hspace{\fill}
+    {\resizebox{0.5\linewidth}{1.2ex}
+    {\pgfornament[color = #1]{#2}
+    }}%
+    \hspace{\fill}
+    \par\nointerlineskip \vspace{.5\baselineskip}
+}
