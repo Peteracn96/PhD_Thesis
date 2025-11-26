@@ -1014,11 +1014,11 @@ To evaluate the optical matrix element, one considers first  the term $H_0 \br$ 
 Then, we can insert a resolution of the identity $\sum_{n,\bk'} |n,\bk'\rangle \langle n,\bk'|$ between $H_0$ and $\br$, assuming it is complete.
 The matrix elements of $H_0$ between the Bloch states $\bra{\vv ,\bk}$ and $\ket{n,\bk'}$ can be written as real-space integrals.
 If we represent the Bloch wavefunctions in the tight-binding approximation per Eq.~\eqref{eq:Bloch_state_LCAO} as a linear combination of the atomic orbitals, then the matrix element transforms into a linear combination of integrals, which are the matrix elements of the Hamiltonian between the atomic orbitals, eventually located at different positions in the lattice---these are nothing more than the transfer integrals, which define the parameters of the tight-binding model.
-Since in the wavefunction we have a sum over unit cells $\bR$ with the imaginary exponential $\ee^{-\ii \bk \vdot \bR}$, then, at the end, we would just have to calculate $\left(\bC^{\vv \bk}\right)^{\dagger}\! H(\bk) \bC^{n,\bk'}$, where $H(\bk)$ is the Bloch Hamiltonian and the arrays $\bC^{n,\bk}$ are its eigenvectors, that we derived earlier and are given by Eqs.~\eqref{eq:valence_spinor} and~\eqref{eq:conduction_spinor} for the valence and conduction bands, respectively.
-For the position operator, we have integrals of the form $\int \phi_{\beta}(\br - \bR -\bt_j)\, \br\, \phi_{\beta'}(\br - \bR' -\bt_{j'}) \dr$.
-In the tight-binding approximation, if the orbitals are point-like, the integrals amount to matrix elements $\br_{j \beta,j' \beta'} \delta_{\bR \bR'}$ of a position operator with a matrix representation that is diagonal in the $\bR$ variable, that we can denote by $\bar{\bar{\br}}$.
+Since in the wavefunction we have a sum over unit cells $\bR$ with the imaginary exponential $\ee^{-\ii \bk \vdot \bR}$, then, at the end, we would just have to calculate $\left(\bC^{\vv \bk}\right)^{\dagger}\! H(\bk) \bC^{n \bk'}$, where $H(\bk)$ is the Bloch Hamiltonian and the arrays $\bC^{n \bk}$ are its eigenvectors, that we derived earlier and are given by Eqs.~\eqref{eq:valence_spinor} and~\eqref{eq:conduction_spinor} for the valence and conduction bands, respectively.
+For the position operator, we have integrals of the form $\int \phi_{\beta}(\br - \bR -\bt_j)\, \br\, \phi_{\beta'}(\br - \bR' -\bt_{j'}) \dr$\,.
+In the tight-binding approximation, if the orbitals are point-like, the integrals amount to matrix elements $\br_{j \beta,j' \beta'} \delta_{\bR \bR'}$ of a position operator with a matrix representation that is diagonal in the $\bR$ variable, that we can denote by $\bar{\bar{\br}}$\,.
 The Kronecker delta $\delta_{\bR \bR'}$ simplifies the calculations.
-Then, we have to use the fact that $\ket{n,\bk'}$ is an eigenstate of $H_0$, so in the sum in the resolution of the identity, only the term $\ket{n,\bk'} = \ket{\vv ,\bk}$ survives, simplifying even more the calculation.
+Then, we have to use the fact that $\ket{n,\bk'}$ is an eigenstate of $H_0$\,, so in the sum in the resolution of the identity, only the term $\ket{n,\bk'} = \ket{\vv ,\bk}$ survives, simplifying even more the calculation.
 Then at the end, if we choose the lattice gauge without loss of generality, we would have at the end an expression of the form
 
 \begin{equation*}
@@ -1041,7 +1041,7 @@ Now, we expand the Bloch Hamiltonian $H(\bk)$ around the point where the exciton
 Then, we can replace the commutator $[H_0,\br]$ with the commutator
 
 \begin{equation}
-    [\overline{H}_0,\br] = -\ii \hbar  \vF  \left[ \sigma_{x}\uvec{x}+J_{0}(\beta)\sigma_{y}\uvec{y} \right] \,,
+    [\overline{H}_0,\br] = -\ii \hbar  \vF  \left[ \sigma_{x}\uvec{x}+J_{0}(\beta)\sigma_{y}\uvec{y} \right] ,
 \end{equation}
 
 \noindent which was obtained by using the canonical commutation relations.
@@ -1052,12 +1052,12 @@ Then, the initial matrix element between the Bloch states of the commutator betw
     \langle \vv ,\bk|[H,\br]|\cc, \bk\rangle  \approx -\ii \hbar  \vF  (\bC^{\vv \bk})^\dagger \left[ \sigma_{x}\uvec{x}+J_{0}(\beta)\sigma_{y}\uvec{y} \right] \bC^{\cc \bk}\,,
 \end{equation}
 
-\noindent where the arrays $\bC^{\vv ,\bk}$ and $\bC^{\cc, \bk}$ are the spinors of the low-energy Hamiltonian that we have defined before in Eqs.~\eqref{eq:valence_spinor} and~\eqref{eq:conduction_spinor} for the valence and conduction bands, respectively.
+\noindent where the arrays $\bC^{\vv \bk}$ and $\bC^{\cc \bk}$ are the spinors of the low-energy Hamiltonian that we have defined before in Eqs.~\eqref{eq:valence_spinor} and~\eqref{eq:conduction_spinor} for the valence and conduction bands, respectively.
 Inserting them in~\eqref{eq:commutator_matrix_element} and going back to the optical matrix element~\eqref{eq:optical_matrix_element}, we find
 
 \begin{equation}
     \label{eq:optical_matrix_element_final}
-    \langle \vv ,\bk|\br|\cc, \bk\rangle \approx \frac{\ii\hbar  \vF}{\epsilon_{\vv \bk}-\epsilon_{\cc \bk}}\left\{\cos^{2}\!\left(\frac{\xi_{q}}{2}\right)\left[\uvec{x}-J_{0}(\beta)\uvec{y}\right]-\ee^{-2 \ii \theta_{q}(\beta)}\sin^{2}\!\left(\frac{\xi_{q}}{2}\right)\left[\uvec{x}+J_{0}(\beta)\uvec{y}\right]\right\}\,.
+    \langle \vv ,\bk|\br|\cc, \bk\rangle \approx \frac{\ii\hbar  \vF}{\epsilon_{\vv \bk}-\epsilon_{\cc \bk}}\!\left\{\cos^{2}\!\left(\frac{\xi_{q}}{2}\right)\left[\uvec{x}-J_{0}(\beta)\uvec{y}\right]-\ee^{-2 \ii \theta_{q}(\beta)}\sin^{2}\!\left(\frac{\xi_{q}}{2}\right)\left[\uvec{x}+J_{0}(\beta)\uvec{y}\right]\right\}\,.
 \end{equation}
 
 %Writing the imaginary exponential with its non-trivial dependence on $\theta$,

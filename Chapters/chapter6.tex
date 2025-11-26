@@ -82,7 +82,7 @@ The dielectric function in real-space and time domain, within \rpa, which we dis
 
 \begin{equation}
 \label{eq:dielectric_function_real_time_recalled}
-    \varepsilon (\br,\br';t,t') = \delta(\br - \br') \delta(t-t') - \int  v_c(\br - \br'') \chi^0 (\br'',\br';t-t') \dr''  \,,
+    \varepsilon (\br,\br';t,t') = \delta(\br - \br') \delta(t-t') - \int  v_c(\br - \br'') \chi^0 (\br'',\br';t-t') \dr'' ,
 \end{equation}
 
 \noindent where $v_c$ denotes the bare (without screening) Coulomb potential, and $\chi^0$ is the \rpa~irreducible polarizability.
@@ -205,7 +205,7 @@ We have
 There is a caveat when it comes to using eigenvectors determined numerically, like the ones storing the coefficients $C_{i \alpha}^{n \bk}$.
 The eigenvectors coming from diagonalizing numerically any matrix carry a random phase.
 This is accounted for in the code.
-As explained in the paper of the first version of the code in~\cite{Xatu}, the phase of the eigenvectors $\bC^{n \bk}$ are fixed such that $\sum_{i \alpha} C_{i \alpha}^{n \bk} \in \mathbb{R}$~\cite{Louie_2000}.
+As explained in the paper of the first version of the code in~\cite{Xatu}, the phase of each eigenvector $\bC^{n \bk}$ is fixed such that $\sum_{i \alpha} C_{i \alpha}^{n \bk} \in \mathbb{R}$~\cite{Louie_2000}.
 Furthermore, for \gls{dft} band structures the code performs a L\"owdin orthogonalization of the basis after obtaining the eigenvectors $\bC^{n \bk}$.
 
 To summarize, to compute a single polarizability matrix element $\chi^0_{\bG \bG'} (\bq)$ we need:
@@ -213,7 +213,7 @@ To summarize, to compute a single polarizability matrix element $\chi^0_{\bG \bG
 \begin{enumerate}
     \item The Bloch Hamiltonian $H(\bk)$ (regardless of the gauge) and to diagonalize it to obtain the band structure $\{\epsilon_{n \bk}\}$ in the set of points $\bk$ included in the sum and the eigenvectors $\{\bC^{n \bk}\}$ storing the tight-binding coefficients $C^{n \bk}_{i \alpha}$;
     \item The set of energies $\{\epsilon_{n \bk + \bq} \}$ and eigenvectors $\{\bC^{n \bk + \bq}\}$, where $\bq$ is the point in the \bz~we are computing the polarizability at;
-    \item The plane-wave matrix elements of the form $I^{\bG}_{\cc \bk, \vv \bk + \bq} = \sum_{i \alpha} (C_{i \alpha}^{\cc \bk})^* C_{i \alpha}^{\vv \bk + \bq}  \ee^{-\ii (\bq + \bG)  \vdot \bt_i}$\,, as we know the position of the atoms in the motif $\bt_i$ from the beginning.
+    \item The plane-wave matrix elements of the form $I^{\bG}_{\cc \bk, \vv \bk + \bq} = \sum_{i \alpha} (C_{i \alpha}^{\cc \bk})^* C_{i \alpha}^{\vv \bk + \bq}\,  \ee^{-\ii (\bq + \bG)  \vdot \bt_i}$\,, as we know the position of the atoms in the motif $\bt_i$ from the beginning.
 \end{enumerate}
 
 In our numerical framework, the Bloch Hamiltonian $H(\bk)$ is determined by the input model for the code.
@@ -344,7 +344,7 @@ Herein, the model Hamiltonian for \gls{hbn} was obtained through \dft~calculatio
 In our calculations, we used the hybrid functional HSE06~\cite{Heyd_Scuseria_Ernzerhof_2003}, which mixes the exact \gls{hf} exchange functional and the Perdew--Burke--Ernzerhof functional~\cite{Perdew_1996} within the \gls{gga}\footnote{In typical \abinit~calculations within \dft, there is always an ambiguity in the functional one can choose to capture exchange and correlation effects. This is because no one knows the analytical expression for the exact exchange--correlation functional, if it even exists. However, we know that it is a functional of the electron density $n(\br)$ by the Hohenberg--Kohn theorems, we just do not have an analytical expression for it. Nonetheless, exchange--correlation contributions to the ground-state energy can be computed numerically. The caveat is that it is very computationally demanding. What one typically does, is mixing the exact numerical functional with an approximated one, say at the \gls{lda} or \gls{gga} level. There is consensus in the community that using hybrid functionals allows better estimating the electronic bandgap than non-hybrid ones when compared with the experimental values~\cite{PhysRevMaterials.8.043803}.}.
 For the sampling of $\bk$ points, we use a uniform $48\times48\times1$ Monkhorst--Pack $\bk$-grid~\cite{Monkhorst_Pack_1976}, with an interlayer distance of 500~\unit{\angstrom} and $a=2.51$~\unit{\angstrom} for the lattice constant.
 The output file $\texttt{hBN\_base\_HSE06.outp}$ can be found in the official repository for the \xatu~code: \url{https://github.com/xatu-code/xatu/tree/master/examples/material_models/DFT}.
-This file contains the Fock matrices of the form $H(\bR)$ in a basis of localized Gaussian functions, sufficient in number to build the Bloch Hamiltonian $H(\bk) = \sum_{\bR} \ee^{\ii \bk \cdot \bR} H(\bR)$ while preserving basic symmetries.
+This file contains the Fock matrices of the form $H(\bR)$ in a basis of localized Gaussian functions, sufficient in number to build the Bloch Hamiltonian $H(\bk) = \sum_{\bR} \ee^{\ii \bk \vdot \bR} H(\bR)$ while preserving basic symmetries.
 In the \dft~calculations, 69 atomic orbitals were used.
 Diagonalizing the Bloch Hamiltonian with the \xatu~code along the high-symmetry line $\Gamma-K-M-\Gamma$, we obtain the band structure displayed in Fig.~\ref{fig:hBN_DFT_bands} below.
 For this model, the bandgap is $\Delta = 6.08$~\unit{\electronvolt}, not very distant from the one reported in Section~\ref{subsec:band_gap_and_binding_energies}.
@@ -454,14 +454,14 @@ Those equations are obtained from their microscopic counterparts, involving the 
 More technically, applying a slowly varying external potential perturbation (weak enough so that we stay within the linear regime) of the form
 
 \begin{equation}
-    \phi_{\ext}(\bq,\omega) = \phi_0(\bq,\omega) \ei{(\bq \vdot \br - \omega t)}
+    \phi^{\ext}(\bq,\omega) = \phi_0(\bq,\omega) \, \ei{(\bq \vdot \br - \omega t)}
 \end{equation}
 
 \noindent to the crystal, where $2\pi/\abs{\bq}$ is much smaller than its size.
 The crystal responds and the total potential is the external one plus the induced one:
 
 \begin{equation}
-    \phi^{\tot} = \phi_{\ext} + \phi_{\ind} = \sum_{\bG} \phi(\bq,\bG,\omega)  \ei{[(\bq + \bG) \vdot \br - \omega t]}\,.
+    \phi^{\tot} = \phi^{\ext} + \phi^{\ind} = \sum_{\bG} \phi(\bq,\bG,\omega) \, \ei{[(\bq + \bG) \vdot \br - \omega t]}\,.
 \end{equation}
 
 It has all the $\bG$ Fourier components with wavevector $\bq + \bG$, where $\bG$ is a vector of the reciprocal lattice.
@@ -766,7 +766,7 @@ They are given by~\cite{Xatu,Esteve_2023,Esteve_PhD}
 \noindent where the quantity $\xi_{i \alpha i' \alpha'}(\bk) = \ii \mel{u_{i\alpha \bk}}{\grad_{\bk}}{u_{i\alpha'\bk}}$ is the Berry connection (see footnote~\ref{fn:Berry_connection}), and evaluates to~\cite{Xatu,Esteve_2023,Esteve_PhD}
 
 \begin{equation}
-    \xi_{i \alpha i' \alpha'}(\bk) = \sum_{\bR} \ei{\bk \cdot \bR} \langle i \alpha \bzero | \br | i \alpha' \bR \rangle + \ii \grad_{\bk} S_{i \alpha i' \alpha '} (\bk) \,,
+    \xi_{i \alpha i' \alpha'}(\bk) = \sum_{\bR} \ei{\bk \vdot \bR} \langle i \alpha \bzero | \br | i \alpha' \bR \rangle + \ii \grad_{\bk} S_{i \alpha i' \alpha '} (\bk) \,,
 \end{equation}
 
 \noindent where we recall that $S_{i \alpha i' \alpha '} (\bk) = \braket{i \alpha \bk}{i' \alpha' \bk}$ is a matrix element of the momentum-defined overlap matrix (see Eq.~\ref{eq:Bloch_overlap_definition}).
@@ -833,7 +833,7 @@ For that, we need the \bd~Fourier transform of the bare Coulomb potential, but h
 The bare Coulomb potential in the mixed $(\bq,z)$-representation reads
 
 \begin{equation}
-    v_{c}(\bq,z-z') =  \frac{e}{2 \epsz q} \ee^{- q|z-z'|}\,,
+    v_{c}(\bq,z-z') =  \frac{e}{2 \epsz q} \, \ee^{- q|z-z'|}\,,
 \end{equation}
 \vspace{0.1cm}
 
