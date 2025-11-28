@@ -28,7 +28,7 @@ We take first the limit $V_0 \to 0$ to obtain
     \bar{H}_{m} = \frac{m}{2}G_{0}\hbar v_{F}+\hbar v_{F}\sigma_{x}q_{x}
 \end{equation}
 %
-\noindent for $m \neq 0$, and
+\noindent for $m \neq 0$\,, and
 %
 \begin{equation}
 \bar{H} =\hbar v_{F}[\sigma_{x}q_{x}+\sigma_{y}q_{y}]-\sigma_{z}M
@@ -39,7 +39,7 @@ The latter case is simply the original low-energy Hamiltonian of hBN in the abse
 There is only a difference in the sign of the mass term, but that is not critical.
 The result for $m \neq 0$ is not null, but we can interpret the two terms on the right-hand side as follows.
 The first term is purely a global shift in energies resultant from shifting the momentum along the $x$ direction by $m G_0/2$, a consequence of using basis states with the spatial dependent part of the form $\exp{\ii (\bq \pm m G_0 \uvec{x}/2)}$ used when deriving the renormalized low-energy Hamiltonian.
-The second term comes from the measurement of momentum from the edges of the mini Brillouin zone along the $x$ direction, which no longer exists since $V_0 = 0$.
+The second term comes from the measurement of momentum from the edges of the mini Brillouin zone along the $x$ direction, which no longer exists since $V_0 = 0$\,.
 Therefore, it is not relevant.
 
 We take now the limit $L \to \infty$, that is, the limit of a constant potential.
@@ -54,10 +54,10 @@ H_{\text{total}} &=
 \sigma_{z} M \sum_{m} J_{m}(\beta) = 
 \nonumber\\
 & \overset{L\to \infty}{=} \hbar v_{F}
-[\sigma_{x}q_{x}+\sigma_{y}q_{y}] - \sigma_{z}M,
+[\sigma_{x}q_{x}+\sigma_{y}q_{y}] - \sigma_{z}M\,,
 \end{align}
 %
-\noindent where, to arrive at the final result, we used the fact that $G_0 \to 0$ when $L \to \infty$ and the rule $\sum_{m} J_{m}(\beta) = 1$, valid for the Bessel functions of the first kind.
+\noindent where, to arrive at the final result, we used the fact that $G_0 \to 0$ when $L \to \infty$ and the rule $\sum_{m} J_{m}(\beta) = 1$\,, valid for the Bessel functions of the first kind.
 In this way, we are able to recover the original low-energy Hamiltonian of hBN (with the small caveat of the sign in the mass term once more).
 
 \section{Exchange energy correction to the bandgap}
@@ -74,7 +74,7 @@ We recall the Bethe--Salpeter equation:
 
 \noindent We wish to compute the contribution to the bandgap due to the exchange energy coming from the third term in the right-hand side of the previous equation.
 We assume that this term renormalizes strongly the electronic bandgap but has no effect on the curvature of the bands.
-So we start from that term with $\bk = 0$.
+So we start from that term with $\bk = 0$\,.
 We denote the exchange energy by $\Delta_{\mathrm{ex}}$ and it writes
 
 \begin{equation}
@@ -132,13 +132,13 @@ The second form factor is
     k_0 \equiv |J_0 (\beta)| \frac{E_g}{2 \hbar v_F} \,.
 \end{equation}
 
-Using the auxiliary function $\gamma(\theta) = \sqrt{\cos^2 \theta + J_0^2(\beta) \sin^2 \theta}$, the exchange energy now reads
+Using the auxiliary function $\gamma(\theta) = \sqrt{\cos^2 \theta + J_0^2(\beta) \sin^2 \theta}$\,, the exchange energy now reads
 
 \begin{equation}
     \Delta_{\mathrm{ex}} = \frac{1}{\area} \sum_{\bp} V_{\bp}  \frac{1}{\sqrt{1 + \left(\frac{p \gamma(\theta)}{k_0}\right)^2}} = \frac{e}{8 \pi^2 \epsz \kappa} \int_0^{2\pi} \dd \theta \int_0^{\infty} \dd p  \frac{1}{ (1 + r_0 p/\kappa) \sqrt{1 + \left(\frac{p \gamma(\theta)}{k_0}\right)^2}} \,.
 \end{equation}
 
-\noindent where we converted the sum into an integral as $\sum_{\bp} \to A/(2 \pi)^2  \int \dd \bp$, and used for the Rytova--Keldysh potential
+\noindent where we converted the sum into an integral as $\sum_{\bp} \to \area/(2 \pi)^2  \int \dd \bp$, and used for the Rytova--Keldysh potential
 
 \begin{equation}
     V_{\bp} = \frac{e}{2 \epsz p (\kappa + r_0 p)} \,.
@@ -147,19 +147,19 @@ Using the auxiliary function $\gamma(\theta) = \sqrt{\cos^2 \theta + J_0^2(\beta
 \noindent with $\kappa$ being the arithmetic average between the dielectric constants of the substrate and the cladding material.
 
 
-\noindent To perform the final integral, we make the change of variable $p \gamma(\theta) / k_0 = \tan u$.
-The differential becomes $ \dd p = k_0 \dd(\tan u)/\gamma(\theta) = k_0 \frac{1}{\cos^2 u}/\gamma(\theta) \dd u$, and the square root in the denominator transforms into $\sqrt{1 + p^2 \gamma^2(\theta)/k_0^2} = \sqrt{1 + \tan^2 u} = 1/\cos u$.
-When $p=0$ we have $u=0$, and when $p = \infty$ we have $u=\pi/2$.
-Furthermore, we introduce a new dimensionless parameter $\gamma \equiv r_0 k_0$, so that the integral becomes now
+\noindent To perform the final integral, we make the change of variable $p \gamma(\theta) / k_0 = \tan u$\,.
+The differential becomes $ \dd p = k_0 \dd(\tan u)/\gamma(\theta) = k_0 \frac{1}{\cos^2 u}/\gamma(\theta) \dd u$\,, and the square root in the denominator transforms into $\sqrt{1 + p^2 \gamma^2(\theta)/k_0^2} = \sqrt{1 + \tan^2 u} = 1/\cos u$.
+When $p=0$ we have $u=0$\,, and when $p = \infty$ we have $u=\pi/2$\,.
+Furthermore, we introduce a new dimensionless parameter $\gamma \equiv r_0 k_0$\,, so that the integral becomes now
 
 \begin{equation}
-    k_0 \int_0^{2\pi} \frac{1}{\gamma(\theta) \sqrt{1 + \alpha^2(\theta)}} \ln\! \left( \frac{1 + \alpha(\theta) + \sqrt{1 + \alpha^2(\theta)}}{1 + \alpha(\theta) - \sqrt{1 + \alpha^2(\theta)}} \right) \dd \theta
+    k_0 \int_0^{2\pi} \frac{1}{\gamma(\theta) \sqrt{1 + \alpha^2(\theta)}} \ln\! \left( \frac{1 + \alpha(\theta) + \sqrt{1 + \alpha^2(\theta)}}{1 + \alpha(\theta) - \sqrt{1 + \alpha^2(\theta)}} \right) \dd \theta \,.
 \end{equation}
 
 \noindent Finally, we arrive at the expression for the exchange energy
 
 \begin{equation}
-    \Delta_{\mathrm{ex}} = \frac{e k_0}{8 \pi^2 \epsz \kappa} \int_0^{2\pi} \frac{1}{\gamma(\theta) \sqrt{1 + \alpha^2(\theta)}} \ln \! \left( \frac{1 + \alpha(\theta) + \sqrt{1 + \alpha^2(\theta)}}{1 + \alpha(\theta) - \sqrt{1 + \alpha^2(\theta)}} \right) \dd \theta \,\,
+    \Delta_{\mathrm{ex}} = \frac{e k_0}{8 \pi^2 \epsz \kappa} \int_0^{2\pi} \frac{1}{\gamma(\theta) \sqrt{1 + \alpha^2(\theta)}} \ln \! \left( \frac{1 + \alpha(\theta) + \sqrt{1 + \alpha^2(\theta)}}{1 + \alpha(\theta) - \sqrt{1 + \alpha^2(\theta)}} \right) \dd \theta \,,
 \end{equation}
 
 \noindent which can be evaluated numerically without any computational effort.

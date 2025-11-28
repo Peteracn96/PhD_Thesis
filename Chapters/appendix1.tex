@@ -11,6 +11,7 @@
 
 \chapter{The Fourier Transform: definitions and identities}
 \label{app:fourier_transform}
+\glsresetall
 
 In this appendix, we summarize the definitions used for the Fourier transform and its inverse used throughout this thesis.
 The discussion presented here is adapted from Appendix A of Ref~\cite{Bruus_Flensberg_2004}.
@@ -31,18 +32,18 @@ The following relations involving the Dirac delta function are also valid:
     \int_{-\infty}^{+\infty}\frac{\dd \omega}{2\pi}f(\omega)\,\ee^{-\ii\omega t}=\delta(t),\qq{and} \int_{-\infty}^{+\infty}\dd t\,f(t)\,\ee^{\ii\omega t}=\delta(\omega)\,.
 \end{equation}
 
-A two-point function in time $f(t,t')$ can be written in terms of its Fourier components as
+\noindent A two-point function in time $f(t,t')$ can be written in terms of its Fourier components as
 
 \begin{equation}
     f(t,t')=\int_{-\infty}^{+\infty}\dd \omega\int_{-\infty}^{+\infty}\dd \omega'\,f(\omega,\omega')\,\ee^{-\ii\omega t}\ee^{\ii\omega't'}.
 \end{equation}
 
-\noindent If this function enjoys continuous time translation symmetry as $f(t,t')=f(t-t')$, which will always be the case in this work, then one can show that the Fourier transformed function can only be nonzero if $\omega=\omega'$.
+\noindent If this function enjoys continuous time translation symmetry as $f(t,t')=f(t-t')$, which is always the case in this work, then one can show that the Fourier transformed function can only be nonzero if $\omega=\omega'$.
 More than that, it is of the form $f(\omega,\omega')=\widetilde{f}(\omega)\delta(\omega-\omega')$, and $\widetilde{f}(\omega)$ is the Fourier transform of $f(t-t')$ when we consider the time difference $t-t'$ as a single variable.
 Therefore, we are allowed to write
 
 \begin{equation}
-    f(t-t')=\int_{-\infty}^{+\infty}\dd \omega\,\widetilde{f}(\omega)\,\ee^{-\ii\omega(t-t')}.
+    f(t-t')=\int_{-\infty}^{+\infty}\dd \omega\,\widetilde{f}(\omega)\,\ee^{-\ii\omega(t-t')}\,.
 \end{equation}
 
 
@@ -55,7 +56,7 @@ Then, any function $f(\br)$ can be written in a Fourier series as
 
 \begin{equation}
     \label{eq:inverse_Fourier_discrete}
-    f(\br)=\frac{1}{\vol}\sum_{\bk}f_{\bk}\ee^{\ii \bk \vdot \br},
+    f(\br)=\frac{1}{\vol}\sum_{\bk}f_{\bk}\,\ee^{\ii \bk \vdot \br},
 \end{equation}
 
 \noindent with the momentum $\bk$ assuming discrete values, and
@@ -68,7 +69,7 @@ Then, any function $f(\br)$ can be written in a Fourier series as
 \noindent The following relations hold
 
 \begin{equation}
-    \int_{\vol}\dr\,f(\br)\,\ee^{-\ii \bk \vdot \br}=\vol\delta_{\bk,\bzero} \qq{and} \frac{1}{\vol}\sum_{\bk}\ee^{\ii \bk \vdot \br}=\delta(\br)\,,
+    \int_{\vol}\dr f(\br)\,\ee^{-\ii \bk \vdot \br}=\vol\delta_{\bk,\bzero} \qq{and} \frac{1}{\vol}\sum_{\bk}\ee^{\ii \bk \vdot \br}=\delta(\br)\,,
 \end{equation}
 
 \noindent where $\delta_{\bk,\mathbf{q}}$ is the Kronecker delta.
@@ -83,11 +84,11 @@ In this way, relations~\eqref{eq:inverse_Fourier_discrete} and~\eqref{eq:direct_
 \noindent respectively, and both relations below
 
 \begin{equation}
-    \int\frac{\dd \bk}{(2\pi)^{3}}\ee^{\ii \bk \vdot \br}=\delta(\br), \qq{and} \int \dd \br\, \ee^{-\ii \bk \vdot \br} = (2\pi)^{3}\delta(\bk)\,,
+    \int\frac{\dd \bk}{(2\pi)^{3}}\,\ee^{\ii \bk \vdot \br}=\delta(\br) \qq{and} \int \dd \br\, \ee^{-\ii \bk \vdot \br} = (2\pi)^{3}\delta(\bk)\,,
 \end{equation}
  
 \noindent hold as well.
-If the system under consideration is \bd~and not \gls{3d}, then instead of volume $\vol$ we have area $\area$, the momentum $\bk$ is a \bd~vector, the integrals over volume become integrals over area, and whenever we have $(2\pi)^{3}$, we would have $(2\pi)^{2}$ instead.
+If the system under consideration is \bd~and not \gls{3d}, then instead of the volume $\vol$ we have the area $\area$, the momentum $\bk$ is a \bd~vector, the integrals over volume become integrals over area, and whenever we have $(2\pi)^{3}$, we would have $(2\pi)^{2}$ instead.
 
 \subsection{Two-point functions}
 
@@ -107,7 +108,7 @@ The direct Fourier transform then writes
 \end{equation}
 
 \noindent by choosing $\br'=\bzero$ without loss of generality.
-Something similar for the finite volume case writes
+The finite volume case writes
 
 \begin{equation}
     \label{eq:finite_volume_two_point_inverse_Fourier}
@@ -128,20 +129,20 @@ The Fourier transform of the Coulomb potential $v_{c}$, that in electron-Volt an
 Designating by $k = |\bk|$ the length of the vector $\bk$, in \gls{3d}, the momentum-resolved Coulomb potential is given by
 
 \begin{equation}
-    v_{c}(\bk)=\int\dd^{3}\br\,\frac{e}{4\pi \epsz |\br-\br'|}\ee^{-\ii \bk \vdot \br}=\frac{e}{ \epsz k^{2}}\,,
+    v_{c}(\bk)=\int\dd^{3}\br\,\frac{e}{4\pi \epsz |\br|}\ee^{-\ii \bk \vdot \br}=\frac{e}{ \epsz k^{2}}\,,
 \end{equation}
 
 \noindent while in \bd~it assumes the form
 
 \begin{equation}
-    v_{c}(\bk)=\int\dd^{2}\br\,\frac{e}{4\pi \epsz |\br-\br'|}\ee^{-\ii \bk \vdot \br}=\frac{e}{2 \epsz k}\,.
+    v_{c}(\bk)=\int\dd^{2}\br\,\frac{e}{4\pi \epsz |\br|}\ee^{-\ii \bk \vdot \br}=\frac{e}{2 \epsz k}\,.
 \end{equation}
 
 We remark that due to the definitions used in this work, the Coulomb potential, unlike in real space, does not have units of energy in reciprocal space.
 Nonetheless, the final quantities to compute will always have the right units.
 
 If the system enjoys discrete translation symmetry instead of continuous translation symmetry, when we want to describe solids microscopically, an expression similar to~\eqref{eq:finite_volume_two_point_inverse_Fourier} can still be worked out.
-But for that, we need to use the concepts from Chapter~\ref{ch:quantum_mechanics_solids}, namely that of \acrlong{bz} and reciprocal lattice vectors.
+But for that, we need to use the concepts from Chapter~\ref{ch:quantum_mechanics_solids}, namely that of \gls{bz} and reciprocal lattice vectors.
 If the system enjoys discrete translational symmetry, one can prove that $f(\bk,\bk')\neq0$ only if $\bk'=\bk+\bG$, where $\bG$ is a vector of the reciprocal lattice.
 Besides that, using the fact that any momentum $\bq$ in the reciprocal lattice can be written as $\bq=\bk+\bG$, where $\bk$ is a vector in the \gls{bz}, we can rewrite the sums over momentum in~\eqref{eq:finite_volume_two_point_inverse_Fourier} as
 
@@ -152,4 +153,4 @@ Besides that, using the fact that any momentum $\bq$ in the reciprocal lattice c
 \end{aligned}
 \end{equation}
 
-\noindent if we identify $f(\bk+\bG,\bk'+\bG')=\vol\delta_{\bk,\bk'}f(\bk+\bG,\bk+\bG')$.
+\noindent if we identify $f(\bk+\bG,\bk'+\bG')=\vol\delta_{\bk,\bk'}f(\bk+\bG,\bk'+\bG')$.

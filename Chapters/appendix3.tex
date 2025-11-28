@@ -25,9 +25,10 @@ In a periodic system with no contribution to the Hamiltonian that violates \gls{
 
 \noindent is verified for the Bloch Hamiltonian $H(\bk)$.
 Apart from systems with \gls{soc}, our Hamiltonian is diagonal in the spin.
-If there is spin then the transformation of \gls{trs} is sightly more complicated, but we refrain from using it, and will just ignore spin.
-Either way, we have verified numerically that for models where \gls{soc} is present, considering it or ignoring it makes no relevant difference in the calculation of the polarizability.
-Also, for time-reversal invariant systems, the quasiparticle energies naturally obey $\epsilon_{n  \bk} = \epsilon_{n - \bk}$.
+If there is spin, then the transformation of \gls{trs} is slightly more complicated.
+However, we refrain from including the spin and will simply ignore it.
+Either way, we have verified numerically that for models where \gls{soc} is present, considering or ignoring the spin makes no relevant difference in the calculation of the polarizability.
+Also, for time-reversal invariant systems, the quasiparticle energies naturally obey $\epsilon_{n  \bk} = \epsilon_{n - \bk}$\,.
 
 The expression~\eqref{eq:static_polarizability_repeated} in the main text for the polarizability reads
 
@@ -38,20 +39,20 @@ The expression~\eqref{eq:static_polarizability_repeated} in the main text for th
 \end{aligned}
 \end{equation}
 
-\noindent Now we show that the second term on the right-hand side of the previous expression equals the first one.
-First, we recall that the sum over momentum $\bk$ is over momenta in the \gls{bz}, which is centrosymmetric.
+\noindent Now, we show that the second term on the right-hand side of the previous expression equals the first one.
+We first recall that the sum over the momentum $\bk$ is over momenta in the \gls{bz}, which is centrosymmetric.
 Therefore, we can replace $\bk \to -\bk$ and then shift $\bk \to \bk + \bq$ to obtain
 
 \begin{equation}
 \begin{aligned}
     &\sum_{\vv \cc,\bk\sigma} \frac{\langle \vv,-\bk-\bq|\ee^{-\ii(\bq+\bG)\vdot\br}|\cc,-\bk\rangle \langle \cc,-\bk|\ee^{\ii(\bq+\bG')\vdot\br}|\vv,-\bk-\bq\rangle}{\epsilon_{\vv -\bk-\bq} - \epsilon_{\cc -\bk}} = \\
-    & \sum_{\vv \cc,\bk\sigma} \frac{\langle \vv,-\bk-\bq|\ee^{-\ii(\bq+\bG)\vdot\br}|\cc,-\bk\rangle \langle \cc,-\bk|\ee^{\ii(\bq+\bG')\vdot\br}|\vv,-\bk-\bq\rangle}{\epsilon_{\vv \bk+\bq} - \epsilon_{\cc \bk}} \,
+    & \sum_{\vv \cc,\bk\sigma} \frac{\langle \vv,-\bk-\bq|\ee^{-\ii(\bq+\bG)\vdot\br}|\cc,-\bk\rangle \langle \cc,-\bk|\ee^{\ii(\bq+\bG')\vdot\br}|\vv,-\bk-\bq\rangle}{\epsilon_{\vv \bk+\bq} - \epsilon_{\cc \bk}} \,,
 \end{aligned}
 \end{equation}
 
-\noindent where we used \gls{trs} to write the equality, namely $\epsilon_{n  \bk} = \epsilon_{n - \bk}$.
-Now we only need some sort of symmetry for the plane-wave matrix elements of the form $\langle n,\bk|\ee^{-\ii\bq\vdot\br}|n',\bk'\rangle$.
-For that, we recall here their expression in terms of the eigenvectors of the Bloch Hamiltonian, that we denote by $\bC^{n \bk}$.
+\noindent where we used \gls{trs} to write the equality, namely $\epsilon_{n  \bk} = \epsilon_{n - \bk}$\,.
+Now, we only need some sort of symmetry for the plane-wave matrix elements of the form $\langle n,\bk|\ee^{-\ii\bq\vdot\br}|n',\bk'\rangle$.
+For that, we recall here their expression in terms of the eigenvectors of the Bloch Hamiltonian that we denote by $\bC^{n \bk}$.
 Being eigenvectors of the Bloch Hamiltonian, the tight-binding coefficients obey
 
 \begin{equation}
@@ -64,10 +65,10 @@ Being eigenvectors of the Bloch Hamiltonian, the tight-binding coefficients obey
 
 \noindent where, to get the last equality, we used the identities verified by $H(\bk)$ and $\epsilon_{n \bk}$ introduced above.
 So, in principle, we have $T (\bC^{n -\bk})^* = \bC^{n \bk}$.
-Now, for the matrix elements of interest, we introduce the following notation:
+For the matrix elements of interest, we introduce the following notation:
 
 \begin{equation}
-     \langle n,\bk | \ee^{-\ii(\bk' - \bk + \bG) \vdot \br} | n',\bk' \rangle = \sum_{i \alpha} (C_{i \alpha}^{n \bk})^* C_{i \alpha}^{n' \bk'}  \ee^{-\ii(\bk' - \bk + \bG)  \vdot \bt_i} \equiv (\bC^{n \bk})^{\dagger} \vdot \big(\bC^{n' \bk'} \odot \underline{\varphi} \big) \,
+     \langle n,\bk | \ee^{-\ii(\bk' - \bk + \bG) \vdot \br} | n',\bk' \rangle = \sum_{i \alpha} (C_{i \alpha}^{n \bk})^* C_{i \alpha}^{n' \bk'}  \ee^{-\ii(\bk' - \bk + \bG)  \vdot \bt_i} \equiv (\bC^{n \bk})^{\dagger} \vdot \big(\bC^{n' \bk'} \odot \underline{\varphi} \big) \,,
 \end{equation}
 
 \noindent where the vector $\underline{\varphi}$ has by entries the phases $\ee^{-\ii(\bk' - \bk + \bG)  \vdot \bt_i}$, that is, $(\underline{\varphi})_{i\alpha} = \ee^{-\ii(\bk' - \bk + \bG)  \vdot \bt_i}$, and $\odot$ is used to denote element-wise product, usually called Hadamard product in the literature.
@@ -96,7 +97,7 @@ This identity has also been verified numerically.
 \label{app:regularization}
 
 In this appendix, we explain in detail how the divergences of the dielectric matrix in the long-wavelength limit $\bq \to \bzero$ are treated in this work.
-As commonly done in the literature, different matrix elements of the dielectric matrix have different treatment, namely the head $\varepsilon_{\bzero \bzero}$, the wing $\varepsilon_{\bG \bzero}$ and $\varepsilon_{\bzero \bG}$, and body $\varepsilon_{\bG\bG'}$ matrix elements, with $\bG,\bG' \neq \bzero$.
+As commonly done in the literature, different matrix elements of the dielectric matrix have different treatments, namely the head $\varepsilon_{\bzero \bzero}$, the wing $\varepsilon_{\bG \bzero}$ and $\varepsilon_{\bzero \bG}$, and body $\varepsilon_{\bG\bG'}$ matrix elements, with $\bG,\bG' \neq \bzero$\,.
 As discussed in the main text, we adopt the symmetrized dielectric matrix defined by
 
 \begin{equation}
@@ -115,7 +116,7 @@ This is because
 
 \noindent where the last equality holds for very small $\bq$, and $\mathbf{B}$ is the Hessian matrix of the function $\chi^0_{\bzero \bzero} (q_x,q_y)$ at the point $(q_x,q_y) = (0,0)$.
 The Hessian, here a two by two matrix, does not depend on the small vector $\bq$, because the function $\chi^0_{\bzero \bzero} (\bq)$ is analytic in $\bq$ around the origin according to Pick, Cohen, and Martin in~\cite{Pick_Cohen_Martin_1970}.
-In the same paper, they explain that all the functions $\chi^0_{\bG \bG'} (\bq)$, for any $\bG$ and $\bG'$ vectors, are analytic at $\bq = \bzero$.
+In the same paper, they explain that all the functions $\chi^0_{\bG \bG'} (\bq)$, for any $\bG$ and $\bG'$ vectors, are analytic at $\bq = \bzero$\,.
 In other words, the functions $\chi^0_{\bG \bG'} (\bq)$ can be expanded around the origin in powers of $\bq$.
 For our analysis, we only need to expand it up to second order in Taylor series.
 Therefore, we can write for the wing terms
@@ -132,18 +133,19 @@ Therefore, we can write for the wing terms
                                               & = -\frac{e}{2 \varepsilon_0 \sqrt{|\bG|} \sqrt{q}} \bq \vdot \mathbf{A}(\bG)^{*} \propto \sqrt{q} \to 0 \,,
 \end{align}
 
-\noindent where $\mathbf{A}(\bG)$ is the Jacobian matrix (a vector, actually) of the function $\chi^0_{\bG \bzero} (\bq)$ at $\bq = \bzero$, which does not depend on $\bq$ due to $\chi^0_{\bG \bzero} (\bq)$ being analytic, as mentioned above.
+\noindent where $\mathbf{A}(\bG)$ is the Jacobian matrix (a vector, actually) of the function $\chi^0_{\bG \bzero} (\bq)$ at $\bq = \bzero$\,, which does not depend on $\bq$ due to $\chi^0_{\bG \bzero} (\bq)$ being analytic, as mentioned above.
 
-If we were to use the nonsymmetric dielectric matrix, then the wing terms $\varepsilon_{\bG \bzero}$ would also tend to zero as $\bq \to \bzero$, but with $q$ instead, but the terms $\varepsilon_{\bzero \bG}$ would tend to $\varepsilon_{\bzero \bG}(\bq \to \bzero) \to -e \hat{\bq} \vdot \mathbf{A}(\bG)^{*}/2\varepsilon_0$, which is finite and depends on the direction along which one takes the limit $\bq \to \bzero$.
+If we were to use the nonsymmetric dielectric matrix, then the wing terms $\varepsilon_{\bG \bzero}$ would also tend to zero as $\bq \to \bzero$\,, but with $q$ instead.
+On the contrary, the terms $\varepsilon_{\bzero \bG}$ would tend to $\varepsilon_{\bzero \bG}(\bq \to \bzero) \to -e \hat{\bq} \vdot \mathbf{A}(\bG)^{*}/2\varepsilon_0$, which is finite and depends on the direction along which one takes the limit $\bq \to \bzero$\,.
 One can see the usefulness of using the symmetrized dielectric matrix, making it easier to implement numerically.
-OWe just set $\varepsilon_{\bzero \bG}(\bzero) = \varepsilon_{\bG \bzero}(\bzero) = 0$, leaving eventual long-wavelength regularizations for later when dealing with the screened potential.
+We just set $\varepsilon_{\bzero \bG}(\bzero) = \varepsilon_{\bG \bzero}(\bzero) = 0$\,, leaving eventual long-wavelength regularizations for later when dealing with the screened potential.
 
 Now, we investigate the behavior of the inverse dielectric matrix for near-zero $\bq$, in the light of Refs.~\cite{Rasmussen_Schmidt_Winther_Thygesen_2016} and~\cite{Pick_Cohen_Martin_1970}, by writing the dielectric matrix as a matrix by blocks.
 We separate the head, the wing, and the body terms, which we represent by $\varepsilon_{\bzero \bzero}$, $\varepsilon_{\bG \bzero}$ and $\varepsilon_{\bzero \bG}$, and $B_{\bG \bG'}$, respectively.
 Skipping the details of the inversion, we write directly
 
 \begin{align}
-    \varepsilon^{-1}_{\bzero \bzero}       & =  \left[\varepsilon_{\bzero \bzero} - \sum_{\bG,\bG' \neq \bzero} \varepsilon_{\bzero \bG} B^{-1}_{\bG \bG'} \varepsilon_{\bG'\bzero}\right]^{-1} \,, \\
+    \varepsilon^{-1}_{\bzero \bzero}       & =  \left[\varepsilon_{\bzero \bzero} - \sum_{\bG,\bG' \neq \bzero} \varepsilon_{\bzero \bG} B^{-1}_{\bG \bG'} \varepsilon_{\bG'\bzero}\right]^{-1} , \\
     \varepsilon^{-1}_{\bG \bzero}     & =  -\varepsilon^{-1}_{\bzero \bzero} \sum_{\bG' \neq \bzero}  B^{-1}_{\bG \bG'}  \varepsilon_{\bG' \bzero}\,, \\
     \varepsilon^{-1}_{\bzero \bG}     & =  -\varepsilon^{-1}_{\bzero \bzero} \sum_{\bG' \neq \bzero}  \varepsilon_{\bzero\bG'} B^{-1}_{\bG' \bG} \,, \\
     \varepsilon^{-1}_{\bG \bG'} & =  B^{-1}_{\bG \bG'} + \varepsilon^{-1}_{\bzero \bzero} \left(\sum_{\bG'' \neq \bzero}  B^{-1}_{\bG \bG''}  \varepsilon_{\bG'' \bzero}\right) \left(\sum_{\bG'' \neq \bzero} \varepsilon_{\bzero\bG''} B^{-1}_{\bG'' \bG'}\right) \,.
@@ -197,7 +199,7 @@ Regarding the wing terms of the screened potential, using the symmetrized dielec
 
 \begin{align}
     W_{\bG \bzero} (\bq \to 0) & =  \sqrt{v_c(\bG)} \varepsilon^{-1}_{\bG \bzero} (\bq \to \bzero) \sqrt{v_c (\bq \to \bzero)} = \notag \\
-                               & = -\frac{e}{2\varepsilon_0\sqrt{|\bG|}} \hat{\bq} \vdot \sum_{\bG' \neq \bzero} \frac{1}{ \sqrt{\bG'}} \mathbf{A}(\bG') B^{-1}_{\bG' \bG}\,, \\
+                               & = -\frac{e}{2\varepsilon_0\sqrt{|\bG|}} \hat{\bq} \vdot \sum_{\bG' \neq \bzero} \frac{1}{ \sqrt{\bG'}} \mathbf{A}(\bG') B^{-1}_{\bG' \bG}\,, \qq{and} \\
     W_{\bzero \bG} (\bq \to 0) & =  \sqrt{v_c (\bq \to \bzero)} \varepsilon^{-1}_{\bzero \bG} (\bq \to \bzero) \sqrt{v_c(\bG)}  =  \notag \\
                                & = -\frac{e}{2\varepsilon_0\sqrt{|\bG|}} \hat{\bq} \vdot \sum_{\bG' \neq \bzero} \frac{1}{ \sqrt{\bG'}} \mathbf{A}(\bG')^* B^{-1}_{\bG \bG'}\,, 
 \end{align}
