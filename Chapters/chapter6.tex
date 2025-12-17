@@ -580,7 +580,7 @@ The results are displayed in Fig.~\ref{fig:epsilon2D_abinitio_vs_q_hBN} below.
 It comes as a surprise for us, that the agreement between our results, in the colored dashed lines, and theirs, in the continuous black line, is so good.
 Not only the curves overlap in the small-$q$ limit, but they overlap as well for higher values of momentum $q$ inside the \bz~and further apart from the origin.
 Naturally, the agreement between the curves ceases for a given value of momentum $q$, which is related with the finite thickness of the material $\dd_{\perp}$.
-When $q \dd_{\perp}  \lesssim 1$, we expect for our strict \bd~ approach to agree with the \abinit~one, while for $q \dd_{\perp}  \gtrsim 1$ we expect for the two approaches to disagree.
+When $q \dd_{\perp} \lesssim 1$, we expect for our strict \bd~ approach to agree with the \abinit~one, while for $q \dd_{\perp}  \gtrsim 1$ we expect for the two approaches to disagree.
 
 \begin{figure}[h]
     \centering
@@ -883,7 +883,7 @@ Doing so is not very hard, but it is somewhat tedious.
 We briefly explain key steps of the derivation, as the fine details are not relevant.
 In the expression for the \rpa~irreducible polarizability in Eq.~\eqref{eq:polarizability_RPA_def}, in a basis of Bloch states, at zero temperature, and in the static limit, we replace the state functions by the Bloch wavefunctions in the linear combination of atomic orbitals as per Eq.~\eqref{eq:Bloch_state_LCAO}.
 Then, when evaluating the real space \bd~integrals, we introduce the point-like orbital approximation.
-The difference now, is that we write $\phi_{\alpha}(\br - \bR - \bt_i ) \phi_{\beta}(\br' - \bR' - \bt_{j} ) \approx \delta_{\alpha \beta} \delta_{i j} \delta_{\bR \bR'} \delta(r - \bR - \bt_{i}) = \delta_{\alpha \beta} \delta_{i j} \delta_{\bR \bR'} \delta(\br_{||} - \bR - \bt_{i,||}) \delta(z - t_{i,z})$\,, with $\bt_i = \bt_{i,||} + t_{i,z} \uvec{z}$.
+The difference now, is that we write $\phi_{\alpha}(\br - \bR - \bt_i ) \phi_{\beta}(\br' - \bR' - \bt_{j} ) \approx \delta_{\alpha \beta} \delta_{i j} \delta_{\bR \bR'} \delta(\br - \bR - \bt_{i}) = \delta_{\alpha \beta} \delta_{i j} \delta_{\bR \bR'} \delta(\br_{||} - \bR - \bt_{i,||}) \delta(z - t_{i,z})$\,, with $\bt_i = \bt_{i,||} + t_{i,z} \uvec{z}$.
 The~last equality is valid, since we can split a \gls{3d} delta function as $\delta(\br - \br') = \delta(\br_{||} - \br'_{||}) \delta(z-z')$, and the vector $\bR$ has no off-plane component, but the atomic positions $\bt_{i}$ in general do.
 The integrals in real space are therefore trivial, and the expression for the polarizability in the mixed representation reads
 
