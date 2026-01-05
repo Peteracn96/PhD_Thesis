@@ -62,7 +62,7 @@ Making now explicit the $(\bq,z)$-dependence in the previous expression, we writ
 \begin{equation}
     \begin{aligned}
         \chi^{\RPA}_{\bG \bG'}(\bq,z,z') = & \chi^{0}_{\bG \bG'}(\bq,z,z') + \\
-        &\sum_{\bG_{1}} \int \,\chi^{0}_{\bG \bG_{1}}(\bq,z,z_{1}) v_{c}( \bq +\bG_{1},z_{1}-z_{2}) \chi^{\RPA}_{\bG_{1} \bG'}(\bq,z_{2},z')\dd z_{1}\dd z_{2}
+        &\sum_{\bG_{1}} \int \,\chi^{0}_{\bG \bG_{1}}(\bq,z,z_{1}) v_{c}( \bq +\bG_{1},z_{1}-z_{2}) \chi^{\RPA}_{\bG_{1} \bG'}(\bq,z_{2},z')\dd z_{1}\dd z_{2} \,.
     \end{aligned}
     \end{equation}
 
@@ -71,7 +71,7 @@ Then, for the inverse dielectric function within \rpa, we would have
 
 \begin{equation}
  \label{eq:inv_epsilon_RPA}
-\varepsilon_{\bG \bG'}^{-1}(\bq,z,z') = \delta_{\bG \bG'} \delta(z-z')+\int v_{c}( \bq +\bG,z-z'')\chi^{\RPA}_{\bG \bG'}(\bq,z'',z')\dd z''\,.
+\varepsilon_{\bG \bG'}^{-1}(\bq,z,z') = \delta_{\bG \bG'} \delta(z-z')+\int v_{c}( \bq +\bG,z-z'')\chi^{\RPA}_{\bG \bG'}(\bq,z'',z') \dd z''.
 \end{equation}
 
 In principle, assuming we have the inverse of the dielectric function,
@@ -91,7 +91,7 @@ For that, we already have the inverse of the dielectric function from above.
 For any pair of points $(z,z')$, we can use the expression
 
 \begin{equation}
-W_{\bG \bG'}( \bk,z,z') = \int\varepsilon_{\bG \bG'}^{-1}(\bq,z,z'')v_{c}( \bq +\bG',z''-z')\dd z''\,,
+W_{\bG \bG'}(\bk,z,z') = \int\varepsilon_{\bG \bG'}^{-1}(\bq,z,z'')v_{c}( \bq +\bG',z''-z')\dd z'' ,
 \end{equation}
 
 \noindent where $\varepsilon_{\bG \bG'}^{-1}(\bq,z,z')$
@@ -101,12 +101,12 @@ Replacing it by the expression~\eqref{eq:inv_epsilon_RPA} above, one arrives at
 \begin{equation}
 \begin{aligned}
     W_{\bG \bG'}(\bq,z,z') =  & \,\delta_{\bG \bG'}\,v_{c}( \bq +\bG',z-z') \,+ \\
- & \int v_{c}( \bq +\bG,z-z_{1})\chi^{\RPA}_{\bG \bG'}(\bq,z_{1},z'')v_{c}( \bq +\bG',z''-z')\, \dd z_{1}\dd z''\,.
+ & \int v_{c}( \bq +\bG,z-z_{1})\chi^{\RPA}_{\bG \bG'}(\bq,z_{1},z'')v_{c}( \bq +\bG',z''-z')\, \dd z_{1}\dd z'' .
 \end{aligned}
 \end{equation}
 
 \noindent Since in the point-like orbital approximation we only need to compute
-the screened potential between $z$ points located at the heights $t_{i,z}$, we can adapt the previous expression
+the screened potential between $z$ points located at the heights $t_{i,z}$\,, we can adapt the previous expression
 to use it in the interaction matrix elements as
 
 \begin{equation}

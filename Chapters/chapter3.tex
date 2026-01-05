@@ -1126,7 +1126,7 @@ Therefore, we can write a diagram for this expression as
             \fill (2) circle (1.2pt) coordinate (2);
 
         \end{scope}
-    \end{tikzpicture}.
+    \end{tikzpicture}\!.
 \end{equation}
 
 \noindent Naturally, the polarizability in this approximation, that is given by $\chi^{GW} =- \ii \mathcal{G} * \mathcal{G}$, has a diagram representation as well, which reads
@@ -1163,14 +1163,14 @@ Therefore, we can write a diagram for this expression as
     \end{tikzpicture} \,,
 \end{equation}
 
-\noindent with two doubled arrowed lines, each one representing a full fermion propagators.
+\noindent with two doubled arrowed lines, each one representing a full fermion propagator.
 These identities are nothing more then a direct consequence of the approximation for the vertex function introduced in the beginning of the paragraph.
 We can a posteriori do more approximations of the self-energy.
 If we approximate the line for the full fermion propagator by its noninteracting counterpart, we get the $G_0 W$ approximation.
 Typically, the interaction $W$ is evaluated within the \rpa\@.
 This approximation has many interpretations.
 In terms of diagrams, it consists in reorganizing the individual terms that are summed in the infinite diagrammatic expansion for $W$~\cite{Bruus_Flensberg_2004}.
-In this resummation, only diagrams containing free fermion propagators composed with diagrams corresponding to the \rpa~polarizability $\chi^{\RPA} = - \ii \mathcal{G}_0 * \mathcal{G}_0$ are included in the expansion.
+In this resummation, only diagrams containing free fermion propagators composed with diagrams corresponding to the \rpa~polarizability $\chi^{\RPA} = - \ii \mathcal{G}^0 * \mathcal{G}^0$ are included in the expansion.
 In this way, the Dyson equation for the screened Coulomb interaction $W$ has to be rewritten as
 
 \begin{equation}
@@ -1247,7 +1247,7 @@ For that, let us take advantage of the \mbpt~formalism introduced previously.
 \subsection{A derivation of the RPA dielectric function}
 \label{subsec:RPA_dielectric_function_derivation}
 
-We start by making a change of notation, and write for the polarizability $\chi^{\irr}$ instead of just $\chi$.
+We start by making a change of notation, and write for the polarizability $\chi^{\irr}$ instead of just $\chi$\,.
 This means that the polarizability introduced in the previous section is the irreducible polarizability, which is distinct from the full, or reducible, polarizability that we will soon introduce.
 Other changes of notation we make is to write $V_c$ instead of simply $v_c$\,, and rewrite the convolutions from the previous section as mere multiplications, but that is just for the purpose of simplifying the writing.
 We would like to describe the screened potential $W$ in terms of the bare one $V_c$\,, since the former is the one we want to find, and the latter the one we know.
@@ -1305,7 +1305,7 @@ Let us then manipulate the same Dyson equation once more, and cast the term in $
     \phantom{\,\chi + \chi V_c}
 \end{equation}
 
-\noindent where on the left-hand side we introduced a new diagram, now for the reducible polarizability $\chi$, and the last equality was obtained by multiplying both sides of the first equality by the denominator in the right-hand side and solving for the polarizability $\chi$\,.
+\noindent where on the left-hand side we introduced a new diagram, now for the reducible polarizability $\chi$\,, and the last equality was obtained by multiplying both sides of the first equality by the denominator in the right-hand side and solving for the polarizability $\chi$\,.
 At this stage, no approximation for the polarizability was done, so $\chi^{\irr}$ is the (irreducible) polarizability defined by Eq.~\eqref{eq:polarizability_vertex}, with its diagram introduced in Eq.~\eqref{eq:Dyson_equation_W_Feynman}.
 For completeness, we write the diagrammatic Dyson equation relating the two polarizabilities $\chi$ and $\chi^{\irr}$ as
 
@@ -1403,7 +1403,7 @@ We have then found an expression for the microscopic dielectric function that, a
 \end{equation}
 
 \noindent Finally, to find the final expression for the microscopic dielectric function we will work with later on, we use the \rpa~irreducible polarizability, which reads $\chi^{\irr} \approx \chi^{\irr,\RPA} = \chi^0$, where $\chi^0$ is the noninteracting polarizability, that we shall discuss with detail in the next subsection.
-Within \rpa, the irreducible polarizability written in the Hedin's equation~\eqref{eq:polarizability_vertex} reduces to $\chi^{\irr,\RPA} (1,2) = \chi^0 (1,2) = - \ii \int \dd{3} \mathcal{G}_0(1,3) \mathcal{G}_0(3,2)$, whose diagram we have found before in Eq.~\eqref{eq:Dyson_equation_W_Feynman_RPA}.
+Within \rpa, the irreducible polarizability written in the Hedin's equation~\eqref{eq:polarizability_vertex} reduces to $\chi^{\irr,\RPA} (1,2) = \chi^0 (1,2) = - \ii \int \dd{3} \mathcal{G}^0(1,3) \mathcal{G}^0(3,2)$, whose diagram we have found before in Eq.~\eqref{eq:Dyson_equation_W_Feynman_RPA}.
 Henceforth, if we recover the explicit $(\br,t)$-dependence, we can write
 
 \begin{empheq}[innerbox=\fbox, right={\,.}]{align}
@@ -1580,7 +1580,7 @@ The Lindhard function then reads~\cite{GoncalvesPeres:2016,Cohen_Louie_2016,Ashc
 
 \begin{empheq}[innerbox=\fbox, right={\,.}]{align}
     \label{eq:Lindhard_function}
-    \varepsilon (\bq,\omega) = 1 - \frac{2 e^2}{\epsz q^2 V} \sum_{\bk} \frac{f_{\bk + \bq}-f_{\bk}}{\epsilon_{\bk + \bq}-\epsilon_{\bk} + \hbar \omega + \ii \eta}
+    \varepsilon (\bq,\omega) = 1 - \frac{2 e^2}{\epsz q^2 \vol} \sum_{\bk} \frac{f_{\bk + \bq}-f_{\bk}}{\epsilon_{\bk + \bq}-\epsilon_{\bk} + \hbar \omega + \ii \eta}
 \end{empheq}
 
 \noindent In the Lindhard function (where the prefactor of $2$ comes from the spin degeneracy), we can notice its intricate dependence on both momentum and frequency.
