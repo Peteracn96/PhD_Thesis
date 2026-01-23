@@ -778,10 +778,10 @@ In the real space basis representation, the total Hamiltonian reads
 
 \begin{empheq}[innerbox=\colorbox{lightgray}, right={\,,}]{align}
     \label{eq:canonical_many_body_Hamiltonian}
-    \hat{H} = \sum_{\sigma} \int \dd{\br} \, \hat{\psi}^{\dagger}_{\sigma}(\br) H_0 \hat{\psi}_{\sigma}(\br) + \frac{1}{2} \sum_{\sigma,\sigma'} \int \dd{\br} \int \dd{\br'} \, \hat{\psi}^{\dagger}_{\sigma}(\br) \hat{\psi}^{\dagger}_{\sigma'}(\br') W(\br , \br') \hat{\psi}_{\sigma'}(\br') \hat{\psi}_{\sigma}(\br)
+    \hat{H} = \sum_{\sigma} \int \dd{\br} \, \hat{\psi}^{\dagger}_{\sigma}(\br) H_0 \hat{\psi}_{\sigma}(\br) + \frac{1}{2} \sum_{\sigma,\sigma'} \int \dd{\br} \int \dd{\br'} \, \hat{\psi}^{\dagger}_{\sigma}(\br) \hat{\psi}^{\dagger}_{\sigma'}(\br') V(\br , \br') \hat{\psi}_{\sigma'}(\br') \hat{\psi}_{\sigma}(\br)
 \end{empheq}
 
-\noindent where the interaction potential $W(\br , \br')$ is the screened Coulomb interaction, if we are assuming that it is the only interaction in play.
+\noindent where the interaction potential $V(\br , \br')$ is the unscreened Coulomb interaction, if we assume that it is the only interaction in play.
 If the interaction allows spin flipping, then the potential should have two spin indices as well.
 The operators $\hat{\psi}^{\dagger}_{\sigma}(\br)$ and $\hat{\psi}_{\sigma}(\br)$ create and annihilate particles with spin $\sigma$ at position $\br$, respectively.
 They are commonly called the field operators.
