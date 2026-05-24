@@ -26,7 +26,7 @@ in the 5_packages.tex file.
 
 * Among all the added ones, the package ```asymptote``` is non-standard in LaTeX installations.  Asymptote is a programming language designed for producing vector graphics for .pdf documents, in alternative to the Tikz Library for LaTeX. In this project, it is used in combination with LaTeX. To install the Asymptote language, we refer to its documentation on the official website: [https://asymptote.sourceforge.io/][2].
 
-* I have found that the installation through the suggested command ```dnf --enablerepo=rawhide install asymptote``` for Fedora 44 results in the error ```No matching repositories for rawhide.```, while the ```tar``` command one works well just as in a Ubuntu 24.04 installation. You might need to create an extra ```username/texmf``` folder, and with subfolders such that ```username/texmf/tex/latex``` must contain the ```asymptote.sty``` and ```asycolors.sty``` style files for the project to compile.
+* I found that the installation through the suggested command ```dnf --enablerepo=rawhide install asymptote``` in Fedora 44 results in the error ```No matching repositories for rawhide.```, while the one with the ```tar``` command works well just as in a Ubuntu 24.04 installation. You might need to create an extra ```username/texmf``` folder, and with subfolders such that ```username/texmf/tex/latex``` must contain the ```asymptote.sty``` and ```asycolors.sty``` files for the project to compile, where ```username``` is the name of your home folder.
 
 
 ### Executing program
@@ -41,7 +41,7 @@ pdflatex template
 ```
 where the last command is typically needed to run one extra time.
 
-* Succesful compilation (see next section) has been tested with LaTeX's TexLive distribution for Ubuntu 24.04 and Fedora 44. Among different Unix distributions, any specific package may have slightly different names. For instance, ```texlive-collection-fonts-recommended``` and ```texlive-collection-fontsrecommended```. If you have a full TexLive installation, in principle this should not be a problem.
+* Succesful compilation has been tested with LaTeX's TexLive distribution for Ubuntu 24.04 and Fedora 44. Among different Unix distributions, a specific package may have slightly different names. For instance, ```texlive-collection-fonts-recommended``` and ```texlive-collection-fontsrecommended```. If you have a full TexLive installation, in principle this should not be a problem.
 
 ## Help
 
