@@ -4,7 +4,7 @@ This project uses the LaTeX language to produce my own PhD dissertation titled *
 
 ## Description
 
-This dissertation introduces in an auto-contained way aspects od electrodynamics in continuous media (Chapter 2), electrons in crystals and many-body perturbation theory (Chapter 3), excitons in two-dimensional (2D) materials (Chapter 4), optical response of anisotropic excitons (Chapter 5), and dielectric screening and excitonic properties of gapped 2D materials (Chapter 6). Chapters 5 and 6 pertain to research performed during the PhD studies (see Refs. [3] and [4]).
+This dissertation introduces in an auto-contained way aspects of electrodynamics in continuous media (Chapter 2), electrons in crystals and many-body perturbation theory (Chapter 3), excitons in two-dimensional (2D) materials (Chapter 4), optical response of anisotropic excitons (Chapter 5), and dielectric screening and excitonic properties of gapped 2D materials (Chapter 6). Chapters 5 and 6 pertain to research performed during the PhD studies (see Refs. [3] and [4]).
 
 ## Compiling the project
 
