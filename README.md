@@ -1,18 +1,18 @@
 # PhD Thesis
 
-This project uses the LaTeX language to produce my own PhD dissertation titled *"Optical Properties of Two-dimensional Semiconductors: Excitonic and Polaritonic Effects"*
+This project uses the LaTeX language to produce my own PhD dissertation titled *"Optical Properties of Two-dimensional Semiconductors: Excitonic and Polaritonic Effects"*, defended in 2026-01 at the University of Southern Denmark, in Odense, Denmark.
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+This dissertation introduces in an auto-contained way aspects od electrodynamics in continuous media (Chapter 2), electrons in crystals and many-body perturbation theory (Chapter 3), excitons in two-dimensional (2D) materials (Chapter 4), optical response of anisotropic excitons (Chapter 5), and dielectric screening and excitonic properties of gapped 2D materials (Chapter 6). Chapters 5 and 6 pertain to research performed during the PhD studies (see Refs. [3] and [4]).
 
-## Getting Started
+## Compiling the project
 
 ### Dependencies
 
 * This project is a fork of the official **NOVAthesis LaTeX Template**, which can be found in its official repository: [https://github.com/joaomlourenco/novathesis][1]
 
-* Changes were made in the original class and configuration files for custom institutional compliances (NOT RECOMMENDED TO DO!)
+* Changes were made in the original class and configuration files for custom institutional compliances (**NOT RECOMMENDED!**).
 
 ### Installing
 
@@ -51,7 +51,7 @@ For any advise for common problems or issues, open an issue in this repository.
 
 Contributors names and contact info
 
-ex. [Pedro Ninhos](https://www.linkedin.com/in/pninhos/)
+[Pedro Ninhos](https://www.linkedin.com/in/pninhos/)
 
 ## Version History
 
@@ -60,13 +60,12 @@ ex. [Pedro Ninhos](https://www.linkedin.com/in/pninhos/)
 
 ## Disclaimers
 
-* This project does not consist of any institutionally provided template, and therefore individual institutional requirements must be guaranteed on the user's behalf.
+* This project does not consist of any institutionally provided template, and therefore individual institutional requirements must be guaranteed by the user.
 
-* Be sure to properly cite any claims based on previous findings by referencing the corresponding articles according to each journal's guidelines for citation. Chapters 5 and 6 of this project are based on Ref. [3] and Ref. [4], respectively, and serve as a complement to both references and not a replacement. At the moment of the writing of this README.md, Ref. [4] is still under review for publication in a reputable venue, and has not been accepted yet.
+* Be sure to properly cite any claims based on previous findings by referencing the corresponding articles according to each journal's guidelines for citation. Chapters 5 and 6 of this project are based on Ref. [3] and Ref. [4], respectively, and serve as a complement to both references and not a replacement. At the moment of the writing of this README.md file, Ref. [4] is still under review for publication in a reputable venue, and has not been accepted yet.
 
 ## References
 
-Inspiration, code snippets, etc.
 * [1](https://github.com/joaomlourenco/novathesis)
 * [2](https://asymptote.sourceforge.io/)
 * [3] P. Ninhos et al. “Tunable Exciton Polaritons in Band-Gap Engineered Hexagonal
