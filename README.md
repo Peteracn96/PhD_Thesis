@@ -29,7 +29,7 @@ in the 5_packages.tex file.
 * I found that the installation through the suggested command ```dnf --enablerepo=rawhide install asymptote``` in Fedora 44 results in the error ```No matching repositories for rawhide.```, while the one with the ```tar``` command works well just as in a Ubuntu 24.04 installation. You might need to create an extra ```username/texmf``` folder, and with subfolders such that ```username/texmf/tex/latex``` must contain the ```asymptote.sty``` and ```asycolors.sty``` files for the project to compile, where ```username``` is the name of your home folder.
 
 
-### Executing program
+### Compiling the project
 
 * For a succesful compilation producing the template.pdf file from scratch, one can run the following commands on the command line:
 
