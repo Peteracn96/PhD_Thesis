@@ -2,6 +2,10 @@
 
 This project uses the LaTeX language to produce my own PhD dissertation titled *"Optical Properties of Two-dimensional Semiconductors: Excitonic and Polaritonic Effects"*, defended in 2026-01 at the University of Southern Denmark, in Odense, Denmark.
 
+<p align="center">
+  <img src="Cover.png" width="60%" height="60%">
+</p>
+
 ## Description
 
 This dissertation introduces in an auto-contained way aspects of electrodynamics in continuous media (Chapter 2), electrons in crystals and many-body perturbation theory (Chapter 3), excitons in two-dimensional (2D) materials (Chapter 4), optical response of anisotropic excitons (Chapter 5), and dielectric screening and excitonic properties of gapped 2D materials (Chapter 6). Chapters 5 and 6 pertain to research performed during the PhD studies (see Refs. [3] and [4]).
