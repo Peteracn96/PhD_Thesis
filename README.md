@@ -45,7 +45,7 @@ where the last command is typically needed to run one extra time.
 
 ## Help
 
-For any advise for common problems or issues, open an issue in this repository.
+For any advise for common problems or issues, open an issue in this repository. If you spot a typo, feel free to open an issue for it.
 
 ## Authors
 
