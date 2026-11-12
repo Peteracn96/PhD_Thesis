@@ -35,7 +35,13 @@ in the 5_packages.tex file.
 
 ### Compiling the project
 
-* For a succesful compilation producing the template.pdf file from scratch, one can run the following commands on the command line:
+* For a succesful compilation producing the template.pdf file from scratch, run the commands:
+```
+chmod +x ./.Build/build.sh
+bash ./.Build/build.sh
+```
+
+In alternative, you separately run the following commands:
 
 ```
 pdflatex template
@@ -75,4 +81,4 @@ Contributors names and contact info
 * [3] P. Ninhos et al. “Tunable Exciton Polaritons in Band-Gap Engineered Hexagonal
 Boron Nitride”. In: ACS Nano 18.31 (2024-08), pp. 20751–20761. issn: 1936-0851.
 doi: [https://pubs.acs.org/doi/10.1021/acsnano.4c07003][10.1021/acsnano.4c07003]
-* [4] P. Ninhos et al. “Microscopic screening theory for excitons in two-dimensional materials: A bridge between effective model and *ab initio* descriptions”. In: [https://arxiv.org/abs/2603.10966][arXiv:2603.10966] (2026-03)
+* [4] P. Ninhos et al. “Microscopic screening theory for excitons in two-dimensional materials: A bridge between effective model and *ab initio* descriptions”. In: [https://www.nature.com/articles/s41524-026-02283-8][npj Comp. Mat s41524-026-02283-8] (2026-08)
