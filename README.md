@@ -81,4 +81,4 @@ Contributors names and contact info
 * [3] P. Ninhos et al. “Tunable Exciton Polaritons in Band-Gap Engineered Hexagonal
 Boron Nitride”. In: ACS Nano 18.31 (2024-08), pp. 20751–20761. issn: 1936-0851.
 doi: [https://pubs.acs.org/doi/10.1021/acsnano.4c07003][10.1021/acsnano.4c07003]
-* [4] P. Ninhos et al. “Microscopic screening theory for excitons in two-dimensional materials: A bridge between effective model and *ab initio* descriptions”. In: [https://www.nature.com/articles/s41524-026-02283-8][npj Comp. Mat s41524-026-02283-8] (2026-08)
+* [4] P. Ninhos et al. “Microscopic screening theory for excitons in two-dimensional materials: A bridge between effective model and ab initio descriptions”. In: npj Comp. Mat. s41524-026-02283-8 (2026-08) doi: [https://www.nature.com/articles/s41524-026-02283-8][s41524-026-02283-8]
