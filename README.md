@@ -14,7 +14,7 @@ This dissertation introduces in an auto-contained way aspects of electrodynamics
 
 ### Dependencies
 
-* This project is a fork of the official **NOVAthesis LaTeX Template**, which can be found in its official repository: [https://github.com/joaomlourenco/novathesis][1]
+* This project is a fork of the official **NOVAthesis LaTeX Template**, which can be found in its official repository: [1](https://github.com/joaomlourenco/novathesis)
 
 * Changes were made in the original class and configuration files for custom institutional compliances (**NOT RECOMMENDED!**).
 
@@ -28,7 +28,7 @@ This dissertation introduces in an auto-contained way aspects of electrodynamics
 
 in the 5_packages.tex file.
 
-* Among all the added ones, the package ```asymptote``` is non-standard in LaTeX installations.  Asymptote is a programming language designed for producing vector graphics for .pdf documents, in alternative to the Tikz Library for LaTeX. In this project, it is used in combination with LaTeX. To install the Asymptote language, we refer to its documentation on the official website: [https://asymptote.sourceforge.io/][2].
+* Among all the added ones, the package ```asymptote``` is non-standard in LaTeX installations.  Asymptote is a programming language designed for producing vector graphics for .pdf documents, in alternative to the Tikz Library for LaTeX. In this project, it is used in combination with LaTeX. To install the Asymptote language, we refer to its documentation on the official website: [2](https://asymptote.sourceforge.io/).
 
 * I found that the installation through the suggested command ```dnf --enablerepo=rawhide install asymptote``` in Fedora 44 results in the error ```No matching repositories for rawhide.```, while the one with the ```tar``` command works well just as in a Ubuntu 24.04 installation. You might need to create an extra ```username/texmf``` folder, and with subfolders such that ```username/texmf/tex/latex``` must contain the ```asymptote.sty``` and ```asycolors.sty``` files for the project to compile, where ```username``` is the name of your home folder.
 
