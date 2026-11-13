@@ -1,6 +1,6 @@
 # PhD Thesis
 
-This project uses the LaTeX language to produce my own PhD dissertation titled *"Optical Properties of Two-dimensional Semiconductors: Excitonic and Polaritonic Effects"*, defended in 2026-01 at the University of Southern Denmark, in Odense, Denmark.
+This project consists of my PhD thesis titled *"Optical Properties of Two-dimensional Semiconductors: Excitonic and Polaritonic Effects"*, defended in 2026-01 at the University of Southern Denmark, Odense, Denmark.
 
 <p align="center">
   <img src="Cover.png" width="60%" height="60%">
@@ -80,5 +80,5 @@ Contributors names and contact info
 * [2] [https://asymptote.sourceforge.io/]
 * [3] P. Ninhos et al. “Tunable Exciton Polaritons in Band-Gap Engineered Hexagonal
 Boron Nitride”. In: ACS Nano 18.31 (2024-08), pp. 20751–20761. issn: 1936-0851.
-doi: [https://pubs.acs.org/doi/10.1021/acsnano.4c07003][10.1021/acsnano.4c07003]
-* [4] P. Ninhos et al. “Microscopic screening theory for excitons in two-dimensional materials: A bridge between effective model and ab initio descriptions”. In: npj Comp. Mat. s41524-026-02283-8 (2026-08) doi: [https://www.nature.com/articles/s41524-026-02283-8][s41524-026-02283-8]
+doi: [10.1021/acsnano.4c07003](https://pubs.acs.org/doi/10.1021/acsnano.4c07003)
+* [4] P. Ninhos et al. “Microscopic screening theory for excitons in two-dimensional materials: A bridge between effective model and ab initio descriptions”. In: npj Comp. Mat. s41524-026-02283-8 (2026-08) doi: [s41524-026-02283-8](https://www.nature.com/articles/s41524-026-02283-8)
